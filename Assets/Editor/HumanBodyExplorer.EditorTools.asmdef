@@ -2,7 +2,9 @@
     "name": "HumanBodyExplorer.EditorTools",
     "rootNamespace": "HumanBodyExplorer.EditorTools",
     "references": [
-        "HumanBodyExplorer.Runtime"
+        "HumanBodyExplorer.Runtime",
+        "Unity.RenderPipelines.Universal.Runtime",
+        "Unity.RenderPipelines.Universal.Editor"
     ],
     "includePlatforms": [
         "Editor"
