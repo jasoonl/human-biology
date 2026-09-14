@@ -1,12 +1,13 @@
 # Phase 100: written but NOT executed/verified in this environment - there is no
-# game-ci license/UNITY_LICENSE secret configured on this repo, and no CI run has
-# ever fired. Requires a repository secret UNITY_LICENSE (and optionally
-# UNITY_EMAIL/UNITY_PASSWORD for personal licenses) to actually run.
+# game-ci license/UNITY_LICENSE secret configured on this repo. Trigger is
+# workflow_dispatch (manual) rather than push, so this stops reporting a red X
+# on every commit until a UNITY_LICENSE secret (and optionally
+# UNITY_EMAIL/UNITY_PASSWORD for personal licenses) is added - then switch the
+# trigger back to `push: branches: [main]`.
 name: Build and Test
 
 on:
-  push:
-    branches: [main]
+  workflow_dispatch:
 
 jobs:
   test:
