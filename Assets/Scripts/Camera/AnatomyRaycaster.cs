@@ -23,6 +23,14 @@ namespace HumanBodyExplorer.CameraSystem
 
         public static event Action<string> OnNodeSelected;
 
+        /// <summary>Explicit camera override, mainly for tests where relying on the
+        /// Camera.main tag lookup is unreliable across fixtures sharing a Play session.</summary>
+        public UnityEngine.Camera SourceCamera
+        {
+            get => sourceCamera;
+            set => sourceCamera = value;
+        }
+
         private void Awake()
         {
             _resultsBuffer = new RaycastHit[Mathf.Max(1, maxHits)];
