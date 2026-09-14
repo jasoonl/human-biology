@@ -24,7 +24,7 @@ namespace HumanBodyExplorer.Core
 
         public void FocusOnly(GameObject focused)
         {
-            var allRenderers = FindObjectsByType<Renderer>(FindObjectsSortMode.None);
+            var allRenderers = FindObjectsByType<Renderer>(FindObjectsInactive.Exclude);
 
             if (_activeTransition != null) StopCoroutine(_activeTransition);
             _activeTransition = StartCoroutine(TransitionAll(allRenderers, focused));
@@ -32,7 +32,7 @@ namespace HumanBodyExplorer.Core
 
         public void ClearFocus()
         {
-            var allRenderers = FindObjectsByType<Renderer>(FindObjectsSortMode.None);
+            var allRenderers = FindObjectsByType<Renderer>(FindObjectsInactive.Exclude);
             if (_activeTransition != null) StopCoroutine(_activeTransition);
             _activeTransition = StartCoroutine(TransitionAll(allRenderers, null, forceFullOpacity: true));
         }

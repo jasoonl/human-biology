@@ -16,7 +16,12 @@ namespace HumanBodyExplorer.UI
     /// </summary>
     public class VoiceCommandManager : MonoBehaviour
     {
+        // Only ever raised on the Windows/WSA branch below; harmless CS0067 on
+        // other platforms since the public API shape must stay the same
+        // regardless of platform.
+#pragma warning disable 0067
         public event Action<string> OnAnatomyNameRecognized;
+#pragma warning restore 0067
 
 #if UNITY_STANDALONE_WIN || UNITY_WSA
         private KeywordRecognizer _recognizer;
