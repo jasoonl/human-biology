@@ -27,7 +27,7 @@ namespace HumanBodyExplorer.Core
 
             var dataController = new DataController();
             var viewController = new ViewController();
-            var inputController = new InputController();
+            var inputController = new HumanBodyExplorer.Input.InputManager();
             var databaseManager = new DatabaseManager();
             var assetStreamingManager = new AssetStreamingManager();
 

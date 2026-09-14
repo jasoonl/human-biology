@@ -5,7 +5,10 @@
         "Unity.Addressables",
         "Unity.ResourceManager",
         "Unity.InputSystem",
-        "Unity.Splines"
+        "Unity.Splines",
+        "Unity.Mathematics",
+        "UnityEngine.UI",
+        "Unity.TextMeshPro"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
