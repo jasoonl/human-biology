@@ -1,0 +1,33 @@
+// Phase 34 (reduced scope - see Planning.md M3 note): a single semi-Lagrangian
+// advection pass over a 2D velocity/density grid. This is NOT a full
+// incompressible Navier-Stokes solver (no pressure-projection step is included),
+// just the advection term, as a scoped-down stand-in for "compute shader fluid
+// dynamics" that still compiles and runs, mapped to a RenderTexture for a
+// stomach/bladder-style fill visual.
+#pragma kernel Advect
+
+RWTexture2D<float4> _VelocityField; // xy = velocity, z = density, w unused
+Texture2D<float4> _VelocityFieldRead;
+SamplerState sampler_VelocityFieldRead;
+
+float _DeltaTime;
+float _Dissipation;
+uint _TextureWidth;
+uint _TextureHeight;
+
+[numthreads(8, 8, 1)]
+void Advect(uint3 id : SV_DispatchThreadID)
+{
+    if (id.x >= _TextureWidth || id.y >= _TextureHeight) return;
+
+    float2 uv = (id.xy + 0.5) / float2(_TextureWidth, _TextureHeight);
+    float4 current = _VelocityFieldRead.SampleLevel(sampler_VelocityFieldRead, uv, 0);
+
+    float2 velocity = current.xy;
+    float2 previousUV = uv - velocity * _DeltaTime;
+
+    float4 advected = _VelocityFieldRead.SampleLevel(sampler_VelocityFieldRead, previousUV, 0);
+    advected *= _Dissipation;
+
+    _VelocityField[id.xy] = advected;
+}

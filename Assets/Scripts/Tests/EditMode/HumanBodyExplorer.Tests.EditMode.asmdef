@@ -3,6 +3,7 @@
     "rootNamespace": "HumanBodyExplorer.Tests",
     "references": [
         "HumanBodyExplorer.Runtime",
+        "HumanBodyExplorer.EditorTools",
         "UnityEngine.TestRunner",
         "UnityEditor.TestRunner"
     ],
