@@ -218,6 +218,20 @@ namespace HumanBodyExplorer.EditorTools
                       "click any part to learn about it, and press Start Quiz to test yourself.");
         }
 
+        /// <summary>
+        /// Headless-safe entry point for CI/automation: opens Bootstrap.unity (a
+        /// plain -executeMethod call otherwise starts from an empty untitled scene
+        /// with no tagged Main Camera, so BuildExplorer() bails out immediately),
+        /// runs the normal build, and saves the result back to disk.
+        /// </summary>
+        [MenuItem("Human Body Explorer/Build Full Explorer (Headless, opens+saves Bootstrap)")]
+        public static void BuildExplorerHeadless()
+        {
+            var scene = EditorSceneManager.OpenScene("Assets/Scenes/Bootstrap.unity");
+            BuildExplorer();
+            EditorSceneManager.SaveScene(scene);
+        }
+
         private static void RemoveIfExists(string name)
         {
             var go = GameObject.Find(name);
@@ -689,6 +703,23 @@ namespace HumanBodyExplorer.EditorTools
             StretchToParent(buttonText.rectTransform, padding: 0);
             buttonText.alignment = TextAlignmentOptions.Center;
 
+            // System filter button (below Start Quiz) - cycles "All" / one body
+            // system at a time, so a teacher can quiz just Skeletal, just
+            // Cardiovascular, etc.
+            var filterButtonGO = new GameObject("SystemFilterButton", typeof(Image), typeof(Button));
+            filterButtonGO.transform.SetParent(canvasGO.transform, false);
+            var filterButtonRect = filterButtonGO.GetComponent<RectTransform>();
+            filterButtonRect.anchorMin = new Vector2(0, 1);
+            filterButtonRect.anchorMax = new Vector2(0, 1);
+            filterButtonRect.pivot = new Vector2(0, 1);
+            filterButtonRect.anchoredPosition = new Vector2(30, -100);
+            filterButtonRect.sizeDelta = new Vector2(200, 50);
+            filterButtonGO.GetComponent<Image>().color = new Color(0.25f, 0.3f, 0.45f);
+
+            var filterText = CreateText(filterButtonGO.transform, "Text", "Study: All", 20);
+            StretchToParent(filterText.rectTransform, padding: 0);
+            filterText.alignment = TextAlignmentOptions.Center;
+
             // Wire the controller
             var controllerGO = new GameObject("ExplorerUIController", typeof(ExplorerUIController));
             var controller = controllerGO.GetComponent<ExplorerUIController>();
@@ -700,6 +731,8 @@ namespace HumanBodyExplorer.EditorTools
             serializedController.FindProperty("quizScoreText").objectReferenceValue = quizScore;
             serializedController.FindProperty("quizFeedbackText").objectReferenceValue = quizFeedback;
             serializedController.FindProperty("quizTimerText").objectReferenceValue = quizTimer;
+            serializedController.FindProperty("systemFilterText").objectReferenceValue = filterText;
+            serializedController.FindProperty("systemFilterButton").objectReferenceValue = filterButtonGO.GetComponent<Button>();
             serializedController.ApplyModifiedPropertiesWithoutUndo();
 
             var feedbackGO = new GameObject("AnatomyPartFeedback", typeof(AnatomyPartFeedback));

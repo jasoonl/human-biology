@@ -43,7 +43,10 @@ namespace HumanBodyExplorer.UI
             _dataController = dataController;
         }
 
-        public void StartQuiz()
+        /// <summary>Null/empty quizzes every due (or, if none are due, every known) node.
+        /// A non-null systemCategory (e.g. "Cardiovascular", matching AnatomyNode.SystemCategory)
+        /// restricts the quiz to that body system, for a teacher covering one unit at a time.</summary>
+        public void StartQuiz(string systemCategory = null)
         {
             var dueIds = _studyTracker.GetDueNodes(DateTime.UtcNow);
 
@@ -56,9 +59,32 @@ namespace HumanBodyExplorer.UI
                 dueIds = new List<string>(_dataController.AllNodes.Keys);
             }
 
+            if (!string.IsNullOrEmpty(systemCategory))
+            {
+                dueIds = dueIds.FindAll(id => NodeIsInSystem(id, systemCategory));
+
+                // The due set can legitimately miss a whole system (e.g. everything
+                // due right now happens to be Skeletal); fall back to every node in
+                // the requested system rather than starting an empty quiz.
+                if (dueIds.Count == 0)
+                {
+                    dueIds = new List<string>();
+                    foreach (var id in _dataController.AllNodes.Keys)
+                    {
+                        if (NodeIsInSystem(id, systemCategory)) dueIds.Add(id);
+                    }
+                }
+            }
+
             _dueNodeQueue = new Queue<string>(dueIds);
             AnatomyRaycaster.OnNodeSelected += HandleNodeSelected;
             NextQuestion();
+        }
+
+        private bool NodeIsInSystem(string nodeId, string systemCategory)
+        {
+            if (!_dataController.AllNodes.TryGetValue(nodeId, out var node)) return false;
+            return node.SystemCategory != null && node.SystemCategory.Contains(systemCategory);
         }
 
         public void StopQuiz()

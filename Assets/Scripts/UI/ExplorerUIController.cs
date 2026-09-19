@@ -24,9 +24,23 @@ namespace HumanBodyExplorer.UI
         [SerializeField] private TMP_Text quizScoreText;
         [SerializeField] private TMP_Text quizFeedbackText;
         [SerializeField] private TMP_Text quizTimerText;
+        [SerializeField] private TMP_Text systemFilterText;
+        [SerializeField] private Button systemFilterButton;
+
+        /// <summary>"All" plus every systemCategory value used in anatomy_dictionary.json.
+        /// A teacher cycling this before Start Quiz limits the quiz to one body system.</summary>
+        private static readonly string[] SystemCategories =
+        {
+            "All", "Skeletal", "Muscular", "Cardiovascular", "Respiratory", "Digestive",
+            "Nervous", "Renal", "Endocrine", "Lymphatic", "Integumentary"
+        };
 
         private QuizController _quizController;
         private bool _quizActive;
+        private int _systemFilterIndex;
+        private AudioSource _audioSource;
+        private AudioClip _correctClip;
+        private AudioClip _wrongClip;
         public QuizController QuizController => _quizController;
         private const string DefaultInfoText = "Click on a body part to learn what it does.";
 
@@ -52,6 +66,26 @@ namespace HumanBodyExplorer.UI
             _quizController.OnQuizComplete += HandleQuizComplete;
 
             if (startQuizButton != null) startQuizButton.onClick.AddListener(BeginQuiz);
+
+            if (systemFilterButton != null) systemFilterButton.onClick.AddListener(CycleSystemFilter);
+            UpdateSystemFilterText();
+
+            _audioSource = GetComponent<AudioSource>();
+            if (_audioSource == null) _audioSource = gameObject.AddComponent<AudioSource>();
+            _audioSource.playOnAwake = false;
+            _correctClip = ProceduralAudio.GenerateCorrectChime();
+            _wrongClip = ProceduralAudio.GenerateWrongBuzz();
+        }
+
+        private void CycleSystemFilter()
+        {
+            _systemFilterIndex = (_systemFilterIndex + 1) % SystemCategories.Length;
+            UpdateSystemFilterText();
+        }
+
+        private void UpdateSystemFilterText()
+        {
+            if (systemFilterText != null) systemFilterText.text = $"Study: {SystemCategories[_systemFilterIndex]}";
         }
 
         private void Update()
@@ -81,7 +115,9 @@ namespace HumanBodyExplorer.UI
             if (quizFeedbackText != null) quizFeedbackText.text = string.Empty;
             _quizActive = true;
             UpdateScoreText();
-            _quizController.StartQuiz();
+
+            string filter = SystemCategories[_systemFilterIndex];
+            _quizController.StartQuiz(filter == "All" ? null : filter);
         }
 
         private void HandleQuestionPrompted(string prompt)
@@ -97,6 +133,7 @@ namespace HumanBodyExplorer.UI
                     ? $"Correct! +{scoreDelta}"
                     : $"Not quite. {scoreDelta}";
             }
+            _audioSource.PlayOneShot(wasCorrect ? _correctClip : _wrongClip);
             UpdateScoreText();
         }
 
