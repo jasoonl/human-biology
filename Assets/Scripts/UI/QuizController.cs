@@ -22,12 +22,20 @@ namespace HumanBodyExplorer.UI
         private Queue<string> _dueNodeQueue;
         private string _currentExpectedNodeId;
         private Coroutine _timerCoroutine;
+        private float _timeRemaining;
 
         public event Action<string> OnQuestionPrompted;
         public event Action<bool, int> OnAnswerResolved; // (wasCorrect, scoreDelta)
         public event Action OnQuizComplete;
 
+        /// <summary>(entityId, isCorrectAnswer) - fired once per resolved question for
+        /// the correct target (always) and, on a wrong click, once more for the
+        /// clicked part - lets the scene flash green/red feedback on the 3D figure.</summary>
+        public event Action<string, bool> OnPartFeedback;
+
         public ScoreManager Score => _scoreManager;
+        public float TimeRemaining => _timeRemaining;
+        public float QuestionTimeSeconds => questionTimeSeconds;
 
         public void Initialize(IStudyTracker studyTracker, IDataController dataController)
         {
@@ -38,6 +46,16 @@ namespace HumanBodyExplorer.UI
         public void StartQuiz()
         {
             var dueIds = _studyTracker.GetDueNodes(DateTime.UtcNow);
+
+            // A brand-new database has no progress rows at all, so nothing is
+            // technically "due" yet under SM-2 even though the user has never
+            // studied anything. Fall back to quizzing every known node instead
+            // of silently completing a zero-question quiz.
+            if (dueIds.Count == 0)
+            {
+                dueIds = new List<string>(_dataController.AllNodes.Keys);
+            }
+
             _dueNodeQueue = new Queue<string>(dueIds);
             AnatomyRaycaster.OnNodeSelected += HandleNodeSelected;
             NextQuestion();
@@ -68,14 +86,15 @@ namespace HumanBodyExplorer.UI
 
         private IEnumerator QuestionTimer()
         {
-            float timeLeft = questionTimeSeconds;
-            while (timeLeft > 0f)
+            _timeRemaining = questionTimeSeconds;
+            while (_timeRemaining > 0f)
             {
-                timeLeft -= Time.deltaTime;
+                _timeRemaining -= Time.deltaTime;
                 yield return null;
             }
 
-            ResolveAnswer(isCorrect: false, timeLeft: 0f);
+            _timeRemaining = 0f;
+            ResolveAnswer(isCorrect: false, timeLeft: 0f, wrongClickId: null);
         }
 
         private void HandleNodeSelected(string selectedNodeId)
@@ -83,10 +102,12 @@ namespace HumanBodyExplorer.UI
             if (_currentExpectedNodeId == null) return;
 
             bool correct = selectedNodeId == _currentExpectedNodeId;
-            ResolveAnswer(correct, timeLeft: 0f);
+            // Was hardcoded to 0 before, silently disabling the speed bonus this
+            // was meant to reward - now uses the actual time left on the clock.
+            ResolveAnswer(correct, Mathf.Max(0f, _timeRemaining), correct ? null : selectedNodeId);
         }
 
-        private void ResolveAnswer(bool isCorrect, float timeLeft)
+        private void ResolveAnswer(bool isCorrect, float timeLeft, string wrongClickId)
         {
             if (_timerCoroutine != null) StopCoroutine(_timerCoroutine);
 
@@ -105,6 +126,9 @@ namespace HumanBodyExplorer.UI
             }
 
             OnAnswerResolved?.Invoke(isCorrect, scoreDelta);
+            OnPartFeedback?.Invoke(_currentExpectedNodeId, true);
+            if (wrongClickId != null) OnPartFeedback?.Invoke(wrongClickId, false);
+
             _currentExpectedNodeId = null;
 
             NextQuestion();

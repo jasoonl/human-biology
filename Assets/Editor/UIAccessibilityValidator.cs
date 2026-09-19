@@ -26,12 +26,12 @@ namespace HumanBodyExplorer.EditorTools
         {
             var issues = new List<ValidationIssue>();
 
-            foreach (var canvas in Object.FindObjectsByType<Canvas>(FindObjectsSortMode.None))
+            foreach (var canvas in Object.FindObjectsByType<Canvas>(FindObjectsInactive.Exclude))
             {
                 issues.AddRange(ValidateCanvasScaler(canvas));
             }
 
-            foreach (var text in Object.FindObjectsByType<TextMeshProUGUI>(FindObjectsSortMode.None))
+            foreach (var text in Object.FindObjectsByType<TextMeshProUGUI>(FindObjectsInactive.Exclude))
             {
                 issues.AddRange(ValidateFontSize(text));
             }

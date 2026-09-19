@@ -14,11 +14,21 @@ namespace HumanBodyExplorer.Core
     {
         [SerializeField] private CameraSystem.AdvancedOrbitalCamera orbitalCamera;
         [SerializeField] private AnatomyRaycaster raycaster;
+        [SerializeField] private CameraSystem.CameraFocusTargeter focusTargeter;
+        [SerializeField] private GameObject bodyRoot;
 
         private Input.InputManager _inputManager;
 
         private System.Collections.IEnumerator Start()
         {
+            // Auto-fit the camera to the figure's actual rendered bounds rather
+            // than trusting a hand-picked distance/position constant - robust to
+            // any future change in part sizes/positions.
+            if (focusTargeter != null && bodyRoot != null)
+            {
+                focusTargeter.FocusOn(bodyRoot);
+            }
+
             while (GameManager.Instance == null || GameManager.Instance.InputController == null)
             {
                 yield return null;
@@ -37,7 +47,7 @@ namespace HumanBodyExplorer.Core
             _inputManager.OnPrimaryInteract += HandlePrimaryInteract;
             AnatomyRaycaster.OnNodeSelected += HandleNodeSelected;
 
-            Debug.Log("[DemoInputBridge] Wired up successfully. Drag to orbit, scroll to zoom, click the cube to select it.");
+            Debug.Log("[DemoInputBridge] Wired up successfully. Drag to orbit, scroll to zoom, click a body part to select it.");
         }
 
         private void HandleNodeSelected(string entityId)

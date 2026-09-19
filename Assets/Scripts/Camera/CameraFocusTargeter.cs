@@ -32,7 +32,21 @@ namespace HumanBodyExplorer.CameraSystem
             float fovRadians = targetCamera.fieldOfView * 0.5f * Mathf.Deg2Rad;
             float distance = bounds.extents.magnitude / Mathf.Max(0.0001f, Mathf.Sin(fovRadians));
 
-            orbitalCamera.Target = bounds.center == Vector3.zero ? go.transform : orbitalCamera.Target;
+            // Previously this only reassigned Target when bounds.center happened to
+            // be exactly (0,0,0) and otherwise left the existing Target untouched -
+            // meaning the zoom distance was computed for the real bounds center but
+            // the camera kept orbiting around whatever Target it already had,
+            // producing a correctly-distanced but wrongly-centered shot. Move the
+            // existing Target to the real bounds center instead of conditionally
+            // swapping which transform is targeted.
+            if (orbitalCamera.Target != null)
+            {
+                orbitalCamera.Target.position = bounds.center;
+            }
+            else
+            {
+                orbitalCamera.Target = go.transform;
+            }
 
             if (_activeFocus != null) StopCoroutine(_activeFocus);
             _activeFocus = StartCoroutine(EaseZoomTo(distance));
