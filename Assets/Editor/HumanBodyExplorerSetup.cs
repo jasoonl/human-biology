@@ -720,6 +720,22 @@ namespace HumanBodyExplorer.EditorTools
             StretchToParent(filterText.rectTransform, padding: 0);
             filterText.alignment = TextAlignmentOptions.Center;
 
+            // Colorblind accessibility toggle (below the system filter) - off by
+            // default, boosts red/blue contrast between arteries and veins.
+            var colorblindButtonGO = new GameObject("ColorblindToggleButton", typeof(Image), typeof(Button));
+            colorblindButtonGO.transform.SetParent(canvasGO.transform, false);
+            var colorblindButtonRect = colorblindButtonGO.GetComponent<RectTransform>();
+            colorblindButtonRect.anchorMin = new Vector2(0, 1);
+            colorblindButtonRect.anchorMax = new Vector2(0, 1);
+            colorblindButtonRect.pivot = new Vector2(0, 1);
+            colorblindButtonRect.anchoredPosition = new Vector2(30, -160);
+            colorblindButtonRect.sizeDelta = new Vector2(200, 50);
+            colorblindButtonGO.GetComponent<Image>().color = new Color(0.35f, 0.25f, 0.15f);
+
+            var colorblindText = CreateText(colorblindButtonGO.transform, "Text", "Colorblind Mode: Off", 18);
+            StretchToParent(colorblindText.rectTransform, padding: 0);
+            colorblindText.alignment = TextAlignmentOptions.Center;
+
             // Wire the controller
             var controllerGO = new GameObject("ExplorerUIController", typeof(ExplorerUIController));
             var controller = controllerGO.GetComponent<ExplorerUIController>();
@@ -733,6 +749,9 @@ namespace HumanBodyExplorer.EditorTools
             serializedController.FindProperty("quizTimerText").objectReferenceValue = quizTimer;
             serializedController.FindProperty("systemFilterText").objectReferenceValue = filterText;
             serializedController.FindProperty("systemFilterButton").objectReferenceValue = filterButtonGO.GetComponent<Button>();
+            serializedController.FindProperty("colorblindToggleText").objectReferenceValue = colorblindText;
+            serializedController.FindProperty("colorblindToggleButton").objectReferenceValue = colorblindButtonGO.GetComponent<Button>();
+            serializedController.FindProperty("colorblindToggle").objectReferenceValue = WireColorblindToggle(controllerGO);
             serializedController.ApplyModifiedPropertiesWithoutUndo();
 
             var feedbackGO = new GameObject("AnatomyPartFeedback", typeof(AnatomyPartFeedback));
@@ -740,6 +759,47 @@ namespace HumanBodyExplorer.EditorTools
             var serializedFeedback = new SerializedObject(feedback);
             serializedFeedback.FindProperty("explorerUI").objectReferenceValue = controller;
             serializedFeedback.ApplyModifiedPropertiesWithoutUndo();
+        }
+
+        /// <summary>
+        /// Adds URP's Colorblind Daltonization renderer feature to the active
+        /// pipeline's renderer (Phase 33 - built and shader-complete, but never
+        /// actually attached to a toggle anyone could reach in play) and wires a
+        /// ColorblindAccessibilityToggle component to it, defaulting to off.
+        /// Returns null (leaving the UI button inert) if the renderer feature
+        /// can't be located, e.g. if the project isn't on URP.
+        /// </summary>
+        private static ColorblindAccessibilityToggle WireColorblindToggle(GameObject controllerGO)
+        {
+            ColorblindFilterFeatureSetup.AddFeatureToActiveRenderer();
+
+            var urpAsset = GraphicsSettings.currentRenderPipeline as UniversalRenderPipelineAsset;
+            if (urpAsset == null) return null;
+
+            var rendererDataField = typeof(UniversalRenderPipelineAsset).GetField("m_RendererDataList",
+                System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
+            var rendererDataList = rendererDataField?.GetValue(urpAsset) as ScriptableRendererData[];
+            if (rendererDataList == null || rendererDataList.Length == 0) return null;
+
+            ScriptableRendererFeature feature = null;
+            foreach (var candidate in rendererDataList[0].rendererFeatures)
+            {
+                if (candidate is FullScreenPassRendererFeature fs && fs.name == "Colorblind Daltonization")
+                {
+                    feature = fs;
+                    break;
+                }
+            }
+            if (feature == null) return null;
+
+            var toggle = controllerGO.GetComponent<ColorblindAccessibilityToggle>();
+            if (toggle == null) toggle = controllerGO.AddComponent<ColorblindAccessibilityToggle>();
+
+            var serializedToggle = new SerializedObject(toggle);
+            serializedToggle.FindProperty("colorblindFeature").objectReferenceValue = feature;
+            serializedToggle.ApplyModifiedPropertiesWithoutUndo();
+
+            return toggle;
         }
 
         private static GameObject CreatePanel(Transform parent, string name, Vector2 anchorMin, Vector2 anchorMax,

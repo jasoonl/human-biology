@@ -26,6 +26,9 @@ namespace HumanBodyExplorer.UI
         [SerializeField] private TMP_Text quizTimerText;
         [SerializeField] private TMP_Text systemFilterText;
         [SerializeField] private Button systemFilterButton;
+        [SerializeField] private TMP_Text colorblindToggleText;
+        [SerializeField] private Button colorblindToggleButton;
+        [SerializeField] private ColorblindAccessibilityToggle colorblindToggle;
 
         /// <summary>"All" plus every systemCategory value used in anatomy_dictionary.json.
         /// A teacher cycling this before Start Quiz limits the quiz to one body system.</summary>
@@ -70,6 +73,9 @@ namespace HumanBodyExplorer.UI
             if (systemFilterButton != null) systemFilterButton.onClick.AddListener(CycleSystemFilter);
             UpdateSystemFilterText();
 
+            if (colorblindToggleButton != null) colorblindToggleButton.onClick.AddListener(ToggleColorblindMode);
+            UpdateColorblindToggleText();
+
             _audioSource = GetComponent<AudioSource>();
             if (_audioSource == null) _audioSource = gameObject.AddComponent<AudioSource>();
             _audioSource.playOnAwake = false;
@@ -86,6 +92,20 @@ namespace HumanBodyExplorer.UI
         private void UpdateSystemFilterText()
         {
             if (systemFilterText != null) systemFilterText.text = $"Study: {SystemCategories[_systemFilterIndex]}";
+        }
+
+        private void ToggleColorblindMode()
+        {
+            if (colorblindToggle == null) return;
+            colorblindToggle.SetEnabled(!colorblindToggle.IsEnabled);
+            UpdateColorblindToggleText();
+        }
+
+        private void UpdateColorblindToggleText()
+        {
+            if (colorblindToggleText == null) return;
+            bool on = colorblindToggle != null && colorblindToggle.IsEnabled;
+            colorblindToggleText.text = on ? "Colorblind Mode: On" : "Colorblind Mode: Off";
         }
 
         private void Update()
