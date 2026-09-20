@@ -25,6 +25,14 @@ namespace HumanBodyExplorer.Data
         [JsonProperty("systemCategory")] public List<string> SystemCategory;
         [JsonProperty("descriptionProfessional")] public string DescriptionProfessional;
         [JsonProperty("descriptionPatient")] public string DescriptionPatient;
+
+        /// <summary>Curriculum-level facts (structure, function, mechanism) pitched at
+        /// AP Biology: the things a student is expected to be able to explain.</summary>
+        [JsonProperty("apBiologyFacts")] public List<string> ApBiologyFacts;
+
+        /// <summary>Clinical correlations - pathology, physical findings, landmarks and
+        /// pearls that make the structure matter in medicine.</summary>
+        [JsonProperty("clinicalNotes")] public List<string> ClinicalNotes;
         [JsonProperty("boundsCenterOffset")] public Vector3Data BoundsCenterOffset;
         [JsonProperty("idealCameraDistance")] public float IdealCameraDistance;
         [JsonProperty("addressableMeshKey")] public string AddressableMeshKey;

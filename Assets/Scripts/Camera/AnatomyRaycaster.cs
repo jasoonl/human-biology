@@ -18,8 +18,14 @@ namespace HumanBodyExplorer.CameraSystem
         [SerializeField] private int maxHits = 16;
         [SerializeField] private float alphaVisibilityThreshold = 0.2f;
 
+        /// <summary>A surface you can see through should not intercept a click meant
+        /// for the anatomy behind it. Anything less opaque than this counts as
+        /// see-through (the translucent skin shell sits at ~0.42).</summary>
+        [SerializeField] private float clickThroughAlphaThreshold = 0.9f;
+
         private RaycastHit[] _resultsBuffer;
         private static readonly int AlphaPropertyId = Shader.PropertyToID("_Alpha");
+        private static readonly int BaseColorPropertyId = Shader.PropertyToID("_BaseColor");
 
         public static event Action<string> OnNodeSelected;
 
@@ -53,28 +59,54 @@ namespace HumanBodyExplorer.CameraSystem
 
             Array.Sort(_resultsBuffer, 0, hitCount, DistanceComparer.Instance);
 
+            string seeThroughFallbackId = null;
+
             for (int i = 0; i < hitCount; i++)
             {
                 var hit = _resultsBuffer[i];
-                var renderer = hit.collider.GetComponentInParent<Renderer>();
-
-                if (renderer != null && IsMostlyTransparent(renderer)) continue;
-
                 var nodeRef = hit.collider.GetComponentInParent<AnatomyNodeReference>();
-                if (nodeRef != null && !string.IsNullOrEmpty(nodeRef.EntityId))
+                if (nodeRef == null || string.IsNullOrEmpty(nodeRef.EntityId)) continue;
+
+                var renderer = hit.collider.GetComponentInParent<Renderer>();
+                if (renderer != null && IsSeeThrough(renderer))
                 {
-                    OnNodeSelected?.Invoke(nodeRef.EntityId);
-                    return true;
+                    // The skin shell encloses the whole body, so it is the first thing
+                    // every ray meets. Since you can see the organs through it, a click
+                    // should reach them - but keep the first see-through hit so that
+                    // clicking bare skin with nothing underneath still selects skin.
+                    seeThroughFallbackId ??= nodeRef.EntityId;
+                    continue;
                 }
+
+                OnNodeSelected?.Invoke(nodeRef.EntityId);
+                return true;
+            }
+
+            if (seeThroughFallbackId != null)
+            {
+                OnNodeSelected?.Invoke(seeThroughFallbackId);
+                return true;
             }
 
             return false;
         }
 
-        private bool IsMostlyTransparent(Renderer renderer)
+        private bool IsSeeThrough(Renderer renderer)
         {
-            if (!renderer.sharedMaterial.HasProperty(AlphaPropertyId)) return false;
-            return renderer.sharedMaterial.GetFloat(AlphaPropertyId) < alphaVisibilityThreshold;
+            var material = renderer.sharedMaterial;
+            if (material == null) return false;
+
+            // Module III's ghosting shaders expose a dedicated _Alpha slider...
+            if (material.HasProperty(AlphaPropertyId) &&
+                material.GetFloat(AlphaPropertyId) < alphaVisibilityThreshold)
+            {
+                return true;
+            }
+
+            // ...whereas a URP Lit material switched to Transparent carries its
+            // opacity in the alpha channel of _BaseColor.
+            return material.HasProperty(BaseColorPropertyId) &&
+                   material.GetColor(BaseColorPropertyId).a < clickThroughAlphaThreshold;
         }
 
         private sealed class DistanceComparer : System.Collections.Generic.IComparer<RaycastHit>

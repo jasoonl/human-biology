@@ -1,4 +1,6 @@
 using System.Collections;
+using System.Collections.Generic;
+using System.Text;
 using HumanBodyExplorer.CameraSystem;
 using HumanBodyExplorer.Core;
 using HumanBodyExplorer.Data;
@@ -29,6 +31,11 @@ namespace HumanBodyExplorer.UI
         [SerializeField] private TMP_Text colorblindToggleText;
         [SerializeField] private Button colorblindToggleButton;
         [SerializeField] private ColorblindAccessibilityToggle colorblindToggle;
+        [SerializeField] private TMP_Text detailLevelText;
+        [SerializeField] private Button detailLevelButton;
+
+        private enum DetailLevel { Plain = 0, ApBiology = 1, Clinical = 2 }
+        private static readonly string[] DetailLevelLabels = { "Plain English", "AP Biology", "Clinical" };
 
         /// <summary>"All" plus every systemCategory value used in anatomy_dictionary.json.
         /// A teacher cycling this before Start Quiz limits the quiz to one body system.</summary>
@@ -41,6 +48,8 @@ namespace HumanBodyExplorer.UI
         private QuizController _quizController;
         private bool _quizActive;
         private int _systemFilterIndex;
+        private DetailLevel _detailLevel = DetailLevel.Plain;
+        private string _selectedEntityId;
         private AudioSource _audioSource;
         private AudioClip _correctClip;
         private AudioClip _wrongClip;
@@ -75,6 +84,9 @@ namespace HumanBodyExplorer.UI
 
             if (colorblindToggleButton != null) colorblindToggleButton.onClick.AddListener(ToggleColorblindMode);
             UpdateColorblindToggleText();
+
+            if (detailLevelButton != null) detailLevelButton.onClick.AddListener(CycleDetailLevel);
+            UpdateDetailLevelText();
 
             _audioSource = GetComponent<AudioSource>();
             if (_audioSource == null) _audioSource = gameObject.AddComponent<AudioSource>();
@@ -116,16 +128,76 @@ namespace HumanBodyExplorer.UI
 
         private void ShowInfoFor(string entityId)
         {
+            _selectedEntityId = entityId;
+            RenderInfoPanel();
+        }
+
+        private void CycleDetailLevel()
+        {
+            _detailLevel = (DetailLevel)(((int)_detailLevel + 1) % DetailLevelLabels.Length);
+            UpdateDetailLevelText();
+            RenderInfoPanel();
+        }
+
+        private void UpdateDetailLevelText()
+        {
+            if (detailLevelText != null) detailLevelText.text = $"Detail: {DetailLevelLabels[(int)_detailLevel]}";
+        }
+
+        private void RenderInfoPanel()
+        {
             if (infoPanelText == null) return;
+
+            if (string.IsNullOrEmpty(_selectedEntityId))
+            {
+                infoPanelText.text = DefaultInfoText;
+                return;
+            }
 
             try
             {
-                var node = GameManager.Instance.DataController.GetNode(entityId);
-                infoPanelText.text = $"<b>{node.CommonName}</b>  <i>({node.LatinName})</i>\n\n{node.DescriptionPatient}";
+                var node = GameManager.Instance.DataController.GetNode(_selectedEntityId);
+                var body = new StringBuilder();
+                body.Append($"<b>{node.CommonName}</b>  <i>({node.LatinName})</i>");
+
+                if (node.SystemCategory != null && node.SystemCategory.Count > 0)
+                {
+                    body.Append($"  <size=80%>[{string.Join(" / ", node.SystemCategory)}]</size>");
+                }
+                body.Append("\n\n");
+
+                switch (_detailLevel)
+                {
+                    case DetailLevel.ApBiology:
+                        body.Append(node.DescriptionProfessional);
+                        AppendBullets(body, node.ApBiologyFacts);
+                        break;
+
+                    case DetailLevel.Clinical:
+                        body.Append(node.DescriptionProfessional);
+                        AppendBullets(body, node.ClinicalNotes);
+                        body.Append($"\n\n<size=80%>SNOMED CT {node.SnomedCTCode}</size>");
+                        break;
+
+                    default:
+                        body.Append(node.DescriptionPatient);
+                        break;
+                }
+
+                infoPanelText.text = body.ToString();
             }
             catch (AnatomyNotFoundException)
             {
                 infoPanelText.text = DefaultInfoText;
+            }
+        }
+
+        private static void AppendBullets(StringBuilder body, List<string> lines)
+        {
+            if (lines == null) return;
+            foreach (var line in lines)
+            {
+                body.Append($"\n\n<b>-</b>  {line}");
             }
         }
 

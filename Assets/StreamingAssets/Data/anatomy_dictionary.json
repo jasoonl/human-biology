@@ -6,16 +6,29 @@
     "latinName": "Cor",
     "commonName": "Heart",
     "systemCategory": ["Cardiovascular"],
-    "descriptionProfessional": "A four-chambered muscular organ that pumps deoxygenated blood to the lungs and oxygenated blood to the systemic circulation.",
+    "descriptionProfessional": "A four-chambered muscular pump in the middle mediastinum that drives the pulmonary and systemic circuits in series, beating roughly 100,000 times per day.",
     "descriptionPatient": "Your heart is a fist-sized muscle that pumps blood around your entire body, delivering oxygen and nutrients to every cell.",
+    "apBiologyFacts": [
+      "Double circulation: the right side pumps deoxygenated blood to the lungs (pulmonary circuit), the left side pumps oxygenated blood to the body (systemic circuit). The two circuits run in series, so every drop passes through the heart twice per lap.",
+      "The sinoatrial (SA) node in the right atrium is the pacemaker, firing 60-100 times per minute on its own. The impulse spreads to the AV node, down the bundle of His, and through Purkinje fibers, which is why the ventricles contract from the apex upward.",
+      "Cardiac output = heart rate x stroke volume, roughly 5 L/min at rest - close to the body's entire blood volume every minute.",
+      "Valves enforce one-way flow: atrioventricular valves (tricuspid on the right, bicuspid/mitral on the left) close during ventricular systole; semilunar valves (pulmonary, aortic) close during diastole.",
+      "Cardiac muscle is striated but involuntary, and its cells are joined by intercalated discs containing gap junctions, letting the whole chamber depolarize as one functional syncytium."
+    ],
+    "clinicalNotes": [
+      "Myocardial infarction results from occlusion of a coronary artery; the left anterior descending is nicknamed the 'widowmaker' because it supplies much of the left ventricle.",
+      "The 'lub-dub' is S1 (AV valves closing) and S2 (semilunar valves closing). Murmurs are turbulent flow across a stenotic or regurgitant valve.",
+      "Cardiac troponin I/T is the biomarker of myocyte injury; it rises within hours of an infarct.",
+      "Cardiac pain refers to the left arm, jaw and epigastrium because visceral afferents enter the cord at T1-T4 alongside somatic fibers from those regions."
+    ],
     "boundsCenterOffset": { "x": 0.0, "y": 0.0, "z": 0.0 },
     "idealCameraDistance": 0.4,
     "addressableMeshKey": "Mesh_Heart_LOD0",
     "audioTTSKey": "Audio_Heart_Desc",
-    "connectedNodes": ["SYS_RESP_LUNG_L", "SYS_RESP_LUNG_R", "SYS_CV_HEART_LV", "SYS_CV_HEART_LA"],
+    "connectedNodes": ["SYS_RESP_LUNG_L", "SYS_RESP_LUNG_R", "SYS_CV_HEART_LV", "SYS_CV_HEART_LA", "SYS_CV_AORTA"],
     "hasMicroDive": true,
     "microDiveKey": "Scene_Micro_Myocardium",
-    "pharmacologyTargets": ["Lisinopril", "Metoprolol"]
+    "pharmacologyTargets": ["Lisinopril", "Metoprolol", "Aspirin"]
   },
   {
     "entityID": "SYS_CV_HEART_LV",
@@ -24,13 +37,23 @@
     "latinName": "Ventriculus sinister cordis",
     "commonName": "Left Ventricle",
     "systemCategory": ["Cardiovascular", "Muscular"],
-    "descriptionProfessional": "The left lower chamber of the heart that receives oxygenated blood from the left atrium and pumps it out under high pressure through the aorta.",
+    "descriptionProfessional": "The thick-walled left lower chamber that receives oxygenated blood from the left atrium and ejects it into the aorta against systemic vascular resistance.",
     "descriptionPatient": "The main pumping chamber of your heart. It pushes oxygen-rich blood out to the rest of your body.",
+    "apBiologyFacts": [
+      "Its wall is 10-15 mm thick versus 3-5 mm on the right, because systemic resistance is far higher than pulmonary resistance. Same stroke volume, much greater pressure.",
+      "The Frank-Starling relationship: greater venous return stretches the myocardium, improving actin-myosin overlap, so stroke volume rises to match preload automatically.",
+      "Ejection fraction is stroke volume divided by end-diastolic volume; a healthy ventricle ejects 55-70% and never empties completely."
+    ],
+    "clinicalNotes": [
+      "Chronic hypertension or aortic stenosis drives left ventricular hypertrophy - initially compensatory, eventually a cause of diastolic failure.",
+      "Heart failure is split into HFrEF (reduced ejection fraction, a pump problem) and HFpEF (preserved EF, a filling problem); the treatments differ substantially.",
+      "Echocardiography is the first-line test for chamber size, wall motion and ejection fraction."
+    ],
     "boundsCenterOffset": { "x": 0.0, "y": -0.05, "z": 0.02 },
     "idealCameraDistance": 0.15,
     "addressableMeshKey": "Mesh_Heart_LeftVentricle_LOD0",
     "audioTTSKey": "Audio_LeftVentricle_Desc",
-    "connectedNodes": ["SYS_CV_HEART_LA", "SYS_CV_HEART"],
+    "connectedNodes": ["SYS_CV_HEART_LA", "SYS_CV_HEART", "SYS_CV_AORTA"],
     "hasMicroDive": true,
     "microDiveKey": "Scene_Micro_Myocardium",
     "pharmacologyTargets": ["Lisinopril", "Metoprolol"]
@@ -42,8 +65,17 @@
     "latinName": "Atrium sinistrum cordis",
     "commonName": "Left Atrium",
     "systemCategory": ["Cardiovascular"],
-    "descriptionProfessional": "The upper left chamber of the heart that receives oxygenated blood from the pulmonary veins.",
+    "descriptionProfessional": "The posterior-most chamber, receiving oxygenated blood from four pulmonary veins and delivering it across the mitral valve.",
     "descriptionPatient": "The chamber that collects fresh, oxygen-rich blood coming back from your lungs.",
+    "apBiologyFacts": [
+      "It receives blood from four pulmonary veins - the only veins in the body carrying oxygenated blood.",
+      "Most ventricular filling is passive; atrial contraction ('atrial kick') adds only the final 20-30%, which is why people can tolerate losing coordinated atrial contraction at rest."
+    ],
+    "clinicalNotes": [
+      "Atrial enlargement predisposes to atrial fibrillation, where disorganized electrical activity replaces coordinated contraction.",
+      "Stasis in the left atrial appendage during AF forms thrombi that embolize to the brain - this is why AF patients are anticoagulated.",
+      "Mitral stenosis raises left atrial pressure and backs up into the pulmonary circulation, causing dyspnea."
+    ],
     "boundsCenterOffset": { "x": 0.0, "y": 0.05, "z": 0.02 },
     "idealCameraDistance": 0.15,
     "addressableMeshKey": "Mesh_Heart_LeftAtrium_LOD0",
@@ -51,7 +83,35 @@
     "connectedNodes": ["SYS_CV_HEART_LV", "SYS_CV_HEART"],
     "hasMicroDive": false,
     "microDiveKey": "",
-    "pharmacologyTargets": []
+    "pharmacologyTargets": ["Warfarin", "Apixaban"]
+  },
+  {
+    "entityID": "SYS_CV_AORTA",
+    "snomedCTCode": "15825003",
+    "icd10PathologyCodes": ["I71.9"],
+    "latinName": "Aorta",
+    "commonName": "Aorta",
+    "systemCategory": ["Cardiovascular"],
+    "descriptionProfessional": "The largest artery in the body, 2.5-3.5 cm in diameter, running from the aortic valve as ascending aorta, arch, descending thoracic aorta and abdominal aorta to its bifurcation at L4.",
+    "descriptionPatient": "The body's main pipe. Every drop of blood leaving the left side of your heart starts its journey here.",
+    "apBiologyFacts": [
+      "It is an elastic artery: its wall is packed with elastin so it balloons during systole and recoils during diastole. This 'Windkessel effect' converts the heart's pulsed output into continuous capillary flow and is what maintains diastolic blood pressure.",
+      "Three branches leave the arch: brachiocephalic trunk, left common carotid, left subclavian.",
+      "Arterial blood pressure is written systolic over diastolic; below 120/80 mmHg is normal."
+    ],
+    "clinicalNotes": [
+      "Abdominal aortic aneurysm is screened by ultrasound in men 65-75 who have ever smoked; rupture is rapidly fatal.",
+      "Aortic dissection classically presents as sudden tearing chest pain radiating to the back, with a blood-pressure differential between arms.",
+      "Coarctation produces upper-limb hypertension with weak, delayed femoral pulses (radio-femoral delay)."
+    ],
+    "boundsCenterOffset": { "x": 0.0, "y": 0.0, "z": 0.0 },
+    "idealCameraDistance": 0.4,
+    "addressableMeshKey": "Mesh_Aorta_LOD0",
+    "audioTTSKey": "Audio_Aorta_Desc",
+    "connectedNodes": ["SYS_CV_HEART_LV", "SYS_CV_ARTERY"],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": ["Labetalol"]
   },
   {
     "entityID": "SYS_CV_ARTERY",
@@ -60,16 +120,26 @@
     "latinName": "Arteria",
     "commonName": "Artery",
     "systemCategory": ["Cardiovascular"],
-    "descriptionProfessional": "A thick-walled, muscular blood vessel that carries oxygenated blood away from the heart under high pressure to the body's tissues.",
+    "descriptionProfessional": "A thick-walled, muscular-elastic vessel carrying blood away from the heart under high pressure, with a three-layered wall of tunica intima, media and externa.",
     "descriptionPatient": "Arteries are the tubes that carry fresh, oxygen-rich blood away from your heart to the rest of your body.",
+    "apBiologyFacts": [
+      "Arteries always carry blood AWAY from the heart - which is the definition, not the oxygen content. The pulmonary arteries are the exception that proves it: they carry deoxygenated blood.",
+      "The thick tunica media of smooth muscle and elastin withstands high pressure and lets the vessel actively vasoconstrict or vasodilate.",
+      "Arterioles are the main resistance vessels; by changing their radius the body redirects blood flow and sets total peripheral resistance. Flow is proportional to the fourth power of the radius (Poiseuille), so tiny diameter changes have enormous effects."
+    ],
+    "clinicalNotes": [
+      "Atherosclerosis is lipid plaque accumulating in the tunica intima, narrowing the lumen and providing a surface for thrombosis.",
+      "Pulses are palpated where an artery crosses bone near the surface: radial, carotid, femoral, dorsalis pedis.",
+      "Arterial bleeding is bright red and pulsatile, and requires direct pressure rather than elevation alone."
+    ],
     "boundsCenterOffset": { "x": 0.0, "y": 0.0, "z": 0.0 },
     "idealCameraDistance": 0.25,
     "addressableMeshKey": "Mesh_Artery_LOD0",
     "audioTTSKey": "Audio_Artery_Desc",
-    "connectedNodes": ["SYS_CV_HEART"],
+    "connectedNodes": ["SYS_CV_HEART", "SYS_CV_AORTA"],
     "hasMicroDive": false,
     "microDiveKey": "",
-    "pharmacologyTargets": ["Amlodipine"]
+    "pharmacologyTargets": ["Amlodipine", "Atorvastatin"]
   },
   {
     "entityID": "SYS_CV_VEIN",
@@ -78,8 +148,18 @@
     "latinName": "Vena",
     "commonName": "Vein",
     "systemCategory": ["Cardiovascular"],
-    "descriptionProfessional": "A thin-walled blood vessel, often containing one-way valves, that returns deoxygenated blood from the body's tissues to the heart under low pressure.",
+    "descriptionProfessional": "A thin-walled, large-lumen capacitance vessel returning blood to the heart at low pressure, with one-way valves in the limbs.",
     "descriptionPatient": "Veins are the tubes that carry blood back to your heart after your body has used up the oxygen.",
+    "apBiologyFacts": [
+      "Veins hold 60-70% of total blood volume at any moment, which is why they are called capacitance vessels.",
+      "Venous pressure is too low to return blood from the feet on its own. One-way valves plus the skeletal muscle pump (contracting calf muscles squeeze veins) and the respiratory pump drive venous return.",
+      "The pulmonary veins are the exception to the rule: they carry oxygenated blood from the lungs to the left atrium."
+    ],
+    "clinicalNotes": [
+      "Deep vein thrombosis arises from Virchow's triad: stasis, endothelial injury, and hypercoagulability - which is why long flights and immobility are risk factors.",
+      "Varicose veins result from incompetent valves allowing retrograde pooling.",
+      "The median cubital vein in the antecubital fossa is the standard site for venipuncture."
+    ],
     "boundsCenterOffset": { "x": 0.0, "y": 0.0, "z": 0.0 },
     "idealCameraDistance": 0.25,
     "addressableMeshKey": "Mesh_Vein_LOD0",
@@ -87,7 +167,7 @@
     "connectedNodes": ["SYS_CV_HEART"],
     "hasMicroDive": false,
     "microDiveKey": "",
-    "pharmacologyTargets": ["Warfarin"]
+    "pharmacologyTargets": ["Heparin", "Warfarin"]
   },
   {
     "entityID": "SYS_RESP_LUNG_L",
@@ -96,8 +176,17 @@
     "latinName": "Pulmo sinister",
     "commonName": "Left Lung",
     "systemCategory": ["Respiratory"],
-    "descriptionProfessional": "The left pulmonary organ, divided into two lobes, responsible for gas exchange between inhaled air and the bloodstream.",
-    "descriptionPatient": "One of your two lungs. When you breathe in, it fills with air so oxygen can pass into your blood.",
+    "descriptionProfessional": "The left pulmonary organ, two lobes separated by an oblique fissure, with a cardiac notch and lingula accommodating the heart.",
+    "descriptionPatient": "One of your two lungs. It has only two sections instead of three, because your heart takes up some of the space on that side.",
+    "apBiologyFacts": [
+      "The left lung has two lobes, not three, and carries a cardiac notch - an indentation where the heart sits. It is the smaller lung.",
+      "Gas exchange happens by simple diffusion down partial pressure gradients: alveolar PO2 is about 104 mmHg versus 40 mmHg in arriving venous blood, so oxygen moves in and CO2 moves out.",
+      "Type II pneumocytes secrete surfactant, which lowers alveolar surface tension and stops the small alveoli collapsing into the large ones (Laplace's law)."
+    ],
+    "clinicalNotes": [
+      "Auscultate in the mid-axillary line and posteriorly; the left base sits behind the heart.",
+      "Pneumothorax causes hyperresonance and absent breath sounds on the affected side, with tracheal deviation away in tension pneumothorax."
+    ],
     "boundsCenterOffset": { "x": -0.15, "y": 0.05, "z": 0.0 },
     "idealCameraDistance": 0.3,
     "addressableMeshKey": "Mesh_Lung_Left_LOD0",
@@ -114,8 +203,17 @@
     "latinName": "Pulmo dexter",
     "commonName": "Right Lung",
     "systemCategory": ["Respiratory"],
-    "descriptionProfessional": "The right pulmonary organ, divided into three lobes, responsible for gas exchange between inhaled air and the bloodstream.",
-    "descriptionPatient": "One of your two lungs. It's slightly bigger than the left one to make room for your heart.",
+    "descriptionProfessional": "The right pulmonary organ, three lobes divided by oblique and horizontal fissures, slightly larger and more vertical in its bronchial takeoff than the left.",
+    "descriptionPatient": "One of your two lungs. It's slightly bigger than the left one and has three sections.",
+    "apBiologyFacts": [
+      "Three lobes - upper, middle and lower - separated by the oblique and horizontal fissures.",
+      "Together the lungs hold roughly 300-500 million alveoli with a combined surface area around 70 square meters, about half a tennis court, packed into the chest.",
+      "Oxygen is carried mostly bound to hemoglobin (four O2 per molecule); CO2 travels mainly as bicarbonate in plasma (about 70%), formed by carbonic anhydrase inside red blood cells."
+    ],
+    "clinicalNotes": [
+      "The right main bronchus is wider, shorter and more vertical, so aspirated foreign bodies and misplaced endotracheal tubes preferentially go right.",
+      "Right middle lobe pneumonia is a classic finding on chest X-ray with loss of the right heart border."
+    ],
     "boundsCenterOffset": { "x": 0.15, "y": 0.05, "z": 0.0 },
     "idealCameraDistance": 0.3,
     "addressableMeshKey": "Mesh_Lung_Right_LOD0",
@@ -132,34 +230,112 @@
     "latinName": "Trachea",
     "commonName": "Trachea (Windpipe)",
     "systemCategory": ["Respiratory"],
-    "descriptionProfessional": "A cartilaginous tube connecting the larynx to the bronchi, conducting air to and from the lungs.",
+    "descriptionProfessional": "A 10-12 cm fibrocartilaginous tube from the cricoid cartilage to the carina at the T4/T5 level, where it bifurcates into the main bronchi.",
     "descriptionPatient": "Your windpipe. It carries the air you breathe from your throat down into your lungs.",
+    "apBiologyFacts": [
+      "It is held open by 16-20 C-shaped rings of hyaline cartilage. The gap faces backward so the esophagus, directly behind, can bulge forward as a swallowed bolus passes.",
+      "Its lining is pseudostratified ciliated columnar epithelium with goblet cells. Mucus traps particles and cilia sweep it upward at about 1 cm per minute - the 'mucociliary escalator'. Smoking paralyzes those cilia.",
+      "It is conducting zone, not respiratory zone: no gas exchange occurs here, which is why it forms part of the roughly 150 mL of anatomical dead space."
+    ],
+    "clinicalNotes": [
+      "Tracheal deviation is an emergency sign: pushed away in tension pneumothorax, pulled toward in lobar collapse.",
+      "Emergency cricothyrotomy accesses the airway through the cricothyroid membrane when intubation fails."
+    ],
     "boundsCenterOffset": { "x": 0.0, "y": 0.25, "z": 0.0 },
     "idealCameraDistance": 0.25,
     "addressableMeshKey": "Mesh_Trachea_LOD0",
     "audioTTSKey": "Audio_Trachea_Desc",
-    "connectedNodes": ["SYS_RESP_LUNG_L", "SYS_RESP_LUNG_R"],
+    "connectedNodes": ["SYS_RESP_LUNG_L", "SYS_RESP_LUNG_R", "SYS_ENDO_THYROID"],
     "hasMicroDive": false,
     "microDiveKey": "",
     "pharmacologyTargets": []
   },
   {
+    "entityID": "SYS_RESP_DIAPHRAGM",
+    "snomedCTCode": "80621003",
+    "icd10PathologyCodes": ["J98.6"],
+    "latinName": "Diaphragma",
+    "commonName": "Diaphragm",
+    "systemCategory": ["Respiratory", "Muscular"],
+    "descriptionProfessional": "The dome-shaped musculotendinous sheet separating the thoracic and abdominal cavities, and the principal muscle of inspiration.",
+    "descriptionPatient": "A dome-shaped muscle under your lungs. When it tightens and flattens, air rushes into your chest - that's a breath in.",
+    "apBiologyFacts": [
+      "Inspiration is active: the diaphragm contracts and flattens, thoracic volume increases, intrapulmonary pressure falls below atmospheric, and air flows in. This is Boyle's law made physiological.",
+      "Quiet expiration is passive - the diaphragm relaxes and elastic recoil of the lungs pushes air out. No muscular work required.",
+      "It is innervated by the phrenic nerve from cervical roots C3, C4 and C5: 'C3, 4, 5 keeps the diaphragm alive.' A high cervical spinal injury therefore stops breathing.",
+      "Three structures pass through it: the inferior vena cava (T8), esophagus (T10) and aorta (T12)."
+    ],
+    "clinicalNotes": [
+      "Hiccups are involuntary diaphragmatic spasms with abrupt glottic closure.",
+      "Irritation of the diaphragm refers pain to the shoulder tip via C4 (Kehr's sign) - classically from a ruptured spleen or blood under the diaphragm.",
+      "Phrenic nerve injury produces an elevated, paralyzed hemidiaphragm on chest X-ray."
+    ],
+    "boundsCenterOffset": { "x": 0.0, "y": 0.0, "z": 0.0 },
+    "idealCameraDistance": 0.45,
+    "addressableMeshKey": "Mesh_Diaphragm_LOD0",
+    "audioTTSKey": "Audio_Diaphragm_Desc",
+    "connectedNodes": ["SYS_RESP_LUNG_L", "SYS_RESP_LUNG_R", "SYS_DIG_LIVER"],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_DIG_ESOPHAGUS",
+    "snomedCTCode": "32849002",
+    "icd10PathologyCodes": ["K22.9"],
+    "latinName": "Oesophagus",
+    "commonName": "Esophagus",
+    "systemCategory": ["Digestive"],
+    "descriptionProfessional": "A 25 cm muscular conduit from the pharynx to the gastric cardia, passing through the diaphragm at T10.",
+    "descriptionPatient": "The tube that carries food from your throat to your stomach. Muscles squeeze the food down - it isn't gravity doing the work.",
+    "apBiologyFacts": [
+      "Peristalsis, not gravity, moves the bolus: circular muscle contracts behind it and longitudinal muscle shortens ahead of it. You can swallow upside down.",
+      "Its muscle transitions along its length - skeletal in the upper third (voluntary swallow initiation), mixed in the middle, smooth in the lower third (involuntary).",
+      "The lower esophageal sphincter stays tonically closed to keep stomach acid out; during swallowing the epiglottis folds over the larynx so the bolus goes to the esophagus, not the trachea."
+    ],
+    "clinicalNotes": [
+      "GERD is lower esophageal sphincter incompetence; chronic acid exposure drives Barrett's metaplasia, a precursor to adenocarcinoma.",
+      "Esophageal varices form when portal hypertension shunts blood through submucosal veins; rupture causes torrential hematemesis.",
+      "Achalasia is failure of LES relaxation, producing a 'bird's beak' on barium swallow."
+    ],
+    "boundsCenterOffset": { "x": 0.0, "y": 0.0, "z": 0.0 },
+    "idealCameraDistance": 0.35,
+    "addressableMeshKey": "Mesh_Esophagus_LOD0",
+    "audioTTSKey": "Audio_Esophagus_Desc",
+    "connectedNodes": ["SYS_DIG_STOMACH", "SYS_RESP_TRACHEA"],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": ["Omeprazole"]
+  },
+  {
     "entityID": "SYS_DIG_STOMACH",
     "snomedCTCode": "69695003",
     "icd10PathologyCodes": ["K25.9"],
-    "latinName": "Ventriculus",
+    "latinName": "Ventriculus (Gaster)",
     "commonName": "Stomach",
     "systemCategory": ["Digestive"],
-    "descriptionProfessional": "A muscular sac that secretes acid and enzymes to begin chemical digestion of food received from the esophagus.",
+    "descriptionProfessional": "A J-shaped muscular reservoir in the left upper quadrant with fundus, body, antrum and pylorus, performing mechanical churning and the first stage of protein digestion.",
     "descriptionPatient": "A stretchy bag that mixes your food with acid and juices to start breaking it down.",
+    "apBiologyFacts": [
+      "Parietal cells secrete hydrochloric acid, holding the lumen at pH 1.5-3.5 - acidic enough to denature proteins and kill most swallowed bacteria. They also make intrinsic factor, required for vitamin B12 absorption later in the ileum.",
+      "Chief cells secrete pepsinogen, an inactive zymogen. Acid converts it to pepsin, which begins protein digestion. Secreting it inactive stops the cell digesting itself.",
+      "G cells release gastrin, which stimulates acid secretion - a positive-feedback-then-negative-feedback loop damped once the pH drops far enough.",
+      "The stomach protects itself with a bicarbonate-rich mucus layer; it has three muscle layers (an extra oblique layer) for churning, unlike the rest of the gut's two.",
+      "Very little absorption happens here. Chyme leaves through the pyloric sphincter in small squirts so the duodenum is not overwhelmed."
+    ],
+    "clinicalNotes": [
+      "Helicobacter pylori causes most peptic ulcers - a finding that overturned the stress-and-spice dogma and won the 2005 Nobel Prize.",
+      "Proton pump inhibitors block the parietal cell H+/K+ ATPase, the final common step of acid secretion.",
+      "Loss of intrinsic factor (autoimmune gastritis, gastrectomy) causes pernicious anemia - a macrocytic anemia with neurological signs."
+    ],
     "boundsCenterOffset": { "x": -0.15, "y": -0.1, "z": 0.05 },
     "idealCameraDistance": 0.3,
     "addressableMeshKey": "Mesh_Stomach_LOD0",
     "audioTTSKey": "Audio_Stomach_Desc",
-    "connectedNodes": ["SYS_DIG_LIVER", "SYS_DIG_INTESTINES"],
+    "connectedNodes": ["SYS_DIG_LIVER", "SYS_DIG_SMALL_INTESTINE", "SYS_DIG_ESOPHAGUS", "SYS_DIG_PANCREAS"],
     "hasMicroDive": false,
     "microDiveKey": "",
-    "pharmacologyTargets": ["Omeprazole"]
+    "pharmacologyTargets": ["Omeprazole", "Ranitidine"]
   },
   {
     "entityID": "SYS_DIG_LIVER",
@@ -168,31 +344,143 @@
     "latinName": "Hepar",
     "commonName": "Liver",
     "systemCategory": ["Digestive"],
-    "descriptionProfessional": "The largest internal organ, responsible for detoxification, protein synthesis, and production of digestive bile.",
-    "descriptionPatient": "Your body's chemical processing plant. It filters your blood, fights infections, and helps digest fat.",
+    "descriptionProfessional": "The largest internal organ (~1.5 kg), occupying the right upper quadrant, organized into hexagonal lobules draining to central veins, with a dual blood supply from the hepatic artery and portal vein.",
+    "descriptionPatient": "Your body's chemical processing plant. It filters your blood, stores energy, fights toxins, and makes bile to help digest fat.",
+    "apBiologyFacts": [
+      "Glucose homeostasis: the liver stores glucose as glycogen when insulin is high (glycogenesis) and releases it when glucagon is high (glycogenolysis). When glycogen runs out it manufactures glucose from amino acids and glycerol (gluconeogenesis).",
+      "Protein metabolism: deamination strips amino groups from surplus amino acids, producing toxic ammonia, which the urea cycle converts to urea for renal excretion.",
+      "It receives the hepatic portal vein - blood from the entire gut passes through the liver BEFORE reaching the rest of the body. This is first-pass metabolism, and it is why oral and intravenous doses of a drug differ.",
+      "It synthesizes plasma proteins including albumin (maintains blood oncotic pressure) and most clotting factors, produces bile for fat emulsification, stores vitamins A, D and B12 plus iron, and detoxifies via cytochrome P450 enzymes.",
+      "It is the only human internal organ with substantial regenerative capacity - a partial hepatectomy can regrow."
+    ],
+    "clinicalNotes": [
+      "ALT and AST indicate hepatocyte injury, while albumin and INR reflect synthetic function - damage and capacity are measured differently.",
+      "Jaundice is bilirubin accumulation; splitting it into pre-hepatic, hepatic and post-hepatic causes drives the workup.",
+      "Cirrhosis causes portal hypertension, leading to varices, ascites, splenomegaly and encephalopathy from unfiltered ammonia.",
+      "Paracetamol/acetaminophen overdose causes centrilobular necrosis; N-acetylcysteine replenishes glutathione and is the antidote."
+    ],
     "boundsCenterOffset": { "x": 0.15, "y": -0.05, "z": 0.05 },
     "idealCameraDistance": 0.35,
     "addressableMeshKey": "Mesh_Liver_LOD0",
     "audioTTSKey": "Audio_Liver_Desc",
-    "connectedNodes": ["SYS_DIG_STOMACH", "SYS_DIG_INTESTINES"],
+    "connectedNodes": ["SYS_DIG_STOMACH", "SYS_DIG_SMALL_INTESTINE", "SYS_DIG_GALLBLADDER"],
+    "hasMicroDive": true,
+    "microDiveKey": "Scene_Micro_Hepatocyte",
+    "pharmacologyTargets": ["Acetaminophen", "Atorvastatin"]
+  },
+  {
+    "entityID": "SYS_DIG_GALLBLADDER",
+    "snomedCTCode": "28231008",
+    "icd10PathologyCodes": ["K80.20"],
+    "latinName": "Vesica biliaris",
+    "commonName": "Gallbladder",
+    "systemCategory": ["Digestive"],
+    "descriptionProfessional": "A pear-shaped reservoir on the inferior surface of the liver that stores and concentrates bile, discharging via the cystic and common bile ducts into the duodenum.",
+    "descriptionPatient": "A small pouch under your liver that stores bile and squirts it into your gut when you eat something fatty.",
+    "apBiologyFacts": [
+      "It concentrates liver bile five- to ten-fold by reabsorbing water and electrolytes.",
+      "Fat arriving in the duodenum triggers cholecystokinin (CCK) release, which makes the gallbladder contract and the sphincter of Oddi relax.",
+      "Bile salts do not digest fat chemically - they emulsify it, breaking large droplets into many small ones. That multiplies the surface area available to pancreatic lipase, a nice illustration of surface-area-to-volume ratio in action."
+    ],
+    "clinicalNotes": [
+      "Gallstones classically affect the 'four Fs' - fat, forty, female, fertile - and cause biliary colic after fatty meals.",
+      "Murphy's sign: arrest of inspiration on palpating the right upper quadrant, suggesting cholecystitis.",
+      "Laparoscopic cholecystectomy is among the most commonly performed operations; bile flow continues directly from liver to duodenum afterward."
+    ],
+    "boundsCenterOffset": { "x": 0.0, "y": 0.0, "z": 0.0 },
+    "idealCameraDistance": 0.2,
+    "addressableMeshKey": "Mesh_Gallbladder_LOD0",
+    "audioTTSKey": "Audio_Gallbladder_Desc",
+    "connectedNodes": ["SYS_DIG_LIVER", "SYS_DIG_SMALL_INTESTINE"],
     "hasMicroDive": false,
     "microDiveKey": "",
     "pharmacologyTargets": []
   },
   {
-    "entityID": "SYS_DIG_INTESTINES",
-    "snomedCTCode": "60184004",
-    "icd10PathologyCodes": ["K59.9"],
-    "latinName": "Intestinum",
-    "commonName": "Intestines",
+    "entityID": "SYS_DIG_PANCREAS",
+    "snomedCTCode": "15776009",
+    "icd10PathologyCodes": ["K85.90", "E11.9"],
+    "latinName": "Pancreas",
+    "commonName": "Pancreas",
+    "systemCategory": ["Digestive", "Endocrine"],
+    "descriptionProfessional": "A retroperitoneal gland lying transversely across L1-L2, with head, neck, body and tail; both an exocrine acinar gland and an endocrine organ.",
+    "descriptionPatient": "A gland behind your stomach that does two jobs: it makes juices that digest your food, and it makes insulin to control your blood sugar.",
+    "apBiologyFacts": [
+      "It is the classic dual gland. The exocrine portion (about 99% of its mass) secretes amylase, lipase and protease zymogens plus bicarbonate into the duodenum, neutralizing gastric acid so those enzymes can work.",
+      "The endocrine portion is the islets of Langerhans (about 1%): beta cells secrete insulin to LOWER blood glucose, alpha cells secrete glucagon to RAISE it, delta cells secrete somatostatin to damp both.",
+      "Insulin and glucagon are the textbook negative feedback antagonist pair for glucose homeostasis, and the standard AP Biology example of hormonal homeostatic control.",
+      "Proteases are secreted as inactive zymogens (trypsinogen) and activated only in the duodenum by enterokinase, protecting the pancreas from digesting itself."
+    ],
+    "clinicalNotes": [
+      "Type 1 diabetes is autoimmune destruction of beta cells (absolute insulin deficiency); Type 2 is insulin resistance with relative deficiency.",
+      "Acute pancreatitis is most often caused by gallstones or alcohol; serum lipase is the preferred diagnostic marker.",
+      "Pancreatic adenocarcinoma often presents late with painless obstructive jaundice and carries a poor prognosis."
+    ],
+    "boundsCenterOffset": { "x": 0.0, "y": 0.0, "z": 0.0 },
+    "idealCameraDistance": 0.3,
+    "addressableMeshKey": "Mesh_Pancreas_LOD0",
+    "audioTTSKey": "Audio_Pancreas_Desc",
+    "connectedNodes": ["SYS_DIG_STOMACH", "SYS_DIG_SMALL_INTESTINE"],
+    "hasMicroDive": true,
+    "microDiveKey": "Scene_Micro_Islet",
+    "pharmacologyTargets": ["Insulin", "Metformin"]
+  },
+  {
+    "entityID": "SYS_DIG_SMALL_INTESTINE",
+    "snomedCTCode": "30315005",
+    "icd10PathologyCodes": ["K63.9"],
+    "latinName": "Intestinum tenue",
+    "commonName": "Small Intestine",
     "systemCategory": ["Digestive"],
-    "descriptionProfessional": "The small and large intestines, a coiled tube responsible for nutrient absorption and waste formation.",
-    "descriptionPatient": "A long, coiled tube where your body absorbs nutrients from food and forms waste.",
+    "descriptionProfessional": "A 6-7 m coiled tube comprising duodenum, jejunum and ileum, the principal site of chemical digestion and nutrient absorption.",
+    "descriptionPatient": "A long, coiled tube where almost all of your food is actually broken down and absorbed into your blood.",
+    "apBiologyFacts": [
+      "Surface area is the whole design principle: circular folds, then villi, then microvilli (the brush border) multiply the absorptive surface to roughly 250 square meters - a tennis court's worth inside your abdomen.",
+      "Each villus contains a capillary network that absorbs monosaccharides and amino acids into the hepatic portal blood, and a lacteal that absorbs fats packaged as chylomicrons into the lymphatic system instead.",
+      "Brush border enzymes (maltase, sucrase, lactase, peptidases) complete digestion at the membrane itself.",
+      "Two movements: segmentation mixes chyme with enzymes, peristalsis propels it onward.",
+      "Nutrient uptake uses several transport mechanisms - glucose and amino acids enter by secondary active transport coupled to sodium, fructose by facilitated diffusion."
+    ],
+    "clinicalNotes": [
+      "Celiac disease is immune-mediated villous atrophy triggered by gluten; flattened villi cause malabsorption, and the surface area argument explains the symptoms directly.",
+      "Lactase deficiency leaves undigested lactose to be fermented by colonic bacteria, causing bloating and osmotic diarrhea.",
+      "Crohn's disease favors the terminal ileum; resection there impairs vitamin B12 and bile-salt reabsorption."
+    ],
     "boundsCenterOffset": { "x": 0.0, "y": -0.25, "z": 0.05 },
     "idealCameraDistance": 0.35,
-    "addressableMeshKey": "Mesh_Intestines_LOD0",
-    "audioTTSKey": "Audio_Intestines_Desc",
-    "connectedNodes": ["SYS_DIG_STOMACH", "SYS_DIG_LIVER", "SYS_REN_BLADDER"],
+    "addressableMeshKey": "Mesh_SmallIntestine_LOD0",
+    "audioTTSKey": "Audio_SmallIntestine_Desc",
+    "connectedNodes": ["SYS_DIG_STOMACH", "SYS_DIG_LARGE_INTESTINE", "SYS_DIG_PANCREAS", "SYS_DIG_GALLBLADDER"],
+    "hasMicroDive": true,
+    "microDiveKey": "Scene_Micro_Villus",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_DIG_LARGE_INTESTINE",
+    "snomedCTCode": "14742008",
+    "icd10PathologyCodes": ["K59.9"],
+    "latinName": "Intestinum crassum",
+    "commonName": "Large Intestine (Colon)",
+    "systemCategory": ["Digestive"],
+    "descriptionProfessional": "A 1.5 m tube framing the small intestine as cecum, ascending, transverse, descending and sigmoid colon, then rectum; absorbs water and electrolytes and houses the gut microbiota.",
+    "descriptionPatient": "The last section of your gut. It reclaims water from what's left over and forms solid waste.",
+    "apBiologyFacts": [
+      "It reabsorbs 1-1.5 L of water per day, converting liquid chyme into formed feces. Failure of this step is exactly what diarrhea is, and why dehydration is its main danger.",
+      "It hosts roughly 10^13 microorganisms. They ferment dietary fiber into short-chain fatty acids that colonocytes use as fuel, and synthesize vitamin K and several B vitamins - a genuine mutualistic symbiosis.",
+      "No villi here: absorption of nutrients is largely complete, so the mucosa is flat with mucus-secreting goblet cells for lubrication.",
+      "Its outer longitudinal muscle is gathered into three bands (taeniae coli) whose tone puckers the wall into pouches called haustra."
+    ],
+    "clinicalNotes": [
+      "Colorectal cancer screening by colonoscopy now begins at age 45; most cancers arise from adenomatous polyps over years, making it highly preventable.",
+      "Appendicitis causes pain migrating from periumbilical to right lower quadrant, maximal at McBurney's point.",
+      "Clostridioides difficile colitis follows antibiotic disruption of the normal flora.",
+      "Diverticula form at points of wall weakness where vessels penetrate; inflammation causes left lower quadrant pain."
+    ],
+    "boundsCenterOffset": { "x": 0.0, "y": -0.2, "z": 0.05 },
+    "idealCameraDistance": 0.4,
+    "addressableMeshKey": "Mesh_LargeIntestine_LOD0",
+    "audioTTSKey": "Audio_LargeIntestine_Desc",
+    "connectedNodes": ["SYS_DIG_SMALL_INTESTINE"],
     "hasMicroDive": false,
     "microDiveKey": "",
     "pharmacologyTargets": []
@@ -202,17 +490,88 @@
     "snomedCTCode": "12738006",
     "icd10PathologyCodes": ["G93.9"],
     "latinName": "Cerebrum",
-    "commonName": "Brain",
+    "commonName": "Cerebrum (Brain)",
     "systemCategory": ["Nervous"],
-    "descriptionProfessional": "The central organ of the nervous system, coordinating sensory processing, motor control, and cognition.",
-    "descriptionPatient": "Your body's control center. It thinks, remembers, and sends signals telling your body what to do.",
+    "descriptionProfessional": "The largest division of the brain, two hemispheres of folded cortex over white matter and deep nuclei, joined by the corpus callosum.",
+    "descriptionPatient": "Your body's control center. It thinks, remembers, feels, and sends signals telling your body what to do.",
+    "apBiologyFacts": [
+      "About 86 billion neurons. Gray matter (cell bodies and synapses) forms the outer cortex; white matter beneath is myelinated axons - myelin speeds conduction by saltatory transmission between nodes of Ranvier.",
+      "Four lobes with distinct jobs: frontal (planning, decision-making, voluntary motor), parietal (touch and spatial processing), temporal (hearing, language comprehension, memory via the hippocampus), occipital (vision).",
+      "Control is contralateral - the left hemisphere controls the right side of the body - because motor tracts decussate in the medulla.",
+      "Gyri and sulci fold the cortex so a large surface area fits inside a fixed skull volume; the same surface-area principle as intestinal villi and alveoli.",
+      "It is about 2% of body mass but consumes roughly 20% of resting oxygen and glucose, and cannot store fuel - hence its total dependence on continuous blood flow."
+    ],
+    "clinicalNotes": [
+      "Stroke is the classic localizing lesion: about 87% ischemic, and FAST (Face, Arms, Speech, Time) is the public screening tool.",
+      "Broca's area (frontal) damage produces effortful, non-fluent speech with preserved comprehension; Wernicke's area (temporal) damage produces fluent but meaningless speech with impaired comprehension.",
+      "The blood-brain barrier excludes most large and hydrophilic drugs, which constrains CNS pharmacology - levodopa crosses where dopamine cannot.",
+      "Hypoglycemia presents as confusion and altered consciousness, and is always checked early in any altered mental state."
+    ],
     "boundsCenterOffset": { "x": 0.0, "y": 0.0, "z": 0.0 },
     "idealCameraDistance": 0.25,
     "addressableMeshKey": "Mesh_Brain_LOD0",
     "audioTTSKey": "Audio_Brain_Desc",
-    "connectedNodes": ["SYS_NERV_SPINALCORD"],
+    "connectedNodes": ["SYS_NERV_SPINALCORD", "SYS_NERV_CEREBELLUM", "SYS_NERV_BRAINSTEM", "SYS_ENDO_PITUITARY"],
     "hasMicroDive": true,
     "microDiveKey": "Scene_Micro_Synapse",
+    "pharmacologyTargets": ["Levodopa"]
+  },
+  {
+    "entityID": "SYS_NERV_CEREBELLUM",
+    "snomedCTCode": "113305005",
+    "icd10PathologyCodes": ["G31.9"],
+    "latinName": "Cerebellum",
+    "commonName": "Cerebellum",
+    "systemCategory": ["Nervous"],
+    "descriptionProfessional": "The 'little brain' in the posterior cranial fossa, coordinating movement, posture and motor learning through comparison of intended and actual movement.",
+    "descriptionPatient": "The small structure at the back of your brain that makes your movements smooth and keeps you balanced.",
+    "apBiologyFacts": [
+      "It does not initiate movement - it refines it, comparing the motor command with sensory feedback and correcting the error in real time.",
+      "It contains more than half of all the neurons in the brain despite occupying only about 10% of its volume.",
+      "Unlike the cerebrum, its control is ipsilateral: the left cerebellum coordinates the left side of the body.",
+      "It is central to procedural motor learning - riding a bicycle, or any skill that becomes automatic with practice."
+    ],
+    "clinicalNotes": [
+      "Cerebellar lesions cause ataxia, dysmetria (past-pointing on finger-to-nose), intention tremor, dysdiadochokinesia and nystagmus.",
+      "Alcohol acutely depresses cerebellar function, which is the physiological basis of roadside gait and coordination testing.",
+      "A positive Romberg test indicates proprioceptive rather than cerebellar failure - a classic distinguishing point."
+    ],
+    "boundsCenterOffset": { "x": 0.0, "y": 0.0, "z": 0.0 },
+    "idealCameraDistance": 0.2,
+    "addressableMeshKey": "Mesh_Cerebellum_LOD0",
+    "audioTTSKey": "Audio_Cerebellum_Desc",
+    "connectedNodes": ["SYS_NERV_BRAIN", "SYS_NERV_BRAINSTEM"],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_NERV_BRAINSTEM",
+    "snomedCTCode": "15926001",
+    "icd10PathologyCodes": ["G93.9"],
+    "latinName": "Truncus encephali",
+    "commonName": "Brainstem",
+    "systemCategory": ["Nervous"],
+    "descriptionProfessional": "Midbrain, pons and medulla oblongata - the conduit between cerebrum and spinal cord, containing the autonomic centers and the nuclei of cranial nerves III-XII.",
+    "descriptionPatient": "The stalk connecting your brain to your spinal cord. It runs the things you never think about: breathing, heartbeat, blood pressure.",
+    "apBiologyFacts": [
+      "The medulla houses the cardiovascular and respiratory centers, plus reflex centers for swallowing, coughing and vomiting. These are the functions that keep you alive without conscious input.",
+      "Central chemoreceptors here monitor CSF pH, which tracks arterial CO2. Rising CO2 - not falling oxygen - is the main day-to-day stimulus to breathe.",
+      "Ten of the twelve cranial nerves arise from the brainstem.",
+      "The reticular activating system within it governs arousal and the sleep-wake cycle; damage produces coma."
+    ],
+    "clinicalNotes": [
+      "Brainstem reflexes (pupillary, corneal, gag, oculocephalic) are the core of brain death determination.",
+      "Cushing's reflex - hypertension, bradycardia and irregular respiration - signals dangerously raised intracranial pressure and impending herniation.",
+      "Locked-in syndrome from a ventral pontine lesion leaves the patient conscious but able to move only the eyes."
+    ],
+    "boundsCenterOffset": { "x": 0.0, "y": 0.0, "z": 0.0 },
+    "idealCameraDistance": 0.2,
+    "addressableMeshKey": "Mesh_Brainstem_LOD0",
+    "audioTTSKey": "Audio_Brainstem_Desc",
+    "connectedNodes": ["SYS_NERV_BRAIN", "SYS_NERV_CEREBELLUM", "SYS_NERV_SPINALCORD"],
+    "hasMicroDive": false,
+    "microDiveKey": "",
     "pharmacologyTargets": []
   },
   {
@@ -222,13 +581,24 @@
     "latinName": "Medulla spinalis",
     "commonName": "Spinal Cord",
     "systemCategory": ["Nervous"],
-    "descriptionProfessional": "A bundle of nerve fibers extending from the brainstem through the vertebral canal, relaying signals between brain and body.",
-    "descriptionPatient": "A long bundle of nerves running down your back that carries messages between your brain and the rest of your body.",
+    "descriptionProfessional": "The CNS tract running from the foramen magnum to the conus medullaris at L1-L2, giving off 31 pairs of spinal nerves.",
+    "descriptionPatient": "A thick bundle of nerves running down your back that carries messages between your brain and the rest of your body.",
+    "apBiologyFacts": [
+      "Its gray matter is central and butterfly-shaped (cell bodies), with white matter outside (myelinated tracts) - the opposite arrangement to the brain.",
+      "Sensory fibers enter through the dorsal root; motor fibers leave through the ventral root. This is the Bell-Magendie law and it makes lesion localization possible.",
+      "A reflex arc bypasses the brain entirely: receptor, sensory neuron, integrating center in the cord, motor neuron, effector. The knee-jerk is monosynaptic - just two neurons - which is why it is so fast.",
+      "It ends at L1-L2 in adults, well above the end of the vertebral column, because the spine grows faster than the cord. Below that, nerve roots continue as the cauda equina."
+    ],
+    "clinicalNotes": [
+      "Lumbar puncture is performed at L3-L4 or L4-L5, below the conus, so the needle parts the floating cauda equina roots instead of piercing cord.",
+      "Dermatome maps let a sensory level be read off the skin to localize the injured segment - the nipple line is T4, the umbilicus T10.",
+      "Complete cord injury above C3-C5 abolishes diaphragmatic innervation and requires ventilation."
+    ],
     "boundsCenterOffset": { "x": 0.0, "y": -0.4, "z": -0.05 },
     "idealCameraDistance": 0.6,
     "addressableMeshKey": "Mesh_SpinalCord_LOD0",
     "audioTTSKey": "Audio_SpinalCord_Desc",
-    "connectedNodes": ["SYS_NERV_BRAIN", "SYS_SK_SPINE"],
+    "connectedNodes": ["SYS_NERV_BRAIN", "SYS_NERV_BRAINSTEM", "SYS_SK_SPINE"],
     "hasMicroDive": true,
     "microDiveKey": "Scene_Micro_Synapse",
     "pharmacologyTargets": []
@@ -240,13 +610,24 @@
     "latinName": "Cranium",
     "commonName": "Skull",
     "systemCategory": ["Skeletal"],
-    "descriptionProfessional": "The bony structure of the head, protecting the brain and supporting the facial structures.",
-    "descriptionPatient": "The hard bone that protects your brain, like a natural helmet.",
+    "descriptionProfessional": "Twenty-two bones - eight cranial and fourteen facial - united by sutures, enclosing and protecting the brain and forming the orbits and nasal cavity.",
+    "descriptionPatient": "The hard bone that protects your brain, like a built-in helmet.",
+    "apBiologyFacts": [
+      "Sutures are immovable fibrous joints (synarthroses) - the interlocking edges are far stronger than a smooth seam would be.",
+      "Newborns have fontanelles, membranous gaps that let the skull deform during birth and accommodate rapid brain growth. The anterior fontanelle closes by about 18-24 months.",
+      "The mandible is the only freely movable bone of the skull.",
+      "The foramen magnum transmits the spinal cord; dozens of smaller foramina pass cranial nerves and vessels."
+    ],
+    "clinicalNotes": [
+      "Basilar skull fracture signs: periorbital bruising ('raccoon eyes'), mastoid bruising (Battle's sign), and CSF leaking from nose or ear.",
+      "Epidural hematoma comes from the middle meningeal artery and appears lens-shaped (biconvex) on CT, often after a lucid interval. Subdural hematoma comes from bridging veins and appears crescent-shaped.",
+      "Because the cranium is a rigid box, any expanding mass raises intracranial pressure - the Monro-Kellie doctrine."
+    ],
     "boundsCenterOffset": { "x": 0.0, "y": 0.0, "z": 0.0 },
     "idealCameraDistance": 0.3,
     "addressableMeshKey": "Mesh_Skull_LOD0",
     "audioTTSKey": "Audio_Skull_Desc",
-    "connectedNodes": ["SYS_SK_SPINE"],
+    "connectedNodes": ["SYS_SK_SPINE", "SYS_NERV_BRAIN"],
     "hasMicroDive": false,
     "microDiveKey": "",
     "pharmacologyTargets": []
@@ -256,15 +637,26 @@
     "snomedCTCode": "421060004",
     "icd10PathologyCodes": ["M54.9"],
     "latinName": "Columna vertebralis",
-    "commonName": "Spine (Vertebral Column)",
+    "commonName": "Vertebral Column (Spine)",
     "systemCategory": ["Skeletal"],
-    "descriptionProfessional": "The flexible column of 33 vertebrae that supports the trunk, protects the spinal cord, and enables posture.",
-    "descriptionPatient": "Your backbone — a stack of small bones that supports your body and protects your spinal cord.",
+    "descriptionProfessional": "Thirty-three vertebrae - 7 cervical, 12 thoracic, 5 lumbar, 5 fused sacral and 4 fused coccygeal - forming a segmented, curved column that protects the spinal cord.",
+    "descriptionPatient": "Your backbone: a stack of small bones that holds you upright and shields your spinal cord.",
+    "apBiologyFacts": [
+      "Intervertebral discs are shock absorbers with a tough outer annulus fibrosus and a gel-like nucleus pulposus inside - a hydraulic cushion between every pair of vertebrae.",
+      "Its S-shaped curvature distributes load and absorbs shock far better than a straight column would. The thoracic and sacral curves are primary (present at birth); the cervical and lumbar curves are secondary, developing as an infant lifts its head and walks.",
+      "C1 (atlas) supports the skull and allows nodding; C2 (axis) has the odontoid peg around which the head rotates.",
+      "Nearly all mammals have exactly seven cervical vertebrae, whether mouse or giraffe - a striking piece of evidence for common descent."
+    ],
+    "clinicalNotes": [
+      "Disc herniation is commonest at L4-L5 and L5-S1; posterolateral extrusion compresses the nerve root and causes sciatica.",
+      "Abnormal curvature: scoliosis (lateral), kyphosis (excess thoracic convexity), lordosis (excess lumbar concavity).",
+      "Osteoporotic vertebral compression fractures cause progressive height loss and kyphosis in the elderly."
+    ],
     "boundsCenterOffset": { "x": 0.0, "y": 0.0, "z": -0.05 },
     "idealCameraDistance": 0.7,
     "addressableMeshKey": "Mesh_Spine_LOD0",
     "audioTTSKey": "Audio_Spine_Desc",
-    "connectedNodes": ["SYS_SK_SKULL", "SYS_SK_PELVIS", "SYS_NERV_SPINALCORD"],
+    "connectedNodes": ["SYS_SK_SKULL", "SYS_SK_PELVIS", "SYS_NERV_SPINALCORD", "SYS_SK_RIBCAGE"],
     "hasMicroDive": false,
     "microDiveKey": "",
     "pharmacologyTargets": []
@@ -273,16 +665,54 @@
     "entityID": "SYS_SK_RIBCAGE",
     "snomedCTCode": "24975004",
     "icd10PathologyCodes": ["S22.9"],
-    "latinName": "Thorax osseus",
+    "latinName": "Cavea thoracis",
     "commonName": "Rib Cage",
     "systemCategory": ["Skeletal"],
-    "descriptionProfessional": "The bony and cartilaginous structure enclosing the thoracic cavity, protecting the heart and lungs.",
-    "descriptionPatient": "The curved bones around your chest that protect your heart and lungs.",
+    "descriptionProfessional": "Twelve pairs of ribs articulating posteriorly with thoracic vertebrae and anteriorly, via costal cartilage, with the sternum - enclosing the thoracic viscera.",
+    "descriptionPatient": "The curved bones around your chest that protect your heart and lungs and move when you breathe.",
+    "apBiologyFacts": [
+      "Ribs 1-7 are 'true' ribs attaching directly to the sternum by their own costal cartilage; 8-10 are 'false', joining the cartilage above; 11-12 are 'floating' with no anterior attachment.",
+      "It is not a rigid cage but a moving bellows. External intercostals elevate the ribs during inspiration in 'pump handle' (anteroposterior) and 'bucket handle' (transverse) motions, increasing thoracic volume in all dimensions.",
+      "Costal cartilage is hyaline cartilage, which keeps the chest wall springy and compliant; it calcifies with age, stiffening the chest."
+    ],
+    "clinicalNotes": [
+      "Flail chest is three or more consecutive ribs fractured in two or more places, producing a segment that moves paradoxically with respiration.",
+      "Rib fractures risk pneumothorax and, with lower ribs, splenic or hepatic laceration.",
+      "Chest compressions frequently fracture ribs, especially in the elderly; this is expected and CPR should continue.",
+      "Red bone marrow persists in the ribs and sternum throughout adult life, which is why the sternum is used for marrow aspiration."
+    ],
     "boundsCenterOffset": { "x": 0.0, "y": 0.1, "z": -0.05 },
     "idealCameraDistance": 0.5,
     "addressableMeshKey": "Mesh_RibCage_LOD0",
     "audioTTSKey": "Audio_RibCage_Desc",
-    "connectedNodes": ["SYS_SK_SPINE"],
+    "connectedNodes": ["SYS_SK_SPINE", "SYS_RESP_LUNG_L", "SYS_RESP_LUNG_R"],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_SK_CLAVICLE",
+    "snomedCTCode": "51299004",
+    "icd10PathologyCodes": ["S42.00"],
+    "latinName": "Clavicula",
+    "commonName": "Clavicle (Collarbone)",
+    "systemCategory": ["Skeletal"],
+    "descriptionProfessional": "An S-shaped strut connecting the sternum to the acromion, the only bony articulation between the upper limb and the axial skeleton.",
+    "descriptionPatient": "Your collarbone. It's the only bone linking your arm to the rest of your skeleton, which is why it breaks so easily.",
+    "apBiologyFacts": [
+      "It acts as a strut holding the shoulder out from the trunk, which is what gives the upper limb its enormous range of motion.",
+      "It is the first bone in the body to ossify (around week five of development) and the last growth plate to fuse, around age 25."
+    ],
+    "clinicalNotes": [
+      "One of the most commonly fractured bones, typically in the middle third after a fall onto an outstretched hand or the shoulder.",
+      "The subclavian vessels and brachial plexus pass directly beneath it, so displaced fractures warrant a careful neurovascular exam.",
+      "It is the landmark for subclavian central line placement."
+    ],
+    "boundsCenterOffset": { "x": 0.0, "y": 0.0, "z": 0.0 },
+    "idealCameraDistance": 0.35,
+    "addressableMeshKey": "Mesh_Clavicle_LOD0",
+    "audioTTSKey": "Audio_Clavicle_Desc",
+    "connectedNodes": ["SYS_SK_RIBCAGE", "SYS_SK_HUMERUS"],
     "hasMicroDive": false,
     "microDiveKey": "",
     "pharmacologyTargets": []
@@ -294,13 +724,23 @@
     "latinName": "Pelvis",
     "commonName": "Pelvis",
     "systemCategory": ["Skeletal"],
-    "descriptionProfessional": "The basin-shaped bony structure connecting the spine to the lower limbs, supporting body weight and protecting pelvic organs.",
-    "descriptionPatient": "The bowl-shaped bone at the base of your spine that connects your upper body to your legs.",
+    "descriptionProfessional": "A basin formed by the paired hip bones (ilium, ischium, pubis fused at the acetabulum), the sacrum and the coccyx, transmitting axial load to the lower limbs.",
+    "descriptionPatient": "The bowl-shaped bone at the base of your spine that carries your body weight down into your legs.",
+    "apBiologyFacts": [
+      "Each hip bone is three bones - ilium, ischium and pubis - fused at the acetabulum, the socket of the hip joint.",
+      "It transfers the entire weight of the upper body through the sacroiliac joints into the femora.",
+      "Sexual dimorphism is pronounced: the female pelvis has a wider subpubic angle (over 80-90 degrees) and a rounder inlet to permit childbirth, making the pelvis the single most reliable bone for sex determination in forensics and archaeology."
+    ],
+    "clinicalNotes": [
+      "Pelvic fractures can cause massive retroperitoneal hemorrhage; a binder is applied early in trauma to reduce pelvic volume and tamponade bleeding.",
+      "The iliac crest is the standard site for bone marrow biopsy.",
+      "Total hip replacement resurfaces the acetabulum and replaces the femoral head."
+    ],
     "boundsCenterOffset": { "x": 0.0, "y": -0.3, "z": 0.0 },
     "idealCameraDistance": 0.4,
     "addressableMeshKey": "Mesh_Pelvis_LOD0",
     "audioTTSKey": "Audio_Pelvis_Desc",
-    "connectedNodes": ["SYS_SK_SPINE", "SYS_SK_FEMUR"],
+    "connectedNodes": ["SYS_SK_SPINE", "SYS_SK_FEMUR", "SYS_REN_BLADDER"],
     "hasMicroDive": false,
     "microDiveKey": "",
     "pharmacologyTargets": []
@@ -310,17 +750,55 @@
     "snomedCTCode": "71341001",
     "icd10PathologyCodes": ["S72.90"],
     "latinName": "Os femoris",
-    "commonName": "Femur",
+    "commonName": "Femur (Thigh Bone)",
     "systemCategory": ["Skeletal"],
-    "descriptionProfessional": "The longest and strongest bone in the human body, forming the thigh and articulating with the pelvis and tibia.",
-    "descriptionPatient": "Your thigh bone — the longest and strongest bone in your body.",
+    "descriptionProfessional": "The longest and strongest bone in the body, articulating proximally at the acetabulum and distally with the tibia and patella.",
+    "descriptionPatient": "Your thigh bone - the longest and strongest bone in your body.",
+    "apBiologyFacts": [
+      "It is about a quarter of a person's total height, which is why forensic scientists can estimate stature from a single femur.",
+      "It is a long bone with the classic architecture: a diaphysis of dense compact bone around a marrow cavity, and epiphyses of spongy (trabecular) bone whose struts align along lines of mechanical stress - strength with minimum mass.",
+      "Red marrow in the proximal epiphysis performs haematopoiesis, producing red cells, white cells and platelets.",
+      "Bone is living, remodeling tissue: osteoblasts deposit matrix and osteoclasts resorb it, and the balance is shifted by mechanical loading (Wolff's law), calcitonin and parathyroid hormone."
+    ],
+    "clinicalNotes": [
+      "Femoral neck fracture is a major cause of morbidity in the osteoporotic elderly; the limb appears shortened and externally rotated.",
+      "The femoral head's retrograde blood supply means displaced neck fractures risk avascular necrosis.",
+      "Fat embolism syndrome can follow femoral shaft fractures, presenting with hypoxia, confusion and a petechial rash."
+    ],
     "boundsCenterOffset": { "x": 0.0, "y": -0.4, "z": 0.0 },
     "idealCameraDistance": 0.6,
     "addressableMeshKey": "Mesh_Skeletal_Femur_LOD0",
     "audioTTSKey": "Audio_Femur_Desc",
-    "connectedNodes": ["SYS_SK_PELVIS"],
+    "connectedNodes": ["SYS_SK_PELVIS", "SYS_SK_TIBIA", "SYS_MUSC_QUADS"],
     "hasMicroDive": true,
     "microDiveKey": "Scene_Micro_Haversian",
+    "pharmacologyTargets": ["Alendronate"]
+  },
+  {
+    "entityID": "SYS_SK_TIBIA",
+    "snomedCTCode": "12611008",
+    "icd10PathologyCodes": ["S82.209"],
+    "latinName": "Tibia",
+    "commonName": "Tibia (Shin Bone)",
+    "systemCategory": ["Skeletal"],
+    "descriptionProfessional": "The medial and weight-bearing bone of the leg, articulating with the femoral condyles above and forming the medial malleolus below.",
+    "descriptionPatient": "Your shin bone. It carries almost all the weight through your lower leg - the thinner bone beside it barely shares the load.",
+    "apBiologyFacts": [
+      "The tibia bears roughly 85-90% of the load through the leg; the fibula is mainly a muscle anchor and stabilizer of the ankle.",
+      "Its anteromedial surface lies directly under skin with no muscle covering - which is why it is the bone you bark your shin on."
+    ],
+    "clinicalNotes": [
+      "It is the most commonly fractured long bone, and its subcutaneous position makes open fractures common.",
+      "The anterior compartment of the leg is a classic site for compartment syndrome - pain out of proportion, pain on passive stretch, and a tense compartment are the early signs, long before pulselessness.",
+      "The proximal tibia is the standard site for intraosseous access when veins cannot be cannulated in an emergency."
+    ],
+    "boundsCenterOffset": { "x": 0.0, "y": -0.2, "z": 0.0 },
+    "idealCameraDistance": 0.5,
+    "addressableMeshKey": "Mesh_Tibia_LOD0",
+    "audioTTSKey": "Audio_Tibia_Desc",
+    "connectedNodes": ["SYS_SK_FEMUR", "SYS_MUSC_GASTROCNEMIUS"],
+    "hasMicroDive": false,
+    "microDiveKey": "",
     "pharmacologyTargets": []
   },
   {
@@ -330,13 +808,48 @@
     "latinName": "Humerus",
     "commonName": "Humerus",
     "systemCategory": ["Skeletal"],
-    "descriptionProfessional": "The long bone of the upper arm, articulating with the scapula at the shoulder and the radius/ulna at the elbow.",
+    "descriptionProfessional": "The long bone of the arm, articulating at the glenohumeral joint proximally and with the radius and ulna at the elbow.",
     "descriptionPatient": "Your upper arm bone, running from your shoulder to your elbow.",
+    "apBiologyFacts": [
+      "Its head sits in the shallow glenoid fossa, a ball-and-socket arrangement that trades stability for the greatest range of motion of any joint in the body - which is also why the shoulder is the most frequently dislocated joint.",
+      "The radial nerve winds around the shaft in the spiral groove, running in direct contact with bone."
+    ],
+    "clinicalNotes": [
+      "Midshaft fracture classically injures the radial nerve in the spiral groove, producing wrist drop.",
+      "Surgical neck fracture threatens the axillary nerve, causing deltoid weakness and numbness over the 'regimental badge' area.",
+      "Anterior shoulder dislocation is by far the commonest direction and also risks the axillary nerve."
+    ],
     "boundsCenterOffset": { "x": 0.3, "y": 0.1, "z": 0.0 },
     "idealCameraDistance": 0.5,
     "addressableMeshKey": "Mesh_Skeletal_Humerus_LOD0",
     "audioTTSKey": "Audio_Humerus_Desc",
-    "connectedNodes": ["SYS_SK_RIBCAGE"],
+    "connectedNodes": ["SYS_SK_CLAVICLE", "SYS_SK_RADIUS_ULNA", "SYS_MUSC_BICEPS"],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_SK_RADIUS_ULNA",
+    "snomedCTCode": "110535000",
+    "icd10PathologyCodes": ["S52.90"],
+    "latinName": "Radius et Ulna",
+    "commonName": "Radius & Ulna",
+    "systemCategory": ["Skeletal"],
+    "descriptionProfessional": "The paired forearm bones: the radius laterally (thumb side) and the ulna medially, connected by an interosseous membrane and permitting pronation and supination.",
+    "descriptionPatient": "The two bones of your forearm. One rotates over the other, which is how you turn your palm up and down.",
+    "apBiologyFacts": [
+      "Pronation and supination occur because the radius rotates across a relatively fixed ulna - a movement most vertebrate limbs cannot perform, and one that makes the human hand so useful.",
+      "The elbow itself is a hinge joint formed mainly between the humeral trochlea and the ulna's trochlear notch, allowing flexion and extension only."
+    ],
+    "clinicalNotes": [
+      "Colles' fracture - a distal radius fracture from falling on an outstretched hand - produces the classic 'dinner fork' deformity and is very common in osteoporosis.",
+      "The ulnar nerve passes behind the medial epicondyle, unprotected; striking it produces the 'funny bone' shock down to the little finger."
+    ],
+    "boundsCenterOffset": { "x": 0.3, "y": -0.1, "z": 0.0 },
+    "idealCameraDistance": 0.4,
+    "addressableMeshKey": "Mesh_RadiusUlna_LOD0",
+    "audioTTSKey": "Audio_RadiusUlna_Desc",
+    "connectedNodes": ["SYS_SK_HUMERUS"],
     "hasMicroDive": false,
     "microDiveKey": "",
     "pharmacologyTargets": []
@@ -348,13 +861,23 @@
     "latinName": "Musculus biceps brachii",
     "commonName": "Biceps Brachii",
     "systemCategory": ["Muscular"],
-    "descriptionProfessional": "A two-headed muscle on the anterior upper arm responsible for elbow flexion and forearm supination.",
-    "descriptionPatient": "The muscle on the front of your upper arm that bends your elbow, like when you show off your arm muscle.",
+    "descriptionProfessional": "A two-headed anterior arm muscle crossing both shoulder and elbow, the principal supinator and a strong elbow flexor.",
+    "descriptionPatient": "The muscle on the front of your upper arm that bends your elbow - the one you flex to show off.",
+    "apBiologyFacts": [
+      "Skeletal muscle is voluntary, striated and multinucleate, formed by the fusion of many myoblasts during development.",
+      "Contraction follows the sliding filament model: an action potential releases Ca2+ from the sarcoplasmic reticulum, Ca2+ binds troponin, tropomyosin shifts off the actin binding sites, and myosin heads form cross-bridges and pull. ATP is needed both for the power stroke and, crucially, to DETACH the myosin head - which is why rigor mortis sets in when ATP runs out.",
+      "Biceps and triceps are an antagonistic pair: muscles can only pull, never push, so movement in both directions requires opposing muscles.",
+      "It is also the strongest supinator of the forearm - which is why right-handed screw threads tighten clockwise."
+    ],
+    "clinicalNotes": [
+      "Rupture of the long head tendon produces the 'Popeye deformity', a bunched muscle belly in the lower arm.",
+      "The biceps reflex tests the C5-C6 nerve roots."
+    ],
     "boundsCenterOffset": { "x": 0.3, "y": 0.1, "z": 0.05 },
     "idealCameraDistance": 0.3,
     "addressableMeshKey": "Mesh_Muscle_Biceps_LOD0",
     "audioTTSKey": "Audio_Biceps_Desc",
-    "connectedNodes": ["SYS_SK_HUMERUS"],
+    "connectedNodes": ["SYS_SK_HUMERUS", "SYS_SK_RADIUS_ULNA"],
     "hasMicroDive": true,
     "microDiveKey": "Scene_Micro_Sarcomere",
     "pharmacologyTargets": []
@@ -364,15 +887,133 @@
     "snomedCTCode": "68612001",
     "icd10PathologyCodes": ["M62.9"],
     "latinName": "Musculus quadriceps femoris",
-    "commonName": "Quadriceps",
+    "commonName": "Quadriceps Femoris",
     "systemCategory": ["Muscular"],
-    "descriptionProfessional": "A group of four muscles on the anterior thigh responsible for knee extension.",
-    "descriptionPatient": "The big muscle on the front of your thigh that straightens your knee, like when you kick a ball.",
+    "descriptionProfessional": "Four anterior thigh muscles - rectus femoris and the three vasti - converging on the patellar tendon to extend the knee.",
+    "descriptionPatient": "The big muscle group on the front of your thigh that straightens your knee when you kick or stand up.",
+    "apBiologyFacts": [
+      "Four muscles with one shared tendon: rectus femoris plus vastus lateralis, medialis and intermedius. Rectus femoris uniquely crosses the hip too, so it both flexes the hip and extends the knee.",
+      "The patella is a sesamoid bone embedded in the tendon. It acts as a pulley, increasing the moment arm and therefore the leverage of the whole group.",
+      "It is one of the largest and most powerful muscle groups in the body, and the reason humans can stand from sitting without using their arms."
+    ],
+    "clinicalNotes": [
+      "The patellar (knee-jerk) reflex tests L2-L4 and is the classic demonstration of a monosynaptic reflex arc.",
+      "Quadriceps atrophy develops strikingly fast after knee injury or immobilization - visible wasting within days.",
+      "The vastus lateralis is the preferred intramuscular injection site in infants."
+    ],
     "boundsCenterOffset": { "x": 0.0, "y": -0.4, "z": 0.05 },
     "idealCameraDistance": 0.35,
     "addressableMeshKey": "Mesh_Muscle_Quadriceps_LOD0",
     "audioTTSKey": "Audio_Quadriceps_Desc",
-    "connectedNodes": ["SYS_SK_FEMUR"],
+    "connectedNodes": ["SYS_SK_FEMUR", "SYS_SK_TIBIA"],
+    "hasMicroDive": true,
+    "microDiveKey": "Scene_Micro_Sarcomere",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_MUSC_PECTORALIS",
+    "snomedCTCode": "43848001",
+    "icd10PathologyCodes": ["M62.9"],
+    "latinName": "Musculus pectoralis major",
+    "commonName": "Pectoralis Major",
+    "systemCategory": ["Muscular"],
+    "descriptionProfessional": "A large fan-shaped chest muscle with clavicular and sternocostal heads, adducting, flexing and medially rotating the humerus.",
+    "descriptionPatient": "The broad chest muscle that pulls your arm across your body - the one worked by push-ups.",
+    "apBiologyFacts": [
+      "Its two heads can act separately: the clavicular head flexes the arm forward, the sternocostal head extends it back down from a flexed position.",
+      "It is an accessory muscle of respiration - when the arms are fixed (leaning on a table), it can help pull the ribs upward, which is why breathless patients adopt the tripod position."
+    ],
+    "clinicalNotes": [
+      "Pectoralis major rupture is a recognized bench-press injury, producing a visible defect and axillary bruising.",
+      "It is the surface landmark for chest auscultation and for correct hand placement in CPR (lower half of the sternum)."
+    ],
+    "boundsCenterOffset": { "x": 0.0, "y": 0.0, "z": 0.05 },
+    "idealCameraDistance": 0.35,
+    "addressableMeshKey": "Mesh_Muscle_Pectoralis_LOD0",
+    "audioTTSKey": "Audio_Pectoralis_Desc",
+    "connectedNodes": ["SYS_SK_HUMERUS", "SYS_SK_RIBCAGE", "SYS_SK_CLAVICLE"],
+    "hasMicroDive": true,
+    "microDiveKey": "Scene_Micro_Sarcomere",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_MUSC_DELTOID",
+    "snomedCTCode": "37035000",
+    "icd10PathologyCodes": ["M62.9"],
+    "latinName": "Musculus deltoideus",
+    "commonName": "Deltoid",
+    "systemCategory": ["Muscular"],
+    "descriptionProfessional": "The triangular shoulder cap with anterior, middle and posterior fibers, the principal abductor of the arm above 15 degrees.",
+    "descriptionPatient": "The rounded muscle capping your shoulder that lifts your arm out to the side.",
+    "apBiologyFacts": [
+      "Its three sets of fibers do different jobs from one muscle: anterior fibers flex, middle fibers abduct, posterior fibers extend the arm.",
+      "Supraspinatus initiates the first 15 degrees of abduction; the deltoid takes over beyond that - a nice example of muscles handing off through a range of motion.",
+      "It is innervated by the axillary nerve (C5-C6)."
+    ],
+    "clinicalNotes": [
+      "It is the standard site for adult intramuscular vaccination, two to three finger-breadths below the acromion to avoid the axillary nerve.",
+      "Axillary nerve injury (surgical neck fracture, shoulder dislocation) causes deltoid paralysis and loss of sensation over the lateral shoulder."
+    ],
+    "boundsCenterOffset": { "x": 0.2, "y": 0.1, "z": 0.0 },
+    "idealCameraDistance": 0.3,
+    "addressableMeshKey": "Mesh_Muscle_Deltoid_LOD0",
+    "audioTTSKey": "Audio_Deltoid_Desc",
+    "connectedNodes": ["SYS_SK_HUMERUS", "SYS_SK_CLAVICLE"],
+    "hasMicroDive": true,
+    "microDiveKey": "Scene_Micro_Sarcomere",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_MUSC_RECTUS_ABDOMINIS",
+    "snomedCTCode": "10985000",
+    "icd10PathologyCodes": ["M62.9"],
+    "latinName": "Musculus rectus abdominis",
+    "commonName": "Rectus Abdominis",
+    "systemCategory": ["Muscular"],
+    "descriptionProfessional": "Paired vertical strap muscles running from pubic crest to costal cartilages within the rectus sheath, divided by tendinous intersections.",
+    "descriptionPatient": "The front abdominal muscle that bends you forward - the 'six-pack'.",
+    "apBiologyFacts": [
+      "The 'six-pack' is not six muscles: it is two strap muscles crossed by three tendinous intersections, with the linea alba running down the midline between them.",
+      "Beyond flexing the trunk, it raises intra-abdominal pressure for forced expiration, coughing, defecation, vomiting and childbirth (the Valsalva manoeuvre)."
+    ],
+    "clinicalNotes": [
+      "Diastasis recti - separation at the linea alba - is common in pregnancy and infancy.",
+      "The linea alba is relatively avascular, which is why a midline laparotomy incision is made there.",
+      "Involuntary rigidity ('guarding') of these muscles is a cardinal sign of peritonitis."
+    ],
+    "boundsCenterOffset": { "x": 0.0, "y": 0.0, "z": 0.05 },
+    "idealCameraDistance": 0.4,
+    "addressableMeshKey": "Mesh_Muscle_RectusAbdominis_LOD0",
+    "audioTTSKey": "Audio_RectusAbdominis_Desc",
+    "connectedNodes": ["SYS_SK_PELVIS", "SYS_SK_RIBCAGE"],
+    "hasMicroDive": true,
+    "microDiveKey": "Scene_Micro_Sarcomere",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_MUSC_GASTROCNEMIUS",
+    "snomedCTCode": "25097003",
+    "icd10PathologyCodes": ["M62.9"],
+    "latinName": "Musculus gastrocnemius",
+    "commonName": "Gastrocnemius (Calf)",
+    "systemCategory": ["Muscular"],
+    "descriptionProfessional": "The superficial two-headed calf muscle crossing knee and ankle, joining soleus to form the triceps surae and inserting via the calcaneal tendon.",
+    "descriptionPatient": "Your calf muscle. It points your foot down so you can walk, run and stand on tiptoe.",
+    "apBiologyFacts": [
+      "With soleus it forms the triceps surae, inserting through the Achilles - the thickest and strongest tendon in the human body.",
+      "It is rich in fast-twitch (Type II) fibers for explosive plantarflexion, while the deeper soleus is predominantly slow-twitch (Type I) for sustained postural work - a clean illustration of fiber-type specialization.",
+      "Contracting calf muscles compress the deep veins, and the venous valves make that squeeze one-directional. This 'skeletal muscle pump' is a major driver of venous return against gravity."
+    ],
+    "clinicalNotes": [
+      "Achilles tendon rupture feels like being kicked in the back of the leg; Thompson's test (squeezing the calf fails to plantarflex the foot) confirms it.",
+      "Unilateral calf pain, swelling and warmth raise suspicion of deep vein thrombosis.",
+      "Immobility removes the muscle pump, which is precisely why postoperative and long-haul patients are at DVT risk."
+    ],
+    "boundsCenterOffset": { "x": 0.0, "y": -0.2, "z": -0.05 },
+    "idealCameraDistance": 0.35,
+    "addressableMeshKey": "Mesh_Muscle_Gastrocnemius_LOD0",
+    "audioTTSKey": "Audio_Gastrocnemius_Desc",
+    "connectedNodes": ["SYS_SK_TIBIA", "SYS_CV_VEIN"],
     "hasMicroDive": true,
     "microDiveKey": "Scene_Micro_Sarcomere",
     "pharmacologyTargets": []
@@ -384,16 +1025,28 @@
     "latinName": "Ren sinister",
     "commonName": "Left Kidney",
     "systemCategory": ["Renal"],
-    "descriptionProfessional": "A bean-shaped retroperitoneal organ that filters blood to remove waste and regulate fluid balance.",
-    "descriptionPatient": "One of your two bean-shaped organs that filter waste out of your blood to make urine.",
+    "descriptionProfessional": "The left retroperitoneal kidney, lying at roughly T12-L3, marginally higher than the right, filtering plasma through approximately one million nephrons.",
+    "descriptionPatient": "One of your two bean-shaped filters. It cleans your blood and makes urine.",
+    "apBiologyFacts": [
+      "Three steps make urine: filtration at the glomerulus (about 180 L of filtrate per day), selective reabsorption (roughly 99% of it taken back, mostly in the proximal convoluted tubule), and tubular secretion of extra wastes and H+.",
+      "The loop of Henle is a countercurrent multiplier that builds a salt gradient in the medulla, letting the collecting duct reclaim water and produce concentrated urine. Desert mammals have very long loops; this is a textbook structure-function adaptation.",
+      "ADH from the posterior pituitary inserts aquaporins into the collecting duct so more water is reabsorbed when you are dehydrated. Aldosterone drives Na+ reabsorption and K+ secretion.",
+      "The kidney is also endocrine: it releases renin (initiating RAAS to raise blood pressure), erythropoietin (stimulating red cell production), and activates vitamin D for calcium absorption.",
+      "It is the primary regulator of blood pH, excreting H+ and reclaiming bicarbonate - slower than the lungs but far more powerful over hours to days."
+    ],
+    "clinicalNotes": [
+      "Estimated GFR with serum creatinine stages chronic kidney disease; anemia of CKD reflects lost erythropoietin.",
+      "Diabetic nephropathy is the leading cause of end-stage renal disease worldwide.",
+      "NSAIDs block prostaglandin-mediated afferent arteriolar dilation and can precipitate acute kidney injury in hypovolemic patients."
+    ],
     "boundsCenterOffset": { "x": -0.12, "y": -0.15, "z": -0.05 },
     "idealCameraDistance": 0.25,
     "addressableMeshKey": "Mesh_Kidney_Left_LOD0",
     "audioTTSKey": "Audio_KidneyLeft_Desc",
-    "connectedNodes": ["SYS_REN_BLADDER"],
+    "connectedNodes": ["SYS_REN_BLADDER", "SYS_REN_URETER", "SYS_ENDO_ADRENAL"],
     "hasMicroDive": true,
     "microDiveKey": "Scene_Micro_Nephron",
-    "pharmacologyTargets": []
+    "pharmacologyTargets": ["Furosemide", "Lisinopril"]
   },
   {
     "entityID": "SYS_REN_KIDNEY_R",
@@ -402,80 +1055,247 @@
     "latinName": "Ren dexter",
     "commonName": "Right Kidney",
     "systemCategory": ["Renal"],
-    "descriptionProfessional": "A bean-shaped retroperitoneal organ that filters blood to remove waste and regulate fluid balance.",
-    "descriptionPatient": "One of your two bean-shaped organs that filter waste out of your blood to make urine.",
+    "descriptionProfessional": "The right retroperitoneal kidney, sitting slightly lower than the left because the liver occupies the space above it.",
+    "descriptionPatient": "Your other kidney. It sits a bit lower than the left one because your liver is in the way.",
+    "apBiologyFacts": [
+      "It lies lower than the left kidney - displaced downward by the bulk of the liver directly above it.",
+      "Each kidney holds about a million nephrons, and each nephron is an independent filtering unit. You can donate one kidney and remain healthy because the remaining nephrons hypertrophy and compensate.",
+      "Renal blood flow is about 20-25% of cardiac output, far more than the organ's metabolic needs require - because its job is processing plasma, not consuming oxygen."
+    ],
+    "clinicalNotes": [
+      "Costovertebral angle tenderness suggests pyelonephritis rather than a simple lower urinary tract infection.",
+      "The right kidney is more often injured in blunt trauma given its lower, less protected position.",
+      "Hydronephrosis on ultrasound indicates obstruction downstream and requires urgent decompression."
+    ],
     "boundsCenterOffset": { "x": 0.12, "y": -0.15, "z": -0.05 },
     "idealCameraDistance": 0.25,
     "addressableMeshKey": "Mesh_Kidney_Right_LOD0",
     "audioTTSKey": "Audio_KidneyRight_Desc",
-    "connectedNodes": ["SYS_REN_BLADDER"],
+    "connectedNodes": ["SYS_REN_BLADDER", "SYS_REN_URETER", "SYS_ENDO_ADRENAL"],
     "hasMicroDive": true,
     "microDiveKey": "Scene_Micro_Nephron",
-    "pharmacologyTargets": []
+    "pharmacologyTargets": ["Furosemide"]
+  },
+  {
+    "entityID": "SYS_REN_URETER",
+    "snomedCTCode": "87953007",
+    "icd10PathologyCodes": ["N20.1"],
+    "latinName": "Ureter",
+    "commonName": "Ureter",
+    "systemCategory": ["Renal"],
+    "descriptionProfessional": "A 25-30 cm muscular tube conveying urine from the renal pelvis to the bladder by peristalsis, entering the bladder obliquely.",
+    "descriptionPatient": "The tube carrying urine from each kidney down to your bladder.",
+    "apBiologyFacts": [
+      "Urine is actively propelled by peristaltic waves of smooth muscle, not drained by gravity - which is why it works lying down or in zero gravity.",
+      "Each ureter pierces the bladder wall at an oblique angle, so rising bladder pressure compresses it shut - a simple flap-valve preventing urine refluxing back toward the kidney."
+    ],
+    "clinicalNotes": [
+      "Stones lodge at three natural narrowings: the ureteropelvic junction, the pelvic brim where it crosses the iliac vessels, and the ureterovesical junction.",
+      "Renal colic - severe loin-to-groin pain with the patient unable to lie still - is often described as among the worst pains in medicine, and is classically compared with childbirth.",
+      "Vesicoureteric reflux in children causes recurrent infections and renal scarring."
+    ],
+    "boundsCenterOffset": { "x": 0.0, "y": 0.0, "z": 0.0 },
+    "idealCameraDistance": 0.3,
+    "addressableMeshKey": "Mesh_Ureter_LOD0",
+    "audioTTSKey": "Audio_Ureter_Desc",
+    "connectedNodes": ["SYS_REN_KIDNEY_L", "SYS_REN_KIDNEY_R", "SYS_REN_BLADDER"],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": ["Tamsulosin"]
   },
   {
     "entityID": "SYS_REN_BLADDER",
     "snomedCTCode": "89837001",
     "icd10PathologyCodes": ["N32.9"],
     "latinName": "Vesica urinaria",
-    "commonName": "Bladder",
+    "commonName": "Urinary Bladder",
     "systemCategory": ["Renal"],
-    "descriptionProfessional": "A muscular sac that stores urine produced by the kidneys before elimination.",
+    "descriptionProfessional": "A distensible pelvic reservoir lined by urothelium, emptied by detrusor contraction under parasympathetic control with voluntary external sphincter override.",
     "descriptionPatient": "A stretchy bag that stores urine until you're ready to go to the bathroom.",
+    "apBiologyFacts": [
+      "Its lining is transitional epithelium (urothelium), whose cells physically change shape from cuboidal to flattened as the bladder fills - a tissue built specifically for stretch.",
+      "Capacity is roughly 400-600 mL; stretch receptors trigger the urge at about 150-300 mL.",
+      "Micturition is a beautiful example of autonomic and somatic control working together: the detrusor contracts under parasympathetic (S2-S4) control and the internal sphincter is involuntary smooth muscle, but the external sphincter is skeletal muscle under conscious control - which is what makes toilet training possible."
+    ],
+    "clinicalNotes": [
+      "Urinary tract infections are far more common in women because the urethra is much shorter.",
+      "Acute retention is painful and requires catheterization; chronic retention may be painless and cause renal impairment.",
+      "Painless visible hematuria is bladder cancer until proven otherwise, and smoking is the dominant risk factor."
+    ],
     "boundsCenterOffset": { "x": 0.0, "y": -0.35, "z": 0.0 },
     "idealCameraDistance": 0.25,
     "addressableMeshKey": "Mesh_Bladder_LOD0",
     "audioTTSKey": "Audio_Bladder_Desc",
-    "connectedNodes": ["SYS_REN_KIDNEY_L", "SYS_REN_KIDNEY_R"],
+    "connectedNodes": ["SYS_REN_KIDNEY_L", "SYS_REN_KIDNEY_R", "SYS_REN_URETER"],
     "hasMicroDive": false,
     "microDiveKey": "",
-    "pharmacologyTargets": []
+    "pharmacologyTargets": ["Oxybutynin"]
   },
   {
     "entityID": "SYS_ENDO_THYROID",
     "snomedCTCode": "69748006",
-    "icd10PathologyCodes": ["E03.9"],
+    "icd10PathologyCodes": ["E03.9", "E05.90"],
     "latinName": "Glandula thyroidea",
     "commonName": "Thyroid Gland",
     "systemCategory": ["Endocrine"],
-    "descriptionProfessional": "A butterfly-shaped endocrine gland in the neck that regulates metabolism via thyroid hormone secretion.",
-    "descriptionPatient": "A small gland in your neck that makes hormones controlling how fast your body uses energy.",
+    "descriptionProfessional": "A butterfly-shaped gland straddling the trachea below the larynx, secreting thyroxine (T4), triiodothyronine (T3) and calcitonin.",
+    "descriptionPatient": "A small butterfly-shaped gland in your neck that sets the speed your whole body runs at.",
+    "apBiologyFacts": [
+      "Follicular cells combine iodine with tyrosine to make T4 and T3, which set basal metabolic rate and are essential for normal growth and neurological development.",
+      "It is the standard example of a hypothalamic-pituitary axis with negative feedback: hypothalamic TRH stimulates pituitary TSH, TSH stimulates T3/T4, and circulating T3/T4 inhibit both upstream glands.",
+      "Parafollicular (C) cells secrete calcitonin, which LOWERS blood calcium - the antagonist of parathyroid hormone.",
+      "Iodine is a dietary requirement specifically because of this gland, which is why table salt is iodized in most countries."
+    ],
+    "clinicalNotes": [
+      "TSH is the first-line screening test, and it moves in the opposite direction to the disease: high TSH means an underactive gland.",
+      "Hashimoto's thyroiditis (hypothyroid) causes fatigue, weight gain, cold intolerance and bradycardia; Graves' disease (hyperthyroid) causes weight loss, heat intolerance, tachycardia and exophthalmos.",
+      "The four parathyroid glands sit on its posterior surface and are at risk in thyroidectomy - inadvertent removal causes hypocalcemia with tetany and Chvostek's sign."
+    ],
     "boundsCenterOffset": { "x": 0.0, "y": 0.2, "z": 0.03 },
     "idealCameraDistance": 0.15,
     "addressableMeshKey": "Mesh_Thyroid_LOD0",
     "audioTTSKey": "Audio_Thyroid_Desc",
-    "connectedNodes": ["SYS_RESP_TRACHEA"],
+    "connectedNodes": ["SYS_RESP_TRACHEA", "SYS_ENDO_PITUITARY"],
     "hasMicroDive": false,
     "microDiveKey": "",
-    "pharmacologyTargets": ["Levothyroxine"]
+    "pharmacologyTargets": ["Levothyroxine", "Carbimazole"]
+  },
+  {
+    "entityID": "SYS_ENDO_ADRENAL",
+    "snomedCTCode": "23451007",
+    "icd10PathologyCodes": ["E27.40"],
+    "latinName": "Glandula suprarenalis",
+    "commonName": "Adrenal Gland",
+    "systemCategory": ["Endocrine"],
+    "descriptionProfessional": "A paired retroperitoneal gland capping each kidney, with a three-zoned steroid-secreting cortex and a catecholamine-secreting medulla.",
+    "descriptionPatient": "A small gland sitting on top of each kidney. It makes adrenaline for emergencies and cortisol for everyday stress.",
+    "apBiologyFacts": [
+      "It is really two glands in one. The cortex makes steroid hormones; the medulla is modified nervous tissue making catecholamines.",
+      "Cortex zones, outside in, follow 'salt, sugar, sex': zona glomerulosa makes aldosterone (salt and water balance), zona fasciculata makes cortisol (glucose and stress), zona reticularis makes androgens.",
+      "The medulla is effectively a modified sympathetic ganglion - its chromaffin cells are postganglionic neurons without axons, releasing adrenaline and noradrenaline straight into the blood for the fight-or-flight response.",
+      "Cortisol is controlled by CRH from the hypothalamus and ACTH from the pituitary, with negative feedback, and follows a circadian rhythm peaking in the early morning."
+    ],
+    "clinicalNotes": [
+      "Addison's disease (primary insufficiency) causes fatigue, hypotension, hyponatremia and hyperpigmentation from excess ACTH precursor.",
+      "Cushing's syndrome (cortisol excess) produces central obesity, moon face, purple striae, thin skin and proximal myopathy - most commonly from prescribed steroids.",
+      "Long-term steroid therapy suppresses the axis, so abrupt withdrawal can precipitate an adrenal crisis - steroids must be tapered.",
+      "Pheochromocytoma of the medulla causes episodic hypertension with headache, palpitations and sweating."
+    ],
+    "boundsCenterOffset": { "x": 0.0, "y": 0.0, "z": 0.0 },
+    "idealCameraDistance": 0.2,
+    "addressableMeshKey": "Mesh_Adrenal_LOD0",
+    "audioTTSKey": "Audio_Adrenal_Desc",
+    "connectedNodes": ["SYS_REN_KIDNEY_L", "SYS_REN_KIDNEY_R", "SYS_ENDO_PITUITARY"],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": ["Hydrocortisone", "Epinephrine"]
+  },
+  {
+    "entityID": "SYS_ENDO_PITUITARY",
+    "snomedCTCode": "56329008",
+    "icd10PathologyCodes": ["E23.7"],
+    "latinName": "Hypophysis",
+    "commonName": "Pituitary Gland",
+    "systemCategory": ["Endocrine", "Nervous"],
+    "descriptionProfessional": "A pea-sized gland in the sella turcica beneath the hypothalamus, with an anterior adenohypophysis and a posterior neurohypophysis.",
+    "descriptionPatient": "A pea-sized gland under your brain that bosses most of your other glands around.",
+    "apBiologyFacts": [
+      "Called the 'master gland', though it is itself directed by the hypothalamus - the true top of the hierarchy.",
+      "The anterior lobe manufactures six hormones: FSH, LH, ACTH, TSH, growth hormone and prolactin. Remember them as FLAT PiG.",
+      "The posterior lobe manufactures nothing. It stores and releases ADH and oxytocin, which are made by hypothalamic neurons whose axons run down into it - making it a piece of nervous tissue, not a true gland.",
+      "Oxytocin release during labour is the standard example of POSITIVE feedback in physiology: contractions push the baby against the cervix, stretch triggers more oxytocin, which causes stronger contractions, until birth breaks the loop."
+    ],
+    "clinicalNotes": [
+      "The optic chiasm sits directly above it, so an expanding adenoma classically compresses the crossing nasal fibers and causes bitemporal hemianopsia - tunnel vision.",
+      "Prolactinoma is the commonest functioning adenoma, causing galactorrhea, amenorrhea and infertility.",
+      "Growth hormone excess causes gigantism before growth plates fuse and acromegaly after.",
+      "ADH deficiency causes diabetes insipidus: large volumes of dilute urine and relentless thirst."
+    ],
+    "boundsCenterOffset": { "x": 0.0, "y": 0.0, "z": 0.0 },
+    "idealCameraDistance": 0.15,
+    "addressableMeshKey": "Mesh_Pituitary_LOD0",
+    "audioTTSKey": "Audio_Pituitary_Desc",
+    "connectedNodes": ["SYS_NERV_BRAIN", "SYS_ENDO_THYROID", "SYS_ENDO_ADRENAL"],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": ["Desmopressin", "Cabergoline"]
   },
   {
     "entityID": "SYS_LYMPH_SPLEEN",
     "snomedCTCode": "78961009",
     "icd10PathologyCodes": ["D73.9"],
-    "latinName": "Splen",
+    "latinName": "Splen (Lien)",
     "commonName": "Spleen",
     "systemCategory": ["Lymphatic"],
-    "descriptionProfessional": "A lymphoid organ that filters blood, recycles red blood cells, and supports immune response.",
-    "descriptionPatient": "An organ that filters your blood and helps your immune system fight infections.",
+    "descriptionProfessional": "The largest lymphoid organ, in the left hypochondrium behind ribs 9-11, comprising white pulp for immune surveillance and red pulp for erythrocyte filtration.",
+    "descriptionPatient": "An organ on your left side that filters your blood and helps your immune system fight infection.",
+    "apBiologyFacts": [
+      "White pulp is lymphoid tissue where lymphocytes meet blood-borne antigens - it is the immune system's blood filter, as lymph nodes are its tissue-fluid filter.",
+      "Red pulp culls aged or damaged red blood cells at the end of their roughly 120-day lifespan, and recycles the iron from their haemoglobin back into circulation.",
+      "It stores platelets and can release them, and in fetal life it produces blood cells directly."
+    ],
+    "clinicalNotes": [
+      "It is the organ most commonly injured in blunt abdominal trauma; rupture causes shock and referred left shoulder-tip pain (Kehr's sign) from diaphragmatic irritation.",
+      "After splenectomy patients face lifelong risk of overwhelming post-splenectomy infection with encapsulated organisms, so they are vaccinated against pneumococcus, meningococcus and Haemophilus influenzae type b.",
+      "Splenomegaly occurs in infectious mononucleosis - and is why contact sports are avoided during recovery - as well as in portal hypertension and haematological malignancy."
+    ],
     "boundsCenterOffset": { "x": -0.2, "y": 0.0, "z": 0.0 },
     "idealCameraDistance": 0.2,
     "addressableMeshKey": "Mesh_Spleen_LOD0",
     "audioTTSKey": "Audio_Spleen_Desc",
-    "connectedNodes": ["SYS_DIG_STOMACH"],
+    "connectedNodes": ["SYS_DIG_STOMACH", "SYS_LYMPH_THYMUS"],
     "hasMicroDive": true,
     "microDiveKey": "Scene_Micro_Macrophage",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_LYMPH_THYMUS",
+    "snomedCTCode": "9875009",
+    "icd10PathologyCodes": ["E32.9"],
+    "latinName": "Thymus",
+    "commonName": "Thymus",
+    "systemCategory": ["Lymphatic"],
+    "descriptionProfessional": "A bilobed organ in the anterior superior mediastinum where T lymphocytes mature; prominent in childhood and progressively replaced by fat after puberty.",
+    "descriptionPatient": "A gland behind your breastbone that trains your immune cells while you're growing up, then quietly shrinks away.",
+    "apBiologyFacts": [
+      "The 'T' in T cell stands for thymus. Immature lymphocytes migrate here from the bone marrow to mature.",
+      "Two selection steps happen here: positive selection keeps T cells that can recognize the body's own MHC molecules, and negative selection destroys those that react too strongly to self-antigens. This is where immunological self-tolerance is established - and when it fails, autoimmune disease results.",
+      "It is largest relative to body size in infancy and childhood, when the immune repertoire is being built, then involutes into fatty tissue after puberty."
+    ],
+    "clinicalNotes": [
+      "Myasthenia gravis is strongly associated with thymic abnormality; thymectomy can improve the disease.",
+      "DiGeorge syndrome (22q11 deletion) features thymic aplasia with profound T-cell deficiency."
+    ],
+    "boundsCenterOffset": { "x": 0.0, "y": 0.0, "z": 0.0 },
+    "idealCameraDistance": 0.25,
+    "addressableMeshKey": "Mesh_Thymus_LOD0",
+    "audioTTSKey": "Audio_Thymus_Desc",
+    "connectedNodes": ["SYS_LYMPH_SPLEEN", "SYS_CV_HEART"],
+    "hasMicroDive": false,
+    "microDiveKey": "",
     "pharmacologyTargets": []
   },
   {
     "entityID": "SYS_INTEG_SKIN",
     "snomedCTCode": "39937001",
     "icd10PathologyCodes": ["L98.9"],
-    "latinName": "Cutis",
+    "latinName": "Cutis (Integumentum commune)",
     "commonName": "Skin",
     "systemCategory": ["Integumentary"],
-    "descriptionProfessional": "The body's largest organ, providing a protective barrier, thermoregulation, and sensory reception.",
-    "descriptionPatient": "Your skin is your body's largest organ. It protects you from germs, helps control your temperature, and lets you feel things.",
+    "descriptionProfessional": "The body's largest organ, 1.5-2 square meters, comprising stratified squamous keratinized epidermis, vascular dermis, and subcutaneous hypodermis.",
+    "descriptionPatient": "Your skin is your body's largest organ. It keeps germs out, controls your temperature, and lets you feel the world.",
+    "apBiologyFacts": [
+      "Three layers: epidermis (avascular, stratified squamous keratinized epithelium that renews roughly every 28 days), dermis (collagen and elastin with vessels, nerves and glands), and hypodermis (fat for insulation and cushioning).",
+      "It is the front line of innate, non-specific immunity - a physical barrier plus an acidic surface pH and resident Langerhans cells.",
+      "Thermoregulation is a model negative feedback loop: when hot, arterioles vasodilate and sweat glands secrete so evaporation removes latent heat; when cold, vasoconstriction conserves heat, arrector pili raise hairs, and shivering generates it.",
+      "UVB striking the skin converts 7-dehydrocholesterol into vitamin D3, needed for calcium absorption. Melanin from melanocytes absorbs UV and protects DNA from damage - the evolutionary trade-off between UV protection and vitamin D synthesis explains the global gradient of skin pigmentation with latitude."
+    ],
+    "clinicalNotes": [
+      "Burn severity is assessed by depth (superficial, partial, full thickness) and by body surface area using the rule of nines, which guides fluid resuscitation.",
+      "Melanoma is screened with ABCDE: Asymmetry, Border irregularity, Colour variation, Diameter over 6 mm, Evolution.",
+      "Skin turgor and capillary refill are quick bedside markers of hydration and perfusion.",
+      "Pressure ulcers develop over bony prominences when sustained pressure exceeds capillary filling pressure, and are largely preventable by repositioning."
+    ],
     "boundsCenterOffset": { "x": 0.0, "y": 0.0, "z": 0.0 },
     "idealCameraDistance": 0.3,
     "addressableMeshKey": "Mesh_Skin_LOD0",

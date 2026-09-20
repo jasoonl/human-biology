@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using HumanBodyExplorer.CameraSystem;
+using HumanBodyExplorer.Core;
 using HumanBodyExplorer.Data;
 using UnityEngine;
 
@@ -75,6 +76,13 @@ namespace HumanBodyExplorer.UI
                     }
                 }
             }
+
+            // Never ask the player to locate something that has no geometry in the
+            // scene. The dictionary describes structures (e.g. individual heart
+            // chambers) that are not modelled as separately clickable parts, and
+            // asking for one is an unanswerable question that can only time out.
+            var locatable = dueIds.FindAll(id => AnatomyNodeReference.GetByEntityId(id).Count > 0);
+            if (locatable.Count > 0) dueIds = locatable;
 
             _dueNodeQueue = new Queue<string>(dueIds);
             AnatomyRaycaster.OnNodeSelected += HandleNodeSelected;
