@@ -52,6 +52,14 @@ namespace HumanBodyExplorer.EditorTools
         // dissection and surgical photography, rather than arbitrary bright hues -
         // fresh bone is ivory rather than white, lungs are grey-pink rather than
         // candy pink, and the gallbladder really is green from the bile it holds.
+        /// <summary>Backdrop behind the figure. Kept next to the tissue colours
+        /// deliberately: it has to be checked against them, and when it was not, it
+        /// ended up within 0.05 of BoneColor and the skeleton vanished into it.
+        /// Dark cool navy separates from every tissue by CIE Lab dE >= 62 - ivory
+        /// bone by lightness, dark red muscle by hue, which is what a plain dark
+        /// grey could not do without blending into muscle.</summary>
+        private static readonly Color BackdropColor = new Color(0.09f, 0.12f, 0.22f);
+
         private static readonly Color BoneColor = new Color(0.93f, 0.90f, 0.83f);
         private static readonly Color MuscleColor = new Color(0.58f, 0.19f, 0.16f);
         private static readonly Color HeartColor = new Color(0.62f, 0.14f, 0.13f);
@@ -434,6 +442,7 @@ namespace HumanBodyExplorer.EditorTools
             GameObject root = BuildHumanFigure();
             WireUpCamera(mainCameraGO, root);
             SetupPostProcessing(mainCameraGO);
+            AnatomyOutlineFeatureSetup.AddFeatureToActiveRenderer();
             BuildUI(mainCameraGO);
 
             // Save, don't just dirty. An unsaved rebuild is lost to any later scene
@@ -515,9 +524,72 @@ namespace HumanBodyExplorer.EditorTools
                 rimGO.transform.rotation = Quaternion.Euler(-32f, 110f, 0f);
             }
 
-            // Flat, bright ambient is what keeps a printed plate readable.
+            // Flat, bright ambient is what keeps a printed plate readable. Cooled
+            // very slightly so warm ivory bone separates from the cool backdrop
+            // rather than both drifting the same direction.
             RenderSettings.ambientMode = UnityEngine.Rendering.AmbientMode.Flat;
-            RenderSettings.ambientLight = new Color(0.62f, 0.60f, 0.58f);
+            RenderSettings.ambientLight = new Color(0.60f, 0.60f, 0.63f);
+
+            // Against a dark backdrop the skybox would still light the figure with
+            // whatever gradient it holds; clear it so ambient is the only fill.
+            RenderSettings.skybox = null;
+
+            WarnOnLowBackdropContrast();
+        }
+
+        /// <summary>
+        /// The backdrop was once set to a colour under 0.05 from BoneColor on every
+        /// channel, which made the skeleton disappear into it and was only caught by
+        /// the user looking at the screen. This runs on every build so the next
+        /// palette change cannot repeat that silently.
+        ///
+        /// Measured as CIE Lab dE, not a luminance gap: a first attempt at this check
+        /// used luminance alone and flagged dark red muscle on a near-black backdrop
+        /// as unreadable, when in fact the two differ hugely in hue and separate
+        /// perfectly well. Anything under ~25 is where structures genuinely start to
+        /// merge into the background.
+        /// </summary>
+        private static void WarnOnLowBackdropContrast()
+        {
+            var tissues = new (string Name, Color Value)[]
+            {
+                ("BoneColor", BoneColor), ("MuscleColor", MuscleColor), ("HeartColor", HeartColor),
+                ("LungColor", LungColor), ("CartilageColor", CartilageColor), ("NerveColor", NerveColor),
+            };
+
+            foreach (var (name, value) in tissues)
+            {
+                float deltaE = PerceptualDistance(BackdropColor, value);
+                if (deltaE < 25f)
+                {
+                    Debug.LogWarning($"[HumanBodyExplorerSetup] {name} is only dE {deltaE:F1} from the " +
+                                     "backdrop; structures using it will blend into the background. " +
+                                     "Adjust BackdropColor or that tissue colour.");
+                }
+            }
+        }
+
+        /// <summary>CIE76 dE between two sRGB colours.</summary>
+        private static float PerceptualDistance(Color a, Color b)
+        {
+            Vector3 la = ToLab(a), lb = ToLab(b);
+            return Vector3.Distance(la, lb);
+        }
+
+        private static Vector3 ToLab(Color c)
+        {
+            float Linear(float v) => v <= 0.04045f ? v / 12.92f : Mathf.Pow((v + 0.055f) / 1.055f, 2.4f);
+            float r = Linear(c.r), g = Linear(c.g), b = Linear(c.b);
+
+            // sRGB -> CIE XYZ (D65), then XYZ -> Lab against the D65 white point.
+            float x = (r * 0.4124f + g * 0.3576f + b * 0.1805f) / 0.95047f;
+            float y = (r * 0.2126f + g * 0.7152f + b * 0.0722f);
+            float z = (r * 0.0193f + g * 0.1192f + b * 0.9505f) / 1.08883f;
+
+            float F(float t) => t > 0.008856f ? Mathf.Pow(t, 1f / 3f) : 7.787f * t + 16f / 116f;
+            float fx = F(x), fy = F(y), fz = F(z);
+
+            return new Vector3(116f * fy - 16f, 500f * (fx - fy), 200f * (fy - fz));
         }
 
         private static readonly int SmoothnessId = Shader.PropertyToID("_Smoothness");
@@ -1118,14 +1190,16 @@ namespace HumanBodyExplorer.EditorTools
             // angle instead of actually facing the figure.
             mainCameraGO.transform.rotation = Quaternion.identity;
 
-            // Plain parchment backdrop, as on a printed anatomical plate. The default
-            // skybox put a blue gradient and a horizon line behind every structure,
-            // which is most of why the figure read as washed out.
+            // Dark, slightly cool backdrop. An earlier parchment colour (0.94, 0.92,
+            // 0.88) was a near-exact match for BoneColor (0.93, 0.90, 0.83) - under
+            // 0.05 apart on every channel - so the skeleton dissolved into the
+            // background. Ivory bone and dark red muscle both separate hard against
+            // this, which is also why every 3D anatomy atlas uses a dark ground.
             var cam = mainCameraGO.GetComponent<Camera>();
             if (cam != null)
             {
                 cam.clearFlags = CameraClearFlags.SolidColor;
-                cam.backgroundColor = new Color(0.94f, 0.92f, 0.88f);
+                cam.backgroundColor = BackdropColor;
                 cam.nearClipPlane = 0.03f;
             }
 
