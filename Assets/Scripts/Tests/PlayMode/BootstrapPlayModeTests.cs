@@ -36,8 +36,11 @@ namespace HumanBodyExplorer.Tests
             Assert.Greater(GameManager.Instance.DataController.AllNodes.Count, 0,
                 "Expected the anatomy_dictionary.json StreamingAssets fixture to load at least one node.");
 
-            var heart = GameManager.Instance.DataController.GetNode("SYS_CV_HEART_LV");
-            Assert.AreEqual("Left Ventricle", heart.CommonName);
+            // SYS_CV_HEART, not a specific chamber sub-id: this just needs to be a
+            // node that is guaranteed to always exist, to sanity-check that the
+            // StreamingAssets fixture actually loaded real content.
+            var heart = GameManager.Instance.DataController.GetNode("SYS_CV_HEART");
+            Assert.AreEqual("Heart", heart.CommonName);
         }
     }
 }

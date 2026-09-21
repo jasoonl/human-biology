@@ -2,10 +2,14 @@
   {
     "entityID": "SYS_CV_HEART",
     "snomedCTCode": "80891009",
-    "icd10PathologyCodes": ["I51.9"],
+    "icd10PathologyCodes": [
+      "I51.9"
+    ],
     "latinName": "Cor",
     "commonName": "Heart",
-    "systemCategory": ["Cardiovascular"],
+    "systemCategory": [
+      "Cardiovascular"
+    ],
     "descriptionProfessional": "A four-chambered muscular pump in the middle mediastinum that drives the pulmonary and systemic circuits in series, beating roughly 100,000 times per day.",
     "descriptionPatient": "Your heart is a fist-sized muscle that pumps blood around your entire body, delivering oxygen and nutrients to every cell.",
     "apBiologyFacts": [
@@ -21,77 +25,38 @@
       "Cardiac troponin I/T is the biomarker of myocyte injury; it rises within hours of an infarct.",
       "Cardiac pain refers to the left arm, jaw and epigastrium because visceral afferents enter the cord at T1-T4 alongside somatic fibers from those regions."
     ],
-    "boundsCenterOffset": { "x": 0.0, "y": 0.0, "z": 0.0 },
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
     "idealCameraDistance": 0.4,
     "addressableMeshKey": "Mesh_Heart_LOD0",
     "audioTTSKey": "Audio_Heart_Desc",
-    "connectedNodes": ["SYS_RESP_LUNG_L", "SYS_RESP_LUNG_R", "SYS_CV_HEART_LV", "SYS_CV_HEART_LA", "SYS_CV_AORTA"],
+    "connectedNodes": [
+      "SYS_RESP_LUNG_L",
+      "SYS_RESP_LUNG_R",
+      "SYS_CV_AORTA"
+    ],
     "hasMicroDive": true,
     "microDiveKey": "Scene_Micro_Myocardium",
-    "pharmacologyTargets": ["Lisinopril", "Metoprolol", "Aspirin"]
-  },
-  {
-    "entityID": "SYS_CV_HEART_LV",
-    "snomedCTCode": "27814002",
-    "icd10PathologyCodes": ["I51.7", "I21.9"],
-    "latinName": "Ventriculus sinister cordis",
-    "commonName": "Left Ventricle",
-    "systemCategory": ["Cardiovascular", "Muscular"],
-    "descriptionProfessional": "The thick-walled left lower chamber that receives oxygenated blood from the left atrium and ejects it into the aorta against systemic vascular resistance.",
-    "descriptionPatient": "The main pumping chamber of your heart. It pushes oxygen-rich blood out to the rest of your body.",
-    "apBiologyFacts": [
-      "Its wall is 10-15 mm thick versus 3-5 mm on the right, because systemic resistance is far higher than pulmonary resistance. Same stroke volume, much greater pressure.",
-      "The Frank-Starling relationship: greater venous return stretches the myocardium, improving actin-myosin overlap, so stroke volume rises to match preload automatically.",
-      "Ejection fraction is stroke volume divided by end-diastolic volume; a healthy ventricle ejects 55-70% and never empties completely."
-    ],
-    "clinicalNotes": [
-      "Chronic hypertension or aortic stenosis drives left ventricular hypertrophy - initially compensatory, eventually a cause of diastolic failure.",
-      "Heart failure is split into HFrEF (reduced ejection fraction, a pump problem) and HFpEF (preserved EF, a filling problem); the treatments differ substantially.",
-      "Echocardiography is the first-line test for chamber size, wall motion and ejection fraction."
-    ],
-    "boundsCenterOffset": { "x": 0.0, "y": -0.05, "z": 0.02 },
-    "idealCameraDistance": 0.15,
-    "addressableMeshKey": "Mesh_Heart_LeftVentricle_LOD0",
-    "audioTTSKey": "Audio_LeftVentricle_Desc",
-    "connectedNodes": ["SYS_CV_HEART_LA", "SYS_CV_HEART", "SYS_CV_AORTA"],
-    "hasMicroDive": true,
-    "microDiveKey": "Scene_Micro_Myocardium",
-    "pharmacologyTargets": ["Lisinopril", "Metoprolol"]
-  },
-  {
-    "entityID": "SYS_CV_HEART_LA",
-    "snomedCTCode": "59652004",
-    "icd10PathologyCodes": ["I48.91"],
-    "latinName": "Atrium sinistrum cordis",
-    "commonName": "Left Atrium",
-    "systemCategory": ["Cardiovascular"],
-    "descriptionProfessional": "The posterior-most chamber, receiving oxygenated blood from four pulmonary veins and delivering it across the mitral valve.",
-    "descriptionPatient": "The chamber that collects fresh, oxygen-rich blood coming back from your lungs.",
-    "apBiologyFacts": [
-      "It receives blood from four pulmonary veins - the only veins in the body carrying oxygenated blood.",
-      "Most ventricular filling is passive; atrial contraction ('atrial kick') adds only the final 20-30%, which is why people can tolerate losing coordinated atrial contraction at rest."
-    ],
-    "clinicalNotes": [
-      "Atrial enlargement predisposes to atrial fibrillation, where disorganized electrical activity replaces coordinated contraction.",
-      "Stasis in the left atrial appendage during AF forms thrombi that embolize to the brain - this is why AF patients are anticoagulated.",
-      "Mitral stenosis raises left atrial pressure and backs up into the pulmonary circulation, causing dyspnea."
-    ],
-    "boundsCenterOffset": { "x": 0.0, "y": 0.05, "z": 0.02 },
-    "idealCameraDistance": 0.15,
-    "addressableMeshKey": "Mesh_Heart_LeftAtrium_LOD0",
-    "audioTTSKey": "Audio_LeftAtrium_Desc",
-    "connectedNodes": ["SYS_CV_HEART_LV", "SYS_CV_HEART"],
-    "hasMicroDive": false,
-    "microDiveKey": "",
-    "pharmacologyTargets": ["Warfarin", "Apixaban"]
+    "pharmacologyTargets": [
+      "Lisinopril",
+      "Metoprolol",
+      "Aspirin"
+    ]
   },
   {
     "entityID": "SYS_CV_AORTA",
     "snomedCTCode": "15825003",
-    "icd10PathologyCodes": ["I71.9"],
+    "icd10PathologyCodes": [
+      "I71.9"
+    ],
     "latinName": "Aorta",
     "commonName": "Aorta",
-    "systemCategory": ["Cardiovascular"],
+    "systemCategory": [
+      "Cardiovascular"
+    ],
     "descriptionProfessional": "The largest artery in the body, 2.5-3.5 cm in diameter, running from the aortic valve as ascending aorta, arch, descending thoracic aorta and abdominal aorta to its bifurcation at L4.",
     "descriptionPatient": "The body's main pipe. Every drop of blood leaving the left side of your heart starts its journey here.",
     "apBiologyFacts": [
@@ -104,22 +69,34 @@
       "Aortic dissection classically presents as sudden tearing chest pain radiating to the back, with a blood-pressure differential between arms.",
       "Coarctation produces upper-limb hypertension with weak, delayed femoral pulses (radio-femoral delay)."
     ],
-    "boundsCenterOffset": { "x": 0.0, "y": 0.0, "z": 0.0 },
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
     "idealCameraDistance": 0.4,
     "addressableMeshKey": "Mesh_Aorta_LOD0",
     "audioTTSKey": "Audio_Aorta_Desc",
-    "connectedNodes": ["SYS_CV_HEART_LV", "SYS_CV_ARTERY"],
+    "connectedNodes": [
+      "SYS_CV_ARTERY"
+    ],
     "hasMicroDive": false,
     "microDiveKey": "",
-    "pharmacologyTargets": ["Labetalol"]
+    "pharmacologyTargets": [
+      "Labetalol"
+    ]
   },
   {
     "entityID": "SYS_CV_ARTERY",
     "snomedCTCode": "51114001",
-    "icd10PathologyCodes": ["I77.9"],
+    "icd10PathologyCodes": [
+      "I77.9"
+    ],
     "latinName": "Arteria",
     "commonName": "Artery",
-    "systemCategory": ["Cardiovascular"],
+    "systemCategory": [
+      "Cardiovascular"
+    ],
     "descriptionProfessional": "A thick-walled, muscular-elastic vessel carrying blood away from the heart under high pressure, with a three-layered wall of tunica intima, media and externa.",
     "descriptionPatient": "Arteries are the tubes that carry fresh, oxygen-rich blood away from your heart to the rest of your body.",
     "apBiologyFacts": [
@@ -132,22 +109,36 @@
       "Pulses are palpated where an artery crosses bone near the surface: radial, carotid, femoral, dorsalis pedis.",
       "Arterial bleeding is bright red and pulsatile, and requires direct pressure rather than elevation alone."
     ],
-    "boundsCenterOffset": { "x": 0.0, "y": 0.0, "z": 0.0 },
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
     "idealCameraDistance": 0.25,
     "addressableMeshKey": "Mesh_Artery_LOD0",
     "audioTTSKey": "Audio_Artery_Desc",
-    "connectedNodes": ["SYS_CV_HEART", "SYS_CV_AORTA"],
+    "connectedNodes": [
+      "SYS_CV_HEART",
+      "SYS_CV_AORTA"
+    ],
     "hasMicroDive": false,
     "microDiveKey": "",
-    "pharmacologyTargets": ["Amlodipine", "Atorvastatin"]
+    "pharmacologyTargets": [
+      "Amlodipine",
+      "Atorvastatin"
+    ]
   },
   {
     "entityID": "SYS_CV_VEIN",
     "snomedCTCode": "29092000",
-    "icd10PathologyCodes": ["I87.9"],
+    "icd10PathologyCodes": [
+      "I87.9"
+    ],
     "latinName": "Vena",
     "commonName": "Vein",
-    "systemCategory": ["Cardiovascular"],
+    "systemCategory": [
+      "Cardiovascular"
+    ],
     "descriptionProfessional": "A thin-walled, large-lumen capacitance vessel returning blood to the heart at low pressure, with one-way valves in the limbs.",
     "descriptionPatient": "Veins are the tubes that carry blood back to your heart after your body has used up the oxygen.",
     "apBiologyFacts": [
@@ -160,22 +151,35 @@
       "Varicose veins result from incompetent valves allowing retrograde pooling.",
       "The median cubital vein in the antecubital fossa is the standard site for venipuncture."
     ],
-    "boundsCenterOffset": { "x": 0.0, "y": 0.0, "z": 0.0 },
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
     "idealCameraDistance": 0.25,
     "addressableMeshKey": "Mesh_Vein_LOD0",
     "audioTTSKey": "Audio_Vein_Desc",
-    "connectedNodes": ["SYS_CV_HEART"],
+    "connectedNodes": [
+      "SYS_CV_HEART"
+    ],
     "hasMicroDive": false,
     "microDiveKey": "",
-    "pharmacologyTargets": ["Heparin", "Warfarin"]
+    "pharmacologyTargets": [
+      "Heparin",
+      "Warfarin"
+    ]
   },
   {
     "entityID": "SYS_RESP_LUNG_L",
     "snomedCTCode": "44029006",
-    "icd10PathologyCodes": ["J98.4"],
+    "icd10PathologyCodes": [
+      "J98.4"
+    ],
     "latinName": "Pulmo sinister",
     "commonName": "Left Lung",
-    "systemCategory": ["Respiratory"],
+    "systemCategory": [
+      "Respiratory"
+    ],
     "descriptionProfessional": "The left pulmonary organ, two lobes separated by an oblique fissure, with a cardiac notch and lingula accommodating the heart.",
     "descriptionPatient": "One of your two lungs. It has only two sections instead of three, because your heart takes up some of the space on that side.",
     "apBiologyFacts": [
@@ -187,22 +191,35 @@
       "Auscultate in the mid-axillary line and posteriorly; the left base sits behind the heart.",
       "Pneumothorax causes hyperresonance and absent breath sounds on the affected side, with tracheal deviation away in tension pneumothorax."
     ],
-    "boundsCenterOffset": { "x": -0.15, "y": 0.05, "z": 0.0 },
+    "boundsCenterOffset": {
+      "x": -0.15,
+      "y": 0.05,
+      "z": 0.0
+    },
     "idealCameraDistance": 0.3,
     "addressableMeshKey": "Mesh_Lung_Left_LOD0",
     "audioTTSKey": "Audio_LungLeft_Desc",
-    "connectedNodes": ["SYS_RESP_TRACHEA", "SYS_CV_HEART"],
+    "connectedNodes": [
+      "SYS_RESP_TRACHEA",
+      "SYS_CV_HEART"
+    ],
     "hasMicroDive": true,
     "microDiveKey": "Scene_Micro_Alveoli",
-    "pharmacologyTargets": ["Albuterol"]
+    "pharmacologyTargets": [
+      "Albuterol"
+    ]
   },
   {
     "entityID": "SYS_RESP_LUNG_R",
     "snomedCTCode": "44029006",
-    "icd10PathologyCodes": ["J98.4"],
+    "icd10PathologyCodes": [
+      "J98.4"
+    ],
     "latinName": "Pulmo dexter",
     "commonName": "Right Lung",
-    "systemCategory": ["Respiratory"],
+    "systemCategory": [
+      "Respiratory"
+    ],
     "descriptionProfessional": "The right pulmonary organ, three lobes divided by oblique and horizontal fissures, slightly larger and more vertical in its bronchial takeoff than the left.",
     "descriptionPatient": "One of your two lungs. It's slightly bigger than the left one and has three sections.",
     "apBiologyFacts": [
@@ -214,22 +231,35 @@
       "The right main bronchus is wider, shorter and more vertical, so aspirated foreign bodies and misplaced endotracheal tubes preferentially go right.",
       "Right middle lobe pneumonia is a classic finding on chest X-ray with loss of the right heart border."
     ],
-    "boundsCenterOffset": { "x": 0.15, "y": 0.05, "z": 0.0 },
+    "boundsCenterOffset": {
+      "x": 0.15,
+      "y": 0.05,
+      "z": 0.0
+    },
     "idealCameraDistance": 0.3,
     "addressableMeshKey": "Mesh_Lung_Right_LOD0",
     "audioTTSKey": "Audio_LungRight_Desc",
-    "connectedNodes": ["SYS_RESP_TRACHEA", "SYS_CV_HEART"],
+    "connectedNodes": [
+      "SYS_RESP_TRACHEA",
+      "SYS_CV_HEART"
+    ],
     "hasMicroDive": true,
     "microDiveKey": "Scene_Micro_Alveoli",
-    "pharmacologyTargets": ["Albuterol"]
+    "pharmacologyTargets": [
+      "Albuterol"
+    ]
   },
   {
     "entityID": "SYS_RESP_TRACHEA",
     "snomedCTCode": "44567001",
-    "icd10PathologyCodes": ["J39.8"],
+    "icd10PathologyCodes": [
+      "J39.8"
+    ],
     "latinName": "Trachea",
     "commonName": "Trachea (Windpipe)",
-    "systemCategory": ["Respiratory"],
+    "systemCategory": [
+      "Respiratory"
+    ],
     "descriptionProfessional": "A 10-12 cm fibrocartilaginous tube from the cricoid cartilage to the carina at the T4/T5 level, where it bifurcates into the main bronchi.",
     "descriptionPatient": "Your windpipe. It carries the air you breathe from your throat down into your lungs.",
     "apBiologyFacts": [
@@ -241,11 +271,19 @@
       "Tracheal deviation is an emergency sign: pushed away in tension pneumothorax, pulled toward in lobar collapse.",
       "Emergency cricothyrotomy accesses the airway through the cricothyroid membrane when intubation fails."
     ],
-    "boundsCenterOffset": { "x": 0.0, "y": 0.25, "z": 0.0 },
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.25,
+      "z": 0.0
+    },
     "idealCameraDistance": 0.25,
     "addressableMeshKey": "Mesh_Trachea_LOD0",
     "audioTTSKey": "Audio_Trachea_Desc",
-    "connectedNodes": ["SYS_RESP_LUNG_L", "SYS_RESP_LUNG_R", "SYS_ENDO_THYROID"],
+    "connectedNodes": [
+      "SYS_RESP_LUNG_L",
+      "SYS_RESP_LUNG_R",
+      "SYS_ENDO_THYROID"
+    ],
     "hasMicroDive": false,
     "microDiveKey": "",
     "pharmacologyTargets": []
@@ -253,10 +291,15 @@
   {
     "entityID": "SYS_RESP_DIAPHRAGM",
     "snomedCTCode": "80621003",
-    "icd10PathologyCodes": ["J98.6"],
+    "icd10PathologyCodes": [
+      "J98.6"
+    ],
     "latinName": "Diaphragma",
     "commonName": "Diaphragm",
-    "systemCategory": ["Respiratory", "Muscular"],
+    "systemCategory": [
+      "Respiratory",
+      "Muscular"
+    ],
     "descriptionProfessional": "The dome-shaped musculotendinous sheet separating the thoracic and abdominal cavities, and the principal muscle of inspiration.",
     "descriptionPatient": "A dome-shaped muscle under your lungs. When it tightens and flattens, air rushes into your chest - that's a breath in.",
     "apBiologyFacts": [
@@ -270,11 +313,19 @@
       "Irritation of the diaphragm refers pain to the shoulder tip via C4 (Kehr's sign) - classically from a ruptured spleen or blood under the diaphragm.",
       "Phrenic nerve injury produces an elevated, paralyzed hemidiaphragm on chest X-ray."
     ],
-    "boundsCenterOffset": { "x": 0.0, "y": 0.0, "z": 0.0 },
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
     "idealCameraDistance": 0.45,
     "addressableMeshKey": "Mesh_Diaphragm_LOD0",
     "audioTTSKey": "Audio_Diaphragm_Desc",
-    "connectedNodes": ["SYS_RESP_LUNG_L", "SYS_RESP_LUNG_R", "SYS_DIG_LIVER"],
+    "connectedNodes": [
+      "SYS_RESP_LUNG_L",
+      "SYS_RESP_LUNG_R",
+      "SYS_DIG_LIVER"
+    ],
     "hasMicroDive": false,
     "microDiveKey": "",
     "pharmacologyTargets": []
@@ -282,10 +333,14 @@
   {
     "entityID": "SYS_DIG_ESOPHAGUS",
     "snomedCTCode": "32849002",
-    "icd10PathologyCodes": ["K22.9"],
+    "icd10PathologyCodes": [
+      "K22.9"
+    ],
     "latinName": "Oesophagus",
     "commonName": "Esophagus",
-    "systemCategory": ["Digestive"],
+    "systemCategory": [
+      "Digestive"
+    ],
     "descriptionProfessional": "A 25 cm muscular conduit from the pharynx to the gastric cardia, passing through the diaphragm at T10.",
     "descriptionPatient": "The tube that carries food from your throat to your stomach. Muscles squeeze the food down - it isn't gravity doing the work.",
     "apBiologyFacts": [
@@ -298,22 +353,35 @@
       "Esophageal varices form when portal hypertension shunts blood through submucosal veins; rupture causes torrential hematemesis.",
       "Achalasia is failure of LES relaxation, producing a 'bird's beak' on barium swallow."
     ],
-    "boundsCenterOffset": { "x": 0.0, "y": 0.0, "z": 0.0 },
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
     "idealCameraDistance": 0.35,
     "addressableMeshKey": "Mesh_Esophagus_LOD0",
     "audioTTSKey": "Audio_Esophagus_Desc",
-    "connectedNodes": ["SYS_DIG_STOMACH", "SYS_RESP_TRACHEA"],
+    "connectedNodes": [
+      "SYS_DIG_STOMACH",
+      "SYS_RESP_TRACHEA"
+    ],
     "hasMicroDive": false,
     "microDiveKey": "",
-    "pharmacologyTargets": ["Omeprazole"]
+    "pharmacologyTargets": [
+      "Omeprazole"
+    ]
   },
   {
     "entityID": "SYS_DIG_STOMACH",
     "snomedCTCode": "69695003",
-    "icd10PathologyCodes": ["K25.9"],
+    "icd10PathologyCodes": [
+      "K25.9"
+    ],
     "latinName": "Ventriculus (Gaster)",
     "commonName": "Stomach",
-    "systemCategory": ["Digestive"],
+    "systemCategory": [
+      "Digestive"
+    ],
     "descriptionProfessional": "A J-shaped muscular reservoir in the left upper quadrant with fundus, body, antrum and pylorus, performing mechanical churning and the first stage of protein digestion.",
     "descriptionPatient": "A stretchy bag that mixes your food with acid and juices to start breaking it down.",
     "apBiologyFacts": [
@@ -328,22 +396,38 @@
       "Proton pump inhibitors block the parietal cell H+/K+ ATPase, the final common step of acid secretion.",
       "Loss of intrinsic factor (autoimmune gastritis, gastrectomy) causes pernicious anemia - a macrocytic anemia with neurological signs."
     ],
-    "boundsCenterOffset": { "x": -0.15, "y": -0.1, "z": 0.05 },
+    "boundsCenterOffset": {
+      "x": -0.15,
+      "y": -0.1,
+      "z": 0.05
+    },
     "idealCameraDistance": 0.3,
     "addressableMeshKey": "Mesh_Stomach_LOD0",
     "audioTTSKey": "Audio_Stomach_Desc",
-    "connectedNodes": ["SYS_DIG_LIVER", "SYS_DIG_SMALL_INTESTINE", "SYS_DIG_ESOPHAGUS", "SYS_DIG_PANCREAS"],
+    "connectedNodes": [
+      "SYS_DIG_LIVER",
+      "SYS_DIG_SMALL_INTESTINE",
+      "SYS_DIG_ESOPHAGUS",
+      "SYS_DIG_PANCREAS"
+    ],
     "hasMicroDive": false,
     "microDiveKey": "",
-    "pharmacologyTargets": ["Omeprazole", "Ranitidine"]
+    "pharmacologyTargets": [
+      "Omeprazole",
+      "Ranitidine"
+    ]
   },
   {
     "entityID": "SYS_DIG_LIVER",
     "snomedCTCode": "10200004",
-    "icd10PathologyCodes": ["K74.60"],
+    "icd10PathologyCodes": [
+      "K74.60"
+    ],
     "latinName": "Hepar",
     "commonName": "Liver",
-    "systemCategory": ["Digestive"],
+    "systemCategory": [
+      "Digestive"
+    ],
     "descriptionProfessional": "The largest internal organ (~1.5 kg), occupying the right upper quadrant, organized into hexagonal lobules draining to central veins, with a dual blood supply from the hepatic artery and portal vein.",
     "descriptionPatient": "Your body's chemical processing plant. It filters your blood, stores energy, fights toxins, and makes bile to help digest fat.",
     "apBiologyFacts": [
@@ -359,22 +443,37 @@
       "Cirrhosis causes portal hypertension, leading to varices, ascites, splenomegaly and encephalopathy from unfiltered ammonia.",
       "Paracetamol/acetaminophen overdose causes centrilobular necrosis; N-acetylcysteine replenishes glutathione and is the antidote."
     ],
-    "boundsCenterOffset": { "x": 0.15, "y": -0.05, "z": 0.05 },
+    "boundsCenterOffset": {
+      "x": 0.15,
+      "y": -0.05,
+      "z": 0.05
+    },
     "idealCameraDistance": 0.35,
     "addressableMeshKey": "Mesh_Liver_LOD0",
     "audioTTSKey": "Audio_Liver_Desc",
-    "connectedNodes": ["SYS_DIG_STOMACH", "SYS_DIG_SMALL_INTESTINE", "SYS_DIG_GALLBLADDER"],
+    "connectedNodes": [
+      "SYS_DIG_STOMACH",
+      "SYS_DIG_SMALL_INTESTINE",
+      "SYS_DIG_GALLBLADDER"
+    ],
     "hasMicroDive": true,
     "microDiveKey": "Scene_Micro_Hepatocyte",
-    "pharmacologyTargets": ["Acetaminophen", "Atorvastatin"]
+    "pharmacologyTargets": [
+      "Acetaminophen",
+      "Atorvastatin"
+    ]
   },
   {
     "entityID": "SYS_DIG_GALLBLADDER",
     "snomedCTCode": "28231008",
-    "icd10PathologyCodes": ["K80.20"],
+    "icd10PathologyCodes": [
+      "K80.20"
+    ],
     "latinName": "Vesica biliaris",
     "commonName": "Gallbladder",
-    "systemCategory": ["Digestive"],
+    "systemCategory": [
+      "Digestive"
+    ],
     "descriptionProfessional": "A pear-shaped reservoir on the inferior surface of the liver that stores and concentrates bile, discharging via the cystic and common bile ducts into the duodenum.",
     "descriptionPatient": "A small pouch under your liver that stores bile and squirts it into your gut when you eat something fatty.",
     "apBiologyFacts": [
@@ -387,11 +486,18 @@
       "Murphy's sign: arrest of inspiration on palpating the right upper quadrant, suggesting cholecystitis.",
       "Laparoscopic cholecystectomy is among the most commonly performed operations; bile flow continues directly from liver to duodenum afterward."
     ],
-    "boundsCenterOffset": { "x": 0.0, "y": 0.0, "z": 0.0 },
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
     "idealCameraDistance": 0.2,
     "addressableMeshKey": "Mesh_Gallbladder_LOD0",
     "audioTTSKey": "Audio_Gallbladder_Desc",
-    "connectedNodes": ["SYS_DIG_LIVER", "SYS_DIG_SMALL_INTESTINE"],
+    "connectedNodes": [
+      "SYS_DIG_LIVER",
+      "SYS_DIG_SMALL_INTESTINE"
+    ],
     "hasMicroDive": false,
     "microDiveKey": "",
     "pharmacologyTargets": []
@@ -399,10 +505,16 @@
   {
     "entityID": "SYS_DIG_PANCREAS",
     "snomedCTCode": "15776009",
-    "icd10PathologyCodes": ["K85.90", "E11.9"],
+    "icd10PathologyCodes": [
+      "K85.90",
+      "E11.9"
+    ],
     "latinName": "Pancreas",
     "commonName": "Pancreas",
-    "systemCategory": ["Digestive", "Endocrine"],
+    "systemCategory": [
+      "Digestive",
+      "Endocrine"
+    ],
     "descriptionProfessional": "A retroperitoneal gland lying transversely across L1-L2, with head, neck, body and tail; both an exocrine acinar gland and an endocrine organ.",
     "descriptionPatient": "A gland behind your stomach that does two jobs: it makes juices that digest your food, and it makes insulin to control your blood sugar.",
     "apBiologyFacts": [
@@ -416,22 +528,36 @@
       "Acute pancreatitis is most often caused by gallstones or alcohol; serum lipase is the preferred diagnostic marker.",
       "Pancreatic adenocarcinoma often presents late with painless obstructive jaundice and carries a poor prognosis."
     ],
-    "boundsCenterOffset": { "x": 0.0, "y": 0.0, "z": 0.0 },
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
     "idealCameraDistance": 0.3,
     "addressableMeshKey": "Mesh_Pancreas_LOD0",
     "audioTTSKey": "Audio_Pancreas_Desc",
-    "connectedNodes": ["SYS_DIG_STOMACH", "SYS_DIG_SMALL_INTESTINE"],
+    "connectedNodes": [
+      "SYS_DIG_STOMACH",
+      "SYS_DIG_SMALL_INTESTINE"
+    ],
     "hasMicroDive": true,
     "microDiveKey": "Scene_Micro_Islet",
-    "pharmacologyTargets": ["Insulin", "Metformin"]
+    "pharmacologyTargets": [
+      "Insulin",
+      "Metformin"
+    ]
   },
   {
     "entityID": "SYS_DIG_SMALL_INTESTINE",
     "snomedCTCode": "30315005",
-    "icd10PathologyCodes": ["K63.9"],
+    "icd10PathologyCodes": [
+      "K63.9"
+    ],
     "latinName": "Intestinum tenue",
     "commonName": "Small Intestine",
-    "systemCategory": ["Digestive"],
+    "systemCategory": [
+      "Digestive"
+    ],
     "descriptionProfessional": "A 6-7 m coiled tube comprising duodenum, jejunum and ileum, the principal site of chemical digestion and nutrient absorption.",
     "descriptionPatient": "A long, coiled tube where almost all of your food is actually broken down and absorbed into your blood.",
     "apBiologyFacts": [
@@ -446,11 +572,20 @@
       "Lactase deficiency leaves undigested lactose to be fermented by colonic bacteria, causing bloating and osmotic diarrhea.",
       "Crohn's disease favors the terminal ileum; resection there impairs vitamin B12 and bile-salt reabsorption."
     ],
-    "boundsCenterOffset": { "x": 0.0, "y": -0.25, "z": 0.05 },
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": -0.25,
+      "z": 0.05
+    },
     "idealCameraDistance": 0.35,
     "addressableMeshKey": "Mesh_SmallIntestine_LOD0",
     "audioTTSKey": "Audio_SmallIntestine_Desc",
-    "connectedNodes": ["SYS_DIG_STOMACH", "SYS_DIG_LARGE_INTESTINE", "SYS_DIG_PANCREAS", "SYS_DIG_GALLBLADDER"],
+    "connectedNodes": [
+      "SYS_DIG_STOMACH",
+      "SYS_DIG_LARGE_INTESTINE",
+      "SYS_DIG_PANCREAS",
+      "SYS_DIG_GALLBLADDER"
+    ],
     "hasMicroDive": true,
     "microDiveKey": "Scene_Micro_Villus",
     "pharmacologyTargets": []
@@ -458,10 +593,14 @@
   {
     "entityID": "SYS_DIG_LARGE_INTESTINE",
     "snomedCTCode": "14742008",
-    "icd10PathologyCodes": ["K59.9"],
+    "icd10PathologyCodes": [
+      "K59.9"
+    ],
     "latinName": "Intestinum crassum",
     "commonName": "Large Intestine (Colon)",
-    "systemCategory": ["Digestive"],
+    "systemCategory": [
+      "Digestive"
+    ],
     "descriptionProfessional": "A 1.5 m tube framing the small intestine as cecum, ascending, transverse, descending and sigmoid colon, then rectum; absorbs water and electrolytes and houses the gut microbiota.",
     "descriptionPatient": "The last section of your gut. It reclaims water from what's left over and forms solid waste.",
     "apBiologyFacts": [
@@ -476,11 +615,17 @@
       "Clostridioides difficile colitis follows antibiotic disruption of the normal flora.",
       "Diverticula form at points of wall weakness where vessels penetrate; inflammation causes left lower quadrant pain."
     ],
-    "boundsCenterOffset": { "x": 0.0, "y": -0.2, "z": 0.05 },
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": -0.2,
+      "z": 0.05
+    },
     "idealCameraDistance": 0.4,
     "addressableMeshKey": "Mesh_LargeIntestine_LOD0",
     "audioTTSKey": "Audio_LargeIntestine_Desc",
-    "connectedNodes": ["SYS_DIG_SMALL_INTESTINE"],
+    "connectedNodes": [
+      "SYS_DIG_SMALL_INTESTINE"
+    ],
     "hasMicroDive": false,
     "microDiveKey": "",
     "pharmacologyTargets": []
@@ -488,10 +633,14 @@
   {
     "entityID": "SYS_NERV_BRAIN",
     "snomedCTCode": "12738006",
-    "icd10PathologyCodes": ["G93.9"],
+    "icd10PathologyCodes": [
+      "G93.9"
+    ],
     "latinName": "Cerebrum",
     "commonName": "Cerebrum (Brain)",
-    "systemCategory": ["Nervous"],
+    "systemCategory": [
+      "Nervous"
+    ],
     "descriptionProfessional": "The largest division of the brain, two hemispheres of folded cortex over white matter and deep nuclei, joined by the corpus callosum.",
     "descriptionPatient": "Your body's control center. It thinks, remembers, feels, and sends signals telling your body what to do.",
     "apBiologyFacts": [
@@ -507,22 +656,37 @@
       "The blood-brain barrier excludes most large and hydrophilic drugs, which constrains CNS pharmacology - levodopa crosses where dopamine cannot.",
       "Hypoglycemia presents as confusion and altered consciousness, and is always checked early in any altered mental state."
     ],
-    "boundsCenterOffset": { "x": 0.0, "y": 0.0, "z": 0.0 },
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
     "idealCameraDistance": 0.25,
     "addressableMeshKey": "Mesh_Brain_LOD0",
     "audioTTSKey": "Audio_Brain_Desc",
-    "connectedNodes": ["SYS_NERV_SPINALCORD", "SYS_NERV_CEREBELLUM", "SYS_NERV_BRAINSTEM", "SYS_ENDO_PITUITARY"],
+    "connectedNodes": [
+      "SYS_NERV_SPINALCORD",
+      "SYS_NERV_CEREBELLUM",
+      "SYS_NERV_BRAINSTEM",
+      "SYS_ENDO_PITUITARY"
+    ],
     "hasMicroDive": true,
     "microDiveKey": "Scene_Micro_Synapse",
-    "pharmacologyTargets": ["Levodopa"]
+    "pharmacologyTargets": [
+      "Levodopa"
+    ]
   },
   {
     "entityID": "SYS_NERV_CEREBELLUM",
     "snomedCTCode": "113305005",
-    "icd10PathologyCodes": ["G31.9"],
+    "icd10PathologyCodes": [
+      "G31.9"
+    ],
     "latinName": "Cerebellum",
     "commonName": "Cerebellum",
-    "systemCategory": ["Nervous"],
+    "systemCategory": [
+      "Nervous"
+    ],
     "descriptionProfessional": "The 'little brain' in the posterior cranial fossa, coordinating movement, posture and motor learning through comparison of intended and actual movement.",
     "descriptionPatient": "The small structure at the back of your brain that makes your movements smooth and keeps you balanced.",
     "apBiologyFacts": [
@@ -536,11 +700,18 @@
       "Alcohol acutely depresses cerebellar function, which is the physiological basis of roadside gait and coordination testing.",
       "A positive Romberg test indicates proprioceptive rather than cerebellar failure - a classic distinguishing point."
     ],
-    "boundsCenterOffset": { "x": 0.0, "y": 0.0, "z": 0.0 },
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
     "idealCameraDistance": 0.2,
     "addressableMeshKey": "Mesh_Cerebellum_LOD0",
     "audioTTSKey": "Audio_Cerebellum_Desc",
-    "connectedNodes": ["SYS_NERV_BRAIN", "SYS_NERV_BRAINSTEM"],
+    "connectedNodes": [
+      "SYS_NERV_BRAIN",
+      "SYS_NERV_BRAINSTEM"
+    ],
     "hasMicroDive": false,
     "microDiveKey": "",
     "pharmacologyTargets": []
@@ -548,10 +719,14 @@
   {
     "entityID": "SYS_NERV_BRAINSTEM",
     "snomedCTCode": "15926001",
-    "icd10PathologyCodes": ["G93.9"],
+    "icd10PathologyCodes": [
+      "G93.9"
+    ],
     "latinName": "Truncus encephali",
     "commonName": "Brainstem",
-    "systemCategory": ["Nervous"],
+    "systemCategory": [
+      "Nervous"
+    ],
     "descriptionProfessional": "Midbrain, pons and medulla oblongata - the conduit between cerebrum and spinal cord, containing the autonomic centers and the nuclei of cranial nerves III-XII.",
     "descriptionPatient": "The stalk connecting your brain to your spinal cord. It runs the things you never think about: breathing, heartbeat, blood pressure.",
     "apBiologyFacts": [
@@ -565,11 +740,19 @@
       "Cushing's reflex - hypertension, bradycardia and irregular respiration - signals dangerously raised intracranial pressure and impending herniation.",
       "Locked-in syndrome from a ventral pontine lesion leaves the patient conscious but able to move only the eyes."
     ],
-    "boundsCenterOffset": { "x": 0.0, "y": 0.0, "z": 0.0 },
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
     "idealCameraDistance": 0.2,
     "addressableMeshKey": "Mesh_Brainstem_LOD0",
     "audioTTSKey": "Audio_Brainstem_Desc",
-    "connectedNodes": ["SYS_NERV_BRAIN", "SYS_NERV_CEREBELLUM", "SYS_NERV_SPINALCORD"],
+    "connectedNodes": [
+      "SYS_NERV_BRAIN",
+      "SYS_NERV_CEREBELLUM",
+      "SYS_NERV_SPINALCORD"
+    ],
     "hasMicroDive": false,
     "microDiveKey": "",
     "pharmacologyTargets": []
@@ -577,10 +760,14 @@
   {
     "entityID": "SYS_NERV_SPINALCORD",
     "snomedCTCode": "2748008",
-    "icd10PathologyCodes": ["G95.9"],
+    "icd10PathologyCodes": [
+      "G95.9"
+    ],
     "latinName": "Medulla spinalis",
     "commonName": "Spinal Cord",
-    "systemCategory": ["Nervous"],
+    "systemCategory": [
+      "Nervous"
+    ],
     "descriptionProfessional": "The CNS tract running from the foramen magnum to the conus medullaris at L1-L2, giving off 31 pairs of spinal nerves.",
     "descriptionPatient": "A thick bundle of nerves running down your back that carries messages between your brain and the rest of your body.",
     "apBiologyFacts": [
@@ -594,11 +781,19 @@
       "Dermatome maps let a sensory level be read off the skin to localize the injured segment - the nipple line is T4, the umbilicus T10.",
       "Complete cord injury above C3-C5 abolishes diaphragmatic innervation and requires ventilation."
     ],
-    "boundsCenterOffset": { "x": 0.0, "y": -0.4, "z": -0.05 },
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": -0.4,
+      "z": -0.05
+    },
     "idealCameraDistance": 0.6,
     "addressableMeshKey": "Mesh_SpinalCord_LOD0",
     "audioTTSKey": "Audio_SpinalCord_Desc",
-    "connectedNodes": ["SYS_NERV_BRAIN", "SYS_NERV_BRAINSTEM", "SYS_SK_SPINE"],
+    "connectedNodes": [
+      "SYS_NERV_BRAIN",
+      "SYS_NERV_BRAINSTEM",
+      "SYS_SK_SPINE"
+    ],
     "hasMicroDive": true,
     "microDiveKey": "Scene_Micro_Synapse",
     "pharmacologyTargets": []
@@ -606,10 +801,14 @@
   {
     "entityID": "SYS_SK_SKULL",
     "snomedCTCode": "70925003",
-    "icd10PathologyCodes": ["S02.91"],
+    "icd10PathologyCodes": [
+      "S02.91"
+    ],
     "latinName": "Cranium",
     "commonName": "Skull",
-    "systemCategory": ["Skeletal"],
+    "systemCategory": [
+      "Skeletal"
+    ],
     "descriptionProfessional": "Twenty-two bones - eight cranial and fourteen facial - united by sutures, enclosing and protecting the brain and forming the orbits and nasal cavity.",
     "descriptionPatient": "The hard bone that protects your brain, like a built-in helmet.",
     "apBiologyFacts": [
@@ -623,11 +822,18 @@
       "Epidural hematoma comes from the middle meningeal artery and appears lens-shaped (biconvex) on CT, often after a lucid interval. Subdural hematoma comes from bridging veins and appears crescent-shaped.",
       "Because the cranium is a rigid box, any expanding mass raises intracranial pressure - the Monro-Kellie doctrine."
     ],
-    "boundsCenterOffset": { "x": 0.0, "y": 0.0, "z": 0.0 },
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
     "idealCameraDistance": 0.3,
     "addressableMeshKey": "Mesh_Skull_LOD0",
     "audioTTSKey": "Audio_Skull_Desc",
-    "connectedNodes": ["SYS_SK_SPINE", "SYS_NERV_BRAIN"],
+    "connectedNodes": [
+      "SYS_SK_SPINE",
+      "SYS_NERV_BRAIN"
+    ],
     "hasMicroDive": false,
     "microDiveKey": "",
     "pharmacologyTargets": []
@@ -635,10 +841,14 @@
   {
     "entityID": "SYS_SK_SPINE",
     "snomedCTCode": "421060004",
-    "icd10PathologyCodes": ["M54.9"],
+    "icd10PathologyCodes": [
+      "M54.9"
+    ],
     "latinName": "Columna vertebralis",
     "commonName": "Vertebral Column (Spine)",
-    "systemCategory": ["Skeletal"],
+    "systemCategory": [
+      "Skeletal"
+    ],
     "descriptionProfessional": "Thirty-three vertebrae - 7 cervical, 12 thoracic, 5 lumbar, 5 fused sacral and 4 fused coccygeal - forming a segmented, curved column that protects the spinal cord.",
     "descriptionPatient": "Your backbone: a stack of small bones that holds you upright and shields your spinal cord.",
     "apBiologyFacts": [
@@ -652,11 +862,20 @@
       "Abnormal curvature: scoliosis (lateral), kyphosis (excess thoracic convexity), lordosis (excess lumbar concavity).",
       "Osteoporotic vertebral compression fractures cause progressive height loss and kyphosis in the elderly."
     ],
-    "boundsCenterOffset": { "x": 0.0, "y": 0.0, "z": -0.05 },
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": -0.05
+    },
     "idealCameraDistance": 0.7,
     "addressableMeshKey": "Mesh_Spine_LOD0",
     "audioTTSKey": "Audio_Spine_Desc",
-    "connectedNodes": ["SYS_SK_SKULL", "SYS_SK_PELVIS", "SYS_NERV_SPINALCORD", "SYS_SK_RIBCAGE"],
+    "connectedNodes": [
+      "SYS_SK_SKULL",
+      "SYS_SK_PELVIS",
+      "SYS_NERV_SPINALCORD",
+      "SYS_SK_RIBCAGE"
+    ],
     "hasMicroDive": false,
     "microDiveKey": "",
     "pharmacologyTargets": []
@@ -664,10 +883,14 @@
   {
     "entityID": "SYS_SK_RIBCAGE",
     "snomedCTCode": "24975004",
-    "icd10PathologyCodes": ["S22.9"],
+    "icd10PathologyCodes": [
+      "S22.9"
+    ],
     "latinName": "Cavea thoracis",
     "commonName": "Rib Cage",
-    "systemCategory": ["Skeletal"],
+    "systemCategory": [
+      "Skeletal"
+    ],
     "descriptionProfessional": "Twelve pairs of ribs articulating posteriorly with thoracic vertebrae and anteriorly, via costal cartilage, with the sternum - enclosing the thoracic viscera.",
     "descriptionPatient": "The curved bones around your chest that protect your heart and lungs and move when you breathe.",
     "apBiologyFacts": [
@@ -681,11 +904,19 @@
       "Chest compressions frequently fracture ribs, especially in the elderly; this is expected and CPR should continue.",
       "Red bone marrow persists in the ribs and sternum throughout adult life, which is why the sternum is used for marrow aspiration."
     ],
-    "boundsCenterOffset": { "x": 0.0, "y": 0.1, "z": -0.05 },
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.1,
+      "z": -0.05
+    },
     "idealCameraDistance": 0.5,
     "addressableMeshKey": "Mesh_RibCage_LOD0",
     "audioTTSKey": "Audio_RibCage_Desc",
-    "connectedNodes": ["SYS_SK_SPINE", "SYS_RESP_LUNG_L", "SYS_RESP_LUNG_R"],
+    "connectedNodes": [
+      "SYS_SK_SPINE",
+      "SYS_RESP_LUNG_L",
+      "SYS_RESP_LUNG_R"
+    ],
     "hasMicroDive": false,
     "microDiveKey": "",
     "pharmacologyTargets": []
@@ -693,10 +924,14 @@
   {
     "entityID": "SYS_SK_CLAVICLE",
     "snomedCTCode": "51299004",
-    "icd10PathologyCodes": ["S42.00"],
+    "icd10PathologyCodes": [
+      "S42.00"
+    ],
     "latinName": "Clavicula",
     "commonName": "Clavicle (Collarbone)",
-    "systemCategory": ["Skeletal"],
+    "systemCategory": [
+      "Skeletal"
+    ],
     "descriptionProfessional": "An S-shaped strut connecting the sternum to the acromion, the only bony articulation between the upper limb and the axial skeleton.",
     "descriptionPatient": "Your collarbone. It's the only bone linking your arm to the rest of your skeleton, which is why it breaks so easily.",
     "apBiologyFacts": [
@@ -708,11 +943,18 @@
       "The subclavian vessels and brachial plexus pass directly beneath it, so displaced fractures warrant a careful neurovascular exam.",
       "It is the landmark for subclavian central line placement."
     ],
-    "boundsCenterOffset": { "x": 0.0, "y": 0.0, "z": 0.0 },
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
     "idealCameraDistance": 0.35,
     "addressableMeshKey": "Mesh_Clavicle_LOD0",
     "audioTTSKey": "Audio_Clavicle_Desc",
-    "connectedNodes": ["SYS_SK_RIBCAGE", "SYS_SK_HUMERUS"],
+    "connectedNodes": [
+      "SYS_SK_RIBCAGE",
+      "SYS_SK_HUMERUS"
+    ],
     "hasMicroDive": false,
     "microDiveKey": "",
     "pharmacologyTargets": []
@@ -720,10 +962,14 @@
   {
     "entityID": "SYS_SK_PELVIS",
     "snomedCTCode": "12921003",
-    "icd10PathologyCodes": ["S32.9"],
+    "icd10PathologyCodes": [
+      "S32.9"
+    ],
     "latinName": "Pelvis",
     "commonName": "Pelvis",
-    "systemCategory": ["Skeletal"],
+    "systemCategory": [
+      "Skeletal"
+    ],
     "descriptionProfessional": "A basin formed by the paired hip bones (ilium, ischium, pubis fused at the acetabulum), the sacrum and the coccyx, transmitting axial load to the lower limbs.",
     "descriptionPatient": "The bowl-shaped bone at the base of your spine that carries your body weight down into your legs.",
     "apBiologyFacts": [
@@ -736,11 +982,19 @@
       "The iliac crest is the standard site for bone marrow biopsy.",
       "Total hip replacement resurfaces the acetabulum and replaces the femoral head."
     ],
-    "boundsCenterOffset": { "x": 0.0, "y": -0.3, "z": 0.0 },
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": -0.3,
+      "z": 0.0
+    },
     "idealCameraDistance": 0.4,
     "addressableMeshKey": "Mesh_Pelvis_LOD0",
     "audioTTSKey": "Audio_Pelvis_Desc",
-    "connectedNodes": ["SYS_SK_SPINE", "SYS_SK_FEMUR", "SYS_REN_BLADDER"],
+    "connectedNodes": [
+      "SYS_SK_SPINE",
+      "SYS_SK_FEMUR",
+      "SYS_REN_BLADDER"
+    ],
     "hasMicroDive": false,
     "microDiveKey": "",
     "pharmacologyTargets": []
@@ -748,10 +1002,14 @@
   {
     "entityID": "SYS_SK_FEMUR",
     "snomedCTCode": "71341001",
-    "icd10PathologyCodes": ["S72.90"],
+    "icd10PathologyCodes": [
+      "S72.90"
+    ],
     "latinName": "Os femoris",
     "commonName": "Femur (Thigh Bone)",
-    "systemCategory": ["Skeletal"],
+    "systemCategory": [
+      "Skeletal"
+    ],
     "descriptionProfessional": "The longest and strongest bone in the body, articulating proximally at the acetabulum and distally with the tibia and patella.",
     "descriptionPatient": "Your thigh bone - the longest and strongest bone in your body.",
     "apBiologyFacts": [
@@ -765,22 +1023,36 @@
       "The femoral head's retrograde blood supply means displaced neck fractures risk avascular necrosis.",
       "Fat embolism syndrome can follow femoral shaft fractures, presenting with hypoxia, confusion and a petechial rash."
     ],
-    "boundsCenterOffset": { "x": 0.0, "y": -0.4, "z": 0.0 },
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": -0.4,
+      "z": 0.0
+    },
     "idealCameraDistance": 0.6,
     "addressableMeshKey": "Mesh_Skeletal_Femur_LOD0",
     "audioTTSKey": "Audio_Femur_Desc",
-    "connectedNodes": ["SYS_SK_PELVIS", "SYS_SK_TIBIA", "SYS_MUSC_QUADS"],
+    "connectedNodes": [
+      "SYS_SK_PELVIS",
+      "SYS_SK_TIBIA",
+      "SYS_MUSC_QUADS"
+    ],
     "hasMicroDive": true,
     "microDiveKey": "Scene_Micro_Haversian",
-    "pharmacologyTargets": ["Alendronate"]
+    "pharmacologyTargets": [
+      "Alendronate"
+    ]
   },
   {
     "entityID": "SYS_SK_TIBIA",
     "snomedCTCode": "12611008",
-    "icd10PathologyCodes": ["S82.209"],
+    "icd10PathologyCodes": [
+      "S82.209"
+    ],
     "latinName": "Tibia",
     "commonName": "Tibia (Shin Bone)",
-    "systemCategory": ["Skeletal"],
+    "systemCategory": [
+      "Skeletal"
+    ],
     "descriptionProfessional": "The medial and weight-bearing bone of the leg, articulating with the femoral condyles above and forming the medial malleolus below.",
     "descriptionPatient": "Your shin bone. It carries almost all the weight through your lower leg - the thinner bone beside it barely shares the load.",
     "apBiologyFacts": [
@@ -792,11 +1064,18 @@
       "The anterior compartment of the leg is a classic site for compartment syndrome - pain out of proportion, pain on passive stretch, and a tense compartment are the early signs, long before pulselessness.",
       "The proximal tibia is the standard site for intraosseous access when veins cannot be cannulated in an emergency."
     ],
-    "boundsCenterOffset": { "x": 0.0, "y": -0.2, "z": 0.0 },
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": -0.2,
+      "z": 0.0
+    },
     "idealCameraDistance": 0.5,
     "addressableMeshKey": "Mesh_Tibia_LOD0",
     "audioTTSKey": "Audio_Tibia_Desc",
-    "connectedNodes": ["SYS_SK_FEMUR", "SYS_MUSC_GASTROCNEMIUS"],
+    "connectedNodes": [
+      "SYS_SK_FEMUR",
+      "SYS_MUSC_GASTROCNEMIUS"
+    ],
     "hasMicroDive": false,
     "microDiveKey": "",
     "pharmacologyTargets": []
@@ -804,10 +1083,14 @@
   {
     "entityID": "SYS_SK_HUMERUS",
     "snomedCTCode": "16953009",
-    "icd10PathologyCodes": ["S42.90"],
+    "icd10PathologyCodes": [
+      "S42.90"
+    ],
     "latinName": "Humerus",
     "commonName": "Humerus",
-    "systemCategory": ["Skeletal"],
+    "systemCategory": [
+      "Skeletal"
+    ],
     "descriptionProfessional": "The long bone of the arm, articulating at the glenohumeral joint proximally and with the radius and ulna at the elbow.",
     "descriptionPatient": "Your upper arm bone, running from your shoulder to your elbow.",
     "apBiologyFacts": [
@@ -819,11 +1102,19 @@
       "Surgical neck fracture threatens the axillary nerve, causing deltoid weakness and numbness over the 'regimental badge' area.",
       "Anterior shoulder dislocation is by far the commonest direction and also risks the axillary nerve."
     ],
-    "boundsCenterOffset": { "x": 0.3, "y": 0.1, "z": 0.0 },
+    "boundsCenterOffset": {
+      "x": 0.3,
+      "y": 0.1,
+      "z": 0.0
+    },
     "idealCameraDistance": 0.5,
     "addressableMeshKey": "Mesh_Skeletal_Humerus_LOD0",
     "audioTTSKey": "Audio_Humerus_Desc",
-    "connectedNodes": ["SYS_SK_CLAVICLE", "SYS_SK_RADIUS_ULNA", "SYS_MUSC_BICEPS"],
+    "connectedNodes": [
+      "SYS_SK_CLAVICLE",
+      "SYS_SK_RADIUS_ULNA",
+      "SYS_MUSC_BICEPS"
+    ],
     "hasMicroDive": false,
     "microDiveKey": "",
     "pharmacologyTargets": []
@@ -831,10 +1122,14 @@
   {
     "entityID": "SYS_SK_RADIUS_ULNA",
     "snomedCTCode": "110535000",
-    "icd10PathologyCodes": ["S52.90"],
+    "icd10PathologyCodes": [
+      "S52.90"
+    ],
     "latinName": "Radius et Ulna",
     "commonName": "Radius & Ulna",
-    "systemCategory": ["Skeletal"],
+    "systemCategory": [
+      "Skeletal"
+    ],
     "descriptionProfessional": "The paired forearm bones: the radius laterally (thumb side) and the ulna medially, connected by an interosseous membrane and permitting pronation and supination.",
     "descriptionPatient": "The two bones of your forearm. One rotates over the other, which is how you turn your palm up and down.",
     "apBiologyFacts": [
@@ -845,11 +1140,17 @@
       "Colles' fracture - a distal radius fracture from falling on an outstretched hand - produces the classic 'dinner fork' deformity and is very common in osteoporosis.",
       "The ulnar nerve passes behind the medial epicondyle, unprotected; striking it produces the 'funny bone' shock down to the little finger."
     ],
-    "boundsCenterOffset": { "x": 0.3, "y": -0.1, "z": 0.0 },
+    "boundsCenterOffset": {
+      "x": 0.3,
+      "y": -0.1,
+      "z": 0.0
+    },
     "idealCameraDistance": 0.4,
     "addressableMeshKey": "Mesh_RadiusUlna_LOD0",
     "audioTTSKey": "Audio_RadiusUlna_Desc",
-    "connectedNodes": ["SYS_SK_HUMERUS"],
+    "connectedNodes": [
+      "SYS_SK_HUMERUS"
+    ],
     "hasMicroDive": false,
     "microDiveKey": "",
     "pharmacologyTargets": []
@@ -857,10 +1158,14 @@
   {
     "entityID": "SYS_MUSC_BICEPS",
     "snomedCTCode": "68549008",
-    "icd10PathologyCodes": ["M62.9"],
+    "icd10PathologyCodes": [
+      "M62.9"
+    ],
     "latinName": "Musculus biceps brachii",
     "commonName": "Biceps Brachii",
-    "systemCategory": ["Muscular"],
+    "systemCategory": [
+      "Muscular"
+    ],
     "descriptionProfessional": "A two-headed anterior arm muscle crossing both shoulder and elbow, the principal supinator and a strong elbow flexor.",
     "descriptionPatient": "The muscle on the front of your upper arm that bends your elbow - the one you flex to show off.",
     "apBiologyFacts": [
@@ -873,11 +1178,18 @@
       "Rupture of the long head tendon produces the 'Popeye deformity', a bunched muscle belly in the lower arm.",
       "The biceps reflex tests the C5-C6 nerve roots."
     ],
-    "boundsCenterOffset": { "x": 0.3, "y": 0.1, "z": 0.05 },
+    "boundsCenterOffset": {
+      "x": 0.3,
+      "y": 0.1,
+      "z": 0.05
+    },
     "idealCameraDistance": 0.3,
     "addressableMeshKey": "Mesh_Muscle_Biceps_LOD0",
     "audioTTSKey": "Audio_Biceps_Desc",
-    "connectedNodes": ["SYS_SK_HUMERUS", "SYS_SK_RADIUS_ULNA"],
+    "connectedNodes": [
+      "SYS_SK_HUMERUS",
+      "SYS_SK_RADIUS_ULNA"
+    ],
     "hasMicroDive": true,
     "microDiveKey": "Scene_Micro_Sarcomere",
     "pharmacologyTargets": []
@@ -885,10 +1197,14 @@
   {
     "entityID": "SYS_MUSC_QUADS",
     "snomedCTCode": "68612001",
-    "icd10PathologyCodes": ["M62.9"],
+    "icd10PathologyCodes": [
+      "M62.9"
+    ],
     "latinName": "Musculus quadriceps femoris",
     "commonName": "Quadriceps Femoris",
-    "systemCategory": ["Muscular"],
+    "systemCategory": [
+      "Muscular"
+    ],
     "descriptionProfessional": "Four anterior thigh muscles - rectus femoris and the three vasti - converging on the patellar tendon to extend the knee.",
     "descriptionPatient": "The big muscle group on the front of your thigh that straightens your knee when you kick or stand up.",
     "apBiologyFacts": [
@@ -901,11 +1217,18 @@
       "Quadriceps atrophy develops strikingly fast after knee injury or immobilization - visible wasting within days.",
       "The vastus lateralis is the preferred intramuscular injection site in infants."
     ],
-    "boundsCenterOffset": { "x": 0.0, "y": -0.4, "z": 0.05 },
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": -0.4,
+      "z": 0.05
+    },
     "idealCameraDistance": 0.35,
     "addressableMeshKey": "Mesh_Muscle_Quadriceps_LOD0",
     "audioTTSKey": "Audio_Quadriceps_Desc",
-    "connectedNodes": ["SYS_SK_FEMUR", "SYS_SK_TIBIA"],
+    "connectedNodes": [
+      "SYS_SK_FEMUR",
+      "SYS_SK_TIBIA"
+    ],
     "hasMicroDive": true,
     "microDiveKey": "Scene_Micro_Sarcomere",
     "pharmacologyTargets": []
@@ -913,10 +1236,14 @@
   {
     "entityID": "SYS_MUSC_PECTORALIS",
     "snomedCTCode": "43848001",
-    "icd10PathologyCodes": ["M62.9"],
+    "icd10PathologyCodes": [
+      "M62.9"
+    ],
     "latinName": "Musculus pectoralis major",
     "commonName": "Pectoralis Major",
-    "systemCategory": ["Muscular"],
+    "systemCategory": [
+      "Muscular"
+    ],
     "descriptionProfessional": "A large fan-shaped chest muscle with clavicular and sternocostal heads, adducting, flexing and medially rotating the humerus.",
     "descriptionPatient": "The broad chest muscle that pulls your arm across your body - the one worked by push-ups.",
     "apBiologyFacts": [
@@ -927,11 +1254,19 @@
       "Pectoralis major rupture is a recognized bench-press injury, producing a visible defect and axillary bruising.",
       "It is the surface landmark for chest auscultation and for correct hand placement in CPR (lower half of the sternum)."
     ],
-    "boundsCenterOffset": { "x": 0.0, "y": 0.0, "z": 0.05 },
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.05
+    },
     "idealCameraDistance": 0.35,
     "addressableMeshKey": "Mesh_Muscle_Pectoralis_LOD0",
     "audioTTSKey": "Audio_Pectoralis_Desc",
-    "connectedNodes": ["SYS_SK_HUMERUS", "SYS_SK_RIBCAGE", "SYS_SK_CLAVICLE"],
+    "connectedNodes": [
+      "SYS_SK_HUMERUS",
+      "SYS_SK_RIBCAGE",
+      "SYS_SK_CLAVICLE"
+    ],
     "hasMicroDive": true,
     "microDiveKey": "Scene_Micro_Sarcomere",
     "pharmacologyTargets": []
@@ -939,10 +1274,14 @@
   {
     "entityID": "SYS_MUSC_DELTOID",
     "snomedCTCode": "37035000",
-    "icd10PathologyCodes": ["M62.9"],
+    "icd10PathologyCodes": [
+      "M62.9"
+    ],
     "latinName": "Musculus deltoideus",
     "commonName": "Deltoid",
-    "systemCategory": ["Muscular"],
+    "systemCategory": [
+      "Muscular"
+    ],
     "descriptionProfessional": "The triangular shoulder cap with anterior, middle and posterior fibers, the principal abductor of the arm above 15 degrees.",
     "descriptionPatient": "The rounded muscle capping your shoulder that lifts your arm out to the side.",
     "apBiologyFacts": [
@@ -954,11 +1293,18 @@
       "It is the standard site for adult intramuscular vaccination, two to three finger-breadths below the acromion to avoid the axillary nerve.",
       "Axillary nerve injury (surgical neck fracture, shoulder dislocation) causes deltoid paralysis and loss of sensation over the lateral shoulder."
     ],
-    "boundsCenterOffset": { "x": 0.2, "y": 0.1, "z": 0.0 },
+    "boundsCenterOffset": {
+      "x": 0.2,
+      "y": 0.1,
+      "z": 0.0
+    },
     "idealCameraDistance": 0.3,
     "addressableMeshKey": "Mesh_Muscle_Deltoid_LOD0",
     "audioTTSKey": "Audio_Deltoid_Desc",
-    "connectedNodes": ["SYS_SK_HUMERUS", "SYS_SK_CLAVICLE"],
+    "connectedNodes": [
+      "SYS_SK_HUMERUS",
+      "SYS_SK_CLAVICLE"
+    ],
     "hasMicroDive": true,
     "microDiveKey": "Scene_Micro_Sarcomere",
     "pharmacologyTargets": []
@@ -966,10 +1312,14 @@
   {
     "entityID": "SYS_MUSC_RECTUS_ABDOMINIS",
     "snomedCTCode": "10985000",
-    "icd10PathologyCodes": ["M62.9"],
+    "icd10PathologyCodes": [
+      "M62.9"
+    ],
     "latinName": "Musculus rectus abdominis",
     "commonName": "Rectus Abdominis",
-    "systemCategory": ["Muscular"],
+    "systemCategory": [
+      "Muscular"
+    ],
     "descriptionProfessional": "Paired vertical strap muscles running from pubic crest to costal cartilages within the rectus sheath, divided by tendinous intersections.",
     "descriptionPatient": "The front abdominal muscle that bends you forward - the 'six-pack'.",
     "apBiologyFacts": [
@@ -981,11 +1331,18 @@
       "The linea alba is relatively avascular, which is why a midline laparotomy incision is made there.",
       "Involuntary rigidity ('guarding') of these muscles is a cardinal sign of peritonitis."
     ],
-    "boundsCenterOffset": { "x": 0.0, "y": 0.0, "z": 0.05 },
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.05
+    },
     "idealCameraDistance": 0.4,
     "addressableMeshKey": "Mesh_Muscle_RectusAbdominis_LOD0",
     "audioTTSKey": "Audio_RectusAbdominis_Desc",
-    "connectedNodes": ["SYS_SK_PELVIS", "SYS_SK_RIBCAGE"],
+    "connectedNodes": [
+      "SYS_SK_PELVIS",
+      "SYS_SK_RIBCAGE"
+    ],
     "hasMicroDive": true,
     "microDiveKey": "Scene_Micro_Sarcomere",
     "pharmacologyTargets": []
@@ -993,10 +1350,14 @@
   {
     "entityID": "SYS_MUSC_GASTROCNEMIUS",
     "snomedCTCode": "25097003",
-    "icd10PathologyCodes": ["M62.9"],
+    "icd10PathologyCodes": [
+      "M62.9"
+    ],
     "latinName": "Musculus gastrocnemius",
     "commonName": "Gastrocnemius (Calf)",
-    "systemCategory": ["Muscular"],
+    "systemCategory": [
+      "Muscular"
+    ],
     "descriptionProfessional": "The superficial two-headed calf muscle crossing knee and ankle, joining soleus to form the triceps surae and inserting via the calcaneal tendon.",
     "descriptionPatient": "Your calf muscle. It points your foot down so you can walk, run and stand on tiptoe.",
     "apBiologyFacts": [
@@ -1009,11 +1370,18 @@
       "Unilateral calf pain, swelling and warmth raise suspicion of deep vein thrombosis.",
       "Immobility removes the muscle pump, which is precisely why postoperative and long-haul patients are at DVT risk."
     ],
-    "boundsCenterOffset": { "x": 0.0, "y": -0.2, "z": -0.05 },
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": -0.2,
+      "z": -0.05
+    },
     "idealCameraDistance": 0.35,
     "addressableMeshKey": "Mesh_Muscle_Gastrocnemius_LOD0",
     "audioTTSKey": "Audio_Gastrocnemius_Desc",
-    "connectedNodes": ["SYS_SK_TIBIA", "SYS_CV_VEIN"],
+    "connectedNodes": [
+      "SYS_SK_TIBIA",
+      "SYS_CV_VEIN"
+    ],
     "hasMicroDive": true,
     "microDiveKey": "Scene_Micro_Sarcomere",
     "pharmacologyTargets": []
@@ -1021,10 +1389,14 @@
   {
     "entityID": "SYS_REN_KIDNEY_L",
     "snomedCTCode": "18639004",
-    "icd10PathologyCodes": ["N28.9"],
+    "icd10PathologyCodes": [
+      "N28.9"
+    ],
     "latinName": "Ren sinister",
     "commonName": "Left Kidney",
-    "systemCategory": ["Renal"],
+    "systemCategory": [
+      "Renal"
+    ],
     "descriptionProfessional": "The left retroperitoneal kidney, lying at roughly T12-L3, marginally higher than the right, filtering plasma through approximately one million nephrons.",
     "descriptionPatient": "One of your two bean-shaped filters. It cleans your blood and makes urine.",
     "apBiologyFacts": [
@@ -1039,22 +1411,37 @@
       "Diabetic nephropathy is the leading cause of end-stage renal disease worldwide.",
       "NSAIDs block prostaglandin-mediated afferent arteriolar dilation and can precipitate acute kidney injury in hypovolemic patients."
     ],
-    "boundsCenterOffset": { "x": -0.12, "y": -0.15, "z": -0.05 },
+    "boundsCenterOffset": {
+      "x": -0.12,
+      "y": -0.15,
+      "z": -0.05
+    },
     "idealCameraDistance": 0.25,
     "addressableMeshKey": "Mesh_Kidney_Left_LOD0",
     "audioTTSKey": "Audio_KidneyLeft_Desc",
-    "connectedNodes": ["SYS_REN_BLADDER", "SYS_REN_URETER", "SYS_ENDO_ADRENAL"],
+    "connectedNodes": [
+      "SYS_REN_BLADDER",
+      "SYS_REN_URETER",
+      "SYS_ENDO_ADRENAL"
+    ],
     "hasMicroDive": true,
     "microDiveKey": "Scene_Micro_Nephron",
-    "pharmacologyTargets": ["Furosemide", "Lisinopril"]
+    "pharmacologyTargets": [
+      "Furosemide",
+      "Lisinopril"
+    ]
   },
   {
     "entityID": "SYS_REN_KIDNEY_R",
     "snomedCTCode": "18639004",
-    "icd10PathologyCodes": ["N28.9"],
+    "icd10PathologyCodes": [
+      "N28.9"
+    ],
     "latinName": "Ren dexter",
     "commonName": "Right Kidney",
-    "systemCategory": ["Renal"],
+    "systemCategory": [
+      "Renal"
+    ],
     "descriptionProfessional": "The right retroperitoneal kidney, sitting slightly lower than the left because the liver occupies the space above it.",
     "descriptionPatient": "Your other kidney. It sits a bit lower than the left one because your liver is in the way.",
     "apBiologyFacts": [
@@ -1067,22 +1454,36 @@
       "The right kidney is more often injured in blunt trauma given its lower, less protected position.",
       "Hydronephrosis on ultrasound indicates obstruction downstream and requires urgent decompression."
     ],
-    "boundsCenterOffset": { "x": 0.12, "y": -0.15, "z": -0.05 },
+    "boundsCenterOffset": {
+      "x": 0.12,
+      "y": -0.15,
+      "z": -0.05
+    },
     "idealCameraDistance": 0.25,
     "addressableMeshKey": "Mesh_Kidney_Right_LOD0",
     "audioTTSKey": "Audio_KidneyRight_Desc",
-    "connectedNodes": ["SYS_REN_BLADDER", "SYS_REN_URETER", "SYS_ENDO_ADRENAL"],
+    "connectedNodes": [
+      "SYS_REN_BLADDER",
+      "SYS_REN_URETER",
+      "SYS_ENDO_ADRENAL"
+    ],
     "hasMicroDive": true,
     "microDiveKey": "Scene_Micro_Nephron",
-    "pharmacologyTargets": ["Furosemide"]
+    "pharmacologyTargets": [
+      "Furosemide"
+    ]
   },
   {
     "entityID": "SYS_REN_URETER",
     "snomedCTCode": "87953007",
-    "icd10PathologyCodes": ["N20.1"],
+    "icd10PathologyCodes": [
+      "N20.1"
+    ],
     "latinName": "Ureter",
     "commonName": "Ureter",
-    "systemCategory": ["Renal"],
+    "systemCategory": [
+      "Renal"
+    ],
     "descriptionProfessional": "A 25-30 cm muscular tube conveying urine from the renal pelvis to the bladder by peristalsis, entering the bladder obliquely.",
     "descriptionPatient": "The tube carrying urine from each kidney down to your bladder.",
     "apBiologyFacts": [
@@ -1094,22 +1495,36 @@
       "Renal colic - severe loin-to-groin pain with the patient unable to lie still - is often described as among the worst pains in medicine, and is classically compared with childbirth.",
       "Vesicoureteric reflux in children causes recurrent infections and renal scarring."
     ],
-    "boundsCenterOffset": { "x": 0.0, "y": 0.0, "z": 0.0 },
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
     "idealCameraDistance": 0.3,
     "addressableMeshKey": "Mesh_Ureter_LOD0",
     "audioTTSKey": "Audio_Ureter_Desc",
-    "connectedNodes": ["SYS_REN_KIDNEY_L", "SYS_REN_KIDNEY_R", "SYS_REN_BLADDER"],
+    "connectedNodes": [
+      "SYS_REN_KIDNEY_L",
+      "SYS_REN_KIDNEY_R",
+      "SYS_REN_BLADDER"
+    ],
     "hasMicroDive": false,
     "microDiveKey": "",
-    "pharmacologyTargets": ["Tamsulosin"]
+    "pharmacologyTargets": [
+      "Tamsulosin"
+    ]
   },
   {
     "entityID": "SYS_REN_BLADDER",
     "snomedCTCode": "89837001",
-    "icd10PathologyCodes": ["N32.9"],
+    "icd10PathologyCodes": [
+      "N32.9"
+    ],
     "latinName": "Vesica urinaria",
     "commonName": "Urinary Bladder",
-    "systemCategory": ["Renal"],
+    "systemCategory": [
+      "Renal"
+    ],
     "descriptionProfessional": "A distensible pelvic reservoir lined by urothelium, emptied by detrusor contraction under parasympathetic control with voluntary external sphincter override.",
     "descriptionPatient": "A stretchy bag that stores urine until you're ready to go to the bathroom.",
     "apBiologyFacts": [
@@ -1122,22 +1537,37 @@
       "Acute retention is painful and requires catheterization; chronic retention may be painless and cause renal impairment.",
       "Painless visible hematuria is bladder cancer until proven otherwise, and smoking is the dominant risk factor."
     ],
-    "boundsCenterOffset": { "x": 0.0, "y": -0.35, "z": 0.0 },
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": -0.35,
+      "z": 0.0
+    },
     "idealCameraDistance": 0.25,
     "addressableMeshKey": "Mesh_Bladder_LOD0",
     "audioTTSKey": "Audio_Bladder_Desc",
-    "connectedNodes": ["SYS_REN_KIDNEY_L", "SYS_REN_KIDNEY_R", "SYS_REN_URETER"],
+    "connectedNodes": [
+      "SYS_REN_KIDNEY_L",
+      "SYS_REN_KIDNEY_R",
+      "SYS_REN_URETER"
+    ],
     "hasMicroDive": false,
     "microDiveKey": "",
-    "pharmacologyTargets": ["Oxybutynin"]
+    "pharmacologyTargets": [
+      "Oxybutynin"
+    ]
   },
   {
     "entityID": "SYS_ENDO_THYROID",
     "snomedCTCode": "69748006",
-    "icd10PathologyCodes": ["E03.9", "E05.90"],
+    "icd10PathologyCodes": [
+      "E03.9",
+      "E05.90"
+    ],
     "latinName": "Glandula thyroidea",
     "commonName": "Thyroid Gland",
-    "systemCategory": ["Endocrine"],
+    "systemCategory": [
+      "Endocrine"
+    ],
     "descriptionProfessional": "A butterfly-shaped gland straddling the trachea below the larynx, secreting thyroxine (T4), triiodothyronine (T3) and calcitonin.",
     "descriptionPatient": "A small butterfly-shaped gland in your neck that sets the speed your whole body runs at.",
     "apBiologyFacts": [
@@ -1151,22 +1581,36 @@
       "Hashimoto's thyroiditis (hypothyroid) causes fatigue, weight gain, cold intolerance and bradycardia; Graves' disease (hyperthyroid) causes weight loss, heat intolerance, tachycardia and exophthalmos.",
       "The four parathyroid glands sit on its posterior surface and are at risk in thyroidectomy - inadvertent removal causes hypocalcemia with tetany and Chvostek's sign."
     ],
-    "boundsCenterOffset": { "x": 0.0, "y": 0.2, "z": 0.03 },
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.2,
+      "z": 0.03
+    },
     "idealCameraDistance": 0.15,
     "addressableMeshKey": "Mesh_Thyroid_LOD0",
     "audioTTSKey": "Audio_Thyroid_Desc",
-    "connectedNodes": ["SYS_RESP_TRACHEA", "SYS_ENDO_PITUITARY"],
+    "connectedNodes": [
+      "SYS_RESP_TRACHEA",
+      "SYS_ENDO_PITUITARY"
+    ],
     "hasMicroDive": false,
     "microDiveKey": "",
-    "pharmacologyTargets": ["Levothyroxine", "Carbimazole"]
+    "pharmacologyTargets": [
+      "Levothyroxine",
+      "Carbimazole"
+    ]
   },
   {
     "entityID": "SYS_ENDO_ADRENAL",
     "snomedCTCode": "23451007",
-    "icd10PathologyCodes": ["E27.40"],
+    "icd10PathologyCodes": [
+      "E27.40"
+    ],
     "latinName": "Glandula suprarenalis",
     "commonName": "Adrenal Gland",
-    "systemCategory": ["Endocrine"],
+    "systemCategory": [
+      "Endocrine"
+    ],
     "descriptionProfessional": "A paired retroperitoneal gland capping each kidney, with a three-zoned steroid-secreting cortex and a catecholamine-secreting medulla.",
     "descriptionPatient": "A small gland sitting on top of each kidney. It makes adrenaline for emergencies and cortisol for everyday stress.",
     "apBiologyFacts": [
@@ -1181,22 +1625,38 @@
       "Long-term steroid therapy suppresses the axis, so abrupt withdrawal can precipitate an adrenal crisis - steroids must be tapered.",
       "Pheochromocytoma of the medulla causes episodic hypertension with headache, palpitations and sweating."
     ],
-    "boundsCenterOffset": { "x": 0.0, "y": 0.0, "z": 0.0 },
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
     "idealCameraDistance": 0.2,
     "addressableMeshKey": "Mesh_Adrenal_LOD0",
     "audioTTSKey": "Audio_Adrenal_Desc",
-    "connectedNodes": ["SYS_REN_KIDNEY_L", "SYS_REN_KIDNEY_R", "SYS_ENDO_PITUITARY"],
+    "connectedNodes": [
+      "SYS_REN_KIDNEY_L",
+      "SYS_REN_KIDNEY_R",
+      "SYS_ENDO_PITUITARY"
+    ],
     "hasMicroDive": false,
     "microDiveKey": "",
-    "pharmacologyTargets": ["Hydrocortisone", "Epinephrine"]
+    "pharmacologyTargets": [
+      "Hydrocortisone",
+      "Epinephrine"
+    ]
   },
   {
     "entityID": "SYS_ENDO_PITUITARY",
     "snomedCTCode": "56329008",
-    "icd10PathologyCodes": ["E23.7"],
+    "icd10PathologyCodes": [
+      "E23.7"
+    ],
     "latinName": "Hypophysis",
     "commonName": "Pituitary Gland",
-    "systemCategory": ["Endocrine", "Nervous"],
+    "systemCategory": [
+      "Endocrine",
+      "Nervous"
+    ],
     "descriptionProfessional": "A pea-sized gland in the sella turcica beneath the hypothalamus, with an anterior adenohypophysis and a posterior neurohypophysis.",
     "descriptionPatient": "A pea-sized gland under your brain that bosses most of your other glands around.",
     "apBiologyFacts": [
@@ -1211,22 +1671,37 @@
       "Growth hormone excess causes gigantism before growth plates fuse and acromegaly after.",
       "ADH deficiency causes diabetes insipidus: large volumes of dilute urine and relentless thirst."
     ],
-    "boundsCenterOffset": { "x": 0.0, "y": 0.0, "z": 0.0 },
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
     "idealCameraDistance": 0.15,
     "addressableMeshKey": "Mesh_Pituitary_LOD0",
     "audioTTSKey": "Audio_Pituitary_Desc",
-    "connectedNodes": ["SYS_NERV_BRAIN", "SYS_ENDO_THYROID", "SYS_ENDO_ADRENAL"],
+    "connectedNodes": [
+      "SYS_NERV_BRAIN",
+      "SYS_ENDO_THYROID",
+      "SYS_ENDO_ADRENAL"
+    ],
     "hasMicroDive": false,
     "microDiveKey": "",
-    "pharmacologyTargets": ["Desmopressin", "Cabergoline"]
+    "pharmacologyTargets": [
+      "Desmopressin",
+      "Cabergoline"
+    ]
   },
   {
     "entityID": "SYS_LYMPH_SPLEEN",
     "snomedCTCode": "78961009",
-    "icd10PathologyCodes": ["D73.9"],
+    "icd10PathologyCodes": [
+      "D73.9"
+    ],
     "latinName": "Splen (Lien)",
     "commonName": "Spleen",
-    "systemCategory": ["Lymphatic"],
+    "systemCategory": [
+      "Lymphatic"
+    ],
     "descriptionProfessional": "The largest lymphoid organ, in the left hypochondrium behind ribs 9-11, comprising white pulp for immune surveillance and red pulp for erythrocyte filtration.",
     "descriptionPatient": "An organ on your left side that filters your blood and helps your immune system fight infection.",
     "apBiologyFacts": [
@@ -1239,11 +1714,18 @@
       "After splenectomy patients face lifelong risk of overwhelming post-splenectomy infection with encapsulated organisms, so they are vaccinated against pneumococcus, meningococcus and Haemophilus influenzae type b.",
       "Splenomegaly occurs in infectious mononucleosis - and is why contact sports are avoided during recovery - as well as in portal hypertension and haematological malignancy."
     ],
-    "boundsCenterOffset": { "x": -0.2, "y": 0.0, "z": 0.0 },
+    "boundsCenterOffset": {
+      "x": -0.2,
+      "y": 0.0,
+      "z": 0.0
+    },
     "idealCameraDistance": 0.2,
     "addressableMeshKey": "Mesh_Spleen_LOD0",
     "audioTTSKey": "Audio_Spleen_Desc",
-    "connectedNodes": ["SYS_DIG_STOMACH", "SYS_LYMPH_THYMUS"],
+    "connectedNodes": [
+      "SYS_DIG_STOMACH",
+      "SYS_LYMPH_THYMUS"
+    ],
     "hasMicroDive": true,
     "microDiveKey": "Scene_Micro_Macrophage",
     "pharmacologyTargets": []
@@ -1251,10 +1733,14 @@
   {
     "entityID": "SYS_LYMPH_THYMUS",
     "snomedCTCode": "9875009",
-    "icd10PathologyCodes": ["E32.9"],
+    "icd10PathologyCodes": [
+      "E32.9"
+    ],
     "latinName": "Thymus",
     "commonName": "Thymus",
-    "systemCategory": ["Lymphatic"],
+    "systemCategory": [
+      "Lymphatic"
+    ],
     "descriptionProfessional": "A bilobed organ in the anterior superior mediastinum where T lymphocytes mature; prominent in childhood and progressively replaced by fat after puberty.",
     "descriptionPatient": "A gland behind your breastbone that trains your immune cells while you're growing up, then quietly shrinks away.",
     "apBiologyFacts": [
@@ -1266,11 +1752,18 @@
       "Myasthenia gravis is strongly associated with thymic abnormality; thymectomy can improve the disease.",
       "DiGeorge syndrome (22q11 deletion) features thymic aplasia with profound T-cell deficiency."
     ],
-    "boundsCenterOffset": { "x": 0.0, "y": 0.0, "z": 0.0 },
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
     "idealCameraDistance": 0.25,
     "addressableMeshKey": "Mesh_Thymus_LOD0",
     "audioTTSKey": "Audio_Thymus_Desc",
-    "connectedNodes": ["SYS_LYMPH_SPLEEN", "SYS_CV_HEART"],
+    "connectedNodes": [
+      "SYS_LYMPH_SPLEEN",
+      "SYS_CV_HEART"
+    ],
     "hasMicroDive": false,
     "microDiveKey": "",
     "pharmacologyTargets": []
@@ -1278,10 +1771,14 @@
   {
     "entityID": "SYS_SK_STERNUM",
     "snomedCTCode": "56873002",
-    "icd10PathologyCodes": ["S22.20"],
+    "icd10PathologyCodes": [
+      "S22.20"
+    ],
     "latinName": "Sternum",
     "commonName": "Sternum (Breastbone)",
-    "systemCategory": ["Skeletal"],
+    "systemCategory": [
+      "Skeletal"
+    ],
     "descriptionProfessional": "A flat bone of manubrium, body and xiphoid process, articulating with the clavicles and the costal cartilages of ribs 1-7.",
     "descriptionPatient": "Your breastbone, the flat bone down the middle of your chest that the ribs attach to.",
     "apBiologyFacts": [
@@ -1293,11 +1790,18 @@
       "Chest compressions are delivered over the lower half of the sternum; the xiphoid is avoided because levering it can lacerate the liver.",
       "Counting ribs clinically starts from the sternal angle, the most reliable surface landmark on the chest."
     ],
-    "boundsCenterOffset": { "x": 0.0, "y": 0.0, "z": 0.0 },
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
     "idealCameraDistance": 0.35,
     "addressableMeshKey": "Mesh_Sternum_LOD0",
     "audioTTSKey": "Audio_Sternum_Desc",
-    "connectedNodes": ["SYS_SK_RIBCAGE", "SYS_SK_CLAVICLE"],
+    "connectedNodes": [
+      "SYS_SK_RIBCAGE",
+      "SYS_SK_CLAVICLE"
+    ],
     "hasMicroDive": false,
     "microDiveKey": "",
     "pharmacologyTargets": []
@@ -1305,10 +1809,14 @@
   {
     "entityID": "SYS_SK_MANDIBLE",
     "snomedCTCode": "91609006",
-    "icd10PathologyCodes": ["S02.60"],
+    "icd10PathologyCodes": [
+      "S02.60"
+    ],
     "latinName": "Mandibula",
     "commonName": "Mandible (Lower Jaw)",
-    "systemCategory": ["Skeletal"],
+    "systemCategory": [
+      "Skeletal"
+    ],
     "descriptionProfessional": "The largest and strongest facial bone, articulating with the temporal bones at the temporomandibular joints and bearing the lower dentition.",
     "descriptionPatient": "Your lower jaw - the only bone in your skull that actually moves.",
     "apBiologyFacts": [
@@ -1321,50 +1829,32 @@
       "TMJ dysfunction causes jaw pain, clicking and restricted opening.",
       "The inferior alveolar nerve runs inside the bone and is anaesthetised for most lower-jaw dental work."
     ],
-    "boundsCenterOffset": { "x": 0.0, "y": 0.0, "z": 0.0 },
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
     "idealCameraDistance": 0.2,
     "addressableMeshKey": "Mesh_Mandible_LOD0",
     "audioTTSKey": "Audio_Mandible_Desc",
-    "connectedNodes": ["SYS_SK_SKULL", "SYS_MUSC_FACIAL"],
+    "connectedNodes": [
+      "SYS_SK_SKULL"
+    ],
     "hasMicroDive": false,
     "microDiveKey": "",
     "pharmacologyTargets": []
   },
   {
-    "entityID": "SYS_MUSC_FACIAL",
-    "snomedCTCode": "39937001",
-    "icd10PathologyCodes": ["G51.0"],
-    "latinName": "Musculi masticatorii et faciei",
-    "commonName": "Muscles of the Face and Jaw",
-    "systemCategory": ["Muscular"],
-    "descriptionProfessional": "The muscles of mastication (temporalis, masseter, pterygoids) supplied by the trigeminal nerve, and the muscles of facial expression supplied by the facial nerve.",
-    "descriptionPatient": "The muscles that chew your food and make your expressions - smiling, frowning, raising an eyebrow.",
-    "apBiologyFacts": [
-      "Two functionally distinct sets with two different nerves: muscles of MASTICATION (chewing) run on the trigeminal nerve, CN V; muscles of EXPRESSION run on the facial nerve, CN VII.",
-      "The masseter is, pound for pound, among the strongest muscles in the body - human bite force at the molars reaches roughly 700 newtons.",
-      "Muscles of facial expression are unusual in inserting into skin rather than bone, which is exactly why their contraction moves the face instead of a joint. This fine-grained control of expression is a major channel of human social communication."
-    ],
-    "clinicalNotes": [
-      "Bell's palsy is a lower motor neuron facial nerve palsy: the whole side of the face droops, including the forehead. In a stroke the forehead is spared, because it receives input from both hemispheres - the single most useful bedside discriminator.",
-      "Trigeminal neuralgia causes sudden, severe, lancinating facial pain triggered by light touch.",
-      "Bruxism (tooth grinding) hypertrophies the masseter and wears the dentition."
-    ],
-    "boundsCenterOffset": { "x": 0.0, "y": 0.0, "z": 0.0 },
-    "idealCameraDistance": 0.2,
-    "addressableMeshKey": "Mesh_Muscle_Facial_LOD0",
-    "audioTTSKey": "Audio_Facial_Desc",
-    "connectedNodes": ["SYS_SK_MANDIBLE", "SYS_SK_SKULL"],
-    "hasMicroDive": true,
-    "microDiveKey": "Scene_Micro_Sarcomere",
-    "pharmacologyTargets": ["Carbamazepine"]
-  },
-  {
     "entityID": "SYS_SK_HAND",
     "snomedCTCode": "85562004",
-    "icd10PathologyCodes": ["S62.90"],
+    "icd10PathologyCodes": [
+      "S62.90"
+    ],
     "latinName": "Ossa manus",
     "commonName": "Bones of the Hand",
-    "systemCategory": ["Skeletal"],
+    "systemCategory": [
+      "Skeletal"
+    ],
     "descriptionProfessional": "Twenty-seven bones per hand: eight carpals, five metacarpals and fourteen phalanges.",
     "descriptionPatient": "Each hand contains 27 separate bones - more than a quarter of all the bones in your body are in your two hands.",
     "apBiologyFacts": [
@@ -1376,11 +1866,17 @@
       "Scaphoid fracture presents with anatomical snuffbox tenderness and is often missed on initial X-ray; its retrograde blood supply risks avascular necrosis.",
       "A 'boxer's fracture' is a fifth metacarpal neck fracture from punching with a closed fist."
     ],
-    "boundsCenterOffset": { "x": 0.0, "y": 0.0, "z": 0.0 },
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
     "idealCameraDistance": 0.2,
     "addressableMeshKey": "Mesh_Hand_LOD0",
     "audioTTSKey": "Audio_Hand_Desc",
-    "connectedNodes": ["SYS_SK_RADIUS_ULNA"],
+    "connectedNodes": [
+      "SYS_SK_RADIUS_ULNA"
+    ],
     "hasMicroDive": false,
     "microDiveKey": "",
     "pharmacologyTargets": []
@@ -1388,10 +1884,14 @@
   {
     "entityID": "SYS_SK_FOOT",
     "snomedCTCode": "57043001",
-    "icd10PathologyCodes": ["S92.90"],
+    "icd10PathologyCodes": [
+      "S92.90"
+    ],
     "latinName": "Ossa pedis",
     "commonName": "Bones of the Foot",
-    "systemCategory": ["Skeletal"],
+    "systemCategory": [
+      "Skeletal"
+    ],
     "descriptionProfessional": "Twenty-six bones per foot: seven tarsals, five metatarsals and fourteen phalanges, arranged into longitudinal and transverse arches.",
     "descriptionPatient": "Each foot has 26 bones arranged into springy arches that absorb the shock of every step.",
     "apBiologyFacts": [
@@ -1404,11 +1904,17 @@
       "Ottawa ankle rules determine whether an X-ray is needed after an ankle injury, reducing unnecessary imaging.",
       "March (stress) fractures of the metatarsals follow repetitive loading in runners and military recruits."
     ],
-    "boundsCenterOffset": { "x": 0.0, "y": 0.0, "z": 0.0 },
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
     "idealCameraDistance": 0.2,
     "addressableMeshKey": "Mesh_Foot_LOD0",
     "audioTTSKey": "Audio_Foot_Desc",
-    "connectedNodes": ["SYS_SK_TIBIA"],
+    "connectedNodes": [
+      "SYS_SK_TIBIA"
+    ],
     "hasMicroDive": false,
     "microDiveKey": "",
     "pharmacologyTargets": []
@@ -1416,10 +1922,14 @@
   {
     "entityID": "SYS_MUSC_TRAPEZIUS",
     "snomedCTCode": "16405000",
-    "icd10PathologyCodes": ["M62.9"],
+    "icd10PathologyCodes": [
+      "M62.9"
+    ],
     "latinName": "Musculus trapezius",
     "commonName": "Trapezius",
-    "systemCategory": ["Muscular"],
+    "systemCategory": [
+      "Muscular"
+    ],
     "descriptionProfessional": "A large diamond-shaped superficial back muscle from the occiput and spinous processes to the clavicle, acromion and scapular spine.",
     "descriptionPatient": "The big diamond-shaped muscle across your upper back and neck. It shrugs your shoulders.",
     "apBiologyFacts": [
@@ -1431,11 +1941,18 @@
       "It is the classic site of tension-related myofascial trigger points and 'text neck' pain.",
       "Accessory nerve injury during posterior triangle neck surgery causes shoulder droop and winging."
     ],
-    "boundsCenterOffset": { "x": 0.0, "y": 0.0, "z": -0.05 },
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": -0.05
+    },
     "idealCameraDistance": 0.4,
     "addressableMeshKey": "Mesh_Muscle_Trapezius_LOD0",
     "audioTTSKey": "Audio_Trapezius_Desc",
-    "connectedNodes": ["SYS_SK_SPINE", "SYS_SK_CLAVICLE"],
+    "connectedNodes": [
+      "SYS_SK_SPINE",
+      "SYS_SK_CLAVICLE"
+    ],
     "hasMicroDive": true,
     "microDiveKey": "Scene_Micro_Sarcomere",
     "pharmacologyTargets": []
@@ -1443,10 +1960,14 @@
   {
     "entityID": "SYS_MUSC_LATISSIMUS",
     "snomedCTCode": "44947003",
-    "icd10PathologyCodes": ["M62.9"],
+    "icd10PathologyCodes": [
+      "M62.9"
+    ],
     "latinName": "Musculus latissimus dorsi",
     "commonName": "Latissimus Dorsi",
-    "systemCategory": ["Muscular"],
+    "systemCategory": [
+      "Muscular"
+    ],
     "descriptionProfessional": "The broadest muscle of the back, from the thoracolumbar fascia and lower thoracic spines to the intertubercular groove of the humerus.",
     "descriptionPatient": "The broad muscle of your back that pulls your arm down and back - the one that does pull-ups.",
     "apBiologyFacts": [
@@ -1457,11 +1978,18 @@
       "Its bulk and reliable thoracodorsal blood supply make it a workhorse flap for breast and chest wall reconstruction.",
       "Nicknamed the 'climbing muscle'; weakness impairs transfers and crutch use in paraplegic patients."
     ],
-    "boundsCenterOffset": { "x": 0.0, "y": 0.0, "z": -0.05 },
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": -0.05
+    },
     "idealCameraDistance": 0.4,
     "addressableMeshKey": "Mesh_Muscle_Latissimus_LOD0",
     "audioTTSKey": "Audio_Latissimus_Desc",
-    "connectedNodes": ["SYS_SK_SPINE", "SYS_SK_HUMERUS"],
+    "connectedNodes": [
+      "SYS_SK_SPINE",
+      "SYS_SK_HUMERUS"
+    ],
     "hasMicroDive": true,
     "microDiveKey": "Scene_Micro_Sarcomere",
     "pharmacologyTargets": []
@@ -1469,10 +1997,14 @@
   {
     "entityID": "SYS_MUSC_TRICEPS",
     "snomedCTCode": "21190008",
-    "icd10PathologyCodes": ["M62.9"],
+    "icd10PathologyCodes": [
+      "M62.9"
+    ],
     "latinName": "Musculus triceps brachii",
     "commonName": "Triceps Brachii",
-    "systemCategory": ["Muscular"],
+    "systemCategory": [
+      "Muscular"
+    ],
     "descriptionProfessional": "The three-headed posterior arm muscle inserting on the olecranon, the sole extensor of the elbow.",
     "descriptionPatient": "The muscle on the back of your upper arm that straightens your elbow - the opposite of your biceps.",
     "apBiologyFacts": [
@@ -1484,11 +2016,18 @@
       "The triceps reflex tests the C7 nerve root.",
       "Radial nerve injury in the spiral groove weakens the triceps and produces wrist drop."
     ],
-    "boundsCenterOffset": { "x": 0.3, "y": 0.1, "z": -0.05 },
+    "boundsCenterOffset": {
+      "x": 0.3,
+      "y": 0.1,
+      "z": -0.05
+    },
     "idealCameraDistance": 0.3,
     "addressableMeshKey": "Mesh_Muscle_Triceps_LOD0",
     "audioTTSKey": "Audio_Triceps_Desc",
-    "connectedNodes": ["SYS_SK_HUMERUS", "SYS_MUSC_BICEPS"],
+    "connectedNodes": [
+      "SYS_SK_HUMERUS",
+      "SYS_MUSC_BICEPS"
+    ],
     "hasMicroDive": true,
     "microDiveKey": "Scene_Micro_Sarcomere",
     "pharmacologyTargets": []
@@ -1496,10 +2035,14 @@
   {
     "entityID": "SYS_MUSC_OBLIQUE",
     "snomedCTCode": "43663004",
-    "icd10PathologyCodes": ["M62.9"],
+    "icd10PathologyCodes": [
+      "M62.9"
+    ],
     "latinName": "Musculus obliquus externus abdominis",
     "commonName": "External Oblique",
-    "systemCategory": ["Muscular"],
+    "systemCategory": [
+      "Muscular"
+    ],
     "descriptionProfessional": "The largest and most superficial of the flat abdominal muscles, its fibers running inferomedially like hands in pockets.",
     "descriptionPatient": "The muscle on the side of your waist that twists and bends your trunk sideways.",
     "apBiologyFacts": [
@@ -1510,11 +2053,18 @@
       "Its aponeurosis forms the inguinal ligament and the external ring of the inguinal canal - the site of indirect inguinal hernia.",
       "The layered abdominal wall is what surgeons traverse in a gridiron incision for appendicectomy, splitting each layer along its own fiber direction."
     ],
-    "boundsCenterOffset": { "x": 0.0, "y": 0.0, "z": 0.05 },
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.05
+    },
     "idealCameraDistance": 0.4,
     "addressableMeshKey": "Mesh_Muscle_Oblique_LOD0",
     "audioTTSKey": "Audio_Oblique_Desc",
-    "connectedNodes": ["SYS_MUSC_RECTUS_ABDOMINIS", "SYS_SK_PELVIS"],
+    "connectedNodes": [
+      "SYS_MUSC_RECTUS_ABDOMINIS",
+      "SYS_SK_PELVIS"
+    ],
     "hasMicroDive": true,
     "microDiveKey": "Scene_Micro_Sarcomere",
     "pharmacologyTargets": []
@@ -1522,10 +2072,14 @@
   {
     "entityID": "SYS_MUSC_GLUTEUS",
     "snomedCTCode": "42679005",
-    "icd10PathologyCodes": ["M62.9"],
+    "icd10PathologyCodes": [
+      "M62.9"
+    ],
     "latinName": "Musculus gluteus maximus",
     "commonName": "Gluteus Maximus",
-    "systemCategory": ["Muscular"],
+    "systemCategory": [
+      "Muscular"
+    ],
     "descriptionProfessional": "The largest and most superficial gluteal muscle, the powerful extensor of the hip from ilium and sacrum to the gluteal tuberosity and iliotibial tract.",
     "descriptionPatient": "The large muscle of your buttock. It straightens your hip when you climb stairs or stand up.",
     "apBiologyFacts": [
@@ -1537,11 +2091,18 @@
       "A positive Trendelenburg sign - the pelvis dropping on the opposite side when standing on one leg - indicates gluteus medius weakness or superior gluteal nerve injury.",
       "Intramuscular injections go into the upper outer quadrant of the buttock specifically to avoid the sciatic nerve."
     ],
-    "boundsCenterOffset": { "x": 0.0, "y": 0.0, "z": -0.05 },
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": -0.05
+    },
     "idealCameraDistance": 0.35,
     "addressableMeshKey": "Mesh_Muscle_Gluteus_LOD0",
     "audioTTSKey": "Audio_Gluteus_Desc",
-    "connectedNodes": ["SYS_SK_PELVIS", "SYS_SK_FEMUR"],
+    "connectedNodes": [
+      "SYS_SK_PELVIS",
+      "SYS_SK_FEMUR"
+    ],
     "hasMicroDive": true,
     "microDiveKey": "Scene_Micro_Sarcomere",
     "pharmacologyTargets": []
@@ -1549,10 +2110,14 @@
   {
     "entityID": "SYS_MUSC_HAMSTRINGS",
     "snomedCTCode": "181627001",
-    "icd10PathologyCodes": ["S76.30"],
+    "icd10PathologyCodes": [
+      "S76.30"
+    ],
     "latinName": "Musculi ischiocrurales",
     "commonName": "Hamstrings",
-    "systemCategory": ["Muscular"],
+    "systemCategory": [
+      "Muscular"
+    ],
     "descriptionProfessional": "Biceps femoris, semitendinosus and semimembranosus, running from the ischial tuberosity to the tibia and fibula.",
     "descriptionPatient": "The three muscles at the back of your thigh. They bend your knee and are the ones that pull when you sprint.",
     "apBiologyFacts": [
@@ -1564,11 +2129,19 @@
       "The straight-leg raise test uses hamstring and sciatic nerve tension to assess lumbar radiculopathy.",
       "The sciatic nerve runs beneath them, so posterior thigh pain must be distinguished between muscle and nerve."
     ],
-    "boundsCenterOffset": { "x": 0.0, "y": -0.4, "z": -0.05 },
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": -0.4,
+      "z": -0.05
+    },
     "idealCameraDistance": 0.35,
     "addressableMeshKey": "Mesh_Muscle_Hamstrings_LOD0",
     "audioTTSKey": "Audio_Hamstrings_Desc",
-    "connectedNodes": ["SYS_SK_PELVIS", "SYS_SK_TIBIA", "SYS_MUSC_QUADS"],
+    "connectedNodes": [
+      "SYS_SK_PELVIS",
+      "SYS_SK_TIBIA",
+      "SYS_MUSC_QUADS"
+    ],
     "hasMicroDive": true,
     "microDiveKey": "Scene_Micro_Sarcomere",
     "pharmacologyTargets": []
@@ -1576,10 +2149,14 @@
   {
     "entityID": "SYS_MUSC_STERNOCLEIDOMASTOID",
     "snomedCTCode": "42566008",
-    "icd10PathologyCodes": ["M62.9"],
+    "icd10PathologyCodes": [
+      "M62.9"
+    ],
     "latinName": "Musculus sternocleidomastoideus",
     "commonName": "Sternocleidomastoid",
-    "systemCategory": ["Muscular"],
+    "systemCategory": [
+      "Muscular"
+    ],
     "descriptionProfessional": "A strap muscle from the manubrium and medial clavicle to the mastoid process, dividing the neck into anterior and posterior triangles.",
     "descriptionPatient": "The prominent strap muscle running diagonally down the side of your neck. It turns your head.",
     "apBiologyFacts": [
@@ -1592,11 +2169,18 @@
       "Congenital torticollis is fibrosis of this muscle, holding the infant's head turned and tilted.",
       "It is the landmark for internal jugular central venous access and for palpating the carotid pulse."
     ],
-    "boundsCenterOffset": { "x": 0.0, "y": 0.2, "z": 0.05 },
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.2,
+      "z": 0.05
+    },
     "idealCameraDistance": 0.25,
     "addressableMeshKey": "Mesh_Muscle_SCM_LOD0",
     "audioTTSKey": "Audio_SCM_Desc",
-    "connectedNodes": ["SYS_SK_CLAVICLE", "SYS_SK_SKULL"],
+    "connectedNodes": [
+      "SYS_SK_CLAVICLE",
+      "SYS_SK_SKULL"
+    ],
     "hasMicroDive": true,
     "microDiveKey": "Scene_Micro_Sarcomere",
     "pharmacologyTargets": []
@@ -1604,10 +2188,14 @@
   {
     "entityID": "SYS_MUSC_TIBIALIS",
     "snomedCTCode": "43797002",
-    "icd10PathologyCodes": ["M62.9"],
+    "icd10PathologyCodes": [
+      "M62.9"
+    ],
     "latinName": "Musculus tibialis anterior",
     "commonName": "Tibialis Anterior",
-    "systemCategory": ["Muscular"],
+    "systemCategory": [
+      "Muscular"
+    ],
     "descriptionProfessional": "The principal dorsiflexor of the ankle, in the anterior compartment of the leg lateral to the tibial crest.",
     "descriptionPatient": "The muscle along the front of your shin. It lifts your foot so your toes clear the ground as you walk.",
     "apBiologyFacts": [
@@ -1618,11 +2206,18 @@
       "Deep fibular nerve palsy causes foot drop and a high-stepping gait; the common fibular nerve is vulnerable where it wraps the fibular neck.",
       "The anterior compartment is the most common site of exertional compartment syndrome, and 'shin splints' describes pain along this region."
     ],
-    "boundsCenterOffset": { "x": 0.0, "y": -0.2, "z": 0.05 },
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": -0.2,
+      "z": 0.05
+    },
     "idealCameraDistance": 0.3,
     "addressableMeshKey": "Mesh_Muscle_Tibialis_LOD0",
     "audioTTSKey": "Audio_Tibialis_Desc",
-    "connectedNodes": ["SYS_SK_TIBIA", "SYS_MUSC_GASTROCNEMIUS"],
+    "connectedNodes": [
+      "SYS_SK_TIBIA",
+      "SYS_MUSC_GASTROCNEMIUS"
+    ],
     "hasMicroDive": true,
     "microDiveKey": "Scene_Micro_Sarcomere",
     "pharmacologyTargets": []
@@ -1630,10 +2225,14 @@
   {
     "entityID": "SYS_SK_SCAPULA",
     "snomedCTCode": "79601000",
-    "icd10PathologyCodes": ["S42.10"],
+    "icd10PathologyCodes": [
+      "S42.10"
+    ],
     "latinName": "Scapula",
     "commonName": "Scapula (Shoulder Blade)",
-    "systemCategory": ["Skeletal"],
+    "systemCategory": [
+      "Skeletal"
+    ],
     "descriptionProfessional": "A flat triangular bone gliding on the posterior thoracic wall, bearing the glenoid fossa, acromion and coracoid process.",
     "descriptionPatient": "Your shoulder blade. It isn't locked to your ribs - it slides across your back as your arm moves.",
     "apBiologyFacts": [
@@ -1644,11 +2243,19 @@
       "Winged scapula follows long thoracic nerve injury paralysing serratus anterior - the medial border lifts off the chest wall.",
       "Scapular fracture implies major force and should prompt a search for associated rib, lung and vascular injury."
     ],
-    "boundsCenterOffset": { "x": 0.0, "y": 0.0, "z": -0.05 },
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": -0.05
+    },
     "idealCameraDistance": 0.35,
     "addressableMeshKey": "Mesh_Scapula_LOD0",
     "audioTTSKey": "Audio_Scapula_Desc",
-    "connectedNodes": ["SYS_SK_CLAVICLE", "SYS_SK_HUMERUS", "SYS_MUSC_SERRATUS"],
+    "connectedNodes": [
+      "SYS_SK_CLAVICLE",
+      "SYS_SK_HUMERUS",
+      "SYS_MUSC_SERRATUS"
+    ],
     "hasMicroDive": false,
     "microDiveKey": "",
     "pharmacologyTargets": []
@@ -1656,10 +2263,14 @@
   {
     "entityID": "SYS_SK_PATELLA",
     "snomedCTCode": "64234005",
-    "icd10PathologyCodes": ["S82.00"],
+    "icd10PathologyCodes": [
+      "S82.00"
+    ],
     "latinName": "Patella",
     "commonName": "Patella (Kneecap)",
-    "systemCategory": ["Skeletal"],
+    "systemCategory": [
+      "Skeletal"
+    ],
     "descriptionProfessional": "The largest sesamoid bone, embedded in the quadriceps tendon and articulating with the femoral trochlea.",
     "descriptionPatient": "Your kneecap. It sits inside the tendon above your knee and acts as a pulley.",
     "apBiologyFacts": [
@@ -1670,11 +2281,19 @@
       "Patellar dislocation is almost always lateral, because the quadriceps pulls at an angle (the Q angle), which is wider in women.",
       "The patellar tendon reflex tests L2-L4 and is the classic monosynaptic arc."
     ],
-    "boundsCenterOffset": { "x": 0.0, "y": 0.0, "z": 0.05 },
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.05
+    },
     "idealCameraDistance": 0.2,
     "addressableMeshKey": "Mesh_Patella_LOD0",
     "audioTTSKey": "Audio_Patella_Desc",
-    "connectedNodes": ["SYS_MUSC_QUADS", "SYS_SK_FEMUR", "SYS_SK_TIBIA"],
+    "connectedNodes": [
+      "SYS_MUSC_QUADS",
+      "SYS_SK_FEMUR",
+      "SYS_SK_TIBIA"
+    ],
     "hasMicroDive": false,
     "microDiveKey": "",
     "pharmacologyTargets": []
@@ -1682,10 +2301,14 @@
   {
     "entityID": "SYS_SK_FIBULA",
     "snomedCTCode": "87342007",
-    "icd10PathologyCodes": ["S82.40"],
+    "icd10PathologyCodes": [
+      "S82.40"
+    ],
     "latinName": "Fibula",
     "commonName": "Fibula",
-    "systemCategory": ["Skeletal"],
+    "systemCategory": [
+      "Skeletal"
+    ],
     "descriptionProfessional": "The slender lateral bone of the leg, forming the lateral malleolus and serving mainly as a muscle attachment and ankle stabiliser.",
     "descriptionPatient": "The thin bone on the outside of your lower leg. It barely carries weight - it mostly anchors muscle and steadies your ankle.",
     "apBiologyFacts": [
@@ -1696,11 +2319,18 @@
       "Because it is largely expendable, the fibula is the standard donor bone for vascularised free-flap reconstruction of the jaw and long bones.",
       "The common fibular nerve wraps its neck superficially and is the most commonly injured nerve in the leg - injury causes foot drop."
     ],
-    "boundsCenterOffset": { "x": 0.0, "y": -0.2, "z": 0.0 },
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": -0.2,
+      "z": 0.0
+    },
     "idealCameraDistance": 0.45,
     "addressableMeshKey": "Mesh_Fibula_LOD0",
     "audioTTSKey": "Audio_Fibula_Desc",
-    "connectedNodes": ["SYS_SK_TIBIA", "SYS_MUSC_TIBIALIS"],
+    "connectedNodes": [
+      "SYS_SK_TIBIA",
+      "SYS_MUSC_TIBIALIS"
+    ],
     "hasMicroDive": false,
     "microDiveKey": "",
     "pharmacologyTargets": []
@@ -1708,10 +2338,14 @@
   {
     "entityID": "SYS_MUSC_FOREARM",
     "snomedCTCode": "40923004",
-    "icd10PathologyCodes": ["M77.10"],
+    "icd10PathologyCodes": [
+      "M77.10"
+    ],
     "latinName": "Musculi antebrachii",
     "commonName": "Forearm Flexors & Extensors",
-    "systemCategory": ["Muscular"],
+    "systemCategory": [
+      "Muscular"
+    ],
     "descriptionProfessional": "Anterior flexor-pronator and posterior extensor-supinator compartments acting on the wrist and digits through long tendons.",
     "descriptionPatient": "The muscles of your forearm. They pull on long tendons to move your fingers - the muscles that grip are not in your hand.",
     "apBiologyFacts": [
@@ -1722,11 +2356,18 @@
       "Lateral epicondylitis ('tennis elbow') is extensor tendinopathy; medial ('golfer's elbow') is flexor.",
       "Carpal tunnel syndrome compresses the median nerve where these tendons crowd under the flexor retinaculum, causing numbness in the thumb, index and middle fingers."
     ],
-    "boundsCenterOffset": { "x": 0.3, "y": -0.1, "z": 0.05 },
+    "boundsCenterOffset": {
+      "x": 0.3,
+      "y": -0.1,
+      "z": 0.05
+    },
     "idealCameraDistance": 0.3,
     "addressableMeshKey": "Mesh_Muscle_Forearm_LOD0",
     "audioTTSKey": "Audio_Forearm_Desc",
-    "connectedNodes": ["SYS_SK_RADIUS_ULNA", "SYS_SK_HAND"],
+    "connectedNodes": [
+      "SYS_SK_RADIUS_ULNA",
+      "SYS_SK_HAND"
+    ],
     "hasMicroDive": true,
     "microDiveKey": "Scene_Micro_Sarcomere",
     "pharmacologyTargets": []
@@ -1734,10 +2375,14 @@
   {
     "entityID": "SYS_MUSC_SOLEUS",
     "snomedCTCode": "244930005",
-    "icd10PathologyCodes": ["M62.9"],
+    "icd10PathologyCodes": [
+      "M62.9"
+    ],
     "latinName": "Musculus soleus",
     "commonName": "Soleus",
-    "systemCategory": ["Muscular"],
+    "systemCategory": [
+      "Muscular"
+    ],
     "descriptionProfessional": "The broad postural plantarflexor deep to gastrocnemius, crossing only the ankle and joining the calcaneal tendon.",
     "descriptionPatient": "The deep calf muscle under your gastrocnemius. It works quietly all day to keep you from toppling forward.",
     "apBiologyFacts": [
@@ -1749,11 +2394,18 @@
       "Soleal vein thrombosis is a common site for calf DVT.",
       "Testing plantarflexion with the knee flexed isolates soleus from gastrocnemius."
     ],
-    "boundsCenterOffset": { "x": 0.0, "y": -0.2, "z": -0.05 },
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": -0.2,
+      "z": -0.05
+    },
     "idealCameraDistance": 0.3,
     "addressableMeshKey": "Mesh_Muscle_Soleus_LOD0",
     "audioTTSKey": "Audio_Soleus_Desc",
-    "connectedNodes": ["SYS_MUSC_GASTROCNEMIUS", "SYS_CV_VEIN"],
+    "connectedNodes": [
+      "SYS_MUSC_GASTROCNEMIUS",
+      "SYS_CV_VEIN"
+    ],
     "hasMicroDive": true,
     "microDiveKey": "Scene_Micro_Sarcomere",
     "pharmacologyTargets": []
@@ -1761,10 +2413,14 @@
   {
     "entityID": "SYS_MUSC_ERECTOR_SPINAE",
     "snomedCTCode": "89680006",
-    "icd10PathologyCodes": ["M54.5"],
+    "icd10PathologyCodes": [
+      "M54.5"
+    ],
     "latinName": "Musculus erector spinae",
     "commonName": "Erector Spinae",
-    "systemCategory": ["Muscular"],
+    "systemCategory": [
+      "Muscular"
+    ],
     "descriptionProfessional": "The deep intrinsic back muscle column (iliocostalis, longissimus, spinalis) running either side of the vertebral spines.",
     "descriptionPatient": "The two muscular columns running either side of your spine. They hold you upright all day.",
     "apBiologyFacts": [
@@ -1775,11 +2431,18 @@
       "Mechanical low back pain - the leading cause of disability worldwide - most often involves this group.",
       "Erector spinae plane blocks are a widely used regional anaesthesia technique for thoracic and abdominal surgery."
     ],
-    "boundsCenterOffset": { "x": 0.0, "y": 0.0, "z": -0.05 },
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": -0.05
+    },
     "idealCameraDistance": 0.5,
     "addressableMeshKey": "Mesh_Muscle_ErectorSpinae_LOD0",
     "audioTTSKey": "Audio_ErectorSpinae_Desc",
-    "connectedNodes": ["SYS_SK_SPINE", "SYS_SK_PELVIS"],
+    "connectedNodes": [
+      "SYS_SK_SPINE",
+      "SYS_SK_PELVIS"
+    ],
     "hasMicroDive": true,
     "microDiveKey": "Scene_Micro_Sarcomere",
     "pharmacologyTargets": []
@@ -1787,10 +2450,14 @@
   {
     "entityID": "SYS_MUSC_SERRATUS",
     "snomedCTCode": "244958004",
-    "icd10PathologyCodes": ["M62.9"],
+    "icd10PathologyCodes": [
+      "M62.9"
+    ],
     "latinName": "Musculus serratus anterior",
     "commonName": "Serratus Anterior",
-    "systemCategory": ["Muscular"],
+    "systemCategory": [
+      "Muscular"
+    ],
     "descriptionProfessional": "A fan of finger-like slips from the upper ribs to the medial border of the scapula, protracting and upwardly rotating it.",
     "descriptionPatient": "The saw-toothed muscle along your ribs under the armpit. It pulls your shoulder blade forward when you push.",
     "apBiologyFacts": [
@@ -1801,11 +2468,18 @@
     "clinicalNotes": [
       "Long thoracic nerve (C5-C7) injury paralyses it and produces a winged scapula, classically after axillary surgery or a blow to the chest wall."
     ],
-    "boundsCenterOffset": { "x": 0.0, "y": 0.0, "z": 0.0 },
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
     "idealCameraDistance": 0.35,
     "addressableMeshKey": "Mesh_Muscle_Serratus_LOD0",
     "audioTTSKey": "Audio_Serratus_Desc",
-    "connectedNodes": ["SYS_SK_SCAPULA", "SYS_SK_RIBCAGE"],
+    "connectedNodes": [
+      "SYS_SK_SCAPULA",
+      "SYS_SK_RIBCAGE"
+    ],
     "hasMicroDive": true,
     "microDiveKey": "Scene_Micro_Sarcomere",
     "pharmacologyTargets": []
@@ -1813,10 +2487,14 @@
   {
     "entityID": "SYS_MUSC_ADDUCTORS",
     "snomedCTCode": "181640003",
-    "icd10PathologyCodes": ["S76.20"],
+    "icd10PathologyCodes": [
+      "S76.20"
+    ],
     "latinName": "Musculi adductores femoris",
     "commonName": "Hip Adductors (Groin)",
-    "systemCategory": ["Muscular"],
+    "systemCategory": [
+      "Muscular"
+    ],
     "descriptionProfessional": "The medial thigh compartment - adductor longus, brevis, magnus, gracilis and pectineus - supplied by the obturator nerve.",
     "descriptionPatient": "The inner thigh muscles that pull your legs together.",
     "apBiologyFacts": [
@@ -1827,11 +2505,18 @@
       "Adductor strain is the classic 'groin pull' in football and hockey.",
       "The adductor canal carries the femoral vessels through the thigh and is a common site for a nerve block in knee surgery."
     ],
-    "boundsCenterOffset": { "x": 0.0, "y": -0.35, "z": 0.0 },
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": -0.35,
+      "z": 0.0
+    },
     "idealCameraDistance": 0.35,
     "addressableMeshKey": "Mesh_Muscle_Adductors_LOD0",
     "audioTTSKey": "Audio_Adductors_Desc",
-    "connectedNodes": ["SYS_SK_PELVIS", "SYS_SK_FEMUR"],
+    "connectedNodes": [
+      "SYS_SK_PELVIS",
+      "SYS_SK_FEMUR"
+    ],
     "hasMicroDive": true,
     "microDiveKey": "Scene_Micro_Sarcomere",
     "pharmacologyTargets": []
@@ -1839,10 +2524,14 @@
   {
     "entityID": "SYS_MUSC_ROTATOR_CUFF",
     "snomedCTCode": "42599003",
-    "icd10PathologyCodes": ["M75.100"],
+    "icd10PathologyCodes": [
+      "M75.100"
+    ],
     "latinName": "Musculi coiffae rotatorum",
     "commonName": "Rotator Cuff",
-    "systemCategory": ["Muscular"],
+    "systemCategory": [
+      "Muscular"
+    ],
     "descriptionProfessional": "Supraspinatus, infraspinatus, teres minor and subscapularis, blending into the capsule to centre the humeral head in the glenoid.",
     "descriptionPatient": "Four small muscles wrapping your shoulder joint. They hold the ball in the socket while bigger muscles move the arm.",
     "apBiologyFacts": [
@@ -1854,11 +2543,19 @@
       "Supraspinatus is the most commonly torn, and is compressed in subacromial impingement; a painful arc between 60 and 120 degrees is the classic sign.",
       "Cuff tears become increasingly common with age and are often degenerative rather than traumatic."
     ],
-    "boundsCenterOffset": { "x": 0.2, "y": 0.1, "z": 0.0 },
+    "boundsCenterOffset": {
+      "x": 0.2,
+      "y": 0.1,
+      "z": 0.0
+    },
     "idealCameraDistance": 0.3,
     "addressableMeshKey": "Mesh_Muscle_RotatorCuff_LOD0",
     "audioTTSKey": "Audio_RotatorCuff_Desc",
-    "connectedNodes": ["SYS_SK_SCAPULA", "SYS_SK_HUMERUS", "SYS_MUSC_DELTOID"],
+    "connectedNodes": [
+      "SYS_SK_SCAPULA",
+      "SYS_SK_HUMERUS",
+      "SYS_MUSC_DELTOID"
+    ],
     "hasMicroDive": true,
     "microDiveKey": "Scene_Micro_Sarcomere",
     "pharmacologyTargets": []
@@ -1866,10 +2563,14 @@
   {
     "entityID": "SYS_NERV_SCIATIC",
     "snomedCTCode": "42120001",
-    "icd10PathologyCodes": ["M54.30"],
+    "icd10PathologyCodes": [
+      "M54.30"
+    ],
     "latinName": "Nervus ischiadicus",
     "commonName": "Sciatic Nerve",
-    "systemCategory": ["Nervous"],
+    "systemCategory": [
+      "Nervous"
+    ],
     "descriptionProfessional": "The largest nerve in the body (L4-S3), leaving the pelvis through the greater sciatic foramen and dividing into tibial and common fibular branches.",
     "descriptionPatient": "The thick nerve running down the back of your thigh - the one people mean when they say sciatica.",
     "apBiologyFacts": [
@@ -1882,22 +2583,35 @@
       "It is why intramuscular gluteal injections go into the upper outer quadrant.",
       "The straight-leg raise reproduces symptoms by tensioning the nerve."
     ],
-    "boundsCenterOffset": { "x": 0.0, "y": -0.3, "z": -0.05 },
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": -0.3,
+      "z": -0.05
+    },
     "idealCameraDistance": 0.45,
     "addressableMeshKey": "Mesh_Nerve_Sciatic_LOD0",
     "audioTTSKey": "Audio_Sciatic_Desc",
-    "connectedNodes": ["SYS_NERV_SPINALCORD", "SYS_MUSC_HAMSTRINGS"],
+    "connectedNodes": [
+      "SYS_NERV_SPINALCORD",
+      "SYS_MUSC_HAMSTRINGS"
+    ],
     "hasMicroDive": true,
     "microDiveKey": "Scene_Micro_Synapse",
-    "pharmacologyTargets": ["Gabapentin"]
+    "pharmacologyTargets": [
+      "Gabapentin"
+    ]
   },
   {
     "entityID": "SYS_NERV_BRACHIAL_PLEXUS",
     "snomedCTCode": "12894003",
-    "icd10PathologyCodes": ["G54.0"],
+    "icd10PathologyCodes": [
+      "G54.0"
+    ],
     "latinName": "Plexus brachialis",
     "commonName": "Brachial Plexus",
-    "systemCategory": ["Nervous"],
+    "systemCategory": [
+      "Nervous"
+    ],
     "descriptionProfessional": "The C5-T1 network of roots, trunks, divisions, cords and branches supplying the entire upper limb.",
     "descriptionPatient": "The bundle of nerves in your neck and armpit that supplies your whole arm.",
     "apBiologyFacts": [
@@ -1908,11 +2622,18 @@
       "Erb's palsy (upper trunk, C5-C6) from shoulder dystocia at birth gives the 'waiter's tip' posture; Klumpke's palsy (lower trunk, C8-T1) gives a claw hand.",
       "Interscalene and supraclavicular blocks target the plexus for shoulder and arm surgery."
     ],
-    "boundsCenterOffset": { "x": 0.2, "y": 0.2, "z": 0.0 },
+    "boundsCenterOffset": {
+      "x": 0.2,
+      "y": 0.2,
+      "z": 0.0
+    },
     "idealCameraDistance": 0.3,
     "addressableMeshKey": "Mesh_Nerve_BrachialPlexus_LOD0",
     "audioTTSKey": "Audio_BrachialPlexus_Desc",
-    "connectedNodes": ["SYS_NERV_SPINALCORD", "SYS_SK_CLAVICLE"],
+    "connectedNodes": [
+      "SYS_NERV_SPINALCORD",
+      "SYS_SK_CLAVICLE"
+    ],
     "hasMicroDive": true,
     "microDiveKey": "Scene_Micro_Synapse",
     "pharmacologyTargets": []
@@ -1920,10 +2641,14 @@
   {
     "entityID": "SYS_NERV_VAGUS",
     "snomedCTCode": "244481006",
-    "icd10PathologyCodes": ["G52.2"],
+    "icd10PathologyCodes": [
+      "G52.2"
+    ],
     "latinName": "Nervus vagus",
     "commonName": "Vagus Nerve (CN X)",
-    "systemCategory": ["Nervous"],
+    "systemCategory": [
+      "Nervous"
+    ],
     "descriptionProfessional": "The tenth cranial nerve, descending in the carotid sheath to supply parasympathetic innervation to the thoracic and most abdominal viscera.",
     "descriptionPatient": "A long nerve running from your brain down through your neck and chest to your gut. It sets your body's 'rest and digest' mode.",
     "apBiologyFacts": [
@@ -1936,22 +2661,36 @@
       "Carotid sinus massage uses the vagal reflex to slow a supraventricular tachycardia.",
       "Implanted vagus nerve stimulators treat refractory epilepsy and depression."
     ],
-    "boundsCenterOffset": { "x": 0.0, "y": 0.0, "z": 0.0 },
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
     "idealCameraDistance": 0.5,
     "addressableMeshKey": "Mesh_Nerve_Vagus_LOD0",
     "audioTTSKey": "Audio_Vagus_Desc",
-    "connectedNodes": ["SYS_NERV_BRAINSTEM", "SYS_CV_HEART", "SYS_DIG_STOMACH"],
+    "connectedNodes": [
+      "SYS_NERV_BRAINSTEM",
+      "SYS_CV_HEART",
+      "SYS_DIG_STOMACH"
+    ],
     "hasMicroDive": false,
     "microDiveKey": "",
-    "pharmacologyTargets": ["Atropine"]
+    "pharmacologyTargets": [
+      "Atropine"
+    ]
   },
   {
     "entityID": "SYS_CV_CAROTID",
     "snomedCTCode": "69105007",
-    "icd10PathologyCodes": ["I65.2"],
+    "icd10PathologyCodes": [
+      "I65.2"
+    ],
     "latinName": "Arteria carotis communis",
     "commonName": "Carotid Artery",
-    "systemCategory": ["Cardiovascular"],
+    "systemCategory": [
+      "Cardiovascular"
+    ],
     "descriptionProfessional": "The principal arterial supply to the head, dividing at the upper border of the thyroid cartilage into internal and external carotid arteries.",
     "descriptionPatient": "The big artery in your neck that carries blood to your brain - the one you feel for a pulse.",
     "apBiologyFacts": [
@@ -1962,22 +2701,35 @@
       "Carotid atherosclerosis is a major source of embolic stroke; a bruit may be audible over the bifurcation.",
       "It is the preferred pulse to check in an unresponsive adult, since peripheral pulses fail first in shock."
     ],
-    "boundsCenterOffset": { "x": 0.0, "y": 0.2, "z": 0.0 },
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.2,
+      "z": 0.0
+    },
     "idealCameraDistance": 0.25,
     "addressableMeshKey": "Mesh_Carotid_LOD0",
     "audioTTSKey": "Audio_Carotid_Desc",
-    "connectedNodes": ["SYS_CV_AORTA", "SYS_NERV_BRAIN"],
+    "connectedNodes": [
+      "SYS_CV_AORTA",
+      "SYS_NERV_BRAIN"
+    ],
     "hasMicroDive": false,
     "microDiveKey": "",
-    "pharmacologyTargets": ["Atorvastatin"]
+    "pharmacologyTargets": [
+      "Atorvastatin"
+    ]
   },
   {
     "entityID": "SYS_CV_JUGULAR",
     "snomedCTCode": "26610006",
-    "icd10PathologyCodes": ["I82.C1"],
+    "icd10PathologyCodes": [
+      "I82.C1"
+    ],
     "latinName": "Vena jugularis interna",
     "commonName": "Internal Jugular Vein",
-    "systemCategory": ["Cardiovascular"],
+    "systemCategory": [
+      "Cardiovascular"
+    ],
     "descriptionProfessional": "The major venous drainage of the head and neck, running in the carotid sheath to join the subclavian vein as the brachiocephalic.",
     "descriptionPatient": "The large vein in your neck draining blood from your head back toward your heart.",
     "apBiologyFacts": [
@@ -1988,11 +2740,18 @@
       "Jugular venous pressure is read at the bedside as a direct window on right heart filling; it is raised in heart failure, tamponade and fluid overload.",
       "It is the standard route for central venous catheters, placed under ultrasound guidance lateral to the carotid."
     ],
-    "boundsCenterOffset": { "x": 0.0, "y": 0.2, "z": 0.0 },
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.2,
+      "z": 0.0
+    },
     "idealCameraDistance": 0.25,
     "addressableMeshKey": "Mesh_Jugular_LOD0",
     "audioTTSKey": "Audio_Jugular_Desc",
-    "connectedNodes": ["SYS_CV_HEART", "SYS_NERV_VAGUS"],
+    "connectedNodes": [
+      "SYS_CV_HEART",
+      "SYS_NERV_VAGUS"
+    ],
     "hasMicroDive": false,
     "microDiveKey": "",
     "pharmacologyTargets": []
@@ -2000,10 +2759,14 @@
   {
     "entityID": "SYS_INTEG_SKIN",
     "snomedCTCode": "39937001",
-    "icd10PathologyCodes": ["L98.9"],
+    "icd10PathologyCodes": [
+      "L98.9"
+    ],
     "latinName": "Cutis (Integumentum commune)",
     "commonName": "Skin",
-    "systemCategory": ["Integumentary"],
+    "systemCategory": [
+      "Integumentary"
+    ],
     "descriptionProfessional": "The body's largest organ, 1.5-2 square meters, comprising stratified squamous keratinized epidermis, vascular dermis, and subcutaneous hypodermis.",
     "descriptionPatient": "Your skin is your body's largest organ. It keeps germs out, controls your temperature, and lets you feel the world.",
     "apBiologyFacts": [
@@ -2018,13 +2781,1664 @@
       "Skin turgor and capillary refill are quick bedside markers of hydration and perfusion.",
       "Pressure ulcers develop over bony prominences when sustained pressure exceeds capillary filling pressure, and are largely preventable by repositioning."
     ],
-    "boundsCenterOffset": { "x": 0.0, "y": 0.0, "z": 0.0 },
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
     "idealCameraDistance": 0.3,
     "addressableMeshKey": "Mesh_Skin_LOD0",
     "audioTTSKey": "Audio_Skin_Desc",
     "connectedNodes": [],
     "hasMicroDive": true,
     "microDiveKey": "Scene_Micro_Epidermis",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_CV_AORTIC_ARCH",
+    "snomedCTCode": "34889008",
+    "icd10PathologyCodes": [
+      "Q25.4"
+    ],
+    "latinName": "Arcus aortae",
+    "commonName": "Aortic Arch",
+    "systemCategory": [
+      "Cardiovascular"
+    ],
+    "descriptionProfessional": "The curved segment of the aorta between the ascending and descending portions, giving off the brachiocephalic trunk, left common carotid and left subclavian arteries.",
+    "descriptionPatient": "The curved top of your body's main artery, where three branches split off to supply your head, neck and arms.",
+    "apBiologyFacts": [
+      "It develops from the fourth left pharyngeal arch artery in the embryo - the right-sided fourth arch normally regresses, which is why the arch curves left.",
+      "Baroreceptors in its wall (aortic bodies) sense blood pressure and signal the medulla via the vagus nerve, forming a fast negative-feedback loop alongside the carotid sinus.",
+      "It gives rise to three great vessels in sequence: the brachiocephalic trunk (which splits into the right subclavian and right common carotid), the left common carotid, and the left subclavian.",
+      "Its wall is elastic artery tissue: the recoil that happens after each systole (Windkessel effect) keeps blood flowing during diastole instead of pulsing to a stop."
+    ],
+    "clinicalNotes": [
+      "Coarctation of the aorta is a congenital narrowing just past the left subclavian origin, producing higher blood pressure in the arms than the legs.",
+      "An aortic arch aneurysm can compress the trachea or the left recurrent laryngeal nerve, causing hoarseness (this is why a hoarse voice sometimes triggers a chest CT).",
+      "A traumatic aortic tear from rapid deceleration (steering-wheel injury) classically occurs at the ligamentum arteriosum just past the arch."
+    ],
+    "boundsCenterOffset": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "idealCameraDistance": 0.35,
+    "addressableMeshKey": "Mesh_SYS_CV_AORTIC_ARCH_LOD0",
+    "audioTTSKey": "Audio_SYS_CV_AORTIC_ARCH_Desc",
+    "connectedNodes": [
+      "SYS_CV_AORTA",
+      "SYS_CV_CORONARY"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_CV_CORONARY",
+    "snomedCTCode": "41801008",
+    "icd10PathologyCodes": [
+      "I25.10"
+    ],
+    "latinName": "Arteriae coronariae",
+    "commonName": "Coronary Arteries",
+    "systemCategory": [
+      "Cardiovascular"
+    ],
+    "descriptionProfessional": "The left and right coronary arteries, the first branches off the aorta, supplying the myocardium itself. The left splits into the anterior interventricular (LAD) and circumflex branches.",
+    "descriptionPatient": "The blood vessels that feed the heart muscle its own oxygen supply - separate from the blood the heart is pumping to the rest of the body.",
+    "apBiologyFacts": [
+      "They are the very first branches off the ascending aorta, arising just above the aortic valve cusps - the heart feeds itself before anything else gets blood.",
+      "Unlike most tissue, the myocardium extracts almost all the oxygen from coronary blood on a single pass, so it can't respond to higher demand by extracting more - it has to increase flow instead.",
+      "Most coronary flow to the left ventricle happens during diastole, not systole, because ventricular contraction squeezes the vessels running through the muscle shut.",
+      "The right coronary usually supplies the SA node and, in most people, the AV node too - which is why a right coronary occlusion often causes heart block, not just muscle damage."
+    ],
+    "clinicalNotes": [
+      "The left anterior descending (LAD) branch is nicknamed the 'widowmaker': it supplies most of the left ventricle's anterior wall and interventricular septum.",
+      "Atherosclerotic plaque narrowing these vessels causes angina (reversible ischemia) or, if a plaque ruptures and clots, a myocardial infarction (irreversible necrosis).",
+      "Coronary artery bypass grafting reroutes blood around a blockage, often using the patient's own great saphenous vein or internal thoracic artery.",
+      "Coronary angiography threads a catheter up the aorta to inject contrast directly into these vessels - the gold-standard way to see a blockage."
+    ],
+    "boundsCenterOffset": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "idealCameraDistance": 0.35,
+    "addressableMeshKey": "Mesh_SYS_CV_CORONARY_LOD0",
+    "audioTTSKey": "Audio_SYS_CV_CORONARY_Desc",
+    "connectedNodes": [
+      "SYS_CV_HEART",
+      "SYS_CV_AORTIC_ARCH"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_CV_PULMONARY_ARTERY",
+    "snomedCTCode": "45699002",
+    "icd10PathologyCodes": [
+      "I27.9"
+    ],
+    "latinName": "Arteria pulmonalis",
+    "commonName": "Pulmonary Artery",
+    "systemCategory": [
+      "Cardiovascular",
+      "Respiratory"
+    ],
+    "descriptionProfessional": "Carries deoxygenated blood from the right ventricle to the lungs, splitting into left and right branches - the only artery in the systemic body plan that carries low-oxygen blood.",
+    "descriptionPatient": "The blood vessel that carries oxygen-poor blood from your heart to your lungs to pick up fresh oxygen.",
+    "apBiologyFacts": [
+      "It is the textbook exception to 'arteries carry oxygenated blood' - direction relative to the heart, not oxygen content, is what defines an artery.",
+      "It carries the entire cardiac output of the right ventricle - every drop of blood the body has must pass through it once per lap of circulation.",
+      "Pulmonary artery pressure is far lower than systemic arterial pressure (about 25/10 mmHg vs 120/80), which is why the right ventricle's wall is so much thinner than the left's.",
+      "Hypoxic pulmonary vasoconstriction - vessels here narrow in response to LOW oxygen, the opposite of the systemic response - redirects blood away from poorly ventilated lung regions."
+    ],
+    "clinicalNotes": [
+      "A pulmonary embolism, usually a clot that traveled from a deep leg vein, lodges here and can be rapidly fatal by blocking right ventricular outflow.",
+      "Pulmonary artery pressure is measured with a Swan-Ganz catheter in critically ill patients to assess right heart function and fluid status.",
+      "Pulmonary hypertension - chronically elevated pressure here - eventually causes right ventricular failure (cor pulmonale)."
+    ],
+    "boundsCenterOffset": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "idealCameraDistance": 0.35,
+    "addressableMeshKey": "Mesh_SYS_CV_PULMONARY_ARTERY_LOD0",
+    "audioTTSKey": "Audio_SYS_CV_PULMONARY_ARTERY_Desc",
+    "connectedNodes": [
+      "SYS_CV_HEART",
+      "SYS_RESP_LUNG_L",
+      "SYS_RESP_LUNG_R"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_CV_PULMONARY_VEIN",
+    "snomedCTCode": "6631009",
+    "icd10PathologyCodes": [
+      "I27.9"
+    ],
+    "latinName": "Vena pulmonalis",
+    "commonName": "Pulmonary Vein",
+    "systemCategory": [
+      "Cardiovascular",
+      "Respiratory"
+    ],
+    "descriptionProfessional": "Four veins (two per lung) that return freshly oxygenated blood from the lungs to the left atrium - the only vein carrying high-oxygen blood.",
+    "descriptionPatient": "The blood vessels that carry fresh, oxygen-rich blood from your lungs back to your heart, ready to be pumped out to your whole body.",
+    "apBiologyFacts": [
+      "The mirror-image exception to the pulmonary artery: it is a vein by direction (carries blood toward the heart) but carries oxygenated blood, unlike every other vein in the body.",
+      "It empties into the left atrium, which is why the left atrium - not the left ventricle - is the first chamber to receive newly oxygenated blood.",
+      "There are usually four pulmonary veins total, two draining each lung, though anatomical variation in the exact number is common and clinically relevant for cardiac imaging."
+    ],
+    "clinicalNotes": [
+      "Pulmonary vein isolation, using catheter ablation around where these veins enter the left atrium, is a standard treatment for atrial fibrillation, since abnormal electrical signals often originate right at that junction.",
+      "Pulmonary vein stenosis, though rare, can cause symptoms that mimic pulmonary hypertension."
+    ],
+    "boundsCenterOffset": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "idealCameraDistance": 0.35,
+    "addressableMeshKey": "Mesh_SYS_CV_PULMONARY_VEIN_LOD0",
+    "audioTTSKey": "Audio_SYS_CV_PULMONARY_VEIN_Desc",
+    "connectedNodes": [
+      "SYS_CV_HEART",
+      "SYS_RESP_LUNG_L",
+      "SYS_RESP_LUNG_R"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_CV_CELIAC",
+    "snomedCTCode": "46394000",
+    "icd10PathologyCodes": [
+      "I77.9"
+    ],
+    "latinName": "Truncus coeliacus",
+    "commonName": "Celiac Trunk",
+    "systemCategory": [
+      "Cardiovascular",
+      "Digestive"
+    ],
+    "descriptionProfessional": "The first major branch of the abdominal aorta, splitting almost immediately into the left gastric, splenic and common hepatic arteries to supply the foregut derivatives: stomach, liver, spleen, and proximal duodenum.",
+    "descriptionPatient": "A short artery near your stomach that branches out to supply blood to your stomach, liver and spleen.",
+    "apBiologyFacts": [
+      "It supplies everything derived from the embryonic foregut, one of the three functional divisions of gut blood supply (celiac = foregut, superior mesenteric = midgut, inferior mesenteric = hindgut) that map directly onto embryonic gut segments.",
+      "It is unusually short - often only 1-2 cm - before splitting into its three named branches, making it a common site for surgical and radiological reference."
+    ],
+    "clinicalNotes": [
+      "Celiac artery compression syndrome (median arcuate ligament syndrome) causes post-meal abdominal pain when the diaphragm's ligament compresses the trunk during exhalation.",
+      "In liver transplant and pancreatic surgery, celiac trunk anatomy is mapped carefully beforehand since its branching pattern varies between people."
+    ],
+    "boundsCenterOffset": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "idealCameraDistance": 0.35,
+    "addressableMeshKey": "Mesh_SYS_CV_CELIAC_LOD0",
+    "audioTTSKey": "Audio_SYS_CV_CELIAC_Desc",
+    "connectedNodes": [
+      "SYS_DIG_STOMACH",
+      "SYS_DIG_LIVER",
+      "SYS_LYMPH_SPLEEN"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_CV_SMA",
+    "snomedCTCode": "8580001",
+    "icd10PathologyCodes": [
+      "I77.9"
+    ],
+    "latinName": "Arteria mesenterica superior",
+    "commonName": "Superior Mesenteric Artery",
+    "systemCategory": [
+      "Cardiovascular",
+      "Digestive"
+    ],
+    "descriptionProfessional": "Supplies the midgut derivatives: distal duodenum, jejunum, ileum, cecum, appendix, ascending colon and proximal two-thirds of the transverse colon.",
+    "descriptionPatient": "The blood vessel that feeds most of your small intestine and the first part of your large intestine.",
+    "apBiologyFacts": [
+      "It supplies the midgut, the second of the three embryonic gut divisions - the watershed point between celiac and SMA territory (the ampulla of Vater) is a real developmental boundary, not an arbitrary line.",
+      "It runs very close to the aorta at a sharp angle in most people, which is why compression of the duodenum between it and the aorta (SMA syndrome) is a recognized, if uncommon, condition, especially after rapid weight loss."
+    ],
+    "clinicalNotes": [
+      "Acute mesenteric ischemia from an SMA embolism or thrombosis causes pain out of proportion to physical exam findings - a classic, dangerous, easy-to-miss diagnosis.",
+      "SMA syndrome causes post-meal vomiting and pain from duodenal compression between the SMA and the aorta."
+    ],
+    "boundsCenterOffset": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "idealCameraDistance": 0.35,
+    "addressableMeshKey": "Mesh_SYS_CV_SMA_LOD0",
+    "audioTTSKey": "Audio_SYS_CV_SMA_Desc",
+    "connectedNodes": [
+      "SYS_DIG_SMALL_INTESTINE"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_CV_PORTAL_VEIN",
+    "snomedCTCode": "32764006",
+    "icd10PathologyCodes": [
+      "K76.6"
+    ],
+    "latinName": "Vena portae hepatis",
+    "commonName": "Hepatic Portal Vein",
+    "systemCategory": [
+      "Cardiovascular",
+      "Digestive"
+    ],
+    "descriptionProfessional": "Drains nutrient- and toxin-laden blood from the stomach, intestines, pancreas and spleen into a second capillary bed in the liver before it rejoins systemic circulation via the hepatic veins.",
+    "descriptionPatient": "A special vein that carries blood from your intestines to your liver first, so your liver can process nutrients and filter toxins before that blood reaches the rest of your body.",
+    "apBiologyFacts": [
+      "It defines what a 'portal system' is: blood passing through two capillary beds in series (gut capillaries, then liver sinusoids) before returning to the heart, instead of the usual one capillary bed per circuit.",
+      "This is why a meal's sugars, amino acids and toxins reach the liver first - first-pass metabolism - before reaching the rest of the body, letting the liver regulate blood glucose and detoxify absorbed compounds immediately.",
+      "It carries about 75% of the liver's total blood supply by volume (the hepatic artery supplies the rest, along with most of the liver's own oxygen)."
+    ],
+    "clinicalNotes": [
+      "Portal hypertension, usually from cirrhosis scarring the liver's sinusoids, backs pressure up into esophageal varices, hemorrhoids and a swollen spleen - all sites where portal and systemic veins connect.",
+      "A TIPS procedure (transjugular intrahepatic portosystemic shunt) creates an artificial channel to relieve portal hypertension by routing blood around the scarred liver."
+    ],
+    "boundsCenterOffset": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "idealCameraDistance": 0.35,
+    "addressableMeshKey": "Mesh_SYS_CV_PORTAL_VEIN_LOD0",
+    "audioTTSKey": "Audio_SYS_CV_PORTAL_VEIN_Desc",
+    "connectedNodes": [
+      "SYS_DIG_LIVER",
+      "SYS_DIG_SMALL_INTESTINE"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_CV_RENAL_ARTERY",
+    "snomedCTCode": "45631007",
+    "icd10PathologyCodes": [
+      "I70.1"
+    ],
+    "latinName": "Arteria renalis",
+    "commonName": "Renal Artery",
+    "systemCategory": [
+      "Cardiovascular",
+      "Renal"
+    ],
+    "descriptionProfessional": "Paired branches of the abdominal aorta delivering roughly 20-25% of resting cardiac output to the kidneys - by far the highest blood flow per gram of any organ.",
+    "descriptionPatient": "The blood vessels that carry blood from your main artery directly to each kidney for filtering.",
+    "apBiologyFacts": [
+      "The kidneys receive about a quarter of the heart's entire output at rest despite being under 1% of body weight - filtration, not their own metabolism, is what demands that flow.",
+      "Blood pressure here is sensed directly by the juxtaglomerular apparatus, which releases renin when pressure drops, triggering the renin-angiotensin-aldosterone system."
+    ],
+    "clinicalNotes": [
+      "Renal artery stenosis, often from atherosclerosis, is a common correctable cause of secondary hypertension - the kidney senses low pressure locally and raises systemic blood pressure to compensate.",
+      "ACE inhibitors and ARBs, first-line blood pressure medications, work by blocking the renin-angiotensin pathway that starts with renal artery pressure sensing."
+    ],
+    "boundsCenterOffset": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "idealCameraDistance": 0.35,
+    "addressableMeshKey": "Mesh_SYS_CV_RENAL_ARTERY_LOD0",
+    "audioTTSKey": "Audio_SYS_CV_RENAL_ARTERY_Desc",
+    "connectedNodes": [
+      "SYS_REN_KIDNEY_L",
+      "SYS_REN_KIDNEY_R"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": [
+      "Lisinopril",
+      "Losartan"
+    ]
+  },
+  {
+    "entityID": "SYS_CV_RENAL_VEIN",
+    "snomedCTCode": "56400007",
+    "icd10PathologyCodes": [
+      "I82.3"
+    ],
+    "latinName": "Vena renalis",
+    "commonName": "Renal Vein",
+    "systemCategory": [
+      "Cardiovascular",
+      "Renal"
+    ],
+    "descriptionProfessional": "Drains filtered blood from each kidney into the inferior vena cava; the left renal vein is longer, crossing anterior to the aorta to reach the cava on the right.",
+    "descriptionPatient": "The veins that carry blood away from your kidneys after it has been filtered, back toward your heart.",
+    "apBiologyFacts": [
+      "The left renal vein is notably longer than the right because the vena cava sits on the right side of the body, so left-kidney blood has farther to travel to reach it."
+    ],
+    "clinicalNotes": [
+      "'Nutcracker syndrome' compresses the left renal vein between the aorta and the superior mesenteric artery, causing flank pain and blood in the urine.",
+      "Renal vein thrombosis can occur in nephrotic syndrome, since the kidneys leak clotting-regulator proteins along with albumin when damaged."
+    ],
+    "boundsCenterOffset": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "idealCameraDistance": 0.35,
+    "addressableMeshKey": "Mesh_SYS_CV_RENAL_VEIN_LOD0",
+    "audioTTSKey": "Audio_SYS_CV_RENAL_VEIN_Desc",
+    "connectedNodes": [
+      "SYS_REN_KIDNEY_L",
+      "SYS_REN_KIDNEY_R",
+      "SYS_CV_VEIN"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_CV_SUBCLAVIAN",
+    "snomedCTCode": "45631007",
+    "icd10PathologyCodes": [
+      "I74.2"
+    ],
+    "latinName": "Arteria subclavia",
+    "commonName": "Subclavian Artery",
+    "systemCategory": [
+      "Cardiovascular"
+    ],
+    "descriptionProfessional": "Arches over the first rib to become the axillary artery at the outer border of the first rib, supplying the arm; on the right it originates from the brachiocephalic trunk, on the left directly from the aortic arch.",
+    "descriptionPatient": "The main artery running under your collarbone that supplies blood to your arm.",
+    "apBiologyFacts": [
+      "Its name changes three times along the same continuous vessel purely by anatomical landmark - subclavian, then axillary (in the armpit), then brachial (in the arm) - a reminder that vessel names mark location, not different structures.",
+      "The right and left subclavian arteries arise differently: the right comes off the brachiocephalic trunk, the left comes directly off the aortic arch - a real developmental asymmetry, not a simplification."
+    ],
+    "clinicalNotes": [
+      "It is a pressure point used to control severe arm hemorrhage, compressible against the first rib.",
+      "Thoracic outlet syndrome compresses this artery (along with the brachial plexus) between the clavicle and first rib or scalene muscles."
+    ],
+    "boundsCenterOffset": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "idealCameraDistance": 0.35,
+    "addressableMeshKey": "Mesh_SYS_CV_SUBCLAVIAN_LOD0",
+    "audioTTSKey": "Audio_SYS_CV_SUBCLAVIAN_Desc",
+    "connectedNodes": [
+      "SYS_CV_AXILLARY",
+      "SYS_NERV_BRACHIAL_PLEXUS"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_CV_AXILLARY",
+    "snomedCTCode": "5040005",
+    "icd10PathologyCodes": [
+      "I74.2"
+    ],
+    "latinName": "Arteria axillaris",
+    "commonName": "Axillary Artery",
+    "systemCategory": [
+      "Cardiovascular"
+    ],
+    "descriptionProfessional": "The continuation of the subclavian artery through the armpit (axilla), becoming the brachial artery at the lower border of teres major.",
+    "descriptionPatient": "The artery that runs through your armpit, carrying blood from your shoulder down toward your arm.",
+    "apBiologyFacts": [
+      "It is closely wrapped by the cords of the brachial plexus in the axilla, which is why axillary nerve blocks (numbing the whole arm at this level) target this exact location."
+    ],
+    "clinicalNotes": [
+      "It can be injured in anterior shoulder dislocations or proximal humerus fractures, since it runs directly against the humeral head.",
+      "Axillary artery aneurysms are classically associated with repetitive overhead motion in athletes (e.g. baseball pitchers)."
+    ],
+    "boundsCenterOffset": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "idealCameraDistance": 0.35,
+    "addressableMeshKey": "Mesh_SYS_CV_AXILLARY_LOD0",
+    "audioTTSKey": "Audio_SYS_CV_AXILLARY_Desc",
+    "connectedNodes": [
+      "SYS_CV_SUBCLAVIAN",
+      "SYS_CV_BRACHIAL"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_CV_BRACHIAL",
+    "snomedCTCode": "20699002",
+    "icd10PathologyCodes": [
+      "I74.2"
+    ],
+    "latinName": "Arteria brachialis",
+    "commonName": "Brachial Artery",
+    "systemCategory": [
+      "Cardiovascular"
+    ],
+    "descriptionProfessional": "Runs down the medial arm alongside the median nerve, splitting into the radial and ulnar arteries at the elbow (cubital fossa).",
+    "descriptionPatient": "The main artery running down your upper arm, which is where a blood pressure cuff listens for your pulse.",
+    "apBiologyFacts": [
+      "This is the vessel a manual blood pressure cuff measures: the cuff inflates above systolic pressure to stop flow here entirely, then as it deflates, Korotkoff sounds mark systolic and diastolic pressure as flow resumes.",
+      "It splits into the radial and ulnar arteries in the cubital fossa, the same landmark used for drawing blood."
+    ],
+    "clinicalNotes": [
+      "A supracondylar humerus fracture in children can injure this artery, causing Volkmann's ischemic contracture if blood flow to the forearm is compromised.",
+      "It's the standard site for a manual pulse check and blood pressure auscultation in a clinical exam."
+    ],
+    "boundsCenterOffset": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "idealCameraDistance": 0.35,
+    "addressableMeshKey": "Mesh_SYS_CV_BRACHIAL_LOD0",
+    "audioTTSKey": "Audio_SYS_CV_BRACHIAL_Desc",
+    "connectedNodes": [
+      "SYS_CV_AXILLARY",
+      "SYS_CV_RADIAL",
+      "SYS_CV_ULNAR",
+      "SYS_NERV_MEDIAN"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_CV_RADIAL",
+    "snomedCTCode": "47308004",
+    "icd10PathologyCodes": [
+      "I74.2"
+    ],
+    "latinName": "Arteria radialis",
+    "commonName": "Radial Artery",
+    "systemCategory": [
+      "Cardiovascular"
+    ],
+    "descriptionProfessional": "Runs along the lateral (thumb-side) forearm to the wrist, where it lies superficially over the distal radius - the standard site for feeling a pulse.",
+    "descriptionPatient": "The artery on the thumb side of your wrist - the one you feel when you check your pulse.",
+    "apBiologyFacts": [
+      "Its superficial position right over bone at the wrist is precisely why it's the conventional place to check a pulse: artery pressed against something firm is easiest to feel."
+    ],
+    "clinicalNotes": [
+      "It's the preferred access site for cardiac catheterization (radial approach) because it's compressible afterward and has collateral flow from the ulnar artery via the palmar arches.",
+      "An arterial blood gas is often drawn here after an Allen's test confirms the ulnar artery alone can supply the hand if needed."
+    ],
+    "boundsCenterOffset": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "idealCameraDistance": 0.35,
+    "addressableMeshKey": "Mesh_SYS_CV_RADIAL_LOD0",
+    "audioTTSKey": "Audio_SYS_CV_RADIAL_Desc",
+    "connectedNodes": [
+      "SYS_CV_BRACHIAL"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_CV_ULNAR",
+    "snomedCTCode": "65550002",
+    "icd10PathologyCodes": [
+      "I74.2"
+    ],
+    "latinName": "Arteria ulnaris",
+    "commonName": "Ulnar Artery",
+    "systemCategory": [
+      "Cardiovascular"
+    ],
+    "descriptionProfessional": "Runs along the medial forearm to the wrist, generally larger than the radial artery, forming the superficial palmar arch with it in the hand.",
+    "descriptionPatient": "The artery on the pinky side of your wrist, which joins the radial artery's branches to form a loop of blood supply in your palm.",
+    "apBiologyFacts": [
+      "It and the radial artery join in the hand to form the palmar arches, a redundant loop that means the hand usually still gets full blood flow even if one of the two forearm arteries is blocked."
+    ],
+    "clinicalNotes": [
+      "The Allen's test checks this redundancy before an arterial line is placed in the radial artery, confirming the ulnar artery alone can perfuse the hand."
+    ],
+    "boundsCenterOffset": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "idealCameraDistance": 0.35,
+    "addressableMeshKey": "Mesh_SYS_CV_ULNAR_LOD0",
+    "audioTTSKey": "Audio_SYS_CV_ULNAR_Desc",
+    "connectedNodes": [
+      "SYS_CV_BRACHIAL"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_CV_SUBCLAVIAN_VEIN",
+    "snomedCTCode": "5952008",
+    "icd10PathologyCodes": [
+      "I82.A19"
+    ],
+    "latinName": "Vena subclavia",
+    "commonName": "Subclavian Vein",
+    "systemCategory": [
+      "Cardiovascular"
+    ],
+    "descriptionProfessional": "Drains the axillary vein, joining the internal jugular vein behind the clavicle to form the brachiocephalic vein.",
+    "descriptionPatient": "A large vein under your collarbone that carries blood from your arm back toward your heart.",
+    "apBiologyFacts": [
+      "Its junction with the internal jugular vein (the venous angle) is where the thoracic duct empties nearly all the body's lymph back into the bloodstream."
+    ],
+    "clinicalNotes": [
+      "It's a common site for central venous catheter placement, since it's large, relatively fixed in position, and close to the heart - though the lung apex sits just below it, so pneumothorax is a recognized risk of the procedure."
+    ],
+    "boundsCenterOffset": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "idealCameraDistance": 0.35,
+    "addressableMeshKey": "Mesh_SYS_CV_SUBCLAVIAN_VEIN_LOD0",
+    "audioTTSKey": "Audio_SYS_CV_SUBCLAVIAN_VEIN_Desc",
+    "connectedNodes": [
+      "SYS_CV_AXILLARY_VEIN",
+      "SYS_CV_JUGULAR"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_CV_AXILLARY_VEIN",
+    "snomedCTCode": "5952008",
+    "icd10PathologyCodes": [
+      "I82.A19"
+    ],
+    "latinName": "Vena axillaris",
+    "commonName": "Axillary Vein",
+    "systemCategory": [
+      "Cardiovascular"
+    ],
+    "descriptionProfessional": "The continuation of the brachial vein through the axilla, becoming the subclavian vein at the outer border of the first rib.",
+    "descriptionPatient": "The vein running through your armpit that carries blood from your arm back toward your heart.",
+    "apBiologyFacts": [
+      "Like its arterial counterpart, it simply changes name at anatomical landmarks along one continuous venous path from hand to heart."
+    ],
+    "clinicalNotes": [
+      "Axillary vein thrombosis ('effort thrombosis' or Paget-Schroetter syndrome) can follow strenuous, repetitive arm use, especially in young athletes."
+    ],
+    "boundsCenterOffset": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "idealCameraDistance": 0.35,
+    "addressableMeshKey": "Mesh_SYS_CV_AXILLARY_VEIN_LOD0",
+    "audioTTSKey": "Audio_SYS_CV_AXILLARY_VEIN_Desc",
+    "connectedNodes": [
+      "SYS_CV_BRACHIAL_VEIN",
+      "SYS_CV_SUBCLAVIAN_VEIN"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_CV_BRACHIAL_VEIN",
+    "snomedCTCode": "5952008",
+    "icd10PathologyCodes": [
+      "I82.A19"
+    ],
+    "latinName": "Vena brachialis",
+    "commonName": "Brachial Vein",
+    "systemCategory": [
+      "Cardiovascular"
+    ],
+    "descriptionProfessional": "A deep vein running alongside the brachial artery, draining the forearm's deep veins into the axillary vein.",
+    "descriptionPatient": "A deep vein in your upper arm that runs alongside the main artery, carrying blood back toward your heart.",
+    "apBiologyFacts": [
+      "Deep veins like this one run paired alongside their matching artery (venae comitantes), sharing one fibrous sheath - the artery's own pulsation actually helps push blood along the vein."
+    ],
+    "clinicalNotes": [
+      "Deep vein thrombosis in the arm is far less common than in the leg, but carries similar pulmonary embolism risk if a clot breaks free."
+    ],
+    "boundsCenterOffset": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "idealCameraDistance": 0.35,
+    "addressableMeshKey": "Mesh_SYS_CV_BRACHIAL_VEIN_LOD0",
+    "audioTTSKey": "Audio_SYS_CV_BRACHIAL_VEIN_Desc",
+    "connectedNodes": [
+      "SYS_CV_AXILLARY_VEIN"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_CV_ILIAC",
+    "snomedCTCode": "10293006",
+    "icd10PathologyCodes": [
+      "I74.5"
+    ],
+    "latinName": "Arteria iliaca communis",
+    "commonName": "Common Iliac Artery",
+    "systemCategory": [
+      "Cardiovascular"
+    ],
+    "descriptionProfessional": "Formed by the aorta's bifurcation at the level of L4, each common iliac artery splits into internal (pelvis) and external (leg) branches.",
+    "descriptionPatient": "One of two large arteries formed where your body's main artery splits in your lower abdomen, sending blood down toward your legs and pelvis.",
+    "apBiologyFacts": [
+      "The aorta's bifurcation into the two common iliac arteries, at vertebral level L4, is a fixed, commonly tested anatomical landmark."
+    ],
+    "clinicalNotes": [
+      "Abdominal aortic aneurysms often extend into the common iliac arteries, which affects surgical repair planning.",
+      "Iliac artery stenosis causes claudication (cramping leg pain on walking) similar to more distal peripheral artery disease."
+    ],
+    "boundsCenterOffset": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "idealCameraDistance": 0.35,
+    "addressableMeshKey": "Mesh_SYS_CV_ILIAC_LOD0",
+    "audioTTSKey": "Audio_SYS_CV_ILIAC_Desc",
+    "connectedNodes": [
+      "SYS_CV_AORTA",
+      "SYS_CV_FEMORAL"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_CV_FEMORAL",
+    "snomedCTCode": "7657000",
+    "icd10PathologyCodes": [
+      "I74.3"
+    ],
+    "latinName": "Arteria femoralis",
+    "commonName": "Femoral Artery",
+    "systemCategory": [
+      "Cardiovascular"
+    ],
+    "descriptionProfessional": "The continuation of the external iliac artery below the inguinal ligament, running down the anteromedial thigh in the femoral triangle before becoming the popliteal artery behind the knee.",
+    "descriptionPatient": "The main artery running down the front of your thigh that supplies blood to your leg.",
+    "apBiologyFacts": [
+      "In the femoral triangle at the top of the thigh, it sits lateral to the femoral vein and medial to the femoral nerve - a fixed order (nerve-artery-vein, lateral to medial) worth memorizing for any clinical exam."
+    ],
+    "clinicalNotes": [
+      "It's the standard access point for cardiac catheterization when radial access isn't used, and for emergency vascular access.",
+      "The femoral pulse, palpable in the groin, is checked in trauma and in newborns to screen for coarctation of the aorta."
+    ],
+    "boundsCenterOffset": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "idealCameraDistance": 0.35,
+    "addressableMeshKey": "Mesh_SYS_CV_FEMORAL_LOD0",
+    "audioTTSKey": "Audio_SYS_CV_FEMORAL_Desc",
+    "connectedNodes": [
+      "SYS_CV_ILIAC",
+      "SYS_CV_POPLITEAL",
+      "SYS_NERV_FEMORAL"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_CV_POPLITEAL",
+    "snomedCTCode": "46007009",
+    "icd10PathologyCodes": [
+      "I74.3"
+    ],
+    "latinName": "Arteria poplitea",
+    "commonName": "Popliteal Artery",
+    "systemCategory": [
+      "Cardiovascular"
+    ],
+    "descriptionProfessional": "The continuation of the femoral artery through the popliteal fossa behind the knee, splitting into anterior and posterior tibial arteries below the knee.",
+    "descriptionPatient": "The artery that runs behind your knee, carrying blood from your thigh down into your lower leg.",
+    "apBiologyFacts": [
+      "It runs deepest of the popliteal fossa's structures, protected against the femur and tibia, which is exactly what makes it vulnerable to injury in a knee dislocation - the bone displaces, the fixed vessel doesn't."
+    ],
+    "clinicalNotes": [
+      "Popliteal artery injury is a feared complication of posterior knee dislocation, checked for immediately in any significant knee trauma.",
+      "A popliteal aneurysm is the most common peripheral artery aneurysm and can throw clots downstream into the foot."
+    ],
+    "boundsCenterOffset": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "idealCameraDistance": 0.35,
+    "addressableMeshKey": "Mesh_SYS_CV_POPLITEAL_LOD0",
+    "audioTTSKey": "Audio_SYS_CV_POPLITEAL_Desc",
+    "connectedNodes": [
+      "SYS_CV_FEMORAL",
+      "SYS_CV_ANT_TIBIAL",
+      "SYS_CV_POST_TIBIAL"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_CV_ANT_TIBIAL",
+    "snomedCTCode": "65163002",
+    "icd10PathologyCodes": [
+      "I74.3"
+    ],
+    "latinName": "Arteria tibialis anterior",
+    "commonName": "Anterior Tibial Artery",
+    "systemCategory": [
+      "Cardiovascular"
+    ],
+    "descriptionProfessional": "Passes forward through the interosseous membrane to run down the front of the shin alongside the tibialis anterior muscle, becoming the dorsalis pedis artery at the ankle.",
+    "descriptionPatient": "An artery running down the front of your shin that supplies blood to the muscles that lift your foot.",
+    "apBiologyFacts": [
+      "It supplies the anterior compartment of the leg - the same tightly-enclosed fascial compartment whose swelling causes compartment syndrome, a true surgical emergency."
+    ],
+    "clinicalNotes": [
+      "Its continuation, the dorsalis pedis artery on top of the foot, is a standard pulse check for peripheral artery disease."
+    ],
+    "boundsCenterOffset": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "idealCameraDistance": 0.35,
+    "addressableMeshKey": "Mesh_SYS_CV_ANT_TIBIAL_LOD0",
+    "audioTTSKey": "Audio_SYS_CV_ANT_TIBIAL_Desc",
+    "connectedNodes": [
+      "SYS_CV_POPLITEAL",
+      "SYS_MUSC_TIBIALIS"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_CV_POST_TIBIAL",
+    "snomedCTCode": "65367006",
+    "icd10PathologyCodes": [
+      "I74.3"
+    ],
+    "latinName": "Arteria tibialis posterior",
+    "commonName": "Posterior Tibial Artery",
+    "systemCategory": [
+      "Cardiovascular"
+    ],
+    "descriptionProfessional": "Runs down the back of the leg deep to the soleus muscle, passing behind the medial malleolus to supply the sole of the foot.",
+    "descriptionPatient": "An artery running down the back of your calf that supplies blood to the sole of your foot.",
+    "apBiologyFacts": [
+      "It's one of two distal pulses (with dorsalis pedis) routinely checked to assess blood flow to the foot - losing both is a limb-threatening sign in peripheral artery disease."
+    ],
+    "clinicalNotes": [
+      "The posterior tibial pulse, felt behind the medial malleolus, is a standard part of a diabetic foot exam, since diabetic peripheral artery disease can silently threaten a limb."
+    ],
+    "boundsCenterOffset": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "idealCameraDistance": 0.35,
+    "addressableMeshKey": "Mesh_SYS_CV_POST_TIBIAL_LOD0",
+    "audioTTSKey": "Audio_SYS_CV_POST_TIBIAL_Desc",
+    "connectedNodes": [
+      "SYS_CV_POPLITEAL"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_CV_ILIAC_VEIN",
+    "snomedCTCode": "23508003",
+    "icd10PathologyCodes": [
+      "I82.4"
+    ],
+    "latinName": "Vena iliaca communis",
+    "commonName": "Common Iliac Vein",
+    "systemCategory": [
+      "Cardiovascular"
+    ],
+    "descriptionProfessional": "Formed by the union of internal and external iliac veins, the left and right common iliac veins join to form the inferior vena cava at L5.",
+    "descriptionPatient": "One of two large veins that join together in your lower abdomen to form the vein that carries blood from your legs back to your heart.",
+    "apBiologyFacts": [
+      "The right common iliac artery crosses in front of the left common iliac vein, a real anatomical relationship that can compress the vein (May-Thurner syndrome) in some people."
+    ],
+    "clinicalNotes": [
+      "May-Thurner syndrome, where the right iliac artery compresses the left iliac vein against the spine, is an underdiagnosed cause of left-leg deep vein thrombosis."
+    ],
+    "boundsCenterOffset": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "idealCameraDistance": 0.35,
+    "addressableMeshKey": "Mesh_SYS_CV_ILIAC_VEIN_LOD0",
+    "audioTTSKey": "Audio_SYS_CV_ILIAC_VEIN_Desc",
+    "connectedNodes": [
+      "SYS_CV_VEIN",
+      "SYS_CV_FEMORAL_VEIN"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_CV_FEMORAL_VEIN",
+    "snomedCTCode": "10293006",
+    "icd10PathologyCodes": [
+      "I82.4"
+    ],
+    "latinName": "Vena femoralis",
+    "commonName": "Femoral Vein",
+    "systemCategory": [
+      "Cardiovascular"
+    ],
+    "descriptionProfessional": "The deep vein of the thigh, running alongside the femoral artery, receiving the great saphenous vein before passing under the inguinal ligament to become the external iliac vein.",
+    "descriptionPatient": "The main deep vein in your thigh that carries blood from your leg back toward your heart.",
+    "apBiologyFacts": [
+      "It sits medial to the femoral artery in the femoral triangle - the reverse of the arm, where the vein position varies - which matters for anyone learning to find venous access."
+    ],
+    "clinicalNotes": [
+      "Deep vein thrombosis here is dangerous because a clot that breaks free travels directly to the lungs as a pulmonary embolism.",
+      "It's a common site for femoral venous catheter placement in critically ill patients."
+    ],
+    "boundsCenterOffset": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "idealCameraDistance": 0.35,
+    "addressableMeshKey": "Mesh_SYS_CV_FEMORAL_VEIN_LOD0",
+    "audioTTSKey": "Audio_SYS_CV_FEMORAL_VEIN_Desc",
+    "connectedNodes": [
+      "SYS_CV_ILIAC_VEIN",
+      "SYS_CV_POPLITEAL_VEIN",
+      "SYS_CV_SAPHENOUS"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_CV_POPLITEAL_VEIN",
+    "snomedCTCode": "46007009",
+    "icd10PathologyCodes": [
+      "I82.4"
+    ],
+    "latinName": "Vena poplitea",
+    "commonName": "Popliteal Vein",
+    "systemCategory": [
+      "Cardiovascular"
+    ],
+    "descriptionProfessional": "Drains the leg's deep veins behind the knee, becoming the femoral vein as it passes through the adductor hiatus.",
+    "descriptionPatient": "The vein behind your knee that carries blood from your lower leg back up toward your heart.",
+    "apBiologyFacts": [
+      "Most calf deep vein thromboses form in the smaller veins below this point and are watched closely because propagation up into the popliteal vein raises embolism risk substantially."
+    ],
+    "clinicalNotes": [
+      "Compression ultrasound of this vein and the femoral vein is the standard test to rule out proximal deep vein thrombosis."
+    ],
+    "boundsCenterOffset": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "idealCameraDistance": 0.35,
+    "addressableMeshKey": "Mesh_SYS_CV_POPLITEAL_VEIN_LOD0",
+    "audioTTSKey": "Audio_SYS_CV_POPLITEAL_VEIN_Desc",
+    "connectedNodes": [
+      "SYS_CV_FEMORAL_VEIN"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_CV_SAPHENOUS",
+    "snomedCTCode": "51328009",
+    "icd10PathologyCodes": [
+      "I83.90"
+    ],
+    "latinName": "Vena saphena magna",
+    "commonName": "Great Saphenous Vein",
+    "systemCategory": [
+      "Cardiovascular"
+    ],
+    "descriptionProfessional": "The longest vein in the body, running superficially from the medial ankle up the entire length of the leg to join the femoral vein in the groin. Contains multiple one-way valves.",
+    "descriptionPatient": "The longest vein in your body - it runs just under the skin along the inside of your whole leg, from your ankle to your groin.",
+    "apBiologyFacts": [
+      "It is the longest vein in the human body, and being superficial (just under the skin, not deep in muscle) is exactly why it's so easy to see bulging when its valves fail.",
+      "Its one-way valves rely on the calf muscle pump (contracting leg muscles squeezing blood upward against gravity) to keep blood moving toward the heart; standing still for long periods lets blood pool here.",
+      "Because it's long, superficial, and expendable (the deep veins can handle the leg's venous return alone), it is the vessel most often harvested for coronary artery bypass grafts."
+    ],
+    "clinicalNotes": [
+      "Varicose veins form when its valves fail, letting blood reflux and pool, stretching and bulging the vein visibly under the skin.",
+      "It's the standard graft vessel harvested for coronary artery bypass surgery, precisely because losing it causes minimal harm.",
+      "Superficial thrombophlebitis (a clot with inflammation) here is uncomfortable but far less dangerous than a deep vein thrombosis, since it's unlikely to embolize to the lungs."
+    ],
+    "boundsCenterOffset": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "idealCameraDistance": 0.35,
+    "addressableMeshKey": "Mesh_SYS_CV_SAPHENOUS_LOD0",
+    "audioTTSKey": "Audio_SYS_CV_SAPHENOUS_Desc",
+    "connectedNodes": [
+      "SYS_CV_FEMORAL_VEIN"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_MUSC_TEMPORALIS",
+    "snomedCTCode": "40672009",
+    "icd10PathologyCodes": [
+      "M62.81"
+    ],
+    "latinName": "Musculus temporalis",
+    "commonName": "Temporalis",
+    "systemCategory": [
+      "Muscular"
+    ],
+    "descriptionProfessional": "A broad fan-shaped muscle filling the temporal fossa, inserting on the mandible's coronoid process; along with the masseter, it is a primary muscle of mastication, powerful in closing and retracting the jaw.",
+    "descriptionPatient": "A muscle on the side of your head, above your ear, that helps you bite down and close your jaw.",
+    "apBiologyFacts": [
+      "It's innervated by the mandibular division of the trigeminal nerve (cranial nerve V), the same nerve that gives facial skin its sensation - motor and sensory function traveling together in one cranial nerve.",
+      "Its posterior fibers run nearly horizontally, which is what lets it retract (pull backward) the jaw in addition to closing it - a job the more vertically-oriented masseter can't do as well."
+    ],
+    "clinicalNotes": [
+      "You can feel it contract by placing fingers on your temple and clenching your teeth - a quick bedside test of trigeminal motor function."
+    ],
+    "boundsCenterOffset": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "idealCameraDistance": 0.35,
+    "addressableMeshKey": "Mesh_SYS_MUSC_TEMPORALIS_LOD0",
+    "audioTTSKey": "Audio_SYS_MUSC_TEMPORALIS_Desc",
+    "connectedNodes": [
+      "SYS_SK_SKULL"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_MUSC_MASSETER",
+    "snomedCTCode": "68006005",
+    "icd10PathologyCodes": [
+      "M62.81"
+    ],
+    "latinName": "Musculus masseter",
+    "commonName": "Masseter",
+    "systemCategory": [
+      "Muscular"
+    ],
+    "descriptionProfessional": "A thick, rectangular muscle running from the zygomatic arch to the mandible's angle - pound for pound one of the strongest muscles in the body for generating bite force.",
+    "descriptionPatient": "The thick muscle at the back of your jaw that you can feel bulge when you clench your teeth.",
+    "apBiologyFacts": [
+      "Along with the temporalis, medial and lateral pterygoids, it's one of the four muscles of mastication, all supplied by the mandibular branch of the trigeminal nerve (CN V3).",
+      "It can generate some of the highest force per cross-sectional area of any muscle in the body, which is why jaw-clenching (bruxism) can wear down tooth enamel over years."
+    ],
+    "clinicalNotes": [
+      "Botox injected into an overactive masseter is used cosmetically to slim a square jawline and therapeutically to treat bruxism-related jaw pain.",
+      "Masseter hypertrophy from chronic teeth grinding is a common finding in TMJ (temporomandibular joint) disorder workups."
+    ],
+    "boundsCenterOffset": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "idealCameraDistance": 0.35,
+    "addressableMeshKey": "Mesh_SYS_MUSC_MASSETER_LOD0",
+    "audioTTSKey": "Audio_SYS_MUSC_MASSETER_Desc",
+    "connectedNodes": [
+      "SYS_SK_MANDIBLE",
+      "SYS_SK_SKULL"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_MUSC_FRONTALIS",
+    "snomedCTCode": "5748006",
+    "icd10PathologyCodes": [
+      "M62.81"
+    ],
+    "latinName": "Musculus frontalis",
+    "commonName": "Frontalis",
+    "systemCategory": [
+      "Muscular"
+    ],
+    "descriptionProfessional": "The forehead's muscle belly, part of the occipitofrontalis muscle, raising the eyebrows and wrinkling the forehead horizontally. A muscle of facial expression, not mastication.",
+    "descriptionPatient": "The muscle in your forehead that raises your eyebrows and creates the horizontal wrinkles when you look surprised.",
+    "apBiologyFacts": [
+      "It belongs to the muscles of facial expression, a group unique among skeletal muscles in that most insert directly into skin rather than onto another bone - which is exactly what lets them move skin to make an expression instead of moving a joint.",
+      "It's innervated by the facial nerve (cranial nerve VII), not the trigeminal - a different cranial nerve than the muscles of mastication, and testing forehead wrinkling versus jaw clench distinguishes which nerve is affected in a facial palsy."
+    ],
+    "clinicalNotes": [
+      "One of the most common cosmetic targets for Botox, which weakens it to smooth forehead wrinkles.",
+      "In Bell's palsy (facial nerve paralysis), the forehead on the affected side cannot wrinkle - a key exam finding that distinguishes a peripheral facial nerve problem from a stroke, where forehead movement is often spared because it receives bilateral brain input."
+    ],
+    "boundsCenterOffset": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "idealCameraDistance": 0.35,
+    "addressableMeshKey": "Mesh_SYS_MUSC_FRONTALIS_LOD0",
+    "audioTTSKey": "Audio_SYS_MUSC_FRONTALIS_Desc",
+    "connectedNodes": [
+      "SYS_SK_SKULL",
+      "SYS_NERV_FACIAL"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_MUSC_ORBICULARIS_OCULI",
+    "snomedCTCode": "44835003",
+    "icd10PathologyCodes": [
+      "M62.81"
+    ],
+    "latinName": "Musculus orbicularis oculi",
+    "commonName": "Orbicularis Oculi",
+    "systemCategory": [
+      "Muscular"
+    ],
+    "descriptionProfessional": "The sphincter-like muscle ring encircling each orbit, responsible for closing the eyelids, from a gentle blink to a forceful squeeze.",
+    "descriptionPatient": "The ring of muscle around your eye that lets you blink and squeeze your eyes shut.",
+    "apBiologyFacts": [
+      "As a true sphincter muscle, its fibers form closed rings around the eye - contracting shrinks the ring's diameter, exactly how any sphincter muscle in the body works, from the eye to the digestive tract.",
+      "It's innervated by the facial nerve, and testing whether someone can forcefully close their eyes against resistance is a standard part of assessing facial nerve function."
+    ],
+    "clinicalNotes": [
+      "In facial nerve palsy, the eye on the affected side may not close fully (lagophthalmos), risking corneal drying and injury - patients often need lubricating drops or taping the eye shut at night.",
+      "Blepharospasm, involuntary spasm of this muscle, is treated with targeted Botox injections."
+    ],
+    "boundsCenterOffset": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "idealCameraDistance": 0.35,
+    "addressableMeshKey": "Mesh_SYS_MUSC_ORBICULARIS_OCULI_LOD0",
+    "audioTTSKey": "Audio_SYS_MUSC_ORBICULARIS_OCULI_Desc",
+    "connectedNodes": [
+      "SYS_SK_SKULL",
+      "SYS_NERV_FACIAL"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_MUSC_ORBICULARIS_ORIS",
+    "snomedCTCode": "31418008",
+    "icd10PathologyCodes": [
+      "M62.81"
+    ],
+    "latinName": "Musculus orbicularis oris",
+    "commonName": "Orbicularis Oris",
+    "systemCategory": [
+      "Muscular"
+    ],
+    "descriptionProfessional": "The sphincter muscle ring surrounding the mouth, closing the lips and shaping them for speech, and the muscle every other facial expression muscle around the mouth ultimately pulls against.",
+    "descriptionPatient": "The ring of muscle around your mouth that lets you close your lips, purse them, and shape sounds when you speak.",
+    "apBiologyFacts": [
+      "Like the orbicularis oculi, it's a true sphincter - and because nearly every other muscle of the lower face (zygomaticus, buccinator, depressor anguli oris) inserts into it, it functions as the anchor point the whole lower face pulls against to form an expression.",
+      "It's essential for forming many consonant sounds in speech (like 'p', 'b', 'm') by briefly sealing the lips completely."
+    ],
+    "clinicalNotes": [
+      "Weakness here from facial nerve injury causes drooling and difficulty with lip seal, both for speech clarity and for keeping food/liquid in the mouth while eating."
+    ],
+    "boundsCenterOffset": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "idealCameraDistance": 0.35,
+    "addressableMeshKey": "Mesh_SYS_MUSC_ORBICULARIS_ORIS_LOD0",
+    "audioTTSKey": "Audio_SYS_MUSC_ORBICULARIS_ORIS_Desc",
+    "connectedNodes": [
+      "SYS_SK_SKULL",
+      "SYS_NERV_FACIAL"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_MUSC_ZYGOMATICUS",
+    "snomedCTCode": "40093005",
+    "icd10PathologyCodes": [
+      "M62.81"
+    ],
+    "latinName": "Musculus zygomaticus major",
+    "commonName": "Zygomaticus Major",
+    "systemCategory": [
+      "Muscular"
+    ],
+    "descriptionProfessional": "Runs from the zygomatic bone to the corner of the mouth; its contraction is the principal action of smiling, pulling the mouth corner up and laterally.",
+    "descriptionPatient": "The 'smile muscle' - it runs from your cheekbone to the corner of your mouth and pulls your mouth up when you smile.",
+    "apBiologyFacts": [
+      "A genuine (Duchenne) smile activates both this muscle and the orbicularis oculi around the eyes together, while a purely voluntary/social smile often uses only the zygomaticus - a distinction researchers use to study whether a smile reflects real emotion."
+    ],
+    "clinicalNotes": [
+      "Asymmetric smile - one side of the mouth failing to rise - is a classic sign used to screen for stroke or facial nerve palsy (the FAST stroke assessment includes exactly this: asking a patient to smile)."
+    ],
+    "boundsCenterOffset": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "idealCameraDistance": 0.35,
+    "addressableMeshKey": "Mesh_SYS_MUSC_ZYGOMATICUS_LOD0",
+    "audioTTSKey": "Audio_SYS_MUSC_ZYGOMATICUS_Desc",
+    "connectedNodes": [
+      "SYS_SK_SKULL",
+      "SYS_NERV_FACIAL"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_MUSC_BUCCINATOR",
+    "snomedCTCode": "58742000",
+    "icd10PathologyCodes": [
+      "M62.81"
+    ],
+    "latinName": "Musculus buccinator",
+    "commonName": "Buccinator",
+    "systemCategory": [
+      "Muscular"
+    ],
+    "descriptionProfessional": "A thin, deep muscle forming the wall of the cheek, compressing it against the teeth to keep food positioned between the molars while chewing, and assisting in actions like blowing.",
+    "descriptionPatient": "The muscle inside your cheek that pushes food back onto your teeth while you chew, and lets you blow air out (like playing a trumpet).",
+    "apBiologyFacts": [
+      "Its name comes from the Latin for 'trumpeter' - it's the muscle that lets you forcefully blow air out through pursed lips, the key muscle used by trumpet and other brass/wind instrument players.",
+      "Functionally it works as a wall, not a mover: instead of producing visible facial movement, it keeps chewed food from pooling in the cheek pouch, pushing it back between the teeth."
+    ],
+    "clinicalNotes": [
+      "Weakness here after facial nerve injury causes food to collect in the cheek during eating, a common complaint after facial nerve damage or stroke."
+    ],
+    "boundsCenterOffset": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "idealCameraDistance": 0.35,
+    "addressableMeshKey": "Mesh_SYS_MUSC_BUCCINATOR_LOD0",
+    "audioTTSKey": "Audio_SYS_MUSC_BUCCINATOR_Desc",
+    "connectedNodes": [
+      "SYS_SK_MANDIBLE",
+      "SYS_NERV_FACIAL"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_NERV_RADIAL",
+    "snomedCTCode": "1518005",
+    "icd10PathologyCodes": [
+      "G56.30"
+    ],
+    "latinName": "Nervus radialis",
+    "commonName": "Radial Nerve",
+    "systemCategory": [
+      "Nervous"
+    ],
+    "descriptionProfessional": "Arises from the posterior cord of the brachial plexus (C5-T1), spiraling around the back of the humerus before supplying the extensor muscles of the forearm and sensation to the back of the hand.",
+    "descriptionPatient": "A nerve running down the back of your arm that controls the muscles that straighten your wrist and fingers.",
+    "apBiologyFacts": [
+      "It winds around the humerus in the spiral (radial) groove, running directly against bone - which is exactly why a mid-shaft humerus fracture is one of the classic causes of radial nerve injury.",
+      "It controls wrist and finger extension; losing it causes 'wrist drop', since the (now unopposed) flexor muscles pull the wrist into flexion with nothing to extend it back."
+    ],
+    "clinicalNotes": [
+      "'Saturday night palsy' - radial nerve compression from a heavy arm draped over a chair edge or a partner's shoulder during sleep - causes temporary wrist drop.",
+      "It's tested clinically by checking wrist and finger extension against resistance, and sensation on the back of the hand between the thumb and index finger."
+    ],
+    "boundsCenterOffset": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "idealCameraDistance": 0.35,
+    "addressableMeshKey": "Mesh_SYS_NERV_RADIAL_LOD0",
+    "audioTTSKey": "Audio_SYS_NERV_RADIAL_Desc",
+    "connectedNodes": [
+      "SYS_NERV_BRACHIAL_PLEXUS"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_NERV_MEDIAN",
+    "snomedCTCode": "31245000",
+    "icd10PathologyCodes": [
+      "G56.00"
+    ],
+    "latinName": "Nervus medianus",
+    "commonName": "Median Nerve",
+    "systemCategory": [
+      "Nervous"
+    ],
+    "descriptionProfessional": "Arises from the medial and lateral cords of the brachial plexus (C6-T1), running down the arm's midline, through the carpal tunnel at the wrist, supplying most forearm flexors and thumb/finger sensation.",
+    "descriptionPatient": "A nerve running down the middle of your arm and through your wrist that controls many hand movements and gives feeling to your thumb and first two fingers.",
+    "apBiologyFacts": [
+      "It passes through the carpal tunnel, a narrow passage at the wrist bounded by carpal bones and a tough ligament - any swelling in that confined space compresses the nerve directly.",
+      "It supplies sensation to the thumb, index, middle, and half the ring finger - the classic distribution tested in a carpal tunnel exam."
+    ],
+    "clinicalNotes": [
+      "Carpal tunnel syndrome, compression of this nerve at the wrist, is one of the most common nerve entrapment conditions, causing numbness/tingling in its sensory distribution and, if severe, thumb muscle wasting.",
+      "It runs directly under the palmaris longus tendon at the wrist, a useful surface landmark in the physical exam and in carpal tunnel release surgery."
+    ],
+    "boundsCenterOffset": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "idealCameraDistance": 0.35,
+    "addressableMeshKey": "Mesh_SYS_NERV_MEDIAN_LOD0",
+    "audioTTSKey": "Audio_SYS_NERV_MEDIAN_Desc",
+    "connectedNodes": [
+      "SYS_NERV_BRACHIAL_PLEXUS"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_NERV_ULNAR",
+    "snomedCTCode": "1907003",
+    "icd10PathologyCodes": [
+      "G56.20"
+    ],
+    "latinName": "Nervus ulnaris",
+    "commonName": "Ulnar Nerve",
+    "systemCategory": [
+      "Nervous"
+    ],
+    "descriptionProfessional": "Arises from the medial cord of the brachial plexus (C8-T1), running superficially behind the medial epicondyle of the elbow before supplying most intrinsic hand muscles and sensation to the little finger.",
+    "descriptionPatient": "The nerve that runs behind the bony bump on the inside of your elbow - the one that gives you a shock down your arm when you hit your 'funny bone'.",
+    "apBiologyFacts": [
+      "At the elbow it runs superficially, right behind the medial epicondyle with almost nothing protecting it - which is exactly the 'funny bone' spot, and exactly why a direct hit there causes that jolt of tingling down to the little finger.",
+      "It supplies most of the small intrinsic muscles of the hand, which is why long-term ulnar nerve damage causes a characteristic 'claw hand' as those small muscles weaken."
+    ],
+    "clinicalNotes": [
+      "Repeated pressure on the elbow (leaning on a desk, prolonged bed rest) can cause cubital tunnel syndrome, an ulnar nerve compression injury.",
+      "It's tested by checking sensation on the little finger and the strength of finger abduction (spreading the fingers apart)."
+    ],
+    "boundsCenterOffset": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "idealCameraDistance": 0.35,
+    "addressableMeshKey": "Mesh_SYS_NERV_ULNAR_LOD0",
+    "audioTTSKey": "Audio_SYS_NERV_ULNAR_Desc",
+    "connectedNodes": [
+      "SYS_NERV_BRACHIAL_PLEXUS"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_NERV_FEMORAL",
+    "snomedCTCode": "7654000",
+    "icd10PathologyCodes": [
+      "G57.20"
+    ],
+    "latinName": "Nervus femoralis",
+    "commonName": "Femoral Nerve",
+    "systemCategory": [
+      "Nervous"
+    ],
+    "descriptionProfessional": "Arises from the lumbar plexus (L2-L4), passing under the inguinal ligament lateral to the femoral vessels to supply the anterior thigh muscles (including the quadriceps) and sensation to the front of the thigh.",
+    "descriptionPatient": "A nerve that runs down the front of your thigh and controls the muscles that let you straighten your knee.",
+    "apBiologyFacts": [
+      "It innervates the quadriceps, which is why femoral nerve injury or a spinal block affecting it abolishes the knee-jerk (patellar) reflex - one of the most commonly tested deep tendon reflexes."
+    ],
+    "clinicalNotes": [
+      "A femoral nerve block is commonly used for pain control after knee surgery, since it numbs the quadriceps and the front of the thigh.",
+      "It can be compressed or stretched during pelvic surgery or prolonged lithotomy positioning, causing quadriceps weakness afterward."
+    ],
+    "boundsCenterOffset": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "idealCameraDistance": 0.35,
+    "addressableMeshKey": "Mesh_SYS_NERV_FEMORAL_LOD0",
+    "audioTTSKey": "Audio_SYS_NERV_FEMORAL_Desc",
+    "connectedNodes": [
+      "SYS_MUSC_QUADS"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_NERV_TIBIAL",
+    "snomedCTCode": "71585003",
+    "icd10PathologyCodes": [
+      "G57.60"
+    ],
+    "latinName": "Nervus tibialis",
+    "commonName": "Tibial Nerve",
+    "systemCategory": [
+      "Nervous"
+    ],
+    "descriptionProfessional": "The larger terminal branch of the sciatic nerve, continuing down the back of the leg through the posterior compartment to supply the calf muscles and the sole of the foot.",
+    "descriptionPatient": "A nerve that runs down the back of your calf and controls the muscles that point your toes down and give feeling to the sole of your foot.",
+    "apBiologyFacts": [
+      "It's one of the sciatic nerve's two terminal branches (with the common fibular nerve), splitting at or above the knee - so 'sciatica' pain can, depending on where the irritation is, affect either branch's specific territory."
+    ],
+    "clinicalNotes": [
+      "Tibial nerve injury causes weakness in plantar flexion (pointing the toes down) and loss of sensation on the sole of the foot, which is a serious problem for diabetic patients since they may not feel a foot injury forming."
+    ],
+    "boundsCenterOffset": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "idealCameraDistance": 0.35,
+    "addressableMeshKey": "Mesh_SYS_NERV_TIBIAL_LOD0",
+    "audioTTSKey": "Audio_SYS_NERV_TIBIAL_Desc",
+    "connectedNodes": [
+      "SYS_NERV_SCIATIC"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_NERV_FIBULAR_COMMON",
+    "snomedCTCode": "37065003",
+    "icd10PathologyCodes": [
+      "G57.30"
+    ],
+    "latinName": "Nervus fibularis communis",
+    "commonName": "Common Fibular (Peroneal) Nerve",
+    "systemCategory": [
+      "Nervous"
+    ],
+    "descriptionProfessional": "The smaller terminal branch of the sciatic nerve, winding superficially around the neck of the fibula before splitting into deep and superficial branches supplying the muscles that lift the foot.",
+    "descriptionPatient": "A nerve that wraps around the outside of your knee, just below the surface - the one responsible for 'foot drop' if it gets injured.",
+    "apBiologyFacts": [
+      "It winds directly around the neck of the fibula with almost nothing but skin protecting it, exactly like the ulnar nerve at the elbow - both are textbook examples of a nerve made vulnerable purely by running superficially over bone."
+    ],
+    "clinicalNotes": [
+      "It's the nerve most often injured by a tight leg cast, prolonged kneeling, or crossing the legs for a long time, causing 'foot drop' - inability to lift the front of the foot, producing a high-stepping gait.",
+      "Foot drop from this nerve's injury is a classic finding tested in any lower-limb neurological exam."
+    ],
+    "boundsCenterOffset": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "idealCameraDistance": 0.35,
+    "addressableMeshKey": "Mesh_SYS_NERV_FIBULAR_COMMON_LOD0",
+    "audioTTSKey": "Audio_SYS_NERV_FIBULAR_COMMON_Desc",
+    "connectedNodes": [
+      "SYS_NERV_SCIATIC"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_NERV_PUDENDAL",
+    "snomedCTCode": "62202002",
+    "icd10PathologyCodes": [
+      "G57.90"
+    ],
+    "latinName": "Nervus pudendus",
+    "commonName": "Pudendal Nerve",
+    "systemCategory": [
+      "Nervous"
+    ],
+    "descriptionProfessional": "Arises from the sacral plexus (S2-S4), supplying motor control to the pelvic floor and external anal/urethral sphincters, and sensation to the perineum.",
+    "descriptionPatient": "A nerve in your pelvis that controls the muscles you use to hold in urine and stool, and carries feeling from that area.",
+    "apBiologyFacts": [
+      "It carries the somatic (voluntary) motor supply to the external anal and urethral sphincters - which is why voluntarily holding urine or stool, unlike most digestive/urinary function, is under conscious control."
+    ],
+    "clinicalNotes": [
+      "A pudendal nerve block is used during childbirth and some pelvic procedures to numb the perineum.",
+      "Chronic compression (e.g. from prolonged cycling) can cause pudendal neuralgia, a painful condition affecting the perineum."
+    ],
+    "boundsCenterOffset": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "idealCameraDistance": 0.35,
+    "addressableMeshKey": "Mesh_SYS_NERV_PUDENDAL_LOD0",
+    "audioTTSKey": "Audio_SYS_NERV_PUDENDAL_Desc",
+    "connectedNodes": [],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_NERV_OPTIC",
+    "snomedCTCode": "56463005",
+    "icd10PathologyCodes": [
+      "H47.019"
+    ],
+    "latinName": "Nervus opticus (CN II)",
+    "commonName": "Optic Nerve (CN II)",
+    "systemCategory": [
+      "Nervous"
+    ],
+    "descriptionProfessional": "The second cranial nerve, carrying visual signals from the retina to the brain's visual processing centers; technically a tract of the central nervous system rather than a true peripheral nerve.",
+    "descriptionPatient": "The nerve that carries what your eye sees to your brain, letting you see.",
+    "apBiologyFacts": [
+      "Unlike every other cranial nerve, it is actually an extension of the brain itself (central nervous system tissue, wrapped in the same meninges as the brain), not a true peripheral nerve - which is why it can't regenerate if damaged, unlike most peripheral nerves.",
+      "The two optic nerves partially cross at the optic chiasm, so each half of the brain ends up processing the opposite half of the combined visual field from both eyes - the anatomical basis for stereoscopic depth perception."
+    ],
+    "clinicalNotes": [
+      "A doctor examines it directly with an ophthalmoscope, looking at the optic disc - the only place in the body where a nerve and blood vessels can be viewed directly without surgery.",
+      "Optic nerve swelling (papilledema) is a sign of raised intracranial pressure, visible on this direct exam before other symptoms may appear.",
+      "Multiple sclerosis often first presents as optic neuritis - sudden vision loss from demyelination of this nerve."
+    ],
+    "boundsCenterOffset": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "idealCameraDistance": 0.35,
+    "addressableMeshKey": "Mesh_SYS_NERV_OPTIC_LOD0",
+    "audioTTSKey": "Audio_SYS_NERV_OPTIC_Desc",
+    "connectedNodes": [
+      "SYS_NERV_BRAIN"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_NERV_TRIGEMINAL",
+    "snomedCTCode": "508665",
+    "icd10PathologyCodes": [
+      "G50.0"
+    ],
+    "latinName": "Nervus trigeminus (CN V)",
+    "commonName": "Trigeminal Nerve (CN V)",
+    "systemCategory": [
+      "Nervous"
+    ],
+    "descriptionProfessional": "The fifth and largest cranial nerve, with three divisions (ophthalmic, maxillary, mandibular) carrying facial sensation and providing motor supply to the muscles of mastication.",
+    "descriptionPatient": "The main nerve that gives feeling to your face, and also controls the muscles you use to chew.",
+    "apBiologyFacts": [
+      "It has both sensory and motor roles in one nerve: sensory for nearly all facial skin sensation via its three divisions, and motor specifically for the muscles of mastication (temporalis, masseter, pterygoids) - a combination most cranial nerves don't have.",
+      "Its three divisions - ophthalmic (V1), maxillary (V2), mandibular (V3) - map to horizontal bands of the face, a pattern used clinically to localize facial sensory loss."
+    ],
+    "clinicalNotes": [
+      "Trigeminal neuralgia causes sudden, severe, electric-shock-like facial pain along one of its divisions, often triggered by something as light as touching the face or brushing teeth.",
+      "The corneal reflex (blinking when the cornea is touched) tests this nerve's sensory limb (V1) paired with the facial nerve's motor limb."
+    ],
+    "boundsCenterOffset": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "idealCameraDistance": 0.35,
+    "addressableMeshKey": "Mesh_SYS_NERV_TRIGEMINAL_LOD0",
+    "audioTTSKey": "Audio_SYS_NERV_TRIGEMINAL_Desc",
+    "connectedNodes": [
+      "SYS_NERV_BRAINSTEM"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_NERV_FACIAL",
+    "snomedCTCode": "45296009",
+    "icd10PathologyCodes": [
+      "G51.0"
+    ],
+    "latinName": "Nervus facialis (CN VII)",
+    "commonName": "Facial Nerve (CN VII)",
+    "systemCategory": [
+      "Nervous"
+    ],
+    "descriptionProfessional": "The seventh cranial nerve, providing motor supply to all the muscles of facial expression, taste to the anterior two-thirds of the tongue, and parasympathetic supply to several glands.",
+    "descriptionPatient": "The nerve that controls all the muscles you use to make facial expressions, like smiling, frowning, and closing your eyes.",
+    "apBiologyFacts": [
+      "It supplies every muscle of facial expression on its side of the face - a single nerve controlling an entire face's worth of movement, which is why its injury (Bell's palsy) is so visually obvious.",
+      "The upper face (forehead) receives motor input from both sides of the brain, but the lower face only from the opposite side - the anatomical reason a stroke typically spares the forehead while paralyzing the lower face, while a peripheral facial nerve injury (Bell's palsy) paralyzes the whole side, forehead included."
+    ],
+    "clinicalNotes": [
+      "Bell's palsy, an acute peripheral facial nerve palsy (often linked to viral reactivation), paralyzes an entire side of the face - forehead included - distinguishing it from a stroke, which typically spares forehead movement.",
+      "Testing whether a patient can raise their eyebrows is the single fastest bedside way to tell a peripheral facial nerve problem from a central (stroke) one."
+    ],
+    "boundsCenterOffset": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "idealCameraDistance": 0.35,
+    "addressableMeshKey": "Mesh_SYS_NERV_FACIAL_LOD0",
+    "audioTTSKey": "Audio_SYS_NERV_FACIAL_Desc",
+    "connectedNodes": [
+      "SYS_NERV_BRAINSTEM",
+      "SYS_MUSC_FRONTALIS",
+      "SYS_MUSC_ORBICULARIS_OCULI",
+      "SYS_MUSC_ORBICULARIS_ORIS",
+      "SYS_MUSC_ZYGOMATICUS",
+      "SYS_MUSC_BUCCINATOR"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_NERV_PHRENIC",
+    "snomedCTCode": "2119000",
+    "icd10PathologyCodes": [
+      "G99.8"
+    ],
+    "latinName": "Nervus phrenicus",
+    "commonName": "Phrenic Nerve",
+    "systemCategory": [
+      "Nervous"
+    ],
+    "descriptionProfessional": "Arises from the cervical plexus (C3-C5), descending through the neck and thorax to provide the diaphragm's sole motor supply.",
+    "descriptionPatient": "The nerve that controls your diaphragm, the main muscle you use to breathe - so it's essential for every breath you take.",
+    "apBiologyFacts": [
+      "It is the diaphragm's only motor supply, and the diaphragm does the majority of the work of quiet breathing - which is why 'C3, 4, 5 keeps the diaphragm alive' is a standard memory aid for its spinal cord origin.",
+      "It travels an unusually long path from the neck all the way down to the diaphragm - a leftover of embryonic development, when the diaphragm's muscle originates high in the neck region and migrates downward during development, dragging its nerve supply along with it."
+    ],
+    "clinicalNotes": [
+      "A high spinal cord injury above C3-C5 can paralyze the diaphragm entirely, requiring mechanical ventilation.",
+      "Referred shoulder pain from diaphragmatic irritation (e.g. from blood or gas under the diaphragm after surgery) happens because the phrenic nerve's spinal cord level (C3-C5) overlaps with the shoulder's sensory nerve supply."
+    ],
+    "boundsCenterOffset": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "idealCameraDistance": 0.35,
+    "addressableMeshKey": "Mesh_SYS_NERV_PHRENIC_LOD0",
+    "audioTTSKey": "Audio_SYS_NERV_PHRENIC_Desc",
+    "connectedNodes": [
+      "SYS_NERV_BRACHIAL_PLEXUS"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_NERV_INTERCOSTAL",
+    "snomedCTCode": "35418002",
+    "icd10PathologyCodes": [
+      "G58.0"
+    ],
+    "latinName": "Nervi intercostales",
+    "commonName": "Intercostal Nerves",
+    "systemCategory": [
+      "Nervous"
+    ],
+    "descriptionProfessional": "The anterior rami of the thoracic spinal nerves (T1-T11), running along the lower border of each rib to supply the intercostal muscles and skin of the chest and upper abdominal wall.",
+    "descriptionPatient": "The nerves that run along your ribs, controlling the muscles between them that help you breathe and giving feeling to your chest wall.",
+    "apBiologyFacts": [
+      "Each one runs in a neurovascular bundle with an intercostal artery and vein, tucked just under the lower edge of its rib - a fixed, testable anatomical order (vein, artery, nerve, top to bottom) that determines exactly where a needle is safely inserted between ribs.",
+      "Because they map cleanly to specific spinal cord levels, the pattern of chest wall sensation they carry is used clinically to determine the level of a spinal cord injury."
+    ],
+    "clinicalNotes": [
+      "A needle placed between ribs (for a chest tube or thoracentesis) is inserted along the top of the lower rib specifically to avoid the nerve and vessels tucked under the rib above.",
+      "Shingles (herpes zoster) reactivating in an intercostal nerve's sensory ganglion causes a band of painful blistering rash following that one nerve's exact territory around the chest wall."
+    ],
+    "boundsCenterOffset": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "idealCameraDistance": 0.35,
+    "addressableMeshKey": "Mesh_SYS_NERV_INTERCOSTAL_LOD0",
+    "audioTTSKey": "Audio_SYS_NERV_INTERCOSTAL_Desc",
+    "connectedNodes": [],
+    "hasMicroDive": false,
+    "microDiveKey": "",
     "pharmacologyTargets": []
   }
 ]
