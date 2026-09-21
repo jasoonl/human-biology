@@ -1276,6 +1276,728 @@
     "pharmacologyTargets": []
   },
   {
+    "entityID": "SYS_SK_STERNUM",
+    "snomedCTCode": "56873002",
+    "icd10PathologyCodes": ["S22.20"],
+    "latinName": "Sternum",
+    "commonName": "Sternum (Breastbone)",
+    "systemCategory": ["Skeletal"],
+    "descriptionProfessional": "A flat bone of manubrium, body and xiphoid process, articulating with the clavicles and the costal cartilages of ribs 1-7.",
+    "descriptionPatient": "Your breastbone, the flat bone down the middle of your chest that the ribs attach to.",
+    "apBiologyFacts": [
+      "Three parts: manubrium, body and xiphoid process. The sternal angle, where manubrium meets body, is a key landmark - it sits level with the second rib and the T4/T5 disc, exactly where the trachea divides.",
+      "It retains red bone marrow throughout adult life, so it remains an active site of haematopoiesis long after the long bones have converted to yellow marrow."
+    ],
+    "clinicalNotes": [
+      "Sternal marrow aspiration uses this persistent red marrow.",
+      "Chest compressions are delivered over the lower half of the sternum; the xiphoid is avoided because levering it can lacerate the liver.",
+      "Counting ribs clinically starts from the sternal angle, the most reliable surface landmark on the chest."
+    ],
+    "boundsCenterOffset": { "x": 0.0, "y": 0.0, "z": 0.0 },
+    "idealCameraDistance": 0.35,
+    "addressableMeshKey": "Mesh_Sternum_LOD0",
+    "audioTTSKey": "Audio_Sternum_Desc",
+    "connectedNodes": ["SYS_SK_RIBCAGE", "SYS_SK_CLAVICLE"],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_SK_MANDIBLE",
+    "snomedCTCode": "91609006",
+    "icd10PathologyCodes": ["S02.60"],
+    "latinName": "Mandibula",
+    "commonName": "Mandible (Lower Jaw)",
+    "systemCategory": ["Skeletal"],
+    "descriptionProfessional": "The largest and strongest facial bone, articulating with the temporal bones at the temporomandibular joints and bearing the lower dentition.",
+    "descriptionPatient": "Your lower jaw - the only bone in your skull that actually moves.",
+    "apBiologyFacts": [
+      "It is the only movable bone of the skull; every other one of the 22 is locked by immovable fibrous sutures.",
+      "The temporomandibular joint is unusual in doing both hinge and gliding movement, which is what lets you both bite and grind.",
+      "Adults carry 32 permanent teeth in four types - incisors for cutting, canines for tearing, premolars and molars for grinding. That heterodont dentition is a mammalian signature and reflects an omnivorous diet."
+    ],
+    "clinicalNotes": [
+      "Mandibular fractures are frequently bilateral, because the ring-shaped bone tends to break in a second place when struck.",
+      "TMJ dysfunction causes jaw pain, clicking and restricted opening.",
+      "The inferior alveolar nerve runs inside the bone and is anaesthetised for most lower-jaw dental work."
+    ],
+    "boundsCenterOffset": { "x": 0.0, "y": 0.0, "z": 0.0 },
+    "idealCameraDistance": 0.2,
+    "addressableMeshKey": "Mesh_Mandible_LOD0",
+    "audioTTSKey": "Audio_Mandible_Desc",
+    "connectedNodes": ["SYS_SK_SKULL", "SYS_MUSC_FACIAL"],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_MUSC_FACIAL",
+    "snomedCTCode": "39937001",
+    "icd10PathologyCodes": ["G51.0"],
+    "latinName": "Musculi masticatorii et faciei",
+    "commonName": "Muscles of the Face and Jaw",
+    "systemCategory": ["Muscular"],
+    "descriptionProfessional": "The muscles of mastication (temporalis, masseter, pterygoids) supplied by the trigeminal nerve, and the muscles of facial expression supplied by the facial nerve.",
+    "descriptionPatient": "The muscles that chew your food and make your expressions - smiling, frowning, raising an eyebrow.",
+    "apBiologyFacts": [
+      "Two functionally distinct sets with two different nerves: muscles of MASTICATION (chewing) run on the trigeminal nerve, CN V; muscles of EXPRESSION run on the facial nerve, CN VII.",
+      "The masseter is, pound for pound, among the strongest muscles in the body - human bite force at the molars reaches roughly 700 newtons.",
+      "Muscles of facial expression are unusual in inserting into skin rather than bone, which is exactly why their contraction moves the face instead of a joint. This fine-grained control of expression is a major channel of human social communication."
+    ],
+    "clinicalNotes": [
+      "Bell's palsy is a lower motor neuron facial nerve palsy: the whole side of the face droops, including the forehead. In a stroke the forehead is spared, because it receives input from both hemispheres - the single most useful bedside discriminator.",
+      "Trigeminal neuralgia causes sudden, severe, lancinating facial pain triggered by light touch.",
+      "Bruxism (tooth grinding) hypertrophies the masseter and wears the dentition."
+    ],
+    "boundsCenterOffset": { "x": 0.0, "y": 0.0, "z": 0.0 },
+    "idealCameraDistance": 0.2,
+    "addressableMeshKey": "Mesh_Muscle_Facial_LOD0",
+    "audioTTSKey": "Audio_Facial_Desc",
+    "connectedNodes": ["SYS_SK_MANDIBLE", "SYS_SK_SKULL"],
+    "hasMicroDive": true,
+    "microDiveKey": "Scene_Micro_Sarcomere",
+    "pharmacologyTargets": ["Carbamazepine"]
+  },
+  {
+    "entityID": "SYS_SK_HAND",
+    "snomedCTCode": "85562004",
+    "icd10PathologyCodes": ["S62.90"],
+    "latinName": "Ossa manus",
+    "commonName": "Bones of the Hand",
+    "systemCategory": ["Skeletal"],
+    "descriptionProfessional": "Twenty-seven bones per hand: eight carpals, five metacarpals and fourteen phalanges.",
+    "descriptionPatient": "Each hand contains 27 separate bones - more than a quarter of all the bones in your body are in your two hands.",
+    "apBiologyFacts": [
+      "Twenty-seven bones per hand. With 26 per foot, over half of the body's 206 bones are in the hands and feet - the cost of fine manipulation and of walking upright.",
+      "The opposable thumb has a saddle joint at the carpometacarpal articulation, allowing it to swing across and meet each fingertip. This precision grip is a defining primate adaptation and the reason tool use is possible.",
+      "The thumb has two phalanges; every other digit has three."
+    ],
+    "clinicalNotes": [
+      "Scaphoid fracture presents with anatomical snuffbox tenderness and is often missed on initial X-ray; its retrograde blood supply risks avascular necrosis.",
+      "A 'boxer's fracture' is a fifth metacarpal neck fracture from punching with a closed fist."
+    ],
+    "boundsCenterOffset": { "x": 0.0, "y": 0.0, "z": 0.0 },
+    "idealCameraDistance": 0.2,
+    "addressableMeshKey": "Mesh_Hand_LOD0",
+    "audioTTSKey": "Audio_Hand_Desc",
+    "connectedNodes": ["SYS_SK_RADIUS_ULNA"],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_SK_FOOT",
+    "snomedCTCode": "57043001",
+    "icd10PathologyCodes": ["S92.90"],
+    "latinName": "Ossa pedis",
+    "commonName": "Bones of the Foot",
+    "systemCategory": ["Skeletal"],
+    "descriptionProfessional": "Twenty-six bones per foot: seven tarsals, five metatarsals and fourteen phalanges, arranged into longitudinal and transverse arches.",
+    "descriptionPatient": "Each foot has 26 bones arranged into springy arches that absorb the shock of every step.",
+    "apBiologyFacts": [
+      "The arches are the key adaptation: they act as springs that store and return elastic energy with each step, and they distribute body weight between the heel and the ball of the foot.",
+      "The calcaneus (heel bone) is the largest tarsal and takes the initial impact of heel strike.",
+      "Unlike the ape foot, the human big toe is aligned forward rather than opposable - an unambiguous skeletal signature of obligate bipedalism, visible in the 3.6-million-year-old Laetoli footprints."
+    ],
+    "clinicalNotes": [
+      "Plantar fasciitis causes sharp heel pain worst on the first steps of the morning.",
+      "Ottawa ankle rules determine whether an X-ray is needed after an ankle injury, reducing unnecessary imaging.",
+      "March (stress) fractures of the metatarsals follow repetitive loading in runners and military recruits."
+    ],
+    "boundsCenterOffset": { "x": 0.0, "y": 0.0, "z": 0.0 },
+    "idealCameraDistance": 0.2,
+    "addressableMeshKey": "Mesh_Foot_LOD0",
+    "audioTTSKey": "Audio_Foot_Desc",
+    "connectedNodes": ["SYS_SK_TIBIA"],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_MUSC_TRAPEZIUS",
+    "snomedCTCode": "16405000",
+    "icd10PathologyCodes": ["M62.9"],
+    "latinName": "Musculus trapezius",
+    "commonName": "Trapezius",
+    "systemCategory": ["Muscular"],
+    "descriptionProfessional": "A large diamond-shaped superficial back muscle from the occiput and spinous processes to the clavicle, acromion and scapular spine.",
+    "descriptionPatient": "The big diamond-shaped muscle across your upper back and neck. It shrugs your shoulders.",
+    "apBiologyFacts": [
+      "Its three parts pull in different directions from one sheet: upper fibers elevate the scapula (shrugging), middle fibers retract it, lower fibers depress it.",
+      "It is innervated by the accessory nerve (cranial nerve XI) - unusual for a trunk muscle, and a consequence of its embryological origin in the branchial arches rather than the body wall."
+    ],
+    "clinicalNotes": [
+      "Testing shoulder shrug against resistance is the standard bedside test of cranial nerve XI.",
+      "It is the classic site of tension-related myofascial trigger points and 'text neck' pain.",
+      "Accessory nerve injury during posterior triangle neck surgery causes shoulder droop and winging."
+    ],
+    "boundsCenterOffset": { "x": 0.0, "y": 0.0, "z": -0.05 },
+    "idealCameraDistance": 0.4,
+    "addressableMeshKey": "Mesh_Muscle_Trapezius_LOD0",
+    "audioTTSKey": "Audio_Trapezius_Desc",
+    "connectedNodes": ["SYS_SK_SPINE", "SYS_SK_CLAVICLE"],
+    "hasMicroDive": true,
+    "microDiveKey": "Scene_Micro_Sarcomere",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_MUSC_LATISSIMUS",
+    "snomedCTCode": "44947003",
+    "icd10PathologyCodes": ["M62.9"],
+    "latinName": "Musculus latissimus dorsi",
+    "commonName": "Latissimus Dorsi",
+    "systemCategory": ["Muscular"],
+    "descriptionProfessional": "The broadest muscle of the back, from the thoracolumbar fascia and lower thoracic spines to the intertubercular groove of the humerus.",
+    "descriptionPatient": "The broad muscle of your back that pulls your arm down and back - the one that does pull-ups.",
+    "apBiologyFacts": [
+      "It is the largest muscle of the upper body by surface area, and it adducts, extends and medially rotates the humerus.",
+      "It is the prime mover in climbing, swimming and pull-ups: with the arm fixed overhead, it pulls the trunk up toward the arm rather than the arm down toward the trunk."
+    ],
+    "clinicalNotes": [
+      "Its bulk and reliable thoracodorsal blood supply make it a workhorse flap for breast and chest wall reconstruction.",
+      "Nicknamed the 'climbing muscle'; weakness impairs transfers and crutch use in paraplegic patients."
+    ],
+    "boundsCenterOffset": { "x": 0.0, "y": 0.0, "z": -0.05 },
+    "idealCameraDistance": 0.4,
+    "addressableMeshKey": "Mesh_Muscle_Latissimus_LOD0",
+    "audioTTSKey": "Audio_Latissimus_Desc",
+    "connectedNodes": ["SYS_SK_SPINE", "SYS_SK_HUMERUS"],
+    "hasMicroDive": true,
+    "microDiveKey": "Scene_Micro_Sarcomere",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_MUSC_TRICEPS",
+    "snomedCTCode": "21190008",
+    "icd10PathologyCodes": ["M62.9"],
+    "latinName": "Musculus triceps brachii",
+    "commonName": "Triceps Brachii",
+    "systemCategory": ["Muscular"],
+    "descriptionProfessional": "The three-headed posterior arm muscle inserting on the olecranon, the sole extensor of the elbow.",
+    "descriptionPatient": "The muscle on the back of your upper arm that straightens your elbow - the opposite of your biceps.",
+    "apBiologyFacts": [
+      "It is the antagonist of biceps brachii: muscles can only pull, so straightening the elbow needs a muscle on the opposite side. This reciprocal arrangement is the standard AP Biology example of an antagonistic pair.",
+      "Reciprocal inhibition means the nervous system actively relaxes the biceps as the triceps contracts, so they do not fight each other.",
+      "Its long head crosses the shoulder as well as the elbow, so it also helps extend the arm."
+    ],
+    "clinicalNotes": [
+      "The triceps reflex tests the C7 nerve root.",
+      "Radial nerve injury in the spiral groove weakens the triceps and produces wrist drop."
+    ],
+    "boundsCenterOffset": { "x": 0.3, "y": 0.1, "z": -0.05 },
+    "idealCameraDistance": 0.3,
+    "addressableMeshKey": "Mesh_Muscle_Triceps_LOD0",
+    "audioTTSKey": "Audio_Triceps_Desc",
+    "connectedNodes": ["SYS_SK_HUMERUS", "SYS_MUSC_BICEPS"],
+    "hasMicroDive": true,
+    "microDiveKey": "Scene_Micro_Sarcomere",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_MUSC_OBLIQUE",
+    "snomedCTCode": "43663004",
+    "icd10PathologyCodes": ["M62.9"],
+    "latinName": "Musculus obliquus externus abdominis",
+    "commonName": "External Oblique",
+    "systemCategory": ["Muscular"],
+    "descriptionProfessional": "The largest and most superficial of the flat abdominal muscles, its fibers running inferomedially like hands in pockets.",
+    "descriptionPatient": "The muscle on the side of your waist that twists and bends your trunk sideways.",
+    "apBiologyFacts": [
+      "Its fibers run downward and forward - 'hands in your pockets' - while the internal oblique beneath runs the opposite way. The criss-cross of three flat muscle layers gives the abdominal wall strength in every direction, like plywood.",
+      "Acting on one side it rotates the trunk to the OPPOSITE side; acting together the two sides flex the trunk and compress the abdomen."
+    ],
+    "clinicalNotes": [
+      "Its aponeurosis forms the inguinal ligament and the external ring of the inguinal canal - the site of indirect inguinal hernia.",
+      "The layered abdominal wall is what surgeons traverse in a gridiron incision for appendicectomy, splitting each layer along its own fiber direction."
+    ],
+    "boundsCenterOffset": { "x": 0.0, "y": 0.0, "z": 0.05 },
+    "idealCameraDistance": 0.4,
+    "addressableMeshKey": "Mesh_Muscle_Oblique_LOD0",
+    "audioTTSKey": "Audio_Oblique_Desc",
+    "connectedNodes": ["SYS_MUSC_RECTUS_ABDOMINIS", "SYS_SK_PELVIS"],
+    "hasMicroDive": true,
+    "microDiveKey": "Scene_Micro_Sarcomere",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_MUSC_GLUTEUS",
+    "snomedCTCode": "42679005",
+    "icd10PathologyCodes": ["M62.9"],
+    "latinName": "Musculus gluteus maximus",
+    "commonName": "Gluteus Maximus",
+    "systemCategory": ["Muscular"],
+    "descriptionProfessional": "The largest and most superficial gluteal muscle, the powerful extensor of the hip from ilium and sacrum to the gluteal tuberosity and iliotibial tract.",
+    "descriptionPatient": "The large muscle of your buttock. It straightens your hip when you climb stairs or stand up.",
+    "apBiologyFacts": [
+      "It is the single largest muscle in the human body by mass.",
+      "It is disproportionately large in humans compared with other primates, and is considered an adaptation for endurance running and for stabilizing the trunk during bipedal stance - a key piece of evidence in the evolution of human locomotion.",
+      "Gluteus medius and minimus beneath it abduct the hip and, critically, stop the pelvis dropping on the unsupported side during walking."
+    ],
+    "clinicalNotes": [
+      "A positive Trendelenburg sign - the pelvis dropping on the opposite side when standing on one leg - indicates gluteus medius weakness or superior gluteal nerve injury.",
+      "Intramuscular injections go into the upper outer quadrant of the buttock specifically to avoid the sciatic nerve."
+    ],
+    "boundsCenterOffset": { "x": 0.0, "y": 0.0, "z": -0.05 },
+    "idealCameraDistance": 0.35,
+    "addressableMeshKey": "Mesh_Muscle_Gluteus_LOD0",
+    "audioTTSKey": "Audio_Gluteus_Desc",
+    "connectedNodes": ["SYS_SK_PELVIS", "SYS_SK_FEMUR"],
+    "hasMicroDive": true,
+    "microDiveKey": "Scene_Micro_Sarcomere",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_MUSC_HAMSTRINGS",
+    "snomedCTCode": "181627001",
+    "icd10PathologyCodes": ["S76.30"],
+    "latinName": "Musculi ischiocrurales",
+    "commonName": "Hamstrings",
+    "systemCategory": ["Muscular"],
+    "descriptionProfessional": "Biceps femoris, semitendinosus and semimembranosus, running from the ischial tuberosity to the tibia and fibula.",
+    "descriptionPatient": "The three muscles at the back of your thigh. They bend your knee and are the ones that pull when you sprint.",
+    "apBiologyFacts": [
+      "Three muscles that cross BOTH the hip and the knee, so they extend the hip and flex the knee simultaneously - which is why they cannot be fully stretched at both joints at once.",
+      "They are the antagonists of the quadriceps, and the quadriceps-to-hamstring strength ratio is a standard measure in sports physiology."
+    ],
+    "clinicalNotes": [
+      "Hamstring strain is among the most common sporting injuries, typically during the eccentric phase of sprinting when the muscle contracts while lengthening.",
+      "The straight-leg raise test uses hamstring and sciatic nerve tension to assess lumbar radiculopathy.",
+      "The sciatic nerve runs beneath them, so posterior thigh pain must be distinguished between muscle and nerve."
+    ],
+    "boundsCenterOffset": { "x": 0.0, "y": -0.4, "z": -0.05 },
+    "idealCameraDistance": 0.35,
+    "addressableMeshKey": "Mesh_Muscle_Hamstrings_LOD0",
+    "audioTTSKey": "Audio_Hamstrings_Desc",
+    "connectedNodes": ["SYS_SK_PELVIS", "SYS_SK_TIBIA", "SYS_MUSC_QUADS"],
+    "hasMicroDive": true,
+    "microDiveKey": "Scene_Micro_Sarcomere",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_MUSC_STERNOCLEIDOMASTOID",
+    "snomedCTCode": "42566008",
+    "icd10PathologyCodes": ["M62.9"],
+    "latinName": "Musculus sternocleidomastoideus",
+    "commonName": "Sternocleidomastoid",
+    "systemCategory": ["Muscular"],
+    "descriptionProfessional": "A strap muscle from the manubrium and medial clavicle to the mastoid process, dividing the neck into anterior and posterior triangles.",
+    "descriptionPatient": "The prominent strap muscle running diagonally down the side of your neck. It turns your head.",
+    "apBiologyFacts": [
+      "Acting on one side it rotates the head to the OPPOSITE side while tilting it toward the same side; acting together both sides flex the neck.",
+      "It divides the neck into the anterior and posterior triangles, the fundamental organizing landmark of neck anatomy.",
+      "It is an accessory muscle of respiration, elevating the sternum in forced inspiration."
+    ],
+    "clinicalNotes": [
+      "Visible contraction at rest is a sign of respiratory distress - a patient using accessory muscles to breathe.",
+      "Congenital torticollis is fibrosis of this muscle, holding the infant's head turned and tilted.",
+      "It is the landmark for internal jugular central venous access and for palpating the carotid pulse."
+    ],
+    "boundsCenterOffset": { "x": 0.0, "y": 0.2, "z": 0.05 },
+    "idealCameraDistance": 0.25,
+    "addressableMeshKey": "Mesh_Muscle_SCM_LOD0",
+    "audioTTSKey": "Audio_SCM_Desc",
+    "connectedNodes": ["SYS_SK_CLAVICLE", "SYS_SK_SKULL"],
+    "hasMicroDive": true,
+    "microDiveKey": "Scene_Micro_Sarcomere",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_MUSC_TIBIALIS",
+    "snomedCTCode": "43797002",
+    "icd10PathologyCodes": ["M62.9"],
+    "latinName": "Musculus tibialis anterior",
+    "commonName": "Tibialis Anterior",
+    "systemCategory": ["Muscular"],
+    "descriptionProfessional": "The principal dorsiflexor of the ankle, in the anterior compartment of the leg lateral to the tibial crest.",
+    "descriptionPatient": "The muscle along the front of your shin. It lifts your foot so your toes clear the ground as you walk.",
+    "apBiologyFacts": [
+      "It dorsiflexes and inverts the foot. Its crucial role is in the swing phase of gait: it lifts the toes so the foot clears the ground.",
+      "It is the antagonist of gastrocnemius and soleus, and is innervated by the deep fibular (peroneal) nerve."
+    ],
+    "clinicalNotes": [
+      "Deep fibular nerve palsy causes foot drop and a high-stepping gait; the common fibular nerve is vulnerable where it wraps the fibular neck.",
+      "The anterior compartment is the most common site of exertional compartment syndrome, and 'shin splints' describes pain along this region."
+    ],
+    "boundsCenterOffset": { "x": 0.0, "y": -0.2, "z": 0.05 },
+    "idealCameraDistance": 0.3,
+    "addressableMeshKey": "Mesh_Muscle_Tibialis_LOD0",
+    "audioTTSKey": "Audio_Tibialis_Desc",
+    "connectedNodes": ["SYS_SK_TIBIA", "SYS_MUSC_GASTROCNEMIUS"],
+    "hasMicroDive": true,
+    "microDiveKey": "Scene_Micro_Sarcomere",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_SK_SCAPULA",
+    "snomedCTCode": "79601000",
+    "icd10PathologyCodes": ["S42.10"],
+    "latinName": "Scapula",
+    "commonName": "Scapula (Shoulder Blade)",
+    "systemCategory": ["Skeletal"],
+    "descriptionProfessional": "A flat triangular bone gliding on the posterior thoracic wall, bearing the glenoid fossa, acromion and coracoid process.",
+    "descriptionPatient": "Your shoulder blade. It isn't locked to your ribs - it slides across your back as your arm moves.",
+    "apBiologyFacts": [
+      "It has no direct bony joint with the trunk except through the clavicle. It floats in muscle and glides across the ribs, and that mobility is what gives the shoulder its huge range.",
+      "Scapulohumeral rhythm: raising the arm overhead is roughly two degrees of humeral movement for every one of scapular rotation, so the two bones share the motion."
+    ],
+    "clinicalNotes": [
+      "Winged scapula follows long thoracic nerve injury paralysing serratus anterior - the medial border lifts off the chest wall.",
+      "Scapular fracture implies major force and should prompt a search for associated rib, lung and vascular injury."
+    ],
+    "boundsCenterOffset": { "x": 0.0, "y": 0.0, "z": -0.05 },
+    "idealCameraDistance": 0.35,
+    "addressableMeshKey": "Mesh_Scapula_LOD0",
+    "audioTTSKey": "Audio_Scapula_Desc",
+    "connectedNodes": ["SYS_SK_CLAVICLE", "SYS_SK_HUMERUS", "SYS_MUSC_SERRATUS"],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_SK_PATELLA",
+    "snomedCTCode": "64234005",
+    "icd10PathologyCodes": ["S82.00"],
+    "latinName": "Patella",
+    "commonName": "Patella (Kneecap)",
+    "systemCategory": ["Skeletal"],
+    "descriptionProfessional": "The largest sesamoid bone, embedded in the quadriceps tendon and articulating with the femoral trochlea.",
+    "descriptionPatient": "Your kneecap. It sits inside the tendon above your knee and acts as a pulley.",
+    "apBiologyFacts": [
+      "It is a sesamoid bone - one that forms inside a tendon rather than at a joint between two bones.",
+      "It holds the quadriceps tendon away from the joint's axis, lengthening the moment arm and increasing the leverage of knee extension by roughly 30%. A simple mechanical advantage, built from bone."
+    ],
+    "clinicalNotes": [
+      "Patellar dislocation is almost always lateral, because the quadriceps pulls at an angle (the Q angle), which is wider in women.",
+      "The patellar tendon reflex tests L2-L4 and is the classic monosynaptic arc."
+    ],
+    "boundsCenterOffset": { "x": 0.0, "y": 0.0, "z": 0.05 },
+    "idealCameraDistance": 0.2,
+    "addressableMeshKey": "Mesh_Patella_LOD0",
+    "audioTTSKey": "Audio_Patella_Desc",
+    "connectedNodes": ["SYS_MUSC_QUADS", "SYS_SK_FEMUR", "SYS_SK_TIBIA"],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_SK_FIBULA",
+    "snomedCTCode": "87342007",
+    "icd10PathologyCodes": ["S82.40"],
+    "latinName": "Fibula",
+    "commonName": "Fibula",
+    "systemCategory": ["Skeletal"],
+    "descriptionProfessional": "The slender lateral bone of the leg, forming the lateral malleolus and serving mainly as a muscle attachment and ankle stabiliser.",
+    "descriptionPatient": "The thin bone on the outside of your lower leg. It barely carries weight - it mostly anchors muscle and steadies your ankle.",
+    "apBiologyFacts": [
+      "It transmits only about 10% of the load through the leg; the tibia takes the rest. Its job is attachment and stability, not weight-bearing.",
+      "Its lower end forms the lateral malleolus, the bump on the outside of your ankle, which stops the talus sliding sideways."
+    ],
+    "clinicalNotes": [
+      "Because it is largely expendable, the fibula is the standard donor bone for vascularised free-flap reconstruction of the jaw and long bones.",
+      "The common fibular nerve wraps its neck superficially and is the most commonly injured nerve in the leg - injury causes foot drop."
+    ],
+    "boundsCenterOffset": { "x": 0.0, "y": -0.2, "z": 0.0 },
+    "idealCameraDistance": 0.45,
+    "addressableMeshKey": "Mesh_Fibula_LOD0",
+    "audioTTSKey": "Audio_Fibula_Desc",
+    "connectedNodes": ["SYS_SK_TIBIA", "SYS_MUSC_TIBIALIS"],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_MUSC_FOREARM",
+    "snomedCTCode": "40923004",
+    "icd10PathologyCodes": ["M77.10"],
+    "latinName": "Musculi antebrachii",
+    "commonName": "Forearm Flexors & Extensors",
+    "systemCategory": ["Muscular"],
+    "descriptionProfessional": "Anterior flexor-pronator and posterior extensor-supinator compartments acting on the wrist and digits through long tendons.",
+    "descriptionPatient": "The muscles of your forearm. They pull on long tendons to move your fingers - the muscles that grip are not in your hand.",
+    "apBiologyFacts": [
+      "The muscles that move your fingers sit in the forearm, not the hand, and act through long tendons. Keeping the bulk proximal leaves the fingers slender enough for fine manipulation - a clear structure-function trade-off.",
+      "Anterior compartment flexes the wrist and fingers; posterior compartment extends them. They form another antagonistic pair."
+    ],
+    "clinicalNotes": [
+      "Lateral epicondylitis ('tennis elbow') is extensor tendinopathy; medial ('golfer's elbow') is flexor.",
+      "Carpal tunnel syndrome compresses the median nerve where these tendons crowd under the flexor retinaculum, causing numbness in the thumb, index and middle fingers."
+    ],
+    "boundsCenterOffset": { "x": 0.3, "y": -0.1, "z": 0.05 },
+    "idealCameraDistance": 0.3,
+    "addressableMeshKey": "Mesh_Muscle_Forearm_LOD0",
+    "audioTTSKey": "Audio_Forearm_Desc",
+    "connectedNodes": ["SYS_SK_RADIUS_ULNA", "SYS_SK_HAND"],
+    "hasMicroDive": true,
+    "microDiveKey": "Scene_Micro_Sarcomere",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_MUSC_SOLEUS",
+    "snomedCTCode": "244930005",
+    "icd10PathologyCodes": ["M62.9"],
+    "latinName": "Musculus soleus",
+    "commonName": "Soleus",
+    "systemCategory": ["Muscular"],
+    "descriptionProfessional": "The broad postural plantarflexor deep to gastrocnemius, crossing only the ankle and joining the calcaneal tendon.",
+    "descriptionPatient": "The deep calf muscle under your gastrocnemius. It works quietly all day to keep you from toppling forward.",
+    "apBiologyFacts": [
+      "It is predominantly slow-twitch (Type I): fatigue-resistant, richly capillarised, aerobic. Gastrocnemius above it is fast-twitch. The same movement, two fibre types, two jobs.",
+      "It crosses only the ankle, so unlike gastrocnemius it still works with the knee bent - which is why calf raises seated versus standing train different muscles.",
+      "Nicknamed the 'second heart': its contractions squeeze the deep veins and drive venous return from the legs."
+    ],
+    "clinicalNotes": [
+      "Soleal vein thrombosis is a common site for calf DVT.",
+      "Testing plantarflexion with the knee flexed isolates soleus from gastrocnemius."
+    ],
+    "boundsCenterOffset": { "x": 0.0, "y": -0.2, "z": -0.05 },
+    "idealCameraDistance": 0.3,
+    "addressableMeshKey": "Mesh_Muscle_Soleus_LOD0",
+    "audioTTSKey": "Audio_Soleus_Desc",
+    "connectedNodes": ["SYS_MUSC_GASTROCNEMIUS", "SYS_CV_VEIN"],
+    "hasMicroDive": true,
+    "microDiveKey": "Scene_Micro_Sarcomere",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_MUSC_ERECTOR_SPINAE",
+    "snomedCTCode": "89680006",
+    "icd10PathologyCodes": ["M54.5"],
+    "latinName": "Musculus erector spinae",
+    "commonName": "Erector Spinae",
+    "systemCategory": ["Muscular"],
+    "descriptionProfessional": "The deep intrinsic back muscle column (iliocostalis, longissimus, spinalis) running either side of the vertebral spines.",
+    "descriptionPatient": "The two muscular columns running either side of your spine. They hold you upright all day.",
+    "apBiologyFacts": [
+      "Three columns either side of the spine extend the vertebral column and, just as importantly, control its descent when you bend forward by contracting eccentrically.",
+      "They are postural muscles, rich in slow-twitch fibres, active almost continuously during standing and walking."
+    ],
+    "clinicalNotes": [
+      "Mechanical low back pain - the leading cause of disability worldwide - most often involves this group.",
+      "Erector spinae plane blocks are a widely used regional anaesthesia technique for thoracic and abdominal surgery."
+    ],
+    "boundsCenterOffset": { "x": 0.0, "y": 0.0, "z": -0.05 },
+    "idealCameraDistance": 0.5,
+    "addressableMeshKey": "Mesh_Muscle_ErectorSpinae_LOD0",
+    "audioTTSKey": "Audio_ErectorSpinae_Desc",
+    "connectedNodes": ["SYS_SK_SPINE", "SYS_SK_PELVIS"],
+    "hasMicroDive": true,
+    "microDiveKey": "Scene_Micro_Sarcomere",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_MUSC_SERRATUS",
+    "snomedCTCode": "244958004",
+    "icd10PathologyCodes": ["M62.9"],
+    "latinName": "Musculus serratus anterior",
+    "commonName": "Serratus Anterior",
+    "systemCategory": ["Muscular"],
+    "descriptionProfessional": "A fan of finger-like slips from the upper ribs to the medial border of the scapula, protracting and upwardly rotating it.",
+    "descriptionPatient": "The saw-toothed muscle along your ribs under the armpit. It pulls your shoulder blade forward when you push.",
+    "apBiologyFacts": [
+      "Its serrated slips arise from the upper eight or nine ribs, which is where the name comes from.",
+      "It holds the scapula flat against the chest wall and rotates it upward - without it you cannot raise your arm fully overhead.",
+      "Nicknamed the 'boxer's muscle' because it drives the scapula forward in a punch."
+    ],
+    "clinicalNotes": [
+      "Long thoracic nerve (C5-C7) injury paralyses it and produces a winged scapula, classically after axillary surgery or a blow to the chest wall."
+    ],
+    "boundsCenterOffset": { "x": 0.0, "y": 0.0, "z": 0.0 },
+    "idealCameraDistance": 0.35,
+    "addressableMeshKey": "Mesh_Muscle_Serratus_LOD0",
+    "audioTTSKey": "Audio_Serratus_Desc",
+    "connectedNodes": ["SYS_SK_SCAPULA", "SYS_SK_RIBCAGE"],
+    "hasMicroDive": true,
+    "microDiveKey": "Scene_Micro_Sarcomere",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_MUSC_ADDUCTORS",
+    "snomedCTCode": "181640003",
+    "icd10PathologyCodes": ["S76.20"],
+    "latinName": "Musculi adductores femoris",
+    "commonName": "Hip Adductors (Groin)",
+    "systemCategory": ["Muscular"],
+    "descriptionProfessional": "The medial thigh compartment - adductor longus, brevis, magnus, gracilis and pectineus - supplied by the obturator nerve.",
+    "descriptionPatient": "The inner thigh muscles that pull your legs together.",
+    "apBiologyFacts": [
+      "They pull the thigh toward the midline and stabilise the pelvis during single-leg stance, so they work hard in every stride of walking.",
+      "Adductor magnus is unusual in having both an adductor part (obturator nerve) and a hamstring part (sciatic nerve) - one muscle, two nerve supplies, reflecting its dual embryological origin."
+    ],
+    "clinicalNotes": [
+      "Adductor strain is the classic 'groin pull' in football and hockey.",
+      "The adductor canal carries the femoral vessels through the thigh and is a common site for a nerve block in knee surgery."
+    ],
+    "boundsCenterOffset": { "x": 0.0, "y": -0.35, "z": 0.0 },
+    "idealCameraDistance": 0.35,
+    "addressableMeshKey": "Mesh_Muscle_Adductors_LOD0",
+    "audioTTSKey": "Audio_Adductors_Desc",
+    "connectedNodes": ["SYS_SK_PELVIS", "SYS_SK_FEMUR"],
+    "hasMicroDive": true,
+    "microDiveKey": "Scene_Micro_Sarcomere",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_MUSC_ROTATOR_CUFF",
+    "snomedCTCode": "42599003",
+    "icd10PathologyCodes": ["M75.100"],
+    "latinName": "Musculi coiffae rotatorum",
+    "commonName": "Rotator Cuff",
+    "systemCategory": ["Muscular"],
+    "descriptionProfessional": "Supraspinatus, infraspinatus, teres minor and subscapularis, blending into the capsule to centre the humeral head in the glenoid.",
+    "descriptionPatient": "Four small muscles wrapping your shoulder joint. They hold the ball in the socket while bigger muscles move the arm.",
+    "apBiologyFacts": [
+      "Remember them as SITS: Supraspinatus, Infraspinatus, Teres minor, Subscapularis.",
+      "Their job is stability, not power: they compress the humeral head into a very shallow socket so the deltoid can move the arm without dislocating it. The shoulder trades bony stability for range, and the cuff pays that debt with muscle.",
+      "Supraspinatus initiates the first 15 degrees of abduction before deltoid takes over."
+    ],
+    "clinicalNotes": [
+      "Supraspinatus is the most commonly torn, and is compressed in subacromial impingement; a painful arc between 60 and 120 degrees is the classic sign.",
+      "Cuff tears become increasingly common with age and are often degenerative rather than traumatic."
+    ],
+    "boundsCenterOffset": { "x": 0.2, "y": 0.1, "z": 0.0 },
+    "idealCameraDistance": 0.3,
+    "addressableMeshKey": "Mesh_Muscle_RotatorCuff_LOD0",
+    "audioTTSKey": "Audio_RotatorCuff_Desc",
+    "connectedNodes": ["SYS_SK_SCAPULA", "SYS_SK_HUMERUS", "SYS_MUSC_DELTOID"],
+    "hasMicroDive": true,
+    "microDiveKey": "Scene_Micro_Sarcomere",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_NERV_SCIATIC",
+    "snomedCTCode": "42120001",
+    "icd10PathologyCodes": ["M54.30"],
+    "latinName": "Nervus ischiadicus",
+    "commonName": "Sciatic Nerve",
+    "systemCategory": ["Nervous"],
+    "descriptionProfessional": "The largest nerve in the body (L4-S3), leaving the pelvis through the greater sciatic foramen and dividing into tibial and common fibular branches.",
+    "descriptionPatient": "The thick nerve running down the back of your thigh - the one people mean when they say sciatica.",
+    "apBiologyFacts": [
+      "It is the largest and longest nerve in the human body, about as thick as a thumb where it leaves the pelvis.",
+      "It is really two nerves in one sheath - tibial and common fibular - which separate above the knee.",
+      "It carries both motor fibres to the whole posterior thigh and leg and sensory fibres from most of the leg and foot."
+    ],
+    "clinicalNotes": [
+      "Sciatica is usually a compressed L5 or S1 nerve ROOT from a herniated disc, not compression of the nerve itself - an important distinction.",
+      "It is why intramuscular gluteal injections go into the upper outer quadrant.",
+      "The straight-leg raise reproduces symptoms by tensioning the nerve."
+    ],
+    "boundsCenterOffset": { "x": 0.0, "y": -0.3, "z": -0.05 },
+    "idealCameraDistance": 0.45,
+    "addressableMeshKey": "Mesh_Nerve_Sciatic_LOD0",
+    "audioTTSKey": "Audio_Sciatic_Desc",
+    "connectedNodes": ["SYS_NERV_SPINALCORD", "SYS_MUSC_HAMSTRINGS"],
+    "hasMicroDive": true,
+    "microDiveKey": "Scene_Micro_Synapse",
+    "pharmacologyTargets": ["Gabapentin"]
+  },
+  {
+    "entityID": "SYS_NERV_BRACHIAL_PLEXUS",
+    "snomedCTCode": "12894003",
+    "icd10PathologyCodes": ["G54.0"],
+    "latinName": "Plexus brachialis",
+    "commonName": "Brachial Plexus",
+    "systemCategory": ["Nervous"],
+    "descriptionProfessional": "The C5-T1 network of roots, trunks, divisions, cords and branches supplying the entire upper limb.",
+    "descriptionPatient": "The bundle of nerves in your neck and armpit that supplies your whole arm.",
+    "apBiologyFacts": [
+      "Five roots (C5-T1) reorganise through trunks, divisions and cords into the five terminal nerves - musculocutaneous, axillary, radial, median and ulnar. Remembered as 'Randy Travis Drinks Cold Beer'.",
+      "A plexus lets fibres from several spinal levels mix into one peripheral nerve, so any single muscle draws on more than one root - redundancy that limits the damage from losing one level."
+    ],
+    "clinicalNotes": [
+      "Erb's palsy (upper trunk, C5-C6) from shoulder dystocia at birth gives the 'waiter's tip' posture; Klumpke's palsy (lower trunk, C8-T1) gives a claw hand.",
+      "Interscalene and supraclavicular blocks target the plexus for shoulder and arm surgery."
+    ],
+    "boundsCenterOffset": { "x": 0.2, "y": 0.2, "z": 0.0 },
+    "idealCameraDistance": 0.3,
+    "addressableMeshKey": "Mesh_Nerve_BrachialPlexus_LOD0",
+    "audioTTSKey": "Audio_BrachialPlexus_Desc",
+    "connectedNodes": ["SYS_NERV_SPINALCORD", "SYS_SK_CLAVICLE"],
+    "hasMicroDive": true,
+    "microDiveKey": "Scene_Micro_Synapse",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_NERV_VAGUS",
+    "snomedCTCode": "244481006",
+    "icd10PathologyCodes": ["G52.2"],
+    "latinName": "Nervus vagus",
+    "commonName": "Vagus Nerve (CN X)",
+    "systemCategory": ["Nervous"],
+    "descriptionProfessional": "The tenth cranial nerve, descending in the carotid sheath to supply parasympathetic innervation to the thoracic and most abdominal viscera.",
+    "descriptionPatient": "A long nerve running from your brain down through your neck and chest to your gut. It sets your body's 'rest and digest' mode.",
+    "apBiologyFacts": [
+      "Its name means 'wandering' - it is the only cranial nerve that leaves the head and travels the length of the trunk.",
+      "It carries roughly 75% of all parasympathetic output: slowing the heart, driving gut peristalsis and secretion, constricting airways. It is the physical substrate of 'rest and digest', the counterweight to sympathetic fight-or-flight.",
+      "About 80% of its fibres are AFFERENT, carrying information from the viscera up to the brain rather than commands down - the anatomical basis of the gut-brain axis."
+    ],
+    "clinicalNotes": [
+      "Vasovagal syncope is a sudden surge of vagal tone causing bradycardia and hypotension - the ordinary faint.",
+      "Carotid sinus massage uses the vagal reflex to slow a supraventricular tachycardia.",
+      "Implanted vagus nerve stimulators treat refractory epilepsy and depression."
+    ],
+    "boundsCenterOffset": { "x": 0.0, "y": 0.0, "z": 0.0 },
+    "idealCameraDistance": 0.5,
+    "addressableMeshKey": "Mesh_Nerve_Vagus_LOD0",
+    "audioTTSKey": "Audio_Vagus_Desc",
+    "connectedNodes": ["SYS_NERV_BRAINSTEM", "SYS_CV_HEART", "SYS_DIG_STOMACH"],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": ["Atropine"]
+  },
+  {
+    "entityID": "SYS_CV_CAROTID",
+    "snomedCTCode": "69105007",
+    "icd10PathologyCodes": ["I65.2"],
+    "latinName": "Arteria carotis communis",
+    "commonName": "Carotid Artery",
+    "systemCategory": ["Cardiovascular"],
+    "descriptionProfessional": "The principal arterial supply to the head, dividing at the upper border of the thyroid cartilage into internal and external carotid arteries.",
+    "descriptionPatient": "The big artery in your neck that carries blood to your brain - the one you feel for a pulse.",
+    "apBiologyFacts": [
+      "It divides into the internal carotid, supplying the brain and eye, and the external carotid, supplying the face and scalp.",
+      "The carotid body at the bifurcation is a chemoreceptor sensing oxygen, carbon dioxide and pH; the carotid sinus is a baroreceptor sensing blood pressure. Both feed the brainstem and are central to the negative feedback loops controlling breathing and blood pressure."
+    ],
+    "clinicalNotes": [
+      "Carotid atherosclerosis is a major source of embolic stroke; a bruit may be audible over the bifurcation.",
+      "It is the preferred pulse to check in an unresponsive adult, since peripheral pulses fail first in shock."
+    ],
+    "boundsCenterOffset": { "x": 0.0, "y": 0.2, "z": 0.0 },
+    "idealCameraDistance": 0.25,
+    "addressableMeshKey": "Mesh_Carotid_LOD0",
+    "audioTTSKey": "Audio_Carotid_Desc",
+    "connectedNodes": ["SYS_CV_AORTA", "SYS_NERV_BRAIN"],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": ["Atorvastatin"]
+  },
+  {
+    "entityID": "SYS_CV_JUGULAR",
+    "snomedCTCode": "26610006",
+    "icd10PathologyCodes": ["I82.C1"],
+    "latinName": "Vena jugularis interna",
+    "commonName": "Internal Jugular Vein",
+    "systemCategory": ["Cardiovascular"],
+    "descriptionProfessional": "The major venous drainage of the head and neck, running in the carotid sheath to join the subclavian vein as the brachiocephalic.",
+    "descriptionPatient": "The large vein in your neck draining blood from your head back toward your heart.",
+    "apBiologyFacts": [
+      "It drains the brain, face and neck, and sits alongside the carotid artery and vagus nerve inside the carotid sheath.",
+      "Because it connects to the right atrium with no intervening valve, its filling level directly reflects pressure in the right side of the heart."
+    ],
+    "clinicalNotes": [
+      "Jugular venous pressure is read at the bedside as a direct window on right heart filling; it is raised in heart failure, tamponade and fluid overload.",
+      "It is the standard route for central venous catheters, placed under ultrasound guidance lateral to the carotid."
+    ],
+    "boundsCenterOffset": { "x": 0.0, "y": 0.2, "z": 0.0 },
+    "idealCameraDistance": 0.25,
+    "addressableMeshKey": "Mesh_Jugular_LOD0",
+    "audioTTSKey": "Audio_Jugular_Desc",
+    "connectedNodes": ["SYS_CV_HEART", "SYS_NERV_VAGUS"],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
     "entityID": "SYS_INTEG_SKIN",
     "snomedCTCode": "39937001",
     "icd10PathologyCodes": ["L98.9"],

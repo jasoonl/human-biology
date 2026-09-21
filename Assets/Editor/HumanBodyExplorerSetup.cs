@@ -8,6 +8,8 @@ using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.EventSystems;
+using UnityEngine.InputSystem.UI;
 using UnityEngine.UI;
 
 namespace HumanBodyExplorer.EditorTools
@@ -89,11 +91,11 @@ namespace HumanBodyExplorer.EditorTools
             new PartDef { Name = "Neck", EntityId = "SYS_INTEG_SKIN", Shape = PrimitiveType.Capsule,
                 LocalPosition = new Vector3(0f, 1.485f, 0.005f), LocalScale = new Vector3(0.13f, 0.06f, 0.13f), Color = SkinColor, Smoothness = SkinGloss },
             new PartDef { Name = "SkinChest", EntityId = "SYS_INTEG_SKIN", Shape = PrimitiveType.Sphere,
-                LocalPosition = new Vector3(0f, 1.28f, -0.005f), LocalScale = new Vector3(0.36f, 0.42f, 0.25f), Color = SkinColor, Smoothness = SkinGloss },
+                LocalPosition = new Vector3(0f, 1.28f, 0f), LocalScale = new Vector3(0.36f, 0.42f, 0.27f), Color = SkinColor, Smoothness = SkinGloss },
             new PartDef { Name = "SkinAbdomen", EntityId = "SYS_INTEG_SKIN", Shape = PrimitiveType.Sphere,
                 LocalPosition = new Vector3(0f, 1.06f, -0.005f), LocalScale = new Vector3(0.33f, 0.34f, 0.23f), Color = SkinColor, Smoothness = SkinGloss },
             new PartDef { Name = "SkinPelvis", EntityId = "SYS_INTEG_SKIN", Shape = PrimitiveType.Sphere,
-                LocalPosition = new Vector3(0f, 0.9f, 0f), LocalScale = new Vector3(0.355f, 0.28f, 0.245f), Color = SkinColor, Smoothness = SkinGloss },
+                LocalPosition = new Vector3(0f, 0.9f, 0f), LocalScale = new Vector3(0.355f, 0.28f, 0.26f), Color = SkinColor, Smoothness = SkinGloss },
             // The deltoid cap is the widest point of the body (bideltoid breadth
             // ~0.50 m), so the shoulder needs its own skin segment rather than being
             // squeezed under the chest ellipsoid.
@@ -122,25 +124,19 @@ namespace HumanBodyExplorer.EditorTools
             new PartDef { Name = "LowerLeg_R", EntityId = "SYS_INTEG_SKIN", Shape = PrimitiveType.Capsule,
                 LocalPosition = new Vector3(-0.085f, 0.28f, 0.005f), LocalScale = new Vector3(0.115f, 0.22f, 0.13f), Color = SkinColor, Smoothness = SkinGloss },
             new PartDef { Name = "Foot_L", EntityId = "SYS_INTEG_SKIN", Shape = PrimitiveType.Sphere,
-                LocalPosition = new Vector3(0.085f, 0.035f, -0.06f), LocalScale = new Vector3(0.10f, 0.07f, 0.25f), Color = SkinColor, Smoothness = SkinGloss },
+                LocalPosition = new Vector3(0.085f, 0.042f, -0.062f), LocalScale = new Vector3(0.125f, 0.092f, 0.305f), Color = SkinColor, Smoothness = SkinGloss },
             new PartDef { Name = "Foot_R", EntityId = "SYS_INTEG_SKIN", Shape = PrimitiveType.Sphere,
-                LocalPosition = new Vector3(-0.085f, 0.035f, -0.06f), LocalScale = new Vector3(0.10f, 0.07f, 0.25f), Color = SkinColor, Smoothness = SkinGloss },
+                LocalPosition = new Vector3(-0.085f, 0.042f, -0.062f), LocalScale = new Vector3(0.125f, 0.092f, 0.305f), Color = SkinColor, Smoothness = SkinGloss },
 
             // ================= SKELETAL =================
             new PartDef { Name = "Skull", EntityId = "SYS_SK_SKULL", Shape = PrimitiveType.Sphere,
                 LocalPosition = new Vector3(0f, 1.64f, 0.01f), LocalScale = new Vector3(0.145f, 0.19f, 0.175f), Color = BoneColor, Smoothness = BoneGloss },
-            // Runs from the sacrum (~0.88) to the atlas (~1.50), behind the body's
-            // mid-plane, where a real vertebral column sits.
-            new PartDef { Name = "VertebralColumn", EntityId = "SYS_SK_SPINE", Shape = PrimitiveType.Capsule,
-                LocalPosition = new Vector3(0f, 1.19f, 0.065f), LocalScale = new Vector3(0.045f, 0.31f, 0.045f), Color = BoneColor, Smoothness = BoneGloss },
-            new PartDef { Name = "RibCage", EntityId = "SYS_SK_RIBCAGE", Shape = PrimitiveType.Sphere,
-                LocalPosition = new Vector3(0f, 1.30f, -0.01f), LocalScale = new Vector3(0.275f, 0.30f, 0.19f), Color = BoneColor, Smoothness = BoneGloss },
             // Near-horizontal struts from sternum to acromion.
             new PartDef { Name = "Clavicle_L", EntityId = "SYS_SK_CLAVICLE", Shape = PrimitiveType.Capsule,
-                LocalPosition = new Vector3(0.095f, 1.415f, -0.055f), LocalScale = new Vector3(0.022f, 0.075f, 0.022f),
+                LocalPosition = new Vector3(0.0931f, 1.415f, -0.0487f), LocalScale = new Vector3(0.0195f, 0.0664f, 0.0195f),
                 LocalEuler = new Vector3(0f, 0f, 78f), Color = BoneColor, Smoothness = BoneGloss },
             new PartDef { Name = "Clavicle_R", EntityId = "SYS_SK_CLAVICLE", Shape = PrimitiveType.Capsule,
-                LocalPosition = new Vector3(-0.095f, 1.415f, -0.055f), LocalScale = new Vector3(0.022f, 0.075f, 0.022f),
+                LocalPosition = new Vector3(-0.0931f, 1.415f, -0.0487f), LocalScale = new Vector3(0.0195f, 0.0664f, 0.0195f),
                 LocalEuler = new Vector3(0f, 0f, -78f), Color = BoneColor, Smoothness = BoneGloss },
             new PartDef { Name = "Pelvis", EntityId = "SYS_SK_PELVIS", Shape = PrimitiveType.Sphere,
                 LocalPosition = new Vector3(0f, 0.90f, 0.02f), LocalScale = new Vector3(0.29f, 0.17f, 0.195f), Color = BoneColor, Smoothness = BoneGloss },
@@ -148,10 +144,6 @@ namespace HumanBodyExplorer.EditorTools
                 LocalPosition = new Vector3(0.19f, 1.26f, 0.01f), LocalScale = new Vector3(0.04f, 0.17f, 0.04f), Color = BoneColor, Smoothness = BoneGloss },
             new PartDef { Name = "Humerus_R", EntityId = "SYS_SK_HUMERUS", Shape = PrimitiveType.Capsule,
                 LocalPosition = new Vector3(-0.19f, 1.26f, 0.01f), LocalScale = new Vector3(0.04f, 0.17f, 0.04f), Color = BoneColor, Smoothness = BoneGloss },
-            new PartDef { Name = "RadiusUlna_L", EntityId = "SYS_SK_RADIUS_ULNA", Shape = PrimitiveType.Capsule,
-                LocalPosition = new Vector3(0.2f, 0.96f, 0.01f), LocalScale = new Vector3(0.035f, 0.13f, 0.035f), Color = BoneColor, Smoothness = BoneGloss },
-            new PartDef { Name = "RadiusUlna_R", EntityId = "SYS_SK_RADIUS_ULNA", Shape = PrimitiveType.Capsule,
-                LocalPosition = new Vector3(-0.2f, 0.96f, 0.01f), LocalScale = new Vector3(0.035f, 0.13f, 0.035f), Color = BoneColor, Smoothness = BoneGloss },
             new PartDef { Name = "Femur_L", EntityId = "SYS_SK_FEMUR", Shape = PrimitiveType.Capsule,
                 LocalPosition = new Vector3(0.09f, 0.675f, 0.01f), LocalScale = new Vector3(0.05f, 0.205f, 0.05f), Color = BoneColor, Smoothness = BoneGloss },
             new PartDef { Name = "Femur_R", EntityId = "SYS_SK_FEMUR", Shape = PrimitiveType.Capsule,
@@ -160,6 +152,81 @@ namespace HumanBodyExplorer.EditorTools
                 LocalPosition = new Vector3(0.08f, 0.27f, 0.01f), LocalScale = new Vector3(0.042f, 0.20f, 0.042f), Color = BoneColor, Smoothness = BoneGloss },
             new PartDef { Name = "Tibia_R", EntityId = "SYS_SK_TIBIA", Shape = PrimitiveType.Capsule,
                 LocalPosition = new Vector3(-0.08f, 0.27f, 0.01f), LocalScale = new Vector3(0.042f, 0.20f, 0.042f), Color = BoneColor, Smoothness = BoneGloss },
+
+            // Radius (lateral, thumb side) and ulna (medial) as separate bones.
+            new PartDef { Name = "Radius_L", EntityId = "SYS_SK_RADIUS_ULNA", Shape = PrimitiveType.Capsule,
+                LocalPosition = new Vector3(0.216f, 0.96f, 0.008f), LocalScale = new Vector3(0.026f, 0.128f, 0.026f), Color = BoneColor, Smoothness = BoneGloss },
+            new PartDef { Name = "Radius_R", EntityId = "SYS_SK_RADIUS_ULNA", Shape = PrimitiveType.Capsule,
+                LocalPosition = new Vector3(-0.216f, 0.96f, 0.008f), LocalScale = new Vector3(0.026f, 0.128f, 0.026f), Color = BoneColor, Smoothness = BoneGloss },
+            new PartDef { Name = "Ulna_L", EntityId = "SYS_SK_RADIUS_ULNA", Shape = PrimitiveType.Capsule,
+                LocalPosition = new Vector3(0.186f, 0.96f, 0.016f), LocalScale = new Vector3(0.024f, 0.132f, 0.024f), Color = BoneColor, Smoothness = BoneGloss },
+            new PartDef { Name = "Ulna_R", EntityId = "SYS_SK_RADIUS_ULNA", Shape = PrimitiveType.Capsule,
+                LocalPosition = new Vector3(-0.186f, 0.96f, 0.016f), LocalScale = new Vector3(0.024f, 0.132f, 0.024f), Color = BoneColor, Smoothness = BoneGloss },
+            // Scapulae: flat blades riding on the back of the rib cage.
+            new PartDef { Name = "Scapula_L", EntityId = "SYS_SK_SCAPULA", Shape = PrimitiveType.Sphere,
+                LocalPosition = new Vector3(0.104f, 1.335f, 0.054f), LocalScale = new Vector3(0.118f, 0.138f, 0.026f), Color = BoneColor, Smoothness = BoneGloss },
+            new PartDef { Name = "Scapula_R", EntityId = "SYS_SK_SCAPULA", Shape = PrimitiveType.Sphere,
+                LocalPosition = new Vector3(-0.104f, 1.335f, 0.054f), LocalScale = new Vector3(0.118f, 0.138f, 0.026f), Color = BoneColor, Smoothness = BoneGloss },
+            new PartDef { Name = "Patella_L", EntityId = "SYS_SK_PATELLA", Shape = PrimitiveType.Sphere,
+                LocalPosition = new Vector3(0.09f, 0.472f, -0.042f), LocalScale = new Vector3(0.044f, 0.044f, 0.020f), Color = BoneColor, Smoothness = BoneGloss },
+            new PartDef { Name = "Patella_R", EntityId = "SYS_SK_PATELLA", Shape = PrimitiveType.Sphere,
+                LocalPosition = new Vector3(-0.09f, 0.472f, -0.042f), LocalScale = new Vector3(0.044f, 0.044f, 0.020f), Color = BoneColor, Smoothness = BoneGloss },
+            new PartDef { Name = "Fibula_L", EntityId = "SYS_SK_FIBULA", Shape = PrimitiveType.Capsule,
+                LocalPosition = new Vector3(0.107f, 0.268f, 0.014f), LocalScale = new Vector3(0.022f, 0.185f, 0.022f), Color = BoneColor, Smoothness = BoneGloss },
+            new PartDef { Name = "Fibula_R", EntityId = "SYS_SK_FIBULA", Shape = PrimitiveType.Capsule,
+                LocalPosition = new Vector3(-0.107f, 0.268f, 0.014f), LocalScale = new Vector3(0.022f, 0.185f, 0.022f), Color = BoneColor, Smoothness = BoneGloss },
+
+            // --- Deeper muscle layer ---
+            new PartDef { Name = "ForearmMuscles_L", EntityId = "SYS_MUSC_FOREARM", Shape = PrimitiveType.Sphere,
+                LocalPosition = new Vector3(0.20f, 0.985f, -0.018f), LocalScale = new Vector3(0.062f, 0.13f, 0.045f), Color = MuscleColor, Smoothness = MuscleGloss, Organic = true },
+            new PartDef { Name = "ForearmMuscles_R", EntityId = "SYS_MUSC_FOREARM", Shape = PrimitiveType.Sphere,
+                LocalPosition = new Vector3(-0.20f, 0.985f, -0.018f), LocalScale = new Vector3(0.062f, 0.13f, 0.045f), Color = MuscleColor, Smoothness = MuscleGloss, Organic = true },
+            new PartDef { Name = "Soleus_L", EntityId = "SYS_MUSC_SOLEUS", Shape = PrimitiveType.Sphere,
+                LocalPosition = new Vector3(0.085f, 0.30f, 0.024f), LocalScale = new Vector3(0.09f, 0.16f, 0.05f), Color = MuscleColor, Smoothness = MuscleGloss, Organic = true },
+            new PartDef { Name = "Soleus_R", EntityId = "SYS_MUSC_SOLEUS", Shape = PrimitiveType.Sphere,
+                LocalPosition = new Vector3(-0.085f, 0.30f, 0.024f), LocalScale = new Vector3(0.09f, 0.16f, 0.05f), Color = MuscleColor, Smoothness = MuscleGloss, Organic = true },
+            new PartDef { Name = "ErectorSpinae_L", EntityId = "SYS_MUSC_ERECTOR_SPINAE", Shape = PrimitiveType.Capsule,
+                LocalPosition = new Vector3(0.030f, 1.17f, 0.064f), LocalScale = new Vector3(0.042f, 0.16f, 0.032f), Color = MuscleColor, Smoothness = MuscleGloss },
+            new PartDef { Name = "ErectorSpinae_R", EntityId = "SYS_MUSC_ERECTOR_SPINAE", Shape = PrimitiveType.Capsule,
+                LocalPosition = new Vector3(-0.030f, 1.17f, 0.064f), LocalScale = new Vector3(0.042f, 0.16f, 0.032f), Color = MuscleColor, Smoothness = MuscleGloss },
+            new PartDef { Name = "Serratus_L", EntityId = "SYS_MUSC_SERRATUS", Shape = PrimitiveType.Sphere,
+                LocalPosition = new Vector3(0.118f, 1.255f, 0.018f), LocalScale = new Vector3(0.05f, 0.13f, 0.085f), Color = MuscleColor, Smoothness = MuscleGloss, Organic = true },
+            new PartDef { Name = "Serratus_R", EntityId = "SYS_MUSC_SERRATUS", Shape = PrimitiveType.Sphere,
+                LocalPosition = new Vector3(-0.118f, 1.255f, 0.018f), LocalScale = new Vector3(0.05f, 0.13f, 0.085f), Color = MuscleColor, Smoothness = MuscleGloss, Organic = true },
+            new PartDef { Name = "Adductors_L", EntityId = "SYS_MUSC_ADDUCTORS", Shape = PrimitiveType.Sphere,
+                LocalPosition = new Vector3(0.046f, 0.715f, 0.005f), LocalScale = new Vector3(0.07f, 0.22f, 0.08f), Color = MuscleColor, Smoothness = MuscleGloss, Organic = true },
+            new PartDef { Name = "Adductors_R", EntityId = "SYS_MUSC_ADDUCTORS", Shape = PrimitiveType.Sphere,
+                LocalPosition = new Vector3(-0.046f, 0.715f, 0.005f), LocalScale = new Vector3(0.07f, 0.22f, 0.08f), Color = MuscleColor, Smoothness = MuscleGloss, Organic = true },
+            new PartDef { Name = "RotatorCuff_L", EntityId = "SYS_MUSC_ROTATOR_CUFF", Shape = PrimitiveType.Sphere,
+                LocalPosition = new Vector3(0.155f, 1.378f, 0.030f), LocalScale = new Vector3(0.085f, 0.085f, 0.045f), Color = MuscleColor, Smoothness = MuscleGloss, Organic = true },
+            new PartDef { Name = "RotatorCuff_R", EntityId = "SYS_MUSC_ROTATOR_CUFF", Shape = PrimitiveType.Sphere,
+                LocalPosition = new Vector3(-0.155f, 1.378f, 0.030f), LocalScale = new Vector3(0.085f, 0.085f, 0.045f), Color = MuscleColor, Smoothness = MuscleGloss, Organic = true },
+
+            // --- Peripheral nerves, so the Nerves layer shows an actual network ---
+            new PartDef { Name = "SciaticNerve_L", EntityId = "SYS_NERV_SCIATIC", Shape = PrimitiveType.Capsule,
+                LocalPosition = new Vector3(0.082f, 0.70f, 0.040f), LocalScale = new Vector3(0.014f, 0.18f, 0.014f), Color = NerveColor, Smoothness = OrganGloss },
+            new PartDef { Name = "SciaticNerve_R", EntityId = "SYS_NERV_SCIATIC", Shape = PrimitiveType.Capsule,
+                LocalPosition = new Vector3(-0.082f, 0.70f, 0.040f), LocalScale = new Vector3(0.014f, 0.18f, 0.014f), Color = NerveColor, Smoothness = OrganGloss },
+            new PartDef { Name = "BrachialPlexus_L", EntityId = "SYS_NERV_BRACHIAL_PLEXUS", Shape = PrimitiveType.Capsule,
+                LocalPosition = new Vector3(0.115f, 1.395f, 0.012f), LocalScale = new Vector3(0.016f, 0.045f, 0.016f),
+                LocalEuler = new Vector3(0f, 0f, 52f), Color = NerveColor, Smoothness = OrganGloss },
+            new PartDef { Name = "BrachialPlexus_R", EntityId = "SYS_NERV_BRACHIAL_PLEXUS", Shape = PrimitiveType.Capsule,
+                LocalPosition = new Vector3(-0.115f, 1.395f, 0.012f), LocalScale = new Vector3(0.016f, 0.045f, 0.016f),
+                LocalEuler = new Vector3(0f, 0f, -52f), Color = NerveColor, Smoothness = OrganGloss },
+            new PartDef { Name = "VagusNerve_L", EntityId = "SYS_NERV_VAGUS", Shape = PrimitiveType.Capsule,
+                LocalPosition = new Vector3(0.028f, 1.37f, 0.020f), LocalScale = new Vector3(0.009f, 0.13f, 0.009f), Color = NerveColor, Smoothness = OrganGloss },
+            new PartDef { Name = "VagusNerve_R", EntityId = "SYS_NERV_VAGUS", Shape = PrimitiveType.Capsule,
+                LocalPosition = new Vector3(-0.028f, 1.37f, 0.020f), LocalScale = new Vector3(0.009f, 0.13f, 0.009f), Color = NerveColor, Smoothness = OrganGloss },
+
+            // --- Great vessels of the neck ---
+            new PartDef { Name = "CarotidArtery_L", EntityId = "SYS_CV_CAROTID", Shape = PrimitiveType.Capsule,
+                LocalPosition = new Vector3(0.026f, 1.452f, -0.014f), LocalScale = new Vector3(0.014f, 0.048f, 0.014f), Color = ArteryColor, Smoothness = OrganGloss },
+            new PartDef { Name = "CarotidArtery_R", EntityId = "SYS_CV_CAROTID", Shape = PrimitiveType.Capsule,
+                LocalPosition = new Vector3(-0.026f, 1.452f, -0.014f), LocalScale = new Vector3(0.014f, 0.048f, 0.014f), Color = ArteryColor, Smoothness = OrganGloss },
+            new PartDef { Name = "JugularVein_L", EntityId = "SYS_CV_JUGULAR", Shape = PrimitiveType.Capsule,
+                LocalPosition = new Vector3(0.042f, 1.452f, -0.020f), LocalScale = new Vector3(0.016f, 0.048f, 0.016f), Color = VeinColor, Smoothness = OrganGloss },
+            new PartDef { Name = "JugularVein_R", EntityId = "SYS_CV_JUGULAR", Shape = PrimitiveType.Capsule,
+                LocalPosition = new Vector3(-0.042f, 1.452f, -0.020f), LocalScale = new Vector3(0.016f, 0.048f, 0.016f), Color = VeinColor, Smoothness = OrganGloss },
 
             // ================= MUSCULAR =================
             new PartDef { Name = "Pectoralis_L", EntityId = "SYS_MUSC_PECTORALIS", Shape = PrimitiveType.Sphere,
@@ -177,17 +244,52 @@ namespace HumanBodyExplorer.EditorTools
             new PartDef { Name = "RectusAbdominis", EntityId = "SYS_MUSC_RECTUS_ABDOMINIS", Shape = PrimitiveType.Sphere,
                 LocalPosition = new Vector3(0f, 1.11f, -0.085f), LocalScale = new Vector3(0.15f, 0.25f, 0.045f), Color = MuscleColor, Smoothness = MuscleGloss, Organic = true },
             new PartDef { Name = "Quadriceps_L", EntityId = "SYS_MUSC_QUADS", Shape = PrimitiveType.Sphere,
-                LocalPosition = new Vector3(0.09f, 0.685f, -0.035f), LocalScale = new Vector3(0.14f, 0.3f, 0.09f), Color = MuscleColor, Smoothness = MuscleGloss, Organic = true },
+                LocalPosition = new Vector3(0.0895f, 0.685f, -0.034f), LocalScale = new Vector3(0.1358f, 0.291f, 0.0873f), Color = MuscleColor, Smoothness = MuscleGloss, Organic = true },
             new PartDef { Name = "Quadriceps_R", EntityId = "SYS_MUSC_QUADS", Shape = PrimitiveType.Sphere,
-                LocalPosition = new Vector3(-0.09f, 0.685f, -0.035f), LocalScale = new Vector3(0.14f, 0.3f, 0.09f), Color = MuscleColor, Smoothness = MuscleGloss, Organic = true },
+                LocalPosition = new Vector3(-0.0895f, 0.685f, -0.034f), LocalScale = new Vector3(0.1358f, 0.291f, 0.0873f), Color = MuscleColor, Smoothness = MuscleGloss, Organic = true },
             // The calf sits behind the leg (+z is posterior here).
             new PartDef { Name = "Gastrocnemius_L", EntityId = "SYS_MUSC_GASTROCNEMIUS", Shape = PrimitiveType.Sphere,
-                LocalPosition = new Vector3(0.085f, 0.355f, 0.03f), LocalScale = new Vector3(0.11f, 0.19f, 0.07f), Color = MuscleColor, Smoothness = MuscleGloss, Organic = true },
+                LocalPosition = new Vector3(0.0846f, 0.355f, 0.0291f), LocalScale = new Vector3(0.1067f, 0.1843f, 0.0679f), Color = MuscleColor, Smoothness = MuscleGloss, Organic = true },
             new PartDef { Name = "Gastrocnemius_R", EntityId = "SYS_MUSC_GASTROCNEMIUS", Shape = PrimitiveType.Sphere,
-                LocalPosition = new Vector3(-0.085f, 0.355f, 0.03f), LocalScale = new Vector3(0.11f, 0.19f, 0.07f), Color = MuscleColor, Smoothness = MuscleGloss, Organic = true },
+                LocalPosition = new Vector3(-0.0846f, 0.355f, 0.0291f), LocalScale = new Vector3(0.1067f, 0.1843f, 0.0679f), Color = MuscleColor, Smoothness = MuscleGloss, Organic = true },
             // Domed sheet at the thoracic/abdominal boundary, just under the lung bases.
             new PartDef { Name = "Diaphragm", EntityId = "SYS_RESP_DIAPHRAGM", Shape = PrimitiveType.Sphere,
                 LocalPosition = new Vector3(0f, 1.205f, -0.005f), LocalScale = new Vector3(0.26f, 0.085f, 0.175f), Color = MuscleColor, Smoothness = MuscleGloss, Organic = true },
+
+
+            // --- Major muscle groups filling out the figure (back, flank, posterior limb) ---
+            new PartDef { Name = "Trapezius", EntityId = "SYS_MUSC_TRAPEZIUS", Shape = PrimitiveType.Sphere,
+                LocalPosition = new Vector3(0f, 1.375f, 0.0637f), LocalScale = new Vector3(0.2656f, 0.1771f, 0.0443f), Color = MuscleColor, Smoothness = MuscleGloss, Organic = true },
+            new PartDef { Name = "Latissimus_L", EntityId = "SYS_MUSC_LATISSIMUS", Shape = PrimitiveType.Sphere,
+                LocalPosition = new Vector3(0.1083f, 1.2f, 0.0402f), LocalScale = new Vector3(0.1041f, 0.1665f, 0.0278f), Color = MuscleColor, Smoothness = MuscleGloss, Organic = true },
+            new PartDef { Name = "Latissimus_R", EntityId = "SYS_MUSC_LATISSIMUS", Shape = PrimitiveType.Sphere,
+                LocalPosition = new Vector3(-0.1083f, 1.2f, 0.0402f), LocalScale = new Vector3(0.1041f, 0.1665f, 0.0278f), Color = MuscleColor, Smoothness = MuscleGloss, Organic = true },
+            new PartDef { Name = "Triceps_L", EntityId = "SYS_MUSC_TRICEPS", Shape = PrimitiveType.Sphere,
+                LocalPosition = new Vector3(0.19f, 1.245f, 0.028f), LocalScale = new Vector3(0.082f, 0.16f, 0.055f), Color = MuscleColor, Smoothness = MuscleGloss, Organic = true },
+            new PartDef { Name = "Triceps_R", EntityId = "SYS_MUSC_TRICEPS", Shape = PrimitiveType.Sphere,
+                LocalPosition = new Vector3(-0.19f, 1.245f, 0.028f), LocalScale = new Vector3(0.082f, 0.16f, 0.055f), Color = MuscleColor, Smoothness = MuscleGloss, Organic = true },
+            new PartDef { Name = "ExternalOblique_L", EntityId = "SYS_MUSC_OBLIQUE", Shape = PrimitiveType.Sphere,
+                LocalPosition = new Vector3(0.1133f, 1.1f, -0.0091f), LocalScale = new Vector3(0.073f, 0.1825f, 0.1369f), Color = MuscleColor, Smoothness = MuscleGloss, Organic = true },
+            new PartDef { Name = "ExternalOblique_R", EntityId = "SYS_MUSC_OBLIQUE", Shape = PrimitiveType.Sphere,
+                LocalPosition = new Vector3(-0.1133f, 1.1f, -0.0091f), LocalScale = new Vector3(0.073f, 0.1825f, 0.1369f), Color = MuscleColor, Smoothness = MuscleGloss, Organic = true },
+            new PartDef { Name = "Gluteus_L", EntityId = "SYS_MUSC_GLUTEUS", Shape = PrimitiveType.Sphere,
+                LocalPosition = new Vector3(0.085f, 0.895f, 0.055f), LocalScale = new Vector3(0.155f, 0.155f, 0.085f), Color = MuscleColor, Smoothness = MuscleGloss, Organic = true },
+            new PartDef { Name = "Gluteus_R", EntityId = "SYS_MUSC_GLUTEUS", Shape = PrimitiveType.Sphere,
+                LocalPosition = new Vector3(-0.085f, 0.895f, 0.055f), LocalScale = new Vector3(0.155f, 0.155f, 0.085f), Color = MuscleColor, Smoothness = MuscleGloss, Organic = true },
+            new PartDef { Name = "Hamstrings_L", EntityId = "SYS_MUSC_HAMSTRINGS", Shape = PrimitiveType.Sphere,
+                LocalPosition = new Vector3(0.09f, 0.655f, 0.045f), LocalScale = new Vector3(0.13f, 0.28f, 0.07f), Color = MuscleColor, Smoothness = MuscleGloss, Organic = true },
+            new PartDef { Name = "Hamstrings_R", EntityId = "SYS_MUSC_HAMSTRINGS", Shape = PrimitiveType.Sphere,
+                LocalPosition = new Vector3(-0.09f, 0.655f, 0.045f), LocalScale = new Vector3(0.13f, 0.28f, 0.07f), Color = MuscleColor, Smoothness = MuscleGloss, Organic = true },
+            new PartDef { Name = "Sternocleidomastoid_L", EntityId = "SYS_MUSC_STERNOCLEIDOMASTOID", Shape = PrimitiveType.Capsule,
+                LocalPosition = new Vector3(0.042f, 1.487f, -0.03f), LocalScale = new Vector3(0.026f, 0.052f, 0.026f),
+                LocalEuler = new Vector3(-12f, 0f, 16f), Color = MuscleColor, Smoothness = MuscleGloss },
+            new PartDef { Name = "Sternocleidomastoid_R", EntityId = "SYS_MUSC_STERNOCLEIDOMASTOID", Shape = PrimitiveType.Capsule,
+                LocalPosition = new Vector3(-0.042f, 1.487f, -0.03f), LocalScale = new Vector3(0.026f, 0.052f, 0.026f),
+                LocalEuler = new Vector3(-12f, 0f, -16f), Color = MuscleColor, Smoothness = MuscleGloss },
+            new PartDef { Name = "TibialisAnterior_L", EntityId = "SYS_MUSC_TIBIALIS", Shape = PrimitiveType.Sphere,
+                LocalPosition = new Vector3(0.068f, 0.305f, -0.032f), LocalScale = new Vector3(0.05f, 0.17f, 0.045f), Color = MuscleColor, Smoothness = MuscleGloss, Organic = true },
+            new PartDef { Name = "TibialisAnterior_R", EntityId = "SYS_MUSC_TIBIALIS", Shape = PrimitiveType.Sphere,
+                LocalPosition = new Vector3(-0.068f, 0.305f, -0.032f), LocalScale = new Vector3(0.05f, 0.17f, 0.045f), Color = MuscleColor, Smoothness = MuscleGloss, Organic = true },
 
             // ================= NERVOUS =================
             new PartDef { Name = "Cerebrum", EntityId = "SYS_NERV_BRAIN", Shape = PrimitiveType.Sphere,
@@ -247,7 +349,7 @@ namespace HumanBodyExplorer.EditorTools
                 LocalPosition = new Vector3(0.065f, 1.16f, -0.045f), LocalScale = new Vector3(0.135f, 0.125f, 0.085f), Color = StomachColor, Smoothness = OrganGloss, Organic = true },
             // Right upper quadrant, the largest abdominal organ.
             new PartDef { Name = "Liver", EntityId = "SYS_DIG_LIVER", Shape = PrimitiveType.Sphere,
-                LocalPosition = new Vector3(-0.07f, 1.18f, -0.04f), LocalScale = new Vector3(0.175f, 0.11f, 0.13f), Color = LiverColor, Smoothness = OrganGloss, Organic = true },
+                LocalPosition = new Vector3(-0.0693f, 1.18f, -0.0376f), LocalScale = new Vector3(0.1647f, 0.1035f, 0.1223f), Color = LiverColor, Smoothness = OrganGloss, Organic = true },
             new PartDef { Name = "Gallbladder", EntityId = "SYS_DIG_GALLBLADDER", Shape = PrimitiveType.Sphere,
                 LocalPosition = new Vector3(-0.065f, 1.125f, -0.075f), LocalScale = new Vector3(0.038f, 0.055f, 0.035f), Color = BileColor, Smoothness = OrganGloss, Organic = true },
             // Lies transversely across L1-L2, hence the rotation.
@@ -297,9 +399,27 @@ namespace HumanBodyExplorer.EditorTools
                 LocalPosition = new Vector3(0f, 1.365f, -0.085f), LocalScale = new Vector3(0.055f, 0.075f, 0.03f), Color = ThymusColor, Smoothness = OrganGloss, Organic = true },
         };
 
+        /// <summary>Greys the menu item out during Play mode - see BuildExplorer for why.</summary>
+        [MenuItem("Human Body Explorer/Build Full Explorer (Figure + UI)", true)]
+        private static bool ValidateBuildExplorer() => !EditorApplication.isPlayingOrWillChangePlaymode;
+
         [MenuItem("Human Body Explorer/Build Full Explorer (Figure + UI)")]
         public static void BuildExplorer()
         {
+            // Unity throws away every scene edit made during Play mode: on exit it
+            // reloads the backup it took on entry. Building from Play mode therefore
+            // appears to work - the figure is right there in the Scene view - and then
+            // silently vanishes the moment you press Stop, so the next Play session
+            // shows the old figure and the rebuild looks like it did nothing at all.
+            // Refuse outright rather than let that happen.
+            if (EditorApplication.isPlayingOrWillChangePlaymode)
+            {
+                Debug.LogError("[HumanBodyExplorerSetup] Exit Play mode before building. " +
+                               "Unity discards all scene changes made during Play mode when you press Stop, " +
+                               "so the rebuilt figure would be thrown away and you'd see the old one.");
+                return;
+            }
+
             var mainCameraGO = GameObject.FindWithTag("MainCamera");
             if (mainCameraGO == null)
             {
@@ -316,12 +436,16 @@ namespace HumanBodyExplorer.EditorTools
             SetupPostProcessing(mainCameraGO);
             BuildUI(mainCameraGO);
 
-            EditorSceneManager.MarkSceneDirty(EditorSceneManager.GetActiveScene());
+            // Save, don't just dirty. An unsaved rebuild is lost to any later scene
+            // reload, which is the same "nothing changed" failure by a slower route.
+            var activeScene = EditorSceneManager.GetActiveScene();
+            EditorSceneManager.MarkSceneDirty(activeScene);
+            if (!string.IsNullOrEmpty(activeScene.path)) EditorSceneManager.SaveScene(activeScene);
 
             Debug.Log("[HumanBodyExplorerSetup] Built the full explorer: " + Parts.Length +
                       " tagged body parts, info panel, and quiz mode with live timer + flash feedback. " +
-                      "Press Play - the camera auto-frames the figure. Orbit with drag, zoom with scroll, " +
-                      "click any part to learn about it, and press Start Quiz to test yourself.");
+                      "Scene saved. Press Play - the camera auto-frames the figure. Orbit with drag, " +
+                      "zoom with scroll, click any part to learn about it, and press Start Quiz to test yourself.");
         }
 
         /// <summary>
@@ -349,20 +473,13 @@ namespace HumanBodyExplorer.EditorTools
             // The figure is built to real scale (1.75 m, soles at y = 0), so the floor
             // belongs at y = 0. Set it every rebuild rather than only on creation, so
             // an existing ground plane from an older layout gets corrected.
-            var ground = GameObject.Find("DemoGround");
-            if (ground == null)
-            {
-                ground = GameObject.CreatePrimitive(PrimitiveType.Plane);
-                ground.name = "DemoGround";
-            }
-            ground.transform.position = Vector3.zero;
-            ground.transform.localScale = Vector3.one * 0.5f;
+            // No ground plane: the figure is presented on plain background like an
+            // anatomical plate, and a receding floor only added perspective clutter.
+            RemoveIfExists("DemoGround");
 
-            // Replaces the old single flat directional light (which made every part
-            // look like matte plastic) with a three-point rig: the key light does
-            // the heavy lifting, a dim cool fill keeps the shadow side from going
-            // pure black, and a warm rim from behind separates the figure's
-            // silhouette from the background.
+            // Lit like an anatomical plate rather than a film set: a soft key from
+            // the camera side, a fill from the opposite side, and strong ambient, so
+            // every structure is legible instead of half of them falling into shadow.
             RemoveIfExists("Directional Light");
 
             if (GameObject.Find("KeyLight") == null)
@@ -370,9 +487,10 @@ namespace HumanBodyExplorer.EditorTools
                 var keyGO = new GameObject("KeyLight");
                 var key = keyGO.AddComponent<Light>();
                 key.type = LightType.Directional;
-                key.intensity = 1.1f;
-                key.color = new Color(1f, 0.97f, 0.92f);
-                keyGO.transform.rotation = Quaternion.Euler(50, -30, 0);
+                key.intensity = 1.05f;
+                key.color = new Color(1f, 0.99f, 0.97f);
+                key.shadows = LightShadows.None;
+                keyGO.transform.rotation = Quaternion.Euler(28f, 18f, 0f);
             }
 
             if (GameObject.Find("FillLight") == null)
@@ -380,9 +498,10 @@ namespace HumanBodyExplorer.EditorTools
                 var fillGO = new GameObject("FillLight");
                 var fill = fillGO.AddComponent<Light>();
                 fill.type = LightType.Directional;
-                fill.intensity = 0.35f;
-                fill.color = new Color(0.75f, 0.82f, 1f);
-                fillGO.transform.rotation = Quaternion.Euler(30, 150, 0);
+                fill.intensity = 0.75f;
+                fill.color = new Color(0.94f, 0.96f, 1f);
+                fill.shadows = LightShadows.None;
+                fillGO.transform.rotation = Quaternion.Euler(18f, 200f, 0f);
             }
 
             if (GameObject.Find("RimLight") == null)
@@ -390,10 +509,15 @@ namespace HumanBodyExplorer.EditorTools
                 var rimGO = new GameObject("RimLight");
                 var rim = rimGO.AddComponent<Light>();
                 rim.type = LightType.Directional;
-                rim.intensity = 0.6f;
-                rim.color = new Color(1f, 0.85f, 0.65f);
-                rimGO.transform.rotation = Quaternion.Euler(15, 200, 0);
+                rim.intensity = 0.5f;
+                rim.color = new Color(1f, 0.97f, 0.92f);
+                rim.shadows = LightShadows.None;
+                rimGO.transform.rotation = Quaternion.Euler(-32f, 110f, 0f);
             }
+
+            // Flat, bright ambient is what keeps a printed plate readable.
+            RenderSettings.ambientMode = UnityEngine.Rendering.AmbientMode.Flat;
+            RenderSettings.ambientLight = new Color(0.62f, 0.60f, 0.58f);
         }
 
         private static readonly int SmoothnessId = Shader.PropertyToID("_Smoothness");
@@ -420,7 +544,7 @@ namespace HumanBodyExplorer.EditorTools
             // Shared, generated (not imported) noise texture modulates base color
             // as a brightness multiplier so flat skin/bone color reads as mottled
             // tissue instead of flat plastic.
-            var skinNoiseTex = CreateNoiseTexture(64, 0.85f, 1f, 6f, 11);
+            var skinNoiseTex = CreateNoiseTexture(64, 0.94f, 1f, 6f, 11);
 
             foreach (var part in Parts)
             {
@@ -473,7 +597,7 @@ namespace HumanBodyExplorer.EditorTools
                         // Skin becomes genuinely see-through (not just a ghosting
                         // heuristic) so the opaque organs/vessels/bone underneath
                         // show through it, matching a classic cutaway anatomy chart.
-                        MakeTransparent(material, alpha: 0.42f);
+                        MakeTransparent(material, alpha: 0.22f);
                     }
                 }
 
@@ -493,7 +617,336 @@ namespace HumanBodyExplorer.EditorTools
                 go.GetComponent<Renderer>().sharedMaterial = material;
             }
 
+            // Structures made of many repeating bones - the vertebral column, the rib
+            // cage, and the bones of the hands and feet - are generated rather than
+            // written out as hundreds of literal PartDefs. A single sphere cannot read
+            // as a rib cage; twelve curved pairs can.
+            var boneMat = CreateSimpleMaterial(shaderLit, BoneColor, BoneGloss, skinNoiseTex);
+            var cartilageMat = CreateSimpleMaterial(shaderLit, CartilageColor, OrganGloss, skinNoiseTex);
+
+            var muscleMat = CreateSimpleMaterial(shaderLit, MuscleColor, MuscleGloss, skinNoiseTex);
+            var recessMat = CreateSimpleMaterial(shaderLit, new Color(0.13f, 0.11f, 0.10f), 0.05f, skinNoiseTex);
+
+            BuildVertebralColumn(root.transform, boneMat, cartilageMat, anatomyLayer);
+            BuildRibCage(root.transform, boneMat, cartilageMat, anatomyLayer);
+            BuildSkullDetail(root.transform, boneMat, muscleMat, recessMat, anatomyLayer);
+            BuildHandSkeleton(root.transform, boneMat, anatomyLayer, 1f);
+            BuildHandSkeleton(root.transform, boneMat, anatomyLayer, -1f);
+            BuildFootSkeleton(root.transform, boneMat, anatomyLayer, 1f);
+            BuildFootSkeleton(root.transform, boneMat, anatomyLayer, -1f);
+
             return root;
+        }
+
+        private static Material CreateSimpleMaterial(Shader shader, Color color, float smoothness, Texture2D noiseTex)
+        {
+            var material = new Material(shader) { color = color };
+            material.SetFloat(SmoothnessId, smoothness);
+            material.SetTexture(BaseMapId, noiseTex);
+            material.SetTextureScale(BaseMapId, new Vector2(2f, 2f));
+            return material;
+        }
+
+        /// <summary>Capsule spanning two points - the building block for every generated bone.</summary>
+        private static void CreateSegment(Transform parent, string name, string entityId,
+            Vector3 from, Vector3 to, float radius, Material material, int layer)
+        {
+            var go = GameObject.CreatePrimitive(PrimitiveType.Capsule);
+            go.name = name;
+            go.layer = layer;
+            go.transform.SetParent(parent, false);
+
+            Vector3 delta = to - from;
+            float length = delta.magnitude;
+            go.transform.localPosition = (from + to) * 0.5f;
+            go.transform.localRotation = length > 1e-5f
+                ? Quaternion.FromToRotation(Vector3.up, delta / length)
+                : Quaternion.identity;
+            go.transform.localScale = new Vector3(radius * 2f, Mathf.Max(radius, length * 0.5f), radius * 2f);
+
+            go.GetComponent<Renderer>().sharedMaterial = material;
+            go.AddComponent<AnatomyNodeReference>().SetEntityId(entityId);
+        }
+
+        private static void CreateBlob(Transform parent, string name, string entityId,
+            Vector3 position, Vector3 scale, Material material, int layer)
+        {
+            var go = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+            go.name = name;
+            go.layer = layer;
+            go.transform.SetParent(parent, false);
+            go.transform.localPosition = position;
+            go.transform.localScale = scale;
+            go.GetComponent<Renderer>().sharedMaterial = material;
+            go.AddComponent<AnatomyNodeReference>().SetEntityId(entityId);
+        }
+
+        /// <summary>
+        /// 24 presacral vertebrae plus sacrum and coccyx, each with a body, an
+        /// intervertebral disc and a posteriorly-projecting spinous process. The three
+        /// curves are real: cervical lordosis, thoracic kyphosis, lumbar lordosis.
+        /// </summary>
+        private static void BuildVertebralColumn(Transform root, Material bone, Material cartilage, int layer)
+        {
+            // prefix, count, yTop, yBottom, baseZ, bow (+ posterior), radiusTop, radiusBottom
+            var regions = new[]
+            {
+                ("C", 7, 1.500f, 1.385f, 0.040f, -0.010f, 0.016f, 0.019f),
+                ("T", 12, 1.372f, 1.112f, 0.051f, 0.013f, 0.021f, 0.028f),
+                ("L", 5, 1.098f, 0.968f, 0.052f, -0.016f, 0.030f, 0.033f),
+            };
+
+            foreach (var (prefix, count, yTop, yBottom, baseZ, bow, rTop, rBottom) in regions)
+            {
+                for (int i = 0; i < count; i++)
+                {
+                    float t = count == 1 ? 0f : i / (float)(count - 1);
+                    float y = Mathf.Lerp(yTop, yBottom, t);
+                    float z = baseZ + bow * Mathf.Sin(Mathf.PI * t);
+                    float r = Mathf.Lerp(rTop, rBottom, t);
+
+                    CreateBlob(root, $"Vertebra_{prefix}{i + 1}", "SYS_SK_SPINE",
+                        new Vector3(0f, y, z), new Vector3(r * 2.2f, r * 1.25f, r * 2f), bone, layer);
+
+                    // Spinous process: the knobbly ridge you can feel down a back.
+                    // Thoracic processes angle steeply downward and overlap like tiles.
+                    float droop = prefix == "T" ? 0.020f : 0.007f;
+                    CreateSegment(root, $"SpinousProcess_{prefix}{i + 1}", "SYS_SK_SPINE",
+                        new Vector3(0f, y, z + r * 0.9f),
+                        new Vector3(0f, y - droop, z + r * 0.9f + (prefix == "C" ? 0.008f : 0.013f)),
+                        r * 0.32f, bone, layer);
+
+                    if (i < count - 1)
+                    {
+                        float yNext = Mathf.Lerp(yTop, yBottom, (i + 1) / (float)(count - 1));
+                        CreateBlob(root, $"Disc_{prefix}{i + 1}", "SYS_SK_SPINE",
+                            new Vector3(0f, (y + yNext) * 0.5f, z), new Vector3(r * 2.1f, r * 0.55f, r * 1.9f),
+                            cartilage, layer);
+                    }
+                }
+            }
+
+            // Sacrum: five fused vertebrae tapering to the coccyx.
+            for (int i = 0; i < 5; i++)
+            {
+                float t = i / 4f;
+                CreateBlob(root, $"Sacrum_S{i + 1}", "SYS_SK_PELVIS",
+                    new Vector3(0f, Mathf.Lerp(0.952f, 0.878f, t), Mathf.Lerp(0.058f, 0.072f, t)),
+                    new Vector3(Mathf.Lerp(0.072f, 0.038f, t), 0.020f, Mathf.Lerp(0.050f, 0.030f, t)), bone, layer);
+            }
+            CreateBlob(root, "Coccyx", "SYS_SK_PELVIS",
+                new Vector3(0f, 0.862f, 0.072f), new Vector3(0.022f, 0.022f, 0.018f), bone, layer);
+        }
+
+        /// <summary>
+        /// Twelve rib pairs swept as arcs from the vertebral column round to the
+        /// sternum, widest at ribs 7-8, sloping progressively further downward. Ribs
+        /// 1-7 join the sternum by their own costal cartilage (true ribs), 8-10 join
+        /// the cartilage above (false), 11-12 end free in the flank (floating).
+        /// </summary>
+        private static void BuildRibCage(Transform root, Material bone, Material cartilage, int layer)
+        {
+            const int segments = 8;
+
+            // Sternum: manubrium, body, xiphoid process.
+            CreateBlob(root, "Sternum_Manubrium", "SYS_SK_STERNUM",
+                new Vector3(0f, 1.398f, -0.086f), new Vector3(0.050f, 0.046f, 0.016f), bone, layer);
+            CreateBlob(root, "Sternum_Body", "SYS_SK_STERNUM",
+                new Vector3(0f, 1.318f, -0.092f), new Vector3(0.040f, 0.110f, 0.015f), bone, layer);
+            CreateBlob(root, "Sternum_Xiphoid", "SYS_SK_STERNUM",
+                new Vector3(0f, 1.248f, -0.088f), new Vector3(0.022f, 0.034f, 0.012f), bone, layer);
+
+            for (int rib = 0; rib < 12; rib++)
+            {
+                float t = rib / 11f;
+                float yPost = Mathf.Lerp(1.428f, 1.118f, t);
+                float width = rib <= 7
+                    ? Mathf.Lerp(0.072f, 0.150f, rib / 7f)
+                    : Mathf.Lerp(0.150f, 0.108f, (rib - 7) / 4f);
+                float depth = rib <= 6
+                    ? Mathf.Lerp(0.052f, 0.100f, rib / 6f)
+                    : Mathf.Lerp(0.100f, 0.030f, (rib - 6) / 5f);
+                float drop = Mathf.Lerp(0.018f, 0.105f, t);
+                float radius = Mathf.Lerp(0.0055f, 0.0080f, Mathf.Min(1f, t * 1.6f));
+                bool floating = rib >= 10;
+                float arcEnd = floating ? 0.56f : 1f;
+
+                for (int side = -1; side <= 1; side += 2)
+                {
+                    Vector3 Point(float u)
+                    {
+                        float theta = u * Mathf.PI;
+                        float sweep = (1f - Mathf.Cos(theta)) * 0.5f;
+                        return new Vector3(
+                            side * width * Mathf.Sin(theta),
+                            yPost - drop * sweep,
+                            0.065f - (0.065f + depth) * sweep);
+                    }
+
+                    for (int s = 0; s < segments; s++)
+                    {
+                        float u0 = arcEnd * s / segments;
+                        float u1 = arcEnd * (s + 1) / segments;
+                        CreateSegment(root, $"Rib{rib + 1}_{(side > 0 ? "L" : "R")}_{s}", "SYS_SK_RIBCAGE",
+                            Point(u0), Point(u1), radius, bone, layer);
+                    }
+
+                    if (!floating)
+                    {
+                        // Costal cartilage bridging the rib end to the sternum. Ribs
+                        // 8-10 angle up to meet the cartilage above rather than the bone.
+                        Vector3 ribEnd = Point(1f);
+                        float sternumY = rib <= 6 ? Mathf.Lerp(1.392f, 1.252f, rib / 6f) : 1.248f;
+                        var sternumEdge = new Vector3(side * 0.020f, sternumY, -0.090f);
+                        CreateSegment(root, $"CostalCartilage{rib + 1}_{(side > 0 ? "L" : "R")}", "SYS_SK_RIBCAGE",
+                            ribEnd, sternumEdge, radius * 0.9f, cartilage, layer);
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Facial skeleton and the muscles of mastication. Without these the head is a
+        /// featureless egg; with them it reads as a skull - orbits, nasal aperture,
+        /// zygomatic arches, maxilla, a hinged mandible and two rows of teeth.
+        /// </summary>
+        private static void BuildSkullDetail(Transform root, Material bone, Material muscle, Material dark, int layer)
+        {
+            for (int s = -1; s <= 1; s += 2)
+            {
+                // Orbit: a recessed socket rather than a painted-on eye.
+                CreateBlob(root, $"Orbit_{(s > 0 ? "L" : "R")}", "SYS_SK_SKULL",
+                    new Vector3(s * 0.030f, 1.655f, -0.060f), new Vector3(0.030f, 0.030f, 0.026f), dark, layer);
+
+                // Zygomatic arch: the cheekbone bridge back toward the ear.
+                CreateSegment(root, $"ZygomaticArch_{(s > 0 ? "L" : "R")}", "SYS_SK_SKULL",
+                    new Vector3(s * 0.062f, 1.638f, -0.008f), new Vector3(s * 0.036f, 1.632f, -0.056f),
+                    0.0065f, bone, layer);
+
+                // Temporalis and masseter: the two muscles that close the jaw.
+                CreateBlob(root, $"Temporalis_{(s > 0 ? "L" : "R")}", "SYS_MUSC_FACIAL",
+                    new Vector3(s * 0.056f, 1.670f, -0.012f), new Vector3(0.030f, 0.046f, 0.048f), muscle, layer);
+                CreateBlob(root, $"Masseter_{(s > 0 ? "L" : "R")}", "SYS_MUSC_FACIAL",
+                    new Vector3(s * 0.050f, 1.600f, -0.030f), new Vector3(0.024f, 0.038f, 0.030f), muscle, layer);
+            }
+
+            CreateBlob(root, "NasalAperture", "SYS_SK_SKULL",
+                new Vector3(0f, 1.626f, -0.074f), new Vector3(0.017f, 0.026f, 0.018f), dark, layer);
+            CreateBlob(root, "Maxilla", "SYS_SK_SKULL",
+                new Vector3(0f, 1.598f, -0.060f), new Vector3(0.056f, 0.024f, 0.044f), bone, layer);
+
+            // Mandible: a U from each jaw hinge forward to the chin.
+            const int jawSegments = 6;
+            for (int s = -1; s <= 1; s += 2)
+            {
+                Vector3 Jaw(float u)
+                {
+                    // Quadratic sweep from the condyle, round the angle, to the symphysis.
+                    float x = s * Mathf.Lerp(0.052f, 0f, u);
+                    float y = Mathf.Lerp(1.612f, 1.572f, Mathf.Sin(u * Mathf.PI * 0.5f));
+                    float z = Mathf.Lerp(0.004f, -0.070f, u * u * 0.45f + u * 0.55f);
+                    return new Vector3(x, y, z);
+                }
+
+                for (int i = 0; i < jawSegments; i++)
+                {
+                    CreateSegment(root, $"Mandible_{(s > 0 ? "L" : "R")}_{i}", "SYS_SK_MANDIBLE",
+                        Jaw(i / (float)jawSegments), Jaw((i + 1) / (float)jawSegments), 0.0072f, bone, layer);
+                }
+
+                // Teeth: upper row on the maxilla, lower row on the mandible.
+                for (int tooth = 0; tooth < 6; tooth++)
+                {
+                    float u = (tooth + 0.5f) / 6f;
+                    var lower = Jaw(u);
+                    CreateBlob(root, $"ToothLower_{(s > 0 ? "L" : "R")}{tooth}", "SYS_SK_MANDIBLE",
+                        lower + new Vector3(0f, 0.009f, 0f), new Vector3(0.0075f, 0.010f, 0.0075f), bone, layer);
+
+                    var upper = Jaw(u);
+                    CreateBlob(root, $"ToothUpper_{(s > 0 ? "L" : "R")}{tooth}", "SYS_SK_SKULL",
+                        new Vector3(upper.x * 0.94f, 1.588f, Mathf.Min(upper.z + 0.004f, -0.020f)),
+                        new Vector3(0.0075f, 0.010f, 0.0075f), bone, layer);
+                }
+            }
+        }
+
+        /// <summary>Carpals, five metacarpals and fourteen phalanges - 27 bones per hand.</summary>
+        private static void BuildHandSkeleton(Transform root, Material bone, int layer, float side)
+        {
+            string tag = side > 0 ? "L" : "R";
+            float wristX = side * 0.205f;
+            const float wristY = 0.818f;
+
+            CreateBlob(root, $"Carpals_{tag}", "SYS_SK_HAND",
+                new Vector3(wristX, wristY, 0f), new Vector3(0.048f, 0.030f, 0.026f), bone, layer);
+
+            for (int finger = 0; finger < 5; finger++)
+            {
+                bool thumb = finger == 0;
+                // Thumb sits forward and off to the side; the other four fan out.
+                float spread = thumb ? side * -0.034f : side * (finger - 2.6f) * 0.0155f;
+                float z = thumb ? -0.022f : 0f;
+                float knuckleY = thumb ? 0.775f : 0.762f;
+
+                var baseP = new Vector3(wristX + spread * 0.35f, wristY - 0.012f, z * 0.4f);
+                var knuckle = new Vector3(wristX + spread, knuckleY, z);
+                CreateSegment(root, $"Metacarpal{finger + 1}_{tag}", "SYS_SK_HAND",
+                    baseP, knuckle, 0.0062f, bone, layer);
+
+                // Middle finger is longest; index and ring shorter; little finger shortest.
+                float lengthScale = thumb ? 0.62f : new[] { 0f, 0.92f, 1f, 0.95f, 0.78f }[finger];
+                int phalanxCount = thumb ? 2 : 3;
+                float[] fractions = { 0.45f, 0.32f, 0.23f };
+
+                Vector3 cursor = knuckle;
+                float remaining = 0.068f * lengthScale;
+                for (int ph = 0; ph < phalanxCount; ph++)
+                {
+                    float len = remaining * (thumb ? (ph == 0 ? 0.58f : 0.42f) : fractions[ph]);
+                    var next = cursor + new Vector3(spread * 0.16f, -len, thumb ? -len * 0.35f : 0f);
+                    CreateSegment(root, $"Phalanx{finger + 1}_{ph + 1}_{tag}", "SYS_SK_HAND",
+                        cursor, next, Mathf.Lerp(0.0055f, 0.0038f, ph / 2f), bone, layer);
+                    cursor = next;
+                }
+            }
+        }
+
+        /// <summary>Calcaneus and tarsals, five metatarsals and fourteen phalanges.</summary>
+        private static void BuildFootSkeleton(Transform root, Material bone, int layer, float side)
+        {
+            string tag = side > 0 ? "L" : "R";
+            float footX = side * 0.085f;
+
+            // The calcaneus takes heel strike; it projects backward behind the ankle.
+            CreateBlob(root, $"Calcaneus_{tag}", "SYS_SK_FOOT",
+                new Vector3(footX, 0.030f, 0.032f), new Vector3(0.040f, 0.048f, 0.055f), bone, layer);
+            CreateBlob(root, $"Talus_{tag}", "SYS_SK_FOOT",
+                new Vector3(footX, 0.055f, 0.004f), new Vector3(0.038f, 0.034f, 0.042f), bone, layer);
+            CreateBlob(root, $"Tarsals_{tag}", "SYS_SK_FOOT",
+                new Vector3(footX, 0.034f, -0.038f), new Vector3(0.052f, 0.030f, 0.046f), bone, layer);
+
+            for (int toe = 0; toe < 5; toe++)
+            {
+                bool hallux = toe == 0;
+                float spread = side * (toe - 1.6f) * -0.0155f;
+                // The longitudinal arch: the metatarsal heads sit lower than the tarsals.
+                var baseP = new Vector3(footX + spread * 0.3f, 0.030f, -0.058f);
+                var head = new Vector3(footX + spread, 0.028f, -0.108f);
+                CreateSegment(root, $"Metatarsal{toe + 1}_{tag}", "SYS_SK_FOOT",
+                    baseP, head, hallux ? 0.0075f : 0.0058f, bone, layer);
+
+                int phalanxCount = hallux ? 2 : 3;
+                float toeLength = hallux ? 0.030f : Mathf.Lerp(0.024f, 0.014f, toe / 4f);
+                Vector3 cursor = head;
+                for (int ph = 0; ph < phalanxCount; ph++)
+                {
+                    float len = toeLength * (phalanxCount == 2 ? 0.5f : (ph == 0 ? 0.5f : 0.25f));
+                    var next = cursor + new Vector3(spread * 0.1f, -0.001f, -len);
+                    CreateSegment(root, $"ToePhalanx{toe + 1}_{ph + 1}_{tag}", "SYS_SK_FOOT",
+                        cursor, next, hallux ? 0.0065f : 0.0048f, bone, layer);
+                    cursor = next;
+                }
+            }
         }
 
         /// <summary>
@@ -665,6 +1118,17 @@ namespace HumanBodyExplorer.EditorTools
             // angle instead of actually facing the figure.
             mainCameraGO.transform.rotation = Quaternion.identity;
 
+            // Plain parchment backdrop, as on a printed anatomical plate. The default
+            // skybox put a blue gradient and a horizon line behind every structure,
+            // which is most of why the figure read as washed out.
+            var cam = mainCameraGO.GetComponent<Camera>();
+            if (cam != null)
+            {
+                cam.clearFlags = CameraClearFlags.SolidColor;
+                cam.backgroundColor = new Color(0.94f, 0.92f, 0.88f);
+                cam.nearClipPlane = 0.03f;
+            }
+
             var orbitalCamera = mainCameraGO.GetComponent<AdvancedOrbitalCamera>();
             if (orbitalCamera == null) orbitalCamera = mainCameraGO.AddComponent<AdvancedOrbitalCamera>();
             orbitalCamera.Target = focusPoint.transform;
@@ -682,12 +1146,24 @@ namespace HumanBodyExplorer.EditorTools
             var raycaster = mainCameraGO.GetComponent<AnatomyRaycaster>();
             if (raycaster == null) raycaster = mainCameraGO.AddComponent<AnatomyRaycaster>();
 
-            // A click through the torso now crosses the skin shell, ribcage, a muscle,
-            // a lung, the heart, the diaphragm and more. The default 16-hit buffer
-            // silently truncates at that depth, which would hide the deepest organs.
+            // A click through the torso crosses the skin shell, several ribs, a muscle,
+            // a lung, the heart, the diaphragm, a vertebra and more. RaycastNonAlloc
+            // truncates arbitrarily (not by distance) once the buffer is full, so an
+            // undersized buffer can silently drop the nearest hits.
             var serializedRaycaster = new SerializedObject(raycaster);
-            serializedRaycaster.FindProperty("maxHits").intValue = 48;
+            serializedRaycaster.FindProperty("maxHits").intValue = 256;
             serializedRaycaster.ApplyModifiedPropertiesWithoutUndo();
+
+            // Camera feel: a 1.75 m figure needs a much tighter distance range than the
+            // 0.1-20 default, and zoom is now proportional to distance (see
+            // AdvancedOrbitalCamera.Zoom), so sensitivity is a fraction, not a multiple.
+            var serializedOrbit = new SerializedObject(orbitalCamera);
+            serializedOrbit.FindProperty("minDistance").floatValue = 0.22f;
+            serializedOrbit.FindProperty("maxDistance").floatValue = 6f;
+            serializedOrbit.FindProperty("zoomSensitivity").floatValue = 0.18f;
+            serializedOrbit.FindProperty("orbitSensitivity").floatValue = 0.32f;
+            serializedOrbit.FindProperty("smoothTime").floatValue = 0.09f;
+            serializedOrbit.ApplyModifiedPropertiesWithoutUndo();
 
             var focusTargeter = mainCameraGO.GetComponent<CameraFocusTargeter>();
             if (focusTargeter == null) focusTargeter = mainCameraGO.AddComponent<CameraFocusTargeter>();
@@ -735,17 +1211,17 @@ namespace HumanBodyExplorer.EditorTools
             }
 
             if (!profile.TryGet(out Bloom bloom)) bloom = profile.Add<Bloom>(true);
-            bloom.threshold.Override(1.05f);
-            bloom.intensity.Override(0.25f);
+            bloom.threshold.Override(1.4f);
+            bloom.intensity.Override(0.04f);
             bloom.scatter.Override(0.6f);
 
             if (!profile.TryGet(out ColorAdjustments colorAdjustments)) colorAdjustments = profile.Add<ColorAdjustments>(true);
-            colorAdjustments.postExposure.Override(0.1f);
-            colorAdjustments.contrast.Override(8f);
-            colorAdjustments.saturation.Override(6f);
+            colorAdjustments.postExposure.Override(0.05f);
+            colorAdjustments.contrast.Override(14f);
+            colorAdjustments.saturation.Override(20f);
 
             if (!profile.TryGet(out Vignette vignette)) vignette = profile.Add<Vignette>(true);
-            vignette.intensity.Override(0.22f);
+            vignette.intensity.Override(0f);
             vignette.smoothness.Override(0.6f);
 
             EditorUtility.SetDirty(profile);
@@ -759,11 +1235,41 @@ namespace HumanBodyExplorer.EditorTools
             volume.profile = profile;
         }
 
+        /// <summary>
+        /// Unity UI dispatches pointer events through an EventSystem; without one in
+        /// the scene, no Button anywhere will ever fire - which is exactly why every
+        /// control in this explorer appeared dead. The project uses the new Input
+        /// System, so it needs InputSystemUIInputModule rather than the legacy
+        /// StandaloneInputModule (which throws under the new backend).
+        /// </summary>
+        private static void EnsureEventSystem()
+        {
+            var existing = Object.FindAnyObjectByType<EventSystem>();
+            if (existing != null)
+            {
+                if (existing.GetComponent<InputSystemUIInputModule>() == null)
+                {
+                    foreach (var legacy in existing.GetComponents<BaseInputModule>())
+                    {
+                        Object.DestroyImmediate(legacy);
+                    }
+                    existing.gameObject.AddComponent<InputSystemUIInputModule>();
+                }
+                return;
+            }
+
+            var eventSystemGO = new GameObject("EventSystem", typeof(EventSystem), typeof(InputSystemUIInputModule));
+            eventSystemGO.transform.SetSiblingIndex(0);
+            Debug.Log("[HumanBodyExplorerSetup] Created the missing EventSystem - UI buttons can now receive clicks.");
+        }
+
         private static void BuildUI(GameObject mainCameraGO)
         {
             RemoveIfExists("ExplorerCanvas");
             RemoveIfExists("ExplorerUIController");
             RemoveIfExists("AnatomyPartFeedback");
+
+            EnsureEventSystem();
 
             var canvasGO = new GameObject("ExplorerCanvas", typeof(Canvas), typeof(CanvasScaler), typeof(GraphicRaycaster));
             var canvas = canvasGO.GetComponent<Canvas>();
@@ -771,13 +1277,14 @@ namespace HumanBodyExplorer.EditorTools
             var scaler = canvasGO.GetComponent<CanvasScaler>();
             scaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
             scaler.referenceResolution = new Vector2(1920, 1080);
+            scaler.matchWidthOrHeight = 0.5f;
 
             // Info panel (bottom-left)
             // Taller than before: at AP Biology / Clinical detail this panel carries
             // several paragraphs of facts rather than a single sentence.
             var infoPanel = CreatePanel(canvasGO.transform, "InfoPanel",
-                anchorMin: new Vector2(0, 0), anchorMax: new Vector2(0, 0),
-                pivot: new Vector2(0, 0), anchoredPos: new Vector2(30, 30), size: new Vector2(760, 560));
+                anchorMin: new Vector2(1, 0), anchorMax: new Vector2(1, 0),
+                pivot: new Vector2(1, 0), anchoredPos: new Vector2(-30, 30), size: new Vector2(780, 430));
             var infoText = CreateText(infoPanel.transform, "InfoText", "Click on a body part to learn what it does.", 20);
             StretchToParent(infoText.rectTransform, padding: 20);
             infoText.alignment = TextAlignmentOptions.TopLeft;
@@ -816,8 +1323,8 @@ namespace HumanBodyExplorer.EditorTools
             buttonRect.anchorMin = new Vector2(0, 1);
             buttonRect.anchorMax = new Vector2(0, 1);
             buttonRect.pivot = new Vector2(0, 1);
-            buttonRect.anchoredPosition = new Vector2(30, -30);
-            buttonRect.sizeDelta = new Vector2(200, 60);
+            buttonRect.anchoredPosition = new Vector2(30, -26);
+            buttonRect.sizeDelta = new Vector2(210, 54);
             buttonGO.GetComponent<Image>().color = new Color(0.2f, 0.5f, 0.3f);
 
             var buttonText = CreateText(buttonGO.transform, "Text", "Start Quiz", 24);
@@ -833,8 +1340,8 @@ namespace HumanBodyExplorer.EditorTools
             filterButtonRect.anchorMin = new Vector2(0, 1);
             filterButtonRect.anchorMax = new Vector2(0, 1);
             filterButtonRect.pivot = new Vector2(0, 1);
-            filterButtonRect.anchoredPosition = new Vector2(30, -100);
-            filterButtonRect.sizeDelta = new Vector2(200, 50);
+            filterButtonRect.anchoredPosition = new Vector2(30, -88);
+            filterButtonRect.sizeDelta = new Vector2(210, 46);
             filterButtonGO.GetComponent<Image>().color = new Color(0.25f, 0.3f, 0.45f);
 
             var filterText = CreateText(filterButtonGO.transform, "Text", "Study: All", 20);
@@ -849,8 +1356,8 @@ namespace HumanBodyExplorer.EditorTools
             colorblindButtonRect.anchorMin = new Vector2(0, 1);
             colorblindButtonRect.anchorMax = new Vector2(0, 1);
             colorblindButtonRect.pivot = new Vector2(0, 1);
-            colorblindButtonRect.anchoredPosition = new Vector2(30, -160);
-            colorblindButtonRect.sizeDelta = new Vector2(200, 50);
+            colorblindButtonRect.anchoredPosition = new Vector2(30, -140);
+            colorblindButtonRect.sizeDelta = new Vector2(210, 46);
             colorblindButtonGO.GetComponent<Image>().color = new Color(0.35f, 0.25f, 0.15f);
 
             var colorblindText = CreateText(colorblindButtonGO.transform, "Text", "Colorblind Mode: Off", 18);
@@ -865,13 +1372,49 @@ namespace HumanBodyExplorer.EditorTools
             detailButtonRect.anchorMin = new Vector2(0, 1);
             detailButtonRect.anchorMax = new Vector2(0, 1);
             detailButtonRect.pivot = new Vector2(0, 1);
-            detailButtonRect.anchoredPosition = new Vector2(30, -220);
-            detailButtonRect.sizeDelta = new Vector2(200, 50);
+            detailButtonRect.anchoredPosition = new Vector2(30, -192);
+            detailButtonRect.sizeDelta = new Vector2(210, 46);
             detailButtonGO.GetComponent<Image>().color = new Color(0.22f, 0.36f, 0.34f);
 
             var detailText = CreateText(detailButtonGO.transform, "Text", "Detail: Plain English", 18);
             StretchToParent(detailText.rectTransform, padding: 0);
             detailText.alignment = TextAlignmentOptions.Center;
+
+            // Layer toggles: peel the body back one system at a time.
+            var layersHeader = CreateText(canvasGO.transform, "LayersHeader", "LAYERS", 16);
+            var layersHeaderRect = layersHeader.rectTransform;
+            layersHeaderRect.anchorMin = new Vector2(0, 1);
+            layersHeaderRect.anchorMax = new Vector2(0, 1);
+            layersHeaderRect.pivot = new Vector2(0, 1);
+            layersHeaderRect.anchoredPosition = new Vector2(32, -250);
+            layersHeaderRect.sizeDelta = new Vector2(200, 24);
+            layersHeader.alignment = TextAlignmentOptions.Left;
+            layersHeader.color = new Color(0.72f, 0.76f, 0.8f);
+
+            var layerGroups = AnatomyLayerVisibility.AllGroups;
+            var layerButtons = new Button[layerGroups.Length];
+            var layerLabels = new TMP_Text[layerGroups.Length];
+
+            for (int i = 0; i < layerGroups.Length; i++)
+            {
+                var layerButtonGO = new GameObject($"LayerButton_{layerGroups[i]}", typeof(Image), typeof(Button));
+                layerButtonGO.transform.SetParent(canvasGO.transform, false);
+                var rect = layerButtonGO.GetComponent<RectTransform>();
+                rect.anchorMin = new Vector2(0, 1);
+                rect.anchorMax = new Vector2(0, 1);
+                rect.pivot = new Vector2(0, 1);
+                rect.anchoredPosition = new Vector2(30, -276 - i * 46);
+                rect.sizeDelta = new Vector2(210, 40);
+                layerButtonGO.GetComponent<Image>().color = new Color(0.16f, 0.18f, 0.22f, 0.92f);
+
+                var label = CreateText(layerButtonGO.transform, "Text",
+                    $"●  {AnatomyLayerVisibility.DisplayName(layerGroups[i])}", 18);
+                StretchToParent(label.rectTransform, padding: 0);
+                label.alignment = TextAlignmentOptions.Center;
+
+                layerButtons[i] = layerButtonGO.GetComponent<Button>();
+                layerLabels[i] = label;
+            }
 
             // Wire the controller
             var controllerGO = new GameObject("ExplorerUIController", typeof(ExplorerUIController));
@@ -891,6 +1434,20 @@ namespace HumanBodyExplorer.EditorTools
             serializedController.FindProperty("colorblindToggle").objectReferenceValue = WireColorblindToggle(controllerGO);
             serializedController.FindProperty("detailLevelText").objectReferenceValue = detailText;
             serializedController.FindProperty("detailLevelButton").objectReferenceValue = detailButtonGO.GetComponent<Button>();
+
+            var layerVisibility = controllerGO.GetComponent<AnatomyLayerVisibility>();
+            if (layerVisibility == null) layerVisibility = controllerGO.AddComponent<AnatomyLayerVisibility>();
+            serializedController.FindProperty("layerVisibility").objectReferenceValue = layerVisibility;
+
+            var buttonsProp = serializedController.FindProperty("layerButtons");
+            var labelsProp = serializedController.FindProperty("layerButtonLabels");
+            buttonsProp.arraySize = layerButtons.Length;
+            labelsProp.arraySize = layerLabels.Length;
+            for (int i = 0; i < layerButtons.Length; i++)
+            {
+                buttonsProp.GetArrayElementAtIndex(i).objectReferenceValue = layerButtons[i];
+                labelsProp.GetArrayElementAtIndex(i).objectReferenceValue = layerLabels[i];
+            }
             serializedController.ApplyModifiedPropertiesWithoutUndo();
 
             var feedbackGO = new GameObject("AnatomyPartFeedback", typeof(AnatomyPartFeedback));

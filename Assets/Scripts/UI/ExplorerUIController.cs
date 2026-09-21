@@ -33,6 +33,9 @@ namespace HumanBodyExplorer.UI
         [SerializeField] private ColorblindAccessibilityToggle colorblindToggle;
         [SerializeField] private TMP_Text detailLevelText;
         [SerializeField] private Button detailLevelButton;
+        [SerializeField] private AnatomyLayerVisibility layerVisibility;
+        [SerializeField] private Button[] layerButtons;
+        [SerializeField] private TMP_Text[] layerButtonLabels;
 
         private enum DetailLevel { Plain = 0, ApBiology = 1, Clinical = 2 }
         private static readonly string[] DetailLevelLabels = { "Plain English", "AP Biology", "Clinical" };
@@ -88,6 +91,8 @@ namespace HumanBodyExplorer.UI
             if (detailLevelButton != null) detailLevelButton.onClick.AddListener(CycleDetailLevel);
             UpdateDetailLevelText();
 
+            SetupLayerButtons();
+
             _audioSource = GetComponent<AudioSource>();
             if (_audioSource == null) _audioSource = gameObject.AddComponent<AudioSource>();
             _audioSource.playOnAwake = false;
@@ -104,6 +109,44 @@ namespace HumanBodyExplorer.UI
         private void UpdateSystemFilterText()
         {
             if (systemFilterText != null) systemFilterText.text = $"Study: {SystemCategories[_systemFilterIndex]}";
+        }
+
+        private void SetupLayerButtons()
+        {
+            if (layerButtons == null) return;
+
+            int count = Mathf.Min(layerButtons.Length, AnatomyLayerVisibility.AllGroups.Length);
+            for (int i = 0; i < count; i++)
+            {
+                var group = AnatomyLayerVisibility.AllGroups[i];
+                if (layerButtons[i] != null) layerButtons[i].onClick.AddListener(() => ToggleLayer(group));
+            }
+
+            RefreshLayerLabels();
+        }
+
+        private void ToggleLayer(AnatomyLayerGroup group)
+        {
+            if (layerVisibility == null) return;
+            layerVisibility.Toggle(group);
+            RefreshLayerLabels();
+        }
+
+        private void RefreshLayerLabels()
+        {
+            if (layerButtonLabels == null) return;
+
+            int count = Mathf.Min(layerButtonLabels.Length, AnatomyLayerVisibility.AllGroups.Length);
+            for (int i = 0; i < count; i++)
+            {
+                if (layerButtonLabels[i] == null) continue;
+
+                var group = AnatomyLayerVisibility.AllGroups[i];
+                bool shown = layerVisibility == null || layerVisibility.IsVisible(group);
+                layerButtonLabels[i].text =
+                    $"{(shown ? "●" : "○")}  {AnatomyLayerVisibility.DisplayName(group)}";
+                layerButtonLabels[i].color = shown ? Color.white : new Color(0.55f, 0.55f, 0.58f);
+            }
         }
 
         private void ToggleColorblindMode()

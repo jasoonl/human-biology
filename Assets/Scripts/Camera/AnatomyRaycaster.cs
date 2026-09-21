@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using HumanBodyExplorer.Core;
 using UnityEngine;
 
@@ -24,10 +25,17 @@ namespace HumanBodyExplorer.CameraSystem
         [SerializeField] private float clickThroughAlphaThreshold = 0.9f;
 
         private RaycastHit[] _resultsBuffer;
+        private readonly List<string> _idsUnderCursor = new List<string>();
         private static readonly int AlphaPropertyId = Shader.PropertyToID("_Alpha");
         private static readonly int BaseColorPropertyId = Shader.PropertyToID("_BaseColor");
 
         public static event Action<string> OnNodeSelected;
+
+        /// <summary>Every distinct anatomy id along the ray, nearest first. The quiz
+        /// scores against this rather than the single frontmost hit, so a structure
+        /// that sits behind skin, muscle or bone is still answerable by clicking over
+        /// it - otherwise deep questions would be impossible to get right.</summary>
+        public static event Action<IReadOnlyList<string>> OnNodesUnderCursor;
 
         /// <summary>Explicit camera override, mainly for tests where relying on the
         /// Camera.main tag lookup is unreliable across fixtures sharing a Play session.</summary>
@@ -59,13 +67,21 @@ namespace HumanBodyExplorer.CameraSystem
 
             Array.Sort(_resultsBuffer, 0, hitCount, DistanceComparer.Instance);
 
+            _idsUnderCursor.Clear();
             string seeThroughFallbackId = null;
+            string selectedId = null;
 
             for (int i = 0; i < hitCount; i++)
             {
                 var hit = _resultsBuffer[i];
                 var nodeRef = hit.collider.GetComponentInParent<AnatomyNodeReference>();
                 if (nodeRef == null || string.IsNullOrEmpty(nodeRef.EntityId)) continue;
+
+                if (!_idsUnderCursor.Contains(nodeRef.EntityId)) _idsUnderCursor.Add(nodeRef.EntityId);
+
+                // Keep walking the ray after a selection is found, so the full list of
+                // structures under the cursor is still reported.
+                if (selectedId != null) continue;
 
                 var renderer = hit.collider.GetComponentInParent<Renderer>();
                 if (renderer != null && IsSeeThrough(renderer))
@@ -78,17 +94,16 @@ namespace HumanBodyExplorer.CameraSystem
                     continue;
                 }
 
-                OnNodeSelected?.Invoke(nodeRef.EntityId);
-                return true;
+                selectedId = nodeRef.EntityId;
             }
 
-            if (seeThroughFallbackId != null)
-            {
-                OnNodeSelected?.Invoke(seeThroughFallbackId);
-                return true;
-            }
+            selectedId ??= seeThroughFallbackId;
+            OnNodesUnderCursor?.Invoke(_idsUnderCursor);
 
-            return false;
+            if (selectedId == null) return false;
+
+            OnNodeSelected?.Invoke(selectedId);
+            return true;
         }
 
         private bool IsSeeThrough(Renderer renderer)

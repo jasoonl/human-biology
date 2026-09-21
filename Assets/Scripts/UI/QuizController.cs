@@ -85,7 +85,7 @@ namespace HumanBodyExplorer.UI
             if (locatable.Count > 0) dueIds = locatable;
 
             _dueNodeQueue = new Queue<string>(dueIds);
-            AnatomyRaycaster.OnNodeSelected += HandleNodeSelected;
+            AnatomyRaycaster.OnNodesUnderCursor += HandleNodesUnderCursor;
             NextQuestion();
         }
 
@@ -97,7 +97,7 @@ namespace HumanBodyExplorer.UI
 
         public void StopQuiz()
         {
-            AnatomyRaycaster.OnNodeSelected -= HandleNodeSelected;
+            AnatomyRaycaster.OnNodesUnderCursor -= HandleNodesUnderCursor;
             if (_timerCoroutine != null) StopCoroutine(_timerCoroutine);
         }
 
@@ -131,14 +131,24 @@ namespace HumanBodyExplorer.UI
             ResolveAnswer(isCorrect: false, timeLeft: 0f, wrongClickId: null);
         }
 
-        private void HandleNodeSelected(string selectedNodeId)
+        private void HandleNodesUnderCursor(IReadOnlyList<string> idsUnderCursor)
         {
-            if (_currentExpectedNodeId == null) return;
+            if (_currentExpectedNodeId == null || idsUnderCursor == null || idsUnderCursor.Count == 0) return;
 
-            bool correct = selectedNodeId == _currentExpectedNodeId;
+            // Count it correct if the target is anywhere along the ray, not only the
+            // frontmost surface. Clicking over the heart should score even though the
+            // skin, a rib and a lung are technically in front of it.
+            bool correct = false;
+            for (int i = 0; i < idsUnderCursor.Count; i++)
+            {
+                if (idsUnderCursor[i] != _currentExpectedNodeId) continue;
+                correct = true;
+                break;
+            }
+
             // Was hardcoded to 0 before, silently disabling the speed bonus this
             // was meant to reward - now uses the actual time left on the clock.
-            ResolveAnswer(correct, Mathf.Max(0f, _timeRemaining), correct ? null : selectedNodeId);
+            ResolveAnswer(correct, Mathf.Max(0f, _timeRemaining), correct ? null : idsUnderCursor[0]);
         }
 
         private void ResolveAnswer(bool isCorrect, float timeLeft, string wrongClickId)

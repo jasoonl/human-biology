@@ -29,6 +29,13 @@ namespace HumanBodyExplorer.Input
 
         public bool IsEnabled { get; private set; }
 
+        /// <summary>Total pointer travel, in pixels, still treated as a click rather
+        /// than a drag. Generous enough to tolerate hand shake on a trackpad.</summary>
+        private const float ClickDragTolerancePixels = 12f;
+
+        private bool _primaryDown;
+        private float _dragDistance;
+
         public System.Threading.Tasks.Task InitializeAsync()
         {
             BuildActionMap();
@@ -53,15 +60,46 @@ namespace HumanBodyExplorer.Input
             _map.AddAction("XRPinch", InputActionType.Button, "<XRController>/gripButton");
             _map.AddAction("XRTrigger", InputActionType.Button, "<XRController>/triggerButton");
 
-            _primaryClick.performed += ctx => OnPrimaryInteract?.Invoke(_pointerPosition.ReadValue<Vector2>());
+            // A left press starts a gesture that is only resolved on release: if the
+            // pointer barely moved it was a click (select), otherwise it was a drag
+            // (orbit). Previously selection fired on press, so every attempt to orbit
+            // the figure also selected a part - during a quiz that registered as an
+            // answer on every camera movement, which made the quiz unusable.
+            _primaryClick.started += _ =>
+            {
+                _primaryDown = true;
+                _dragDistance = 0f;
+            };
+
+            _primaryClick.canceled += _ =>
+            {
+                if (_primaryDown && _dragDistance <= ClickDragTolerancePixels)
+                {
+                    OnPrimaryInteract?.Invoke(_pointerPosition.ReadValue<Vector2>());
+                }
+                _primaryDown = false;
+            };
+
             _pointerDelta.performed += ctx =>
             {
+                Vector2 delta = ctx.ReadValue<Vector2>();
+                if (_primaryDown) _dragDistance += delta.magnitude;
+
                 if (_secondaryClick.IsPressed() || _primaryClick.IsPressed())
                 {
-                    OnOrbit?.Invoke(ctx.ReadValue<Vector2>());
+                    OnOrbit?.Invoke(delta);
                 }
             };
-            _scroll.performed += ctx => OnZoom?.Invoke(ctx.ReadValue<Vector2>().y);
+
+            _scroll.performed += ctx =>
+            {
+                // A mouse wheel reports about 120 per detent while a trackpad reports
+                // small continuous values. Normalise both to roughly one unit per
+                // notch so zoom speed does not depend on the pointing device.
+                float raw = ctx.ReadValue<Vector2>().y;
+                float normalized = Mathf.Abs(raw) > 1.5f ? raw / 120f : raw;
+                OnZoom?.Invoke(Mathf.Clamp(normalized, -3f, 3f));
+            };
         }
 
         public void Enable()

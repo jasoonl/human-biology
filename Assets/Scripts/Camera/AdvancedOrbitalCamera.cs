@@ -49,7 +49,11 @@ namespace HumanBodyExplorer.CameraSystem
 
         public void Zoom(float delta)
         {
-            _targetDistance = Mathf.Clamp(_targetDistance - delta * zoomSensitivity, minDistance, maxDistance);
+            // Scale the step by how far out we already are, so one notch covers a lot
+            // of ground when looking at the whole body and becomes fine-grained when
+            // inspecting a single organ. A fixed step feels broken at both ends.
+            float step = delta * zoomSensitivity * Mathf.Max(0.3f, _targetDistance);
+            _targetDistance = Mathf.Clamp(_targetDistance - step, minDistance, maxDistance);
         }
 
         public void SetZoomDistanceImmediate(float value)
