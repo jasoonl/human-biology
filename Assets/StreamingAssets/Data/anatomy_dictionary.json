@@ -36,7 +36,9 @@
     "connectedNodes": [
       "SYS_RESP_LUNG_L",
       "SYS_RESP_LUNG_R",
-      "SYS_CV_AORTA"
+      "SYS_CV_AORTA_ASC",
+      "SYS_CV_AORTA_DESC",
+      "SYS_CV_AORTA_ABD"
     ],
     "hasMicroDive": true,
     "microDiveKey": "Scene_Micro_Myocardium",
@@ -44,85 +46,6 @@
       "Lisinopril",
       "Metoprolol",
       "Aspirin"
-    ]
-  },
-  {
-    "entityID": "SYS_CV_AORTA",
-    "snomedCTCode": "15825003",
-    "icd10PathologyCodes": [
-      "I71.9"
-    ],
-    "latinName": "Aorta",
-    "commonName": "Aorta",
-    "systemCategory": [
-      "Cardiovascular"
-    ],
-    "descriptionProfessional": "The largest artery in the body, 2.5-3.5 cm in diameter, running from the aortic valve as ascending aorta, arch, descending thoracic aorta and abdominal aorta to its bifurcation at L4.",
-    "descriptionPatient": "The body's main pipe. Every drop of blood leaving the left side of your heart starts its journey here.",
-    "apBiologyFacts": [
-      "It is an elastic artery: its wall is packed with elastin so it balloons during systole and recoils during diastole. This 'Windkessel effect' converts the heart's pulsed output into continuous capillary flow and is what maintains diastolic blood pressure.",
-      "Three branches leave the arch: brachiocephalic trunk, left common carotid, left subclavian.",
-      "Arterial blood pressure is written systolic over diastolic; below 120/80 mmHg is normal."
-    ],
-    "clinicalNotes": [
-      "Abdominal aortic aneurysm is screened by ultrasound in men 65-75 who have ever smoked; rupture is rapidly fatal.",
-      "Aortic dissection classically presents as sudden tearing chest pain radiating to the back, with a blood-pressure differential between arms.",
-      "Coarctation produces upper-limb hypertension with weak, delayed femoral pulses (radio-femoral delay)."
-    ],
-    "boundsCenterOffset": {
-      "x": 0.0,
-      "y": 0.0,
-      "z": 0.0
-    },
-    "idealCameraDistance": 0.4,
-    "addressableMeshKey": "Mesh_Aorta_LOD0",
-    "audioTTSKey": "Audio_Aorta_Desc",
-    "connectedNodes": [],
-    "hasMicroDive": false,
-    "microDiveKey": "",
-    "pharmacologyTargets": [
-      "Labetalol"
-    ]
-  },
-  {
-    "entityID": "SYS_CV_VEIN",
-    "snomedCTCode": "29092000",
-    "icd10PathologyCodes": [
-      "I87.9"
-    ],
-    "latinName": "Vena",
-    "commonName": "Vein",
-    "systemCategory": [
-      "Cardiovascular"
-    ],
-    "descriptionProfessional": "A thin-walled, large-lumen capacitance vessel returning blood to the heart at low pressure, with one-way valves in the limbs.",
-    "descriptionPatient": "Veins are the tubes that carry blood back to your heart after your body has used up the oxygen.",
-    "apBiologyFacts": [
-      "Veins hold 60-70% of total blood volume at any moment, which is why they are called capacitance vessels.",
-      "Venous pressure is too low to return blood from the feet on its own. One-way valves plus the skeletal muscle pump (contracting calf muscles squeeze veins) and the respiratory pump drive venous return.",
-      "The pulmonary veins are the exception to the rule: they carry oxygenated blood from the lungs to the left atrium."
-    ],
-    "clinicalNotes": [
-      "Deep vein thrombosis arises from Virchow's triad: stasis, endothelial injury, and hypercoagulability - which is why long flights and immobility are risk factors.",
-      "Varicose veins result from incompetent valves allowing retrograde pooling.",
-      "The median cubital vein in the antecubital fossa is the standard site for venipuncture."
-    ],
-    "boundsCenterOffset": {
-      "x": 0.0,
-      "y": 0.0,
-      "z": 0.0
-    },
-    "idealCameraDistance": 0.25,
-    "addressableMeshKey": "Mesh_Vein_LOD0",
-    "audioTTSKey": "Audio_Vein_Desc",
-    "connectedNodes": [
-      "SYS_CV_HEART"
-    ],
-    "hasMicroDive": false,
-    "microDiveKey": "",
-    "pharmacologyTargets": [
-      "Heparin",
-      "Warfarin"
     ]
   },
   {
@@ -990,7 +913,8 @@
     "audioTTSKey": "Audio_Gastrocnemius_Desc",
     "connectedNodes": [
       "SYS_SK_TIBIA",
-      "SYS_CV_VEIN"
+      "SYS_CV_SVC",
+      "SYS_CV_IVC"
     ],
     "hasMicroDive": true,
     "microDiveKey": "Scene_Micro_Sarcomere",
@@ -1830,7 +1754,8 @@
     "audioTTSKey": "Audio_Soleus_Desc",
     "connectedNodes": [
       "SYS_MUSC_GASTROCNEMIUS",
-      "SYS_CV_VEIN"
+      "SYS_CV_SVC",
+      "SYS_CV_IVC"
     ],
     "hasMicroDive": true,
     "microDiveKey": "Scene_Micro_Sarcomere",
@@ -2064,7 +1989,9 @@
     "addressableMeshKey": "Mesh_Carotid_LOD0",
     "audioTTSKey": "Audio_Carotid_Desc",
     "connectedNodes": [
-      "SYS_CV_AORTA",
+      "SYS_CV_AORTA_ASC",
+      "SYS_CV_AORTA_DESC",
+      "SYS_CV_AORTA_ABD",
       "SYS_NERV_FRONTAL_LOBE",
       "SYS_NERV_PARIETAL_LOBE",
       "SYS_NERV_TEMPORAL_LOBE",
@@ -2184,49 +2111,12 @@
     "addressableMeshKey": "Mesh_SYS_CV_AORTIC_ARCH_LOD0",
     "audioTTSKey": "Audio_SYS_CV_AORTIC_ARCH_Desc",
     "connectedNodes": [
-      "SYS_CV_AORTA",
-      "SYS_CV_CORONARY"
-    ],
-    "hasMicroDive": false,
-    "microDiveKey": "",
-    "pharmacologyTargets": []
-  },
-  {
-    "entityID": "SYS_CV_CORONARY",
-    "snomedCTCode": "41801008",
-    "icd10PathologyCodes": [
-      "I25.10"
-    ],
-    "latinName": "Arteriae coronariae",
-    "commonName": "Coronary Arteries",
-    "systemCategory": [
-      "Cardiovascular"
-    ],
-    "descriptionProfessional": "The left and right coronary arteries, the first branches off the aorta, supplying the myocardium itself. The left splits into the anterior interventricular (LAD) and circumflex branches.",
-    "descriptionPatient": "The blood vessels that feed the heart muscle its own oxygen supply - separate from the blood the heart is pumping to the rest of the body.",
-    "apBiologyFacts": [
-      "They are the very first branches off the ascending aorta, arising just above the aortic valve cusps - the heart feeds itself before anything else gets blood.",
-      "Unlike most tissue, the myocardium extracts almost all the oxygen from coronary blood on a single pass, so it can't respond to higher demand by extracting more - it has to increase flow instead.",
-      "Most coronary flow to the left ventricle happens during diastole, not systole, because ventricular contraction squeezes the vessels running through the muscle shut.",
-      "The right coronary usually supplies the SA node and, in most people, the AV node too - which is why a right coronary occlusion often causes heart block, not just muscle damage."
-    ],
-    "clinicalNotes": [
-      "The left anterior descending (LAD) branch is nicknamed the 'widowmaker': it supplies most of the left ventricle's anterior wall and interventricular septum.",
-      "Atherosclerotic plaque narrowing these vessels causes angina (reversible ischemia) or, if a plaque ruptures and clots, a myocardial infarction (irreversible necrosis).",
-      "Coronary artery bypass grafting reroutes blood around a blockage, often using the patient's own great saphenous vein or internal thoracic artery.",
-      "Coronary angiography threads a catheter up the aorta to inject contrast directly into these vessels - the gold-standard way to see a blockage."
-    ],
-    "boundsCenterOffset": {
-      "x": 0,
-      "y": 0,
-      "z": 0
-    },
-    "idealCameraDistance": 0.35,
-    "addressableMeshKey": "Mesh_SYS_CV_CORONARY_LOD0",
-    "audioTTSKey": "Audio_SYS_CV_CORONARY_Desc",
-    "connectedNodes": [
-      "SYS_CV_HEART",
-      "SYS_CV_AORTIC_ARCH"
+      "SYS_CV_AORTA_ASC",
+      "SYS_CV_AORTA_DESC",
+      "SYS_CV_AORTA_ABD",
+      "SYS_CV_CORONARY_LAD",
+      "SYS_CV_CORONARY_RCA",
+      "SYS_CV_CORONARY_CX"
     ],
     "hasMicroDive": false,
     "microDiveKey": "",
@@ -2506,7 +2396,8 @@
     "connectedNodes": [
       "SYS_REN_KIDNEY_L",
       "SYS_REN_KIDNEY_R",
-      "SYS_CV_VEIN"
+      "SYS_CV_SVC",
+      "SYS_CV_IVC"
     ],
     "hasMicroDive": false,
     "microDiveKey": "",
@@ -2826,7 +2717,9 @@
     "addressableMeshKey": "Mesh_SYS_CV_ILIAC_LOD0",
     "audioTTSKey": "Audio_SYS_CV_ILIAC_Desc",
     "connectedNodes": [
-      "SYS_CV_AORTA",
+      "SYS_CV_AORTA_ASC",
+      "SYS_CV_AORTA_DESC",
+      "SYS_CV_AORTA_ABD",
       "SYS_CV_FEMORAL"
     ],
     "hasMicroDive": false,
@@ -3004,7 +2897,8 @@
     "addressableMeshKey": "Mesh_SYS_CV_ILIAC_VEIN_LOD0",
     "audioTTSKey": "Audio_SYS_CV_ILIAC_VEIN_Desc",
     "connectedNodes": [
-      "SYS_CV_VEIN",
+      "SYS_CV_SVC",
+      "SYS_CV_IVC",
       "SYS_CV_FEMORAL_VEIN"
     ],
     "hasMicroDive": false,
@@ -7330,7 +7224,9 @@
     "audioTTSKey": "Audio_LeftVentricle_Desc",
     "connectedNodes": [
       "SYS_CV_HEART",
-      "SYS_CV_AORTA"
+      "SYS_CV_AORTA_ASC",
+      "SYS_CV_AORTA_DESC",
+      "SYS_CV_AORTA_ABD"
     ],
     "hasMicroDive": true,
     "microDiveKey": "Scene_Micro_Myocardium",
@@ -7413,7 +7309,8 @@
     "connectedNodes": [
       "SYS_CV_HEART",
       "SYS_CV_HEART_RV",
-      "SYS_CV_VEIN"
+      "SYS_CV_SVC",
+      "SYS_CV_IVC"
     ],
     "hasMicroDive": false,
     "microDiveKey": "",
@@ -8537,6 +8434,3253 @@
     "connectedNodes": [
       "SYS_LYMPH_SPLEEN",
       "SYS_LYMPH_THYMUS"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_CV_AORTA_ASC",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "I71.0",
+      "I71.2"
+    ],
+    "latinName": "Aorta ascendens",
+    "commonName": "Ascending Aorta",
+    "systemCategory": [
+      "Cardiovascular"
+    ],
+    "descriptionProfessional": "The first 5 cm of the aorta, rising from the aortic valve of the left ventricle inside the pericardium. Its only branches are the two coronary arteries, which arise from the aortic sinuses just above the valve cusps.",
+    "descriptionPatient": "The start of the body's largest artery, rising out of the top of the heart. It carries freshly oxygenated blood and feeds the heart muscle itself first.",
+    "apBiologyFacts": [
+      "The coronary arteries are the ascending aorta's only branches, so the heart is the first organ to be supplied with oxygenated blood - it does not wait its turn.",
+      "The aorta's elastic wall stretches with each ventricular beat and recoils during diastole (the Windkessel effect), converting pulsatile ejection into smoother flow downstream."
+    ],
+    "clinicalNotes": [
+      "Aortic root dilatation occurs in Marfan syndrome and can lead to dissection or aortic valve regurgitation.",
+      "A type A aortic dissection involves the ascending aorta and is a surgical emergency."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.3,
+    "addressableMeshKey": "Mesh_SYS_CV_AORTA_ASC_LOD0",
+    "audioTTSKey": "Audio_SYS_CV_AORTA_ASC_Desc",
+    "connectedNodes": [
+      "SYS_CV_AORTIC_ARCH",
+      "SYS_CV_HEART_LV",
+      "SYS_CV_CORONARY_LAD",
+      "SYS_CV_CORONARY_RCA"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_CV_AORTA_DESC",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "I71.2",
+      "I71.0"
+    ],
+    "latinName": "Aorta thoracica descendens",
+    "commonName": "Descending Thoracic Aorta",
+    "systemCategory": [
+      "Cardiovascular"
+    ],
+    "descriptionProfessional": "The continuation of the aortic arch from the level of T4 to the aortic hiatus of the diaphragm at T12, lying on the left front of the vertebral column. It gives off the posterior intercostal, bronchial, oesophageal and subcostal arteries.",
+    "descriptionPatient": "The part of the aorta that runs down the chest beside the spine, sending small branches to the ribs, lungs and gullet.",
+    "apBiologyFacts": [
+      "The aorta moves from the midline at its root to the left of the spine in the chest and back toward the midline at the diaphragm - a reminder that the thoracic organs are not left-right symmetric.",
+      "Nine pairs of posterior intercostal arteries arise from its back, one for each intercostal space from the third downward."
+    ],
+    "clinicalNotes": [
+      "Thoracic aortic aneurysms are often silent until they rupture; blood pressure control and imaging surveillance are the mainstay of care.",
+      "A type B dissection begins beyond the left subclavian artery and is usually managed medically unless complicated."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.45,
+    "addressableMeshKey": "Mesh_SYS_CV_AORTA_DESC_LOD0",
+    "audioTTSKey": "Audio_SYS_CV_AORTA_DESC_Desc",
+    "connectedNodes": [
+      "SYS_CV_AORTIC_ARCH",
+      "SYS_CV_AORTA_ABD",
+      "SYS_CV_INTERCOSTAL_ARTERY",
+      "SYS_DIG_ESOPHAGUS"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_CV_AORTA_ABD",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "I71.3",
+      "I71.4",
+      "I74.0"
+    ],
+    "latinName": "Aorta abdominalis",
+    "commonName": "Abdominal Aorta",
+    "systemCategory": [
+      "Cardiovascular"
+    ],
+    "descriptionProfessional": "The aorta below the diaphragm, running down the front of the lumbar vertebrae to its bifurcation into the common iliac arteries at L4. Its unpaired branches are the celiac trunk (T12), superior mesenteric (L1) and inferior mesenteric (L3) arteries; the paired renal arteries arise at L1-L2.",
+    "descriptionPatient": "The part of the aorta in your belly. It hands out blood to the stomach, liver, intestines and kidneys before splitting to supply the legs.",
+    "apBiologyFacts": [
+      "The abdominal aorta lies slightly left of midline, with the inferior vena cava to its right - the pulse felt above the navel is this vessel.",
+      "Its calibre falls from about 2 cm at the diaphragm to about 1.5 cm at the bifurcation as its branches take blood away."
+    ],
+    "clinicalNotes": [
+      "An abdominal aortic aneurysm (over 3 cm) is screened for by ultrasound in older men; rupture is often fatal.",
+      "Atherosclerotic occlusion at the bifurcation causes Leriche syndrome: buttock claudication and erectile dysfunction."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.45,
+    "addressableMeshKey": "Mesh_SYS_CV_AORTA_ABD_LOD0",
+    "audioTTSKey": "Audio_SYS_CV_AORTA_ABD_Desc",
+    "connectedNodes": [
+      "SYS_CV_AORTA_DESC",
+      "SYS_CV_CELIAC",
+      "SYS_CV_SMA",
+      "SYS_CV_IMA",
+      "SYS_CV_RENAL_ARTERY",
+      "SYS_CV_ILIAC",
+      "SYS_CV_IVC"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_CV_BRACHIOCEPHALIC",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "I65.8",
+      "I70.8"
+    ],
+    "latinName": "Truncus brachiocephalicus",
+    "commonName": "Brachiocephalic Trunk",
+    "systemCategory": [
+      "Cardiovascular"
+    ],
+    "descriptionProfessional": "The first and largest branch of the aortic arch, about 4 cm long, which passes up and to the right and divides behind the right sternoclavicular joint into the right common carotid and right subclavian arteries. There is no left counterpart.",
+    "descriptionPatient": "A short, wide artery off the top of the aorta that quickly splits to send blood to the right arm and the right side of the head and neck.",
+    "apBiologyFacts": [
+      "Only the right side has a brachiocephalic trunk: on the left, the carotid and subclavian arteries leave the arch separately - an asymmetry from how the embryonic aortic arches remodel.",
+      "It is the first place a stroke-causing embolus from the heart or aorta can be diverted to the right brain or arm."
+    ],
+    "clinicalNotes": [
+      "Brachiocephalic artery stenosis can cause differences in blood pressure between the arms.",
+      "The innominate artery can be compressed against the trachea in infants, causing stridor."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.3,
+    "addressableMeshKey": "Mesh_SYS_CV_BRACHIOCEPHALIC_LOD0",
+    "audioTTSKey": "Audio_SYS_CV_BRACHIOCEPHALIC_Desc",
+    "connectedNodes": [
+      "SYS_CV_AORTIC_ARCH",
+      "SYS_CV_CAROTID",
+      "SYS_CV_SUBCLAVIAN"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_CV_CAROTID_EXT",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "I72.0",
+      "M31.6"
+    ],
+    "latinName": "Arteria carotis externa",
+    "commonName": "External Carotid Artery",
+    "systemCategory": [
+      "Cardiovascular"
+    ],
+    "descriptionProfessional": "The branch of the common carotid that supplies the face, scalp, jaws and neck. It begins at the upper border of the thyroid cartilage (C4) and gives off the superior thyroid, lingual, facial, occipital, posterior auricular, ascending pharyngeal, maxillary and superficial temporal arteries.",
+    "descriptionPatient": "The artery that feeds your face, scalp, tongue and jaw. You can feel its pulse just in front of your ear.",
+    "apBiologyFacts": [
+      "Unlike the internal carotid, the external carotid has many branches in the neck - one way to tell them apart on an angiogram.",
+      "The two carotids connect through the facial and ophthalmic arteries, so the face and the brain share a back-up route."
+    ],
+    "clinicalNotes": [
+      "Ligation of the external carotid can control severe nosebleeds (epistaxis) via its maxillary branch.",
+      "Giant cell arteritis inflames the superficial temporal branch, causing headache and risk of blindness."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.3,
+    "addressableMeshKey": "Mesh_SYS_CV_CAROTID_EXT_LOD0",
+    "audioTTSKey": "Audio_SYS_CV_CAROTID_EXT_Desc",
+    "connectedNodes": [
+      "SYS_CV_CAROTID",
+      "SYS_CV_CAROTID_INT",
+      "SYS_CV_FACIAL_ARTERY",
+      "SYS_CV_TEMPORAL_ARTERY",
+      "SYS_CV_THYROID_ARTERY"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_CV_CAROTID_INT",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "I65.2",
+      "I63.0",
+      "G45.3"
+    ],
+    "latinName": "Arteria carotis interna",
+    "commonName": "Internal Carotid Artery",
+    "systemCategory": [
+      "Cardiovascular"
+    ],
+    "descriptionProfessional": "The continuation of the common carotid that carries blood to the brain and eye. It has no branches in the neck, enters the skull through the carotid canal of the temporal bone, passes through the cavernous sinus and ends by dividing into the anterior and middle cerebral arteries, giving off the ophthalmic artery on the way.",
+    "descriptionPatient": "One of the two main routes by which blood reaches the front of the brain. It runs up the neck without any branches until it enters the skull.",
+    "apBiologyFacts": [
+      "The internal carotid and vertebral systems meet in the circle of Willis, so the brain keeps a supply if one main artery is blocked.",
+      "The carotid sinus at its origin holds baroreceptors that sense arterial pressure and signal through the glossopharyngeal nerve."
+    ],
+    "clinicalNotes": [
+      "Carotid stenosis from atherosclerotic plaque is a major cause of ischemic stroke and can be treated by endarterectomy or stenting.",
+      "Amaurosis fugax - transient loss of vision in one eye - can signal emboli passing through the ophthalmic branch."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.3,
+    "addressableMeshKey": "Mesh_SYS_CV_CAROTID_INT_LOD0",
+    "audioTTSKey": "Audio_SYS_CV_CAROTID_INT_Desc",
+    "connectedNodes": [
+      "SYS_CV_CAROTID",
+      "SYS_CV_CAROTID_EXT",
+      "SYS_CV_CIRCLE_OF_WILLIS",
+      "SYS_CV_ACA",
+      "SYS_CV_MCA"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_CV_THYROID_ARTERY",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "E05.0"
+    ],
+    "latinName": "Arteria thyroidea superior",
+    "commonName": "Superior Thyroid Artery",
+    "systemCategory": [
+      "Cardiovascular"
+    ],
+    "descriptionProfessional": "The first anterior branch of the external carotid, running down to the upper pole of the thyroid gland. The inferior thyroid artery, from the thyrocervical trunk, supplies the lower pole; the two anastomose within the gland.",
+    "descriptionPatient": "A small artery that supplies the top of the thyroid gland in your neck.",
+    "apBiologyFacts": [
+      "The thyroid is one of the most vascular organs in the body, receiving more blood per gram than the kidney.",
+      "The superior and inferior thyroid arteries link the external carotid and subclavian systems."
+    ],
+    "clinicalNotes": [
+      "Surgeons ligate the superior thyroid artery close to the gland to spare the external branch of the superior laryngeal nerve during thyroidectomy.",
+      "Thyroid hormone excess in Graves disease produces a bruit over the gland from its increased blood flow."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.25,
+    "addressableMeshKey": "Mesh_SYS_CV_THYROID_ARTERY_LOD0",
+    "audioTTSKey": "Audio_SYS_CV_THYROID_ARTERY_Desc",
+    "connectedNodes": [
+      "SYS_CV_CAROTID_EXT",
+      "SYS_ENDO_THYROID"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_CV_FACIAL_ARTERY",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "I72.0"
+    ],
+    "latinName": "Arteria facialis",
+    "commonName": "Facial Artery",
+    "systemCategory": [
+      "Cardiovascular"
+    ],
+    "descriptionProfessional": "A branch of the external carotid that emerges over the lower border of the mandible at the anterior edge of the masseter, then runs tortuously up the face beside the mouth and nose to the medial corner of the eye. It gives off the superior and inferior labial arteries.",
+    "descriptionPatient": "The artery you can feel pulsing on the edge of your jaw. It runs up your cheek beside the mouth and nose.",
+    "apBiologyFacts": [
+      "It is one of the few arteries whose pulse can be palpated on the face, at the mandible in front of the masseter.",
+      "Its twisting course allows the cheek and lips to move without stretching the vessel."
+    ],
+    "clinicalNotes": [
+      "The facial artery is commonly cut in facial lacerations and bleeds freely.",
+      "Its labial branches are at risk from filler injection, which can cause skin necrosis."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.25,
+    "addressableMeshKey": "Mesh_SYS_CV_FACIAL_ARTERY_LOD0",
+    "audioTTSKey": "Audio_SYS_CV_FACIAL_ARTERY_Desc",
+    "connectedNodes": [
+      "SYS_CV_CAROTID_EXT",
+      "SYS_CV_TEMPORAL_ARTERY"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_CV_TEMPORAL_ARTERY",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "M31.6",
+      "M31.5"
+    ],
+    "latinName": "Arteria temporalis superficialis",
+    "commonName": "Superficial Temporal Artery",
+    "systemCategory": [
+      "Cardiovascular"
+    ],
+    "descriptionProfessional": "The smaller terminal branch of the external carotid, ascending in front of the ear (its pulse is felt against the zygomatic arch) and dividing into frontal and parietal branches that supply the scalp.",
+    "descriptionPatient": "The artery you can feel at your temple. It supplies the skin and muscles of the scalp.",
+    "apBiologyFacts": [
+      "Its pulse at the temple is a standard bedside pulse point, used in anaesthesia when the wrist is not accessible.",
+      "Scalp arteries anastomose freely, which is why scalp wounds bleed heavily but heal well."
+    ],
+    "clinicalNotes": [
+      "Giant cell (temporal) arteritis causes new headache, scalp tenderness and jaw claudication and is treated urgently with steroids to prevent blindness.",
+      "Temporal artery biopsy is the standard test for giant cell arteritis."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.3,
+    "addressableMeshKey": "Mesh_SYS_CV_TEMPORAL_ARTERY_LOD0",
+    "audioTTSKey": "Audio_SYS_CV_TEMPORAL_ARTERY_Desc",
+    "connectedNodes": [
+      "SYS_CV_CAROTID_EXT",
+      "SYS_CV_FACIAL_ARTERY"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_CV_VERTEBRAL",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "I65.0",
+      "I63.0",
+      "G45.0"
+    ],
+    "latinName": "Arteria vertebralis",
+    "commonName": "Vertebral Artery",
+    "systemCategory": [
+      "Cardiovascular"
+    ],
+    "descriptionProfessional": "A branch of the subclavian artery that ascends through the transverse foramina of C6 to C1, loops behind the atlas and enters the skull through the foramen magnum. The two vertebral arteries join at the pontomedullary junction to form the basilar artery.",
+    "descriptionPatient": "A pair of arteries that climb through holes in your neck vertebrae to carry blood to the back of the brain.",
+    "apBiologyFacts": [
+      "The vertebral arteries are the only arteries that run through bone tunnels for most of their course.",
+      "Together with the basilar artery they supply the brainstem, cerebellum and the back of the cerebrum - the 'posterior circulation'."
+    ],
+    "clinicalNotes": [
+      "Vertebral artery dissection after neck trauma or chiropractic manipulation can cause stroke in young adults.",
+      "Vertebrobasilar insufficiency causes dizziness, double vision and drop attacks."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.3,
+    "addressableMeshKey": "Mesh_SYS_CV_VERTEBRAL_LOD0",
+    "audioTTSKey": "Audio_SYS_CV_VERTEBRAL_Desc",
+    "connectedNodes": [
+      "SYS_CV_SUBCLAVIAN",
+      "SYS_CV_BASILAR"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_CV_BASILAR",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "I65.1",
+      "I63.0"
+    ],
+    "latinName": "Arteria basilaris",
+    "commonName": "Basilar Artery",
+    "systemCategory": [
+      "Cardiovascular"
+    ],
+    "descriptionProfessional": "A single midline artery formed by the union of the two vertebral arteries, running up the front of the pons to divide into the two posterior cerebral arteries. It gives off pontine, labyrinthine and cerebellar branches.",
+    "descriptionPatient": "A single artery on the front of the brainstem that supplies the brainstem and cerebellum.",
+    "apBiologyFacts": [
+      "Nearly all of the brainstem's blood passes through this one vessel, which is why its blockage is so devastating.",
+      "It forms the back of the circle of Willis, joining the carotid system through the posterior communicating arteries."
+    ],
+    "clinicalNotes": [
+      "Basilar artery occlusion can cause locked-in syndrome, in which a patient is conscious but can move only the eyes.",
+      "A basilar tip aneurysm is a difficult site for surgical or endovascular repair."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.2,
+    "addressableMeshKey": "Mesh_SYS_CV_BASILAR_LOD0",
+    "audioTTSKey": "Audio_SYS_CV_BASILAR_Desc",
+    "connectedNodes": [
+      "SYS_CV_VERTEBRAL",
+      "SYS_CV_PCA",
+      "SYS_NERV_PONS",
+      "SYS_CV_CIRCLE_OF_WILLIS"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_CV_CIRCLE_OF_WILLIS",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "I67.1",
+      "I60.0",
+      "I60.7"
+    ],
+    "latinName": "Circulus arteriosus cerebri",
+    "commonName": "Circle of Willis (Communicating Arteries)",
+    "systemCategory": [
+      "Cardiovascular"
+    ],
+    "descriptionProfessional": "The anastomotic ring at the base of the brain formed by the anterior communicating artery joining the two anterior cerebral arteries and the posterior communicating arteries joining each internal carotid to the posterior cerebral arteries. It links the carotid and vertebrobasilar systems.",
+    "descriptionPatient": "A ring of small arteries under the brain that lets blood flow around a blockage, so the brain has a back-up supply.",
+    "apBiologyFacts": [
+      "A textbook-complete ring is present in only about a quarter to a third of people; many have one or more small or absent segments.",
+      "It is a classic example of collateral circulation - a redundant network that protects a vital organ."
+    ],
+    "clinicalNotes": [
+      "Berry aneurysms most often form at the junctions of the circle, especially the anterior communicating artery; rupture causes subarachnoid haemorrhage.",
+      "An intact circle may compensate for carotid occlusion; an incomplete one increases stroke risk."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.2,
+    "addressableMeshKey": "Mesh_SYS_CV_CIRCLE_OF_WILLIS_LOD0",
+    "audioTTSKey": "Audio_SYS_CV_CIRCLE_OF_WILLIS_Desc",
+    "connectedNodes": [
+      "SYS_CV_CAROTID_INT",
+      "SYS_CV_BASILAR",
+      "SYS_CV_ACA",
+      "SYS_CV_MCA",
+      "SYS_CV_PCA"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_CV_ACA",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "I63.5",
+      "I66.1"
+    ],
+    "latinName": "Arteria cerebri anterior",
+    "commonName": "Anterior Cerebral Artery",
+    "systemCategory": [
+      "Cardiovascular"
+    ],
+    "descriptionProfessional": "A terminal branch of the internal carotid that runs forward and then arches back over the corpus callosum as the pericallosal artery, supplying the medial surfaces of the frontal and parietal lobes, including the leg area of the motor and sensory cortex.",
+    "descriptionPatient": "An artery that supplies the inner surfaces of the front of the brain, including the part that controls your legs.",
+    "apBiologyFacts": [
+      "The cortical homunculus explains the pattern of deficits: the leg area lies on the medial surface in the territory of the anterior cerebral artery.",
+      "The two anterior cerebral arteries are joined by the short anterior communicating artery."
+    ],
+    "clinicalNotes": [
+      "Anterior cerebral artery stroke typically causes weakness and sensory loss in the opposite leg more than the arm, with abulia (loss of initiative).",
+      "Aneurysms at the anterior communicating junction are among the most common berry aneurysms."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.25,
+    "addressableMeshKey": "Mesh_SYS_CV_ACA_LOD0",
+    "audioTTSKey": "Audio_SYS_CV_ACA_Desc",
+    "connectedNodes": [
+      "SYS_CV_CAROTID_INT",
+      "SYS_CV_CIRCLE_OF_WILLIS",
+      "SYS_NERV_FRONTAL_LOBE"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_CV_MCA",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "I63.5",
+      "I66.0"
+    ],
+    "latinName": "Arteria cerebri media",
+    "commonName": "Middle Cerebral Artery",
+    "systemCategory": [
+      "Cardiovascular"
+    ],
+    "descriptionProfessional": "The largest terminal branch of the internal carotid, running laterally in the lateral sulcus and supplying most of the lateral surface of the cerebral hemisphere, including the primary motor and sensory cortex for the face and arm and, in the dominant hemisphere, Broca's and Wernicke's language areas.",
+    "descriptionPatient": "The biggest brain artery. It supplies the side of the brain that controls the face and arm and, on the left in most people, speech.",
+    "apBiologyFacts": [
+      "It is the most common site of ischemic stroke, because it carries most of the carotid's flow and is the natural route for emboli.",
+      "Small lenticulostriate branches arise from its beginning and supply the basal ganglia and internal capsule."
+    ],
+    "clinicalNotes": [
+      "Middle cerebral artery stroke causes contralateral face and arm weakness, sensory loss and, on the dominant side, aphasia.",
+      "A hyperdense MCA sign on CT shows a clot within the vessel."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.25,
+    "addressableMeshKey": "Mesh_SYS_CV_MCA_LOD0",
+    "audioTTSKey": "Audio_SYS_CV_MCA_Desc",
+    "connectedNodes": [
+      "SYS_CV_CAROTID_INT",
+      "SYS_CV_CIRCLE_OF_WILLIS",
+      "SYS_NERV_TEMPORAL_LOBE",
+      "SYS_NERV_FRONTAL_LOBE"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_CV_PCA",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "I63.5",
+      "I66.2",
+      "H53.4"
+    ],
+    "latinName": "Arteria cerebri posterior",
+    "commonName": "Posterior Cerebral Artery",
+    "systemCategory": [
+      "Cardiovascular"
+    ],
+    "descriptionProfessional": "The terminal branch of the basilar artery, curving round the midbrain to supply the occipital lobe (visual cortex), the inferior temporal lobe and parts of the thalamus. The posterior communicating artery links it to the internal carotid.",
+    "descriptionPatient": "An artery at the back of the brain that supplies the area used for vision.",
+    "apBiologyFacts": [
+      "It forms part of the circle of Willis and is where the vertebrobasilar circulation meets the carotid system.",
+      "The visual cortex on the medial occipital lobe is supplied by its calcarine branch."
+    ],
+    "clinicalNotes": [
+      "Posterior cerebral artery stroke causes a contralateral homonymous hemianopia, often with macular sparing.",
+      "The oculomotor nerve passes between the posterior cerebral and superior cerebellar arteries and can be compressed by aneurysms here."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.25,
+    "addressableMeshKey": "Mesh_SYS_CV_PCA_LOD0",
+    "audioTTSKey": "Audio_SYS_CV_PCA_Desc",
+    "connectedNodes": [
+      "SYS_CV_BASILAR",
+      "SYS_CV_CIRCLE_OF_WILLIS",
+      "SYS_NERV_OCCIPITAL_LOBE"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_CV_CORONARY_LAD",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "I25.1",
+      "I21.0"
+    ],
+    "latinName": "Arteria coronaria sinistra, ramus interventricularis anterior",
+    "commonName": "Left Anterior Descending (LAD) Coronary Artery",
+    "systemCategory": [
+      "Cardiovascular"
+    ],
+    "descriptionProfessional": "A branch of the left coronary artery running in the anterior interventricular groove to the apex of the heart. It supplies the anterior wall of the left ventricle, most of the interventricular septum and the apex.",
+    "descriptionPatient": "The artery running down the front of the heart that feeds the main pumping chamber. Doctors call a blockage here the 'widowmaker'.",
+    "apBiologyFacts": [
+      "It supplies more left ventricular muscle than any other coronary branch, so its occlusion is the most dangerous.",
+      "Coronary arteries fill during diastole, when the ventricular wall relaxes and no longer compresses them."
+    ],
+    "clinicalNotes": [
+      "Proximal LAD occlusion causes a large anterior myocardial infarction.",
+      "The left internal thoracic artery is the preferred graft to bypass the LAD."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.2,
+    "addressableMeshKey": "Mesh_SYS_CV_CORONARY_LAD_LOD0",
+    "audioTTSKey": "Audio_SYS_CV_CORONARY_LAD_Desc",
+    "connectedNodes": [
+      "SYS_CV_AORTA_ASC",
+      "SYS_CV_CORONARY_CX",
+      "SYS_CV_HEART_LV",
+      "SYS_CV_HEART_RV"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_CV_CORONARY_CX",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "I25.1",
+      "I21.2"
+    ],
+    "latinName": "Arteria coronaria sinistra, ramus circumflexus",
+    "commonName": "Circumflex Coronary Artery",
+    "systemCategory": [
+      "Cardiovascular"
+    ],
+    "descriptionProfessional": "The other branch of the left coronary artery, running in the left atrioventricular groove round the left border of the heart. It supplies the lateral and posterior left ventricle and the left atrium, and in a minority of people the posterior descending artery.",
+    "descriptionPatient": "An artery that wraps around the left side of the heart, feeding the side and back of the left ventricle.",
+    "apBiologyFacts": [
+      "Coronary dominance is defined by which artery gives rise to the posterior descending artery - the right in about 70 per cent of people.",
+      "Its obtuse marginal branches are targets for bypass grafts."
+    ],
+    "clinicalNotes": [
+      "Circumflex occlusion causes a lateral wall infarction, which is easy to miss on a standard ECG.",
+      "It can be compressed by a dilated left atrium or injured during mitral valve surgery."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.2,
+    "addressableMeshKey": "Mesh_SYS_CV_CORONARY_CX_LOD0",
+    "audioTTSKey": "Audio_SYS_CV_CORONARY_CX_Desc",
+    "connectedNodes": [
+      "SYS_CV_CORONARY_LAD",
+      "SYS_CV_HEART_LV",
+      "SYS_CV_HEART_LA"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_CV_CORONARY_RCA",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "I25.1",
+      "I21.1"
+    ],
+    "latinName": "Arteria coronaria dextra",
+    "commonName": "Right Coronary Artery",
+    "systemCategory": [
+      "Cardiovascular"
+    ],
+    "descriptionProfessional": "Arises from the right aortic sinus and runs in the right atrioventricular groove, supplying the right atrium and ventricle, the sinoatrial node (in about 60 per cent) and the atrioventricular node (in about 90 per cent). In right-dominant hearts it gives the posterior descending artery.",
+    "descriptionPatient": "The artery on the right side of the heart. It supplies the right chambers and the heart's natural pacemaker.",
+    "apBiologyFacts": [
+      "Because the RCA usually supplies both the SA and AV nodes, its blockage often causes slow heart rhythms or heart block.",
+      "Right-dominant circulation is the most common pattern, present in about 70 per cent of people."
+    ],
+    "clinicalNotes": [
+      "Inferior myocardial infarction from RCA occlusion may be complicated by bradycardia and right ventricular infarction, in which nitrates can drop blood pressure dangerously.",
+      "Coronary angiography assesses RCA stenosis before stenting or bypass."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.2,
+    "addressableMeshKey": "Mesh_SYS_CV_CORONARY_RCA_LOD0",
+    "audioTTSKey": "Audio_SYS_CV_CORONARY_RCA_Desc",
+    "connectedNodes": [
+      "SYS_CV_AORTA_ASC",
+      "SYS_CV_HEART_RA",
+      "SYS_CV_HEART_RV"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_CV_CARDIAC_VEIN",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "I25.1"
+    ],
+    "latinName": "Vena cardiaca magna et sinus coronarius",
+    "commonName": "Great Cardiac Vein and Coronary Sinus",
+    "systemCategory": [
+      "Cardiovascular"
+    ],
+    "descriptionProfessional": "The great cardiac vein ascends beside the anterior interventricular artery, turns round the left border of the heart in the coronary groove and becomes the coronary sinus, which drains most of the heart's venous blood into the right atrium.",
+    "descriptionPatient": "The vein that collects used blood from the heart's own muscle and empties it into the right atrium.",
+    "apBiologyFacts": [
+      "Unlike other organs, most cardiac venous blood does not go through a named vein into the vena cava but through the coronary sinus directly into the right atrium.",
+      "The heart extracts about 70 per cent of the oxygen delivered to it, more than any other organ at rest."
+    ],
+    "clinicalNotes": [
+      "The coronary sinus is used to place a left ventricular pacing lead in cardiac resynchronisation therapy.",
+      "Retrograde delivery of cardioplegia through the coronary sinus protects the heart during surgery."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.2,
+    "addressableMeshKey": "Mesh_SYS_CV_CARDIAC_VEIN_LOD0",
+    "audioTTSKey": "Audio_SYS_CV_CARDIAC_VEIN_Desc",
+    "connectedNodes": [
+      "SYS_CV_CORONARY_LAD",
+      "SYS_CV_HEART_RA",
+      "SYS_CV_HEART_LV"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_CV_INTERNAL_THORACIC",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "I25.1",
+      "Q25.1"
+    ],
+    "latinName": "Arteria thoracica interna",
+    "commonName": "Internal Thoracic (Mammary) Artery",
+    "systemCategory": [
+      "Cardiovascular"
+    ],
+    "descriptionProfessional": "A branch of the subclavian artery that runs down behind the costal cartilages about 1 cm lateral to the sternum, giving anterior intercostal branches and ending by dividing into the musculophrenic and superior epigastric arteries.",
+    "descriptionPatient": "An artery running down the inside of your chest wall beside the breastbone. Surgeons use it to bypass blocked heart arteries.",
+    "apBiologyFacts": [
+      "Its long-term patency as a bypass graft (over 90 per cent at ten years) is far better than that of vein grafts.",
+      "It links the subclavian and external iliac systems via the superior and inferior epigastric arteries - a collateral route round an aortic coarctation."
+    ],
+    "clinicalNotes": [
+      "The left internal thoracic artery is the graft of choice for the LAD in coronary artery bypass surgery.",
+      "In coarctation of the aorta, enlarged intercostal arteries produce rib notching on chest X-ray."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.35,
+    "addressableMeshKey": "Mesh_SYS_CV_INTERNAL_THORACIC_LOD0",
+    "audioTTSKey": "Audio_SYS_CV_INTERNAL_THORACIC_Desc",
+    "connectedNodes": [
+      "SYS_CV_SUBCLAVIAN",
+      "SYS_CV_CORONARY_LAD",
+      "SYS_SK_STERNUM"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_CV_INTERCOSTAL_ARTERY",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "S25.5"
+    ],
+    "latinName": "Arteriae intercostales posteriores",
+    "commonName": "Posterior Intercostal Arteries",
+    "systemCategory": [
+      "Cardiovascular"
+    ],
+    "descriptionProfessional": "Paired branches of the descending thoracic aorta (and the supreme intercostal artery for the first two spaces) that run along the lower border of each rib in the costal groove between the vein above and the nerve below, anastomosing in front with the anterior intercostal arteries.",
+    "descriptionPatient": "Small arteries that run along the underside of each rib, supplying the muscles and skin of the chest wall.",
+    "apBiologyFacts": [
+      "Each intercostal space carries a neurovascular bundle in the order vein, artery, nerve from top to bottom, tucked under the rib above.",
+      "Because they arise directly from the aorta, they are high-pressure vessels."
+    ],
+    "clinicalNotes": [
+      "Chest tubes are inserted just above a rib to avoid the intercostal bundle beneath the rib above.",
+      "Intercostal artery injury during thoracentesis can cause massive haemothorax."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.45,
+    "addressableMeshKey": "Mesh_SYS_CV_INTERCOSTAL_ARTERY_LOD0",
+    "audioTTSKey": "Audio_SYS_CV_INTERCOSTAL_ARTERY_Desc",
+    "connectedNodes": [
+      "SYS_CV_AORTA_DESC",
+      "SYS_CV_INTERNAL_THORACIC",
+      "SYS_NERV_INTERCOSTAL",
+      "SYS_SK_RIB_TRUE"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_CV_HEPATIC_ARTERY",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "I74.8",
+      "I72.8"
+    ],
+    "latinName": "Arteria hepatica communis et propria",
+    "commonName": "Hepatic Artery",
+    "systemCategory": [
+      "Cardiovascular"
+    ],
+    "descriptionProfessional": "The common hepatic artery, a branch of the celiac trunk, gives the gastroduodenal artery and continues as the proper hepatic artery to the liver hilum, where it divides into right and left branches. It supplies about a quarter of the liver's blood flow but roughly half of its oxygen.",
+    "descriptionPatient": "The artery that brings oxygen-rich blood to the liver. The liver also gets blood from the portal vein.",
+    "apBiologyFacts": [
+      "The liver has a dual blood supply: the hepatic artery for oxygen and the portal vein for nutrients absorbed from the gut.",
+      "The right hepatic artery gives the cystic artery to the gallbladder."
+    ],
+    "clinicalNotes": [
+      "Hepatic artery thrombosis is a serious early complication after liver transplantation.",
+      "Aberrant hepatic arteries from the superior mesenteric or left gastric arteries are common and important for surgeons to identify."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.3,
+    "addressableMeshKey": "Mesh_SYS_CV_HEPATIC_ARTERY_LOD0",
+    "audioTTSKey": "Audio_SYS_CV_HEPATIC_ARTERY_Desc",
+    "connectedNodes": [
+      "SYS_CV_CELIAC",
+      "SYS_DIG_LIVER",
+      "SYS_CV_PORTAL_VEIN",
+      "SYS_DIG_GALLBLADDER"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_CV_GASTRIC_ARTERY",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "K25.4",
+      "K92.2"
+    ],
+    "latinName": "Arteria gastrica sinistra",
+    "commonName": "Left Gastric Artery",
+    "systemCategory": [
+      "Cardiovascular"
+    ],
+    "descriptionProfessional": "The smallest branch of the celiac trunk, ascending to the gastro-oesophageal junction and then running along the lesser curvature of the stomach to anastomose with the right gastric artery. It also supplies the lower oesophagus.",
+    "descriptionPatient": "The artery along the inner curve of the stomach that supplies the stomach and lower gullet.",
+    "apBiologyFacts": [
+      "The stomach's rich arterial arcades along both curvatures make it very resistant to ischemia.",
+      "It anastomoses with the right gastric artery and, via oesophageal branches, with the systemic thoracic vessels."
+    ],
+    "clinicalNotes": [
+      "Bleeding gastric ulcers on the lesser curvature can erode into the left gastric artery.",
+      "Gastric artery embolisation can control upper gastrointestinal bleeding when endoscopy fails."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.3,
+    "addressableMeshKey": "Mesh_SYS_CV_GASTRIC_ARTERY_LOD0",
+    "audioTTSKey": "Audio_SYS_CV_GASTRIC_ARTERY_Desc",
+    "connectedNodes": [
+      "SYS_CV_CELIAC",
+      "SYS_DIG_STOMACH",
+      "SYS_DIG_ESOPHAGUS"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_CV_SPLENIC_ARTERY",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "I72.8",
+      "D73.5"
+    ],
+    "latinName": "Arteria splenica",
+    "commonName": "Splenic Artery",
+    "systemCategory": [
+      "Cardiovascular"
+    ],
+    "descriptionProfessional": "The largest branch of the celiac trunk, running a tortuous course along the upper border of the pancreas to the splenic hilum, where it divides into terminal branches. It gives pancreatic branches and the short gastric and left gastroepiploic arteries.",
+    "descriptionPatient": "A twisting artery that carries blood to the spleen along the top edge of the pancreas.",
+    "apBiologyFacts": [
+      "Its tortuous course lets it accommodate the spleen's changes in size and position and the pancreas's movement.",
+      "It supplies the pancreatic body and tail as well as the spleen."
+    ],
+    "clinicalNotes": [
+      "Splenic artery aneurysm is the most common visceral aneurysm and can rupture in pregnancy.",
+      "Splenic infarcts occur in sickle-cell disease and endocarditis."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.3,
+    "addressableMeshKey": "Mesh_SYS_CV_SPLENIC_ARTERY_LOD0",
+    "audioTTSKey": "Audio_SYS_CV_SPLENIC_ARTERY_Desc",
+    "connectedNodes": [
+      "SYS_CV_CELIAC",
+      "SYS_LYMPH_SPLEEN",
+      "SYS_DIG_PANCREAS",
+      "SYS_CV_SPLENIC_VEIN"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_CV_MESENTERIC_ARTERIES",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "K55.0",
+      "K55.1"
+    ],
+    "latinName": "Arteriae jejunales et ileales",
+    "commonName": "Jejunal, Ileal and Colic Arteries (Mesenteric Branches)",
+    "systemCategory": [
+      "Cardiovascular"
+    ],
+    "descriptionProfessional": "Branches of the superior mesenteric artery running through the mesentery to the small intestine, where they divide and rejoin in a series of arcades from which straight arteries (vasa recta) reach the bowel wall, plus the middle colic artery to the transverse colon.",
+    "descriptionPatient": "The many small arteries fanning out through the gut's curtain of tissue to feed the small intestine.",
+    "apBiologyFacts": [
+      "The arcades let one branch fill in for another, but there is little collateral supply in the last vasa recta, so occlusion still causes gut death.",
+      "The number and complexity of arcades increases from jejunum to ileum."
+    ],
+    "clinicalNotes": [
+      "Acute mesenteric ischemia causes severe abdominal pain out of proportion to examination findings.",
+      "Chronic mesenteric ischemia causes postprandial pain and weight loss ('intestinal angina')."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.35,
+    "addressableMeshKey": "Mesh_SYS_CV_MESENTERIC_ARTERIES_LOD0",
+    "audioTTSKey": "Audio_SYS_CV_MESENTERIC_ARTERIES_Desc",
+    "connectedNodes": [
+      "SYS_CV_SMA",
+      "SYS_DIG_JEJUNUM",
+      "SYS_DIG_ILEUM",
+      "SYS_DIG_COLON_TRANS"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_CV_IMA",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "K55.0",
+      "K55.9"
+    ],
+    "latinName": "Arteria mesenterica inferior",
+    "commonName": "Inferior Mesenteric Artery",
+    "systemCategory": [
+      "Cardiovascular"
+    ],
+    "descriptionProfessional": "The unpaired artery arising from the abdominal aorta at L3, supplying the hindgut: the distal transverse colon, descending and sigmoid colon and upper rectum via the left colic, sigmoid and superior rectal arteries.",
+    "descriptionPatient": "The artery that supplies the lower left part of the large intestine and the upper rectum.",
+    "apBiologyFacts": [
+      "The hindgut is defined by this artery, and its territory meets the superior mesenteric territory at the splenic flexure, a 'watershed' region vulnerable to ischemia.",
+      "The marginal artery of Drummond links the two mesenteric systems along the colon."
+    ],
+    "clinicalNotes": [
+      "Ischemic colitis typically affects the watershed splenic flexure in low-flow states.",
+      "The IMA is often ligated in colorectal cancer resections and the colon's viability then depends on collaterals."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.35,
+    "addressableMeshKey": "Mesh_SYS_CV_IMA_LOD0",
+    "audioTTSKey": "Audio_SYS_CV_IMA_Desc",
+    "connectedNodes": [
+      "SYS_CV_AORTA_ABD",
+      "SYS_DIG_COLON_DESC",
+      "SYS_DIG_SIGMOID",
+      "SYS_DIG_RECTUM",
+      "SYS_CV_IMV"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_CV_ILIAC_EXT",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "I70.2",
+      "I74.5"
+    ],
+    "latinName": "Arteria iliaca externa",
+    "commonName": "External Iliac Artery",
+    "systemCategory": [
+      "Cardiovascular"
+    ],
+    "descriptionProfessional": "The larger terminal branch of the common iliac artery, running along the medial border of the psoas to pass under the inguinal ligament, where it becomes the femoral artery. It gives the inferior epigastric and deep circumflex iliac arteries.",
+    "descriptionPatient": "The artery carrying blood from the pelvis into the leg. It becomes the femoral artery at the groin.",
+    "apBiologyFacts": [
+      "It changes name at the inguinal ligament - the femoral artery is the same vessel - a general rule of arterial naming by region.",
+      "The inferior epigastric artery marks the medial edge of the deep inguinal ring."
+    ],
+    "clinicalNotes": [
+      "Iliac artery stenosis causes claudication in the buttock and thigh.",
+      "The inferior epigastric artery is a landmark for distinguishing direct from indirect inguinal hernias."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.35,
+    "addressableMeshKey": "Mesh_SYS_CV_ILIAC_EXT_LOD0",
+    "audioTTSKey": "Audio_SYS_CV_ILIAC_EXT_Desc",
+    "connectedNodes": [
+      "SYS_CV_ILIAC",
+      "SYS_CV_FEMORAL",
+      "SYS_CV_ILIAC_INT"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_CV_ILIAC_INT",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "I72.3",
+      "S35.5"
+    ],
+    "latinName": "Arteria iliaca interna",
+    "commonName": "Internal Iliac Artery",
+    "systemCategory": [
+      "Cardiovascular"
+    ],
+    "descriptionProfessional": "The smaller terminal branch of the common iliac artery, descending into the pelvis and dividing into anterior and posterior trunks that supply the pelvic organs, the gluteal region and the medial thigh via the superior and inferior gluteal, obturator, pudendal, uterine or prostatic, and vesical arteries.",
+    "descriptionPatient": "The artery that supplies blood to the organs inside the pelvis and the buttock muscles.",
+    "apBiologyFacts": [
+      "The two internal iliac arteries are the main blood supply of the pelvis, with rich collateral connections to each other and to the aorta.",
+      "The umbilical artery, a branch of the anterior trunk, carries fetal blood to the placenta before birth."
+    ],
+    "clinicalNotes": [
+      "Embolisation of the internal iliac arteries can control severe pelvic haemorrhage from trauma or postpartum bleeding.",
+      "Internal iliac disease contributes to buttock claudication."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.35,
+    "addressableMeshKey": "Mesh_SYS_CV_ILIAC_INT_LOD0",
+    "audioTTSKey": "Audio_SYS_CV_ILIAC_INT_Desc",
+    "connectedNodes": [
+      "SYS_CV_ILIAC",
+      "SYS_CV_ILIAC_EXT",
+      "SYS_REN_BLADDER",
+      "SYS_NERV_PUDENDAL"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_CV_PROFUNDA_FEMORIS",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "S72.0",
+      "M87.0"
+    ],
+    "latinName": "Arteria profunda femoris",
+    "commonName": "Deep Femoral Artery",
+    "systemCategory": [
+      "Cardiovascular"
+    ],
+    "descriptionProfessional": "The largest branch of the femoral artery, arising about 3.5 cm below the inguinal ligament and passing behind the femoral vessels to descend deep in the thigh. It supplies the thigh muscles and the femur through perforating branches and the medial and lateral circumflex femoral arteries.",
+    "descriptionPatient": "The main artery to the thigh muscles. It branches off the femoral artery near the groin.",
+    "apBiologyFacts": [
+      "The circumflex femoral branches supply the head and neck of the femur, so a broken hip risks bone death.",
+      "It provides collateral flow around a blocked femoral artery through the perforating and genicular branches."
+    ],
+    "clinicalNotes": [
+      "Fracture of the femoral neck can disrupt the medial circumflex supply and cause avascular necrosis of the femoral head.",
+      "It is the source of collateral flow in superficial femoral artery occlusion."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.4,
+    "addressableMeshKey": "Mesh_SYS_CV_PROFUNDA_FEMORIS_LOD0",
+    "audioTTSKey": "Audio_SYS_CV_PROFUNDA_FEMORIS_Desc",
+    "connectedNodes": [
+      "SYS_CV_FEMORAL",
+      "SYS_SK_FEMUR"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_CV_PERONEAL",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "I70.2",
+      "E11.5"
+    ],
+    "latinName": "Arteria fibularis (peronea)",
+    "commonName": "Peroneal (Fibular) Artery",
+    "systemCategory": [
+      "Cardiovascular"
+    ],
+    "descriptionProfessional": "A branch of the posterior tibial artery just below the popliteus, running down the back of the leg beside the fibula in the deep posterior compartment. It supplies the lateral leg muscles and the fibula, and ends in lateral calcaneal branches.",
+    "descriptionPatient": "A small artery running behind the outer leg bone that supplies the outside of the calf and ankle.",
+    "apBiologyFacts": [
+      "It is the main vessel to the fibula, which is why the fibula can be used as a vascularised bone graft.",
+      "It is a source of collateral supply to the foot when the tibial arteries are diseased."
+    ],
+    "clinicalNotes": [
+      "The peroneal artery is often the only patent runoff vessel in severe diabetic leg disease.",
+      "Free fibula flaps based on this artery are used to reconstruct the jaw."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.4,
+    "addressableMeshKey": "Mesh_SYS_CV_PERONEAL_LOD0",
+    "audioTTSKey": "Audio_SYS_CV_PERONEAL_Desc",
+    "connectedNodes": [
+      "SYS_CV_POST_TIBIAL",
+      "SYS_SK_FIBULA"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_CV_DORSALIS_PEDIS",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "I70.2",
+      "I73.9"
+    ],
+    "latinName": "Arteria dorsalis pedis",
+    "commonName": "Dorsalis Pedis Artery",
+    "systemCategory": [
+      "Cardiovascular"
+    ],
+    "descriptionProfessional": "The continuation of the anterior tibial artery onto the top of the foot, lying lateral to the tendon of extensor hallucis longus. It gives tarsal branches and the arcuate artery and passes between the first two metatarsals to join the plantar arch.",
+    "descriptionPatient": "The artery on the top of the foot where you can feel a pulse. Doctors check it to see how good the blood flow to your foot is.",
+    "apBiologyFacts": [
+      "Its pulse is palpable on the dorsum of the foot lateral to the extensor hallucis longus tendon in most people, but is congenitally absent in a few.",
+      "It joins the plantar arch through the first interosseous space, connecting the anterior and posterior tibial systems."
+    ],
+    "clinicalNotes": [
+      "An absent dorsalis pedis pulse suggests peripheral arterial disease.",
+      "It is used as a bypass target in distal limb-salvage surgery."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.3,
+    "addressableMeshKey": "Mesh_SYS_CV_DORSALIS_PEDIS_LOD0",
+    "audioTTSKey": "Audio_SYS_CV_DORSALIS_PEDIS_Desc",
+    "connectedNodes": [
+      "SYS_CV_ANT_TIBIAL",
+      "SYS_CV_PLANTAR_ARTERY",
+      "SYS_SK_METATARSALS"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_CV_PLANTAR_ARTERY",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "E11.5",
+      "I70.2"
+    ],
+    "latinName": "Arteriae plantares medialis et lateralis",
+    "commonName": "Plantar Arteries and Arch",
+    "systemCategory": [
+      "Cardiovascular"
+    ],
+    "descriptionProfessional": "The terminal branches of the posterior tibial artery, passing behind the medial malleolus into the sole. The larger lateral plantar artery arches across the foot to form the plantar arch, from which the plantar metatarsal and digital arteries arise.",
+    "descriptionPatient": "The arteries supplying the sole of the foot and toes.",
+    "apBiologyFacts": [
+      "The plantar arch is the foot's counterpart of the palmar arches in the hand.",
+      "Blood reaches the sole from both the posterior tibial artery and, through the first interosseous space, the dorsalis pedis."
+    ],
+    "clinicalNotes": [
+      "Diabetic foot ulcers on the sole reflect combined neuropathy and small-vessel disease.",
+      "The posterior tibial pulse is felt behind the medial malleolus."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.3,
+    "addressableMeshKey": "Mesh_SYS_CV_PLANTAR_ARTERY_LOD0",
+    "audioTTSKey": "Audio_SYS_CV_PLANTAR_ARTERY_Desc",
+    "connectedNodes": [
+      "SYS_CV_POST_TIBIAL",
+      "SYS_CV_DORSALIS_PEDIS"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_CV_PROFUNDA_BRACHII",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "S42.3",
+      "S45.1"
+    ],
+    "latinName": "Arteria profunda brachii",
+    "commonName": "Deep Brachial Artery",
+    "systemCategory": [
+      "Cardiovascular"
+    ],
+    "descriptionProfessional": "The largest branch of the brachial artery, arising near the axilla and spiralling round the back of the humerus with the radial nerve in the radial groove. It supplies the triceps and gives a middle and a radial collateral artery to the elbow anastomosis.",
+    "descriptionPatient": "An artery that winds around the back of the upper arm bone to feed the triceps muscle.",
+    "apBiologyFacts": [
+      "It travels with the radial nerve in the spiral groove, so fractures of the humeral shaft can injure both.",
+      "Its collateral branches join the recurrent radial and ulnar arteries at the elbow, so the forearm keeps a blood supply if the brachial artery is blocked."
+    ],
+    "clinicalNotes": [
+      "A mid-shaft humeral fracture can injure the radial nerve, causing wrist drop.",
+      "Collateral flow through the deep brachial artery explains why the arm survives brachial ligation below its origin."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.35,
+    "addressableMeshKey": "Mesh_SYS_CV_PROFUNDA_BRACHII_LOD0",
+    "audioTTSKey": "Audio_SYS_CV_PROFUNDA_BRACHII_Desc",
+    "connectedNodes": [
+      "SYS_CV_BRACHIAL",
+      "SYS_NERV_RADIAL",
+      "SYS_SK_HUMERUS"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_CV_PALMAR_ARCH",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "I73.0",
+      "I74.2"
+    ],
+    "latinName": "Arcus palmaris superficialis et profundus",
+    "commonName": "Palmar Arches",
+    "systemCategory": [
+      "Cardiovascular"
+    ],
+    "descriptionProfessional": "Two anastomotic loops in the palm. The superficial palmar arch is formed mainly by the ulnar artery and lies just under the palmar aponeurosis; the deep arch, formed mainly by the radial artery, lies against the metacarpal bases. Common palmar digital arteries arise from them.",
+    "descriptionPatient": "Two loops of arteries across your palm that share blood between the radial and ulnar arteries and feed the fingers.",
+    "apBiologyFacts": [
+      "The double arch means the hand survives if either forearm artery is blocked.",
+      "Allen's test uses this cross-circulation to check the ulnar supply before radial artery puncture."
+    ],
+    "clinicalNotes": [
+      "Radial artery cannulation and harvest rely on an intact ulnar supply confirmed by Allen's test.",
+      "Hypothenar hammer syndrome damages the ulnar artery and superficial arch after repeated palm trauma."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.25,
+    "addressableMeshKey": "Mesh_SYS_CV_PALMAR_ARCH_LOD0",
+    "audioTTSKey": "Audio_SYS_CV_PALMAR_ARCH_Desc",
+    "connectedNodes": [
+      "SYS_CV_RADIAL",
+      "SYS_CV_ULNAR",
+      "SYS_CV_DIGITAL_ARTERY"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_CV_DIGITAL_ARTERY",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "I73.0",
+      "S65.5"
+    ],
+    "latinName": "Arteriae digitales palmares",
+    "commonName": "Digital Arteries of the Hand",
+    "systemCategory": [
+      "Cardiovascular"
+    ],
+    "descriptionProfessional": "Arteries running along both sides of each finger from the palmar arches, in company with the digital nerves. Each finger has two palmar digital arteries, which anastomose at the fingertip and supply the pulp and nail bed.",
+    "descriptionPatient": "Small arteries running along both sides of each finger.",
+    "apBiologyFacts": [
+      "Fingers have two arteries, one each side, so a finger survives if one is cut.",
+      "Arteriovenous anastomoses in the fingertip regulate heat loss, opening in the cold to prevent frostbite."
+    ],
+    "clinicalNotes": [
+      "Raynaud phenomenon is episodic spasm of digital arteries in the cold, causing white, blue and red colour changes.",
+      "Digital nerve blocks are done at the base of the finger, avoiding adrenaline in the anaesthetic."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.2,
+    "addressableMeshKey": "Mesh_SYS_CV_DIGITAL_ARTERY_LOD0",
+    "audioTTSKey": "Audio_SYS_CV_DIGITAL_ARTERY_Desc",
+    "connectedNodes": [
+      "SYS_CV_PALMAR_ARCH",
+      "SYS_SK_PHALANGES_HAND"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_CV_SVC",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "I87.1",
+      "I82.2"
+    ],
+    "latinName": "Vena cava superior",
+    "commonName": "Superior Vena Cava",
+    "systemCategory": [
+      "Cardiovascular"
+    ],
+    "descriptionProfessional": "A valveless vein about 7 cm long formed behind the first right costal cartilage by the union of the two brachiocephalic veins. It descends to the right of the ascending aorta and enters the right atrium, receiving the azygos vein just before the pericardium.",
+    "descriptionPatient": "The large vein that returns blood from your head, neck and arms to the right side of the heart.",
+    "apBiologyFacts": [
+      "It carries deoxygenated blood from everything above the diaphragm, while the inferior vena cava drains everything below.",
+      "Its wall is thin and it is at low pressure, so it can be compressed by nearby tumours."
+    ],
+    "clinicalNotes": [
+      "Superior vena cava syndrome, from lung cancer or lymphoma compressing the vein, causes facial swelling and distended neck veins.",
+      "Central venous catheters are often tipped in the lower SVC."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.3,
+    "addressableMeshKey": "Mesh_SYS_CV_SVC_LOD0",
+    "audioTTSKey": "Audio_SYS_CV_SVC_Desc",
+    "connectedNodes": [
+      "SYS_CV_BRACHIOCEPHALIC_VEIN",
+      "SYS_CV_HEART_RA",
+      "SYS_CV_AZYGOS",
+      "SYS_CV_IVC"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_CV_IVC",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "I82.2",
+      "I87.1"
+    ],
+    "latinName": "Vena cava inferior",
+    "commonName": "Inferior Vena Cava",
+    "systemCategory": [
+      "Cardiovascular"
+    ],
+    "descriptionProfessional": "The largest vein in the body, formed at L5 by the union of the common iliac veins. It ascends on the right of the aorta, grooves the back of the liver, receives the renal and hepatic veins, passes through the diaphragm at T8 and enters the right atrium.",
+    "descriptionPatient": "The biggest vein in the body, bringing blood from the legs and abdomen back to the heart.",
+    "apBiologyFacts": [
+      "It carries roughly two-thirds of venous return and increases in size on the way up as it receives more tributaries.",
+      "Its flow is helped by the calf muscle pump, respiratory movements of the diaphragm and one-way valves in the leg veins - the cava itself has none."
+    ],
+    "clinicalNotes": [
+      "In late pregnancy the enlarged uterus can compress the IVC when lying flat, reducing venous return (supine hypotensive syndrome).",
+      "IVC filters are used to catch emboli from leg deep vein thrombosis when anticoagulation is not possible."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.4,
+    "addressableMeshKey": "Mesh_SYS_CV_IVC_LOD0",
+    "audioTTSKey": "Audio_SYS_CV_IVC_Desc",
+    "connectedNodes": [
+      "SYS_CV_SVC",
+      "SYS_CV_RENAL_VEIN",
+      "SYS_CV_HEPATIC_VEIN",
+      "SYS_CV_ILIAC_VEIN",
+      "SYS_CV_HEART_RA",
+      "SYS_CV_AORTA_ABD"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_CV_BRACHIOCEPHALIC_VEIN",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "I82.8",
+      "I87.1"
+    ],
+    "latinName": "Vena brachiocephalica",
+    "commonName": "Brachiocephalic (Innominate) Veins",
+    "systemCategory": [
+      "Cardiovascular"
+    ],
+    "descriptionProfessional": "Formed on each side by the union of the internal jugular and subclavian veins behind the sternoclavicular joint. The left one, about 6 cm long, crosses in front of the arch branches to join the shorter right one and form the superior vena cava.",
+    "descriptionPatient": "Two veins, one on each side, gathering blood from the head and arm and joining to form the great vein entering the heart.",
+    "apBiologyFacts": [
+      "The left is more than twice as long as the right because the SVC lies to the right of the midline.",
+      "The thoracic duct and right lymphatic duct empty at the junctions of the jugular and subclavian veins that form them."
+    ],
+    "clinicalNotes": [
+      "Central lines placed via the left side must cross the midline, and can perforate the vein in the acute angle at the SVC.",
+      "A substernal thyroid or aortic aneurysm may compress the left brachiocephalic vein."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.3,
+    "addressableMeshKey": "Mesh_SYS_CV_BRACHIOCEPHALIC_VEIN_LOD0",
+    "audioTTSKey": "Audio_SYS_CV_BRACHIOCEPHALIC_VEIN_Desc",
+    "connectedNodes": [
+      "SYS_CV_JUGULAR",
+      "SYS_CV_SUBCLAVIAN_VEIN",
+      "SYS_CV_SVC"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_CV_JUGULAR_EXT",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "I50.0"
+    ],
+    "latinName": "Vena jugularis externa",
+    "commonName": "External Jugular Vein",
+    "systemCategory": [
+      "Cardiovascular"
+    ],
+    "descriptionProfessional": "A superficial vein crossing the sternocleidomastoid muscle, formed behind the angle of the jaw by the posterior auricular and retromandibular veins and draining into the subclavian vein. It drains the scalp and face.",
+    "descriptionPatient": "A vein you can see under the skin on the side of your neck, especially when straining.",
+    "apBiologyFacts": [
+      "Because it is superficial, it visibly distends when venous pressure is high - a clue to heart failure.",
+      "Its distension when a person coughs or Valsalva is normal; persistent distension is not."
+    ],
+    "clinicalNotes": [
+      "It is used for peripheral intravenous access when other veins are unavailable.",
+      "Distended external jugular veins occur in right heart failure and tension pneumothorax."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.3,
+    "addressableMeshKey": "Mesh_SYS_CV_JUGULAR_EXT_LOD0",
+    "audioTTSKey": "Audio_SYS_CV_JUGULAR_EXT_Desc",
+    "connectedNodes": [
+      "SYS_CV_JUGULAR",
+      "SYS_CV_SUBCLAVIAN_VEIN"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_CV_DURAL_SINUS",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "I67.6",
+      "G08"
+    ],
+    "latinName": "Sinus durae matris",
+    "commonName": "Dural Venous Sinuses",
+    "systemCategory": [
+      "Cardiovascular"
+    ],
+    "descriptionProfessional": "Endothelium-lined blood channels between the layers of the dura mater that drain the brain. The superior sagittal sinus runs along the midline of the cranial vault to the confluence of sinuses, from which the transverse and sigmoid sinuses pass to the jugular foramen and become the internal jugular vein.",
+    "descriptionPatient": "Channels around the brain, inside its tough covering, that drain used blood from the brain into the neck veins.",
+    "apBiologyFacts": [
+      "Unlike other veins the dural sinuses have no valves and no muscular wall, and are held open by the dura.",
+      "Cerebrospinal fluid returns to the blood through arachnoid granulations projecting into the superior sagittal sinus."
+    ],
+    "clinicalNotes": [
+      "Cerebral venous sinus thrombosis causes headache, seizures and venous infarction, and is more common in pregnancy and with oral contraceptives.",
+      "Infections of the face can spread to the cavernous sinus via valveless veins."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.3,
+    "addressableMeshKey": "Mesh_SYS_CV_DURAL_SINUS_LOD0",
+    "audioTTSKey": "Audio_SYS_CV_DURAL_SINUS_Desc",
+    "connectedNodes": [
+      "SYS_CV_JUGULAR",
+      "SYS_NERV_FRONTAL_LOBE",
+      "SYS_NERV_OCCIPITAL_LOBE"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_CV_AZYGOS",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "I87.1",
+      "Q26.8"
+    ],
+    "latinName": "Vena azygos",
+    "commonName": "Azygos Vein and Intercostal Veins",
+    "systemCategory": [
+      "Cardiovascular"
+    ],
+    "descriptionProfessional": "Ascends on the right side of the vertebral bodies in the posterior mediastinum, receiving the posterior intercostal veins and the hemiazygos veins, then arches over the root of the right lung at T4 to enter the superior vena cava. It links the superior and inferior caval systems.",
+    "descriptionPatient": "A vein running up the right side of the spine that collects blood from the chest wall and joins the big vein above the heart.",
+    "apBiologyFacts": [
+      "It gives an alternative route for blood to reach the heart if the inferior vena cava is blocked.",
+      "The azygos vein has no counterpart on the left; the hemiazygos veins cross behind the aorta to drain into it."
+    ],
+    "clinicalNotes": [
+      "The azygos vein is a landmark on chest X-ray; it is enlarged in right heart failure or IVC obstruction.",
+      "Azygos continuation of the IVC is a congenital variant."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.4,
+    "addressableMeshKey": "Mesh_SYS_CV_AZYGOS_LOD0",
+    "audioTTSKey": "Audio_SYS_CV_AZYGOS_Desc",
+    "connectedNodes": [
+      "SYS_CV_SVC",
+      "SYS_CV_IVC",
+      "SYS_CV_INTERCOSTAL_ARTERY"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_CV_HEPATIC_VEIN",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "I82.0",
+      "K76.5"
+    ],
+    "latinName": "Venae hepaticae",
+    "commonName": "Hepatic Veins",
+    "systemCategory": [
+      "Cardiovascular"
+    ],
+    "descriptionProfessional": "Three large veins (right, middle and left) that drain the liver's sinusoids into the inferior vena cava just below the diaphragm. Unlike the portal vein, which enters the liver, these carry blood out.",
+    "descriptionPatient": "The veins that drain blood from the liver into the great vein leading to the heart.",
+    "apBiologyFacts": [
+      "Blood arriving through the portal vein and hepatic artery passes through liver sinusoids and leaves by these veins, so they mark the end of the liver's circulation.",
+      "The hepatic veins divide the liver into its functional sectors."
+    ],
+    "clinicalNotes": [
+      "Budd-Chiari syndrome is hepatic vein thrombosis, causing painful liver enlargement and ascites.",
+      "Hepatic venous pressure gradient measurement assesses portal hypertension."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.3,
+    "addressableMeshKey": "Mesh_SYS_CV_HEPATIC_VEIN_LOD0",
+    "audioTTSKey": "Audio_SYS_CV_HEPATIC_VEIN_Desc",
+    "connectedNodes": [
+      "SYS_CV_IVC",
+      "SYS_CV_PORTAL_VEIN",
+      "SYS_DIG_LIVER"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_CV_SPLENIC_VEIN",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "I81",
+      "I86.4"
+    ],
+    "latinName": "Vena splenica",
+    "commonName": "Splenic Vein",
+    "systemCategory": [
+      "Cardiovascular"
+    ],
+    "descriptionProfessional": "Formed at the splenic hilum, it runs behind the body and tail of the pancreas, receiving the inferior mesenteric vein, and joins the superior mesenteric vein behind the pancreatic neck to form the portal vein.",
+    "descriptionPatient": "A vein that carries blood from the spleen and pancreas towards the liver.",
+    "apBiologyFacts": [
+      "It is one of the two main tributaries that unite to form the portal vein.",
+      "Its course behind the pancreas explains why pancreatic disease can obstruct it."
+    ],
+    "clinicalNotes": [
+      "Splenic vein thrombosis from pancreatitis causes left-sided (sinistral) portal hypertension with isolated gastric varices.",
+      "Splenectomy is sometimes needed to cure it."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.3,
+    "addressableMeshKey": "Mesh_SYS_CV_SPLENIC_VEIN_LOD0",
+    "audioTTSKey": "Audio_SYS_CV_SPLENIC_VEIN_Desc",
+    "connectedNodes": [
+      "SYS_CV_PORTAL_VEIN",
+      "SYS_CV_SMV",
+      "SYS_CV_IMV",
+      "SYS_LYMPH_SPLEEN",
+      "SYS_DIG_PANCREAS"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_CV_SMV",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "K55.0",
+      "I81"
+    ],
+    "latinName": "Vena mesenterica superior",
+    "commonName": "Superior Mesenteric Vein",
+    "systemCategory": [
+      "Cardiovascular"
+    ],
+    "descriptionProfessional": "Drains the small intestine, caecum, ascending and transverse colon, running up to the right of the superior mesenteric artery in the root of the mesentery and joining the splenic vein behind the pancreatic neck to form the portal vein.",
+    "descriptionPatient": "The vein that carries the digested nutrients from your small intestine towards the liver.",
+    "apBiologyFacts": [
+      "Everything absorbed from the small intestine except most fats passes through this vein to the liver first.",
+      "It lies to the right of the superior mesenteric artery, a relation that persists in most people and is used to identify them on CT."
+    ],
+    "clinicalNotes": [
+      "Mesenteric vein thrombosis causes gradual abdominal pain and bowel infarction.",
+      "Invasion of the SMV by pancreatic cancer determines whether the tumour can be resected."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.35,
+    "addressableMeshKey": "Mesh_SYS_CV_SMV_LOD0",
+    "audioTTSKey": "Audio_SYS_CV_SMV_Desc",
+    "connectedNodes": [
+      "SYS_CV_PORTAL_VEIN",
+      "SYS_CV_SPLENIC_VEIN",
+      "SYS_CV_SMA",
+      "SYS_DIG_JEJUNUM"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_CV_IMV",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "I86.8"
+    ],
+    "latinName": "Vena mesenterica inferior",
+    "commonName": "Inferior Mesenteric Vein",
+    "systemCategory": [
+      "Cardiovascular"
+    ],
+    "descriptionProfessional": "Drains the descending and sigmoid colon and upper rectum, ascending to the left of the duodenojejunal flexure and usually ending in the splenic vein.",
+    "descriptionPatient": "The vein that drains the lower left part of the large intestine into the portal circulation.",
+    "apBiologyFacts": [
+      "The upper rectum drains through this portal tributary, while the lower rectum drains via systemic veins - a site of portosystemic anastomosis.",
+      "It is the main venous landmark of the left colon in surgery."
+    ],
+    "clinicalNotes": [
+      "Rectal varices form in portal hypertension where portal and systemic veins meet.",
+      "The vein is divided high in some colon cancer resections."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.35,
+    "addressableMeshKey": "Mesh_SYS_CV_IMV_LOD0",
+    "audioTTSKey": "Audio_SYS_CV_IMV_Desc",
+    "connectedNodes": [
+      "SYS_CV_SPLENIC_VEIN",
+      "SYS_CV_IMA",
+      "SYS_DIG_COLON_DESC"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_CV_ILIAC_VEIN_EXT",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "I80.2",
+      "I82.4"
+    ],
+    "latinName": "Vena iliaca externa",
+    "commonName": "External Iliac Vein",
+    "systemCategory": [
+      "Cardiovascular"
+    ],
+    "descriptionProfessional": "The continuation of the femoral vein above the inguinal ligament, running medial to the external iliac artery to join the internal iliac vein and form the common iliac vein. It drains the whole lower limb.",
+    "descriptionPatient": "The vein that carries blood from the leg through the groin into the pelvis.",
+    "apBiologyFacts": [
+      "It changes name at the inguinal ligament - femoral vein below, external iliac above.",
+      "The left common iliac vein is crossed by the right common iliac artery, a relation that can compress it."
+    ],
+    "clinicalNotes": [
+      "May-Thurner syndrome, compression of the left common iliac vein, predisposes to left leg deep vein thrombosis.",
+      "Deep vein thrombosis extending into the iliac veins carries higher risk of pulmonary embolism."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.35,
+    "addressableMeshKey": "Mesh_SYS_CV_ILIAC_VEIN_EXT_LOD0",
+    "audioTTSKey": "Audio_SYS_CV_ILIAC_VEIN_EXT_Desc",
+    "connectedNodes": [
+      "SYS_CV_FEMORAL_VEIN",
+      "SYS_CV_ILIAC_VEIN",
+      "SYS_CV_ILIAC_EXT"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_CV_TIBIAL_VEIN",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "I80.2",
+      "I87.2"
+    ],
+    "latinName": "Venae tibiales anteriores et posteriores",
+    "commonName": "Tibial Veins",
+    "systemCategory": [
+      "Cardiovascular"
+    ],
+    "descriptionProfessional": "The deep veins of the leg, usually paired, that accompany the anterior and posterior tibial arteries and unite below the knee to form the popliteal vein. They lie deep in the muscle compartments.",
+    "descriptionPatient": "The deep veins of the lower leg, running beside the main leg arteries.",
+    "apBiologyFacts": [
+      "Paired veins that wrap around an artery help warm the venous blood and let arterial pulsation push it along.",
+      "Valves in these veins, with calf muscle contraction, drive blood upward against gravity."
+    ],
+    "clinicalNotes": [
+      "Calf vein deep vein thrombosis presents with calf pain and swelling and is common after surgery or prolonged immobility.",
+      "Incompetent valves cause venous stasis and ulcers."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.4,
+    "addressableMeshKey": "Mesh_SYS_CV_TIBIAL_VEIN_LOD0",
+    "audioTTSKey": "Audio_SYS_CV_TIBIAL_VEIN_Desc",
+    "connectedNodes": [
+      "SYS_CV_POPLITEAL_VEIN",
+      "SYS_CV_POST_TIBIAL",
+      "SYS_CV_ANT_TIBIAL"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_CV_SAPHENOUS_SMALL",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "I83"
+    ],
+    "latinName": "Vena saphena parva",
+    "commonName": "Small (Short) Saphenous Vein",
+    "systemCategory": [
+      "Cardiovascular"
+    ],
+    "descriptionProfessional": "A superficial vein beginning behind the lateral malleolus, ascending the back of the calf in the midline and draining into the popliteal vein in the popliteal fossa. It runs close to the sural nerve.",
+    "descriptionPatient": "A vein running up the back of your calf just under the skin.",
+    "apBiologyFacts": [
+      "It is the second of the two main superficial leg veins, the other being the great saphenous.",
+      "Superficial veins connect to deep veins through perforating veins with one-way valves."
+    ],
+    "clinicalNotes": [
+      "Small saphenous varicose veins occur behind the knee and calf, and treatment must avoid injuring the sural nerve.",
+      "Its junction with the popliteal vein is a common site of reflux."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.4,
+    "addressableMeshKey": "Mesh_SYS_CV_SAPHENOUS_SMALL_LOD0",
+    "audioTTSKey": "Audio_SYS_CV_SAPHENOUS_SMALL_Desc",
+    "connectedNodes": [
+      "SYS_CV_POPLITEAL_VEIN",
+      "SYS_CV_SAPHENOUS"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_CV_DORSAL_VENOUS_ARCH",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "I83"
+    ],
+    "latinName": "Arcus venosus dorsalis pedis",
+    "commonName": "Dorsal Venous Arch of the Foot",
+    "systemCategory": [
+      "Cardiovascular"
+    ],
+    "descriptionProfessional": "A superficial venous network over the metatarsals that receives the dorsal digital veins and drains medially into the great saphenous vein and laterally into the small saphenous vein.",
+    "descriptionPatient": "A network of veins you can see on the top of your foot.",
+    "apBiologyFacts": [
+      "It is the origin of both saphenous veins.",
+      "Because it lies just under the skin, it fills with visible blood when the leg is dependent."
+    ],
+    "clinicalNotes": [
+      "A dorsal foot vein is a common site for intravenous cannulation in children.",
+      "Venous ulcers commonly appear near the medial ankle where these veins drain."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.3,
+    "addressableMeshKey": "Mesh_SYS_CV_DORSAL_VENOUS_ARCH_LOD0",
+    "audioTTSKey": "Audio_SYS_CV_DORSAL_VENOUS_ARCH_Desc",
+    "connectedNodes": [
+      "SYS_CV_SAPHENOUS",
+      "SYS_CV_SAPHENOUS_SMALL"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_CV_CEPHALIC",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "I80.8"
+    ],
+    "latinName": "Vena cephalica",
+    "commonName": "Cephalic Vein",
+    "systemCategory": [
+      "Cardiovascular"
+    ],
+    "descriptionProfessional": "A superficial vein running up the lateral (thumb) side of the forearm and the front of the arm in the groove between biceps and brachialis, then in the deltopectoral groove to pierce the clavipectoral fascia and drain into the axillary vein.",
+    "descriptionPatient": "A large vein you can see on the outer side of your arm, running up to the shoulder.",
+    "apBiologyFacts": [
+      "Its name comes from the Greek for 'head' - it was once believed to be the vein to bleed for head complaints.",
+      "It is one of the two main superficial veins of the arm, the other being the basilic."
+    ],
+    "clinicalNotes": [
+      "The cephalic vein is a route for pacemaker leads and is used for venous cut-down.",
+      "It is a common site for intravenous cannulation and its use in dialysis fistulas is limited by later stenosis."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.35,
+    "addressableMeshKey": "Mesh_SYS_CV_CEPHALIC_LOD0",
+    "audioTTSKey": "Audio_SYS_CV_CEPHALIC_Desc",
+    "connectedNodes": [
+      "SYS_CV_AXILLARY_VEIN",
+      "SYS_CV_BASILIC",
+      "SYS_CV_MEDIAN_CUBITAL"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_CV_BASILIC",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "I80.8"
+    ],
+    "latinName": "Vena basilica",
+    "commonName": "Basilic Vein",
+    "systemCategory": [
+      "Cardiovascular"
+    ],
+    "descriptionProfessional": "A superficial vein on the medial (little-finger) side of the forearm, which ascends the medial arm, pierces the deep fascia at mid-arm and joins the brachial veins to form the axillary vein.",
+    "descriptionPatient": "A large vein on the inner side of your arm.",
+    "apBiologyFacts": [
+      "It is the vein that becomes the axillary vein by joining the brachial veins - the arm's deep and superficial systems meet here.",
+      "The medial cutaneous nerve of the forearm runs close to it."
+    ],
+    "clinicalNotes": [
+      "The basilic vein is often used to make an arteriovenous fistula for dialysis.",
+      "PICC lines are commonly placed in the basilic vein."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.35,
+    "addressableMeshKey": "Mesh_SYS_CV_BASILIC_LOD0",
+    "audioTTSKey": "Audio_SYS_CV_BASILIC_Desc",
+    "connectedNodes": [
+      "SYS_CV_BRACHIAL_VEIN",
+      "SYS_CV_CEPHALIC",
+      "SYS_CV_MEDIAN_CUBITAL"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_CV_MEDIAN_CUBITAL",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "T80.1"
+    ],
+    "latinName": "Vena mediana cubiti",
+    "commonName": "Median Cubital Vein",
+    "systemCategory": [
+      "Cardiovascular"
+    ],
+    "descriptionProfessional": "A short oblique superficial vein in the cubital fossa connecting the cephalic and basilic veins. It lies over the bicipital aponeurosis, which separates it from the brachial artery and median nerve underneath.",
+    "descriptionPatient": "The vein in the crook of your elbow where blood is usually drawn.",
+    "apBiologyFacts": [
+      "The bicipital aponeurosis protects the artery and nerve below it, making this the safest vein for needles.",
+      "The pattern of veins in the cubital fossa varies among individuals."
+    ],
+    "clinicalNotes": [
+      "It is the usual site for venepuncture and blood donation.",
+      "Inadvertent puncture of the brachial artery beneath it is a known complication."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.25,
+    "addressableMeshKey": "Mesh_SYS_CV_MEDIAN_CUBITAL_LOD0",
+    "audioTTSKey": "Audio_SYS_CV_MEDIAN_CUBITAL_Desc",
+    "connectedNodes": [
+      "SYS_CV_CEPHALIC",
+      "SYS_CV_BASILIC",
+      "SYS_CV_BRACHIAL"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_LYMPH_THORACIC_DUCT",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "I89.8",
+      "J94.0",
+      "I89.0"
+    ],
+    "latinName": "Ductus thoracicus",
+    "commonName": "Thoracic Duct",
+    "systemCategory": [
+      "Lymphatic"
+    ],
+    "descriptionProfessional": "The main lymphatic channel of the body, about 40 cm long, beginning at the cisterna chyli at L1-L2, ascending through the aortic hiatus between the aorta and azygos vein, crossing to the left at T5 and draining into the junction of the left internal jugular and subclavian veins. It carries lymph from the whole body except the right head, neck, arm and chest.",
+    "descriptionPatient": "The body's main lymph vessel, collecting fluid and dietary fat from most of the body and returning it to the bloodstream near the left collarbone.",
+    "apBiologyFacts": [
+      "Lymph from the gut carries absorbed dietary fats as chylomicrons into the thoracic duct, which is why lymph in the duct is milky after a fatty meal.",
+      "The right lymphatic duct drains the right upper quarter; the thoracic duct drains the other three-quarters."
+    ],
+    "clinicalNotes": [
+      "Injury to the duct during oesophageal or neck surgery causes a chylothorax or chyle leak.",
+      "An enlarged left supraclavicular (Virchow) node can signal abdominal cancer spreading via the duct."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.45,
+    "addressableMeshKey": "Mesh_SYS_LYMPH_THORACIC_DUCT_LOD0",
+    "audioTTSKey": "Audio_SYS_LYMPH_THORACIC_DUCT_Desc",
+    "connectedNodes": [
+      "SYS_CV_AORTA_DESC",
+      "SYS_CV_AZYGOS",
+      "SYS_CV_SUBCLAVIAN_VEIN",
+      "SYS_LYMPH_NODES"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_NERV_CAUDA_EQUINA",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "G83.4"
+    ],
+    "latinName": "Cauda equina et filum terminale",
+    "commonName": "Cauda Equina",
+    "systemCategory": [
+      "Nervous"
+    ],
+    "descriptionProfessional": "The bundle of lumbar, sacral and coccygeal nerve roots that descends within the lumbar cistern below the conus medullaris (L1-L2), together with the filum terminale, a thread of pia mater that anchors the cord to the coccyx. It gets its name - 'horse's tail' - from its appearance.",
+    "descriptionPatient": "A bundle of long nerve roots at the bottom of the spinal canal that looks like a horse's tail. They carry signals to and from the legs, bladder and bowel.",
+    "apBiologyFacts": [
+      "The spinal cord ends around the L1-L2 level in adults because the vertebral column grows longer than the cord during development, so the lower roots have to run a long way to reach their exits.",
+      "A lumbar puncture is made below L2 because there the needle meets floating nerve roots, which are pushed aside, rather than the cord itself."
+    ],
+    "clinicalNotes": [
+      "Cauda equina syndrome - from a large disc herniation or tumour - causes saddle numbness, urinary retention and leg weakness and needs emergency decompression.",
+      "The filum terminale is cut in surgery for tethered cord syndrome."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.3,
+    "addressableMeshKey": "Mesh_SYS_NERV_CAUDA_EQUINA_LOD0",
+    "audioTTSKey": "Audio_SYS_NERV_CAUDA_EQUINA_Desc",
+    "connectedNodes": [
+      "SYS_NERV_SPINALCORD",
+      "SYS_NERV_SPINAL_LUMBAR",
+      "SYS_NERV_SPINAL_SACRAL",
+      "SYS_SK_SACRUM"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_NERV_SPINAL_CERVICAL",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "M54.12",
+      "G54.2"
+    ],
+    "latinName": "Nervi spinales cervicales (C1-C8)",
+    "commonName": "Cervical Spinal Nerves",
+    "systemCategory": [
+      "Nervous"
+    ],
+    "descriptionProfessional": "Eight pairs of mixed spinal nerves. Each forms from a dorsal (sensory) and a ventral (motor) root that unite in the intervertebral foramen; the dorsal root ganglion, a swelling of sensory cell bodies, lies just outside the cord. C1 to C7 exit above the vertebra of the same number, and C8 exits below C7.",
+    "descriptionPatient": "Eight pairs of nerves leaving the spinal cord in your neck to supply the neck, shoulders and arms.",
+    "apBiologyFacts": [
+      "There are eight cervical nerves but only seven cervical vertebrae, because C1 to C7 exit above their vertebrae and C8 exits below C7.",
+      "The dorsal root ganglion contains the cell bodies of sensory neurons, which are pseudo-unipolar - one process runs to the skin, the other to the cord."
+    ],
+    "clinicalNotes": [
+      "Cervical radiculopathy from disc herniation or bone spurs causes arm pain, numbness and weakness in a dermatomal distribution.",
+      "C3, 4, 5 keep the diaphragm alive - an injury above C3 stops breathing."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.35,
+    "addressableMeshKey": "Mesh_SYS_NERV_SPINAL_CERVICAL_LOD0",
+    "audioTTSKey": "Audio_SYS_NERV_SPINAL_CERVICAL_Desc",
+    "connectedNodes": [
+      "SYS_NERV_SPINALCORD",
+      "SYS_NERV_CERVICAL_PLEXUS",
+      "SYS_NERV_BRACHIAL_PLEXUS",
+      "SYS_NERV_PHRENIC"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_NERV_SPINAL_THORACIC",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "B02",
+      "M54.14",
+      "G54.3"
+    ],
+    "latinName": "Nervi spinales thoracici (T1-T12)",
+    "commonName": "Thoracic Spinal Nerves",
+    "systemCategory": [
+      "Nervous"
+    ],
+    "descriptionProfessional": "Twelve pairs of spinal nerves leaving below the thoracic vertebrae. Unlike the other regions they do not form plexuses (except T1, which contributes to the brachial plexus); their ventral rami run as the intercostal nerves and the subcostal nerve, and they carry sympathetic fibres through white and grey rami communicantes.",
+    "descriptionPatient": "Twelve pairs of nerves supplying the muscles and skin of the chest and upper belly, running along the ribs.",
+    "apBiologyFacts": [
+      "The thoracic segments are the only ones that keep the primitive arrangement of one nerve per body segment, with no plexus.",
+      "The lateral horn of the cord, which holds the sympathetic preganglionic neurons, extends only from T1 to L2, so the thoracic nerves are the main route for sympathetic fibres to the chain."
+    ],
+    "clinicalNotes": [
+      "Shingles (herpes zoster) typically appears as a band of blistering along one thoracic dermatome.",
+      "Thoracic root pain can mimic cardiac or gallbladder pain."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.45,
+    "addressableMeshKey": "Mesh_SYS_NERV_SPINAL_THORACIC_LOD0",
+    "audioTTSKey": "Audio_SYS_NERV_SPINAL_THORACIC_Desc",
+    "connectedNodes": [
+      "SYS_NERV_SPINALCORD",
+      "SYS_NERV_INTERCOSTAL",
+      "SYS_NERV_SYMPATHETIC_TRUNK"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_NERV_SPINAL_LUMBAR",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "M54.16",
+      "M51.1",
+      "G54.4"
+    ],
+    "latinName": "Nervi spinales lumbales (L1-L5)",
+    "commonName": "Lumbar Spinal Nerves",
+    "systemCategory": [
+      "Nervous"
+    ],
+    "descriptionProfessional": "Five pairs of spinal nerves that leave below the lumbar vertebrae, their roots descending a long way in the canal because the cord ends at L1-L2. They form the lumbar plexus (L1-L4) and, with L4-L5, contribute to the lumbosacral trunk of the sacral plexus.",
+    "descriptionPatient": "Five pairs of nerves leaving the lower back that supply the front of the thigh and, with the sacral nerves, the legs.",
+    "apBiologyFacts": [
+      "Each lumbar nerve exits below its vertebra, and a disc herniation typically compresses the root passing below - the L4-L5 disc affects L5.",
+      "The cord's segments lie several vertebrae higher than the nerve's exit, so lumbar cord segments sit at T10-T12."
+    ],
+    "clinicalNotes": [
+      "Lumbar radiculopathy (sciatica) is most often from L4-L5 or L5-S1 disc herniation.",
+      "L4 loss weakens the knee jerk; L5 loss causes foot drop and numbness of the top of the foot."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.35,
+    "addressableMeshKey": "Mesh_SYS_NERV_SPINAL_LUMBAR_LOD0",
+    "audioTTSKey": "Audio_SYS_NERV_SPINAL_LUMBAR_Desc",
+    "connectedNodes": [
+      "SYS_NERV_LUMBAR_PLEXUS",
+      "SYS_NERV_SACRAL_PLEXUS",
+      "SYS_NERV_CAUDA_EQUINA"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_NERV_SPINAL_SACRAL",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "M54.17",
+      "G54.4"
+    ],
+    "latinName": "Nervi spinales sacrales et coccygeus",
+    "commonName": "Sacral and Coccygeal Spinal Nerves",
+    "systemCategory": [
+      "Nervous"
+    ],
+    "descriptionProfessional": "Five pairs of sacral nerves and one coccygeal pair. Their roots emerge through the sacral foramina and contribute to the sacral plexus, giving the sciatic and pudendal nerves and carrying the parasympathetic pelvic splanchnic nerves (S2-S4) that control the bladder, bowel and sexual function.",
+    "descriptionPatient": "Nerves leaving the base of the spine that supply the buttocks, the back of the legs, the feet and the bladder and bowel.",
+    "apBiologyFacts": [
+      "The pelvic splanchnic nerves (S2-S4) are the parasympathetic outflow of the sacral cord, in contrast to the cranial parasympathetic outflow of CN III, VII, IX and X.",
+      "The sacral roots leave through paired holes in the front and back of the sacrum."
+    ],
+    "clinicalNotes": [
+      "Sacral root compression causes loss of bladder control and saddle anaesthesia.",
+      "S1 damage weakens plantar flexion and loses the ankle jerk."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.3,
+    "addressableMeshKey": "Mesh_SYS_NERV_SPINAL_SACRAL_LOD0",
+    "audioTTSKey": "Audio_SYS_NERV_SPINAL_SACRAL_Desc",
+    "connectedNodes": [
+      "SYS_NERV_SACRAL_PLEXUS",
+      "SYS_NERV_CAUDA_EQUINA",
+      "SYS_NERV_PUDENDAL",
+      "SYS_SK_SACRUM"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_NERV_CERVICAL_PLEXUS",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "G54.2"
+    ],
+    "latinName": "Plexus cervicalis",
+    "commonName": "Cervical Plexus",
+    "systemCategory": [
+      "Nervous"
+    ],
+    "descriptionProfessional": "A network formed by the ventral rami of C1-C4, lying deep to the sternocleidomastoid. Its cutaneous branches (lesser occipital, great auricular, transverse cervical, supraclavicular) supply the skin of the neck and scalp behind the ear; its motor branches include the ansa cervicalis to the infrahyoid muscles and, from C3-C5, the phrenic nerve.",
+    "descriptionPatient": "A web of nerves in the neck that supplies the skin around the neck and shoulder, some neck muscles and, through the phrenic nerve, the diaphragm.",
+    "apBiologyFacts": [
+      "The cutaneous branches emerge together at Erb's point, the midpoint of the posterior border of sternocleidomastoid.",
+      "The phrenic nerve's origin at C3-C5 gives the mnemonic 'C3, 4, 5 keeps the diaphragm alive'."
+    ],
+    "clinicalNotes": [
+      "A superficial cervical plexus block gives anaesthesia for neck and carotid surgery.",
+      "Shoulder-tip pain is referred from diaphragmatic irritation via the phrenic nerve (C3-C5)."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.3,
+    "addressableMeshKey": "Mesh_SYS_NERV_CERVICAL_PLEXUS_LOD0",
+    "audioTTSKey": "Audio_SYS_NERV_CERVICAL_PLEXUS_Desc",
+    "connectedNodes": [
+      "SYS_NERV_PHRENIC",
+      "SYS_NERV_SPINAL_CERVICAL",
+      "SYS_NERV_ACCESSORY"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_NERV_LUMBAR_PLEXUS",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "G54.1"
+    ],
+    "latinName": "Plexus lumbalis",
+    "commonName": "Lumbar Plexus",
+    "systemCategory": [
+      "Nervous"
+    ],
+    "descriptionProfessional": "Formed by the ventral rami of L1-L4 within the psoas major. Its branches are the iliohypogastric, ilioinguinal, genitofemoral, lateral femoral cutaneous, femoral and obturator nerves, supplying the lower abdominal wall, groin and the anterior and medial thigh.",
+    "descriptionPatient": "A network of nerves on each side of your lower back that supplies the front of your thigh and your groin.",
+    "apBiologyFacts": [
+      "Because it lies inside the psoas muscle, a psoas abscess or haematoma can compress it and cause thigh weakness.",
+      "The femoral nerve (L2-L4) is the plexus's largest branch and drives the quadriceps."
+    ],
+    "clinicalNotes": [
+      "Retroperitoneal bleeding can compress the femoral nerve and cause quadriceps weakness.",
+      "The lateral femoral cutaneous nerve is prone to entrapment (meralgia paraesthetica)."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.35,
+    "addressableMeshKey": "Mesh_SYS_NERV_LUMBAR_PLEXUS_LOD0",
+    "audioTTSKey": "Audio_SYS_NERV_LUMBAR_PLEXUS_Desc",
+    "connectedNodes": [
+      "SYS_NERV_FEMORAL",
+      "SYS_NERV_OBTURATOR",
+      "SYS_NERV_FEMORAL_CUTANEOUS",
+      "SYS_NERV_SPINAL_LUMBAR"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_NERV_SACRAL_PLEXUS",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "G54.1"
+    ],
+    "latinName": "Plexus sacralis",
+    "commonName": "Sacral Plexus",
+    "systemCategory": [
+      "Nervous"
+    ],
+    "descriptionProfessional": "Formed by the lumbosacral trunk (L4-L5) and the ventral rami of S1-S4 on the piriformis muscle in front of the sacrum. Its branches include the sciatic nerve, the superior and inferior gluteal nerves and the pudendal nerve, and it supplies the buttock, the back of the thigh, the leg and foot, and the perineum.",
+    "descriptionPatient": "A network of nerves in front of the sacrum that gives rise to the sciatic nerve and supplies the buttock, the back of the leg, the foot and the pelvic floor.",
+    "apBiologyFacts": [
+      "The sciatic nerve is the plexus's main continuation, formed by L4-S3 and leaving the pelvis below the piriformis through the greater sciatic foramen.",
+      "It supplies almost all the muscles and skin of the lower limb below the knee."
+    ],
+    "clinicalNotes": [
+      "Piriformis syndrome, in which the muscle compresses the sciatic nerve, mimics sciatica.",
+      "Pelvic tumours can invade the plexus and cause leg pain and weakness."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.35,
+    "addressableMeshKey": "Mesh_SYS_NERV_SACRAL_PLEXUS_LOD0",
+    "audioTTSKey": "Audio_SYS_NERV_SACRAL_PLEXUS_Desc",
+    "connectedNodes": [
+      "SYS_NERV_SCIATIC",
+      "SYS_NERV_PUDENDAL",
+      "SYS_NERV_SPINAL_SACRAL",
+      "SYS_NERV_LUMBAR_PLEXUS"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_NERV_MUSCULOCUTANEOUS",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "G56.8",
+      "G54.0"
+    ],
+    "latinName": "Nervus musculocutaneus",
+    "commonName": "Musculocutaneous Nerve",
+    "systemCategory": [
+      "Nervous"
+    ],
+    "descriptionProfessional": "A branch of the lateral cord of the brachial plexus (C5-C7) that pierces coracobrachialis and runs between biceps and brachialis, supplying all three, then continues as the lateral cutaneous nerve of the forearm.",
+    "descriptionPatient": "A nerve that makes the front-of-the-arm muscles bend your elbow and gives feeling to the outer forearm.",
+    "apBiologyFacts": [
+      "It supplies all the muscles of the anterior compartment of the arm - the flexors of the elbow.",
+      "Its cutaneous end, the lateral cutaneous nerve of the forearm, is the sensory branch that runs beside the cephalic vein."
+    ],
+    "clinicalNotes": [
+      "Injury weakens elbow flexion and forearm supination and gives numbness on the lateral forearm.",
+      "The biceps reflex tests the C5-C6 segments through this nerve."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.35,
+    "addressableMeshKey": "Mesh_SYS_NERV_MUSCULOCUTANEOUS_LOD0",
+    "audioTTSKey": "Audio_SYS_NERV_MUSCULOCUTANEOUS_Desc",
+    "connectedNodes": [
+      "SYS_NERV_BRACHIAL_PLEXUS",
+      "SYS_NERV_MEDIAN"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_NERV_AXILLARY",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "G54.0",
+      "S44.3"
+    ],
+    "latinName": "Nervus axillaris",
+    "commonName": "Axillary Nerve",
+    "systemCategory": [
+      "Nervous"
+    ],
+    "descriptionProfessional": "A branch of the posterior cord of the brachial plexus (C5-C6) that winds round the surgical neck of the humerus with the posterior circumflex humeral artery to supply the deltoid and teres minor and the skin over the lower deltoid (the 'regimental badge' area).",
+    "descriptionPatient": "A nerve wrapping around the top of your upper arm bone that powers the shoulder muscle and gives feeling to the skin over it.",
+    "apBiologyFacts": [
+      "It is the nerve of shoulder abduction beyond the first 15 degrees, which the supraspinatus (suprascapular nerve) starts.",
+      "It passes through the quadrangular space below the shoulder joint."
+    ],
+    "clinicalNotes": [
+      "Anterior shoulder dislocation or a fracture of the surgical neck can injure it, causing deltoid paralysis and a patch of numb skin.",
+      "A flattened shoulder contour after dislocation suggests axillary nerve palsy."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.3,
+    "addressableMeshKey": "Mesh_SYS_NERV_AXILLARY_LOD0",
+    "audioTTSKey": "Audio_SYS_NERV_AXILLARY_Desc",
+    "connectedNodes": [
+      "SYS_NERV_BRACHIAL_PLEXUS",
+      "SYS_NERV_RADIAL",
+      "SYS_SK_HUMERUS"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_NERV_RADIAL_DEEP",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "G56.3",
+      "G56.8"
+    ],
+    "latinName": "Ramus profundus nervi radialis (nervus interosseus posterior)",
+    "commonName": "Posterior Interosseous Nerve (Deep Radial)",
+    "systemCategory": [
+      "Nervous"
+    ],
+    "descriptionProfessional": "The deep branch of the radial nerve, which pierces supinator at the elbow and runs down the back of the forearm as the posterior interosseous nerve, supplying the extensor muscles of the wrist and fingers.",
+    "descriptionPatient": "The branch of the radial nerve that runs in the back of the forearm and lets you straighten your fingers and thumb.",
+    "apBiologyFacts": [
+      "It is purely motor to the forearm extensors - it has no skin supply, so injury causes weakness without numbness.",
+      "It passes through the supinator's arcade of Frohse, a common site of entrapment."
+    ],
+    "clinicalNotes": [
+      "Posterior interosseous syndrome causes finger drop without wrist drop, because extensor carpi radialis longus is spared.",
+      "Radial tunnel syndrome causes aching forearm pain from compression at the supinator."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.3,
+    "addressableMeshKey": "Mesh_SYS_NERV_RADIAL_DEEP_LOD0",
+    "audioTTSKey": "Audio_SYS_NERV_RADIAL_DEEP_Desc",
+    "connectedNodes": [
+      "SYS_NERV_RADIAL",
+      "SYS_SK_RADIUS"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_NERV_DIGITAL_HAND",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "S64.3",
+      "S64.4"
+    ],
+    "latinName": "Nervi digitales palmares",
+    "commonName": "Digital Nerves of the Hand",
+    "systemCategory": [
+      "Nervous"
+    ],
+    "descriptionProfessional": "Palmar digital nerves running on both sides of each finger: the median nerve supplies the thumb, index, middle and the radial side of the ring finger, and the ulnar nerve the little finger and the ulnar side of the ring finger. They supply the skin of the finger pulp and nail bed with fine touch.",
+    "descriptionPatient": "Fine nerves along both sides of each finger that give you the sense of touch in your fingertips.",
+    "apBiologyFacts": [
+      "The fingertips have among the highest densities of touch receptors in the body, which is why two-point discrimination is fine there.",
+      "The ring finger is split between median and ulnar supply, a useful test for telling which nerve is injured."
+    ],
+    "clinicalNotes": [
+      "Digital nerve blocks are done at the base of the finger and used for painful finger procedures.",
+      "Lacerated digital nerves cause numbness of the fingertip and are repaired microsurgically."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.2,
+    "addressableMeshKey": "Mesh_SYS_NERV_DIGITAL_HAND_LOD0",
+    "audioTTSKey": "Audio_SYS_NERV_DIGITAL_HAND_Desc",
+    "connectedNodes": [
+      "SYS_NERV_MEDIAN",
+      "SYS_NERV_ULNAR",
+      "SYS_CV_DIGITAL_ARTERY"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_NERV_RECURRENT_LARYNGEAL",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "J38.0",
+      "G52.2"
+    ],
+    "latinName": "Nervus laryngeus recurrens",
+    "commonName": "Recurrent Laryngeal Nerve",
+    "systemCategory": [
+      "Nervous"
+    ],
+    "descriptionProfessional": "A branch of the vagus that supplies all the intrinsic muscles of the larynx except cricothyroid and gives sensation below the vocal folds. The right hooks under the right subclavian artery and the left under the aortic arch beside the ligamentum arteriosum before ascending in the groove between trachea and oesophagus.",
+    "descriptionPatient": "A nerve that goes down into your chest, loops under a big artery and comes back up to your voice box, moving your vocal cords.",
+    "apBiologyFacts": [
+      "Its long loop is an evolutionary legacy: in fish the same nerve took a direct route past the gill arches, and in a giraffe it runs several metres.",
+      "The left is longer than the right because of the position of the aortic arch."
+    ],
+    "clinicalNotes": [
+      "It can be injured during thyroidectomy or by an aortic arch aneurysm, causing hoarseness; bilateral injury can obstruct the airway.",
+      "Lung cancer or an enlarged left atrium can compress the left nerve, causing a hoarse voice (Ortner syndrome)."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.3,
+    "addressableMeshKey": "Mesh_SYS_NERV_RECURRENT_LARYNGEAL_LOD0",
+    "audioTTSKey": "Audio_SYS_NERV_RECURRENT_LARYNGEAL_Desc",
+    "connectedNodes": [
+      "SYS_NERV_VAGUS",
+      "SYS_RESP_LARYNX",
+      "SYS_CV_AORTIC_ARCH",
+      "SYS_ENDO_THYROID"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_NERV_SYMPATHETIC_TRUNK",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "G90.2",
+      "G90.8",
+      "G90.5"
+    ],
+    "latinName": "Truncus sympathicus",
+    "commonName": "Sympathetic Chain",
+    "systemCategory": [
+      "Nervous"
+    ],
+    "descriptionProfessional": "A paired chain of ganglia running from the base of the skull to the coccyx on each side of the vertebral column, linked by interganglionic nerves. Preganglionic fibres from T1-L2 enter through white rami and either synapse in the chain or pass through it as splanchnic nerves; grey rami return postganglionic fibres to the spinal nerves.",
+    "descriptionPatient": "Two chains of nerve knots running down each side of your spine that carry the 'fight or flight' signals to the body.",
+    "apBiologyFacts": [
+      "Sympathetic preganglionic neurons exist only in the thoracolumbar cord (T1-L2), but the chain extends from neck to pelvis so that every spinal nerve can receive postganglionic fibres.",
+      "The superior cervical ganglion sends fibres up with the carotid arteries to dilate the pupil."
+    ],
+    "clinicalNotes": [
+      "Horner syndrome - a drooping eyelid, small pupil and loss of sweating - results from an interruption of the sympathetic supply to the head.",
+      "Sympathectomy is used to treat severe hyperhidrosis and some vascular pain."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.45,
+    "addressableMeshKey": "Mesh_SYS_NERV_SYMPATHETIC_TRUNK_LOD0",
+    "audioTTSKey": "Audio_SYS_NERV_SYMPATHETIC_TRUNK_Desc",
+    "connectedNodes": [
+      "SYS_NERV_SPINALCORD",
+      "SYS_NERV_SPLANCHNIC",
+      "SYS_NERV_SPINAL_THORACIC"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_NERV_SPLANCHNIC",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "G90.8",
+      "C25.9"
+    ],
+    "latinName": "Nervi splanchnici majores et ganglion coeliacum",
+    "commonName": "Greater Splanchnic Nerve and Celiac Ganglion",
+    "systemCategory": [
+      "Nervous"
+    ],
+    "descriptionProfessional": "The greater splanchnic nerve is formed from preganglionic sympathetic fibres from T5-T9 that pass through the sympathetic chain without synapsing, pierce the diaphragm and end in the celiac ganglion, from which postganglionic fibres follow the celiac arteries to the foregut. The celiac ganglion and plexus surround the celiac trunk.",
+    "descriptionPatient": "Nerves carrying stress signals from the chest to a knot of nerves beside the main artery of the upper belly, which then control the stomach, liver and bowel.",
+    "apBiologyFacts": [
+      "Splanchnic nerves are unusual because they are preganglionic - they do not synapse in the chain but in a prevertebral ganglion.",
+      "Sympathetic stimulation slows gut movement and diverts blood to muscle and heart in fight or flight."
+    ],
+    "clinicalNotes": [
+      "A celiac plexus block relieves the severe pain of pancreatic cancer.",
+      "Splanchnic nerve interruption reduces abdominal visceral pain."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.35,
+    "addressableMeshKey": "Mesh_SYS_NERV_SPLANCHNIC_LOD0",
+    "audioTTSKey": "Audio_SYS_NERV_SPLANCHNIC_Desc",
+    "connectedNodes": [
+      "SYS_NERV_SYMPATHETIC_TRUNK",
+      "SYS_CV_CELIAC",
+      "SYS_DIG_STOMACH",
+      "SYS_DIG_LIVER"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_NERV_SAPHENOUS",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "G57.8",
+      "G57.2"
+    ],
+    "latinName": "Nervus saphenus",
+    "commonName": "Saphenous Nerve",
+    "systemCategory": [
+      "Nervous"
+    ],
+    "descriptionProfessional": "The longest branch of the femoral nerve, a purely sensory nerve that accompanies the femoral artery in the adductor canal, emerges at the medial knee and descends the inner leg with the great saphenous vein to supply the skin of the medial leg and foot.",
+    "descriptionPatient": "A sensory nerve running down the inside of your leg, giving feeling to the skin of your inner calf and ankle.",
+    "apBiologyFacts": [
+      "It is the only branch of the femoral nerve that continues below the knee.",
+      "It runs with the great saphenous vein, so vein surgery can injure it."
+    ],
+    "clinicalNotes": [
+      "Injury during great saphenous vein stripping or knee surgery causes numbness or burning along the medial leg.",
+      "An adductor canal block, which anaesthetises this nerve, provides pain relief after knee surgery without weakening the quadriceps."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.4,
+    "addressableMeshKey": "Mesh_SYS_NERV_SAPHENOUS_LOD0",
+    "audioTTSKey": "Audio_SYS_NERV_SAPHENOUS_Desc",
+    "connectedNodes": [
+      "SYS_NERV_FEMORAL",
+      "SYS_CV_SAPHENOUS",
+      "SYS_CV_FEMORAL"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_NERV_OBTURATOR",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "G57.8"
+    ],
+    "latinName": "Nervus obturatorius",
+    "commonName": "Obturator Nerve",
+    "systemCategory": [
+      "Nervous"
+    ],
+    "descriptionProfessional": "A branch of the lumbar plexus (L2-L4) that descends along the pelvic brim and leaves the pelvis through the obturator canal to supply the adductor muscles of the thigh and the skin of the medial thigh.",
+    "descriptionPatient": "A nerve that goes through a hole in the pelvis to power the muscles that pull your thighs together.",
+    "apBiologyFacts": [
+      "It is the nerve of the adductor compartment of the thigh - the muscles that bring the leg towards the midline.",
+      "It also sends a small branch to the hip joint, which is why hip disease can be felt as knee pain."
+    ],
+    "clinicalNotes": [
+      "Obturator hernia compresses the nerve, causing pain along the medial thigh (Howship-Romberg sign).",
+      "During transurethral bladder surgery, electrical stimulation of the nerve can cause a sudden thigh jerk (obturator reflex)."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.35,
+    "addressableMeshKey": "Mesh_SYS_NERV_OBTURATOR_LOD0",
+    "audioTTSKey": "Audio_SYS_NERV_OBTURATOR_Desc",
+    "connectedNodes": [
+      "SYS_NERV_LUMBAR_PLEXUS",
+      "SYS_NERV_FEMORAL"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_NERV_FEMORAL_CUTANEOUS",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "G57.1"
+    ],
+    "latinName": "Nervus cutaneus femoris lateralis",
+    "commonName": "Lateral Femoral Cutaneous Nerve",
+    "systemCategory": [
+      "Nervous"
+    ],
+    "descriptionProfessional": "A sensory branch of the lumbar plexus (L2-L3) that crosses the iliacus and passes beneath or through the lateral end of the inguinal ligament near the anterior superior iliac spine to supply the skin of the lateral thigh.",
+    "descriptionPatient": "A sensory nerve giving feeling to the skin of the outer thigh.",
+    "apBiologyFacts": [
+      "It carries only sensory fibres, so injury never weakens a muscle.",
+      "Its position beside the anterior superior iliac spine makes it easy to trap."
+    ],
+    "clinicalNotes": [
+      "Meralgia paraesthetica - burning, numbness of the outer thigh - occurs with tight belts, obesity, pregnancy or hip surgery.",
+      "It is at risk in anterior approaches to the hip."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.35,
+    "addressableMeshKey": "Mesh_SYS_NERV_FEMORAL_CUTANEOUS_LOD0",
+    "audioTTSKey": "Audio_SYS_NERV_FEMORAL_CUTANEOUS_Desc",
+    "connectedNodes": [
+      "SYS_NERV_LUMBAR_PLEXUS",
+      "SYS_NERV_FEMORAL"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_NERV_FIBULAR_DEEP",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "G57.3",
+      "G57.8"
+    ],
+    "latinName": "Nervus fibularis profundus",
+    "commonName": "Deep Fibular (Peroneal) Nerve",
+    "systemCategory": [
+      "Nervous"
+    ],
+    "descriptionProfessional": "A branch of the common fibular nerve that pierces the anterior compartment, runs with the anterior tibial artery to the ankle and supplies the dorsiflexors of the foot, the toe extensors and the skin of the web between the great and second toes.",
+    "descriptionPatient": "A nerve down the front of the shin that lifts your foot and toes and gives feeling to the skin between the big toe and second toe.",
+    "apBiologyFacts": [
+      "It supplies the muscles that lift the foot (dorsiflexion) - the ones that stop your toes from scraping the ground when you walk.",
+      "Its only skin supply is the small first web space of the foot."
+    ],
+    "clinicalNotes": [
+      "Anterior compartment syndrome compresses it, causing foot weakness and numbness of the first web space.",
+      "Anterior tarsal tunnel syndrome is entrapment at the ankle."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.35,
+    "addressableMeshKey": "Mesh_SYS_NERV_FIBULAR_DEEP_LOD0",
+    "audioTTSKey": "Audio_SYS_NERV_FIBULAR_DEEP_Desc",
+    "connectedNodes": [
+      "SYS_NERV_FIBULAR_COMMON",
+      "SYS_NERV_FIBULAR_SUPERFICIAL",
+      "SYS_CV_ANT_TIBIAL"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_NERV_FIBULAR_SUPERFICIAL",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "G57.3"
+    ],
+    "latinName": "Nervus fibularis superficialis",
+    "commonName": "Superficial Fibular (Peroneal) Nerve",
+    "systemCategory": [
+      "Nervous"
+    ],
+    "descriptionProfessional": "A branch of the common fibular nerve that runs in the lateral compartment, supplying the fibularis longus and brevis (which evert the foot) and continuing onto the dorsum of the foot as cutaneous branches to most of its skin.",
+    "descriptionPatient": "A nerve on the outer side of the shin that turns your foot outward and gives feeling to the top of your foot.",
+    "apBiologyFacts": [
+      "The everting muscles it supplies protect the ankle from spraining inward.",
+      "It gives the skin of the dorsum of the foot except the first web space."
+    ],
+    "clinicalNotes": [
+      "Ankle inversion sprains can stretch it and cause numbness on the foot's dorsum.",
+      "Loss of eversion is a sign of superficial fibular palsy."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.35,
+    "addressableMeshKey": "Mesh_SYS_NERV_FIBULAR_SUPERFICIAL_LOD0",
+    "audioTTSKey": "Audio_SYS_NERV_FIBULAR_SUPERFICIAL_Desc",
+    "connectedNodes": [
+      "SYS_NERV_FIBULAR_COMMON",
+      "SYS_NERV_FIBULAR_DEEP"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_NERV_SURAL",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "G57.8"
+    ],
+    "latinName": "Nervus suralis",
+    "commonName": "Sural Nerve",
+    "systemCategory": [
+      "Nervous"
+    ],
+    "descriptionProfessional": "A sensory nerve formed by branches of the tibial and common fibular nerves that descends the back of the calf beside the small saphenous vein, passes behind the lateral malleolus and supplies the skin of the lateral ankle, heel and foot.",
+    "descriptionPatient": "A sensory nerve running down the back of the calf that gives feeling to the outer ankle and foot.",
+    "apBiologyFacts": [
+      "It is purely sensory, making it a safe nerve to remove for a biopsy or graft.",
+      "It runs with the small saphenous vein and the Achilles tendon."
+    ],
+    "clinicalNotes": [
+      "Sural nerve biopsy is used to diagnose peripheral neuropathies.",
+      "It is used as a graft to repair injured nerves elsewhere."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.35,
+    "addressableMeshKey": "Mesh_SYS_NERV_SURAL_LOD0",
+    "audioTTSKey": "Audio_SYS_NERV_SURAL_Desc",
+    "connectedNodes": [
+      "SYS_NERV_TIBIAL",
+      "SYS_NERV_FIBULAR_COMMON",
+      "SYS_CV_SAPHENOUS_SMALL"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_NERV_PLANTAR",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "G57.5",
+      "G57.6"
+    ],
+    "latinName": "Nervi plantares medialis et lateralis",
+    "commonName": "Plantar Nerves",
+    "systemCategory": [
+      "Nervous"
+    ],
+    "descriptionProfessional": "The terminal branches of the tibial nerve, dividing behind the medial malleolus (in the tarsal tunnel) into the medial and lateral plantar nerves, which supply the intrinsic muscles of the foot and the skin of the sole and toes.",
+    "descriptionPatient": "The nerves in the sole of the foot that give feeling to the skin and move the small muscles of your foot.",
+    "apBiologyFacts": [
+      "They are the foot equivalents of the median and ulnar nerves in the hand.",
+      "The medial plantar nerve supplies the medial three and a half toes and the lateral plantar the rest."
+    ],
+    "clinicalNotes": [
+      "Tarsal tunnel syndrome is compression of the tibial nerve behind the medial malleolus, causing burning of the sole.",
+      "Morton neuroma is a thickening of a plantar digital nerve between the third and fourth toes."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.3,
+    "addressableMeshKey": "Mesh_SYS_NERV_PLANTAR_LOD0",
+    "audioTTSKey": "Audio_SYS_NERV_PLANTAR_Desc",
+    "connectedNodes": [
+      "SYS_NERV_TIBIAL",
+      "SYS_CV_PLANTAR_ARTERY"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_NERV_OLFACTORY",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "R43.0",
+      "G52.0"
+    ],
+    "latinName": "Nervus olfactorius (I)",
+    "commonName": "Olfactory Nerve (CN I)",
+    "systemCategory": [
+      "Nervous"
+    ],
+    "descriptionProfessional": "The nerve of smell. Bipolar sensory neurons in the olfactory epithelium send axons in about twenty bundles through the cribriform plate of the ethmoid to synapse in the olfactory bulb, from which the olfactory tract carries signals to the primary olfactory cortex - the only sensory pathway that reaches the cortex without first relaying in the thalamus.",
+    "descriptionPatient": "The nerve of smell, running from the top of your nose into the brain.",
+    "apBiologyFacts": [
+      "Olfactory receptor neurons are among the few neurons in the body that are continually replaced throughout life.",
+      "Smell is the only sense that reaches the cortex without relaying through the thalamus."
+    ],
+    "clinicalNotes": [
+      "Loss of smell (anosmia) follows head injury (shearing at the cribriform plate), viral infections including COVID-19, and is an early sign of Parkinson and Alzheimer disease.",
+      "A fracture through the cribriform plate can cause CSF rhinorrhoea."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.3,
+    "addressableMeshKey": "Mesh_SYS_NERV_OLFACTORY_LOD0",
+    "audioTTSKey": "Audio_SYS_NERV_OLFACTORY_Desc",
+    "connectedNodes": [
+      "SYS_NERV_FRONTAL_LOBE",
+      "SYS_NERV_OPTIC"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_NERV_OCULOMOTOR",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "H49.0",
+      "G52.7"
+    ],
+    "latinName": "Nervus oculomotorius (III)",
+    "commonName": "Oculomotor Nerve (CN III)",
+    "systemCategory": [
+      "Nervous"
+    ],
+    "descriptionProfessional": "Arises from the midbrain and passes through the cavernous sinus and superior orbital fissure to supply four of the six extraocular muscles (superior, inferior and medial rectus and inferior oblique) and levator palpebrae superioris. Parasympathetic fibres from the Edinger-Westphal nucleus constrict the pupil and focus the lens.",
+    "descriptionPatient": "A nerve that moves your eye up, down and inward, lifts your eyelid and makes the pupil smaller in bright light.",
+    "apBiologyFacts": [
+      "It carries both motor fibres to the eye muscles and parasympathetic fibres for the pupil and lens - and the parasympathetic fibres run on its outside surface, where compression hits them first.",
+      "The 'down and out' position of a damaged eye results from the unopposed action of the lateral rectus (CN VI) and superior oblique (CN IV)."
+    ],
+    "clinicalNotes": [
+      "A 'blown' pupil with a drooping eyelid in a head-injury patient indicates uncal herniation compressing CN III - a neurosurgical emergency.",
+      "A posterior communicating artery aneurysm classically presents with a painful third nerve palsy."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.3,
+    "addressableMeshKey": "Mesh_SYS_NERV_OCULOMOTOR_LOD0",
+    "audioTTSKey": "Audio_SYS_NERV_OCULOMOTOR_Desc",
+    "connectedNodes": [
+      "SYS_SENS_EYE",
+      "SYS_MUSC_EXTRAOCULAR",
+      "SYS_NERV_TROCHLEAR",
+      "SYS_NERV_ABDUCENS"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_NERV_TROCHLEAR",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "H49.1"
+    ],
+    "latinName": "Nervus trochlearis (IV)",
+    "commonName": "Trochlear Nerve (CN IV)",
+    "systemCategory": [
+      "Nervous"
+    ],
+    "descriptionProfessional": "The smallest cranial nerve and the only one to leave the dorsal surface of the brainstem, from the midbrain, and to decussate. It winds round the brainstem and enters the orbit through the superior orbital fissure to supply the superior oblique, whose tendon passes through a pulley (the trochlea).",
+    "descriptionPatient": "A tiny nerve that controls one eye muscle, which turns the eye down and inward, as when you read or walk down stairs.",
+    "apBiologyFacts": [
+      "It has the longest intracranial course of any cranial nerve, making it vulnerable in head injury.",
+      "The superior oblique's pulley redirects its pull so it depresses the eye rather than rotating it up."
+    ],
+    "clinicalNotes": [
+      "Trochlear palsy causes vertical double vision that is worst when looking down, and patients tilt the head to the opposite side.",
+      "It is the nerve most often damaged by closed head injury among those of the eye muscles."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.3,
+    "addressableMeshKey": "Mesh_SYS_NERV_TROCHLEAR_LOD0",
+    "audioTTSKey": "Audio_SYS_NERV_TROCHLEAR_Desc",
+    "connectedNodes": [
+      "SYS_NERV_OCULOMOTOR",
+      "SYS_NERV_ABDUCENS",
+      "SYS_MUSC_EXTRAOCULAR"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_NERV_ABDUCENS",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "H49.2"
+    ],
+    "latinName": "Nervus abducens (VI)",
+    "commonName": "Abducens Nerve (CN VI)",
+    "systemCategory": [
+      "Nervous"
+    ],
+    "descriptionProfessional": "Emerges from the junction of pons and medulla, climbs a long path over the tip of the petrous temporal bone, passes through the cavernous sinus beside the internal carotid artery and supplies the lateral rectus, which abducts the eye.",
+    "descriptionPatient": "A nerve that moves your eye outward, toward your ear.",
+    "apBiologyFacts": [
+      "It is named for what it does: abduction of the eye (moving it away from the nose).",
+      "Its long, sharply angled path over the tip of the petrous temporal bone makes it especially vulnerable to rises in intracranial pressure."
+    ],
+    "clinicalNotes": [
+      "Sixth nerve palsy causes horizontal double vision and an eye that cannot turn out; it can be a false localising sign of raised intracranial pressure.",
+      "Diabetes, stroke and cavernous sinus lesions are other causes."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.3,
+    "addressableMeshKey": "Mesh_SYS_NERV_ABDUCENS_LOD0",
+    "audioTTSKey": "Audio_SYS_NERV_ABDUCENS_Desc",
+    "connectedNodes": [
+      "SYS_NERV_OCULOMOTOR",
+      "SYS_NERV_TROCHLEAR",
+      "SYS_NERV_PONS",
+      "SYS_MUSC_EXTRAOCULAR"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_NERV_VESTIBULOCOCHLEAR",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "H93.3",
+      "D33.3",
+      "H91.9"
+    ],
+    "latinName": "Nervus vestibulocochlearis (VIII)",
+    "commonName": "Vestibulocochlear Nerve (CN VIII)",
+    "systemCategory": [
+      "Nervous"
+    ],
+    "descriptionProfessional": "The nerve of hearing and balance, formed by the cochlear division from the spiral ganglion and the vestibular division from the semicircular canals and otolith organs. It passes through the internal acoustic meatus with the facial nerve to reach the pontomedullary junction.",
+    "descriptionPatient": "The nerve that carries hearing and balance signals from your inner ear to your brain.",
+    "apBiologyFacts": [
+      "Two functions travel in one nerve: hearing (cochlear) and balance (vestibular).",
+      "It leaves the skull with the facial nerve through the internal acoustic meatus, so tumours here often affect both."
+    ],
+    "clinicalNotes": [
+      "Vestibular schwannoma (acoustic neuroma) causes one-sided hearing loss, tinnitus and imbalance.",
+      "Ototoxic drugs, such as gentamicin and cisplatin, damage its hair cells."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.3,
+    "addressableMeshKey": "Mesh_SYS_NERV_VESTIBULOCOCHLEAR_LOD0",
+    "audioTTSKey": "Audio_SYS_NERV_VESTIBULOCOCHLEAR_Desc",
+    "connectedNodes": [
+      "SYS_SENS_COCHLEA",
+      "SYS_SENS_SEMICIRCULAR",
+      "SYS_NERV_FACIAL",
+      "SYS_NERV_PONS"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_NERV_GLOSSOPHARYNGEAL",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "G52.1"
+    ],
+    "latinName": "Nervus glossopharyngeus (IX)",
+    "commonName": "Glossopharyngeal Nerve (CN IX)",
+    "systemCategory": [
+      "Nervous"
+    ],
+    "descriptionProfessional": "Leaves the medulla and the skull through the jugular foramen. It carries taste and general sensation from the posterior third of the tongue and the pharynx, senses blood pressure and oxygen at the carotid body and sinus, supplies the stylopharyngeus and gives parasympathetic supply to the parotid gland.",
+    "descriptionPatient": "A nerve that gives taste and feeling to the back of your tongue and throat and helps sense your blood pressure.",
+    "apBiologyFacts": [
+      "It is the afferent limb of the gag reflex (the vagus is the efferent limb).",
+      "The carotid sinus baroreceptors signal through this nerve to keep blood pressure steady."
+    ],
+    "clinicalNotes": [
+      "Glossopharyngeal neuralgia causes stabbing pain in the throat and ear brought on by swallowing.",
+      "Carotid sinus massage slows the heart through this nerve's afferent pathway."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.3,
+    "addressableMeshKey": "Mesh_SYS_NERV_GLOSSOPHARYNGEAL_LOD0",
+    "audioTTSKey": "Audio_SYS_NERV_GLOSSOPHARYNGEAL_Desc",
+    "connectedNodes": [
+      "SYS_NERV_VAGUS",
+      "SYS_NERV_ACCESSORY",
+      "SYS_DIG_TONGUE",
+      "SYS_CV_CAROTID_INT"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_NERV_ACCESSORY",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "G52.8"
+    ],
+    "latinName": "Nervus accessorius (XI)",
+    "commonName": "Accessory Nerve (CN XI)",
+    "systemCategory": [
+      "Nervous"
+    ],
+    "descriptionProfessional": "A purely motor nerve whose spinal root arises from the upper cervical cord (C1-C5), ascends through the foramen magnum and leaves the skull through the jugular foramen. It supplies the sternocleidomastoid and trapezius.",
+    "descriptionPatient": "A nerve that lets you shrug your shoulders and turn your head.",
+    "apBiologyFacts": [
+      "It is unusual in that part of it arises from the spinal cord, climbs up into the skull, and then leaves again.",
+      "It supplies the two muscles that move the head and shoulder girdle."
+    ],
+    "clinicalNotes": [
+      "Injury in the posterior triangle of the neck during lymph node biopsy causes a drooping shoulder and winging of the scapula.",
+      "Weakness of one sternocleidomastoid impairs turning the head to the opposite side."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.3,
+    "addressableMeshKey": "Mesh_SYS_NERV_ACCESSORY_LOD0",
+    "audioTTSKey": "Audio_SYS_NERV_ACCESSORY_Desc",
+    "connectedNodes": [
+      "SYS_NERV_VAGUS",
+      "SYS_NERV_GLOSSOPHARYNGEAL",
+      "SYS_MUSC_TRAPEZIUS",
+      "SYS_MUSC_STERNOCLEIDOMASTOID"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_NERV_HYPOGLOSSAL",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "G52.3"
+    ],
+    "latinName": "Nervus hypoglossus (XII)",
+    "commonName": "Hypoglossal Nerve (CN XII)",
+    "systemCategory": [
+      "Nervous"
+    ],
+    "descriptionProfessional": "The motor nerve of the tongue, emerging from the medulla between the pyramid and olive, leaving the skull through the hypoglossal canal and running down and forward below the jaw to supply all the intrinsic and most of the extrinsic muscles of the tongue.",
+    "descriptionPatient": "The nerve that moves your tongue for speaking, chewing and swallowing.",
+    "apBiologyFacts": [
+      "It supplies all the tongue muscles except palatoglossus, which is supplied by the vagus.",
+      "A damaged nerve makes the tongue point toward the injured side when it is stuck out, because the healthy side pushes it."
+    ],
+    "clinicalNotes": [
+      "Tongue deviation on protrusion indicates a lower motor neurone lesion on the same side.",
+      "Carotid endarterectomy can injure it."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.3,
+    "addressableMeshKey": "Mesh_SYS_NERV_HYPOGLOSSAL_LOD0",
+    "audioTTSKey": "Audio_SYS_NERV_HYPOGLOSSAL_Desc",
+    "connectedNodes": [
+      "SYS_DIG_TONGUE",
+      "SYS_NERV_VAGUS",
+      "SYS_NERV_MEDULLA"
     ],
     "hasMicroDive": false,
     "microDiveKey": "",

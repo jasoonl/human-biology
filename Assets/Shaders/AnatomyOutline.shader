@@ -77,8 +77,14 @@ Shader "HumanBodyExplorer/AnatomyOutline"
                 [unroll] for (int i = 0; i < 4; i++)
                 {
                     float d = EyeDepth(uv + offsets[i]);
-                    nearest = min(nearest, d);
                     nearestNeighbour = min(nearestNeighbour, d);
+
+                    // A neighbour that is nearer but only one pixel wide - the pixel beyond it is
+                    // back at this depth - is a hairline structure (a nerve, a small vessel). Ink on
+                    // both sides of it would turn it into a black line, so leave it alone.
+                    float dBeyond = EyeDepth(uv + offsets[i] * 2.0);
+                    bool hairline = (d0 - d) > d0 * _DepthThreshold && abs(dBeyond - d0) < d0 * _DepthThreshold;
+                    if (!hairline) nearest = min(nearest, d);
                 }
 
                 // Rule 2: a pixel of pure backdrop with only backdrop around it has

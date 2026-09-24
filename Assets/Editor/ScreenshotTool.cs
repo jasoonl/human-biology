@@ -33,6 +33,7 @@ namespace HumanBodyExplorer.EditorTools
             public float Yaw;          // degrees; 0 = looking at the figure's front (+Z gaze)
             public float Pitch;
             public AnatomyLayerGroup[] Visible; // null = leave every layer on
+            public float Fov;          // 0 = the camera's own
         }
 
         private static readonly View[] Views =
@@ -62,6 +63,42 @@ namespace HumanBodyExplorer.EditorTools
                 Visible = new[] { AnatomyLayerGroup.Skeletal } },
             new View { Name = "14_back_muscle", Target = new Vector3(0f, 1.1f, 0f), Distance = 2.4f, Yaw = 180f,
                 Visible = new[] { AnatomyLayerGroup.Muscular } },
+            new View { Name = "15_torso_vessels", Target = new Vector3(0f, 1.2f, 0f), Distance = 1.5f,
+                Visible = new[] { AnatomyLayerGroup.Circulatory } },
+            new View { Name = "16_torso_nerves", Target = new Vector3(0f, 1.2f, 0f), Distance = 1.5f,
+                Visible = new[] { AnatomyLayerGroup.Nervous } },
+            new View { Name = "17_head_vessels_nerves", Target = new Vector3(0f, 1.62f, 0f), Distance = 0.75f,
+                Visible = new[] { AnatomyLayerGroup.Circulatory, AnatomyLayerGroup.Nervous } },
+            new View { Name = "18_arm_vessels_nerves", Target = new Vector3(0.2f, 1.1f, 0f), Distance = 1.1f,
+                Visible = new[] { AnatomyLayerGroup.Circulatory, AnatomyLayerGroup.Nervous } },
+            new View { Name = "19_leg_vessels_nerves", Target = new Vector3(0.09f, 0.5f, 0f), Distance = 1.4f,
+                Visible = new[] { AnatomyLayerGroup.Circulatory, AnatomyLayerGroup.Nervous } },
+            new View { Name = "20_hand_vessels_nerves", Target = new Vector3(0.22f, 0.8f, 0f), Distance = 0.35f,
+                Visible = new[] { AnatomyLayerGroup.Circulatory, AnatomyLayerGroup.Nervous } },
+            new View { Name = "21_back_spine_nerves", Target = new Vector3(0f, 1.2f, 0.05f), Distance = 1.8f, Yaw = 180f,
+                Visible = new[] { AnatomyLayerGroup.Skeletal, AnatomyLayerGroup.Nervous } },
+            new View { Name = "22_full_vessels_nerves_bones", Target = new Vector3(0f, 0.88f, 0f), Distance = 3.6f,
+                Visible = new[] { AnatomyLayerGroup.Skeletal, AnatomyLayerGroup.Circulatory, AnatomyLayerGroup.Nervous } },
+            new View { Name = "24_neck_thorax_vessels", Target = new Vector3(0f, 1.36f, 0f), Distance = 0.9f, Fov = 30f,
+                Visible = new[] { AnatomyLayerGroup.Circulatory } },
+            new View { Name = "25_thorax_vessels_organs", Target = new Vector3(0f, 1.28f, 0f), Distance = 0.9f, Fov = 30f,
+                Visible = new[] { AnatomyLayerGroup.Circulatory, AnatomyLayerGroup.Organs } },
+            new View { Name = "26_thorax_vessels_bones", Target = new Vector3(0f, 1.28f, 0f), Distance = 0.9f, Fov = 30f,
+                Visible = new[] { AnatomyLayerGroup.Circulatory, AnatomyLayerGroup.Skeletal } },
+            new View { Name = "27_abdomen_vessels_organs", Target = new Vector3(0f, 1.05f, 0f), Distance = 0.9f, Fov = 30f,
+                Visible = new[] { AnatomyLayerGroup.Circulatory, AnatomyLayerGroup.Organs } },
+            new View { Name = "28_abdomen_vessels_only", Target = new Vector3(0f, 1.05f, 0f), Distance = 0.9f, Fov = 30f,
+                Visible = new[] { AnatomyLayerGroup.Circulatory } },
+            new View { Name = "29_head_nerves_skull", Target = new Vector3(0f, 1.62f, 0f), Distance = 0.7f, Fov = 30f,
+                Visible = new[] { AnatomyLayerGroup.Nervous, AnatomyLayerGroup.Skeletal } },
+            new View { Name = "30_head_nerves_only", Target = new Vector3(0f, 1.62f, 0f), Distance = 0.7f, Fov = 30f,
+                Visible = new[] { AnatomyLayerGroup.Nervous } },
+            new View { Name = "31_neck_nerves_only", Target = new Vector3(0f, 1.42f, 0f), Distance = 0.9f, Fov = 30f,
+                Visible = new[] { AnatomyLayerGroup.Nervous } },
+            new View { Name = "32_pelvis_vessels_bones", Target = new Vector3(0f, 0.92f, 0f), Distance = 0.9f, Fov = 30f,
+                Visible = new[] { AnatomyLayerGroup.Circulatory, AnatomyLayerGroup.Nervous, AnatomyLayerGroup.Skeletal } },
+            new View { Name = "23_foot_vessels_nerves", Target = new Vector3(0.09f, 0.06f, -0.04f), Distance = 0.5f,
+                Visible = new[] { AnatomyLayerGroup.Circulatory, AnatomyLayerGroup.Nervous } },
         };
 
         [MenuItem("Human Body Explorer/Capture Review Screenshots")]
@@ -72,6 +109,7 @@ namespace HumanBodyExplorer.EditorTools
 
             // Batch mode renders a flat placeholder while shaders compile in the background, which
             // tints the first frames; compile synchronously so every render is the real one.
+            bool previousAsync = EditorSettings.asyncShaderCompilation;
             EditorSettings.asyncShaderCompilation = false;
             EditorSceneManager.OpenScene("Assets/Scenes/Bootstrap.unity");
 
@@ -84,6 +122,7 @@ namespace HumanBodyExplorer.EditorTools
             }
 
             var cam = cameraGO.GetComponent<Camera>();
+            float defaultFov = cam.fieldOfView;
             var layers = UnityEngine.Object.FindAnyObjectByType<AnatomyLayerVisibility>();
             if (layers == null)
                 Debug.LogWarning("[ScreenshotTool] No AnatomyLayerVisibility in scene; layer isolation views will show everything.");
@@ -109,6 +148,7 @@ namespace HumanBodyExplorer.EditorTools
                         layers.SetVisible(group, view.Visible == null || Array.IndexOf(view.Visible, group) >= 0);
                 }
 
+                cam.fieldOfView = view.Fov > 0f ? view.Fov : defaultFov;
                 var rotation = Quaternion.Euler(view.Pitch, view.Yaw, 0f);
                 // The figure faces -Z, so the default camera sits at -Z looking toward +Z.
                 cam.transform.rotation = rotation;
@@ -119,6 +159,7 @@ namespace HumanBodyExplorer.EditorTools
                 Debug.Log($"[ScreenshotTool] wrote {path}");
             }
 
+            EditorSettings.asyncShaderCompilation = previousAsync;
             EditorApplication.Exit(0);
         }
 

@@ -66,7 +66,8 @@ Shader "HumanBodyExplorer/BloodFlow"
             half4 frag(Varyings IN) : SV_Target
             {
                 float scrolledV = IN.uv.y - _Time.y * _FlowSpeed;
-                float band = frac(scrolledV * 6.0);
+                // UV.y runs 8 units per metre, so this puts a pulse roughly every 20 cm of vessel.
+                float band = frac(scrolledV * 0.6);
                 float pulse = smoothstep(0.4, 0.5, band) * smoothstep(0.6, 0.5, band);
 
                 float3 color = lerp(_BaseColor.rgb, _FlowColor.rgb, pulse * _PulseIntensity);

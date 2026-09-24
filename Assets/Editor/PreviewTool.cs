@@ -93,6 +93,7 @@ namespace HumanBodyExplorer.EditorTools
 
             // Batch mode renders a flat placeholder while shaders compile in the background, which
             // tints the first frames; compile synchronously so every render is the real one.
+            bool previousAsync = EditorSettings.asyncShaderCompilation;
             EditorSettings.asyncShaderCompilation = false;
             AnatomyOutlineFeatureSetup.AddFeatureToActiveRenderer();   // outline + ambient occlusion, as in the real scene
             var camera = NewPreviewScene();
@@ -163,6 +164,7 @@ namespace HumanBodyExplorer.EditorTools
                 Render(camera, Path.Combine(outDir, $"{what}_{shot.Name}.png"));
             }
 
+            EditorSettings.asyncShaderCompilation = previousAsync;
             EditorApplication.Exit(0);
         }
 

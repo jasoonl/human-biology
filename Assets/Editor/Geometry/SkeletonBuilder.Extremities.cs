@@ -31,6 +31,47 @@ namespace HumanBodyExplorer.EditorTools.Geometry
 
         // ---------------------------------------------------------------- hand
 
+        private static readonly (string name, float baseX, float headX, float mc, float[] ph)[] HandFingers =
+        {
+            ("Index", 0.224f, 0.233f, 0.066f, new[] { 0.040f, 0.023f, 0.019f }),
+            ("Middle", 0.213f, 0.216f, 0.064f, new[] { 0.044f, 0.027f, 0.020f }),
+            ("Ring", 0.203f, 0.199f, 0.057f, new[] { 0.041f, 0.026f, 0.019f }),
+            ("Little", 0.194f, 0.183f, 0.051f, new[] { 0.033f, 0.018f, 0.017f }),
+        };
+
+        private static readonly float[] FingerCurl = { 6f, 20f, 34f };
+
+        /// <summary>Joint positions down one finger of the left hand, index (0) to little (3): the
+        /// metacarpal base, its knuckle, then the ends of the proximal, middle and distal phalanges.
+        /// Vessels and nerves follow these so they run along the fingers that are actually there.</summary>
+        public static Vector3[] FingerPath(int finger)
+        {
+            var f = HandFingers[finger];
+            var baseP = new Vector3(f.baseX, 0.806f, 0.010f);
+            var head = new Vector3(f.headX, 0.806f - f.mc, 0.008f);
+            Vector3 axis = (head - baseP).normalized;
+            var joints = new Vector3[5];
+            joints[0] = baseP; joints[1] = head;
+            Vector3 cursor = head;
+            for (int p = 0; p < 3; p++)
+            {
+                cursor += Quaternion.AngleAxis(FingerCurl[p], Vector3.right) * axis * f.ph[p];
+                joints[p + 2] = cursor;
+            }
+            return joints;
+        }
+
+        /// <summary>The thumb's metacarpal base, knuckle, and the ends of its two phalanges.</summary>
+        public static Vector3[] ThumbPath()
+        {
+            var thumbBase = new Vector3(0.230f, 0.812f, 0.002f);
+            var thumbHead = new Vector3(0.245f, 0.770f, -0.014f);
+            Vector3 axis = (thumbHead - thumbBase).normalized;
+            Vector3 p1 = thumbHead + Quaternion.AngleAxis(12f, Vector3.right) * axis * 0.032f;
+            Vector3 p2 = p1 + Quaternion.AngleAxis(30f, Vector3.right) * axis * 0.026f;
+            return new[] { thumbBase, thumbHead, p1, p2 };
+        }
+
         private static void BuildHand(Transform root, Material bone, int layer)
         {
             // Carpals, two rows of four. Proximal row, thumb side to little-finger side:
@@ -52,15 +93,7 @@ namespace HumanBodyExplorer.EditorTools.Geometry
 
             // Index, middle, ring and little fingers: where the metacarpal starts and its
             // knuckle, the metacarpal's length, then proximal / middle / distal phalanx.
-            var fingers = new (string name, float baseX, float headX, float mc, float[] ph)[]
-            {
-                ("Index", 0.224f, 0.233f, 0.066f, new[] { 0.040f, 0.023f, 0.019f }),
-                ("Middle", 0.213f, 0.216f, 0.064f, new[] { 0.044f, 0.027f, 0.020f }),
-                ("Ring", 0.203f, 0.199f, 0.057f, new[] { 0.041f, 0.026f, 0.019f }),
-                ("Little", 0.194f, 0.183f, 0.051f, new[] { 0.033f, 0.018f, 0.017f }),
-            };
-
-            foreach (var f in fingers)
+            foreach (var f in HandFingers)
             {
                 var baseP = new Vector3(f.baseX, 0.806f, 0.010f);
                 var head = new Vector3(f.headX, 0.806f - f.mc, 0.008f);
@@ -70,7 +103,7 @@ namespace HumanBodyExplorer.EditorTools.Geometry
                 // Fingers rest in a gentle curl toward the palm: each joint bends a little more.
                 Vector3 axis = (head - baseP).normalized;
                 Vector3 cursor = head;
-                float[] curl = { 6f, 20f, 34f };
+                float[] curl = FingerCurl;
                 float[] radius = { 0.0062f, 0.0050f, 0.0042f };
                 string[] label = { "Proximal", "Middle", "Distal" };
                 for (int p = 0; p < 3; p++)

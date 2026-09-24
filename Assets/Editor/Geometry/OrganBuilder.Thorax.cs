@@ -43,8 +43,8 @@ namespace HumanBodyExplorer.EditorTools.Geometry
             Cache.Clear();
 
             BuildDiaphragm();
-            BuildLungs();
             BuildHeart();
+            BuildLungs();
             BuildAirway();
             BuildNeckOrgans();
             BuildAbdomen();
@@ -66,10 +66,13 @@ namespace HumanBodyExplorer.EditorTools.Geometry
         {
             SdfFunc domes = DiaphragmDomes();
             SdfFunc shell = Sdf.Subtract(domes, Sdf.Offset(domes, -0.010f));
-            // Only the dome above the costal margin, kept inside the ribcage's own outline.
-            shell = Sdf.Intersect(shell, Sdf.HalfSpace(V(0f, 1.120f, 0f), Vector3.down));
+            // Only the dome above the diaphragm's line of attachment, which is not level: it clings to
+            // the xiphoid and lower costal margin at the front and drops to the twelfth rib and the
+            // lumbar spine behind. Cutting it level would leave the shell standing over the liver
+            // like a bowl and hide the liver's front.
+            shell = Sdf.Intersect(shell, p => (1.120f - 0.60f * p.z) - p.y);
 
-            Mesh mesh = Make("Diaphragm", shell, V(-0.16f, 1.10f, -0.12f), V(0.16f, 1.26f, 0.12f), 0.0014f);
+            Mesh mesh = Make("Diaphragm", shell, V(-0.16f, 1.04f, -0.12f), V(0.16f, 1.26f, 0.12f), 0.0014f);
             Place("Diaphragm", "SYS_RESP_DIAPHRAGM", mesh, _tissue(MuscleTint, 0.30f));
         }
 
@@ -87,13 +90,16 @@ namespace HumanBodyExplorer.EditorTools.Geometry
             SdfFunc lung = Sdf.SmoothUnion(0.030f, upper, lower);
 
             // Flat medial face, where the mediastinum (heart, great vessels, airway) lies.
-            lung = Sdf.Intersect(lung, Sdf.HalfSpace(V(side * 0.014f, 0f, 0f), V(-side, 0f, 0f)));
+            lung = Sdf.Intersect(lung, Sdf.HalfSpace(V(side * 0.032f, 0f, 0f), V(-side, 0f, 0f)));
+            // The heart presses a cardiac impression into each lung - deeply into the left, whose
+            // notch this replaces - so the two never share the same space.
+            lung = Sdf.SmoothSubtract(0.008f, lung, Sdf.Offset(HeartField, 0.006f));
 
             // The base is concave, moulded over the dome of the diaphragm.
             lung = Sdf.Subtract(lung, Sdf.Offset(DiaphragmDomes(), 0.002f));
 
             // Hilum: the dimple on the medial face where the bronchus and vessels enter.
-            lung = Sdf.SmoothSubtract(0.008f, lung, Sdf.Sphere(V(side * 0.016f, 1.340f, 0.012f), 0.014f));
+            lung = Sdf.SmoothSubtract(0.008f, lung, Sdf.Sphere(V(side * 0.034f, 1.340f, 0.014f), 0.014f));
 
             if (side > 0f)
             {
@@ -130,6 +136,10 @@ namespace HumanBodyExplorer.EditorTools.Geometry
 
         // ---------------------------------------------------------------- heart
 
+        /// <summary>The four heart chambers as one field. Lungs are moulded around it, and the
+        /// coronary vessels are snapped onto it.</summary>
+        public static SdfFunc HeartField { get; private set; }
+
         private static void BuildHeart()
         {
             var muscle = _tissue(new Color(0.66f, 0.17f, 0.15f), 0.38f);
@@ -148,6 +158,7 @@ namespace HumanBodyExplorer.EditorTools.Geometry
 
             // Each chamber gives way a little to its neighbours so they sit against each other
             // with a groove between them, rather than interpenetrating.
+            HeartField = Sdf.SmoothUnion(0.010f, lv, rv, ra, la);
             const float groove = 0.0016f;
             SdfFunc lvOnly = Sdf.Subtract(lv, Sdf.Offset(rv, groove));
             SdfFunc rvOnly = rv;
@@ -203,8 +214,8 @@ namespace HumanBodyExplorer.EditorTools.Geometry
             // diaphragm to the stomach. A muscular tube, flattened front to back.
             var gullet = new[]
             {
-                V(0f, 1.500f, 0.014f), V(0f, 1.440f, 0.024f), V(0f, 1.360f, 0.036f), V(0.004f, 1.300f, 0.042f),
-                V(0.014f, 1.240f, 0.032f), V(0.022f, 1.200f, 0.010f), V(0.034f, 1.184f, -0.012f),
+                V(0f, 1.500f, 0.014f), V(0f, 1.440f, 0.024f), V(-0.002f, 1.360f, 0.032f), V(-0.002f, 1.300f, 0.034f),
+                V(0.004f, 1.240f, 0.028f), V(0.014f, 1.200f, 0.010f), V(0.030f, 1.184f, -0.012f),
             };
             var gOpts = Loft.Options.Default;
             gOpts.Sides = 12; gOpts.Flatten = 1.35f; gOpts.ThickAt = p => Vector3.forward; gOpts.RingsPerMetre = 120f;

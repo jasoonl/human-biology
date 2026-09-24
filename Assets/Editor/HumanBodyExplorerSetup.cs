@@ -16,39 +16,15 @@ using UnityEngine.UI;
 namespace HumanBodyExplorer.EditorTools
 {
     /// <summary>
-    /// Builds the classroom-facing explorer: a full primitive humanoid figure
-    /// with tagged bones/organs/muscles positioned anatomically under a
-    /// skin-covered head/torso silhouette, plus an info panel and quiz HUD with
-    /// live timer and on-figure flash feedback. No licensed anatomical meshes
-    /// exist in this project, so parts are primitives (spheres/capsules) - not
-    /// photorealistic, but correctly named, positioned relative to each other,
-    /// and wired to real educational descriptions and gameplay.
+    /// Builds the classroom-facing explorer: a full human figure - skeleton, muscles, organs,
+    /// vessels, nerves and a translucent skin - each structure tagged with its dictionary id,
+    /// plus an info panel and quiz HUD with live timer and on-figure flash feedback. The
+    /// geometry is generated procedurally (see Geometry/) because no licensed anatomical
+    /// meshes exist in this project; every structure is placed against the same landmarks
+    /// so the layers line up with each other.
     /// </summary>
     public static partial class HumanBodyExplorerSetup
     {
-        private struct PartDef
-        {
-            public string Name;
-            public string EntityId;
-            public PrimitiveType Shape;
-            public Vector3 LocalPosition;
-            public Vector3 LocalScale;
-
-            /// <summary>Euler angles; defaults to zero. Needed for structures that do
-            /// not run along a cardinal axis - the clavicles, the transverse colon and
-            /// the pancreas all lie roughly horizontally, and the heart is tilted with
-            /// its apex pointing down and to the anatomical left.</summary>
-            public Vector3 LocalEuler;
-
-            public Color Color;
-            public float Smoothness;
-
-            /// <summary>Squishy anatomy (organs/muscles/brain) gets a noise-displaced,
-            /// non-perfect-sphere mesh so it doesn't read as a plastic ball; bone and
-            /// skin stay smooth/hard-surfaced. Only applies to Sphere-shaped parts.</summary>
-            public bool Organic;
-        }
-
         // Tissue colours chosen to match how these structures actually appear in
         // dissection and surgical photography, rather than arbitrary bright hues -
         // fresh bone is ivory rather than white, lungs are grey-pink rather than
@@ -68,7 +44,7 @@ namespace HumanBodyExplorer.EditorTools
         private static readonly Color HeartColor = new Color(0.62f, 0.14f, 0.13f);
         private static readonly Color LungColor = new Color(0.80f, 0.57f, 0.56f);
         private static readonly Color CartilageColor = new Color(0.85f, 0.86f, 0.83f);
-        private static readonly Color NerveColor = new Color(0.90f, 0.87f, 0.80f);
+        private static readonly Color NerveColor = new Color(0.96f, 0.82f, 0.30f);
         private static readonly Color BrainColor = new Color(0.85f, 0.76f, 0.73f);
         private static readonly Color RenalColor = new Color(0.52f, 0.21f, 0.19f);
         private static readonly Color EndoColor = new Color(0.72f, 0.55f, 0.40f);
@@ -90,98 +66,6 @@ namespace HumanBodyExplorer.EditorTools
         private const float MuscleGloss = 0.3f;
         private const float BoneGloss = 0.12f;
         private const float SkinGloss = 0.18f;
-
-        private static readonly PartDef[] Parts =
-        {
-            // ================= INTEGUMENTARY: translucent skin shell =================
-            // Drawn alpha-blended, and the raycaster treats see-through surfaces as
-            // click-through, so the shell can genuinely enclose the body instead of
-            // sitting behind it as a flat backdrop.
-            // The deltoid cap is the widest point of the body (bideltoid breadth
-            // ~0.50 m), so the shoulder needs its own skin segment rather than being
-            // squeezed under the chest ellipsoid.
-
-            // ================= SKELETAL =================
-            // Near-horizontal struts from sternum to acromion.
-
-            // Radius (lateral, thumb side) and ulna (medial) as separate bones.
-            // Scapulae: flat blades riding on the back of the rib cage.
-
-            // --- Deeper muscle layer ---
-
-            // --- Peripheral nerves, so the Nerves layer shows an actual network ---
-            new PartDef { Name = "SciaticNerve_L", EntityId = "SYS_NERV_SCIATIC", Shape = PrimitiveType.Capsule,
-                LocalPosition = new Vector3(0.082f, 0.70f, 0.040f), LocalScale = new Vector3(0.014f, 0.18f, 0.014f), Color = NerveColor, Smoothness = OrganGloss },
-            new PartDef { Name = "SciaticNerve_R", EntityId = "SYS_NERV_SCIATIC", Shape = PrimitiveType.Capsule,
-                LocalPosition = new Vector3(-0.082f, 0.70f, 0.040f), LocalScale = new Vector3(0.014f, 0.18f, 0.014f), Color = NerveColor, Smoothness = OrganGloss },
-            new PartDef { Name = "BrachialPlexus_L", EntityId = "SYS_NERV_BRACHIAL_PLEXUS", Shape = PrimitiveType.Capsule,
-                LocalPosition = new Vector3(0.115f, 1.395f, 0.012f), LocalScale = new Vector3(0.016f, 0.045f, 0.016f),
-                LocalEuler = new Vector3(0f, 0f, 52f), Color = NerveColor, Smoothness = OrganGloss },
-            new PartDef { Name = "BrachialPlexus_R", EntityId = "SYS_NERV_BRACHIAL_PLEXUS", Shape = PrimitiveType.Capsule,
-                LocalPosition = new Vector3(-0.115f, 1.395f, 0.012f), LocalScale = new Vector3(0.016f, 0.045f, 0.016f),
-                LocalEuler = new Vector3(0f, 0f, -52f), Color = NerveColor, Smoothness = OrganGloss },
-            new PartDef { Name = "VagusNerve_L", EntityId = "SYS_NERV_VAGUS", Shape = PrimitiveType.Capsule,
-                LocalPosition = new Vector3(0.028f, 1.37f, 0.020f), LocalScale = new Vector3(0.009f, 0.13f, 0.009f), Color = NerveColor, Smoothness = OrganGloss },
-            new PartDef { Name = "VagusNerve_R", EntityId = "SYS_NERV_VAGUS", Shape = PrimitiveType.Capsule,
-                LocalPosition = new Vector3(-0.028f, 1.37f, 0.020f), LocalScale = new Vector3(0.009f, 0.13f, 0.009f), Color = NerveColor, Smoothness = OrganGloss },
-
-            // --- Great vessels of the neck ---
-            new PartDef { Name = "CarotidArtery_L", EntityId = "SYS_CV_CAROTID", Shape = PrimitiveType.Capsule,
-                LocalPosition = new Vector3(0.026f, 1.452f, -0.014f), LocalScale = new Vector3(0.014f, 0.048f, 0.014f), Color = ArteryColor, Smoothness = OrganGloss },
-            new PartDef { Name = "CarotidArtery_R", EntityId = "SYS_CV_CAROTID", Shape = PrimitiveType.Capsule,
-                LocalPosition = new Vector3(-0.026f, 1.452f, -0.014f), LocalScale = new Vector3(0.014f, 0.048f, 0.014f), Color = ArteryColor, Smoothness = OrganGloss },
-            new PartDef { Name = "JugularVein_L", EntityId = "SYS_CV_JUGULAR", Shape = PrimitiveType.Capsule,
-                LocalPosition = new Vector3(0.042f, 1.452f, -0.020f), LocalScale = new Vector3(0.016f, 0.048f, 0.016f), Color = VeinColor, Smoothness = OrganGloss },
-            new PartDef { Name = "JugularVein_R", EntityId = "SYS_CV_JUGULAR", Shape = PrimitiveType.Capsule,
-                LocalPosition = new Vector3(-0.042f, 1.452f, -0.020f), LocalScale = new Vector3(0.016f, 0.048f, 0.016f), Color = VeinColor, Smoothness = OrganGloss },
-
-            // ================= MUSCULAR =================
-            // The calf sits behind the leg (+z is posterior here).
-            // Domed sheet at the thoracic/abdominal boundary, just under the lung bases.
-
-
-            // --- Major muscle groups filling out the figure (back, flank, posterior limb) ---
-
-            // ================= NERVOUS =================
-            // Ends at L1-L2 (~0.92), well above the end of the vertebral column.
-            new PartDef { Name = "SpinalCord", EntityId = "SYS_NERV_SPINALCORD", Shape = PrimitiveType.Capsule,
-                LocalPosition = new Vector3(0f, 1.21f, 0.06f), LocalScale = new Vector3(0.018f, 0.29f, 0.018f), Color = NerveColor, Smoothness = OrganGloss },
-
-            // ================= CARDIOVASCULAR =================
-            // Two thirds of the heart lies left of midline, tilted with the apex down
-            // and to the anatomical left (+x here, since the figure faces the camera).
-            new PartDef { Name = "Aorta_Ascending", EntityId = "SYS_CV_AORTA", Shape = PrimitiveType.Capsule,
-                LocalPosition = new Vector3(0.005f, 1.345f, -0.025f), LocalScale = new Vector3(0.032f, 0.045f, 0.032f), Color = ArteryColor, Smoothness = OrganGloss },
-            new PartDef { Name = "Aorta_Descending", EntityId = "SYS_CV_AORTA", Shape = PrimitiveType.Capsule,
-                LocalPosition = new Vector3(-0.01f, 1.14f, 0.045f), LocalScale = new Vector3(0.028f, 0.15f, 0.028f), Color = ArteryColor, Smoothness = OrganGloss },
-            new PartDef { Name = "VenaCava", EntityId = "SYS_CV_VEIN", Shape = PrimitiveType.Capsule,
-                LocalPosition = new Vector3(-0.035f, 1.17f, 0.03f), LocalScale = new Vector3(0.026f, 0.155f, 0.026f), Color = VeinColor, Smoothness = OrganGloss },
-            // The rest of the vascular tree - subclavian through radial/ulnar in each
-            // arm, common iliac through anterior/posterior tibial in each leg, the
-            // aortic arch, coronaries, pulmonary vessels, and the gut's portal system -
-            // is real named anatomy rather than one undifferentiated tube per limb, so
-            // it is generated by BuildVascularSystem/BuildTrunkVasculature below instead
-            // of listed here.
-
-            // ================= RESPIRATORY =================
-            // Right lung is the larger of the two (3 lobes); the left is smaller and
-            // notched to make room for the heart.
-
-            // ================= DIGESTIVE =================
-            // Behind the trachea, in front of the vertebral column.
-            // Right upper quadrant, the largest abdominal organ.
-            // Lies transversely across L1-L2, hence the rotation.
-            // The colon frames the small intestine: up the right side, across, down the left.
-
-            // ================= RENAL =================
-            // Retroperitoneal, against the posterior wall; the right kidney sits lower
-            // because the liver occupies the space above it.
-
-            // ================= ENDOCRINE =================
-            // Pea-sized, in the sella turcica beneath the cerebrum.
-
-            // ================= LYMPHATIC =================
-        };
 
         /// <summary>Greys the menu item out during Play mode - see BuildExplorer for why.</summary>
         [MenuItem("Human Body Explorer/Build Full Explorer (Figure + UI)", true)]
@@ -228,7 +112,7 @@ namespace HumanBodyExplorer.EditorTools
             EditorSceneManager.MarkSceneDirty(activeScene);
             if (!string.IsNullOrEmpty(activeScene.path)) EditorSceneManager.SaveScene(activeScene);
 
-            Debug.Log("[HumanBodyExplorerSetup] Built the full explorer: " + Parts.Length +
+            Debug.Log("[HumanBodyExplorerSetup] Built the full explorer: " + _partCount +
                       " tagged body parts, info panel, and quiz mode with live timer + flash feedback. " +
                       "Scene saved. Press Play - the camera auto-frames the figure. Orbit with drag, " +
                       "zoom with scroll, click any part to learn about it, and press Start Quiz to test yourself.");
@@ -403,6 +287,7 @@ namespace HumanBodyExplorer.EditorTools
         private static readonly int FlowColorId = Shader.PropertyToID("_FlowColor");
         private static readonly int FlowSpeedId = Shader.PropertyToID("_FlowSpeed");
         private static readonly int PulseIntensityId = Shader.PropertyToID("_PulseIntensity");
+        private static int _partCount;
         private const string AnatomyLayerName = "Anatomy";
 
         private static GameObject BuildHumanFigure()
@@ -411,7 +296,6 @@ namespace HumanBodyExplorer.EditorTools
             int anatomyLayer = EnsureLayer(AnatomyLayerName);
 
             var shaderLit = Shader.Find("Universal Render Pipeline/Lit");
-            var shaderTissue = Shader.Find("HumanBodyExplorer/TissueSSS");
             var shaderVessel = Shader.Find("HumanBodyExplorer/BloodFlow");
 
             // Shared, generated (not imported) noise texture modulates base color
@@ -419,95 +303,18 @@ namespace HumanBodyExplorer.EditorTools
             // tissue instead of flat plastic.
             var skinNoiseTex = CreateNoiseTexture(64, 0.94f, 1f, 6f, 11);
 
-            foreach (var part in Parts)
-            {
-                var go = GameObject.CreatePrimitive(part.Shape);
-                go.name = part.Name;
-                go.layer = anatomyLayer;
-                go.transform.SetParent(root.transform, worldPositionStays: false);
-                go.transform.localPosition = part.LocalPosition;
-                go.transform.localRotation = Quaternion.Euler(part.LocalEuler);
-                go.transform.localScale = part.LocalScale;
-
-                go.AddComponent<AnatomyNodeReference>().SetEntityId(part.EntityId);
-
-                bool isVessel = part.EntityId == "SYS_CV_ARTERY" || part.EntityId == "SYS_CV_VEIN";
-                bool isSkin = part.EntityId == "SYS_INTEG_SKIN";
-                Material material;
-
-                if (isVessel)
-                {
-                    // Real vessel-specific shader (Phase 36): scrolls a pulse
-                    // highlight along the capsule's length to read as flowing blood
-                    // instead of a static red/blue tube.
-                    bool isArtery = part.EntityId == "SYS_CV_ARTERY";
-                    material = new Material(shaderVessel);
-                    material.SetColor(BaseColorId, part.Color);
-                    material.SetColor(FlowColorId, isArtery ? new Color(1f, 0.3f, 0.25f) : new Color(0.4f, 0.6f, 0.95f));
-                    material.SetFloat(FlowSpeedId, isArtery ? 1.4f : 0.8f);
-                    material.SetFloat(PulseIntensityId, 0.6f);
-                }
-                else if (part.Organic)
-                {
-                    // Fake-subsurface-scattering shader (Phase 23) gives organs/
-                    // muscle a wet, backlit-translucent look instead of flat lit
-                    // plastic.
-                    material = new Material(shaderTissue);
-                    material.SetColor(BaseColorId, part.Color);
-                    material.SetColor(TransmissionColorId, Color.Lerp(part.Color, Color.white, 0.3f));
-                    material.SetFloat(ThicknessMultiplierId, 1f);
-                    material.SetFloat(TransmissionIntensityId, 0.6f);
-                }
-                else
-                {
-                    material = new Material(shaderLit) { color = part.Color };
-                    material.SetFloat(SmoothnessId, part.Smoothness);
-                    material.SetTexture(BaseMapId, skinNoiseTex);
-                    material.SetTextureScale(BaseMapId, new Vector2(2f, 2f));
-
-                    if (isSkin)
-                    {
-                        // Skin becomes genuinely see-through (not just a ghosting
-                        // heuristic) so the opaque organs/vessels/bone underneath
-                        // show through it, matching a classic cutaway anatomy chart.
-                        MakeTransparent(material, alpha: 0.22f);
-                    }
-                }
-
-                if (part.Organic && part.Shape == PrimitiveType.Sphere)
-                {
-                    int seed = Mathf.Abs(part.Name.GetHashCode() % 1000);
-                    go.GetComponent<MeshFilter>().sharedMesh = CreateNoisySphereMesh(0.1f, 3f, seed);
-
-                    // The custom mesh's triangle winding isn't guaranteed to match
-                    // Unity's back-face convention the way a built-in primitive's
-                    // does, and normals are set explicitly from the sphere direction
-                    // (not recalculated from winding), so render both faces rather
-                    // than risk the organ being back-face-culled into invisibility.
-                    material.SetFloat(CullId, (float)UnityEngine.Rendering.CullMode.Off);
-                }
-
-                go.GetComponent<Renderer>().sharedMaterial = material;
-            }
-
-            // Structures made of many repeating bones - the vertebral column, the rib
-            // cage, and the bones of the hands and feet - are generated rather than
-            // written out as hundreds of literal PartDefs. A single sphere cannot read
-            // as a rib cage; twelve curved pairs can.
+            // Every structure is a sculpted or lofted mesh built by the generators in Geometry/.
             var boneMat = CreateSimpleMaterial(shaderLit, BoneColor, BoneGloss, skinNoiseTex);
             var cartilageMat = CreateSimpleMaterial(shaderLit, CartilageColor, OrganGloss, skinNoiseTex);
 
             // Muscle is striped along its fibres, and its tendons are pale, glossy connective tissue.
             var muscleMat = CreateSimpleMaterial(shaderLit, MuscleColor, MuscleGloss, CreateFibreTexture());
             var tendonMat = CreateSimpleMaterial(shaderLit, new Color(0.90f, 0.86f, 0.76f), 0.35f, skinNoiseTex);
-            var recessMat = CreateSimpleMaterial(shaderLit, new Color(0.13f, 0.11f, 0.10f), 0.05f, skinNoiseTex);
-            var nerveMat = CreateSimpleMaterial(shaderLit, NerveColor, OrganGloss, skinNoiseTex);
+            var nerveMat = CreateSimpleMaterial(shaderLit, NerveColor, 0.35f, skinNoiseTex);
+            var lymphMat = CreateSimpleMaterial(shaderLit, new Color(0.50f, 0.78f, 0.58f), 0.45f, skinNoiseTex);
 
-            // The animated flowing-blood shader, built once and shared by every
-            // generated vessel (as opposed to the literal Carotid/Jugular/Aorta/
-            // VenaCava PartDefs above, which predate this and still use a plain tinted
-            // material) so the whole vascular tree pulses, not just the four limb
-            // trunks that used to carry the generic SYS_CV_ARTERY/SYS_CV_VEIN ids.
+            // The animated flowing-blood shader, built once and shared by every vessel so the
+            // whole vascular tree pulses along its length.
             var arteryFlowMat = new Material(shaderVessel);
             arteryFlowMat.SetColor(BaseColorId, ArteryColor);
             arteryFlowMat.SetColor(FlowColorId, new Color(1f, 0.3f, 0.25f));
@@ -531,12 +338,11 @@ namespace HumanBodyExplorer.EditorTools
 
             MuscleBuilder.Build(root.transform, muscleMat, tendonMat, anatomyLayer);
             OrganBuilder.Build(root.transform, anatomyLayer);
-            BuildVascularSystem(root.transform, arteryFlowMat, veinFlowMat, anatomyLayer, 1f);
-            BuildVascularSystem(root.transform, arteryFlowMat, veinFlowMat, anatomyLayer, -1f);
-            BuildLimbNerves(root.transform, nerveMat, anatomyLayer, 1f);
-            BuildLimbNerves(root.transform, nerveMat, anatomyLayer, -1f);
-            BuildTrunkVasculatureAndNerves(root.transform, arteryFlowMat, veinFlowMat, nerveMat, anatomyLayer);
+            int vessels = VesselBuilder.Build(root.transform, arteryFlowMat, veinFlowMat, lymphMat, anatomyLayer);
+            int nerves = NerveBuilder.Build(root.transform, nerveMat, anatomyLayer);
+            Debug.Log($"[HumanBodyExplorerSetup] {vessels} vessel and {nerves} nerve meshes.");
             MeshAssets.EndBuild();
+            _partCount = root.GetComponentsInChildren<AnatomyNodeReference>().Length;
 
             return root;
         }
@@ -571,344 +377,6 @@ namespace HumanBodyExplorer.EditorTools
             return material;
         }
 
-        /// <summary>Capsule spanning two points - the building block for every generated bone.</summary>
-        private static void CreateSegment(Transform parent, string name, string entityId,
-            Vector3 from, Vector3 to, float radius, Material material, int layer)
-        {
-            var go = GameObject.CreatePrimitive(PrimitiveType.Capsule);
-            go.name = name;
-            go.layer = layer;
-            go.transform.SetParent(parent, false);
-
-            Vector3 delta = to - from;
-            float length = delta.magnitude;
-            go.transform.localPosition = (from + to) * 0.5f;
-            go.transform.localRotation = length > 1e-5f
-                ? Quaternion.FromToRotation(Vector3.up, delta / length)
-                : Quaternion.identity;
-            go.transform.localScale = new Vector3(radius * 2f, Mathf.Max(radius, length * 0.5f), radius * 2f);
-
-            go.GetComponent<Renderer>().sharedMaterial = material;
-            go.AddComponent<AnatomyNodeReference>().SetEntityId(entityId);
-        }
-
-        private static void CreateBlob(Transform parent, string name, string entityId,
-            Vector3 position, Vector3 scale, Material material, int layer)
-        {
-            var go = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-            go.name = name;
-            go.layer = layer;
-            go.transform.SetParent(parent, false);
-            go.transform.localPosition = position;
-            go.transform.localScale = scale;
-            go.GetComponent<Renderer>().sharedMaterial = material;
-            go.AddComponent<AnatomyNodeReference>().SetEntityId(entityId);
-        }
-
-
-
-
-        /// <summary>
-        /// Named arterial and venous trunks down one arm and one leg, replacing what
-        /// used to be a single undifferentiated "Artery_Arm"/"Vein_Arm" tube per limb.
-        /// Landmark points are independently-tuned literals matching the bone PartDefs
-        /// and the wrist/ankle constants in BuildHandSkeleton/BuildFootSkeleton - the
-        /// same convention those two already use - rather than reading the Parts array,
-        /// since that is a static initializer this runs alongside, not after.
-        /// Veins run a few millimetres lateral and posterior of their artery, which is
-        /// real (the two travel together in a neurovascular bundle) and also keeps two
-        /// overlapping capsules from z-fighting.
-        /// </summary>
-        private static void BuildVascularSystem(Transform root, Material arteryMat, Material veinMat, int layer, float side)
-        {
-            string tag = side > 0 ? "L" : "R";
-            Vector3 VeinOffset(Vector3 p, float dx, float dz) => p + new Vector3(side * dx, 0f, dz);
-
-            // Arm: base of neck -> shoulder -> mid-humerus -> elbow, then forearm
-            // splits into radial (lateral/thumb side) and ulnar (medial) arteries.
-            var neckRoot = new Vector3(side * 0.075f, 1.400f, -0.035f);
-            var shoulder = new Vector3(side * 0.150f, 1.395f, -0.005f);
-            var midHumerus = new Vector3(side * 0.190f, 1.260f, 0.010f); // matches Humerus_L/R centre
-            var elbow = new Vector3(side * 0.190f, 1.095f, 0.012f);      // matches Humerus bottom
-            var wrist = new Vector3(side * 0.212f, 0.840f, 0.010f);      // just proximal of the carpals
-
-            CreateSegment(root, $"SubclavianArtery_{tag}", "SYS_CV_SUBCLAVIAN", neckRoot, shoulder, 0.010f, arteryMat, layer);
-            CreateSegment(root, $"AxillaryArtery_{tag}", "SYS_CV_AXILLARY", shoulder, midHumerus, 0.009f, arteryMat, layer);
-            CreateSegment(root, $"BrachialArtery_{tag}", "SYS_CV_BRACHIAL", midHumerus, elbow, 0.008f, arteryMat, layer);
-            CreateSegment(root, $"RadialArtery_{tag}", "SYS_CV_RADIAL",
-                elbow + new Vector3(side * 0.006f, 0f, -0.004f), wrist + new Vector3(side * 0.010f, 0f, -0.004f), 0.005f, arteryMat, layer);
-            CreateSegment(root, $"UlnarArtery_{tag}", "SYS_CV_ULNAR",
-                elbow + new Vector3(-side * 0.006f, 0f, 0.004f), wrist + new Vector3(-side * 0.006f, 0f, 0.004f), 0.005f, arteryMat, layer);
-
-            CreateSegment(root, $"SubclavianVein_{tag}", "SYS_CV_SUBCLAVIAN_VEIN",
-                VeinOffset(neckRoot, 0.020f, -0.015f), VeinOffset(shoulder, 0.020f, -0.015f), 0.010f, veinMat, layer);
-            CreateSegment(root, $"AxillaryVein_{tag}", "SYS_CV_AXILLARY_VEIN",
-                VeinOffset(shoulder, 0.020f, -0.015f), VeinOffset(midHumerus, 0.020f, -0.015f), 0.009f, veinMat, layer);
-            CreateSegment(root, $"BrachialVein_{tag}", "SYS_CV_BRACHIAL_VEIN",
-                VeinOffset(midHumerus, 0.020f, -0.015f), VeinOffset(wrist, 0.018f, -0.012f), 0.008f, veinMat, layer);
-
-            // Leg: groin -> hip -> knee (femoral, then popliteal behind the knee),
-            // then below the knee splits into anterior tibial (front of shin, next to
-            // TibialisAnterior) and posterior tibial (behind the tibia, toward the sole).
-            var groin = new Vector3(side * 0.055f, 0.895f, 0.020f);
-            var hip = new Vector3(side * 0.090f, 0.830f, 0.020f);   // upper Femur, medial (femoral triangle)
-            var knee = new Vector3(side * 0.088f, 0.475f, 0.025f);  // matches Femur/Tibia junction
-            var belowKnee = new Vector3(side * 0.082f, 0.440f, 0.020f);
-            var ankle = new Vector3(side * 0.083f, 0.078f, 0.015f); // matches Tibia bottom / Talus
-
-            CreateSegment(root, $"CommonIliacArtery_{tag}", "SYS_CV_ILIAC", groin, hip, 0.014f, arteryMat, layer);
-            CreateSegment(root, $"FemoralArtery_{tag}", "SYS_CV_FEMORAL", hip, knee, 0.011f, arteryMat, layer);
-            CreateSegment(root, $"PoplitealArtery_{tag}", "SYS_CV_POPLITEAL", knee, belowKnee, 0.009f, arteryMat, layer);
-            CreateSegment(root, $"AnteriorTibialArtery_{tag}", "SYS_CV_ANT_TIBIAL",
-                belowKnee + new Vector3(0f, 0f, -0.020f), ankle + new Vector3(0f, 0.010f, -0.015f), 0.006f, arteryMat, layer);
-            CreateSegment(root, $"PosteriorTibialArtery_{tag}", "SYS_CV_POST_TIBIAL",
-                belowKnee + new Vector3(0f, 0f, 0.018f), ankle + new Vector3(0f, 0.010f, 0.020f), 0.006f, arteryMat, layer);
-
-            CreateSegment(root, $"CommonIliacVein_{tag}", "SYS_CV_ILIAC_VEIN",
-                VeinOffset(groin, 0.015f, -0.006f), VeinOffset(hip, 0.015f, -0.006f), 0.014f, veinMat, layer);
-            CreateSegment(root, $"FemoralVein_{tag}", "SYS_CV_FEMORAL_VEIN",
-                VeinOffset(hip, 0.015f, -0.006f), VeinOffset(knee, 0.015f, -0.006f), 0.011f, veinMat, layer);
-            CreateSegment(root, $"PoplitealVein_{tag}", "SYS_CV_POPLITEAL_VEIN",
-                VeinOffset(knee, 0.015f, -0.006f), VeinOffset(belowKnee, 0.015f, -0.006f), 0.009f, veinMat, layer);
-
-            // Great saphenous vein: the longest vein in the body, superficial along the
-            // whole medial leg (harvested for coronary bypass grafts) - a single run
-            // from the medial ankle to the groin, deliberately offset from the deep
-            // vessels above since it travels just under the skin, not alongside the
-            // femoral/tibial bundle.
-            CreateSegment(root, $"GreatSaphenousVein_{tag}", "SYS_CV_SAPHENOUS",
-                new Vector3(side * 0.060f, 0.085f, -0.010f), new Vector3(side * 0.045f, 0.870f, -0.005f),
-                0.005f, veinMat, layer);
-        }
-
-        /// <summary>
-        /// Peripheral nerves down one arm and one leg, roughly paralleling the vessels
-        /// BuildVascularSystem lays down along the same limb - real neurovascular
-        /// bundles travel together.
-        /// </summary>
-        private static void BuildLimbNerves(Transform root, Material nerveMat, int layer, float side)
-        {
-            string tag = side > 0 ? "L" : "R";
-            var elbow = new Vector3(side * 0.190f, 1.095f, 0.012f);
-            var wrist = new Vector3(side * 0.212f, 0.840f, 0.010f);
-            var knee = new Vector3(side * 0.088f, 0.475f, 0.025f);
-            var belowKnee = new Vector3(side * 0.082f, 0.440f, 0.020f);
-            var ankle = new Vector3(side * 0.083f, 0.078f, 0.015f);
-            var hip = new Vector3(side * 0.090f, 0.830f, 0.020f);
-
-            // Radial, median and ulnar: the three great nerves of the forearm and
-            // hand, spaced across it the way the radial/ulnar arteries are.
-            CreateSegment(root, $"RadialNerve_{tag}", "SYS_NERV_RADIAL",
-                elbow + new Vector3(side * 0.014f, 0f, -0.006f), wrist + new Vector3(side * 0.018f, 0f, -0.006f), 0.004f, nerveMat, layer);
-            CreateSegment(root, $"MedianNerve_{tag}", "SYS_NERV_MEDIAN",
-                elbow + new Vector3(0f, 0f, 0.002f), wrist + new Vector3(0f, 0f, 0.002f), 0.0042f, nerveMat, layer);
-            CreateSegment(root, $"UlnarNerve_{tag}", "SYS_NERV_ULNAR",
-                elbow + new Vector3(-side * 0.014f, 0f, 0.008f), wrist + new Vector3(-side * 0.012f, 0f, 0.008f), 0.004f, nerveMat, layer);
-
-            // Femoral: runs down the anterior thigh, lateral to the femoral vessels
-            // in the femoral triangle.
-            CreateSegment(root, $"FemoralNerve_{tag}", "SYS_NERV_FEMORAL",
-                hip + new Vector3(side * 0.018f, 0f, -0.010f), knee + new Vector3(side * 0.014f, 0f, -0.012f),
-                0.005f, nerveMat, layer);
-
-            // Tibial: continues straight down the posterior compartment behind the knee.
-            CreateSegment(root, $"TibialNerve_{tag}", "SYS_NERV_TIBIAL",
-                belowKnee + new Vector3(0f, 0f, 0.024f), ankle + new Vector3(0f, 0.012f, 0.024f), 0.0045f, nerveMat, layer);
-
-            // Common fibular (peroneal): wraps laterally around the fibular head, then
-            // partway down the outside of the shin before it branches - notorious as
-            // the nerve injured by a cast or a kneeling position, causing foot drop.
-            CreateSegment(root, $"CommonFibularNerve_{tag}", "SYS_NERV_FIBULAR_COMMON",
-                knee + new Vector3(side * 0.026f, 0f, 0f), belowKnee + new Vector3(side * 0.030f, -0.10f, -0.010f),
-                0.0038f, nerveMat, layer);
-        }
-
-        /// <summary>
-        /// Vessels and nerves that don't repeat per-limb: the aortic arch (closing the
-        /// visible gap between the ascending and descending aorta), the coronary
-        /// arteries, pulmonary vessels, the gut's arterial supply and portal venous
-        /// drainage, the renal vessels, and the cranial/trunk nerves (optic, facial,
-        /// trigeminal, phrenic, intercostal, pudendal).
-        /// </summary>
-        private static void BuildTrunkVasculatureAndNerves(Transform root, Material arteryMat, Material veinMat, Material nerveMat, int layer)
-        {
-            // Aortic arch: two segments up-and-over from the ascending aorta's top to
-            // the descending aorta's top, via a posterior-superior apex point. A
-            // straight line between the two would cut through the trachea.
-            var ascendingTop = new Vector3(0.005f, 1.390f, -0.025f);
-            var archApex = new Vector3(-0.015f, 1.410f, 0.010f);
-            var descendingTop = new Vector3(-0.010f, 1.290f, 0.045f);
-            CreateSegment(root, "AorticArch_1", "SYS_CV_AORTIC_ARCH", ascendingTop, archApex, 0.030f, arteryMat, layer);
-            CreateSegment(root, "AorticArch_2", "SYS_CV_AORTIC_ARCH", archApex, descendingTop, 0.030f, arteryMat, layer);
-
-            // Coronary arteries: the heart's own blood supply, running across its own
-            // surface from the aortic root. The left anterior descending branch is the
-            // one clinicians call the "widowmaker".
-            CreateSegment(root, "CoronaryArtery_L", "SYS_CV_CORONARY",
-                new Vector3(0.010f, 1.378f, -0.032f), new Vector3(0.055f, 1.280f, -0.058f), 0.006f, arteryMat, layer);
-            CreateSegment(root, "CoronaryArtery_R", "SYS_CV_CORONARY",
-                new Vector3(0.000f, 1.378f, -0.018f), new Vector3(-0.035f, 1.275f, -0.028f), 0.006f, arteryMat, layer);
-
-            // Pulmonary vessels: the one artery in the body that carries deoxygenated
-            // blood, and the one vein that carries oxygenated blood - the exception AP
-            // Biology always tests.
-            var pulmonaryOut = new Vector3(0.015f, 1.318f, -0.062f);
-            CreateSegment(root, "PulmonaryArtery_L", "SYS_CV_PULMONARY_ARTERY", pulmonaryOut, new Vector3(0.078f, 1.302f, -0.020f), 0.013f, arteryMat, layer);
-            CreateSegment(root, "PulmonaryArtery_R", "SYS_CV_PULMONARY_ARTERY", pulmonaryOut, new Vector3(-0.078f, 1.302f, -0.020f), 0.013f, arteryMat, layer);
-            var pulmonaryIn = new Vector3(0.032f, 1.308f, -0.048f);
-            CreateSegment(root, "PulmonaryVein_L", "SYS_CV_PULMONARY_VEIN", new Vector3(0.078f, 1.302f, -0.015f), pulmonaryIn, 0.011f, veinMat, layer);
-            CreateSegment(root, "PulmonaryVein_R", "SYS_CV_PULMONARY_VEIN", new Vector3(-0.078f, 1.302f, -0.015f), pulmonaryIn, 0.011f, veinMat, layer);
-
-            // Gut circulation: the celiac trunk (foregut - stomach/liver/spleen), the
-            // superior mesenteric artery (mid/hindgut - small intestine), and the
-            // hepatic portal vein, which is the whole reason "portal system" is an AP
-            // Biology term at all - it carries blood from gut capillaries to a second
-            // capillary bed in the liver instead of straight back to the heart.
-            CreateSegment(root, "CeliacTrunk", "SYS_CV_CELIAC", new Vector3(-0.010f, 1.170f, 0.045f), new Vector3(0.030f, 1.160f, -0.015f), 0.010f, arteryMat, layer);
-            CreateSegment(root, "SuperiorMesentericArtery", "SYS_CV_SMA", new Vector3(-0.010f, 1.110f, 0.045f), new Vector3(0.000f, 1.050f, -0.020f), 0.009f, arteryMat, layer);
-            CreateSegment(root, "HepaticPortalVein", "SYS_CV_PORTAL_VEIN", new Vector3(0.000f, 1.030f, -0.055f), new Vector3(-0.069f, 1.150f, -0.050f), 0.011f, veinMat, layer);
-
-            // Renal vessels: aorta/vena cava direct to each kidney.
-            CreateSegment(root, "RenalArtery_L", "SYS_CV_RENAL_ARTERY", new Vector3(-0.010f, 1.108f, 0.045f), new Vector3(0.070f, 1.125f, 0.055f), 0.007f, arteryMat, layer);
-            CreateSegment(root, "RenalArtery_R", "SYS_CV_RENAL_ARTERY", new Vector3(-0.010f, 1.100f, 0.045f), new Vector3(-0.070f, 1.100f, 0.055f), 0.007f, arteryMat, layer);
-            CreateSegment(root, "RenalVein_L", "SYS_CV_RENAL_VEIN", new Vector3(-0.035f, 1.112f, 0.030f), new Vector3(0.070f, 1.125f, 0.050f), 0.008f, veinMat, layer);
-            CreateSegment(root, "RenalVein_R", "SYS_CV_RENAL_VEIN", new Vector3(-0.035f, 1.104f, 0.030f), new Vector3(-0.070f, 1.100f, 0.050f), 0.008f, veinMat, layer);
-
-            for (int s = -1; s <= 1; s += 2)
-            {
-                string tag = s > 0 ? "L" : "R";
-
-                // Phrenic: the diaphragm's only motor supply, running the full length
-                // of the neck and thorax - if it is cut, that side of the diaphragm
-                // stops moving.
-                CreateSegment(root, $"PhrenicNerve_{tag}", "SYS_NERV_PHRENIC",
-                    new Vector3(s * 0.030f, 1.400f, -0.010f), new Vector3(s * 0.022f, 1.230f, -0.015f), 0.003f, nerveMat, layer);
-
-                // Cranial nerves: optic (vision, from the back of the orbit to the
-                // brain), trigeminal (facial sensation) and facial (facial movement).
-                CreateSegment(root, $"OpticNerve_{tag}", "SYS_NERV_OPTIC",
-                    new Vector3(s * 0.030f, 1.655f, -0.060f), new Vector3(s * 0.010f, 1.630f, -0.020f), 0.0035f, nerveMat, layer);
-                CreateSegment(root, $"TrigeminalNerve_{tag}", "SYS_NERV_TRIGEMINAL",
-                    new Vector3(0f, 1.565f, 0.015f), new Vector3(s * 0.048f, 1.605f, -0.035f), 0.0035f, nerveMat, layer);
-                CreateSegment(root, $"FacialNerve_{tag}", "SYS_NERV_FACIAL",
-                    new Vector3(0f, 1.565f, 0.015f), new Vector3(s * 0.058f, 1.598f, -0.020f), 0.003f, nerveMat, layer);
-
-                // Pudendal: the pelvic floor's nerve - short, easy to miss, but the one
-                // every anatomy course names.
-                CreateSegment(root, $"PudendalNerve_{tag}", "SYS_NERV_PUDENDAL",
-                    new Vector3(s * 0.040f, 0.850f, 0.050f), new Vector3(s * 0.020f, 0.800f, 0.020f), 0.003f, nerveMat, layer);
-
-                // Intercostal nerves at four rib levels, hugging the chest wall - not
-                // an exhaustive twelve pairs, but enough to read as a real nerve
-                // distribution rather than an empty ribcage once Nervous is the only
-                // visible layer.
-                float[] ribLevels = { 1.320f, 1.270f, 1.220f, 1.170f };
-                for (int i = 0; i < ribLevels.Length; i++)
-                {
-                    CreateSegment(root, $"IntercostalNerve_{tag}_{i + 1}", "SYS_NERV_INTERCOSTAL",
-                        new Vector3(s * 0.120f, ribLevels[i], -0.020f), new Vector3(s * 0.160f, ribLevels[i], -0.075f),
-                        0.0028f, nerveMat, layer);
-                }
-            }
-        }
-
-        /// <summary>
-        /// Standard scripted recipe for switching a URP Lit material to alpha-blended
-        /// transparency (Unity's own material inspector does the same property/keyword
-        /// set when you change Surface Type to Transparent).
-        /// </summary>
-        private static void MakeTransparent(Material material, float alpha)
-        {
-            var c = material.color;
-            material.color = new Color(c.r, c.g, c.b, alpha);
-            material.SetFloat("_Surface", 1f);
-            material.SetFloat("_Blend", 0f);
-            material.SetOverrideTag("RenderType", "Transparent");
-            material.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.SrcAlpha);
-            material.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
-            material.SetInt("_ZWrite", 0);
-            material.DisableKeyword("_ALPHATEST_ON");
-            material.EnableKeyword("_SURFACE_TYPE_TRANSPARENT");
-            material.DisableKeyword("_ALPHAPREMULTIPLY_ON");
-            material.renderQueue = (int)UnityEngine.Rendering.RenderQueue.Transparent;
-        }
-
-        /// <summary>
-        /// Builds a UV sphere (radius 0.5 at scale 1, matching Unity's primitive
-        /// sphere convention) with each vertex pushed in/out along its own normal
-        /// by a blended-2D-Perlin pseudo-3D noise, so it reads as an organic blob
-        /// instead of a perfect sphere. Normals are set directly from the
-        /// undisplaced sphere direction rather than recalculated from triangle
-        /// winding, so the shape is guaranteed to shade as convex/outward-facing
-        /// even if the winding direction below doesn't match Unity's own
-        /// primitive-sphere convention exactly.
-        /// </summary>
-        private static Mesh CreateNoisySphereMesh(float noiseStrength, float noiseScale, int seed)
-        {
-            const int lonSegments = 24;
-            const int latSegments = 16;
-            int vertsPerRow = lonSegments + 1;
-
-            var vertices = new List<Vector3>((latSegments + 1) * vertsPerRow);
-            var normals = new List<Vector3>((latSegments + 1) * vertsPerRow);
-            var uvs = new List<Vector2>((latSegments + 1) * vertsPerRow);
-
-            for (int lat = 0; lat <= latSegments; lat++)
-            {
-                float v = (float)lat / latSegments;
-                float theta = v * Mathf.PI;
-                float sinTheta = Mathf.Sin(theta);
-                float cosTheta = Mathf.Cos(theta);
-
-                for (int lon = 0; lon <= lonSegments; lon++)
-                {
-                    float u = (float)lon / lonSegments;
-                    float phi = u * Mathf.PI * 2f;
-                    var dir = new Vector3(sinTheta * Mathf.Cos(phi), cosTheta, sinTheta * Mathf.Sin(phi));
-
-                    float n = Noise3D(dir.x * noiseScale + seed, dir.y * noiseScale + seed, dir.z * noiseScale + seed);
-                    float radius = 0.5f * (1f + (n * 2f - 1f) * noiseStrength);
-
-                    vertices.Add(dir * radius);
-                    normals.Add(dir);
-                    uvs.Add(new Vector2(u, v));
-                }
-            }
-
-            var triangles = new List<int>(latSegments * lonSegments * 6);
-            for (int lat = 0; lat < latSegments; lat++)
-            {
-                for (int lon = 0; lon < lonSegments; lon++)
-                {
-                    int current = lat * vertsPerRow + lon;
-                    int next = current + vertsPerRow;
-
-                    triangles.Add(current);
-                    triangles.Add(next);
-                    triangles.Add(current + 1);
-
-                    triangles.Add(current + 1);
-                    triangles.Add(next);
-                    triangles.Add(next + 1);
-                }
-            }
-
-            var mesh = new Mesh { name = "NoisyOrganSphere" };
-            mesh.SetVertices(vertices);
-            mesh.SetNormals(normals);
-            mesh.SetUVs(0, uvs);
-            mesh.SetTriangles(triangles, 0);
-            mesh.RecalculateBounds();
-            return mesh;
-        }
-
-        private static float Noise3D(float x, float y, float z)
-        {
-            float xy = Mathf.PerlinNoise(x, y);
-            float yz = Mathf.PerlinNoise(y, z);
-            float zx = Mathf.PerlinNoise(z, x);
-            return (xy + yz + zx) / 3f;
-        }
 
         private static Texture2D CreateNoiseTexture(int size, float minValue, float maxValue, float noiseScale, int seed)
         {
