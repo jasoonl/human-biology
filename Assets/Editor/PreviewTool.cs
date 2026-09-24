@@ -69,6 +69,21 @@ namespace HumanBodyExplorer.EditorTools
             new Shot { Name = "full_back", Target = new Vector3(0f, 0.9f, 0f), Distance = 3.0f, Yaw = 180f },
         };
 
+        private static readonly Shot[] OrganShots =
+        {
+            new Shot { Name = "chest_front", Target = new Vector3(0f, 1.30f, 0f), Distance = 0.9f },
+            new Shot { Name = "chest_oblique", Target = new Vector3(0f, 1.30f, 0f), Distance = 0.8f, Yaw = -35f, Pitch = 10f },
+            new Shot { Name = "heart_front", Target = new Vector3(0.02f, 1.27f, -0.04f), Distance = 0.36f },
+            new Shot { Name = "heart_oblique", Target = new Vector3(0.02f, 1.27f, -0.04f), Distance = 0.36f, Yaw = -40f, Pitch = 12f },
+            new Shot { Name = "chest_back", Target = new Vector3(0f, 1.30f, 0f), Distance = 0.9f, Yaw = 180f },
+            new Shot { Name = "neck_front", Target = new Vector3(0f, 1.48f, -0.02f), Distance = 0.4f },
+            new Shot { Name = "abdomen_front", Target = new Vector3(0f, 1.05f, 0f), Distance = 0.9f },
+            new Shot { Name = "abdomen_back", Target = new Vector3(0f, 1.05f, 0f), Distance = 0.9f, Yaw = 180f },
+            new Shot { Name = "head_side", Target = new Vector3(0f, 1.63f, 0f), Distance = 0.5f, Yaw = -90f },
+            new Shot { Name = "head_front", Target = new Vector3(0f, 1.63f, -0.02f), Distance = 0.5f },
+            new Shot { Name = "torso_full", Target = new Vector3(0f, 1.22f, 0f), Distance = 1.7f },
+        };
+
         [MenuItem("Human Body Explorer/Preview Region")]
         public static void Run()
         {
@@ -76,6 +91,9 @@ namespace HumanBodyExplorer.EditorTools
             string outDir = ArgValue("-outDir") ?? Path.Combine(Application.dataPath, "../Temp/Preview");
             Directory.CreateDirectory(outDir);
 
+            // Batch mode renders a flat placeholder while shaders compile in the background, which
+            // tints the first frames; compile synchronously so every render is the real one.
+            EditorSettings.asyncShaderCompilation = false;
             AnatomyOutlineFeatureSetup.AddFeatureToActiveRenderer();   // outline + ambient occlusion, as in the real scene
             var camera = NewPreviewScene();
             var root = new GameObject("HumanBodyRoot").transform;
@@ -102,6 +120,30 @@ namespace HumanBodyExplorer.EditorTools
                     shots = MuscleShots;
                     break;
                 }
+                case "organs_only":
+                {
+                    OrganBuilder.Build(root, layer);
+                    shots = new[]
+                    {
+                        new Shot { Name = "brain_side", Target = new Vector3(0f, 1.65f, 0f), Distance = 0.42f, Yaw = -90f },
+                        new Shot { Name = "brain_top", Target = new Vector3(0f, 1.66f, 0f), Distance = 0.42f, Pitch = 88f },
+                        new Shot { Name = "brain_front", Target = new Vector3(0f, 1.65f, 0f), Distance = 0.42f },
+                        new Shot { Name = "brain_underside", Target = new Vector3(0f, 1.62f, 0f), Distance = 0.42f, Pitch = -70f },
+                        new Shot { Name = "eye_front", Target = new Vector3(0f, 1.656f, -0.07f), Distance = 0.22f },
+                        new Shot { Name = "mouth_side", Target = new Vector3(0f, 1.55f, -0.04f), Distance = 0.3f, Yaw = -90f },
+                        new Shot { Name = "innerear", Target = new Vector3(0.05f, 1.615f, 0.005f), Distance = 0.12f, Yaw = 90f },
+                        new Shot { Name = "trunk_organs", Target = new Vector3(0f, 1.17f, 0f), Distance = 1.4f },
+                        new Shot { Name = "trunk_organs_back", Target = new Vector3(0f, 1.17f, 0f), Distance = 1.4f, Yaw = 180f },
+                    };
+                    break;
+                }
+                case "organs":
+                {
+                    SkeletonBuilder.Build(root, boneMat, cartMat, layer);
+                    OrganBuilder.Build(root, layer);
+                    shots = OrganShots;
+                    break;
+                }
                 default:
                     SkeletonBuilder.Build(root, boneMat, cartMat, layer);
                     shots = SkeletonShots;
@@ -109,6 +151,9 @@ namespace HumanBodyExplorer.EditorTools
             }
             Debug.Log($"[PreviewTool] built '{what}' in {watch.Elapsed.TotalSeconds:F1}s");
             MeshAssets.EndBuild();
+
+            Render(camera, Path.Combine(outDir, "_warmup.png"));   // first frame is drawn before uploads finish
+            File.Delete(Path.Combine(outDir, "_warmup.png"));
 
             foreach (var shot in shots)
             {

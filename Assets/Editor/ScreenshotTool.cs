@@ -70,6 +70,9 @@ namespace HumanBodyExplorer.EditorTools
             string outDir = ArgValue("-outDir") ?? Path.Combine(Application.dataPath, "../Temp/Screenshots");
             Directory.CreateDirectory(outDir);
 
+            // Batch mode renders a flat placeholder while shaders compile in the background, which
+            // tints the first frames; compile synchronously so every render is the real one.
+            EditorSettings.asyncShaderCompilation = false;
             EditorSceneManager.OpenScene("Assets/Scenes/Bootstrap.unity");
 
             var cameraGO = GameObject.FindWithTag("MainCamera");
@@ -92,6 +95,11 @@ namespace HumanBodyExplorer.EditorTools
             // camera-stack change could quietly override.
             Debug.Log($"[ScreenshotTool] camera clearFlags={cam.clearFlags} background={cam.backgroundColor} " +
                       $"fov={cam.fieldOfView} near={cam.nearClipPlane} far={cam.farClipPlane}");
+
+            // The very first frame is drawn before textures and materials have finished uploading, so
+            // it comes out washed out. Render once and throw it away.
+            Render(cam, Path.Combine(outDir, "_warmup.png"));
+            File.Delete(Path.Combine(outDir, "_warmup.png"));
 
             foreach (var view in Views)
             {

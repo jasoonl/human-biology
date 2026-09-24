@@ -138,19 +138,11 @@ namespace HumanBodyExplorer.EditorTools
             // ================= MUSCULAR =================
             // The calf sits behind the leg (+z is posterior here).
             // Domed sheet at the thoracic/abdominal boundary, just under the lung bases.
-            new PartDef { Name = "Diaphragm", EntityId = "SYS_RESP_DIAPHRAGM", Shape = PrimitiveType.Sphere,
-                LocalPosition = new Vector3(0f, 1.205f, -0.005f), LocalScale = new Vector3(0.26f, 0.085f, 0.175f), Color = MuscleColor, Smoothness = MuscleGloss, Organic = true },
 
 
             // --- Major muscle groups filling out the figure (back, flank, posterior limb) ---
 
             // ================= NERVOUS =================
-            new PartDef { Name = "Cerebrum", EntityId = "SYS_NERV_BRAIN", Shape = PrimitiveType.Sphere,
-                LocalPosition = new Vector3(0f, 1.665f, 0f), LocalScale = new Vector3(0.125f, 0.115f, 0.15f), Color = BrainColor, Smoothness = OrganGloss, Organic = true },
-            new PartDef { Name = "Cerebellum", EntityId = "SYS_NERV_CEREBELLUM", Shape = PrimitiveType.Sphere,
-                LocalPosition = new Vector3(0f, 1.585f, 0.055f), LocalScale = new Vector3(0.085f, 0.05f, 0.06f), Color = BrainColor, Smoothness = OrganGloss, Organic = true },
-            new PartDef { Name = "Brainstem", EntityId = "SYS_NERV_BRAINSTEM", Shape = PrimitiveType.Capsule,
-                LocalPosition = new Vector3(0f, 1.565f, 0.015f), LocalScale = new Vector3(0.028f, 0.035f, 0.028f), Color = NerveColor, Smoothness = OrganGloss },
             // Ends at L1-L2 (~0.92), well above the end of the vertebral column.
             new PartDef { Name = "SpinalCord", EntityId = "SYS_NERV_SPINALCORD", Shape = PrimitiveType.Capsule,
                 LocalPosition = new Vector3(0f, 1.21f, 0.06f), LocalScale = new Vector3(0.018f, 0.29f, 0.018f), Color = NerveColor, Smoothness = OrganGloss },
@@ -158,9 +150,6 @@ namespace HumanBodyExplorer.EditorTools
             // ================= CARDIOVASCULAR =================
             // Two thirds of the heart lies left of midline, tilted with the apex down
             // and to the anatomical left (+x here, since the figure faces the camera).
-            new PartDef { Name = "Heart", EntityId = "SYS_CV_HEART", Shape = PrimitiveType.Sphere,
-                LocalPosition = new Vector3(0.025f, 1.275f, -0.045f), LocalScale = new Vector3(0.115f, 0.135f, 0.10f),
-                LocalEuler = new Vector3(0f, 0f, 20f), Color = HeartColor, Smoothness = OrganGloss, Organic = true },
             new PartDef { Name = "Aorta_Ascending", EntityId = "SYS_CV_AORTA", Shape = PrimitiveType.Capsule,
                 LocalPosition = new Vector3(0.005f, 1.345f, -0.025f), LocalScale = new Vector3(0.032f, 0.045f, 0.032f), Color = ArteryColor, Smoothness = OrganGloss },
             new PartDef { Name = "Aorta_Descending", EntityId = "SYS_CV_AORTA", Shape = PrimitiveType.Capsule,
@@ -177,69 +166,21 @@ namespace HumanBodyExplorer.EditorTools
             // ================= RESPIRATORY =================
             // Right lung is the larger of the two (3 lobes); the left is smaller and
             // notched to make room for the heart.
-            new PartDef { Name = "Lung_R", EntityId = "SYS_RESP_LUNG_R", Shape = PrimitiveType.Sphere,
-                LocalPosition = new Vector3(-0.105f, 1.315f, -0.005f), LocalScale = new Vector3(0.135f, 0.255f, 0.155f), Color = LungColor, Smoothness = OrganGloss, Organic = true },
-            new PartDef { Name = "Lung_L", EntityId = "SYS_RESP_LUNG_L", Shape = PrimitiveType.Sphere,
-                LocalPosition = new Vector3(0.105f, 1.315f, -0.005f), LocalScale = new Vector3(0.125f, 0.255f, 0.15f), Color = LungColor, Smoothness = OrganGloss, Organic = true },
-            new PartDef { Name = "Trachea", EntityId = "SYS_RESP_TRACHEA", Shape = PrimitiveType.Capsule,
-                LocalPosition = new Vector3(0f, 1.44f, -0.025f), LocalScale = new Vector3(0.026f, 0.055f, 0.026f), Color = CartilageColor, Smoothness = OrganGloss },
 
             // ================= DIGESTIVE =================
             // Behind the trachea, in front of the vertebral column.
-            new PartDef { Name = "Esophagus", EntityId = "SYS_DIG_ESOPHAGUS", Shape = PrimitiveType.Capsule,
-                LocalPosition = new Vector3(0f, 1.335f, 0.04f), LocalScale = new Vector3(0.022f, 0.115f, 0.022f), Color = GutColor, Smoothness = OrganGloss },
-            new PartDef { Name = "Stomach", EntityId = "SYS_DIG_STOMACH", Shape = PrimitiveType.Sphere,
-                LocalPosition = new Vector3(0.065f, 1.16f, -0.045f), LocalScale = new Vector3(0.135f, 0.125f, 0.085f), Color = StomachColor, Smoothness = OrganGloss, Organic = true },
             // Right upper quadrant, the largest abdominal organ.
-            new PartDef { Name = "Liver", EntityId = "SYS_DIG_LIVER", Shape = PrimitiveType.Sphere,
-                LocalPosition = new Vector3(-0.0693f, 1.18f, -0.0376f), LocalScale = new Vector3(0.1647f, 0.1035f, 0.1223f), Color = LiverColor, Smoothness = OrganGloss, Organic = true },
-            new PartDef { Name = "Gallbladder", EntityId = "SYS_DIG_GALLBLADDER", Shape = PrimitiveType.Sphere,
-                LocalPosition = new Vector3(-0.065f, 1.125f, -0.075f), LocalScale = new Vector3(0.038f, 0.055f, 0.035f), Color = BileColor, Smoothness = OrganGloss, Organic = true },
             // Lies transversely across L1-L2, hence the rotation.
-            new PartDef { Name = "Pancreas", EntityId = "SYS_DIG_PANCREAS", Shape = PrimitiveType.Capsule,
-                LocalPosition = new Vector3(0.015f, 1.115f, 0.025f), LocalScale = new Vector3(0.03f, 0.055f, 0.03f),
-                LocalEuler = new Vector3(0f, 0f, 80f), Color = PancreasColor, Smoothness = OrganGloss },
-            new PartDef { Name = "SmallIntestine", EntityId = "SYS_DIG_SMALL_INTESTINE", Shape = PrimitiveType.Sphere,
-                LocalPosition = new Vector3(0f, 1.01f, -0.05f), LocalScale = new Vector3(0.20f, 0.15f, 0.115f), Color = GutColor, Smoothness = OrganGloss, Organic = true },
             // The colon frames the small intestine: up the right side, across, down the left.
-            new PartDef { Name = "Colon_Ascending", EntityId = "SYS_DIG_LARGE_INTESTINE", Shape = PrimitiveType.Capsule,
-                LocalPosition = new Vector3(-0.115f, 1.015f, -0.02f), LocalScale = new Vector3(0.05f, 0.065f, 0.05f), Color = ColonColor, Smoothness = OrganGloss },
-            new PartDef { Name = "Colon_Transverse", EntityId = "SYS_DIG_LARGE_INTESTINE", Shape = PrimitiveType.Capsule,
-                LocalPosition = new Vector3(0f, 1.10f, -0.045f), LocalScale = new Vector3(0.05f, 0.11f, 0.05f),
-                LocalEuler = new Vector3(0f, 0f, 90f), Color = ColonColor, Smoothness = OrganGloss },
-            new PartDef { Name = "Colon_Descending", EntityId = "SYS_DIG_LARGE_INTESTINE", Shape = PrimitiveType.Capsule,
-                LocalPosition = new Vector3(0.115f, 1.015f, -0.02f), LocalScale = new Vector3(0.05f, 0.065f, 0.05f), Color = ColonColor, Smoothness = OrganGloss },
 
             // ================= RENAL =================
             // Retroperitoneal, against the posterior wall; the right kidney sits lower
             // because the liver occupies the space above it.
-            new PartDef { Name = "Kidney_L", EntityId = "SYS_REN_KIDNEY_L", Shape = PrimitiveType.Sphere,
-                LocalPosition = new Vector3(0.07f, 1.125f, 0.055f), LocalScale = new Vector3(0.055f, 0.11f, 0.045f), Color = RenalColor, Smoothness = OrganGloss, Organic = true },
-            new PartDef { Name = "Kidney_R", EntityId = "SYS_REN_KIDNEY_R", Shape = PrimitiveType.Sphere,
-                LocalPosition = new Vector3(-0.07f, 1.10f, 0.055f), LocalScale = new Vector3(0.055f, 0.11f, 0.045f), Color = RenalColor, Smoothness = OrganGloss, Organic = true },
-            new PartDef { Name = "Ureter_L", EntityId = "SYS_REN_URETER", Shape = PrimitiveType.Capsule,
-                LocalPosition = new Vector3(0.055f, 1.0f, 0.04f), LocalScale = new Vector3(0.011f, 0.055f, 0.011f), Color = GutColor, Smoothness = OrganGloss },
-            new PartDef { Name = "Ureter_R", EntityId = "SYS_REN_URETER", Shape = PrimitiveType.Capsule,
-                LocalPosition = new Vector3(-0.055f, 0.99f, 0.04f), LocalScale = new Vector3(0.011f, 0.055f, 0.011f), Color = GutColor, Smoothness = OrganGloss },
-            new PartDef { Name = "Bladder", EntityId = "SYS_REN_BLADDER", Shape = PrimitiveType.Sphere,
-                LocalPosition = new Vector3(0f, 0.90f, -0.03f), LocalScale = new Vector3(0.075f, 0.065f, 0.065f), Color = BladderColor, Smoothness = OrganGloss, Organic = true },
 
             // ================= ENDOCRINE =================
-            new PartDef { Name = "Thyroid", EntityId = "SYS_ENDO_THYROID", Shape = PrimitiveType.Sphere,
-                LocalPosition = new Vector3(0f, 1.475f, -0.04f), LocalScale = new Vector3(0.055f, 0.03f, 0.03f), Color = ThyroidColor, Smoothness = OrganGloss, Organic = true },
-            new PartDef { Name = "Adrenal_L", EntityId = "SYS_ENDO_ADRENAL", Shape = PrimitiveType.Sphere,
-                LocalPosition = new Vector3(0.07f, 1.185f, 0.055f), LocalScale = new Vector3(0.035f, 0.022f, 0.03f), Color = EndoColor, Smoothness = OrganGloss, Organic = true },
-            new PartDef { Name = "Adrenal_R", EntityId = "SYS_ENDO_ADRENAL", Shape = PrimitiveType.Sphere,
-                LocalPosition = new Vector3(-0.07f, 1.16f, 0.055f), LocalScale = new Vector3(0.035f, 0.022f, 0.03f), Color = EndoColor, Smoothness = OrganGloss, Organic = true },
             // Pea-sized, in the sella turcica beneath the cerebrum.
-            new PartDef { Name = "Pituitary", EntityId = "SYS_ENDO_PITUITARY", Shape = PrimitiveType.Sphere,
-                LocalPosition = new Vector3(0f, 1.60f, 0.015f), LocalScale = new Vector3(0.016f, 0.016f, 0.016f), Color = EndoColor, Smoothness = OrganGloss, Organic = true },
 
             // ================= LYMPHATIC =================
-            new PartDef { Name = "Spleen", EntityId = "SYS_LYMPH_SPLEEN", Shape = PrimitiveType.Sphere,
-                LocalPosition = new Vector3(0.115f, 1.21f, 0.03f), LocalScale = new Vector3(0.055f, 0.095f, 0.045f), Color = LymphColor, Smoothness = OrganGloss, Organic = true },
-            new PartDef { Name = "Thymus", EntityId = "SYS_LYMPH_THYMUS", Shape = PrimitiveType.Sphere,
-                LocalPosition = new Vector3(0f, 1.365f, -0.085f), LocalScale = new Vector3(0.055f, 0.075f, 0.03f), Color = ThymusColor, Smoothness = OrganGloss, Organic = true },
         };
 
         /// <summary>Greys the menu item out during Play mode - see BuildExplorer for why.</summary>
@@ -589,6 +530,7 @@ namespace HumanBodyExplorer.EditorTools
             SkinBuilder.Build(root.transform, skinMat, anatomyLayer);
 
             MuscleBuilder.Build(root.transform, muscleMat, tendonMat, anatomyLayer);
+            OrganBuilder.Build(root.transform, anatomyLayer);
             BuildVascularSystem(root.transform, arteryFlowMat, veinFlowMat, anatomyLayer, 1f);
             BuildVascularSystem(root.transform, arteryFlowMat, veinFlowMat, anatomyLayer, -1f);
             BuildLimbNerves(root.transform, nerveMat, anatomyLayer, 1f);

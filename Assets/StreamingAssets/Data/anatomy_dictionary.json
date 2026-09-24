@@ -362,7 +362,9 @@
     "audioTTSKey": "Audio_Stomach_Desc",
     "connectedNodes": [
       "SYS_DIG_LIVER",
-      "SYS_DIG_SMALL_INTESTINE",
+      "SYS_DIG_JEJUNUM",
+      "SYS_DIG_ILEUM",
+      "SYS_DIG_DUODENUM",
       "SYS_DIG_ESOPHAGUS",
       "SYS_DIG_PANCREAS"
     ],
@@ -409,7 +411,9 @@
     "audioTTSKey": "Audio_Liver_Desc",
     "connectedNodes": [
       "SYS_DIG_STOMACH",
-      "SYS_DIG_SMALL_INTESTINE",
+      "SYS_DIG_JEJUNUM",
+      "SYS_DIG_ILEUM",
+      "SYS_DIG_DUODENUM",
       "SYS_DIG_GALLBLADDER"
     ],
     "hasMicroDive": true,
@@ -452,7 +456,9 @@
     "audioTTSKey": "Audio_Gallbladder_Desc",
     "connectedNodes": [
       "SYS_DIG_LIVER",
-      "SYS_DIG_SMALL_INTESTINE"
+      "SYS_DIG_JEJUNUM",
+      "SYS_DIG_ILEUM",
+      "SYS_DIG_DUODENUM"
     ],
     "hasMicroDive": false,
     "microDiveKey": "",
@@ -494,142 +500,15 @@
     "audioTTSKey": "Audio_Pancreas_Desc",
     "connectedNodes": [
       "SYS_DIG_STOMACH",
-      "SYS_DIG_SMALL_INTESTINE"
+      "SYS_DIG_JEJUNUM",
+      "SYS_DIG_ILEUM",
+      "SYS_DIG_DUODENUM"
     ],
     "hasMicroDive": true,
     "microDiveKey": "Scene_Micro_Islet",
     "pharmacologyTargets": [
       "Insulin",
       "Metformin"
-    ]
-  },
-  {
-    "entityID": "SYS_DIG_SMALL_INTESTINE",
-    "snomedCTCode": "30315005",
-    "icd10PathologyCodes": [
-      "K63.9"
-    ],
-    "latinName": "Intestinum tenue",
-    "commonName": "Small Intestine",
-    "systemCategory": [
-      "Digestive"
-    ],
-    "descriptionProfessional": "A 6-7 m coiled tube comprising duodenum, jejunum and ileum, the principal site of chemical digestion and nutrient absorption.",
-    "descriptionPatient": "A long, coiled tube where almost all of your food is actually broken down and absorbed into your blood.",
-    "apBiologyFacts": [
-      "Surface area is the whole design principle: circular folds, then villi, then microvilli (the brush border) multiply the absorptive surface to roughly 250 square meters - a tennis court's worth inside your abdomen.",
-      "Each villus contains a capillary network that absorbs monosaccharides and amino acids into the hepatic portal blood, and a lacteal that absorbs fats packaged as chylomicrons into the lymphatic system instead.",
-      "Brush border enzymes (maltase, sucrase, lactase, peptidases) complete digestion at the membrane itself.",
-      "Two movements: segmentation mixes chyme with enzymes, peristalsis propels it onward.",
-      "Nutrient uptake uses several transport mechanisms - glucose and amino acids enter by secondary active transport coupled to sodium, fructose by facilitated diffusion."
-    ],
-    "clinicalNotes": [
-      "Celiac disease is immune-mediated villous atrophy triggered by gluten; flattened villi cause malabsorption, and the surface area argument explains the symptoms directly.",
-      "Lactase deficiency leaves undigested lactose to be fermented by colonic bacteria, causing bloating and osmotic diarrhea.",
-      "Crohn's disease favors the terminal ileum; resection there impairs vitamin B12 and bile-salt reabsorption."
-    ],
-    "boundsCenterOffset": {
-      "x": 0.0,
-      "y": -0.25,
-      "z": 0.05
-    },
-    "idealCameraDistance": 0.35,
-    "addressableMeshKey": "Mesh_SmallIntestine_LOD0",
-    "audioTTSKey": "Audio_SmallIntestine_Desc",
-    "connectedNodes": [
-      "SYS_DIG_STOMACH",
-      "SYS_DIG_LARGE_INTESTINE",
-      "SYS_DIG_PANCREAS",
-      "SYS_DIG_GALLBLADDER"
-    ],
-    "hasMicroDive": true,
-    "microDiveKey": "Scene_Micro_Villus",
-    "pharmacologyTargets": []
-  },
-  {
-    "entityID": "SYS_DIG_LARGE_INTESTINE",
-    "snomedCTCode": "14742008",
-    "icd10PathologyCodes": [
-      "K59.9"
-    ],
-    "latinName": "Intestinum crassum",
-    "commonName": "Large Intestine (Colon)",
-    "systemCategory": [
-      "Digestive"
-    ],
-    "descriptionProfessional": "A 1.5 m tube framing the small intestine as cecum, ascending, transverse, descending and sigmoid colon, then rectum; absorbs water and electrolytes and houses the gut microbiota.",
-    "descriptionPatient": "The last section of your gut. It reclaims water from what's left over and forms solid waste.",
-    "apBiologyFacts": [
-      "It reabsorbs 1-1.5 L of water per day, converting liquid chyme into formed feces. Failure of this step is exactly what diarrhea is, and why dehydration is its main danger.",
-      "It hosts roughly 10^13 microorganisms. They ferment dietary fiber into short-chain fatty acids that colonocytes use as fuel, and synthesize vitamin K and several B vitamins - a genuine mutualistic symbiosis.",
-      "No villi here: absorption of nutrients is largely complete, so the mucosa is flat with mucus-secreting goblet cells for lubrication.",
-      "Its outer longitudinal muscle is gathered into three bands (taeniae coli) whose tone puckers the wall into pouches called haustra."
-    ],
-    "clinicalNotes": [
-      "Colorectal cancer screening by colonoscopy now begins at age 45; most cancers arise from adenomatous polyps over years, making it highly preventable.",
-      "Appendicitis causes pain migrating from periumbilical to right lower quadrant, maximal at McBurney's point.",
-      "Clostridioides difficile colitis follows antibiotic disruption of the normal flora.",
-      "Diverticula form at points of wall weakness where vessels penetrate; inflammation causes left lower quadrant pain."
-    ],
-    "boundsCenterOffset": {
-      "x": 0.0,
-      "y": -0.2,
-      "z": 0.05
-    },
-    "idealCameraDistance": 0.4,
-    "addressableMeshKey": "Mesh_LargeIntestine_LOD0",
-    "audioTTSKey": "Audio_LargeIntestine_Desc",
-    "connectedNodes": [
-      "SYS_DIG_SMALL_INTESTINE"
-    ],
-    "hasMicroDive": false,
-    "microDiveKey": "",
-    "pharmacologyTargets": []
-  },
-  {
-    "entityID": "SYS_NERV_BRAIN",
-    "snomedCTCode": "12738006",
-    "icd10PathologyCodes": [
-      "G93.9"
-    ],
-    "latinName": "Cerebrum",
-    "commonName": "Cerebrum (Brain)",
-    "systemCategory": [
-      "Nervous"
-    ],
-    "descriptionProfessional": "The largest division of the brain, two hemispheres of folded cortex over white matter and deep nuclei, joined by the corpus callosum.",
-    "descriptionPatient": "Your body's control center. It thinks, remembers, feels, and sends signals telling your body what to do.",
-    "apBiologyFacts": [
-      "About 86 billion neurons. Gray matter (cell bodies and synapses) forms the outer cortex; white matter beneath is myelinated axons - myelin speeds conduction by saltatory transmission between nodes of Ranvier.",
-      "Four lobes with distinct jobs: frontal (planning, decision-making, voluntary motor), parietal (touch and spatial processing), temporal (hearing, language comprehension, memory via the hippocampus), occipital (vision).",
-      "Control is contralateral - the left hemisphere controls the right side of the body - because motor tracts decussate in the medulla.",
-      "Gyri and sulci fold the cortex so a large surface area fits inside a fixed skull volume; the same surface-area principle as intestinal villi and alveoli.",
-      "It is about 2% of body mass but consumes roughly 20% of resting oxygen and glucose, and cannot store fuel - hence its total dependence on continuous blood flow."
-    ],
-    "clinicalNotes": [
-      "Stroke is the classic localizing lesion: about 87% ischemic, and FAST (Face, Arms, Speech, Time) is the public screening tool.",
-      "Broca's area (frontal) damage produces effortful, non-fluent speech with preserved comprehension; Wernicke's area (temporal) damage produces fluent but meaningless speech with impaired comprehension.",
-      "The blood-brain barrier excludes most large and hydrophilic drugs, which constrains CNS pharmacology - levodopa crosses where dopamine cannot.",
-      "Hypoglycemia presents as confusion and altered consciousness, and is always checked early in any altered mental state."
-    ],
-    "boundsCenterOffset": {
-      "x": 0.0,
-      "y": 0.0,
-      "z": 0.0
-    },
-    "idealCameraDistance": 0.25,
-    "addressableMeshKey": "Mesh_Brain_LOD0",
-    "audioTTSKey": "Audio_Brain_Desc",
-    "connectedNodes": [
-      "SYS_NERV_SPINALCORD",
-      "SYS_NERV_CEREBELLUM",
-      "SYS_NERV_BRAINSTEM",
-      "SYS_ENDO_PITUITARY"
-    ],
-    "hasMicroDive": true,
-    "microDiveKey": "Scene_Micro_Synapse",
-    "pharmacologyTargets": [
-      "Levodopa"
     ]
   },
   {
@@ -665,49 +544,13 @@
     "addressableMeshKey": "Mesh_Cerebellum_LOD0",
     "audioTTSKey": "Audio_Cerebellum_Desc",
     "connectedNodes": [
-      "SYS_NERV_BRAIN",
-      "SYS_NERV_BRAINSTEM"
-    ],
-    "hasMicroDive": false,
-    "microDiveKey": "",
-    "pharmacologyTargets": []
-  },
-  {
-    "entityID": "SYS_NERV_BRAINSTEM",
-    "snomedCTCode": "15926001",
-    "icd10PathologyCodes": [
-      "G93.9"
-    ],
-    "latinName": "Truncus encephali",
-    "commonName": "Brainstem",
-    "systemCategory": [
-      "Nervous"
-    ],
-    "descriptionProfessional": "Midbrain, pons and medulla oblongata - the conduit between cerebrum and spinal cord, containing the autonomic centers and the nuclei of cranial nerves III-XII.",
-    "descriptionPatient": "The stalk connecting your brain to your spinal cord. It runs the things you never think about: breathing, heartbeat, blood pressure.",
-    "apBiologyFacts": [
-      "The medulla houses the cardiovascular and respiratory centers, plus reflex centers for swallowing, coughing and vomiting. These are the functions that keep you alive without conscious input.",
-      "Central chemoreceptors here monitor CSF pH, which tracks arterial CO2. Rising CO2 - not falling oxygen - is the main day-to-day stimulus to breathe.",
-      "Ten of the twelve cranial nerves arise from the brainstem.",
-      "The reticular activating system within it governs arousal and the sleep-wake cycle; damage produces coma."
-    ],
-    "clinicalNotes": [
-      "Brainstem reflexes (pupillary, corneal, gag, oculocephalic) are the core of brain death determination.",
-      "Cushing's reflex - hypertension, bradycardia and irregular respiration - signals dangerously raised intracranial pressure and impending herniation.",
-      "Locked-in syndrome from a ventral pontine lesion leaves the patient conscious but able to move only the eyes."
-    ],
-    "boundsCenterOffset": {
-      "x": 0.0,
-      "y": 0.0,
-      "z": 0.0
-    },
-    "idealCameraDistance": 0.2,
-    "addressableMeshKey": "Mesh_Brainstem_LOD0",
-    "audioTTSKey": "Audio_Brainstem_Desc",
-    "connectedNodes": [
-      "SYS_NERV_BRAIN",
-      "SYS_NERV_CEREBELLUM",
-      "SYS_NERV_SPINALCORD"
+      "SYS_NERV_FRONTAL_LOBE",
+      "SYS_NERV_PARIETAL_LOBE",
+      "SYS_NERV_TEMPORAL_LOBE",
+      "SYS_NERV_OCCIPITAL_LOBE",
+      "SYS_NERV_MEDULLA",
+      "SYS_NERV_PONS",
+      "SYS_NERV_MIDBRAIN"
     ],
     "hasMicroDive": false,
     "microDiveKey": "",
@@ -746,8 +589,13 @@
     "addressableMeshKey": "Mesh_SpinalCord_LOD0",
     "audioTTSKey": "Audio_SpinalCord_Desc",
     "connectedNodes": [
-      "SYS_NERV_BRAIN",
-      "SYS_NERV_BRAINSTEM",
+      "SYS_NERV_FRONTAL_LOBE",
+      "SYS_NERV_PARIETAL_LOBE",
+      "SYS_NERV_TEMPORAL_LOBE",
+      "SYS_NERV_OCCIPITAL_LOBE",
+      "SYS_NERV_MEDULLA",
+      "SYS_NERV_PONS",
+      "SYS_NERV_MIDBRAIN",
       "SYS_SK_VERT_THORACIC"
     ],
     "hasMicroDive": true,
@@ -1442,7 +1290,10 @@
     "addressableMeshKey": "Mesh_Pituitary_LOD0",
     "audioTTSKey": "Audio_Pituitary_Desc",
     "connectedNodes": [
-      "SYS_NERV_BRAIN",
+      "SYS_NERV_FRONTAL_LOBE",
+      "SYS_NERV_PARIETAL_LOBE",
+      "SYS_NERV_TEMPORAL_LOBE",
+      "SYS_NERV_OCCIPITAL_LOBE",
       "SYS_ENDO_THYROID",
       "SYS_ENDO_ADRENAL"
     ],
@@ -2171,7 +2022,9 @@
     "addressableMeshKey": "Mesh_Nerve_Vagus_LOD0",
     "audioTTSKey": "Audio_Vagus_Desc",
     "connectedNodes": [
-      "SYS_NERV_BRAINSTEM",
+      "SYS_NERV_MEDULLA",
+      "SYS_NERV_PONS",
+      "SYS_NERV_MIDBRAIN",
       "SYS_CV_HEART",
       "SYS_DIG_STOMACH"
     ],
@@ -2212,7 +2065,10 @@
     "audioTTSKey": "Audio_Carotid_Desc",
     "connectedNodes": [
       "SYS_CV_AORTA",
-      "SYS_NERV_BRAIN"
+      "SYS_NERV_FRONTAL_LOBE",
+      "SYS_NERV_PARIETAL_LOBE",
+      "SYS_NERV_TEMPORAL_LOBE",
+      "SYS_NERV_OCCIPITAL_LOBE"
     ],
     "hasMicroDive": false,
     "microDiveKey": "",
@@ -2528,7 +2384,9 @@
     "addressableMeshKey": "Mesh_SYS_CV_SMA_LOD0",
     "audioTTSKey": "Audio_SYS_CV_SMA_Desc",
     "connectedNodes": [
-      "SYS_DIG_SMALL_INTESTINE"
+      "SYS_DIG_JEJUNUM",
+      "SYS_DIG_ILEUM",
+      "SYS_DIG_DUODENUM"
     ],
     "hasMicroDive": false,
     "microDiveKey": "",
@@ -2567,7 +2425,9 @@
     "audioTTSKey": "Audio_SYS_CV_PORTAL_VEIN_Desc",
     "connectedNodes": [
       "SYS_DIG_LIVER",
-      "SYS_DIG_SMALL_INTESTINE"
+      "SYS_DIG_JEJUNUM",
+      "SYS_DIG_ILEUM",
+      "SYS_DIG_DUODENUM"
     ],
     "hasMicroDive": false,
     "microDiveKey": "",
@@ -3791,7 +3651,10 @@
     "addressableMeshKey": "Mesh_SYS_NERV_OPTIC_LOD0",
     "audioTTSKey": "Audio_SYS_NERV_OPTIC_Desc",
     "connectedNodes": [
-      "SYS_NERV_BRAIN"
+      "SYS_NERV_FRONTAL_LOBE",
+      "SYS_NERV_PARIETAL_LOBE",
+      "SYS_NERV_TEMPORAL_LOBE",
+      "SYS_NERV_OCCIPITAL_LOBE"
     ],
     "hasMicroDive": false,
     "microDiveKey": "",
@@ -3827,7 +3690,9 @@
     "addressableMeshKey": "Mesh_SYS_NERV_TRIGEMINAL_LOD0",
     "audioTTSKey": "Audio_SYS_NERV_TRIGEMINAL_Desc",
     "connectedNodes": [
-      "SYS_NERV_BRAINSTEM"
+      "SYS_NERV_MEDULLA",
+      "SYS_NERV_PONS",
+      "SYS_NERV_MIDBRAIN"
     ],
     "hasMicroDive": false,
     "microDiveKey": "",
@@ -3863,7 +3728,9 @@
     "addressableMeshKey": "Mesh_SYS_NERV_FACIAL_LOD0",
     "audioTTSKey": "Audio_SYS_NERV_FACIAL_Desc",
     "connectedNodes": [
-      "SYS_NERV_BRAINSTEM",
+      "SYS_NERV_MEDULLA",
+      "SYS_NERV_PONS",
+      "SYS_NERV_MIDBRAIN",
       "SYS_MUSC_FRONTALIS",
       "SYS_MUSC_ORBICULARIS_OCULI",
       "SYS_MUSC_ORBICULARIS_ORIS",
@@ -4062,7 +3929,9 @@
       "SYS_SK_TEMPORAL",
       "SYS_SK_ATLAS",
       "SYS_NERV_SPINALCORD",
-      "SYS_NERV_BRAINSTEM"
+      "SYS_NERV_MEDULLA",
+      "SYS_NERV_PONS",
+      "SYS_NERV_MIDBRAIN"
     ],
     "hasMicroDive": false,
     "microDiveKey": "",
@@ -7421,6 +7290,1253 @@
       "SYS_SK_TIBIA",
       "SYS_SK_PHALANGES_FOOT",
       "SYS_NERV_TIBIAL"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_CV_HEART_LV",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "I51.7",
+      "I21.9"
+    ],
+    "latinName": "Ventriculus sinister cordis",
+    "commonName": "Left Ventricle",
+    "systemCategory": [
+      "Cardiovascular",
+      "Muscular"
+    ],
+    "descriptionProfessional": "The thick-walled left lower chamber that receives oxygenated blood from the left atrium and ejects it into the aorta against systemic vascular resistance.",
+    "descriptionPatient": "The main pumping chamber of your heart. It pushes oxygen-rich blood out to the rest of your body.",
+    "apBiologyFacts": [
+      "Its wall is 10-15 mm thick versus 3-5 mm on the right, because systemic resistance is far higher than pulmonary resistance. Same stroke volume, much greater pressure.",
+      "The Frank-Starling relationship: greater venous return stretches the myocardium, improving actin-myosin overlap, so stroke volume rises to match preload automatically.",
+      "Ejection fraction is stroke volume divided by end-diastolic volume; a healthy ventricle ejects 55-70% and never empties completely."
+    ],
+    "clinicalNotes": [
+      "Chronic hypertension or aortic stenosis drives left ventricular hypertrophy - initially compensatory, eventually a cause of diastolic failure.",
+      "Heart failure is split into HFrEF (reduced ejection fraction, a pump problem) and HFpEF (preserved EF, a filling problem); the treatments differ substantially.",
+      "Echocardiography is the first-line test for chamber size, wall motion and ejection fraction."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": -0.05,
+      "z": 0.02
+    },
+    "idealCameraDistance": 0.15,
+    "addressableMeshKey": "Mesh_Heart_LeftVentricle_LOD0",
+    "audioTTSKey": "Audio_LeftVentricle_Desc",
+    "connectedNodes": [
+      "SYS_CV_HEART",
+      "SYS_CV_AORTA"
+    ],
+    "hasMicroDive": true,
+    "microDiveKey": "Scene_Micro_Myocardium",
+    "pharmacologyTargets": [
+      "Lisinopril",
+      "Metoprolol"
+    ]
+  },
+  {
+    "entityID": "SYS_CV_HEART_LA",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "I48.91"
+    ],
+    "latinName": "Atrium sinistrum cordis",
+    "commonName": "Left Atrium",
+    "systemCategory": [
+      "Cardiovascular"
+    ],
+    "descriptionProfessional": "The posterior-most chamber, receiving oxygenated blood from four pulmonary veins and delivering it across the mitral valve.",
+    "descriptionPatient": "The chamber that collects fresh, oxygen-rich blood coming back from your lungs.",
+    "apBiologyFacts": [
+      "It receives blood from four pulmonary veins - the only veins in the body carrying oxygenated blood.",
+      "Most ventricular filling is passive; atrial contraction ('atrial kick') adds only the final 20-30%, which is why people can tolerate losing coordinated atrial contraction at rest."
+    ],
+    "clinicalNotes": [
+      "Atrial enlargement predisposes to atrial fibrillation, where disorganized electrical activity replaces coordinated contraction.",
+      "Stasis in the left atrial appendage during AF forms thrombi that embolize to the brain - this is why AF patients are anticoagulated.",
+      "Mitral stenosis raises left atrial pressure and backs up into the pulmonary circulation, causing dyspnea."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.05,
+      "z": 0.02
+    },
+    "idealCameraDistance": 0.15,
+    "addressableMeshKey": "Mesh_Heart_LeftAtrium_LOD0",
+    "audioTTSKey": "Audio_LeftAtrium_Desc",
+    "connectedNodes": [
+      "SYS_CV_HEART"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": [
+      "Warfarin",
+      "Apixaban"
+    ]
+  },
+  {
+    "entityID": "SYS_CV_HEART_RA",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "I51.7"
+    ],
+    "latinName": "Atrium dextrum",
+    "commonName": "Right Atrium",
+    "systemCategory": [
+      "Cardiovascular"
+    ],
+    "descriptionProfessional": "The thin-walled chamber that receives deoxygenated blood from the body through the superior and inferior venae cavae and the coronary sinus, then passes it through the tricuspid valve to the right ventricle. It contains the sinoatrial node.",
+    "descriptionPatient": "The upper right chamber of your heart, where blood that has been all around your body arrives back.",
+    "apBiologyFacts": [
+      "Blood returns to the heart in the right atrium: the venae cavae empty into it, and it pushes blood down through the tricuspid valve into the right ventricle.",
+      "The sinoatrial (SA) node, the heart's natural pacemaker, lies in its wall near the entrance of the superior vena cava and sets the heart rate.",
+      "Atria are low-pressure, thin-walled chambers; they act mainly as reservoirs and fill the ventricles, contributing about 20% of ventricular filling."
+    ],
+    "clinicalNotes": [
+      "Atrial fibrillation, a chaotic rhythm of the atria, is the commonest sustained arrhythmia and raises stroke risk because blood pools and clots in the atrial appendage.",
+      "A raised jugular venous pressure reflects high right atrial pressure, an early sign of right heart failure.",
+      "Central venous catheters are threaded so that their tip lies at the junction of the superior vena cava and right atrium."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.35,
+    "addressableMeshKey": "Mesh_SYS_CV_HEART_RA_LOD0",
+    "audioTTSKey": "Audio_SYS_CV_HEART_RA_Desc",
+    "connectedNodes": [
+      "SYS_CV_HEART",
+      "SYS_CV_HEART_RV",
+      "SYS_CV_VEIN"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_CV_HEART_RV",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "I51.7"
+    ],
+    "latinName": "Ventriculus dexter",
+    "commonName": "Right Ventricle",
+    "systemCategory": [
+      "Cardiovascular"
+    ],
+    "descriptionProfessional": "The chamber forming most of the front of the heart. It receives blood from the right atrium through the tricuspid valve and pumps it through the pulmonary valve into the pulmonary artery, to the lungs, against low resistance.",
+    "descriptionPatient": "The lower right chamber of your heart, which pumps blood to your lungs to pick up oxygen.",
+    "apBiologyFacts": [
+      "Its wall is only 3-5 mm thick, about a third of the left ventricle's, because the pulmonary circuit has much lower resistance than the systemic one.",
+      "It pumps the same stroke volume as the left ventricle at lower pressure (about 25 mmHg systolic against 120), so both sides move equal volumes per beat.",
+      "It is the most anterior chamber, lying directly behind the sternum."
+    ],
+    "clinicalNotes": [
+      "Because it sits at the front, the right ventricle is the chamber most likely to be injured in a stab wound or blunt chest trauma.",
+      "Pulmonary hypertension or a large pulmonary embolus makes it work against higher pressure, so it dilates and fails (cor pulmonale).",
+      "The tetralogy of Fallot, a congenital defect, includes right ventricular outflow obstruction and a thickened right ventricle."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.35,
+    "addressableMeshKey": "Mesh_SYS_CV_HEART_RV_LOD0",
+    "audioTTSKey": "Audio_SYS_CV_HEART_RV_Desc",
+    "connectedNodes": [
+      "SYS_CV_HEART",
+      "SYS_CV_HEART_RA",
+      "SYS_CV_PULMONARY_ARTERY"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_RESP_LARYNX",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "J38.7"
+    ],
+    "latinName": "Larynx",
+    "commonName": "Larynx (Voice Box)",
+    "systemCategory": [
+      "Respiratory"
+    ],
+    "descriptionProfessional": "The cartilaginous box at the top of the trachea, made of the shield-shaped thyroid cartilage, the ring-shaped cricoid and smaller cartilages. It houses the vocal cords and guards the airway during swallowing.",
+    "descriptionPatient": "Your voice box, which makes sound when air passes over your vocal cords and shuts to keep food out of your windpipe.",
+    "apBiologyFacts": [
+      "Sound is made when exhaled air makes the vocal folds vibrate; pitch depends on their tension and length, which is why male voices, with longer folds after puberty, are lower.",
+      "During swallowing the larynx rises and the epiglottis tips over its opening, directing food to the oesophagus rather than the airway.",
+      "The thyroid cartilage forms the 'Adam's apple', more prominent in males after puberty."
+    ],
+    "clinicalNotes": [
+      "Choking is obstruction at or below the larynx; the Heimlich manoeuvre uses abdominal pressure to expel the object.",
+      "Damage to the recurrent laryngeal nerve, which loops under the aortic arch on the left, causes hoarseness - a reason thyroid surgery risks the voice.",
+      "The cricoid is the only complete ring of cartilage in the airway, the site of emergency cricothyroidotomy when the airway cannot be secured."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.25,
+    "addressableMeshKey": "Mesh_SYS_RESP_LARYNX_LOD0",
+    "audioTTSKey": "Audio_SYS_RESP_LARYNX_Desc",
+    "connectedNodes": [
+      "SYS_RESP_TRACHEA",
+      "SYS_SK_HYOID",
+      "SYS_ENDO_THYROID"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_RESP_BRONCHI",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "J98.0"
+    ],
+    "latinName": "Bronchi principales",
+    "commonName": "Main Bronchi",
+    "systemCategory": [
+      "Respiratory"
+    ],
+    "descriptionProfessional": "The two airways into which the trachea divides at the carina, one to each lung. The right is wider, shorter and more vertical than the left.",
+    "descriptionPatient": "The two large breathing tubes that split from your windpipe and carry air into each lung.",
+    "apBiologyFacts": [
+      "The trachea divides at the carina at about the level of the sternal angle (T4-T5); each bronchus then divides repeatedly - lobar, segmental, then bronchioles - down to the alveoli, where gases are exchanged.",
+      "The right main bronchus is wider, shorter and steeper than the left, which is why inhaled objects, such as a swallowed peanut, more often lodge in the right lung.",
+      "Airways are lined by ciliated epithelium and mucus-secreting goblet cells that trap and sweep particles upward: the mucociliary escalator."
+    ],
+    "clinicalNotes": [
+      "Smoking paralyses cilia and enlarges goblet cells, causing the chronic cough and mucus of chronic bronchitis.",
+      "Bronchoscopy passes a flexible camera into the bronchi to examine, biopsy or clear the airways.",
+      "Asthma narrows the airways by smooth muscle contraction, inflammation and mucus; bronchodilators such as salbutamol relax the muscle."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.4,
+    "addressableMeshKey": "Mesh_SYS_RESP_BRONCHI_LOD0",
+    "audioTTSKey": "Audio_SYS_RESP_BRONCHI_Desc",
+    "connectedNodes": [
+      "SYS_RESP_TRACHEA",
+      "SYS_RESP_LUNG_L",
+      "SYS_RESP_LUNG_R"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": [
+      "Salbutamol",
+      "Ipratropium"
+    ]
+  },
+  {
+    "entityID": "SYS_DIG_DUODENUM",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "K26.9"
+    ],
+    "latinName": "Duodenum",
+    "commonName": "Duodenum",
+    "systemCategory": [
+      "Digestive"
+    ],
+    "descriptionProfessional": "The first, C-shaped part of the small intestine, about 25 cm long, curving around the head of the pancreas. It receives chyme from the stomach and bile and pancreatic juice through the ampulla of Vater.",
+    "descriptionPatient": "The first part of your small intestine, where stomach contents mix with digestive juices from the liver and pancreas.",
+    "apBiologyFacts": [
+      "Chyme from the stomach is acidic; the duodenum neutralises it with bicarbonate from the pancreas so that digestive enzymes, which work at neutral to slightly alkaline pH, can function.",
+      "Bile (made in the liver, stored in the gallbladder) emulsifies fats, and pancreatic enzymes - lipase, amylase and proteases - digest fats, carbohydrates and proteins.",
+      "Hormones from its wall control the process: secretin triggers bicarbonate release and cholecystokinin (CCK) triggers gallbladder contraction and enzyme secretion."
+    ],
+    "clinicalNotes": [
+      "A duodenal ulcer, often caused by Helicobacter pylori, causes gnawing pain that eases with food; bleeding from it can be severe.",
+      "Coeliac disease flattens the villi of the duodenum and jejunum, causing malabsorption; it is diagnosed by biopsy of the duodenum.",
+      "Gallstones lodged at the ampulla can block both the bile and pancreatic ducts, causing jaundice and pancreatitis."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.3,
+    "addressableMeshKey": "Mesh_SYS_DIG_DUODENUM_LOD0",
+    "audioTTSKey": "Audio_SYS_DIG_DUODENUM_Desc",
+    "connectedNodes": [
+      "SYS_DIG_STOMACH",
+      "SYS_DIG_PANCREAS",
+      "SYS_DIG_JEJUNUM",
+      "SYS_DIG_GALLBLADDER"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_DIG_JEJUNUM",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "K63.9"
+    ],
+    "latinName": "Jejunum",
+    "commonName": "Jejunum",
+    "systemCategory": [
+      "Digestive"
+    ],
+    "descriptionProfessional": "The middle part of the small intestine, about 2.5 m long, where most nutrient absorption takes place. It has tall circular folds and dense villi, giving it a thick wall and deep colour.",
+    "descriptionPatient": "The middle section of your small intestine, where most of the food you eat is absorbed into your blood.",
+    "apBiologyFacts": [
+      "The small intestine's surface area (about 30 m2 for absorption) is greatly increased by three levels of folding: circular folds, finger-like villi, and microvilli on each cell (the brush border).",
+      "Each villus contains a capillary network, which takes up sugars and amino acids into the hepatic portal system, and a lacteal, a lymph vessel that carries absorbed fats.",
+      "Most absorption of carbohydrate, protein and fat is complete by the end of the jejunum."
+    ],
+    "clinicalNotes": [
+      "Short bowel syndrome, after extensive surgical removal of small intestine, leaves too little surface for absorption.",
+      "Crohn's disease can affect any part of the small intestine and causes inflammation, strictures and malabsorption.",
+      "Small bowel obstruction causes colicky pain, vomiting and abdominal distension, often from adhesions after surgery."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.4,
+    "addressableMeshKey": "Mesh_SYS_DIG_JEJUNUM_LOD0",
+    "audioTTSKey": "Audio_SYS_DIG_JEJUNUM_Desc",
+    "connectedNodes": [
+      "SYS_DIG_DUODENUM",
+      "SYS_DIG_ILEUM"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_DIG_ILEUM",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "K63.9"
+    ],
+    "latinName": "Ileum",
+    "commonName": "Ileum",
+    "systemCategory": [
+      "Digestive"
+    ],
+    "descriptionProfessional": "The last part of the small intestine, about 3.5 m long, joining the caecum at the ileocaecal valve. It absorbs vitamin B12 and bile salts and contains aggregated lymphoid follicles (Peyer's patches).",
+    "descriptionPatient": "The final section of your small intestine, which absorbs vitamin B12 and bile salts before passing waste into the large intestine.",
+    "apBiologyFacts": [
+      "The ileum specifically absorbs vitamin B12 (bound to intrinsic factor from the stomach) and recycles bile salts back to the liver in the enterohepatic circulation.",
+      "Peyer's patches - clusters of lymphoid tissue in its wall - sample bacteria and antigens, part of the gut's immune defences.",
+      "The ileocaecal valve prevents backflow from the large intestine, which has a heavy bacterial load."
+    ],
+    "clinicalNotes": [
+      "Removal or disease of the terminal ileum (as in Crohn's disease) causes vitamin B12 deficiency and bile-salt malabsorption, leading to diarrhoea.",
+      "Meckel's diverticulum, a remnant of the embryonic yolk stalk, is found on the ileum in about 2% of people.",
+      "Right-sided lower abdominal pain can be from terminal ileitis as well as appendicitis."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.4,
+    "addressableMeshKey": "Mesh_SYS_DIG_ILEUM_LOD0",
+    "audioTTSKey": "Audio_SYS_DIG_ILEUM_Desc",
+    "connectedNodes": [
+      "SYS_DIG_JEJUNUM",
+      "SYS_DIG_CECUM"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_DIG_CECUM",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "K63.9"
+    ],
+    "latinName": "Caecum",
+    "commonName": "Caecum",
+    "systemCategory": [
+      "Digestive"
+    ],
+    "descriptionProfessional": "A blind-ended pouch at the start of the large intestine, in the right lower abdomen below the entry of the ileum. The appendix hangs from it.",
+    "descriptionPatient": "The pouch at the start of your large intestine, where the small intestine empties in and where your appendix is attached.",
+    "apBiologyFacts": [
+      "In herbivores the caecum is large and holds bacteria that ferment plant cellulose; in humans it is small, showing how the same organ is adapted differently by diet.",
+      "The ileocaecal valve controls flow from ileum to caecum and prevents backflow.",
+      "Fluid and salt absorption begins here, as the large intestine reclaims water from the remaining contents."
+    ],
+    "clinicalNotes": [
+      "A caecal volvulus or a tumour of the caecum in older adults can cause obstruction or unexplained blood-loss anaemia.",
+      "Diverticular disease and caecal cancers are checked by colonoscopy."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.3,
+    "addressableMeshKey": "Mesh_SYS_DIG_CECUM_LOD0",
+    "audioTTSKey": "Audio_SYS_DIG_CECUM_Desc",
+    "connectedNodes": [
+      "SYS_DIG_ILEUM",
+      "SYS_DIG_APPENDIX",
+      "SYS_DIG_COLON_ASC"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_DIG_APPENDIX",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "K37"
+    ],
+    "latinName": "Appendix vermiformis",
+    "commonName": "Appendix",
+    "systemCategory": [
+      "Digestive"
+    ],
+    "descriptionProfessional": "A narrow worm-shaped blind tube, about 9 cm long, projecting from the caecum. Its wall is rich in lymphoid tissue.",
+    "descriptionPatient": "A small finger-shaped pouch attached to your large intestine, whose exact purpose is still debated.",
+    "apBiologyFacts": [
+      "Long called vestigial, the appendix is now thought to act as a reservoir of beneficial gut bacteria that can repopulate the intestine after diarrhoeal illness, and its lymphoid tissue contributes to immune function.",
+      "Its narrow opening can be blocked by faecal matter or lymphoid swelling, trapping bacteria inside.",
+      "Comparing human anatomy with that of other primates and herbivores shows how organs can change function during evolution."
+    ],
+    "clinicalNotes": [
+      "Appendicitis begins as vague pain around the navel, then localises to the right lower abdomen (McBurney's point) with fever and loss of appetite; untreated, it can perforate.",
+      "Appendectomy, usually laparoscopic, is one of the commonest emergency operations.",
+      "Rovsing's sign - pain in the right lower abdomen when the left is pressed - can point to appendicitis."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.25,
+    "addressableMeshKey": "Mesh_SYS_DIG_APPENDIX_LOD0",
+    "audioTTSKey": "Audio_SYS_DIG_APPENDIX_Desc",
+    "connectedNodes": [
+      "SYS_DIG_CECUM"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_DIG_COLON_ASC",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "K63.9"
+    ],
+    "latinName": "Colon ascendens",
+    "commonName": "Ascending Colon",
+    "systemCategory": [
+      "Digestive"
+    ],
+    "descriptionProfessional": "The part of the large intestine that runs up the right side of the abdomen from the caecum to the hepatic flexure beneath the liver. It is retroperitoneal, fixed against the back wall.",
+    "descriptionPatient": "The part of your large intestine that carries waste up the right side of your belly.",
+    "apBiologyFacts": [
+      "The colon reabsorbs water and electrolytes, turning liquid chyme into formed faeces; most of the roughly 1.5 L of fluid entering the colon daily is reclaimed.",
+      "Bacteria in the colon ferment fibre, producing short-chain fatty acids that feed the colon's cells, and synthesise vitamin K and some B vitamins.",
+      "Bands of muscle (taeniae coli) puckering the wall produce its sacculations, the haustra."
+    ],
+    "clinicalNotes": [
+      "Right-sided colon cancers often present with iron-deficiency anaemia from slow, occult bleeding rather than changes in bowel habit.",
+      "Colonoscopy screening from age 45 detects and removes polyps before they become malignant."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.4,
+    "addressableMeshKey": "Mesh_SYS_DIG_COLON_ASC_LOD0",
+    "audioTTSKey": "Audio_SYS_DIG_COLON_ASC_Desc",
+    "connectedNodes": [
+      "SYS_DIG_CECUM",
+      "SYS_DIG_COLON_TRANS"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_DIG_COLON_TRANS",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "K63.9"
+    ],
+    "latinName": "Colon transversum",
+    "commonName": "Transverse Colon",
+    "systemCategory": [
+      "Digestive"
+    ],
+    "descriptionProfessional": "The longest and most mobile part of the large intestine, crossing the abdomen from the hepatic to the splenic flexure, suspended by a mesentery and sagging below the stomach.",
+    "descriptionPatient": "The section of your large intestine that crosses your belly from right to left.",
+    "apBiologyFacts": [
+      "It is the only part of the colon suspended freely by a mesentery, so its position varies with posture and how full it is.",
+      "It marks the change between the midgut territory (supplied by the superior mesenteric artery) and hindgut (inferior mesenteric artery).",
+      "Haustral churning and mass movements push its contents onward, stimulated by eating (the gastrocolic reflex)."
+    ],
+    "clinicalNotes": [
+      "Toxic megacolon, a dangerous dilatation of the transverse colon, is a complication of severe ulcerative colitis.",
+      "The greater omentum hangs from it like an apron, and can wall off inflammation."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.4,
+    "addressableMeshKey": "Mesh_SYS_DIG_COLON_TRANS_LOD0",
+    "audioTTSKey": "Audio_SYS_DIG_COLON_TRANS_Desc",
+    "connectedNodes": [
+      "SYS_DIG_COLON_ASC",
+      "SYS_DIG_COLON_DESC",
+      "SYS_DIG_STOMACH"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_DIG_COLON_DESC",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "K63.9"
+    ],
+    "latinName": "Colon descendens",
+    "commonName": "Descending Colon",
+    "systemCategory": [
+      "Digestive"
+    ],
+    "descriptionProfessional": "The part of the large intestine that runs down the left side of the abdomen from the splenic flexure to the pelvis, where it becomes the sigmoid colon. It is retroperitoneal and narrower than the ascending colon.",
+    "descriptionPatient": "The section of your large intestine that carries waste down the left side of your belly.",
+    "apBiologyFacts": [
+      "Its contents are by now semi-solid; it mainly stores faeces before they move into the sigmoid colon and rectum.",
+      "It is supplied by the inferior mesenteric artery, the artery of the hindgut, and drained by the inferior mesenteric vein.",
+      "Its narrower lumen and more solid contents make obstruction here more likely."
+    ],
+    "clinicalNotes": [
+      "Left-sided colon cancers often narrow the lumen and cause a change in bowel habit and visible blood in the stool.",
+      "Diverticulitis, inflamed outpouchings, is commonest in the descending and sigmoid colon and causes left lower abdominal pain."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.4,
+    "addressableMeshKey": "Mesh_SYS_DIG_COLON_DESC_LOD0",
+    "audioTTSKey": "Audio_SYS_DIG_COLON_DESC_Desc",
+    "connectedNodes": [
+      "SYS_DIG_COLON_TRANS",
+      "SYS_DIG_SIGMOID"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_DIG_SIGMOID",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "K63.9"
+    ],
+    "latinName": "Colon sigmoideum",
+    "commonName": "Sigmoid Colon",
+    "systemCategory": [
+      "Digestive"
+    ],
+    "descriptionProfessional": "The S-shaped final part of the colon, in the pelvis, joining the descending colon to the rectum. It has a mesentery, so it is mobile.",
+    "descriptionPatient": "The S-shaped part of your large intestine just before the rectum, where waste is stored until you go to the toilet.",
+    "apBiologyFacts": [
+      "It stores formed faeces until defecation; its strong muscular contractions push contents into the rectum.",
+      "Stretching of the rectum triggers the defecation reflex, but the external anal sphincter is under voluntary control.",
+      "Its mobility means it can twist on its own mesentery."
+    ],
+    "clinicalNotes": [
+      "Sigmoid volvulus - twisting of the loop - causes obstruction, most often in older, constipated adults, and appears as a 'coffee-bean' sign on X-ray.",
+      "It is the commonest site of diverticular disease and of colorectal cancer along with the rectum.",
+      "Flexible sigmoidoscopy examines it and the rectum."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.35,
+    "addressableMeshKey": "Mesh_SYS_DIG_SIGMOID_LOD0",
+    "audioTTSKey": "Audio_SYS_DIG_SIGMOID_Desc",
+    "connectedNodes": [
+      "SYS_DIG_COLON_DESC",
+      "SYS_DIG_RECTUM"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_DIG_RECTUM",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "K62.9"
+    ],
+    "latinName": "Rectum",
+    "commonName": "Rectum",
+    "systemCategory": [
+      "Digestive"
+    ],
+    "descriptionProfessional": "The final 12-15 cm of the large intestine, following the curve of the sacrum to the anal canal. It stores faeces and its stretching triggers the urge to defecate.",
+    "descriptionPatient": "The last part of your large intestine, where waste waits until you are ready to pass it.",
+    "apBiologyFacts": [
+      "The rectum stretches to hold faeces; filling triggers the defecation reflex, involving the parasympathetic pelvic nerves.",
+      "The internal anal sphincter is smooth muscle, involuntary, while the external anal sphincter is skeletal muscle under voluntary control via the pudendal nerve.",
+      "It follows the curve of the sacrum, having no haustra or taeniae in its lower part."
+    ],
+    "clinicalNotes": [
+      "Colorectal cancer is the third commonest cancer worldwide; a digital rectal examination and screening find many early tumours.",
+      "Haemorrhoids are swollen vascular cushions in the anal canal, causing bright red bleeding.",
+      "Faecal incontinence can follow injury to the sphincters or the pudendal nerve, for example in childbirth."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.35,
+    "addressableMeshKey": "Mesh_SYS_DIG_RECTUM_LOD0",
+    "audioTTSKey": "Audio_SYS_DIG_RECTUM_Desc",
+    "connectedNodes": [
+      "SYS_DIG_SIGMOID",
+      "SYS_SK_SACRUM",
+      "SYS_NERV_PUDENDAL"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_DIG_TONGUE",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "K14.9"
+    ],
+    "latinName": "Lingua",
+    "commonName": "Tongue",
+    "systemCategory": [
+      "Digestive"
+    ],
+    "descriptionProfessional": "A muscular organ of the floor of the mouth, covered in papillae bearing taste buds. Its intrinsic and extrinsic muscles manipulate food and shape speech; the hypoglossal nerve (CN XII) supplies its movement.",
+    "descriptionPatient": "The strong, flexible muscle in your mouth that helps you taste, chew, swallow and speak.",
+    "apBiologyFacts": [
+      "Taste buds on the papillae detect five basic tastes - sweet, sour, salty, bitter and umami - through receptor cells that bind chemicals dissolved in saliva.",
+      "Its movement is controlled by the hypoglossal nerve (CN XII); general sensation by the trigeminal (front two-thirds) and glossopharyngeal (back third); taste by the facial and glossopharyngeal nerves.",
+      "It begins mechanical digestion by pushing food into a bolus for swallowing, and saliva contains amylase that starts starch digestion."
+    ],
+    "clinicalNotes": [
+      "When a patient sticks out the tongue and it deviates to one side, the hypoglossal nerve on that side is damaged.",
+      "A geographic or coated tongue is common; a persistent white or red patch may be a sign of cancer and should be examined.",
+      "Loss of taste (ageusia) can follow COVID-19, head injury or nerve damage."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.25,
+    "addressableMeshKey": "Mesh_SYS_DIG_TONGUE_LOD0",
+    "audioTTSKey": "Audio_SYS_DIG_TONGUE_Desc",
+    "connectedNodes": [
+      "SYS_NERV_FACIAL",
+      "SYS_SK_HYOID",
+      "SYS_SK_MANDIBLE"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_DIG_PAROTID",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "K11.9"
+    ],
+    "latinName": "Glandula parotidea",
+    "commonName": "Parotid Gland",
+    "systemCategory": [
+      "Digestive"
+    ],
+    "descriptionProfessional": "The largest salivary gland, lying in front of and below the ear over the masseter. It secretes watery, enzyme-rich saliva through the parotid duct into the mouth; the facial nerve runs through it.",
+    "descriptionPatient": "The biggest of your saliva glands, in your cheek in front of your ear.",
+    "apBiologyFacts": [
+      "Salivary glands secrete saliva containing water, mucus, salivary amylase (which starts the digestion of starch) and lysozyme (which attacks bacteria).",
+      "The three pairs of major glands are the parotid, submandibular and sublingual; the parotid makes mostly watery saliva.",
+      "Secretion is controlled by the autonomic nervous system: parasympathetic stimulation greatly increases watery saliva - the reason your mouth waters at the thought of food."
+    ],
+    "clinicalNotes": [
+      "Mumps is a viral infection causing painful swelling of the parotid glands.",
+      "Because the facial nerve passes through the gland, surgery on it risks facial paralysis.",
+      "Stones in a salivary duct cause painful swelling during meals."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.3,
+    "addressableMeshKey": "Mesh_SYS_DIG_PAROTID_LOD0",
+    "audioTTSKey": "Audio_SYS_DIG_PAROTID_Desc",
+    "connectedNodes": [
+      "SYS_NERV_FACIAL",
+      "SYS_MUSC_MASSETER",
+      "SYS_DIG_SUBMANDIBULAR"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_DIG_SUBMANDIBULAR",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "K11.9"
+    ],
+    "latinName": "Glandula submandibularis",
+    "commonName": "Submandibular Gland",
+    "systemCategory": [
+      "Digestive"
+    ],
+    "descriptionProfessional": "A salivary gland below the body of the mandible, producing mixed serous and mucous saliva delivered into the floor of the mouth beside the tongue.",
+    "descriptionPatient": "A saliva gland under your jaw, which keeps your mouth moist and helps you swallow.",
+    "apBiologyFacts": [
+      "Produces about 70% of resting saliva; its mixed secretion moistens and lubricates food.",
+      "Saliva also buffers acid, protects teeth by delivering calcium and phosphate, and washes away bacteria.",
+      "It is supplied by parasympathetic fibres of the facial nerve."
+    ],
+    "clinicalNotes": [
+      "Salivary stones (sialolithiasis) are commonest in this gland, causing pain and swelling under the jaw when eating.",
+      "Ranula is a cyst in the floor of the mouth from an obstructed sublingual gland."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.25,
+    "addressableMeshKey": "Mesh_SYS_DIG_SUBMANDIBULAR_LOD0",
+    "audioTTSKey": "Audio_SYS_DIG_SUBMANDIBULAR_Desc",
+    "connectedNodes": [
+      "SYS_DIG_PAROTID",
+      "SYS_DIG_TONGUE",
+      "SYS_SK_MANDIBLE"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_NERV_FRONTAL_LOBE",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "G93.9"
+    ],
+    "latinName": "Lobus frontalis",
+    "commonName": "Frontal Lobe",
+    "systemCategory": [
+      "Nervous"
+    ],
+    "descriptionProfessional": "The largest lobe of the cerebral hemisphere, in front of the central sulcus. It contains the primary motor cortex, Broca's area for speech production, and the prefrontal cortex for planning, judgement and personality.",
+    "descriptionPatient": "The front part of your brain, which controls movement, planning, decisions and speaking.",
+    "apBiologyFacts": [
+      "The primary motor cortex, in the precentral gyrus, sends commands to skeletal muscles; each part of the body has its own area, mapped in a distorted 'homunculus' with large areas for the hands and face.",
+      "Broca's area (usually in the left frontal lobe) produces speech; the prefrontal cortex handles planning, reasoning, impulse control and personality.",
+      "The cerebral cortex is folded into gyri and sulci, greatly increasing its surface area inside a skull of limited size; grey matter holds nerve cell bodies, white matter the myelinated tracts between them."
+    ],
+    "clinicalNotes": [
+      "A stroke in the left frontal lobe can cause Broca's aphasia: speech is effortful and halting but comprehension is preserved; the right side of the body can be weak.",
+      "Frontal lobe injury, famously that of Phineas Gage, can change personality, judgement and impulse control.",
+      "Frontotemporal dementia begins with changes in behaviour or language."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.4,
+    "addressableMeshKey": "Mesh_SYS_NERV_FRONTAL_LOBE_LOD0",
+    "audioTTSKey": "Audio_SYS_NERV_FRONTAL_LOBE_Desc",
+    "connectedNodes": [
+      "SYS_NERV_PARIETAL_LOBE",
+      "SYS_NERV_TEMPORAL_LOBE",
+      "SYS_SK_FRONTAL"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": [
+      "Levodopa"
+    ]
+  },
+  {
+    "entityID": "SYS_NERV_PARIETAL_LOBE",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "G93.9"
+    ],
+    "latinName": "Lobus parietalis",
+    "commonName": "Parietal Lobe",
+    "systemCategory": [
+      "Nervous"
+    ],
+    "descriptionProfessional": "The lobe behind the central sulcus, containing the primary somatosensory cortex that receives touch, pain, temperature and body-position signals, and areas for spatial awareness and attention.",
+    "descriptionPatient": "The top-back part of your brain, which processes touch and helps you know where your body is in space.",
+    "apBiologyFacts": [
+      "The primary somatosensory cortex, in the postcentral gyrus, receives sensory information from the opposite side of the body, mapped as a sensory homunculus.",
+      "The parietal lobe integrates sensory information to give a sense of space, allowing you to reach for an object or navigate a room.",
+      "Sensory pathways cross (decussate), so the left hemisphere processes the right side of the body."
+    ],
+    "clinicalNotes": [
+      "Damage to the right parietal lobe can cause hemispatial neglect: the patient ignores the left side of the body and world, even shaving only half the face.",
+      "Gerstmann syndrome, from left parietal damage, causes difficulty with writing, arithmetic, finger identification and left-right orientation.",
+      "Tests of two-point discrimination and stereognosis probe cortical sensation."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.4,
+    "addressableMeshKey": "Mesh_SYS_NERV_PARIETAL_LOBE_LOD0",
+    "audioTTSKey": "Audio_SYS_NERV_PARIETAL_LOBE_Desc",
+    "connectedNodes": [
+      "SYS_NERV_FRONTAL_LOBE",
+      "SYS_NERV_OCCIPITAL_LOBE",
+      "SYS_NERV_TEMPORAL_LOBE",
+      "SYS_SK_PARIETAL"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_NERV_TEMPORAL_LOBE",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "G93.9"
+    ],
+    "latinName": "Lobus temporalis",
+    "commonName": "Temporal Lobe",
+    "systemCategory": [
+      "Nervous"
+    ],
+    "descriptionProfessional": "The lobe below the lateral fissure, containing the primary auditory cortex, Wernicke's area for language comprehension, and the hippocampus and amygdala involved in memory and emotion.",
+    "descriptionPatient": "The part of your brain on the sides, near your ears, which handles hearing, understanding language and forming memories.",
+    "apBiologyFacts": [
+      "The primary auditory cortex processes sound; Wernicke's area (usually left) is needed to understand spoken and written language.",
+      "The hippocampus, in the medial temporal lobe, is essential for forming new long-term (declarative) memories; the amygdala processes emotion, especially fear.",
+      "Memory formation involves long-term potentiation, a lasting strengthening of synapses that have been used together."
+    ],
+    "clinicalNotes": [
+      "Alzheimer's disease begins in the medial temporal lobe, with loss of recent memory.",
+      "A stroke in Wernicke's area causes fluent but meaningless speech with poor comprehension.",
+      "Temporal lobe epilepsy can begin with a strange feeling of familiarity (d\u00e9j\u00e0 vu) or an odd smell, followed by loss of awareness."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.4,
+    "addressableMeshKey": "Mesh_SYS_NERV_TEMPORAL_LOBE_LOD0",
+    "audioTTSKey": "Audio_SYS_NERV_TEMPORAL_LOBE_Desc",
+    "connectedNodes": [
+      "SYS_NERV_FRONTAL_LOBE",
+      "SYS_NERV_PARIETAL_LOBE",
+      "SYS_SK_TEMPORAL",
+      "SYS_SENS_COCHLEA"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": [
+      "Donepezil"
+    ]
+  },
+  {
+    "entityID": "SYS_NERV_OCCIPITAL_LOBE",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "G93.9"
+    ],
+    "latinName": "Lobus occipitalis",
+    "commonName": "Occipital Lobe",
+    "systemCategory": [
+      "Nervous"
+    ],
+    "descriptionProfessional": "The smallest lobe, at the back of the hemisphere, containing the primary visual cortex that receives signals from the eyes via the optic radiations.",
+    "descriptionPatient": "The back of your brain, which turns the signals from your eyes into the pictures you see.",
+    "apBiologyFacts": [
+      "The primary visual cortex processes vision; the visual field is mapped upside down and reversed, and the left occipital lobe sees the right half of the visual field from both eyes.",
+      "Visual information travels from the retina through the optic nerve, chiasm, tract, thalamus (lateral geniculate nucleus) and optic radiations to this cortex.",
+      "Higher visual areas nearby recognise shapes, colours and motion."
+    ],
+    "clinicalNotes": [
+      "A stroke of the occipital lobe causes loss of the opposite half of the visual field in both eyes (homonymous hemianopia), often with the central vision spared.",
+      "Cortical blindness follows bilateral damage even though the eyes themselves are normal.",
+      "A visual aura before a migraine is generated in this lobe."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.4,
+    "addressableMeshKey": "Mesh_SYS_NERV_OCCIPITAL_LOBE_LOD0",
+    "audioTTSKey": "Audio_SYS_NERV_OCCIPITAL_LOBE_Desc",
+    "connectedNodes": [
+      "SYS_NERV_PARIETAL_LOBE",
+      "SYS_NERV_TEMPORAL_LOBE",
+      "SYS_SK_OCCIPITAL",
+      "SYS_NERV_OPTIC"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_NERV_MIDBRAIN",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "G93.9"
+    ],
+    "latinName": "Mesencephalon",
+    "commonName": "Midbrain",
+    "systemCategory": [
+      "Nervous"
+    ],
+    "descriptionProfessional": "The uppermost part of the brainstem, containing the nuclei for eye movement (CN III, IV), the substantia nigra, and pathways relaying visual and auditory reflexes.",
+    "descriptionPatient": "The top part of your brainstem, which helps control eye movement and reflexes to sights and sounds.",
+    "apBiologyFacts": [
+      "The substantia nigra produces dopamine and is central to movement control; its loss causes Parkinson's disease.",
+      "The superior colliculi coordinate visual reflexes and the inferior colliculi auditory reflexes.",
+      "The oculomotor (III) and trochlear (IV) nerves arise here to move the eyes."
+    ],
+    "clinicalNotes": [
+      "Parkinson's disease results from degeneration of dopamine-producing neurons of the substantia nigra, causing tremor, rigidity and slowness of movement; levodopa replaces the dopamine.",
+      "A midbrain lesion can produce a fixed dilated pupil and an eye turned outward and down (CN III palsy)."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.25,
+    "addressableMeshKey": "Mesh_SYS_NERV_MIDBRAIN_LOD0",
+    "audioTTSKey": "Audio_SYS_NERV_MIDBRAIN_Desc",
+    "connectedNodes": [
+      "SYS_NERV_PONS",
+      "SYS_NERV_FRONTAL_LOBE"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": [
+      "Levodopa"
+    ]
+  },
+  {
+    "entityID": "SYS_NERV_PONS",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "G93.9"
+    ],
+    "latinName": "Pons",
+    "commonName": "Pons",
+    "systemCategory": [
+      "Nervous"
+    ],
+    "descriptionProfessional": "The bulging middle part of the brainstem, a bridge carrying signals between the cerebrum and cerebellum. It contains nuclei of cranial nerves V-VIII and centres that help regulate breathing.",
+    "descriptionPatient": "The middle section of your brainstem, which relays messages between the two halves of your brain and helps control breathing and facial movement.",
+    "apBiologyFacts": [
+      "'Pons' means bridge: it carries fibres between the cortex and cerebellum, and pathways between brain and spinal cord.",
+      "It contains nuclei for the trigeminal (V), abducens (VI), facial (VII) and vestibulocochlear (VIII) nerves.",
+      "With the medulla, it helps regulate the rhythm of breathing."
+    ],
+    "clinicalNotes": [
+      "A pontine stroke can cause 'locked-in syndrome': complete paralysis except for eye movements, with full awareness.",
+      "Central pontine myelinolysis follows overly rapid correction of low blood sodium."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.25,
+    "addressableMeshKey": "Mesh_SYS_NERV_PONS_LOD0",
+    "audioTTSKey": "Audio_SYS_NERV_PONS_Desc",
+    "connectedNodes": [
+      "SYS_NERV_MIDBRAIN",
+      "SYS_NERV_MEDULLA",
+      "SYS_NERV_CEREBELLUM",
+      "SYS_NERV_TRIGEMINAL",
+      "SYS_NERV_FACIAL"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_NERV_MEDULLA",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "G93.9"
+    ],
+    "latinName": "Medulla oblongata",
+    "commonName": "Medulla Oblongata",
+    "systemCategory": [
+      "Nervous"
+    ],
+    "descriptionProfessional": "The lowest part of the brainstem, continuous with the spinal cord at the foramen magnum. It contains vital centres for heart rate, blood pressure and breathing, and the nuclei for cranial nerves IX-XII.",
+    "descriptionPatient": "The bottom of your brainstem, joining your brain to your spinal cord, which controls your heartbeat, blood pressure and breathing without your thinking about it.",
+    "apBiologyFacts": [
+      "It houses the cardiovascular and respiratory centres: it detects rising CO2 (through changes in pH of the cerebrospinal fluid) and adjusts breathing rate to keep blood gases stable.",
+      "Most motor fibres cross (decussate) here in the pyramids, which is why each side of the brain controls the opposite side of the body.",
+      "Its centres also control reflexes such as vomiting, coughing, sneezing and swallowing."
+    ],
+    "clinicalNotes": [
+      "Damage to the medulla, from a stroke or herniation of the cerebellar tonsils through the foramen magnum, can stop breathing and the heartbeat.",
+      "Lateral medullary (Wallenberg) syndrome causes vertigo, difficulty swallowing and loss of pain and temperature sensation on one side of the face and the opposite side of the body."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.25,
+    "addressableMeshKey": "Mesh_SYS_NERV_MEDULLA_LOD0",
+    "audioTTSKey": "Audio_SYS_NERV_MEDULLA_Desc",
+    "connectedNodes": [
+      "SYS_NERV_PONS",
+      "SYS_NERV_SPINALCORD",
+      "SYS_NERV_VAGUS",
+      "SYS_SK_OCCIPITAL"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_SENS_EYE",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "H57.9"
+    ],
+    "latinName": "Bulbus oculi",
+    "commonName": "Eye",
+    "systemCategory": [
+      "Sensory"
+    ],
+    "descriptionProfessional": "The eyeball: a fibrous outer coat (white sclera with a transparent cornea in front), a vascular middle coat with the iris, and a light-sensitive inner retina. The lens focuses light onto the retina, and the optic nerve carries signals to the brain.",
+    "descriptionPatient": "Your eye, which focuses light onto a layer of cells that turn it into signals your brain sees as pictures.",
+    "apBiologyFacts": [
+      "Light passes through the cornea (which does most of the focusing), the pupil, the lens and the vitreous humour to reach the retina, where rods (dim light, black and white) and cones (bright light, colour) transduce it into nerve impulses.",
+      "The iris controls pupil size: the sphincter pupillae constricts in bright light (parasympathetic) and the dilator pupillae widens it in dim light (sympathetic).",
+      "Accommodation: the ciliary muscle changes the lens's shape - relaxing to flatten it for distant objects and contracting to make it rounder for near ones."
+    ],
+    "clinicalNotes": [
+      "Myopia (short-sightedness) focuses light in front of the retina and is corrected by a concave lens; hyperopia focuses it behind and is corrected by a convex lens.",
+      "Cataract is clouding of the lens; glaucoma is damage to the optic nerve, usually from raised pressure inside the eye.",
+      "The red reflex checked in newborns detects lens and retinal problems such as congenital cataract or retinoblastoma."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.2,
+    "addressableMeshKey": "Mesh_SYS_SENS_EYE_LOD0",
+    "audioTTSKey": "Audio_SYS_SENS_EYE_Desc",
+    "connectedNodes": [
+      "SYS_MUSC_EXTRAOCULAR",
+      "SYS_NERV_OPTIC",
+      "SYS_NERV_OCCIPITAL_LOBE",
+      "SYS_SK_FRONTAL"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": [
+      "Timolol",
+      "Atropine"
+    ]
+  },
+  {
+    "entityID": "SYS_MUSC_EXTRAOCULAR",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "H49.9"
+    ],
+    "latinName": "Musculi bulbi",
+    "commonName": "Extraocular Muscles",
+    "systemCategory": [
+      "Muscular"
+    ],
+    "descriptionProfessional": "Six muscles moving each eye: the superior, inferior, medial and lateral rectus, and the superior and inferior oblique. They are supplied by cranial nerves III, IV and VI.",
+    "descriptionPatient": "The six small muscles around each eye that move it up, down and side to side.",
+    "apBiologyFacts": [
+      "Nerve supply is remembered by 'LR6 SO4 the rest 3': the lateral rectus by the abducens (VI), the superior oblique by the trochlear (IV), the rest by the oculomotor (III).",
+      "The muscles work in antagonistic pairs and are coordinated so both eyes move together, keeping images on corresponding parts of each retina.",
+      "The superior oblique's tendon passes through a fibrous pulley (the trochlea) before inserting."
+    ],
+    "clinicalNotes": [
+      "Damage to CN III gives a 'down and out' eye with a drooping lid and dilated pupil; to CN VI, an eye unable to look outward.",
+      "Strabismus (squint) is misalignment of the eyes; if untreated in childhood, the brain suppresses the image from one eye (amblyopia).",
+      "Entrapment of the inferior rectus in an orbital floor fracture causes double vision on looking up."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.2,
+    "addressableMeshKey": "Mesh_SYS_MUSC_EXTRAOCULAR_LOD0",
+    "audioTTSKey": "Audio_SYS_MUSC_EXTRAOCULAR_Desc",
+    "connectedNodes": [
+      "SYS_SENS_EYE",
+      "SYS_NERV_MIDBRAIN",
+      "SYS_NERV_PONS"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_SENS_COCHLEA",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "H91.9"
+    ],
+    "latinName": "Cochlea",
+    "commonName": "Cochlea",
+    "systemCategory": [
+      "Sensory"
+    ],
+    "descriptionProfessional": "The snail-shaped, fluid-filled spiral of the inner ear, about 2.5 turns long. Vibrations of the stapes move the fluid, bending hair cells on the basilar membrane that generate nerve impulses.",
+    "descriptionPatient": "The spiral-shaped part of your inner ear that turns sound vibrations into nerve signals for your brain.",
+    "apBiologyFacts": [
+      "Sound waves make the eardrum vibrate; the three ossicles (malleus, incus, stapes) amplify the vibration and pass it to the oval window, making the cochlear fluid move.",
+      "The basilar membrane is tuned along its length: high-pitched sounds vibrate its base, low-pitched sounds its apex, so pitch is encoded by which hair cells fire.",
+      "Hair cells' stereocilia bend, opening ion channels, and the resulting electrical signal travels via the cochlear nerve (part of CN VIII) to the auditory cortex."
+    ],
+    "clinicalNotes": [
+      "Sensorineural hearing loss is damage to hair cells or the nerve, from noise, ageing (presbycusis), or some drugs (aminoglycosides); hair cells do not regenerate in humans.",
+      "A cochlear implant bypasses damaged hair cells by stimulating the nerve directly with electrodes.",
+      "Loud noise exposure over years permanently damages high-frequency hair cells first."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.15,
+    "addressableMeshKey": "Mesh_SYS_SENS_COCHLEA_LOD0",
+    "audioTTSKey": "Audio_SYS_SENS_COCHLEA_Desc",
+    "connectedNodes": [
+      "SYS_SENS_SEMICIRCULAR",
+      "SYS_SK_TEMPORAL",
+      "SYS_NERV_TEMPORAL_LOBE"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_SENS_SEMICIRCULAR",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "H81.9"
+    ],
+    "latinName": "Canales semicirculares",
+    "commonName": "Semicircular Canals",
+    "systemCategory": [
+      "Sensory"
+    ],
+    "descriptionProfessional": "Three fluid-filled loops of the inner ear at right angles to one another. Movement of fluid within them bends hair cells that sense rotation of the head in any plane.",
+    "descriptionPatient": "Three little looping tubes in your inner ear that sense when your head turns, helping you keep your balance.",
+    "apBiologyFacts": [
+      "Each canal senses rotation in one plane - like the pitch, yaw and roll of an aircraft - by fluid lagging behind the moving head and bending hair cells in the ampulla.",
+      "Together with the utricle and saccule (which sense linear acceleration and gravity), they form the vestibular system, which feeds reflexes that keep the eyes steady as the head moves.",
+      "Signals travel via the vestibular part of CN VIII to the brainstem and cerebellum."
+    ],
+    "clinicalNotes": [
+      "Benign paroxysmal positional vertigo is brief spinning triggered by head movements, caused by calcium crystals displaced into a canal; the Epley manoeuvre moves them out.",
+      "Vestibular neuritis and M\u00e9ni\u00e8re's disease cause vertigo, nausea and abnormal eye movements (nystagmus).",
+      "Spinning then stopping suddenly leaves the fluid still moving, which is why you feel dizzy."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.15,
+    "addressableMeshKey": "Mesh_SYS_SENS_SEMICIRCULAR_LOD0",
+    "audioTTSKey": "Audio_SYS_SENS_SEMICIRCULAR_Desc",
+    "connectedNodes": [
+      "SYS_SENS_COCHLEA",
+      "SYS_NERV_CEREBELLUM",
+      "SYS_SK_TEMPORAL"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_LYMPH_NODES",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "R59.9"
+    ],
+    "latinName": "Nodi lymphoidei",
+    "commonName": "Lymph Nodes",
+    "systemCategory": [
+      "Lymphatic"
+    ],
+    "descriptionProfessional": "Small bean-shaped filters along lymphatic vessels, in clusters in the neck, armpit, groin and elsewhere. They trap pathogens and cancer cells from lymph and are where lymphocytes meet antigens and mount immune responses.",
+    "descriptionPatient": "Little bean-sized filters in your neck, armpits and groin that catch germs and help your immune system respond.",
+    "apBiologyFacts": [
+      "Lymph, fluid from tissues, flows through a node's sinuses where macrophages engulf debris and dendritic cells present antigen to B and T lymphocytes, which then multiply (clonal expansion).",
+      "Nodes swell during infection because lymphocytes are proliferating inside them.",
+      "Lymph flows one way, moved by muscle contraction and valves, and returns to the blood via the thoracic duct and right lymphatic duct."
+    ],
+    "clinicalNotes": [
+      "Tender swollen nodes usually mean a nearby infection; hard, painless, fixed nodes raise concern for cancer.",
+      "Cancers spread to lymph nodes first, so removing and examining the nearby (sentinel) node stages breast cancer and melanoma.",
+      "Lymphoma is a cancer of lymphocytes, often presenting as painless enlarged nodes."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.35,
+    "addressableMeshKey": "Mesh_SYS_LYMPH_NODES_LOD0",
+    "audioTTSKey": "Audio_SYS_LYMPH_NODES_Desc",
+    "connectedNodes": [
+      "SYS_LYMPH_SPLEEN",
+      "SYS_LYMPH_THYMUS"
     ],
     "hasMicroDive": false,
     "microDiveKey": "",
