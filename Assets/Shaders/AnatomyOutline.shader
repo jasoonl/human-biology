@@ -1,27 +1,32 @@
-// Screen-space edge detection that gives every structure a drawn ink contour,
-// which is what makes a 3D render read as an anatomical plate rather than a pile
-// of shaded blobs. Primitive geometry benefits most: a capsule and a real bone
-// look far more alike once both are bounded by a line.
+// Screen-space ink contours, so structures read as drawn shapes rather than shaded blobs.
 //
-// Two independent edge signals are combined, because neither alone is enough:
-//   - Depth discontinuity catches silhouettes and structures overlapping in front
-//     of one another (a rib crossing the lung behind it).
-//   - Normal discontinuity catches creases where two surfaces meet at an angle but
-//     sit at the same depth (the ridge where a muscle belly meets its tendon),
-//     which depth alone cannot see.
+// Two rules keep this from wrecking the image, both learned from the first version,
+// which darkened the entire backdrop and erased every structure under ~3 pixels wide:
 //
-// Requires the DepthNormals prepass; the renderer feature declares that via its
-// `requirements` field rather than relying on something else in the frame to
-// happen to request it.
+//  1. Lines are drawn on the FAR side of a depth step, never the near side. A rib in
+//     front of a lung gets its outline painted on the lung pixels next to it, so the
+//     rib itself keeps its full width and colour. Drawing centred on the edge (the
+//     obvious approach) covers a thin structure completely: at full-figure distance a
+//     rib, a finger bone or a vessel is only 2-3 pixels across.
+//
+//  2. Pixels with no geometry are left alone. The normals texture holds nothing
+//     meaningful where nothing was drawn, and treating that as "the normal changed"
+//     turns the whole backdrop into one giant edge.
+//
+// Depth steps are judged relative to distance, so the same threshold means the same
+// thing whether the camera is 3.6 m from the whole figure or 0.4 m from a hand.
+//
+// Requires the DepthNormals prepass; the renderer feature declares that in its
+// `requirements` rather than relying on something else in the frame to request it.
 Shader "HumanBodyExplorer/AnatomyOutline"
 {
     Properties
     {
-        _OutlineColor ("Outline Colour", Color) = (0.04, 0.04, 0.05, 1)
-        _Thickness ("Thickness (pixels)", Range(0.5, 4)) = 1.2
-        _DepthSensitivity ("Depth Sensitivity", Range(0.05, 20)) = 4.0
-        _NormalSensitivity ("Normal Sensitivity", Range(0.05, 8)) = 2.5
-        _Strength ("Strength", Range(0, 1)) = 0.85
+        _OutlineColor ("Outline Colour", Color) = (0.03, 0.03, 0.05, 1)
+        _Thickness ("Thickness (pixels)", Range(0.5, 4)) = 1.0
+        _DepthThreshold ("Depth Step (fraction of distance)", Range(0.001, 0.05)) = 0.006
+        _NormalThreshold ("Crease Sharpness", Range(0.1, 1.5)) = 0.55
+        _Strength ("Strength", Range(0, 1)) = 0.9
     }
 
     SubShader
@@ -44,9 +49,14 @@ Shader "HumanBodyExplorer/AnatomyOutline"
 
             float4 _OutlineColor;
             float _Thickness;
-            float _DepthSensitivity;
-            float _NormalSensitivity;
+            float _DepthThreshold;
+            float _NormalThreshold;
             float _Strength;
+
+            float EyeDepth(float2 uv)
+            {
+                return LinearEyeDepth(SampleSceneDepth(uv), _ZBufferParams);
+            }
 
             half4 Frag(Varyings input) : SV_Target
             {
@@ -55,37 +65,56 @@ Shader "HumanBodyExplorer/AnatomyOutline"
                 float2 uv = input.texcoord.xy;
                 half4 color = SAMPLE_TEXTURE2D_X_LOD(_BlitTexture, sampler_LinearClamp, uv, _BlitMipLevel);
 
+                float farLimit = _ProjectionParams.z * 0.98;
+                float d0 = EyeDepth(uv);
+
                 float2 t = _Thickness / _ScreenParams.xy;
+                float2 offsets[4] = { float2(t.x, 0), float2(-t.x, 0), float2(0, t.y), float2(0, -t.y) };
 
-                // Roberts cross: two diagonal pairs, four taps total. Cheaper than a
-                // full Sobel and plenty for a line this thin.
-                float2 uvA = uv + float2(-t.x, -t.y);
-                float2 uvB = uv + float2( t.x,  t.y);
-                float2 uvC = uv + float2(-t.x,  t.y);
-                float2 uvD = uv + float2( t.x, -t.y);
+                // Nearest neighbour, and whether every neighbour is empty space too.
+                float nearest = d0;
+                float nearestNeighbour = 1e9;
+                [unroll] for (int i = 0; i < 4; i++)
+                {
+                    float d = EyeDepth(uv + offsets[i]);
+                    nearest = min(nearest, d);
+                    nearestNeighbour = min(nearestNeighbour, d);
+                }
 
-                float dA = LinearEyeDepth(SampleSceneDepth(uvA), _ZBufferParams);
-                float dB = LinearEyeDepth(SampleSceneDepth(uvB), _ZBufferParams);
-                float dC = LinearEyeDepth(SampleSceneDepth(uvC), _ZBufferParams);
-                float dD = LinearEyeDepth(SampleSceneDepth(uvD), _ZBufferParams);
+                // Rule 2: a pixel of pure backdrop with only backdrop around it has
+                // nothing to outline.
+                if (d0 > farLimit && nearestNeighbour > farLimit) return color;
 
-                // Scale the difference by the nearer depth, or every structure in the
-                // background would outline more strongly than one close to the camera
-                // purely because the same step is a larger absolute distance out there.
-                float centreDepth = max(1e-4, min(min(dA, dB), min(dC, dD)));
-                float depthEdge = (abs(dA - dB) + abs(dC - dD)) / centreDepth;
-                depthEdge = saturate(depthEdge * _DepthSensitivity);
+                // Rule 1: only a pixel that is FARTHER than a neighbour is on the far
+                // side of the step. Steps are compared as a fraction of the nearer
+                // depth, so the threshold is scale-invariant.
+                float step = (d0 - nearest) / max(nearest, 1e-3);
+                float depthEdge = smoothstep(_DepthThreshold, _DepthThreshold * 3.0, step);
 
-                float3 nA = SampleSceneNormals(uvA);
-                float3 nB = SampleSceneNormals(uvB);
-                float3 nC = SampleSceneNormals(uvC);
-                float3 nD = SampleSceneNormals(uvD);
+                // Creases inside a surface, where depth barely changes but the normal
+                // does. Only on real geometry, and only against neighbours at nearly
+                // the same depth - anything else is already a silhouette above.
+                float creaseEdge = 0.0;
+                if (d0 < farLimit)
+                {
+                    float3 n0 = SampleSceneNormals(uv);
+                    if (dot(n0, n0) > 0.25)
+                    {
+                        [unroll] for (int j = 0; j < 4; j++)
+                        {
+                            float2 nuv = uv + offsets[j];
+                            float dn = EyeDepth(nuv);
+                            if (abs(dn - d0) / max(d0, 1e-3) > _DepthThreshold) continue;
 
-                float normalEdge = (1.0 - saturate(dot(nA, nB))) + (1.0 - saturate(dot(nC, nD)));
-                normalEdge = saturate(normalEdge * _NormalSensitivity);
+                            float3 nn = SampleSceneNormals(nuv);
+                            if (dot(nn, nn) < 0.25) continue;
+                            creaseEdge = max(creaseEdge, 1.0 - saturate(dot(normalize(n0), normalize(nn))));
+                        }
+                        creaseEdge = smoothstep(_NormalThreshold * 0.5, _NormalThreshold, creaseEdge);
+                    }
+                }
 
-                float edge = saturate(max(depthEdge, normalEdge)) * _Strength;
-
+                float edge = saturate(max(depthEdge, creaseEdge)) * _Strength;
                 return half4(lerp(color.rgb, _OutlineColor.rgb, edge), color.a);
             }
             ENDHLSL

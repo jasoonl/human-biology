@@ -1,0 +1,103 @@
+using System.Collections.Generic;
+using UnityEngine;
+
+namespace HumanBodyExplorer.EditorTools.Geometry
+{
+    /// <summary>
+    /// The body surface: one continuous shell, the smooth union of a head, neck, torso,
+    /// arms and legs, meshed once. It replaces nineteen separate overlapping ellipsoids.
+    /// Dimensions are the anthropometric ones the earlier skin used, which the organs
+    /// were fitted inside, so the interior still fits.
+    ///
+    /// The field is kept after building so <see cref="ContainmentReport"/> can test every
+    /// internal structure's vertices against it and name whatever pokes through.
+    /// </summary>
+    public static class SkinBuilder
+    {
+        public static SdfFunc Field { get; private set; }
+
+        private static SdfFunc BuildField()
+        {
+            // Head, with the features that give the silhouette a face and ears.
+            SdfFunc head = Sdf.SmoothUnion(0.016f,
+                Sdf.Ellipsoid(new Vector3(0f, 1.635f, 0.005f), new Vector3(0.0825f, 0.1175f, 0.105f)),
+                // Skin follows the brow and the cheekbones; a plain ellipsoid leaves both
+                // poking out of it, because the face is fuller than the back of the head.
+                Sdf.Ellipsoid(new Vector3(0f, 1.678f, -0.062f), new Vector3(0.072f, 0.040f, 0.038f)),
+                Sdf.Ellipsoid(new Vector3(0f, 1.612f, -0.052f), new Vector3(0.060f, 0.062f, 0.052f)),
+                Sdf.Capsule(new Vector3(0f, 1.652f, -0.094f), new Vector3(0f, 1.616f, -0.101f), 0.0085f),  // nose
+                Sdf.Sphere(new Vector3(0f, 1.616f, -0.104f), 0.0105f),                                     // tip of nose
+                Sdf.MirrorX(Sdf.Ellipsoid(new Vector3(0.083f, 1.640f, 0.015f), new Vector3(0.0085f, 0.028f, 0.017f))), // ears
+                Sdf.Ellipsoid(new Vector3(0f, 1.560f, -0.050f), new Vector3(0.056f, 0.042f, 0.052f)));    // jaw
+
+            SdfFunc neck = Sdf.Capsule(new Vector3(0f, 1.565f, 0.022f), new Vector3(0f, 1.440f, 0.024f), 0.056f);
+
+            // Torso: chest, abdomen and pelvis blended into one, with the buttocks behind.
+            // Rounded boxes rather than ellipsoids: a chest is nearly as deep at the sides
+            // of the back as at the middle, but an ellipsoid narrows fast away from the
+            // midline and leaves the shoulder blades and spine poking out of it.
+            SdfFunc torso = Sdf.SmoothUnion(0.06f,
+                Sdf.RoundBox(new Vector3(0f, 1.285f, 0.005f), new Vector3(0.180f, 0.205f, 0.132f), 0.090f, Quaternion.identity),
+                Sdf.RoundBox(new Vector3(0f, 1.060f, -0.003f), new Vector3(0.166f, 0.175f, 0.118f), 0.090f, Quaternion.identity),
+                Sdf.RoundBox(new Vector3(0f, 0.900f, 0.000f), new Vector3(0.178f, 0.135f, 0.128f), 0.085f, Quaternion.identity),
+                Sdf.MirrorX(Sdf.Ellipsoid(new Vector3(0.085f, 0.895f, 0.060f), new Vector3(0.085f, 0.085f, 0.070f))));
+
+            // Shoulders, arms and hands.
+            SdfFunc arm = Sdf.SmoothUnion(0.03f,
+                Sdf.Ellipsoid(new Vector3(0.19f, 1.39f, -0.01f), new Vector3(0.0725f, 0.0825f, 0.0725f)),
+                Sdf.RoundCone(new Vector3(0.19f, 1.39f, 0.0f), 0.058f, new Vector3(0.19f, 1.095f, 0.012f), 0.044f),
+                Sdf.RoundCone(new Vector3(0.19f, 1.095f, 0.012f), 0.044f, new Vector3(0.205f, 0.83f, 0.010f), 0.030f),
+                Sdf.Ellipsoid(new Vector3(0.205f, 0.735f, -0.004f), new Vector3(0.0425f, 0.102f, 0.030f)),
+                Sdf.Capsule(new Vector3(0.228f, 0.815f, 0.000f), new Vector3(0.262f, 0.712f, -0.036f), 0.0175f),   // thumb
+                // The four fingers, knuckle to tip, curled slightly toward the palm.
+                Sdf.Capsule(new Vector3(0.233f, 0.742f, 0.008f), new Vector3(0.246f, 0.655f, -0.020f), 0.0115f),
+                Sdf.Capsule(new Vector3(0.216f, 0.742f, 0.008f), new Vector3(0.221f, 0.646f, -0.022f), 0.0115f),
+                Sdf.Capsule(new Vector3(0.199f, 0.749f, 0.008f), new Vector3(0.196f, 0.658f, -0.020f), 0.0110f),
+                Sdf.Capsule(new Vector3(0.183f, 0.755f, 0.008f), new Vector3(0.176f, 0.676f, -0.016f), 0.0100f));
+
+            // Thighs, calves and feet.
+            SdfFunc leg = Sdf.SmoothUnion(0.03f,
+                Sdf.RoundCone(new Vector3(0.09f, 0.87f, 0.005f), 0.085f, new Vector3(0.088f, 0.475f, 0.020f), 0.064f),
+                Sdf.RoundCone(new Vector3(0.088f, 0.475f, 0.020f), 0.058f, new Vector3(0.083f, 0.078f, 0.015f), 0.036f),
+                Sdf.Ellipsoid(new Vector3(0.085f, 0.32f, 0.030f), new Vector3(0.052f, 0.110f, 0.058f)),        // calf
+                Sdf.Ellipsoid(new Vector3(0.085f, 0.044f, -0.066f), new Vector3(0.0665f, 0.050f, 0.1600f)));   // foot
+
+            return Sdf.SmoothUnion(0.035f, head, neck, torso, Sdf.MirrorX(arm), Sdf.MirrorX(leg));
+        }
+
+        public static void Build(Transform root, Material skin, int layer)
+        {
+            Field = BuildField();
+            var min = new Vector3(-0.32f, -0.02f, -0.26f);
+            var max = new Vector3(0.32f, 1.78f, 0.20f);
+            Mesh mesh = PartFactory.Save(SurfaceNets.Build(Field, min, max, 0.009f, "SkinShell", 2f), "SkinShell");
+            PartFactory.Add(root, "Skin", "SYS_INTEG_SKIN", mesh, skin, layer);
+        }
+
+        /// <summary>
+        /// For every mesh under <paramref name="root"/> other than the skin, how far its
+        /// most outlying vertex sits beyond the skin surface. Positive means poking out.
+        /// Returns the worst offenders so a misplaced structure is named, not just detected.
+        /// </summary>
+        public static List<(string name, float outside)> ContainmentReport(Transform root, float tolerance = 0.006f)
+        {
+            var result = new List<(string, float)>();
+            if (Field == null) Field = BuildField();
+
+            foreach (var filter in root.GetComponentsInChildren<MeshFilter>())
+            {
+                if (filter.sharedMesh == null || filter.name == "Skin") continue;
+
+                float worst = float.MinValue;
+                Transform t = filter.transform;
+                foreach (Vector3 v in filter.sharedMesh.vertices)
+                    worst = Mathf.Max(worst, Field(root.InverseTransformPoint(t.TransformPoint(v))));
+
+                if (worst > tolerance) result.Add((filter.name, worst));
+            }
+
+            result.Sort((a, b) => b.Item2.CompareTo(a.Item2));
+            return result;
+        }
+    }
+}

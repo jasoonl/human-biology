@@ -219,7 +219,10 @@ namespace HumanBodyExplorer.UI
                     case DetailLevel.Clinical:
                         body.Append(node.DescriptionProfessional);
                         AppendBullets(body, node.ClinicalNotes);
-                        body.Append($"\n\n<size=80%>SNOMED CT {node.SnomedCTCode}</size>");
+                        // Blank when the code has not been verified: better to show nothing
+                        // than a code a clinician might trust and find to be wrong.
+                        if (!string.IsNullOrWhiteSpace(node.SnomedCTCode))
+                            body.Append($"\n\n<size=80%>SNOMED CT {node.SnomedCTCode}</size>");
                         break;
 
                     default:

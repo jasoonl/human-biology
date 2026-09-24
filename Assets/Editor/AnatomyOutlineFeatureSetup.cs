@@ -40,6 +40,7 @@ namespace HumanBodyExplorer.EditorTools
             }
 
             var rendererData = rendererDataList[0];
+            EnsureAmbientOcclusion(rendererData);
 
             var shader = Shader.Find(ShaderName);
             if (shader == null)
@@ -86,16 +87,57 @@ namespace HumanBodyExplorer.EditorTools
             Debug.Log("[AnatomyOutlineFeatureSetup] Added the Anatomy Outline renderer feature.");
         }
 
+        /// <summary>
+        /// Screen-space ambient occlusion, so cavities read as cavities. With flat, bright
+        /// ambient light and no shadows, an eye socket, a nasal aperture or the gap
+        /// between two ribs is lit exactly like the bone around it and looks like a
+        /// shallow dimple. Occlusion darkens anything with nearer geometry close beside it.
+        /// The radius is tiny because the anatomy is centimetres across.
+        /// </summary>
+        private static void EnsureAmbientOcclusion(ScriptableRendererData rendererData)
+        {
+            ScreenSpaceAmbientOcclusion ssao = null;
+            foreach (var existing in rendererData.rendererFeatures)
+                if (existing is ScreenSpaceAmbientOcclusion found) ssao = found;
+
+            if (ssao == null)
+            {
+                ssao = ScriptableObject.CreateInstance<ScreenSpaceAmbientOcclusion>();
+                ssao.name = "Anatomy Ambient Occlusion";
+                AssetDatabase.AddObjectToAsset(ssao, rendererData);
+                rendererData.rendererFeatures.Add(ssao);
+            }
+
+            var serialized = new SerializedObject(ssao);
+            SerializedProperty settings = serialized.FindProperty("m_Settings");
+            void Set(string field, float value) { var p = settings.FindPropertyRelative(field); if (p != null) p.floatValue = value; }
+            void SetInt(string field, int value) { var p = settings.FindPropertyRelative(field); if (p != null) p.intValue = value; }
+            void SetBool(string field, bool value) { var p = settings.FindPropertyRelative(field); if (p != null) p.boolValue = value; }
+
+            SetBool("AfterOpaque", true);      // multiply the finished image, so custom shaders are darkened too
+            SetInt("Source", 1);               // depth + normals
+            SetInt("Samples", 0);              // high quality
+            SetInt("BlurQuality", 0);
+            Set("Intensity", 1.2f);
+            Set("Radius", 0.05f);
+            Set("Falloff", 60f);
+            Set("DirectLightingStrength", 0.25f);
+            serialized.ApplyModifiedPropertiesWithoutUndo();
+
+            ssao.SetActive(true);
+            EditorUtility.SetDirty(rendererData);
+        }
+
         /// <summary>A near-black ink rather than pure black, and a line about a pixel
         /// wide, which is what a printed plate looks like; pure black at 3px reads as
         /// a cartoon cel-shade instead.</summary>
         private static void ApplyLookSettings(Material material)
         {
-            material.SetColor("_OutlineColor", new Color(0.05f, 0.05f, 0.07f));
-            material.SetFloat("_Thickness", 1.2f);
-            material.SetFloat("_DepthSensitivity", 4.0f);
-            material.SetFloat("_NormalSensitivity", 2.5f);
-            material.SetFloat("_Strength", 0.85f);
+            material.SetColor("_OutlineColor", new Color(0.03f, 0.03f, 0.05f));
+            material.SetFloat("_Thickness", 1.0f);
+            material.SetFloat("_DepthThreshold", 0.006f);
+            material.SetFloat("_NormalThreshold", 0.55f);
+            material.SetFloat("_Strength", 0.9f);
         }
     }
 }

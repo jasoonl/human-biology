@@ -77,55 +77,11 @@
     "idealCameraDistance": 0.4,
     "addressableMeshKey": "Mesh_Aorta_LOD0",
     "audioTTSKey": "Audio_Aorta_Desc",
-    "connectedNodes": [
-      "SYS_CV_ARTERY"
-    ],
+    "connectedNodes": [],
     "hasMicroDive": false,
     "microDiveKey": "",
     "pharmacologyTargets": [
       "Labetalol"
-    ]
-  },
-  {
-    "entityID": "SYS_CV_ARTERY",
-    "snomedCTCode": "51114001",
-    "icd10PathologyCodes": [
-      "I77.9"
-    ],
-    "latinName": "Arteria",
-    "commonName": "Artery",
-    "systemCategory": [
-      "Cardiovascular"
-    ],
-    "descriptionProfessional": "A thick-walled, muscular-elastic vessel carrying blood away from the heart under high pressure, with a three-layered wall of tunica intima, media and externa.",
-    "descriptionPatient": "Arteries are the tubes that carry fresh, oxygen-rich blood away from your heart to the rest of your body.",
-    "apBiologyFacts": [
-      "Arteries always carry blood AWAY from the heart - which is the definition, not the oxygen content. The pulmonary arteries are the exception that proves it: they carry deoxygenated blood.",
-      "The thick tunica media of smooth muscle and elastin withstands high pressure and lets the vessel actively vasoconstrict or vasodilate.",
-      "Arterioles are the main resistance vessels; by changing their radius the body redirects blood flow and sets total peripheral resistance. Flow is proportional to the fourth power of the radius (Poiseuille), so tiny diameter changes have enormous effects."
-    ],
-    "clinicalNotes": [
-      "Atherosclerosis is lipid plaque accumulating in the tunica intima, narrowing the lumen and providing a surface for thrombosis.",
-      "Pulses are palpated where an artery crosses bone near the surface: radial, carotid, femoral, dorsalis pedis.",
-      "Arterial bleeding is bright red and pulsatile, and requires direct pressure rather than elevation alone."
-    ],
-    "boundsCenterOffset": {
-      "x": 0.0,
-      "y": 0.0,
-      "z": 0.0
-    },
-    "idealCameraDistance": 0.25,
-    "addressableMeshKey": "Mesh_Artery_LOD0",
-    "audioTTSKey": "Audio_Artery_Desc",
-    "connectedNodes": [
-      "SYS_CV_HEART",
-      "SYS_CV_AORTA"
-    ],
-    "hasMicroDive": false,
-    "microDiveKey": "",
-    "pharmacologyTargets": [
-      "Amlodipine",
-      "Atorvastatin"
     ]
   },
   {
@@ -792,133 +748,10 @@
     "connectedNodes": [
       "SYS_NERV_BRAIN",
       "SYS_NERV_BRAINSTEM",
-      "SYS_SK_SPINE"
+      "SYS_SK_VERT_THORACIC"
     ],
     "hasMicroDive": true,
     "microDiveKey": "Scene_Micro_Synapse",
-    "pharmacologyTargets": []
-  },
-  {
-    "entityID": "SYS_SK_SKULL",
-    "snomedCTCode": "70925003",
-    "icd10PathologyCodes": [
-      "S02.91"
-    ],
-    "latinName": "Cranium",
-    "commonName": "Skull",
-    "systemCategory": [
-      "Skeletal"
-    ],
-    "descriptionProfessional": "Twenty-two bones - eight cranial and fourteen facial - united by sutures, enclosing and protecting the brain and forming the orbits and nasal cavity.",
-    "descriptionPatient": "The hard bone that protects your brain, like a built-in helmet.",
-    "apBiologyFacts": [
-      "Sutures are immovable fibrous joints (synarthroses) - the interlocking edges are far stronger than a smooth seam would be.",
-      "Newborns have fontanelles, membranous gaps that let the skull deform during birth and accommodate rapid brain growth. The anterior fontanelle closes by about 18-24 months.",
-      "The mandible is the only freely movable bone of the skull.",
-      "The foramen magnum transmits the spinal cord; dozens of smaller foramina pass cranial nerves and vessels."
-    ],
-    "clinicalNotes": [
-      "Basilar skull fracture signs: periorbital bruising ('raccoon eyes'), mastoid bruising (Battle's sign), and CSF leaking from nose or ear.",
-      "Epidural hematoma comes from the middle meningeal artery and appears lens-shaped (biconvex) on CT, often after a lucid interval. Subdural hematoma comes from bridging veins and appears crescent-shaped.",
-      "Because the cranium is a rigid box, any expanding mass raises intracranial pressure - the Monro-Kellie doctrine."
-    ],
-    "boundsCenterOffset": {
-      "x": 0.0,
-      "y": 0.0,
-      "z": 0.0
-    },
-    "idealCameraDistance": 0.3,
-    "addressableMeshKey": "Mesh_Skull_LOD0",
-    "audioTTSKey": "Audio_Skull_Desc",
-    "connectedNodes": [
-      "SYS_SK_SPINE",
-      "SYS_NERV_BRAIN"
-    ],
-    "hasMicroDive": false,
-    "microDiveKey": "",
-    "pharmacologyTargets": []
-  },
-  {
-    "entityID": "SYS_SK_SPINE",
-    "snomedCTCode": "421060004",
-    "icd10PathologyCodes": [
-      "M54.9"
-    ],
-    "latinName": "Columna vertebralis",
-    "commonName": "Vertebral Column (Spine)",
-    "systemCategory": [
-      "Skeletal"
-    ],
-    "descriptionProfessional": "Thirty-three vertebrae - 7 cervical, 12 thoracic, 5 lumbar, 5 fused sacral and 4 fused coccygeal - forming a segmented, curved column that protects the spinal cord.",
-    "descriptionPatient": "Your backbone: a stack of small bones that holds you upright and shields your spinal cord.",
-    "apBiologyFacts": [
-      "Intervertebral discs are shock absorbers with a tough outer annulus fibrosus and a gel-like nucleus pulposus inside - a hydraulic cushion between every pair of vertebrae.",
-      "Its S-shaped curvature distributes load and absorbs shock far better than a straight column would. The thoracic and sacral curves are primary (present at birth); the cervical and lumbar curves are secondary, developing as an infant lifts its head and walks.",
-      "C1 (atlas) supports the skull and allows nodding; C2 (axis) has the odontoid peg around which the head rotates.",
-      "Nearly all mammals have exactly seven cervical vertebrae, whether mouse or giraffe - a striking piece of evidence for common descent."
-    ],
-    "clinicalNotes": [
-      "Disc herniation is commonest at L4-L5 and L5-S1; posterolateral extrusion compresses the nerve root and causes sciatica.",
-      "Abnormal curvature: scoliosis (lateral), kyphosis (excess thoracic convexity), lordosis (excess lumbar concavity).",
-      "Osteoporotic vertebral compression fractures cause progressive height loss and kyphosis in the elderly."
-    ],
-    "boundsCenterOffset": {
-      "x": 0.0,
-      "y": 0.0,
-      "z": -0.05
-    },
-    "idealCameraDistance": 0.7,
-    "addressableMeshKey": "Mesh_Spine_LOD0",
-    "audioTTSKey": "Audio_Spine_Desc",
-    "connectedNodes": [
-      "SYS_SK_SKULL",
-      "SYS_SK_PELVIS",
-      "SYS_NERV_SPINALCORD",
-      "SYS_SK_RIBCAGE"
-    ],
-    "hasMicroDive": false,
-    "microDiveKey": "",
-    "pharmacologyTargets": []
-  },
-  {
-    "entityID": "SYS_SK_RIBCAGE",
-    "snomedCTCode": "24975004",
-    "icd10PathologyCodes": [
-      "S22.9"
-    ],
-    "latinName": "Cavea thoracis",
-    "commonName": "Rib Cage",
-    "systemCategory": [
-      "Skeletal"
-    ],
-    "descriptionProfessional": "Twelve pairs of ribs articulating posteriorly with thoracic vertebrae and anteriorly, via costal cartilage, with the sternum - enclosing the thoracic viscera.",
-    "descriptionPatient": "The curved bones around your chest that protect your heart and lungs and move when you breathe.",
-    "apBiologyFacts": [
-      "Ribs 1-7 are 'true' ribs attaching directly to the sternum by their own costal cartilage; 8-10 are 'false', joining the cartilage above; 11-12 are 'floating' with no anterior attachment.",
-      "It is not a rigid cage but a moving bellows. External intercostals elevate the ribs during inspiration in 'pump handle' (anteroposterior) and 'bucket handle' (transverse) motions, increasing thoracic volume in all dimensions.",
-      "Costal cartilage is hyaline cartilage, which keeps the chest wall springy and compliant; it calcifies with age, stiffening the chest."
-    ],
-    "clinicalNotes": [
-      "Flail chest is three or more consecutive ribs fractured in two or more places, producing a segment that moves paradoxically with respiration.",
-      "Rib fractures risk pneumothorax and, with lower ribs, splenic or hepatic laceration.",
-      "Chest compressions frequently fracture ribs, especially in the elderly; this is expected and CPR should continue.",
-      "Red bone marrow persists in the ribs and sternum throughout adult life, which is why the sternum is used for marrow aspiration."
-    ],
-    "boundsCenterOffset": {
-      "x": 0.0,
-      "y": 0.1,
-      "z": -0.05
-    },
-    "idealCameraDistance": 0.5,
-    "addressableMeshKey": "Mesh_RibCage_LOD0",
-    "audioTTSKey": "Audio_RibCage_Desc",
-    "connectedNodes": [
-      "SYS_SK_SPINE",
-      "SYS_RESP_LUNG_L",
-      "SYS_RESP_LUNG_R"
-    ],
-    "hasMicroDive": false,
-    "microDiveKey": "",
     "pharmacologyTargets": []
   },
   {
@@ -952,7 +785,7 @@
     "addressableMeshKey": "Mesh_Clavicle_LOD0",
     "audioTTSKey": "Audio_Clavicle_Desc",
     "connectedNodes": [
-      "SYS_SK_RIBCAGE",
+      "SYS_SK_RIB_TRUE",
       "SYS_SK_HUMERUS"
     ],
     "hasMicroDive": false,
@@ -991,7 +824,7 @@
     "addressableMeshKey": "Mesh_Pelvis_LOD0",
     "audioTTSKey": "Audio_Pelvis_Desc",
     "connectedNodes": [
-      "SYS_SK_SPINE",
+      "SYS_SK_VERT_THORACIC",
       "SYS_SK_FEMUR",
       "SYS_REN_BLADDER"
     ],
@@ -1112,44 +945,9 @@
     "audioTTSKey": "Audio_Humerus_Desc",
     "connectedNodes": [
       "SYS_SK_CLAVICLE",
-      "SYS_SK_RADIUS_ULNA",
+      "SYS_SK_RADIUS",
+      "SYS_SK_ULNA",
       "SYS_MUSC_BICEPS"
-    ],
-    "hasMicroDive": false,
-    "microDiveKey": "",
-    "pharmacologyTargets": []
-  },
-  {
-    "entityID": "SYS_SK_RADIUS_ULNA",
-    "snomedCTCode": "110535000",
-    "icd10PathologyCodes": [
-      "S52.90"
-    ],
-    "latinName": "Radius et Ulna",
-    "commonName": "Radius & Ulna",
-    "systemCategory": [
-      "Skeletal"
-    ],
-    "descriptionProfessional": "The paired forearm bones: the radius laterally (thumb side) and the ulna medially, connected by an interosseous membrane and permitting pronation and supination.",
-    "descriptionPatient": "The two bones of your forearm. One rotates over the other, which is how you turn your palm up and down.",
-    "apBiologyFacts": [
-      "Pronation and supination occur because the radius rotates across a relatively fixed ulna - a movement most vertebrate limbs cannot perform, and one that makes the human hand so useful.",
-      "The elbow itself is a hinge joint formed mainly between the humeral trochlea and the ulna's trochlear notch, allowing flexion and extension only."
-    ],
-    "clinicalNotes": [
-      "Colles' fracture - a distal radius fracture from falling on an outstretched hand - produces the classic 'dinner fork' deformity and is very common in osteoporosis.",
-      "The ulnar nerve passes behind the medial epicondyle, unprotected; striking it produces the 'funny bone' shock down to the little finger."
-    ],
-    "boundsCenterOffset": {
-      "x": 0.3,
-      "y": -0.1,
-      "z": 0.0
-    },
-    "idealCameraDistance": 0.4,
-    "addressableMeshKey": "Mesh_RadiusUlna_LOD0",
-    "audioTTSKey": "Audio_RadiusUlna_Desc",
-    "connectedNodes": [
-      "SYS_SK_HUMERUS"
     ],
     "hasMicroDive": false,
     "microDiveKey": "",
@@ -1188,7 +986,8 @@
     "audioTTSKey": "Audio_Biceps_Desc",
     "connectedNodes": [
       "SYS_SK_HUMERUS",
-      "SYS_SK_RADIUS_ULNA"
+      "SYS_SK_RADIUS",
+      "SYS_SK_ULNA"
     ],
     "hasMicroDive": true,
     "microDiveKey": "Scene_Micro_Sarcomere",
@@ -1264,7 +1063,7 @@
     "audioTTSKey": "Audio_Pectoralis_Desc",
     "connectedNodes": [
       "SYS_SK_HUMERUS",
-      "SYS_SK_RIBCAGE",
+      "SYS_SK_RIB_TRUE",
       "SYS_SK_CLAVICLE"
     ],
     "hasMicroDive": true,
@@ -1341,7 +1140,7 @@
     "audioTTSKey": "Audio_RectusAbdominis_Desc",
     "connectedNodes": [
       "SYS_SK_PELVIS",
-      "SYS_SK_RIBCAGE"
+      "SYS_SK_RIB_TRUE"
     ],
     "hasMicroDive": true,
     "microDiveKey": "Scene_Micro_Sarcomere",
@@ -1799,7 +1598,7 @@
     "addressableMeshKey": "Mesh_Sternum_LOD0",
     "audioTTSKey": "Audio_Sternum_Desc",
     "connectedNodes": [
-      "SYS_SK_RIBCAGE",
+      "SYS_SK_RIB_TRUE",
       "SYS_SK_CLAVICLE"
     ],
     "hasMicroDive": false,
@@ -1838,82 +1637,7 @@
     "addressableMeshKey": "Mesh_Mandible_LOD0",
     "audioTTSKey": "Audio_Mandible_Desc",
     "connectedNodes": [
-      "SYS_SK_SKULL"
-    ],
-    "hasMicroDive": false,
-    "microDiveKey": "",
-    "pharmacologyTargets": []
-  },
-  {
-    "entityID": "SYS_SK_HAND",
-    "snomedCTCode": "85562004",
-    "icd10PathologyCodes": [
-      "S62.90"
-    ],
-    "latinName": "Ossa manus",
-    "commonName": "Bones of the Hand",
-    "systemCategory": [
-      "Skeletal"
-    ],
-    "descriptionProfessional": "Twenty-seven bones per hand: eight carpals, five metacarpals and fourteen phalanges.",
-    "descriptionPatient": "Each hand contains 27 separate bones - more than a quarter of all the bones in your body are in your two hands.",
-    "apBiologyFacts": [
-      "Twenty-seven bones per hand. With 26 per foot, over half of the body's 206 bones are in the hands and feet - the cost of fine manipulation and of walking upright.",
-      "The opposable thumb has a saddle joint at the carpometacarpal articulation, allowing it to swing across and meet each fingertip. This precision grip is a defining primate adaptation and the reason tool use is possible.",
-      "The thumb has two phalanges; every other digit has three."
-    ],
-    "clinicalNotes": [
-      "Scaphoid fracture presents with anatomical snuffbox tenderness and is often missed on initial X-ray; its retrograde blood supply risks avascular necrosis.",
-      "A 'boxer's fracture' is a fifth metacarpal neck fracture from punching with a closed fist."
-    ],
-    "boundsCenterOffset": {
-      "x": 0.0,
-      "y": 0.0,
-      "z": 0.0
-    },
-    "idealCameraDistance": 0.2,
-    "addressableMeshKey": "Mesh_Hand_LOD0",
-    "audioTTSKey": "Audio_Hand_Desc",
-    "connectedNodes": [
-      "SYS_SK_RADIUS_ULNA"
-    ],
-    "hasMicroDive": false,
-    "microDiveKey": "",
-    "pharmacologyTargets": []
-  },
-  {
-    "entityID": "SYS_SK_FOOT",
-    "snomedCTCode": "57043001",
-    "icd10PathologyCodes": [
-      "S92.90"
-    ],
-    "latinName": "Ossa pedis",
-    "commonName": "Bones of the Foot",
-    "systemCategory": [
-      "Skeletal"
-    ],
-    "descriptionProfessional": "Twenty-six bones per foot: seven tarsals, five metatarsals and fourteen phalanges, arranged into longitudinal and transverse arches.",
-    "descriptionPatient": "Each foot has 26 bones arranged into springy arches that absorb the shock of every step.",
-    "apBiologyFacts": [
-      "The arches are the key adaptation: they act as springs that store and return elastic energy with each step, and they distribute body weight between the heel and the ball of the foot.",
-      "The calcaneus (heel bone) is the largest tarsal and takes the initial impact of heel strike.",
-      "Unlike the ape foot, the human big toe is aligned forward rather than opposable - an unambiguous skeletal signature of obligate bipedalism, visible in the 3.6-million-year-old Laetoli footprints."
-    ],
-    "clinicalNotes": [
-      "Plantar fasciitis causes sharp heel pain worst on the first steps of the morning.",
-      "Ottawa ankle rules determine whether an X-ray is needed after an ankle injury, reducing unnecessary imaging.",
-      "March (stress) fractures of the metatarsals follow repetitive loading in runners and military recruits."
-    ],
-    "boundsCenterOffset": {
-      "x": 0.0,
-      "y": 0.0,
-      "z": 0.0
-    },
-    "idealCameraDistance": 0.2,
-    "addressableMeshKey": "Mesh_Foot_LOD0",
-    "audioTTSKey": "Audio_Foot_Desc",
-    "connectedNodes": [
-      "SYS_SK_TIBIA"
+      "SYS_SK_FRONTAL"
     ],
     "hasMicroDive": false,
     "microDiveKey": "",
@@ -1950,7 +1674,7 @@
     "addressableMeshKey": "Mesh_Muscle_Trapezius_LOD0",
     "audioTTSKey": "Audio_Trapezius_Desc",
     "connectedNodes": [
-      "SYS_SK_SPINE",
+      "SYS_SK_VERT_THORACIC",
       "SYS_SK_CLAVICLE"
     ],
     "hasMicroDive": true,
@@ -1987,7 +1711,7 @@
     "addressableMeshKey": "Mesh_Muscle_Latissimus_LOD0",
     "audioTTSKey": "Audio_Latissimus_Desc",
     "connectedNodes": [
-      "SYS_SK_SPINE",
+      "SYS_SK_VERT_THORACIC",
       "SYS_SK_HUMERUS"
     ],
     "hasMicroDive": true,
@@ -2179,7 +1903,7 @@
     "audioTTSKey": "Audio_SCM_Desc",
     "connectedNodes": [
       "SYS_SK_CLAVICLE",
-      "SYS_SK_SKULL"
+      "SYS_SK_FRONTAL"
     ],
     "hasMicroDive": true,
     "microDiveKey": "Scene_Micro_Sarcomere",
@@ -2365,8 +2089,9 @@
     "addressableMeshKey": "Mesh_Muscle_Forearm_LOD0",
     "audioTTSKey": "Audio_Forearm_Desc",
     "connectedNodes": [
-      "SYS_SK_RADIUS_ULNA",
-      "SYS_SK_HAND"
+      "SYS_SK_RADIUS",
+      "SYS_SK_ULNA",
+      "SYS_SK_METACARPALS"
     ],
     "hasMicroDive": true,
     "microDiveKey": "Scene_Micro_Sarcomere",
@@ -2440,7 +2165,7 @@
     "addressableMeshKey": "Mesh_Muscle_ErectorSpinae_LOD0",
     "audioTTSKey": "Audio_ErectorSpinae_Desc",
     "connectedNodes": [
-      "SYS_SK_SPINE",
+      "SYS_SK_VERT_THORACIC",
       "SYS_SK_PELVIS"
     ],
     "hasMicroDive": true,
@@ -2478,7 +2203,7 @@
     "audioTTSKey": "Audio_Serratus_Desc",
     "connectedNodes": [
       "SYS_SK_SCAPULA",
-      "SYS_SK_RIBCAGE"
+      "SYS_SK_RIB_TRUE"
     ],
     "hasMicroDive": true,
     "microDiveKey": "Scene_Micro_Sarcomere",
@@ -3788,7 +3513,7 @@
     "addressableMeshKey": "Mesh_SYS_MUSC_TEMPORALIS_LOD0",
     "audioTTSKey": "Audio_SYS_MUSC_TEMPORALIS_Desc",
     "connectedNodes": [
-      "SYS_SK_SKULL"
+      "SYS_SK_FRONTAL"
     ],
     "hasMicroDive": false,
     "microDiveKey": "",
@@ -3825,7 +3550,7 @@
     "audioTTSKey": "Audio_SYS_MUSC_MASSETER_Desc",
     "connectedNodes": [
       "SYS_SK_MANDIBLE",
-      "SYS_SK_SKULL"
+      "SYS_SK_FRONTAL"
     ],
     "hasMicroDive": false,
     "microDiveKey": "",
@@ -3861,7 +3586,7 @@
     "addressableMeshKey": "Mesh_SYS_MUSC_FRONTALIS_LOD0",
     "audioTTSKey": "Audio_SYS_MUSC_FRONTALIS_Desc",
     "connectedNodes": [
-      "SYS_SK_SKULL",
+      "SYS_SK_FRONTAL",
       "SYS_NERV_FACIAL"
     ],
     "hasMicroDive": false,
@@ -3898,7 +3623,7 @@
     "addressableMeshKey": "Mesh_SYS_MUSC_ORBICULARIS_OCULI_LOD0",
     "audioTTSKey": "Audio_SYS_MUSC_ORBICULARIS_OCULI_Desc",
     "connectedNodes": [
-      "SYS_SK_SKULL",
+      "SYS_SK_FRONTAL",
       "SYS_NERV_FACIAL"
     ],
     "hasMicroDive": false,
@@ -3934,7 +3659,7 @@
     "addressableMeshKey": "Mesh_SYS_MUSC_ORBICULARIS_ORIS_LOD0",
     "audioTTSKey": "Audio_SYS_MUSC_ORBICULARIS_ORIS_Desc",
     "connectedNodes": [
-      "SYS_SK_SKULL",
+      "SYS_SK_FRONTAL",
       "SYS_NERV_FACIAL"
     ],
     "hasMicroDive": false,
@@ -3969,7 +3694,7 @@
     "addressableMeshKey": "Mesh_SYS_MUSC_ZYGOMATICUS_LOD0",
     "audioTTSKey": "Audio_SYS_MUSC_ZYGOMATICUS_Desc",
     "connectedNodes": [
-      "SYS_SK_SKULL",
+      "SYS_SK_FRONTAL",
       "SYS_NERV_FACIAL"
     ],
     "hasMicroDive": false,
@@ -4437,6 +4162,1284 @@
     "addressableMeshKey": "Mesh_SYS_NERV_INTERCOSTAL_LOD0",
     "audioTTSKey": "Audio_SYS_NERV_INTERCOSTAL_Desc",
     "connectedNodes": [],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_SK_FRONTAL",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "S02.0"
+    ],
+    "latinName": "Os frontale",
+    "commonName": "Frontal Bone",
+    "systemCategory": [
+      "Skeletal"
+    ],
+    "descriptionProfessional": "The single bone forming the forehead and the roof of both orbits. It contains the frontal sinuses and articulates with the parietal bones at the coronal suture.",
+    "descriptionPatient": "The bone of your forehead, which also forms the top of your eye sockets.",
+    "apBiologyFacts": [
+      "Flat bones of the skull form by intramembranous ossification - bone laid down directly in membrane, with no cartilage model first - unlike long bones, which ossify from cartilage (endochondral).",
+      "In a newborn the frontal bone is two halves separated by the metopic suture, and the anterior fontanelle (soft spot) sits where it meets the parietals; the fontanelle closes at about 18-24 months, letting the skull deform during birth and the brain grow after it.",
+      "The frontal sinuses are air-filled cavities that lighten the skull and add resonance to the voice."
+    ],
+    "clinicalNotes": [
+      "The pterion, where the frontal, parietal, temporal and sphenoid bones meet, is the thinnest part of the side of the skull and overlies the middle meningeal artery; a blow here can cause an epidural hematoma.",
+      "A fracture through the frontal sinus can tear the dura and leak cerebrospinal fluid from the nose.",
+      "Frontal sinusitis causes pain and pressure above the eyes, worse on leaning forward."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.35,
+    "addressableMeshKey": "Mesh_SYS_SK_FRONTAL_LOD0",
+    "audioTTSKey": "Audio_SYS_SK_FRONTAL_Desc",
+    "connectedNodes": [
+      "SYS_SK_PARIETAL",
+      "SYS_SK_NASAL",
+      "SYS_SK_SPHENOID",
+      "SYS_SK_ZYGOMATIC",
+      "SYS_MUSC_FRONTALIS"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_SK_PARIETAL",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "S02.0"
+    ],
+    "latinName": "Os parietale",
+    "commonName": "Parietal Bone",
+    "systemCategory": [
+      "Skeletal"
+    ],
+    "descriptionProfessional": "Paired quadrilateral bones forming most of the roof and upper sides of the cranial vault, joined at the midline by the sagittal suture.",
+    "descriptionPatient": "Two large curved bones that make up the top and sides of your skull.",
+    "apBiologyFacts": [
+      "The parietal bones meet each other at the sagittal suture, the frontal bone at the coronal suture, the occipital bone at the lambdoid suture and the temporal bone at the squamous suture - sutures are immovable fibrous joints (synarthroses).",
+      "Bone in the skull vault is a sandwich: two layers of compact bone around spongy bone (diploe), a light, strong design that also absorbs impact.",
+      "The inner surface carries a groove for the middle meningeal artery, which is why this bone matters clinically."
+    ],
+    "clinicalNotes": [
+      "Fracture of the parietal or temporal bone can rupture the middle meningeal artery, causing an epidural hematoma: a brief lucid interval followed by rapid deterioration, seen on CT as a biconvex (lens-shaped) bleed.",
+      "Premature fusion of the sagittal suture (craniosynostosis) produces a long, narrow head (scaphocephaly).",
+      "Cephalohematoma, a collection of blood under the periosteum of a parietal bone, is common after a difficult delivery and never crosses a suture line."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.4,
+    "addressableMeshKey": "Mesh_SYS_SK_PARIETAL_LOD0",
+    "audioTTSKey": "Audio_SYS_SK_PARIETAL_Desc",
+    "connectedNodes": [
+      "SYS_SK_FRONTAL",
+      "SYS_SK_OCCIPITAL",
+      "SYS_SK_TEMPORAL"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_SK_OCCIPITAL",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "S02.1"
+    ],
+    "latinName": "Os occipitale",
+    "commonName": "Occipital Bone",
+    "systemCategory": [
+      "Skeletal"
+    ],
+    "descriptionProfessional": "The single bone forming the back and part of the base of the skull. Its foramen magnum transmits the brainstem-spinal cord junction, and its two condyles articulate with the atlas.",
+    "descriptionPatient": "The bone at the back and base of your skull, with the big hole where your spinal cord passes up into your brain.",
+    "apBiologyFacts": [
+      "The foramen magnum ('great hole') passes the medulla oblongata becoming the spinal cord, the vertebral arteries and the spinal accessory nerve roots.",
+      "The occipital condyles fit into the atlas (C1) to form the atlanto-occipital joint, a hinge that lets you nod 'yes'.",
+      "The external occipital protuberance (inion) is the bump at the back of the head; strong neck muscles and the nuchal ligament anchor here."
+    ],
+    "clinicalNotes": [
+      "If raised pressure pushes the cerebellar tonsils down through the foramen magnum (tonsillar herniation), the medulla is compressed and breathing and heart rate fail - the reason lumbar puncture is avoided when pressure is suspected to be high.",
+      "A basilar skull fracture, through the base of the occipital and temporal bones, can show as bruising behind the ear (Battle sign) or around the eyes (raccoon eyes).",
+      "Chiari malformation is a congenital descent of cerebellar tissue through the foramen magnum."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.4,
+    "addressableMeshKey": "Mesh_SYS_SK_OCCIPITAL_LOD0",
+    "audioTTSKey": "Audio_SYS_SK_OCCIPITAL_Desc",
+    "connectedNodes": [
+      "SYS_SK_PARIETAL",
+      "SYS_SK_TEMPORAL",
+      "SYS_SK_ATLAS",
+      "SYS_NERV_SPINALCORD",
+      "SYS_NERV_BRAINSTEM"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_SK_TEMPORAL",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "S02.1"
+    ],
+    "latinName": "Os temporale",
+    "commonName": "Temporal Bone",
+    "systemCategory": [
+      "Skeletal"
+    ],
+    "descriptionProfessional": "Paired bones forming the lower sides and part of the base of the skull. Each houses the middle and inner ear, bears the mastoid and styloid processes, and forms the socket for the jaw joint.",
+    "descriptionPatient": "The bone at the side of your head around your ear. It holds the delicate parts of your ear inside it.",
+    "apBiologyFacts": [
+      "Each temporal bone contains the organs of hearing and balance: the three ossicles (malleus, incus, stapes - the smallest bones in the body), the cochlea and the semicircular canals.",
+      "Sound is transduced in the cochlea, where vibration bends hair cells whose stereocilia open ion channels, turning mechanical energy into nerve impulses along the vestibulocochlear nerve (CN VIII).",
+      "The mastoid process is filled with air cells connected to the middle ear, and is the attachment for the sternocleidomastoid muscle."
+    ],
+    "clinicalNotes": [
+      "Mastoiditis is infection spreading from the middle ear into the mastoid air cells.",
+      "The facial nerve (CN VII) runs through the temporal bone, so a fracture here can cause facial paralysis and hearing loss, with fluid leaking from the ear.",
+      "Conductive hearing loss involves the outer or middle ear; sensorineural loss involves the cochlea or its nerve - a tuning fork against the mastoid (Rinne test) separates them."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.35,
+    "addressableMeshKey": "Mesh_SYS_SK_TEMPORAL_LOD0",
+    "audioTTSKey": "Audio_SYS_SK_TEMPORAL_Desc",
+    "connectedNodes": [
+      "SYS_SK_PARIETAL",
+      "SYS_SK_OCCIPITAL",
+      "SYS_SK_SPHENOID",
+      "SYS_SK_ZYGOMATIC",
+      "SYS_SK_MANDIBLE",
+      "SYS_MUSC_TEMPORALIS"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_SK_SPHENOID",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "S02.1"
+    ],
+    "latinName": "Os sphenoidale",
+    "commonName": "Sphenoid Bone",
+    "systemCategory": [
+      "Skeletal"
+    ],
+    "descriptionProfessional": "The butterfly-shaped keystone of the skull base, articulating with every other cranial bone. It bears the sella turcica, which houses the pituitary gland, and contains the sphenoid sinus.",
+    "descriptionPatient": "A butterfly-shaped bone deep in the middle of your skull that holds all the other skull bones together.",
+    "apBiologyFacts": [
+      "It is the only cranial bone that touches all the others, which is why it is called the keystone of the cranium.",
+      "The sella turcica ('Turkish saddle') cradles the pituitary gland, the 'master gland' whose hormones regulate the thyroid, adrenals, gonads and growth.",
+      "Openings in the sphenoid pass the optic nerve (optic canal) and the nerves that move the eye (superior orbital fissure: CN III, IV, V1, VI)."
+    ],
+    "clinicalNotes": [
+      "A pituitary tumour can enlarge the sella and press on the optic chiasm above it, classically causing bitemporal hemianopia - loss of the outer half of each visual field.",
+      "Surgeons often remove pituitary tumours through the nose and the sphenoid sinus (transsphenoidal approach), avoiding opening the skull.",
+      "The greater wing forms part of the pterion, the weak point over the middle meningeal artery."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.35,
+    "addressableMeshKey": "Mesh_SYS_SK_SPHENOID_LOD0",
+    "audioTTSKey": "Audio_SYS_SK_SPHENOID_Desc",
+    "connectedNodes": [
+      "SYS_SK_FRONTAL",
+      "SYS_SK_TEMPORAL",
+      "SYS_ENDO_PITUITARY"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_SK_ZYGOMATIC",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "S02.4"
+    ],
+    "latinName": "Os zygomaticum",
+    "commonName": "Zygomatic Bone (Cheekbone)",
+    "systemCategory": [
+      "Skeletal"
+    ],
+    "descriptionProfessional": "The paired cheekbone, forming the prominence of the cheek and the lateral wall and floor of the orbit. It joins the temporal bone to make the zygomatic arch.",
+    "descriptionPatient": "Your cheekbone, which gives your face its shape and forms the outer edge of the eye socket.",
+    "apBiologyFacts": [
+      "The zygomatic arch, formed by the zygomatic and temporal bones, is the attachment for the masseter, one of the strongest chewing muscles.",
+      "Facial bones, like the skull vault, are formed by intramembranous ossification, and the face grows most during childhood as the sinuses and teeth develop.",
+      "Its thin lateral projection is a common palpation landmark: you can feel the arch running back to just in front of the ear."
+    ],
+    "clinicalNotes": [
+      "A blow to the cheek can produce a tripod (zygomaticomaxillary complex) fracture, flattening the cheek and often damaging the infraorbital nerve, so the cheek and upper lip go numb.",
+      "Fractures involving the orbital floor can trap the muscle that lifts the eye, causing double vision on looking up."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.3,
+    "addressableMeshKey": "Mesh_SYS_SK_ZYGOMATIC_LOD0",
+    "audioTTSKey": "Audio_SYS_SK_ZYGOMATIC_Desc",
+    "connectedNodes": [
+      "SYS_SK_MAXILLA",
+      "SYS_SK_TEMPORAL",
+      "SYS_SK_FRONTAL",
+      "SYS_MUSC_MASSETER",
+      "SYS_MUSC_ZYGOMATICUS"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_SK_MAXILLA",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "S02.4"
+    ],
+    "latinName": "Maxilla",
+    "commonName": "Maxilla (Upper Jaw)",
+    "systemCategory": [
+      "Skeletal"
+    ],
+    "descriptionProfessional": "The paired upper jaw bones, fused at the midline. They bear the upper teeth, form the hard palate, the floor of the orbit and the sides of the nasal aperture, and contain the maxillary sinuses.",
+    "descriptionPatient": "Your upper jaw. It holds your upper teeth and forms the roof of your mouth.",
+    "apBiologyFacts": [
+      "The palatine processes of the two maxillae join at the midline to form the hard palate, separating the mouth from the nasal cavity so you can breathe and chew at once.",
+      "The maxillary sinus is the largest of the paranasal sinuses; these air spaces warm and humidify air, lighten the skull and add resonance to speech.",
+      "Teeth sit in sockets (alveoli) in the alveolar process, held by fibrous joints called gomphoses."
+    ],
+    "clinicalNotes": [
+      "Cleft palate results from the palatine processes failing to fuse during weeks 6-12 of development; it interferes with feeding and speech.",
+      "The roots of upper molars project close to the maxillary sinus floor, so a dental infection can cause sinusitis, and extraction can open a channel between mouth and sinus.",
+      "Le Fort fractures classify midface fractures by the level at which the maxilla separates from the skull."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.3,
+    "addressableMeshKey": "Mesh_SYS_SK_MAXILLA_LOD0",
+    "audioTTSKey": "Audio_SYS_SK_MAXILLA_Desc",
+    "connectedNodes": [
+      "SYS_SK_ZYGOMATIC",
+      "SYS_SK_NASAL",
+      "SYS_SK_TEETH",
+      "SYS_SK_MANDIBLE"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_SK_NASAL",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "S02.2"
+    ],
+    "latinName": "Ossa nasalia",
+    "commonName": "Nasal Bones",
+    "systemCategory": [
+      "Skeletal"
+    ],
+    "descriptionProfessional": "Two small rectangular bones that meet at the midline to form the bridge of the nose. The rest of the external nose is cartilage.",
+    "descriptionPatient": "The two small bones that form the hard bridge of your nose.",
+    "apBiologyFacts": [
+      "Only the upper nose is bone; the flexible lower part is hyaline cartilage, which is why the tip of the nose bends and the bridge does not.",
+      "The nasal cavity is divided by a septum of bone (vomer, ethmoid) and cartilage; its lining warms, humidifies and filters inspired air.",
+      "Olfactory receptors, the neurons for smell, lie in the roof of the nasal cavity."
+    ],
+    "clinicalNotes": [
+      "They are the most commonly fractured facial bones.",
+      "After nasal trauma a septal hematoma - blood collected under the septal lining - must be drained promptly, or the cartilage loses its blood supply and collapses (saddle nose).",
+      "A deviated septum can obstruct airflow on one side."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.3,
+    "addressableMeshKey": "Mesh_SYS_SK_NASAL_LOD0",
+    "audioTTSKey": "Audio_SYS_SK_NASAL_Desc",
+    "connectedNodes": [
+      "SYS_SK_FRONTAL",
+      "SYS_SK_MAXILLA"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_SK_TEETH",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "K02.9"
+    ],
+    "latinName": "Dentes",
+    "commonName": "Teeth",
+    "systemCategory": [
+      "Skeletal"
+    ],
+    "descriptionProfessional": "Thirty-two permanent teeth (20 deciduous in childhood): 8 incisors, 4 canines, 8 premolars and 12 molars. Each has an enamel crown over dentin, a pulp cavity with nerves and vessels, and a root held in its socket by the periodontal ligament.",
+    "descriptionPatient": "Your 32 adult teeth, which cut and grind food so you can digest it.",
+    "apBiologyFacts": [
+      "Digestion begins mechanically in the mouth: incisors cut, canines tear, premolars and molars grind, increasing food's surface area for enzymes.",
+      "Enamel is the hardest substance in the body (about 96% hydroxyapatite mineral) but is acellular - once lost, it cannot regenerate.",
+      "Humans are diphyodont: 20 deciduous teeth are replaced by 32 permanent ones. The third molars (wisdom teeth) erupt last, in the late teens or twenties."
+    ],
+    "clinicalNotes": [
+      "Dental caries is decay caused by bacteria such as Streptococcus mutans fermenting sugar to acid, which dissolves enamel.",
+      "Periodontitis, inflammation destroying the ligament and bone around teeth, is the leading cause of adult tooth loss and is linked to cardiovascular disease and diabetes.",
+      "Impacted third molars are removed if they cause pain, infection or crowding."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.25,
+    "addressableMeshKey": "Mesh_SYS_SK_TEETH_LOD0",
+    "audioTTSKey": "Audio_SYS_SK_TEETH_Desc",
+    "connectedNodes": [
+      "SYS_SK_MAXILLA",
+      "SYS_SK_MANDIBLE",
+      "SYS_MUSC_MASSETER"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_SK_HYOID",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "S12.8"
+    ],
+    "latinName": "Os hyoideum",
+    "commonName": "Hyoid Bone",
+    "systemCategory": [
+      "Skeletal"
+    ],
+    "descriptionProfessional": "A small U-shaped bone in the anterior neck, below the mandible and above the larynx. It is the only bone in the body that articulates with no other bone, suspended by muscles and ligaments.",
+    "descriptionPatient": "A little horseshoe-shaped bone in your neck that anchors your tongue and helps you swallow.",
+    "apBiologyFacts": [
+      "It anchors the tongue above and the larynx below, and rises when you swallow, helping to close the airway over the larynx.",
+      "Uniquely, it does not join any other bone - it floats, held only by muscle and ligament, which lets the tongue and larynx move freely for speech and swallowing.",
+      "It develops from the second and third pharyngeal (branchial) arches, an embryological link to the gills of fish ancestors."
+    ],
+    "clinicalNotes": [
+      "A fractured hyoid is a classic finding in strangulation, and pathologists look for it specifically.",
+      "The thyroglossal duct cyst, a midline neck swelling left from the thyroid's embryological descent, moves upward when the tongue is stuck out because of its attachment to the hyoid."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.3,
+    "addressableMeshKey": "Mesh_SYS_SK_HYOID_LOD0",
+    "audioTTSKey": "Audio_SYS_SK_HYOID_Desc",
+    "connectedNodes": [
+      "SYS_SK_MANDIBLE",
+      "SYS_RESP_TRACHEA"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_SK_ATLAS",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "S12.0"
+    ],
+    "latinName": "Atlas (vertebra C1)",
+    "commonName": "Atlas (C1)",
+    "systemCategory": [
+      "Skeletal"
+    ],
+    "descriptionProfessional": "The first cervical vertebra: a ring with no body or spinous process, carrying the skull on its two lateral masses.",
+    "descriptionPatient": "The top bone of your spine. It holds up your skull, like the Greek titan Atlas holding up the sky.",
+    "apBiologyFacts": [
+      "It has no vertebral body: during development the body of C1 fuses onto C2 and becomes the dens (odontoid process) of the axis.",
+      "Its upper surfaces cup the occipital condyles, forming the atlanto-occipital joint - the hinge for nodding 'yes'.",
+      "The vertebral arteries loop over its posterior arch on their way to the brain."
+    ],
+    "clinicalNotes": [
+      "A Jefferson fracture, a burst of the atlas ring, follows an axial blow to the head such as a diving accident.",
+      "Because the spinal canal is wide at this level, an atlas fracture may not damage the cord, whereas a fracture of the dens beneath it is more dangerous."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.25,
+    "addressableMeshKey": "Mesh_SYS_SK_ATLAS_LOD0",
+    "audioTTSKey": "Audio_SYS_SK_ATLAS_Desc",
+    "connectedNodes": [
+      "SYS_SK_AXIS",
+      "SYS_SK_OCCIPITAL"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_SK_AXIS",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "S12.1"
+    ],
+    "latinName": "Axis (vertebra C2)",
+    "commonName": "Axis (C2)",
+    "systemCategory": [
+      "Skeletal"
+    ],
+    "descriptionProfessional": "The second cervical vertebra, bearing the dens (odontoid process), a bony peg rising from its body around which the atlas rotates.",
+    "descriptionPatient": "The second bone of your spine, with a peg that lets your head turn from side to side.",
+    "apBiologyFacts": [
+      "The atlas pivots on the dens, so this atlantoaxial joint allows the rotation that lets you shake your head 'no'; about half of neck rotation happens here.",
+      "The dens is held against the front of the atlas by the transverse ligament, keeping it away from the spinal cord.",
+      "It is the first vertebra with a spinous process, which is large and bifid."
+    ],
+    "clinicalNotes": [
+      "A hangman's fracture (bilateral fracture of the pars interarticularis of C2) results from hyperextension, as in a hanging or a head-on car collision.",
+      "Odontoid fractures are among the commonest cervical injuries in older adults after falls.",
+      "In rheumatoid arthritis, erosion of the transverse ligament can make the atlantoaxial joint unstable, threatening the cord."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.25,
+    "addressableMeshKey": "Mesh_SYS_SK_AXIS_LOD0",
+    "audioTTSKey": "Audio_SYS_SK_AXIS_Desc",
+    "connectedNodes": [
+      "SYS_SK_ATLAS",
+      "SYS_SK_VERT_CERVICAL"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_SK_VERT_CERVICAL",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "M47.812"
+    ],
+    "latinName": "Vertebrae cervicales III-VII",
+    "commonName": "Cervical Vertebrae (C3-C7)",
+    "systemCategory": [
+      "Skeletal"
+    ],
+    "descriptionProfessional": "The five typical cervical vertebrae: small bodies, bifid spinous processes (except C7), and a foramen in each transverse process that transmits the vertebral artery.",
+    "descriptionPatient": "The five small bones of your neck, below the top two, that let you bend and turn your head.",
+    "apBiologyFacts": [
+      "The cervical spine has seven vertebrae in almost all mammals, including giraffes and mice - a striking conservation of body plan.",
+      "The transverse foramina protect the vertebral arteries, which run up through them to supply the brain stem and cerebellum.",
+      "The neck curves forward (cervical lordosis), a secondary curve that develops when an infant learns to lift its head."
+    ],
+    "clinicalNotes": [
+      "Whiplash injury stretches the neck's ligaments and muscles in a sudden flexion-extension.",
+      "Spinal injury at or above C3-C5 is life-threatening because the phrenic nerve, which drives the diaphragm, arises from C3-C5 ('C3, 4, 5 keeps the diaphragm alive').",
+      "C7, the vertebra prominens, has the long spinous process you feel at the base of your neck."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.3,
+    "addressableMeshKey": "Mesh_SYS_SK_VERT_CERVICAL_LOD0",
+    "audioTTSKey": "Audio_SYS_SK_VERT_CERVICAL_Desc",
+    "connectedNodes": [
+      "SYS_SK_AXIS",
+      "SYS_SK_VERT_THORACIC",
+      "SYS_SK_DISC",
+      "SYS_NERV_PHRENIC"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_SK_VERT_THORACIC",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "M47.814"
+    ],
+    "latinName": "Vertebrae thoracicae",
+    "commonName": "Thoracic Vertebrae (T1-T12)",
+    "systemCategory": [
+      "Skeletal"
+    ],
+    "descriptionProfessional": "The twelve vertebrae of the chest, each with facets for a rib, long downward-sloping spinous processes, and a limited range of movement because of the rib cage.",
+    "descriptionPatient": "The twelve bones of your upper and middle back, each one joined to a pair of ribs.",
+    "apBiologyFacts": [
+      "Each thoracic vertebra articulates with a pair of ribs at costal facets, so the ribcage and spine form one structure that protects the heart and lungs.",
+      "The thoracic spine curves backward (kyphosis), a primary curve present from birth - the spine's four curves increase its strength and shock absorption.",
+      "The long, overlapping spinous processes limit extension of the chest region."
+    ],
+    "clinicalNotes": [
+      "Osteoporotic compression fractures most often occur at the thoracolumbar junction (T12-L1), causing height loss and a stooped 'dowager's hump'.",
+      "Scoliosis is a sideways curvature with rotation, commonly appearing in adolescent girls.",
+      "Excessive kyphosis can result from osteoporosis or Scheuermann's disease."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.35,
+    "addressableMeshKey": "Mesh_SYS_SK_VERT_THORACIC_LOD0",
+    "audioTTSKey": "Audio_SYS_SK_VERT_THORACIC_Desc",
+    "connectedNodes": [
+      "SYS_SK_VERT_CERVICAL",
+      "SYS_SK_VERT_LUMBAR",
+      "SYS_SK_RIB_TRUE",
+      "SYS_SK_DISC"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_SK_VERT_LUMBAR",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "M51.26"
+    ],
+    "latinName": "Vertebrae lumbales",
+    "commonName": "Lumbar Vertebrae (L1-L5)",
+    "systemCategory": [
+      "Skeletal"
+    ],
+    "descriptionProfessional": "The five large vertebrae of the lower back, with massive bodies that bear the weight of the trunk and short, thick spinous processes.",
+    "descriptionPatient": "The five large bones of your lower back that carry most of your body's weight.",
+    "apBiologyFacts": [
+      "Their bodies are the largest in the spine because they carry the most weight, an example of structure matching function - bone mass increases where stress is greatest.",
+      "The lower back curves inward (lumbar lordosis), a secondary curve that develops when a child begins to walk upright and puts the trunk's weight over the pelvis.",
+      "The spinal cord ends at about L1-L2 (the conus medullaris), and below it the nerve roots hang as the cauda equina."
+    ],
+    "clinicalNotes": [
+      "A lumbar puncture is done between L3-L4 or L4-L5, below the end of the cord, so the needle can sample cerebrospinal fluid without hitting it.",
+      "Disc herniation is commonest at L4-L5 and L5-S1 and can compress the nerve roots that form the sciatic nerve, causing sciatica.",
+      "Low back pain is a leading cause of disability worldwide; spondylolisthesis is forward slippage of one vertebra on another."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.35,
+    "addressableMeshKey": "Mesh_SYS_SK_VERT_LUMBAR_LOD0",
+    "audioTTSKey": "Audio_SYS_SK_VERT_LUMBAR_Desc",
+    "connectedNodes": [
+      "SYS_SK_VERT_THORACIC",
+      "SYS_SK_SACRUM",
+      "SYS_SK_DISC",
+      "SYS_NERV_SCIATIC"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_SK_SACRUM",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "S32.1"
+    ],
+    "latinName": "Os sacrum",
+    "commonName": "Sacrum",
+    "systemCategory": [
+      "Skeletal"
+    ],
+    "descriptionProfessional": "Five fused vertebrae forming a wedge between the two hip bones, the posterior wall of the pelvis. Paired foramina on the front and back transmit the sacral nerves.",
+    "descriptionPatient": "A triangular bone at the base of your spine, made of five vertebrae fused together, that locks into your pelvis.",
+    "apBiologyFacts": [
+      "Five separate sacral vertebrae fuse between about age 16 and the mid-twenties; the sacrum is the keystone that transmits the weight of the trunk to the pelvis and legs.",
+      "The sacral promontory, the forward edge of S1, is a landmark used in measuring the birth canal.",
+      "In females the sacrum is generally wider and less curved, part of the wider pelvic outlet adapted for childbirth."
+    ],
+    "clinicalNotes": [
+      "Pressure ulcers form over the sacrum in bedridden patients because skin is thin over bone here.",
+      "Epidural anaesthesia can be given through the sacral hiatus (a caudal block).",
+      "The sacroiliac joints between the sacrum and ilia can be a source of low back pain."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.4,
+    "addressableMeshKey": "Mesh_SYS_SK_SACRUM_LOD0",
+    "audioTTSKey": "Audio_SYS_SK_SACRUM_Desc",
+    "connectedNodes": [
+      "SYS_SK_VERT_LUMBAR",
+      "SYS_SK_COCCYX",
+      "SYS_SK_PELVIS",
+      "SYS_NERV_PUDENDAL"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_SK_COCCYX",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "S32.2"
+    ],
+    "latinName": "Os coccygis",
+    "commonName": "Coccyx (Tailbone)",
+    "systemCategory": [
+      "Skeletal"
+    ],
+    "descriptionProfessional": "Three to five small fused vertebrae at the bottom of the spine: the vestigial remnant of a tail.",
+    "descriptionPatient": "Your tailbone, the small bone at the very bottom of your spine.",
+    "apBiologyFacts": [
+      "It is a vestigial structure - a remnant of the tail of ancestors - and is evidence of common descent, along with the appendix and the muscles that wiggle the ears.",
+      "Although vestigial as a tail, it still anchors muscles and ligaments of the pelvic floor, including part of gluteus maximus and the anal sphincter.",
+      "Human embryos have a true tail at about week 5, which regresses as the coccygeal vertebrae fuse."
+    ],
+    "clinicalNotes": [
+      "Coccydynia (tailbone pain) usually follows a fall onto the buttocks or childbirth, and is worse when sitting.",
+      "A coccyx can be fractured or dislocated during delivery."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.3,
+    "addressableMeshKey": "Mesh_SYS_SK_COCCYX_LOD0",
+    "audioTTSKey": "Audio_SYS_SK_COCCYX_Desc",
+    "connectedNodes": [
+      "SYS_SK_SACRUM"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_SK_DISC",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "M51.9"
+    ],
+    "latinName": "Disci intervertebrales",
+    "commonName": "Intervertebral Discs",
+    "systemCategory": [
+      "Skeletal"
+    ],
+    "descriptionProfessional": "Fibrocartilage pads between adjacent vertebrae: a tough outer annulus fibrosus around a gelatinous inner nucleus pulposus. There are 23 in the spine, making up about a quarter of its length.",
+    "descriptionPatient": "Cushions between the bones of your spine that absorb shock and let your back bend.",
+    "apBiologyFacts": [
+      "The nucleus pulposus is a remnant of the embryonic notochord, and acts as a fluid-filled ball bearing while the annulus fibrosus resists tension.",
+      "Discs are avascular: nutrients diffuse in from the adjacent vertebrae, so they heal poorly, and they lose water with age, which is why people are slightly shorter in the evening and shrink as they age.",
+      "The discs, plus the four spinal curves, act as shock absorbers so that walking and jumping do not jolt the skull and brain."
+    ],
+    "clinicalNotes": [
+      "A herniated disc occurs when the nucleus pulposus bulges through a tear in the annulus, most often at L4-L5 or L5-S1, and compresses a nerve root, causing radiating pain (sciatica) and numbness.",
+      "Degenerative disc disease is a normal part of ageing that becomes symptomatic in some people.",
+      "MRI is the best test for a suspected herniation; most resolve without surgery."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.3,
+    "addressableMeshKey": "Mesh_SYS_SK_DISC_LOD0",
+    "audioTTSKey": "Audio_SYS_SK_DISC_Desc",
+    "connectedNodes": [
+      "SYS_SK_VERT_LUMBAR",
+      "SYS_SK_VERT_THORACIC",
+      "SYS_SK_VERT_CERVICAL"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_SK_RIB_TRUE",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "S22.3"
+    ],
+    "latinName": "Costae verae (I-VII)",
+    "commonName": "True Ribs (1-7)",
+    "systemCategory": [
+      "Skeletal"
+    ],
+    "descriptionProfessional": "The upper seven pairs of ribs, each attached at the back to a thoracic vertebra and at the front directly to the sternum by its own costal cartilage.",
+    "descriptionPatient": "The top seven pairs of ribs, which connect all the way round from your spine to your breastbone.",
+    "apBiologyFacts": [
+      "Breathing depends on the ribs: the intercostal muscles and diaphragm raise the ribs in a 'pump-handle' and 'bucket-handle' motion, enlarging the chest so pressure falls and air flows in.",
+      "The ribcage protects the heart, lungs and great vessels while remaining flexible enough to expand with each breath.",
+      "Ribs contain red bone marrow, which makes blood cells in adults."
+    ],
+    "clinicalNotes": [
+      "Rib fractures are common after chest trauma, most often ribs 4-9, and are very painful because every breath moves them.",
+      "Multiple fractures in the same ribs can produce a flail segment that moves paradoxically with breathing.",
+      "The first rib is short and broad; the subclavian vessels and brachial plexus cross over it, so it is involved in thoracic outlet syndrome."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.7,
+    "addressableMeshKey": "Mesh_SYS_SK_RIB_TRUE_LOD0",
+    "audioTTSKey": "Audio_SYS_SK_RIB_TRUE_Desc",
+    "connectedNodes": [
+      "SYS_SK_STERNUM",
+      "SYS_SK_VERT_THORACIC",
+      "SYS_SK_COSTAL_CARTILAGE",
+      "SYS_NERV_INTERCOSTAL",
+      "SYS_RESP_LUNG_L",
+      "SYS_RESP_LUNG_R"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_SK_RIB_FALSE",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "S22.4"
+    ],
+    "latinName": "Costae spuriae (VIII-X)",
+    "commonName": "False Ribs (8-10)",
+    "systemCategory": [
+      "Skeletal"
+    ],
+    "descriptionProfessional": "Ribs 8 to 10, which join the costal cartilage of the rib above rather than the sternum, forming the costal margin.",
+    "descriptionPatient": "The next three pairs of ribs, which join to the cartilage of the rib above instead of directly to the breastbone.",
+    "apBiologyFacts": [
+      "Their cartilages fuse into the costal margin, the lower edge of the ribcage, which allows the lower chest to expand flexibly.",
+      "Because they attach indirectly, the lower ribs are more mobile than the upper ones."
+    ],
+    "clinicalNotes": [
+      "A fracture of the lower right ribs can lacerate the liver, and of the left the spleen - so lower rib injuries are checked for internal bleeding.",
+      "The costal margin is where a doctor feels for an enlarged liver or spleen."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.7,
+    "addressableMeshKey": "Mesh_SYS_SK_RIB_FALSE_LOD0",
+    "audioTTSKey": "Audio_SYS_SK_RIB_FALSE_Desc",
+    "connectedNodes": [
+      "SYS_SK_COSTAL_CARTILAGE",
+      "SYS_SK_VERT_THORACIC",
+      "SYS_DIG_LIVER",
+      "SYS_LYMPH_SPLEEN"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_SK_RIB_FLOATING",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "S22.4"
+    ],
+    "latinName": "Costae fluctuantes (XI-XII)",
+    "commonName": "Floating Ribs (11-12)",
+    "systemCategory": [
+      "Skeletal"
+    ],
+    "descriptionProfessional": "The lowest two rib pairs, attached only to the vertebrae behind and ending free in the muscle of the flank.",
+    "descriptionPatient": "The bottom two pairs of ribs, which are attached to your spine but not at the front.",
+    "apBiologyFacts": [
+      "They are short and end freely, with no cartilage connection to the sternum or to another rib.",
+      "They protect the upper part of the kidneys at the back, a deep organ with little other bony cover."
+    ],
+    "clinicalNotes": [
+      "A fracture of the 11th or 12th rib raises the suspicion of injury to the kidney.",
+      "The 12th rib is a landmark for the flank incision used in kidney surgery."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.6,
+    "addressableMeshKey": "Mesh_SYS_SK_RIB_FLOATING_LOD0",
+    "audioTTSKey": "Audio_SYS_SK_RIB_FLOATING_Desc",
+    "connectedNodes": [
+      "SYS_SK_VERT_THORACIC",
+      "SYS_REN_KIDNEY_L",
+      "SYS_REN_KIDNEY_R"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_SK_COSTAL_CARTILAGE",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "M94.0"
+    ],
+    "latinName": "Cartilagines costales",
+    "commonName": "Costal Cartilage",
+    "systemCategory": [
+      "Skeletal"
+    ],
+    "descriptionProfessional": "Bars of hyaline cartilage joining the front ends of the ribs to the sternum or to the cartilage above.",
+    "descriptionPatient": "Flexible cartilage that connects the front of your ribs to your breastbone.",
+    "apBiologyFacts": [
+      "Hyaline cartilage is avascular, made of chondrocytes in lacunae within a collagen matrix that is smooth and resilient - the same tissue that covers joint surfaces.",
+      "Its elasticity lets the chest expand and recoil with breathing; it stiffens and calcifies with age, making the chest less compliant.",
+      "Cartilage heals slowly because it has no blood supply."
+    ],
+    "clinicalNotes": [
+      "Costochondritis, inflammation of costal cartilage, causes chest wall pain that is reproduced by pressing on the joints, and can mimic a heart attack.",
+      "CPR compressions can fracture ribs and cartilage; that is an acceptable price for restoring circulation."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.5,
+    "addressableMeshKey": "Mesh_SYS_SK_COSTAL_CARTILAGE_LOD0",
+    "audioTTSKey": "Audio_SYS_SK_COSTAL_CARTILAGE_Desc",
+    "connectedNodes": [
+      "SYS_SK_RIB_TRUE",
+      "SYS_SK_RIB_FALSE",
+      "SYS_SK_STERNUM"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_SK_RADIUS",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "S52.5"
+    ],
+    "latinName": "Radius",
+    "commonName": "Radius",
+    "systemCategory": [
+      "Skeletal"
+    ],
+    "descriptionProfessional": "The lateral, thumb-side bone of the forearm. Its small head pivots at the elbow, and its broad distal end forms most of the wrist joint with the carpal bones.",
+    "descriptionPatient": "The forearm bone on the thumb side. It turns your palm up or down.",
+    "apBiologyFacts": [
+      "Pronation and supination happen when the radius rotates around the ulna: the radial head spins against the capitulum while the distal end sweeps across the fixed ulna.",
+      "In the anatomical position the radius is lateral; in pronation it crosses over the ulna, making an X.",
+      "The radius bears most of the load from the hand, which is why it is broader distally and more often broken."
+    ],
+    "clinicalNotes": [
+      "A Colles fracture - a break of the distal radius with dorsal displacement, the 'dinner fork' deformity - is the typical injury after falling on an outstretched hand.",
+      "The radial pulse is felt at the wrist where the radial artery passes over the distal radius.",
+      "'Nursemaid's elbow', subluxation of the radial head, occurs in toddlers pulled by the hand."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.4,
+    "addressableMeshKey": "Mesh_SYS_SK_RADIUS_LOD0",
+    "audioTTSKey": "Audio_SYS_SK_RADIUS_Desc",
+    "connectedNodes": [
+      "SYS_SK_ULNA",
+      "SYS_SK_HUMERUS",
+      "SYS_SK_CARPALS",
+      "SYS_CV_RADIAL"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_SK_ULNA",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "S52.2"
+    ],
+    "latinName": "Ulna",
+    "commonName": "Ulna",
+    "systemCategory": [
+      "Skeletal"
+    ],
+    "descriptionProfessional": "The medial, little-finger-side bone of the forearm. Its olecranon forms the point of the elbow, and its trochlear notch grips the humerus to form the hinge of the elbow.",
+    "descriptionPatient": "The forearm bone on the little-finger side. Its top end is the point of your elbow.",
+    "apBiologyFacts": [
+      "The elbow is a hinge: the ulna's trochlear notch fits over the humeral trochlea, allowing flexion and extension in one plane only.",
+      "The olecranon is the lever arm of the triceps, which inserts here to extend the elbow.",
+      "The ulna is the stable bone of the forearm; the radius rotates around it."
+    ],
+    "clinicalNotes": [
+      "A fall on the point of the elbow may fracture the olecranon, which the triceps then pulls apart.",
+      "The 'funny bone' is not the ulna but the ulnar nerve passing behind the medial epicondyle of the humerus, right next to it.",
+      "A Monteggia fracture combines an ulnar shaft fracture with dislocation of the radial head."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.4,
+    "addressableMeshKey": "Mesh_SYS_SK_ULNA_LOD0",
+    "audioTTSKey": "Audio_SYS_SK_ULNA_Desc",
+    "connectedNodes": [
+      "SYS_SK_RADIUS",
+      "SYS_SK_HUMERUS",
+      "SYS_MUSC_TRICEPS",
+      "SYS_NERV_ULNAR"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_SK_CARPALS",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "S62.1"
+    ],
+    "latinName": "Ossa carpi",
+    "commonName": "Carpal Bones (Wrist)",
+    "systemCategory": [
+      "Skeletal"
+    ],
+    "descriptionProfessional": "Eight small bones arranged in two rows of four: the scaphoid, lunate, triquetrum and pisiform proximally; the trapezium, trapezoid, capitate and hamate distally.",
+    "descriptionPatient": "The eight small bones of your wrist, which let your hand bend and tilt in many directions.",
+    "apBiologyFacts": [
+      "A common mnemonic for the carpals, from thumb side, is 'So Long To Pinky, Here Comes The Thumb': scaphoid, lunate, triquetrum, pisiform, hamate, capitate, trapezoid, trapezium.",
+      "Many small bones instead of one big one give the wrist its wide range of movement, and spread forces across many joints.",
+      "The carpals and the flexor retinaculum form the carpal tunnel through which the median nerve and nine tendons pass."
+    ],
+    "clinicalNotes": [
+      "The scaphoid is the most commonly fractured carpal. Tenderness in the 'anatomical snuffbox' after a fall suggests it, and it may not show on the first X-ray.",
+      "Its blood supply enters from the distal end, so a fracture through the waist can cause avascular necrosis of the proximal part.",
+      "Carpal tunnel syndrome is compression of the median nerve in the tunnel, causing numbness and tingling in the thumb, index and middle fingers."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.2,
+    "addressableMeshKey": "Mesh_SYS_SK_CARPALS_LOD0",
+    "audioTTSKey": "Audio_SYS_SK_CARPALS_Desc",
+    "connectedNodes": [
+      "SYS_SK_RADIUS",
+      "SYS_SK_METACARPALS",
+      "SYS_NERV_MEDIAN"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_SK_METACARPALS",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "S62.3"
+    ],
+    "latinName": "Ossa metacarpi",
+    "commonName": "Metacarpal Bones",
+    "systemCategory": [
+      "Skeletal"
+    ],
+    "descriptionProfessional": "Five long bones forming the skeleton of the palm, numbered I-V from the thumb. Their heads form the knuckles.",
+    "descriptionPatient": "The five bones in the palm of your hand. The knuckles are their rounded ends.",
+    "apBiologyFacts": [
+      "The thumb's metacarpal is set at an angle to the rest, which along with its saddle joint at the wrist gives the thumb opposition - touching the tip to each finger.",
+      "Opposable thumbs, combined with a precision grip, are a defining adaptation of primates and let humans manipulate tools.",
+      "Each is a long bone with a base, shaft and head, ossifying with growth plates at one end only."
+    ],
+    "clinicalNotes": [
+      "A boxer's fracture is a break of the neck of the fifth metacarpal from punching something hard.",
+      "The first metacarpal base fracture (Bennett fracture) is an unstable injury of the thumb.",
+      "Rheumatoid arthritis commonly attacks the knuckle (metacarpophalangeal) joints."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.2,
+    "addressableMeshKey": "Mesh_SYS_SK_METACARPALS_LOD0",
+    "audioTTSKey": "Audio_SYS_SK_METACARPALS_Desc",
+    "connectedNodes": [
+      "SYS_SK_CARPALS",
+      "SYS_SK_PHALANGES_HAND"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_SK_PHALANGES_HAND",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "S62.6"
+    ],
+    "latinName": "Phalanges manus",
+    "commonName": "Finger Bones (Phalanges of the Hand)",
+    "systemCategory": [
+      "Skeletal"
+    ],
+    "descriptionProfessional": "Fourteen bones in each hand: three in each finger (proximal, middle, distal) and two in the thumb.",
+    "descriptionPatient": "The bones of your fingers - three in each finger and two in the thumb.",
+    "apBiologyFacts": [
+      "The thumb has two phalanges, and each finger three: 14 in each hand, 28 in both.",
+      "Humans have an opposable thumb; the fingers' long levers and many joints give precise control, operated by tendons whose muscles lie in the forearm.",
+      "Fingertips carry the highest density of touch receptors in the body (Meissner's corpuscles), which is why two-point discrimination is finest there."
+    ],
+    "clinicalNotes": [
+      "Mallet finger is a rupture of the extensor tendon at the tip of a finger, from a ball hitting it, leaving the tip drooped.",
+      "Dupuytren's contracture thickens the palmar fascia and pulls the ring and little fingers into a curl.",
+      "Clubbing is enlargement of the fingertips seen in chronic lung and heart disease."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.2,
+    "addressableMeshKey": "Mesh_SYS_SK_PHALANGES_HAND_LOD0",
+    "audioTTSKey": "Audio_SYS_SK_PHALANGES_HAND_Desc",
+    "connectedNodes": [
+      "SYS_SK_METACARPALS"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_SK_TALUS",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "S92.1"
+    ],
+    "latinName": "Talus",
+    "commonName": "Talus (Ankle Bone)",
+    "systemCategory": [
+      "Skeletal"
+    ],
+    "descriptionProfessional": "The bone that transmits body weight from the tibia to the foot. It has no muscular attachments and sits between the tibia and fibula above and the calcaneus below.",
+    "descriptionPatient": "The ankle bone that sits between your shin and your heel and carries your weight.",
+    "apBiologyFacts": [
+      "The talus sits in the ankle mortise formed by the tibia and fibula and allows dorsiflexion and plantarflexion, so it is essential for walking.",
+      "It has no muscle or tendon attachments and is largely covered with articular cartilage, so its blood supply is precarious.",
+      "Body weight passes tibia to talus, then divides between heel (calcaneus) and forefoot."
+    ],
+    "clinicalNotes": [
+      "A fracture of the talar neck risks avascular necrosis of the body of the talus because blood enters through the neck.",
+      "A high-energy fall, or a motor accident with the foot on the brake, can fracture it.",
+      "Most ankle sprains injure the ligaments around the talus, especially the anterior talofibular ligament."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.25,
+    "addressableMeshKey": "Mesh_SYS_SK_TALUS_LOD0",
+    "audioTTSKey": "Audio_SYS_SK_TALUS_Desc",
+    "connectedNodes": [
+      "SYS_SK_TIBIA",
+      "SYS_SK_FIBULA",
+      "SYS_SK_CALCANEUS",
+      "SYS_SK_TARSALS"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_SK_CALCANEUS",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "S92.0"
+    ],
+    "latinName": "Calcaneus",
+    "commonName": "Calcaneus (Heel Bone)",
+    "systemCategory": [
+      "Skeletal"
+    ],
+    "descriptionProfessional": "The largest tarsal bone, forming the heel. The Achilles tendon inserts on its back and it bears the weight at heel strike.",
+    "descriptionPatient": "Your heel bone. It is the largest bone in your foot and takes the impact when you walk.",
+    "apBiologyFacts": [
+      "It is the attachment for the Achilles tendon, the strongest tendon in the body, from gastrocnemius and soleus, which plantarflexes the foot for push-off.",
+      "It forms the hind end of the longitudinal arch and absorbs the shock of heel strike.",
+      "It has a thin cortex and mainly spongy bone that makes it prone to crushing."
+    ],
+    "clinicalNotes": [
+      "A fall from a height can fracture the calcaneus, often bilaterally; the spine should be checked at the same time because the force travels up the legs.",
+      "Plantar fasciitis, inflammation of the ligament under the foot at its heel attachment, is the leading cause of heel pain, and sometimes goes with a bony heel spur.",
+      "Haglund deformity is a bony bump at the back of the heel that irritates the Achilles."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.25,
+    "addressableMeshKey": "Mesh_SYS_SK_CALCANEUS_LOD0",
+    "audioTTSKey": "Audio_SYS_SK_CALCANEUS_Desc",
+    "connectedNodes": [
+      "SYS_SK_TALUS",
+      "SYS_MUSC_GASTROCNEMIUS",
+      "SYS_MUSC_SOLEUS"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_SK_TARSALS",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "S92.2"
+    ],
+    "latinName": "Ossa tarsi",
+    "commonName": "Tarsal Bones (Midfoot)",
+    "systemCategory": [
+      "Skeletal"
+    ],
+    "descriptionProfessional": "The navicular, cuboid and three cuneiform bones of the midfoot, which with the talus and calcaneus make the seven tarsals and form the arches of the foot.",
+    "descriptionPatient": "The small bones in the middle of your foot that form its arch.",
+    "apBiologyFacts": [
+      "The tarsals are held by ligaments in three arches - medial and lateral longitudinal, and transverse - that act like springs, storing energy as the foot lands and returning it in push-off.",
+      "Seven tarsals in the foot correspond to the eight carpals in the hand, showing the foot and hand as homologous structures adapted to different functions.",
+      "Human feet have a fixed, non-opposable big toe, an adaptation for bipedal walking."
+    ],
+    "clinicalNotes": [
+      "Stress fractures of the navicular occur in runners and jumpers and are easy to miss.",
+      "Flat feet (pes planus) result when the medial arch collapses.",
+      "Lisfranc injuries disrupt the joints between the cuneiforms, cuboid and metatarsal bases."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.25,
+    "addressableMeshKey": "Mesh_SYS_SK_TARSALS_LOD0",
+    "audioTTSKey": "Audio_SYS_SK_TARSALS_Desc",
+    "connectedNodes": [
+      "SYS_SK_TALUS",
+      "SYS_SK_METATARSALS"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_SK_METATARSALS",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "S92.3"
+    ],
+    "latinName": "Ossa metatarsi",
+    "commonName": "Metatarsal Bones",
+    "systemCategory": [
+      "Skeletal"
+    ],
+    "descriptionProfessional": "Five long bones forming the forefoot, numbered I-V from the big toe. Their heads form the ball of the foot; the first is the stoutest.",
+    "descriptionPatient": "The five long bones in the front part of your foot, ending in the ball of your foot.",
+    "apBiologyFacts": [
+      "The first metatarsal is the stoutest because the big toe bears the push-off in walking and running; the heads of the metatarsals spread the load across the ball of the foot.",
+      "Together with the phalanges they form the forefoot; bones and ligaments make the arch that gives the human foot its springy stride."
+    ],
+    "clinicalNotes": [
+      "A Jones fracture at the base of the fifth metatarsal heals poorly because of a limited blood supply.",
+      "A 'march fracture' is a stress fracture of the second or third metatarsal from repetitive walking or running.",
+      "A bunion (hallux valgus) is a bony bump at the base of the big toe with the toe angled outwards."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.25,
+    "addressableMeshKey": "Mesh_SYS_SK_METATARSALS_LOD0",
+    "audioTTSKey": "Audio_SYS_SK_METATARSALS_Desc",
+    "connectedNodes": [
+      "SYS_SK_TARSALS",
+      "SYS_SK_PHALANGES_FOOT"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_SK_PHALANGES_FOOT",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "S92.5"
+    ],
+    "latinName": "Phalanges pedis",
+    "commonName": "Toe Bones (Phalanges of the Foot)",
+    "systemCategory": [
+      "Skeletal"
+    ],
+    "descriptionProfessional": "Fourteen bones in each foot: two in the big toe and three in each of the other four toes.",
+    "descriptionPatient": "The bones of your toes - two in the big toe and three in each of the others.",
+    "apBiologyFacts": [
+      "The big toe has two phalanges, the others three, and the toes are much shorter than the fingers because they are used for balance and push-off, not for grasping.",
+      "The big toe (hallux) has lost its opposability compared with other apes: an evolutionary change tied to upright walking.",
+      "The toes help balance: the pressure under them adjusts constantly to keep you upright."
+    ],
+    "clinicalNotes": [
+      "Gout classically attacks the joint at the base of the big toe (podagra), when uric acid crystals deposit there.",
+      "Turf toe is a sprain of the big toe's base joint from hyperextension; hammer toe is a deformity where the middle joint is fixed in flexion.",
+      "Diabetic patients with neuropathy can develop toe ulcers and infection without feeling them."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.2,
+    "addressableMeshKey": "Mesh_SYS_SK_PHALANGES_FOOT_LOD0",
+    "audioTTSKey": "Audio_SYS_SK_PHALANGES_FOOT_Desc",
+    "connectedNodes": [
+      "SYS_SK_METATARSALS"
+    ],
     "hasMicroDive": false,
     "microDiveKey": "",
     "pharmacologyTargets": []

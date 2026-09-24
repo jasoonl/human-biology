@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using HumanBodyExplorer.CameraSystem;
+using HumanBodyExplorer.EditorTools.Geometry;
 using HumanBodyExplorer.Core;
 using HumanBodyExplorer.UI;
 using TMPro;
@@ -23,7 +24,7 @@ namespace HumanBodyExplorer.EditorTools
     /// photorealistic, but correctly named, positioned relative to each other,
     /// and wired to real educational descriptions and gameplay.
     /// </summary>
-    public static class HumanBodyExplorerSetup
+    public static partial class HumanBodyExplorerSetup
     {
         private struct PartDef
         {
@@ -96,95 +97,15 @@ namespace HumanBodyExplorer.EditorTools
             // Drawn alpha-blended, and the raycaster treats see-through surfaces as
             // click-through, so the shell can genuinely enclose the body instead of
             // sitting behind it as a flat backdrop.
-            new PartDef { Name = "SkinHead", EntityId = "SYS_INTEG_SKIN", Shape = PrimitiveType.Sphere,
-                LocalPosition = new Vector3(0f, 1.635f, 0.005f), LocalScale = new Vector3(0.165f, 0.235f, 0.21f), Color = SkinColor, Smoothness = SkinGloss },
-            new PartDef { Name = "Neck", EntityId = "SYS_INTEG_SKIN", Shape = PrimitiveType.Capsule,
-                LocalPosition = new Vector3(0f, 1.485f, 0.005f), LocalScale = new Vector3(0.13f, 0.06f, 0.13f), Color = SkinColor, Smoothness = SkinGloss },
-            new PartDef { Name = "SkinChest", EntityId = "SYS_INTEG_SKIN", Shape = PrimitiveType.Sphere,
-                LocalPosition = new Vector3(0f, 1.28f, 0f), LocalScale = new Vector3(0.36f, 0.42f, 0.27f), Color = SkinColor, Smoothness = SkinGloss },
-            new PartDef { Name = "SkinAbdomen", EntityId = "SYS_INTEG_SKIN", Shape = PrimitiveType.Sphere,
-                LocalPosition = new Vector3(0f, 1.06f, -0.005f), LocalScale = new Vector3(0.33f, 0.34f, 0.23f), Color = SkinColor, Smoothness = SkinGloss },
-            new PartDef { Name = "SkinPelvis", EntityId = "SYS_INTEG_SKIN", Shape = PrimitiveType.Sphere,
-                LocalPosition = new Vector3(0f, 0.9f, 0f), LocalScale = new Vector3(0.355f, 0.28f, 0.26f), Color = SkinColor, Smoothness = SkinGloss },
             // The deltoid cap is the widest point of the body (bideltoid breadth
             // ~0.50 m), so the shoulder needs its own skin segment rather than being
             // squeezed under the chest ellipsoid.
-            new PartDef { Name = "Shoulder_L", EntityId = "SYS_INTEG_SKIN", Shape = PrimitiveType.Sphere,
-                LocalPosition = new Vector3(0.19f, 1.39f, -0.01f), LocalScale = new Vector3(0.145f, 0.165f, 0.145f), Color = SkinColor, Smoothness = SkinGloss },
-            new PartDef { Name = "Shoulder_R", EntityId = "SYS_INTEG_SKIN", Shape = PrimitiveType.Sphere,
-                LocalPosition = new Vector3(-0.19f, 1.39f, -0.01f), LocalScale = new Vector3(0.145f, 0.165f, 0.145f), Color = SkinColor, Smoothness = SkinGloss },
-            new PartDef { Name = "UpperArm_L", EntityId = "SYS_INTEG_SKIN", Shape = PrimitiveType.Capsule,
-                LocalPosition = new Vector3(0.19f, 1.26f, 0f), LocalScale = new Vector3(0.115f, 0.165f, 0.115f), Color = SkinColor, Smoothness = SkinGloss },
-            new PartDef { Name = "UpperArm_R", EntityId = "SYS_INTEG_SKIN", Shape = PrimitiveType.Capsule,
-                LocalPosition = new Vector3(-0.19f, 1.26f, 0f), LocalScale = new Vector3(0.115f, 0.165f, 0.115f), Color = SkinColor, Smoothness = SkinGloss },
-            new PartDef { Name = "Forearm_L", EntityId = "SYS_INTEG_SKIN", Shape = PrimitiveType.Capsule,
-                LocalPosition = new Vector3(0.2f, 0.96f, 0f), LocalScale = new Vector3(0.09f, 0.145f, 0.09f), Color = SkinColor, Smoothness = SkinGloss },
-            new PartDef { Name = "Forearm_R", EntityId = "SYS_INTEG_SKIN", Shape = PrimitiveType.Capsule,
-                LocalPosition = new Vector3(-0.2f, 0.96f, 0f), LocalScale = new Vector3(0.09f, 0.145f, 0.09f), Color = SkinColor, Smoothness = SkinGloss },
-            new PartDef { Name = "Hand_L", EntityId = "SYS_INTEG_SKIN", Shape = PrimitiveType.Sphere,
-                LocalPosition = new Vector3(0.205f, 0.735f, 0f), LocalScale = new Vector3(0.085f, 0.17f, 0.045f), Color = SkinColor, Smoothness = SkinGloss },
-            new PartDef { Name = "Hand_R", EntityId = "SYS_INTEG_SKIN", Shape = PrimitiveType.Sphere,
-                LocalPosition = new Vector3(-0.205f, 0.735f, 0f), LocalScale = new Vector3(0.085f, 0.17f, 0.045f), Color = SkinColor, Smoothness = SkinGloss },
-            new PartDef { Name = "Thigh_L", EntityId = "SYS_INTEG_SKIN", Shape = PrimitiveType.Capsule,
-                LocalPosition = new Vector3(0.09f, 0.65f, 0f), LocalScale = new Vector3(0.155f, 0.215f, 0.17f), Color = SkinColor, Smoothness = SkinGloss },
-            new PartDef { Name = "Thigh_R", EntityId = "SYS_INTEG_SKIN", Shape = PrimitiveType.Capsule,
-                LocalPosition = new Vector3(-0.09f, 0.65f, 0f), LocalScale = new Vector3(0.155f, 0.215f, 0.17f), Color = SkinColor, Smoothness = SkinGloss },
-            new PartDef { Name = "LowerLeg_L", EntityId = "SYS_INTEG_SKIN", Shape = PrimitiveType.Capsule,
-                LocalPosition = new Vector3(0.085f, 0.28f, 0.005f), LocalScale = new Vector3(0.115f, 0.22f, 0.13f), Color = SkinColor, Smoothness = SkinGloss },
-            new PartDef { Name = "LowerLeg_R", EntityId = "SYS_INTEG_SKIN", Shape = PrimitiveType.Capsule,
-                LocalPosition = new Vector3(-0.085f, 0.28f, 0.005f), LocalScale = new Vector3(0.115f, 0.22f, 0.13f), Color = SkinColor, Smoothness = SkinGloss },
-            new PartDef { Name = "Foot_L", EntityId = "SYS_INTEG_SKIN", Shape = PrimitiveType.Sphere,
-                LocalPosition = new Vector3(0.085f, 0.042f, -0.062f), LocalScale = new Vector3(0.125f, 0.092f, 0.305f), Color = SkinColor, Smoothness = SkinGloss },
-            new PartDef { Name = "Foot_R", EntityId = "SYS_INTEG_SKIN", Shape = PrimitiveType.Sphere,
-                LocalPosition = new Vector3(-0.085f, 0.042f, -0.062f), LocalScale = new Vector3(0.125f, 0.092f, 0.305f), Color = SkinColor, Smoothness = SkinGloss },
 
             // ================= SKELETAL =================
-            new PartDef { Name = "Skull", EntityId = "SYS_SK_SKULL", Shape = PrimitiveType.Sphere,
-                LocalPosition = new Vector3(0f, 1.64f, 0.01f), LocalScale = new Vector3(0.145f, 0.19f, 0.175f), Color = BoneColor, Smoothness = BoneGloss },
             // Near-horizontal struts from sternum to acromion.
-            new PartDef { Name = "Clavicle_L", EntityId = "SYS_SK_CLAVICLE", Shape = PrimitiveType.Capsule,
-                LocalPosition = new Vector3(0.0931f, 1.415f, -0.0487f), LocalScale = new Vector3(0.0195f, 0.0664f, 0.0195f),
-                LocalEuler = new Vector3(0f, 0f, 78f), Color = BoneColor, Smoothness = BoneGloss },
-            new PartDef { Name = "Clavicle_R", EntityId = "SYS_SK_CLAVICLE", Shape = PrimitiveType.Capsule,
-                LocalPosition = new Vector3(-0.0931f, 1.415f, -0.0487f), LocalScale = new Vector3(0.0195f, 0.0664f, 0.0195f),
-                LocalEuler = new Vector3(0f, 0f, -78f), Color = BoneColor, Smoothness = BoneGloss },
-            new PartDef { Name = "Pelvis", EntityId = "SYS_SK_PELVIS", Shape = PrimitiveType.Sphere,
-                LocalPosition = new Vector3(0f, 0.90f, 0.02f), LocalScale = new Vector3(0.29f, 0.17f, 0.195f), Color = BoneColor, Smoothness = BoneGloss },
-            new PartDef { Name = "Humerus_L", EntityId = "SYS_SK_HUMERUS", Shape = PrimitiveType.Capsule,
-                LocalPosition = new Vector3(0.19f, 1.26f, 0.01f), LocalScale = new Vector3(0.04f, 0.17f, 0.04f), Color = BoneColor, Smoothness = BoneGloss },
-            new PartDef { Name = "Humerus_R", EntityId = "SYS_SK_HUMERUS", Shape = PrimitiveType.Capsule,
-                LocalPosition = new Vector3(-0.19f, 1.26f, 0.01f), LocalScale = new Vector3(0.04f, 0.17f, 0.04f), Color = BoneColor, Smoothness = BoneGloss },
-            new PartDef { Name = "Femur_L", EntityId = "SYS_SK_FEMUR", Shape = PrimitiveType.Capsule,
-                LocalPosition = new Vector3(0.09f, 0.675f, 0.01f), LocalScale = new Vector3(0.05f, 0.205f, 0.05f), Color = BoneColor, Smoothness = BoneGloss },
-            new PartDef { Name = "Femur_R", EntityId = "SYS_SK_FEMUR", Shape = PrimitiveType.Capsule,
-                LocalPosition = new Vector3(-0.09f, 0.675f, 0.01f), LocalScale = new Vector3(0.05f, 0.205f, 0.05f), Color = BoneColor, Smoothness = BoneGloss },
-            new PartDef { Name = "Tibia_L", EntityId = "SYS_SK_TIBIA", Shape = PrimitiveType.Capsule,
-                LocalPosition = new Vector3(0.08f, 0.27f, 0.01f), LocalScale = new Vector3(0.042f, 0.20f, 0.042f), Color = BoneColor, Smoothness = BoneGloss },
-            new PartDef { Name = "Tibia_R", EntityId = "SYS_SK_TIBIA", Shape = PrimitiveType.Capsule,
-                LocalPosition = new Vector3(-0.08f, 0.27f, 0.01f), LocalScale = new Vector3(0.042f, 0.20f, 0.042f), Color = BoneColor, Smoothness = BoneGloss },
 
             // Radius (lateral, thumb side) and ulna (medial) as separate bones.
-            new PartDef { Name = "Radius_L", EntityId = "SYS_SK_RADIUS_ULNA", Shape = PrimitiveType.Capsule,
-                LocalPosition = new Vector3(0.216f, 0.96f, 0.008f), LocalScale = new Vector3(0.026f, 0.128f, 0.026f), Color = BoneColor, Smoothness = BoneGloss },
-            new PartDef { Name = "Radius_R", EntityId = "SYS_SK_RADIUS_ULNA", Shape = PrimitiveType.Capsule,
-                LocalPosition = new Vector3(-0.216f, 0.96f, 0.008f), LocalScale = new Vector3(0.026f, 0.128f, 0.026f), Color = BoneColor, Smoothness = BoneGloss },
-            new PartDef { Name = "Ulna_L", EntityId = "SYS_SK_RADIUS_ULNA", Shape = PrimitiveType.Capsule,
-                LocalPosition = new Vector3(0.186f, 0.96f, 0.016f), LocalScale = new Vector3(0.024f, 0.132f, 0.024f), Color = BoneColor, Smoothness = BoneGloss },
-            new PartDef { Name = "Ulna_R", EntityId = "SYS_SK_RADIUS_ULNA", Shape = PrimitiveType.Capsule,
-                LocalPosition = new Vector3(-0.186f, 0.96f, 0.016f), LocalScale = new Vector3(0.024f, 0.132f, 0.024f), Color = BoneColor, Smoothness = BoneGloss },
             // Scapulae: flat blades riding on the back of the rib cage.
-            new PartDef { Name = "Scapula_L", EntityId = "SYS_SK_SCAPULA", Shape = PrimitiveType.Sphere,
-                LocalPosition = new Vector3(0.104f, 1.335f, 0.054f), LocalScale = new Vector3(0.118f, 0.138f, 0.026f), Color = BoneColor, Smoothness = BoneGloss },
-            new PartDef { Name = "Scapula_R", EntityId = "SYS_SK_SCAPULA", Shape = PrimitiveType.Sphere,
-                LocalPosition = new Vector3(-0.104f, 1.335f, 0.054f), LocalScale = new Vector3(0.118f, 0.138f, 0.026f), Color = BoneColor, Smoothness = BoneGloss },
-            new PartDef { Name = "Patella_L", EntityId = "SYS_SK_PATELLA", Shape = PrimitiveType.Sphere,
-                LocalPosition = new Vector3(0.09f, 0.472f, -0.042f), LocalScale = new Vector3(0.044f, 0.044f, 0.020f), Color = BoneColor, Smoothness = BoneGloss },
-            new PartDef { Name = "Patella_R", EntityId = "SYS_SK_PATELLA", Shape = PrimitiveType.Sphere,
-                LocalPosition = new Vector3(-0.09f, 0.472f, -0.042f), LocalScale = new Vector3(0.044f, 0.044f, 0.020f), Color = BoneColor, Smoothness = BoneGloss },
-            new PartDef { Name = "Fibula_L", EntityId = "SYS_SK_FIBULA", Shape = PrimitiveType.Capsule,
-                LocalPosition = new Vector3(0.107f, 0.268f, 0.014f), LocalScale = new Vector3(0.022f, 0.185f, 0.022f), Color = BoneColor, Smoothness = BoneGloss },
-            new PartDef { Name = "Fibula_R", EntityId = "SYS_SK_FIBULA", Shape = PrimitiveType.Capsule,
-                LocalPosition = new Vector3(-0.107f, 0.268f, 0.014f), LocalScale = new Vector3(0.022f, 0.185f, 0.022f), Color = BoneColor, Smoothness = BoneGloss },
 
             // --- Deeper muscle layer ---
             new PartDef { Name = "ForearmMuscles_L", EntityId = "SYS_MUSC_FOREARM", Shape = PrimitiveType.Sphere,
@@ -432,6 +353,7 @@ namespace HumanBodyExplorer.EditorTools
 
             CreateGroundAndLight();
             GameObject root = BuildHumanFigure();
+            ReportSkinContainment(root);
             WireUpCamera(mainCameraGO, root);
             SetupPostProcessing(mainCameraGO);
             AnatomyOutlineFeatureSetup.AddFeatureToActiveRenderer();
@@ -461,6 +383,30 @@ namespace HumanBodyExplorer.EditorTools
             var scene = EditorSceneManager.OpenScene("Assets/Scenes/Bootstrap.unity");
             BuildExplorer();
             EditorSceneManager.SaveScene(scene);
+        }
+
+        /// <summary>
+        /// Nothing inside the body should poke through the skin. Every structure's vertices
+        /// are tested against the skin's own surface function, and the worst offenders
+        /// named - a misplaced organ is otherwise only found by a person spotting it.
+        /// </summary>
+        private static void ReportSkinContainment(GameObject root)
+        {
+            var offenders = SkinBuilder.ContainmentReport(root.transform);
+            if (offenders.Count == 0)
+            {
+                Debug.Log("[HumanBodyExplorerSetup] Containment: every structure lies inside the skin.");
+                return;
+            }
+
+            var lines = new System.Text.StringBuilder();
+            int shown = 0;
+            foreach (var (name, outside) in offenders)
+            {
+                if (shown++ >= 25) break;
+                lines.AppendLine($"    {name}: {outside * 100f:F1} cm outside");
+            }
+            Debug.LogWarning($"[HumanBodyExplorerSetup] Containment: {offenders.Count} structures poke through the skin:\n{lines}");
         }
 
         private static void RemoveIfExists(string name)
@@ -709,18 +655,22 @@ namespace HumanBodyExplorer.EditorTools
             veinFlowMat.SetFloat(FlowSpeedId, 0.8f);
             veinFlowMat.SetFloat(PulseIntensityId, 0.6f);
 
-            BuildVertebralColumn(root.transform, boneMat, cartilageMat, anatomyLayer);
-            BuildRibCage(root.transform, boneMat, cartilageMat, anatomyLayer);
-            BuildSkullDetail(root.transform, boneMat, muscleMat, recessMat, anatomyLayer);
-            BuildHandSkeleton(root.transform, boneMat, anatomyLayer, 1f);
-            BuildHandSkeleton(root.transform, boneMat, anatomyLayer, -1f);
-            BuildFootSkeleton(root.transform, boneMat, anatomyLayer, 1f);
-            BuildFootSkeleton(root.transform, boneMat, anatomyLayer, -1f);
+            // Skeleton and skin are sculpted meshes, saved as assets so the scene
+            // references them instead of embedding them. See Geometry/.
+            MeshAssets.BeginBuild();
+            SkeletonBuilder.Build(root.transform, boneMat, cartilageMat, anatomyLayer);
+
+            var skinMat = new Material(Shader.Find("HumanBodyExplorer/SkinShell"));
+            skinMat.SetColor(BaseColorId, new Color(SkinColor.r, SkinColor.g, SkinColor.b, 0.35f));
+            SkinBuilder.Build(root.transform, skinMat, anatomyLayer);
+
+            BuildFacialMuscles(root.transform, muscleMat, anatomyLayer);
             BuildVascularSystem(root.transform, arteryFlowMat, veinFlowMat, anatomyLayer, 1f);
             BuildVascularSystem(root.transform, arteryFlowMat, veinFlowMat, anatomyLayer, -1f);
             BuildLimbNerves(root.transform, nerveMat, anatomyLayer, 1f);
             BuildLimbNerves(root.transform, nerveMat, anatomyLayer, -1f);
             BuildTrunkVasculatureAndNerves(root.transform, arteryFlowMat, veinFlowMat, nerveMat, anatomyLayer);
+            MeshAssets.EndBuild();
 
             return root;
         }
@@ -769,304 +719,35 @@ namespace HumanBodyExplorer.EditorTools
         }
 
         /// <summary>
-        /// 24 presacral vertebrae plus sacrum and coccyx, each with a body, an
-        /// intervertebral disc and a posteriorly-projecting spinous process. The three
-        /// curves are real: cervical lordosis, thoracic kyphosis, lumbar lordosis.
+        /// The muscles of mastication and facial expression, each a named muscle. (The
+        /// facial skeleton itself now comes from SkeletonBuilder.) These are still simple
+        /// blobs and are due to be rebuilt as proper fibre-bearing muscle meshes.
         /// </summary>
-        private static void BuildVertebralColumn(Transform root, Material bone, Material cartilage, int layer)
-        {
-            // prefix, count, yTop, yBottom, baseZ, bow (+ posterior), radiusTop, radiusBottom
-            var regions = new[]
-            {
-                ("C", 7, 1.500f, 1.385f, 0.040f, -0.010f, 0.016f, 0.019f),
-                ("T", 12, 1.372f, 1.112f, 0.051f, 0.013f, 0.021f, 0.028f),
-                ("L", 5, 1.098f, 0.968f, 0.052f, -0.016f, 0.030f, 0.033f),
-            };
-
-            foreach (var (prefix, count, yTop, yBottom, baseZ, bow, rTop, rBottom) in regions)
-            {
-                for (int i = 0; i < count; i++)
-                {
-                    float t = count == 1 ? 0f : i / (float)(count - 1);
-                    float y = Mathf.Lerp(yTop, yBottom, t);
-                    float z = baseZ + bow * Mathf.Sin(Mathf.PI * t);
-                    float r = Mathf.Lerp(rTop, rBottom, t);
-
-                    CreateBlob(root, $"Vertebra_{prefix}{i + 1}", "SYS_SK_SPINE",
-                        new Vector3(0f, y, z), new Vector3(r * 2.2f, r * 1.25f, r * 2f), bone, layer);
-
-                    // Spinous process: the knobbly ridge you can feel down a back.
-                    // Thoracic processes angle steeply downward and overlap like tiles.
-                    float droop = prefix == "T" ? 0.020f : 0.007f;
-                    CreateSegment(root, $"SpinousProcess_{prefix}{i + 1}", "SYS_SK_SPINE",
-                        new Vector3(0f, y, z + r * 0.9f),
-                        new Vector3(0f, y - droop, z + r * 0.9f + (prefix == "C" ? 0.008f : 0.013f)),
-                        r * 0.32f, bone, layer);
-
-                    if (i < count - 1)
-                    {
-                        float yNext = Mathf.Lerp(yTop, yBottom, (i + 1) / (float)(count - 1));
-                        CreateBlob(root, $"Disc_{prefix}{i + 1}", "SYS_SK_SPINE",
-                            new Vector3(0f, (y + yNext) * 0.5f, z), new Vector3(r * 2.1f, r * 0.55f, r * 1.9f),
-                            cartilage, layer);
-                    }
-                }
-            }
-
-            // Sacrum: five fused vertebrae tapering to the coccyx.
-            for (int i = 0; i < 5; i++)
-            {
-                float t = i / 4f;
-                CreateBlob(root, $"Sacrum_S{i + 1}", "SYS_SK_PELVIS",
-                    new Vector3(0f, Mathf.Lerp(0.952f, 0.878f, t), Mathf.Lerp(0.058f, 0.072f, t)),
-                    new Vector3(Mathf.Lerp(0.072f, 0.038f, t), 0.020f, Mathf.Lerp(0.050f, 0.030f, t)), bone, layer);
-            }
-            CreateBlob(root, "Coccyx", "SYS_SK_PELVIS",
-                new Vector3(0f, 0.862f, 0.072f), new Vector3(0.022f, 0.022f, 0.018f), bone, layer);
-        }
-
-        /// <summary>
-        /// Twelve rib pairs swept as arcs from the vertebral column round to the
-        /// sternum, widest at ribs 7-8, sloping progressively further downward. Ribs
-        /// 1-7 join the sternum by their own costal cartilage (true ribs), 8-10 join
-        /// the cartilage above (false), 11-12 end free in the flank (floating).
-        /// </summary>
-        private static void BuildRibCage(Transform root, Material bone, Material cartilage, int layer)
-        {
-            const int segments = 8;
-
-            // Sternum: manubrium, body, xiphoid process.
-            CreateBlob(root, "Sternum_Manubrium", "SYS_SK_STERNUM",
-                new Vector3(0f, 1.398f, -0.086f), new Vector3(0.050f, 0.046f, 0.016f), bone, layer);
-            CreateBlob(root, "Sternum_Body", "SYS_SK_STERNUM",
-                new Vector3(0f, 1.318f, -0.092f), new Vector3(0.040f, 0.110f, 0.015f), bone, layer);
-            CreateBlob(root, "Sternum_Xiphoid", "SYS_SK_STERNUM",
-                new Vector3(0f, 1.248f, -0.088f), new Vector3(0.022f, 0.034f, 0.012f), bone, layer);
-
-            for (int rib = 0; rib < 12; rib++)
-            {
-                float t = rib / 11f;
-                float yPost = Mathf.Lerp(1.428f, 1.118f, t);
-                float width = rib <= 7
-                    ? Mathf.Lerp(0.072f, 0.150f, rib / 7f)
-                    : Mathf.Lerp(0.150f, 0.108f, (rib - 7) / 4f);
-                float depth = rib <= 6
-                    ? Mathf.Lerp(0.052f, 0.100f, rib / 6f)
-                    : Mathf.Lerp(0.100f, 0.030f, (rib - 6) / 5f);
-                float drop = Mathf.Lerp(0.018f, 0.105f, t);
-                float radius = Mathf.Lerp(0.0055f, 0.0080f, Mathf.Min(1f, t * 1.6f));
-                bool floating = rib >= 10;
-                float arcEnd = floating ? 0.56f : 1f;
-
-                for (int side = -1; side <= 1; side += 2)
-                {
-                    Vector3 Point(float u)
-                    {
-                        float theta = u * Mathf.PI;
-                        float sweep = (1f - Mathf.Cos(theta)) * 0.5f;
-                        return new Vector3(
-                            side * width * Mathf.Sin(theta),
-                            yPost - drop * sweep,
-                            0.065f - (0.065f + depth) * sweep);
-                    }
-
-                    for (int s = 0; s < segments; s++)
-                    {
-                        float u0 = arcEnd * s / segments;
-                        float u1 = arcEnd * (s + 1) / segments;
-                        CreateSegment(root, $"Rib{rib + 1}_{(side > 0 ? "L" : "R")}_{s}", "SYS_SK_RIBCAGE",
-                            Point(u0), Point(u1), radius, bone, layer);
-                    }
-
-                    if (!floating)
-                    {
-                        // Costal cartilage bridging the rib end to the sternum. Ribs
-                        // 8-10 angle up to meet the cartilage above rather than the bone.
-                        Vector3 ribEnd = Point(1f);
-                        float sternumY = rib <= 6 ? Mathf.Lerp(1.392f, 1.252f, rib / 6f) : 1.248f;
-                        var sternumEdge = new Vector3(side * 0.020f, sternumY, -0.090f);
-                        CreateSegment(root, $"CostalCartilage{rib + 1}_{(side > 0 ? "L" : "R")}", "SYS_SK_RIBCAGE",
-                            ribEnd, sternumEdge, radius * 0.9f, cartilage, layer);
-                    }
-                }
-            }
-        }
-
-        /// <summary>
-        /// Facial skeleton and the muscles of mastication. Without these the head is a
-        /// featureless egg; with them it reads as a skull - orbits, nasal aperture,
-        /// zygomatic arches, maxilla, a hinged mandible and two rows of teeth.
-        /// </summary>
-        private static void BuildSkullDetail(Transform root, Material bone, Material muscle, Material dark, int layer)
+        private static void BuildFacialMuscles(Transform root, Material muscle, int layer)
         {
             for (int s = -1; s <= 1; s += 2)
             {
                 string tag = s > 0 ? "L" : "R";
 
-                // Orbit: a recessed socket rather than a painted-on eye.
-                CreateBlob(root, $"Orbit_{tag}", "SYS_SK_SKULL",
-                    new Vector3(s * 0.030f, 1.655f, -0.060f), new Vector3(0.030f, 0.030f, 0.026f), dark, layer);
-
-                // Zygomatic arch: the cheekbone bridge back toward the ear.
-                CreateSegment(root, $"ZygomaticArch_{tag}", "SYS_SK_SKULL",
-                    new Vector3(s * 0.062f, 1.638f, -0.008f), new Vector3(s * 0.036f, 1.632f, -0.056f),
-                    0.0065f, bone, layer);
-
-                // The muscles of mastication and facial expression, each a real named
-                // muscle rather than one shared "facial muscle" bucket - which is also
-                // what makes the layer-visibility toggle useful here: hiding SYS_MUSC_*
-                // now actually strips the face down to bone, brow to jaw.
                 CreateBlob(root, $"Temporalis_{tag}", "SYS_MUSC_TEMPORALIS",
-                    new Vector3(s * 0.056f, 1.670f, -0.012f), new Vector3(0.030f, 0.046f, 0.048f), muscle, layer);
+                    new Vector3(s * 0.060f, 1.672f, -0.010f), new Vector3(0.026f, 0.046f, 0.048f), muscle, layer);
                 CreateBlob(root, $"Masseter_{tag}", "SYS_MUSC_MASSETER",
-                    new Vector3(s * 0.050f, 1.600f, -0.030f), new Vector3(0.024f, 0.038f, 0.030f), muscle, layer);
-
-                // Frontalis: raises the brow, here as two halves either side of midline
-                // rather than one bar, so it still reads once the skull's own curvature
-                // is under it.
+                    new Vector3(s * 0.058f, 1.596f, -0.004f), new Vector3(0.012f, 0.050f, 0.030f), muscle, layer);
                 CreateBlob(root, $"Frontalis_{tag}", "SYS_MUSC_FRONTALIS",
-                    new Vector3(s * 0.032f, 1.688f, -0.052f), new Vector3(0.032f, 0.016f, 0.020f), muscle, layer);
-
-                // Orbicularis oculi: the sphincter ring around each eye that closes the
-                // lid - a flattened torus is overkill for a primitive figure, so a thin
-                // oblate ring-like blob standing proud of the orbit reads close enough.
+                    new Vector3(s * 0.030f, 1.700f, -0.066f), new Vector3(0.036f, 0.018f, 0.016f), muscle, layer);
                 CreateBlob(root, $"OrbicularisOculi_{tag}", "SYS_MUSC_ORBICULARIS_OCULI",
-                    new Vector3(s * 0.032f, 1.655f, -0.055f), new Vector3(0.038f, 0.026f, 0.012f), muscle, layer);
-
-                // Zygomaticus major: from the cheekbone down to the corner of the
-                // mouth - the "smile" muscle.
+                    new Vector3(s * 0.031f, 1.658f, -0.093f), new Vector3(0.046f, 0.036f, 0.010f), muscle, layer);
                 CreateSegment(root, $"Zygomaticus_{tag}", "SYS_MUSC_ZYGOMATICUS",
-                    new Vector3(s * 0.052f, 1.628f, -0.040f), new Vector3(s * 0.028f, 1.588f, -0.070f),
-                    0.006f, muscle, layer);
-
-                // Buccinator: the cheek's compressor, deep to the masseter.
+                    new Vector3(s * 0.050f, 1.626f, -0.066f), new Vector3(s * 0.030f, 1.560f, -0.090f),
+                    0.005f, muscle, layer);
                 CreateBlob(root, $"Buccinator_{tag}", "SYS_MUSC_BUCCINATOR",
-                    new Vector3(s * 0.044f, 1.590f, -0.052f), new Vector3(0.020f, 0.020f, 0.024f), muscle, layer);
+                    new Vector3(s * 0.042f, 1.566f, -0.062f), new Vector3(0.018f, 0.022f, 0.030f), muscle, layer);
             }
 
-            // Orbicularis oris: the sphincter ring around the mouth - unpaired, sits
-            // on the midline.
             CreateBlob(root, "OrbicularisOris", "SYS_MUSC_ORBICULARIS_ORIS",
-                new Vector3(0f, 1.582f, -0.078f), new Vector3(0.034f, 0.014f, 0.012f), muscle, layer);
-
-            CreateBlob(root, "NasalAperture", "SYS_SK_SKULL",
-                new Vector3(0f, 1.626f, -0.074f), new Vector3(0.017f, 0.026f, 0.018f), dark, layer);
-            CreateBlob(root, "Maxilla", "SYS_SK_SKULL",
-                new Vector3(0f, 1.598f, -0.060f), new Vector3(0.056f, 0.024f, 0.044f), bone, layer);
-
-            // Mandible: a U from each jaw hinge forward to the chin.
-            const int jawSegments = 6;
-            for (int s = -1; s <= 1; s += 2)
-            {
-                Vector3 Jaw(float u)
-                {
-                    // Quadratic sweep from the condyle, round the angle, to the symphysis.
-                    float x = s * Mathf.Lerp(0.052f, 0f, u);
-                    float y = Mathf.Lerp(1.612f, 1.572f, Mathf.Sin(u * Mathf.PI * 0.5f));
-                    float z = Mathf.Lerp(0.004f, -0.070f, u * u * 0.45f + u * 0.55f);
-                    return new Vector3(x, y, z);
-                }
-
-                for (int i = 0; i < jawSegments; i++)
-                {
-                    CreateSegment(root, $"Mandible_{(s > 0 ? "L" : "R")}_{i}", "SYS_SK_MANDIBLE",
-                        Jaw(i / (float)jawSegments), Jaw((i + 1) / (float)jawSegments), 0.0072f, bone, layer);
-                }
-
-                // Teeth: upper row on the maxilla, lower row on the mandible.
-                for (int tooth = 0; tooth < 6; tooth++)
-                {
-                    float u = (tooth + 0.5f) / 6f;
-                    var lower = Jaw(u);
-                    CreateBlob(root, $"ToothLower_{(s > 0 ? "L" : "R")}{tooth}", "SYS_SK_MANDIBLE",
-                        lower + new Vector3(0f, 0.009f, 0f), new Vector3(0.0075f, 0.010f, 0.0075f), bone, layer);
-
-                    var upper = Jaw(u);
-                    CreateBlob(root, $"ToothUpper_{(s > 0 ? "L" : "R")}{tooth}", "SYS_SK_SKULL",
-                        new Vector3(upper.x * 0.94f, 1.588f, Mathf.Min(upper.z + 0.004f, -0.020f)),
-                        new Vector3(0.0075f, 0.010f, 0.0075f), bone, layer);
-                }
-            }
+                new Vector3(0f, 1.556f, -0.097f), new Vector3(0.036f, 0.014f, 0.011f), muscle, layer);
         }
 
-        /// <summary>Carpals, five metacarpals and fourteen phalanges - 27 bones per hand.</summary>
-        private static void BuildHandSkeleton(Transform root, Material bone, int layer, float side)
-        {
-            string tag = side > 0 ? "L" : "R";
-            float wristX = side * 0.205f;
-            const float wristY = 0.818f;
-
-            CreateBlob(root, $"Carpals_{tag}", "SYS_SK_HAND",
-                new Vector3(wristX, wristY, 0f), new Vector3(0.048f, 0.030f, 0.026f), bone, layer);
-
-            for (int finger = 0; finger < 5; finger++)
-            {
-                bool thumb = finger == 0;
-                // Thumb sits forward and off to the side; the other four fan out.
-                float spread = thumb ? side * -0.034f : side * (finger - 2.6f) * 0.0155f;
-                float z = thumb ? -0.022f : 0f;
-                float knuckleY = thumb ? 0.775f : 0.762f;
-
-                var baseP = new Vector3(wristX + spread * 0.35f, wristY - 0.012f, z * 0.4f);
-                var knuckle = new Vector3(wristX + spread, knuckleY, z);
-                CreateSegment(root, $"Metacarpal{finger + 1}_{tag}", "SYS_SK_HAND",
-                    baseP, knuckle, 0.0062f, bone, layer);
-
-                // Middle finger is longest; index and ring shorter; little finger shortest.
-                float lengthScale = thumb ? 0.62f : new[] { 0f, 0.92f, 1f, 0.95f, 0.78f }[finger];
-                int phalanxCount = thumb ? 2 : 3;
-                float[] fractions = { 0.45f, 0.32f, 0.23f };
-
-                Vector3 cursor = knuckle;
-                float remaining = 0.068f * lengthScale;
-                for (int ph = 0; ph < phalanxCount; ph++)
-                {
-                    float len = remaining * (thumb ? (ph == 0 ? 0.58f : 0.42f) : fractions[ph]);
-                    var next = cursor + new Vector3(spread * 0.16f, -len, thumb ? -len * 0.35f : 0f);
-                    CreateSegment(root, $"Phalanx{finger + 1}_{ph + 1}_{tag}", "SYS_SK_HAND",
-                        cursor, next, Mathf.Lerp(0.0055f, 0.0038f, ph / 2f), bone, layer);
-                    cursor = next;
-                }
-            }
-        }
-
-        /// <summary>Calcaneus and tarsals, five metatarsals and fourteen phalanges.</summary>
-        private static void BuildFootSkeleton(Transform root, Material bone, int layer, float side)
-        {
-            string tag = side > 0 ? "L" : "R";
-            float footX = side * 0.085f;
-
-            // The calcaneus takes heel strike; it projects backward behind the ankle.
-            CreateBlob(root, $"Calcaneus_{tag}", "SYS_SK_FOOT",
-                new Vector3(footX, 0.030f, 0.032f), new Vector3(0.040f, 0.048f, 0.055f), bone, layer);
-            CreateBlob(root, $"Talus_{tag}", "SYS_SK_FOOT",
-                new Vector3(footX, 0.055f, 0.004f), new Vector3(0.038f, 0.034f, 0.042f), bone, layer);
-            CreateBlob(root, $"Tarsals_{tag}", "SYS_SK_FOOT",
-                new Vector3(footX, 0.034f, -0.038f), new Vector3(0.052f, 0.030f, 0.046f), bone, layer);
-
-            for (int toe = 0; toe < 5; toe++)
-            {
-                bool hallux = toe == 0;
-                float spread = side * (toe - 1.6f) * -0.0155f;
-                // The longitudinal arch: the metatarsal heads sit lower than the tarsals.
-                var baseP = new Vector3(footX + spread * 0.3f, 0.030f, -0.058f);
-                var head = new Vector3(footX + spread, 0.028f, -0.108f);
-                CreateSegment(root, $"Metatarsal{toe + 1}_{tag}", "SYS_SK_FOOT",
-                    baseP, head, hallux ? 0.0075f : 0.0058f, bone, layer);
-
-                int phalanxCount = hallux ? 2 : 3;
-                float toeLength = hallux ? 0.030f : Mathf.Lerp(0.024f, 0.014f, toe / 4f);
-                Vector3 cursor = head;
-                for (int ph = 0; ph < phalanxCount; ph++)
-                {
-                    float len = toeLength * (phalanxCount == 2 ? 0.5f : (ph == 0 ? 0.5f : 0.25f));
-                    var next = cursor + new Vector3(spread * 0.1f, -0.001f, -len);
-                    CreateSegment(root, $"ToePhalanx{toe + 1}_{ph + 1}_{tag}", "SYS_SK_FOOT",
-                        cursor, next, hallux ? 0.0065f : 0.0048f, bone, layer);
-                    cursor = next;
-                }
-            }
-        }
 
         /// <summary>
         /// Named arterial and venous trunks down one arm and one leg, replacing what

@@ -26,10 +26,12 @@ Material:
     m_Ints: []
     m_Floats:
     - _DepthSensitivity: 4
+    - _DepthThreshold: 0.006
     - _NormalSensitivity: 2.5
-    - _Strength: 0.85
-    - _Thickness: 1.2
+    - _NormalThreshold: 0.55
+    - _Strength: 0.9
+    - _Thickness: 1
     m_Colors:
-    - _OutlineColor: {r: 0.05, g: 0.05, b: 0.07, a: 1}
+    - _OutlineColor: {r: 0.03, g: 0.03, b: 0.05, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
