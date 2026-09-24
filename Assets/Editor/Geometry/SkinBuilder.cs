@@ -31,7 +31,8 @@ namespace HumanBodyExplorer.EditorTools.Geometry
                 Sdf.Sphere(new Vector3(0f, 1.616f, -0.104f), 0.0105f),                                     // tip of nose
                 Sdf.MirrorX(Sdf.Ellipsoid(new Vector3(0.083f, 1.640f, 0.015f), new Vector3(0.0085f, 0.028f, 0.017f))), // ears
                 Sdf.MirrorX(Sdf.Ellipsoid(new Vector3(0.036f, 1.650f, -0.070f), new Vector3(0.038f, 0.030f, 0.030f))), // eye sockets
-                Sdf.Ellipsoid(new Vector3(0f, 1.560f, -0.050f), new Vector3(0.056f, 0.042f, 0.052f)));    // jaw
+                Sdf.Ellipsoid(new Vector3(0f, 1.556f, -0.050f), new Vector3(0.061f, 0.048f, 0.054f)),     // jaw
+                Sdf.Ellipsoid(new Vector3(0f, 1.537f, -0.072f), new Vector3(0.030f, 0.028f, 0.030f)));   // chin
 
             SdfFunc neck = Sdf.Capsule(new Vector3(0f, 1.565f, 0.026f), new Vector3(0f, 1.440f, 0.028f), 0.062f);
 

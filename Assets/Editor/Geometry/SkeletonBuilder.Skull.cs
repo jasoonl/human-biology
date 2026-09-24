@@ -15,7 +15,7 @@ namespace HumanBodyExplorer.EditorTools.Geometry
     /// </summary>
     public static partial class SkeletonBuilder
     {
-        private const float SutureGap = 0.0017f;
+        private const float SutureGap = 0.0007f;
 
         private static SdfFunc SkullSolid()
         {
@@ -34,7 +34,7 @@ namespace HumanBodyExplorer.EditorTools.Geometry
             // The cheekbone is a plate facing forward and outward, not a ball: a thin
             // ellipsoid turned about 40 degrees off the front.
             SdfFunc cheekbones = Sdf.MirrorX(Sdf.Ellipsoid(new Vector3(0.047f, 1.634f, -0.064f),
-                new Vector3(0.008f, 0.014f, 0.018f), Quaternion.Euler(0f, 41f, 0f)));
+                new Vector3(0.007f, 0.012f, 0.017f), Quaternion.Euler(0f, 41f, 0f)));
             SdfFunc zygomaticArch = Sdf.MirrorX(Sdf.Capsule(new Vector3(0.056f, 1.628f, -0.056f), new Vector3(0.071f, 1.627f, -0.006f), 0.0050f));
             SdfFunc browRidges = Sdf.MirrorX(Sdf.Ellipsoid(new Vector3(0.030f, 1.680f, -0.078f), new Vector3(0.026f, 0.006f, 0.009f)));
             SdfFunc glabella = Sdf.Sphere(new Vector3(0f, 1.679f, -0.082f), 0.0080f);
@@ -43,14 +43,23 @@ namespace HumanBodyExplorer.EditorTools.Geometry
             SdfFunc condyles = Sdf.MirrorX(Sdf.Ellipsoid(new Vector3(0.0125f, 1.586f, 0.030f), new Vector3(0.0055f, 0.006f, 0.0115f)));
             SdfFunc styloids = Sdf.MirrorX(Sdf.RoundCone(new Vector3(0.046f, 1.592f, 0.022f), 0.0025f, new Vector3(0.040f, 1.568f, 0.030f), 0.0016f));
 
-            SdfFunc skull = Sdf.SmoothUnion(0.011f, cranium, faceMass, cheekbones, zygomaticArch, browRidges, glabella, alveolar, mastoids, condyles, styloids);
+            // The nasal bridge: the bones that roof the nose stand proud of the face and meet
+            // the glabella above, ending in the anterior nasal spine under the aperture.
+            SdfFunc nasalBridge = Sdf.RoundCone(new Vector3(0f, 1.674f, -0.085f), 0.0048f, new Vector3(0f, 1.642f, -0.099f), 0.0042f);
+            SdfFunc nasalSpine = Sdf.Sphere(new Vector3(0f, 1.598f, -0.096f), 0.0035f);
+            // Piriform margin: the sharp rim round the nasal aperture, and the canine
+            // eminences beside it.
+            SdfFunc piriform = Sdf.MirrorX(Sdf.RoundCone(new Vector3(0.0135f, 1.626f, -0.091f), 0.0030f, new Vector3(0.0165f, 1.608f, -0.090f), 0.0032f));
+
+            SdfFunc skull = Sdf.SmoothUnion(0.011f, cranium, faceMass, cheekbones, zygomaticArch, browRidges, glabella, alveolar, mastoids, condyles, styloids,
+                nasalBridge, nasalSpine, piriform);
 
             // Openings. The orbits (socket, tapering into the depth of the skull),
             // the pear-shaped nasal aperture, the foramen magnum for the spinal cord,
             // and the ear canals.
             SdfFunc orbits = Sdf.MirrorX(Sdf.SmoothUnion(0.006f,
-                Sdf.Sphere(new Vector3(0.031f, 1.658f, -0.080f), 0.0215f),
-                Sdf.RoundCone(new Vector3(0.031f, 1.658f, -0.075f), 0.020f, new Vector3(0.024f, 1.655f, -0.042f), 0.008f)));
+                Sdf.Ellipsoid(new Vector3(0.036f, 1.657f, -0.080f), new Vector3(0.0215f, 0.0200f, 0.0215f)),
+                Sdf.RoundCone(new Vector3(0.036f, 1.658f, -0.075f), 0.020f, new Vector3(0.028f, 1.655f, -0.042f), 0.008f)));
             SdfFunc nasalAperture = Sdf.SmoothUnion(0.005f,
                 Sdf.Ellipsoid(new Vector3(0f, 1.628f, -0.092f), new Vector3(0.0115f, 0.020f, 0.020f)),
                 Sdf.Ellipsoid(new Vector3(0f, 1.612f, -0.092f), new Vector3(0.0145f, 0.012f, 0.018f)));
@@ -88,7 +97,9 @@ namespace HumanBodyExplorer.EditorTools.Geometry
 
             SdfFunc maxilla = Left(Sdf.Union(
                 Sdf.Intersect(Below(1.640f), InFrontOf(-0.028f), Sdf.HalfSpace(new Vector3(0.052f, 0f, 0f), Vector3.right)),
-                Sdf.Intersect(Below(1.665f), InFrontOf(-0.040f), Sdf.HalfSpace(new Vector3(0.026f, 0f, 0f), Vector3.right))));
+                // The frontal process climbs beside the nose to meet the frontal bone; it
+                // stops at the orbit's inner corner rather than running across the socket.
+                Sdf.Intersect(InFrontOf(-0.040f), Sdf.Capsule(new Vector3(0.011f, 1.640f, -0.084f), new Vector3(0.012f, 1.664f, -0.086f), 0.0075f))));
 
             SdfFunc sphenoid = Left(Sdf.Ellipsoid(new Vector3(0.063f, 1.643f, -0.030f), new Vector3(0.013f, 0.021f, 0.024f)));
 
@@ -99,7 +110,7 @@ namespace HumanBodyExplorer.EditorTools.Geometry
             // The coronal suture arches over the top from ear to ear, so the frontal
             // bone's back edge is a tilted plane, not a vertical one.
             var coronalNormal = new Vector3(0f, 0.28f, 0.96f).normalized;
-            SdfFunc frontal = Sdf.Intersect(Above(1.666f), Sdf.HalfSpace(new Vector3(0f, 1.742f, -0.012f), coronalNormal));
+            SdfFunc frontal = Sdf.Intersect(Above(1.648f), Sdf.HalfSpace(new Vector3(0f, 1.742f, -0.012f), coronalNormal));
 
             SdfFunc occipital = Sdf.Union(
                 Sdf.Ellipsoid(new Vector3(0f, 1.615f, 0.075f), new Vector3(0.078f, 0.070f, 0.060f)),
@@ -152,27 +163,32 @@ namespace HumanBodyExplorer.EditorTools.Geometry
         private static void BuildMandible(Transform root, Material bone, int layer)
         {
             // Body: the U of the jaw from chin to angle, thickest at the chin.
-            SdfFunc body = Sdf.Chain(new[]
+            SdfFunc bodyPath = Sdf.Chain(new[]
             {
-                new Vector3(0.000f, 1.536f, -0.082f), new Vector3(0.020f, 1.538f, -0.079f), new Vector3(0.038f, 1.546f, -0.066f),
-                new Vector3(0.050f, 1.556f, -0.044f), new Vector3(0.056f, 1.564f, -0.016f), new Vector3(0.057f, 1.566f, 0.006f),
+                new Vector3(0.000f, 1.546f, -0.082f), new Vector3(0.020f, 1.547f, -0.079f), new Vector3(0.038f, 1.553f, -0.066f),
+                new Vector3(0.050f, 1.558f, -0.044f), new Vector3(0.058f, 1.564f, -0.016f), new Vector3(0.061f, 1.567f, 0.006f),
             }, new[] { 0.0115f, 0.0105f, 0.0098f, 0.0095f, 0.0092f, 0.0100f }, 0.004f);
+            // A jaw is tall and thin, not round: stretch the body vertically about the
+            // tooth line so it is about 3 cm deep at the chin.
+            SdfFunc body = q => bodyPath(new Vector3(q.x, 1.575f + (q.y - 1.575f) / 1.4f, q.z));
 
             // Ramus: the broad plate rising to the jaw joint, with the coronoid
-            // process in front and the condyle behind the mandibular notch.
-            SdfFunc ramus = Sdf.Ellipsoid(new Vector3(0.056f, 1.592f, 0.000f), new Vector3(0.0045f, 0.030f, 0.017f));
-            SdfFunc coronoid = Sdf.RoundCone(new Vector3(0.053f, 1.590f, -0.020f), 0.0055f, new Vector3(0.051f, 1.633f, -0.027f), 0.0040f);
-            SdfFunc condyle = Sdf.Ellipsoid(new Vector3(0.056f, 1.628f, 0.010f), new Vector3(0.010f, 0.005f, 0.006f));
-            SdfFunc neck = Sdf.RoundCone(new Vector3(0.056f, 1.600f, 0.008f), 0.0050f, new Vector3(0.056f, 1.626f, 0.010f), 0.0040f);
-            SdfFunc chin = Sdf.Ellipsoid(new Vector3(0f, 1.543f, -0.083f), new Vector3(0.016f, 0.010f, 0.007f));
+            // process in front and the condyle behind the mandibular notch. It stands
+            // medial to the zygomatic arch but outside the braincase wall.
+            SdfFunc ramus = Sdf.Ellipsoid(new Vector3(0.064f, 1.592f, 0.001f), new Vector3(0.0055f, 0.031f, 0.019f));
+            SdfFunc angle = Sdf.Sphere(new Vector3(0.063f, 1.565f, 0.013f), 0.0085f);
+            SdfFunc coronoid = Sdf.RoundCone(new Vector3(0.062f, 1.590f, -0.020f), 0.0060f, new Vector3(0.060f, 1.634f, -0.027f), 0.0042f);
+            SdfFunc condyle = Sdf.Ellipsoid(new Vector3(0.064f, 1.630f, 0.012f), new Vector3(0.0095f, 0.0055f, 0.0065f));
+            SdfFunc neck = Sdf.RoundCone(new Vector3(0.064f, 1.600f, 0.010f), 0.0055f, new Vector3(0.064f, 1.626f, 0.012f), 0.0042f);
+            SdfFunc chin = Sdf.Ellipsoid(new Vector3(0f, 1.532f, -0.084f), new Vector3(0.017f, 0.011f, 0.007f));
 
-            SdfFunc mandible = Sdf.SmoothUnion(0.008f, body, Sdf.MirrorX(Sdf.SmoothUnion(0.006f, ramus, coronoid, condyle, neck)), chin);
+            SdfFunc mandible = Sdf.SmoothUnion(0.008f, body, Sdf.MirrorX(Sdf.SmoothUnion(0.006f, ramus, angle, coronoid, condyle, neck)), chin);
             // Mirror the whole body so the two halves meet at the symphysis.
             mandible = Sdf.SmoothUnion(0.006f, mandible, Sdf.MirrorX(body));
 
             PartFactory.Add(root, "Mandible", "SYS_SK_MANDIBLE",
                 PartFactory.Save(SurfaceNets.Build(mandible,
-                    new Vector3(-0.075f, 1.520f, -0.100f), new Vector3(0.075f, 1.650f, 0.030f), 0.0014f, "Mandible"), "Mandible"), bone, layer);
+                    new Vector3(-0.082f, 1.500f, -0.100f), new Vector3(0.082f, 1.650f, 0.034f), 0.0014f, "Mandible"), "Mandible"), bone, layer);
         }
 
         /// <summary>Sixteen teeth per arch: 4 incisors, 2 canines, 4 premolars, 6 molars.
@@ -192,9 +208,9 @@ namespace HumanBodyExplorer.EditorTools.Geometry
                         float theta = (0.10f + k * 0.175f) * side;
                         Vector3 c = new Vector3(a * Mathf.Sin(theta), y + heightSign * heights[k] * 0.4f, zCentre - b * Mathf.Cos(theta));
                         Quaternion facing = Quaternion.Euler(0f, theta * Mathf.Rad2Deg, 0f);
-                        teeth.Add(Sdf.Ellipsoid(c, new Vector3(widths[k] * 0.5f * scale, heights[k] * 0.5f * scale, widths[k] * 0.42f * scale), facing));
+                        teeth.Add(Sdf.Ellipsoid(c, new Vector3(widths[k] * 0.70f * scale, heights[k] * 0.5f * scale, widths[k] * 0.44f * scale), facing));
                     }
-                return Sdf.Union(teeth.ToArray());
+                return Sdf.SmoothUnion(0.0012f, teeth.ToArray());
             }
 
             SdfFunc upper = Arch(1.5675f, -0.038f, 0.031f, 0.046f, -1f, 1f);

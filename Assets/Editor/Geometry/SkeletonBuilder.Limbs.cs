@@ -59,7 +59,7 @@ namespace HumanBodyExplorer.EditorTools.Geometry
             var notch = new Vector3(0.064f, 0.884f, 0.040f);
             const float t = 0.0036f;
 
-            SdfFunc wing = Sdf.SmoothUnion(0.007f,
+            SdfFunc wing = Sdf.SmoothUnion(0.011f,
                 Sdf.TrianglePlate(roof, psis, crestBack, t),
                 Sdf.TrianglePlate(roof, crestBack, crestMid, t),
                 Sdf.TrianglePlate(roof, crestMid, asis, t),
@@ -130,7 +130,7 @@ namespace HumanBodyExplorer.EditorTools.Geometry
                 float u = i / (float)(slices - 1);
                 float y = Mathf.Lerp(0.964f, 0.838f, u);
                 float z = Mathf.Lerp(0.064f, 0.080f, Mathf.Sin(u * Mathf.PI * 0.5f));   // curves backward as it descends
-                float halfWidth = Mathf.Lerp(0.052f, 0.014f, Mathf.Pow(u, 0.85f));
+                float halfWidth = Mathf.Lerp(0.047f, 0.014f, Mathf.Pow(u, 0.85f));
                 float thickness = Mathf.Lerp(0.024f, 0.013f, u);
                 parts.Add(Sdf.Ellipsoid(new Vector3(0f, y, z), new Vector3(halfWidth, 0.0115f, thickness)));
             }
@@ -141,7 +141,7 @@ namespace HumanBodyExplorer.EditorTools.Geometry
             }
 
             // Alae: the upper sacrum's lateral wings; the median sacral crest behind.
-            parts.Add(Sdf.MirrorX(Sdf.Ellipsoid(new Vector3(0.050f, 0.958f, 0.064f), new Vector3(0.024f, 0.017f, 0.021f))));
+            parts.Add(Sdf.MirrorX(Sdf.Ellipsoid(new Vector3(0.042f, 0.958f, 0.064f), new Vector3(0.020f, 0.017f, 0.021f))));
             parts.Add(Sdf.Chain(
                 new[] { new Vector3(0f, 0.962f, 0.086f), new Vector3(0f, 0.895f, 0.099f), new Vector3(0f, 0.846f, 0.094f) },
                 new[] { 0.006f, 0.005f, 0.004f }, 0.004f));
@@ -176,17 +176,24 @@ namespace HumanBodyExplorer.EditorTools.Geometry
             // The blade is a thin triangular sheet lying on the back of the ribcage,
             // angled about 30 degrees out of the coronal plane.
             var superiorAngle = new Vector3(0.058f, 1.430f, 0.079f);
-            var inferiorAngle = new Vector3(0.068f, 1.285f, 0.089f);
-            var lateralBorder = new Vector3(0.132f, 1.318f, 0.052f);
-            var glenoidNeck = new Vector3(0.150f, 1.372f, 0.034f);
+            var inferiorAngle = new Vector3(0.070f, 1.283f, 0.089f);
+            var axillaryMid = new Vector3(0.120f, 1.322f, 0.060f);     // the lateral border bows outward
+            var glenoidNeck = new Vector3(0.150f, 1.372f, 0.0398f);    // sampled before the blade is curved below
             const float t = 0.0028f;
 
-            SdfFunc blade = Sdf.QuadPlate(superiorAngle, inferiorAngle, lateralBorder, glenoidNeck, t);
+            // A triangle: wide at the top, narrowing to the inferior angle.
+            SdfFunc blade = Sdf.SmoothUnion(0.004f,
+                Sdf.TrianglePlate(superiorAngle, inferiorAngle, axillaryMid, t),
+                Sdf.TrianglePlate(superiorAngle, axillaryMid, glenoidNeck, t));
             // Thickened borders: the medial and lateral edges are where the bone is stiff.
             SdfFunc borders = Sdf.Union(
                 Sdf.Capsule(superiorAngle, inferiorAngle, 0.0034f),
-                Sdf.Capsule(inferiorAngle, lateralBorder, 0.0040f),
-                Sdf.Capsule(lateralBorder, glenoidNeck, 0.0050f));
+                Sdf.Chain(new[] { inferiorAngle, axillaryMid, glenoidNeck }, new[] { 0.0042f, 0.0046f, 0.0052f }, 0.003f),
+                Sdf.Sphere(inferiorAngle, 0.0058f));
+            // The blade is dished to sit on the curve of the ribcage: its lateral edge
+            // swings forward around the chest.
+            SdfFunc flatBlade = Sdf.SmoothUnion(0.004f, blade, borders);
+            SdfFunc curvedBlade = q => flatBlade(new Vector3(q.x, q.y, q.z + 1.6f * (q.x - 0.09f) * (q.x - 0.09f)));
 
             // Spine of the scapula: a fin of bone standing up from the back of the blade,
             // running out and up over the shoulder as the acromion. It is a plate on
@@ -195,7 +202,7 @@ namespace HumanBodyExplorer.EditorTools.Geometry
             var finMedial = new Vector3(0.0605f, 1.394f, 0.0815f);
             var finLateral = new Vector3(0.146f, 1.418f, 0.048f);
             var crestLateral = new Vector3(0.150f, 1.424f, 0.066f);
-            var crestMedial = new Vector3(0.0615f, 1.401f, 0.1015f);
+            var crestMedial = new Vector3(0.0625f, 1.399f, 0.0885f);   // the spine grows out of the blade: low at the root
             var acromionTop = new Vector3(0.176f, 1.431f, 0.036f);
             var acromionBottom = new Vector3(0.172f, 1.417f, 0.028f);
             SdfFunc spine = Sdf.SmoothUnion(0.005f,
@@ -214,7 +221,7 @@ namespace HumanBodyExplorer.EditorTools.Geometry
             var glenoid = new Vector3(0.161f, 1.383f, 0.024f);
             SdfFunc glenoidBody = Sdf.Ellipsoid(glenoid, new Vector3(0.0095f, 0.020f, 0.0145f));
 
-            SdfFunc scapula = Sdf.SmoothUnion(0.006f, blade, borders, spine, coracoid, glenoidBody);
+            SdfFunc scapula = Sdf.SmoothUnion(0.006f, curvedBlade, spine, coracoid, glenoidBody);
             scapula = Sdf.Subtract(scapula, Sdf.Sphere(glenoid + new Vector3(0.0225f, 0f, 0f), 0.0225f));
 
             PartFactory.BoundsOf(out var min, out var max, 0.02f, superiorAngle, inferiorAngle, acromionTop, crestMedial,
