@@ -57,7 +57,7 @@ namespace HumanBodyExplorer.UI
         private AudioClip _correctClip;
         private AudioClip _wrongClip;
         public QuizController QuizController => _quizController;
-        private const string DefaultInfoText = "Click on a body part to learn what it does.";
+        private const string DefaultInfoText = "Point at a part to see its name; click to isolate it and read about it. Esc or empty space clears; H toggles ghosting.";
 
         private IEnumerator Start()
         {

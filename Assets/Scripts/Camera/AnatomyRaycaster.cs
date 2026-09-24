@@ -31,6 +31,10 @@ namespace HumanBodyExplorer.CameraSystem
 
         public static event Action<string> OnNodeSelected;
 
+        /// <summary>A click that found no structure at all - empty space around the figure - so
+        /// whatever was selected can be let go.</summary>
+        public static event Action OnNothingSelected;
+
         /// <summary>Every distinct anatomy id along the ray, nearest first. The quiz
         /// scores against this rather than the single frontmost hit, so a structure
         /// that sits behind skin, muscle or bone is still answerable by clicking over
@@ -63,7 +67,11 @@ namespace HumanBodyExplorer.CameraSystem
         public bool TryRaycast(Ray ray)
         {
             int hitCount = Physics.RaycastNonAlloc(ray, _resultsBuffer, maxDistance, anatomyLayerMask);
-            if (hitCount <= 0) return false;
+            if (hitCount <= 0)
+            {
+                OnNothingSelected?.Invoke();
+                return false;
+            }
 
             Array.Sort(_resultsBuffer, 0, hitCount, DistanceComparer.Instance);
 
@@ -100,7 +108,11 @@ namespace HumanBodyExplorer.CameraSystem
             selectedId ??= seeThroughFallbackId;
             OnNodesUnderCursor?.Invoke(_idsUnderCursor);
 
-            if (selectedId == null) return false;
+            if (selectedId == null)
+            {
+                OnNothingSelected?.Invoke();
+                return false;
+            }
 
             OnNodeSelected?.Invoke(selectedId);
             return true;

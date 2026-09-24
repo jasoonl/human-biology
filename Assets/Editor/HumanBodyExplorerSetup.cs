@@ -601,6 +601,7 @@ namespace HumanBodyExplorer.EditorTools
             RemoveIfExists("ExplorerCanvas");
             RemoveIfExists("ExplorerUIController");
             RemoveIfExists("AnatomyPartFeedback");
+            RemoveIfExists("AnatomyHighlighter");
 
             EnsureEventSystem();
 
@@ -618,7 +619,7 @@ namespace HumanBodyExplorer.EditorTools
             var infoPanel = CreatePanel(canvasGO.transform, "InfoPanel",
                 anchorMin: new Vector2(1, 0), anchorMax: new Vector2(1, 0),
                 pivot: new Vector2(1, 0), anchoredPos: new Vector2(-30, 30), size: new Vector2(780, 430));
-            var infoText = CreateText(infoPanel.transform, "InfoText", "Click on a body part to learn what it does.", 20);
+            var infoText = CreateText(infoPanel.transform, "InfoText", "Point at a part to see its name; click to isolate it and read about it. Esc or empty space clears; H toggles ghosting.", 20);
             StretchToParent(infoText.rectTransform, padding: 20);
             infoText.alignment = TextAlignmentOptions.TopLeft;
 
@@ -788,6 +789,14 @@ namespace HumanBodyExplorer.EditorTools
             var serializedFeedback = new SerializedObject(feedback);
             serializedFeedback.FindProperty("explorerUI").objectReferenceValue = controller;
             serializedFeedback.ApplyModifiedPropertiesWithoutUndo();
+
+            // Hover tint, name tooltip and select-to-isolate highlighting.
+            var highlighterGO = new GameObject("AnatomyHighlighter", typeof(AnatomyHighlighter));
+            var serializedHighlighter = new SerializedObject(highlighterGO.GetComponent<AnatomyHighlighter>());
+            serializedHighlighter.FindProperty("explorerUI").objectReferenceValue = controller;
+            serializedHighlighter.FindProperty("sourceCamera").objectReferenceValue = mainCameraGO.GetComponent<Camera>();
+            serializedHighlighter.FindProperty("layerVisibility").objectReferenceValue = layerVisibility;
+            serializedHighlighter.ApplyModifiedPropertiesWithoutUndo();
         }
 
         /// <summary>

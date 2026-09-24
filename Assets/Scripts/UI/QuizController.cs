@@ -34,6 +34,10 @@ namespace HumanBodyExplorer.UI
         /// clicked part - lets the scene flash green/red feedback on the 3D figure.</summary>
         public event Action<string, bool> OnPartFeedback;
 
+        /// <summary>True while a question is open and waiting for a click. Anything that would
+        /// reveal names - hover tooltips, highlights - must stay quiet during this.</summary>
+        public bool IsQuestionActive => _currentExpectedNodeId != null;
+
         public ScoreManager Score => _scoreManager;
         public float TimeRemaining => _timeRemaining;
         public float QuestionTimeSeconds => questionTimeSeconds;

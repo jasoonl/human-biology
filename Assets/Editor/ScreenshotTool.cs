@@ -164,6 +164,56 @@ namespace HumanBodyExplorer.EditorTools
         }
 
         /// <summary>
+        /// Renders the scene as it looks once a structure is selected: applies the highlighter's
+        /// isolate effect for <c>-id</c> (through the same code the running app uses) and shoots it
+        /// from <c>-target x,y,z</c> at <c>-distance</c> metres, optionally as hover (<c>-hover</c>).
+        /// </summary>
+        [MenuItem("Human Body Explorer/Capture Selection Highlight")]
+        public static void CaptureHighlight()
+        {
+            string outDir = ArgValue("-outDir") ?? Path.Combine(Application.dataPath, "../Temp/Screenshots");
+            Directory.CreateDirectory(outDir);
+            string id = ArgValue("-id") ?? "SYS_CV_AORTIC_ARCH";
+            float distance = float.TryParse(ArgValue("-distance"), out float d) ? d : 1.2f;
+            Vector3 target = new Vector3(0f, 1.3f, 0f);
+            string targetArg = ArgValue("-target");
+            if (targetArg != null)
+            {
+                var parts = targetArg.Split(',');
+                if (parts.Length == 3) target = new Vector3(float.Parse(parts[0]), float.Parse(parts[1]), float.Parse(parts[2]));
+            }
+
+            bool previousAsync = EditorSettings.asyncShaderCompilation;
+            EditorSettings.asyncShaderCompilation = false;
+            EditorSceneManager.OpenScene("Assets/Scenes/Bootstrap.unity");
+            var cam = GameObject.FindWithTag("MainCamera").GetComponent<Camera>();
+            var highlighter = UnityEngine.Object.FindAnyObjectByType<HumanBodyExplorer.UI.AnatomyHighlighter>();
+            if (highlighter == null) { Debug.LogError("[ScreenshotTool] No AnatomyHighlighter in the scene."); EditorApplication.Exit(1); return; }
+
+            // The highlighter caches its renderers a frame after Start; do that by hand, then select.
+            var type = typeof(HumanBodyExplorer.UI.AnatomyHighlighter);
+            const System.Reflection.BindingFlags flags = System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance;
+            type.GetMethod("CacheParts", flags).Invoke(highlighter, null);
+
+            Render(cam, Path.Combine(outDir, "_warmup.png"));
+            File.Delete(Path.Combine(outDir, "_warmup.png"));
+
+            var rotation = Quaternion.identity;
+            cam.transform.rotation = rotation;
+            cam.transform.position = target - rotation * Vector3.forward * distance;
+
+            Render(cam, Path.Combine(outDir, "highlight_none.png"));
+            type.GetMethod("Select", flags).Invoke(highlighter, new object[] { id });
+            Render(cam, Path.Combine(outDir, "highlight_selected.png"));
+            Debug.Log($"[ScreenshotTool] wrote highlight shots for {id}");
+
+            // Undo: the property blocks live on the scene's renderers.
+            type.GetMethod("Clear", flags).Invoke(highlighter, null);
+            EditorSettings.asyncShaderCompilation = previousAsync;
+            EditorApplication.Exit(0);
+        }
+
+        /// <summary>
         /// Renders one view several times with individual pieces of the render pipeline
         /// switched off, reporting the backdrop pixel each time. When something is
         /// tinting or darkening the whole frame, whichever toggle brings the value back
