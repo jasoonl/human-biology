@@ -13520,5 +13520,600 @@
     "hasMicroDive": false,
     "microDiveKey": "",
     "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_REP_M_TESTIS",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "N44.0",
+      "C62"
+    ],
+    "latinName": "Testis",
+    "commonName": "Testis (Testicle)",
+    "systemCategory": [
+      "Reproductive"
+    ],
+    "descriptionProfessional": "The paired male gonad, an oval organ about 4.5 cm long suspended in the scrotum by the spermatic cord. Within its lobules, coiled seminiferous tubules contain Sertoli cells and developing sperm (spermatogenesis takes about 74 days), and the interstitial (Leydig) cells between them make testosterone under the influence of LH.",
+    "descriptionPatient": "The organ that makes sperm and the male hormone testosterone. The two testicles hang outside the body in the scrotum.",
+    "apBiologyFacts": [
+      "Sperm production needs a temperature about 2 to 3 degrees Celsius below core body temperature, which is why the testes hang outside the body and are pulled closer or lowered by the cremaster and dartos muscles.",
+      "FSH acts on Sertoli cells to support sperm production while LH stimulates Leydig cells to secrete testosterone; both are controlled by GnRH from the hypothalamus, and testosterone feeds back to inhibit them (negative feedback)."
+    ],
+    "clinicalNotes": [
+      "Testicular torsion - twisting of the spermatic cord - is a surgical emergency causing sudden severe pain, and the testis may be lost within hours.",
+      "Testicular cancer is the most common cancer in young men and is usually found as a painless lump; it is highly curable."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.2,
+    "addressableMeshKey": "Mesh_SYS_REP_M_TESTIS_LOD0",
+    "audioTTSKey": "Audio_SYS_REP_M_TESTIS_Desc",
+    "connectedNodes": [
+      "SYS_REP_M_EPIDIDYMIS",
+      "SYS_REP_M_VAS_DEFERENS",
+      "SYS_ENDO_PITUITARY"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_REP_M_EPIDIDYMIS",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "N45.1",
+      "N50.8"
+    ],
+    "latinName": "Epididymis",
+    "commonName": "Epididymis",
+    "systemCategory": [
+      "Reproductive"
+    ],
+    "descriptionProfessional": "A tightly coiled tube, about 6 m long if uncoiled, lying on the back of each testis and divided into a head, body and tail. Sperm from the testis become motile and capable of fertilisation over about 12 days here, and are stored in the tail until ejaculation.",
+    "descriptionPatient": "A coiled tube on the back of each testicle where sperm finish maturing and wait until they are released.",
+    "apBiologyFacts": [
+      "Sperm leave the testis immature and unable to swim; they gain motility during their passage through the epididymis.",
+      "The epididymis empties into the vas deferens, so the route of sperm is: seminiferous tubules, epididymis, vas deferens, ejaculatory duct, urethra."
+    ],
+    "clinicalNotes": [
+      "Epididymitis - inflammation, often from a urinary or sexually transmitted infection - causes a painful swollen scrotum.",
+      "Scrotal ultrasound distinguishes epididymitis from torsion."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.15,
+    "addressableMeshKey": "Mesh_SYS_REP_M_EPIDIDYMIS_LOD0",
+    "audioTTSKey": "Audio_SYS_REP_M_EPIDIDYMIS_Desc",
+    "connectedNodes": [
+      "SYS_REP_M_TESTIS",
+      "SYS_REP_M_VAS_DEFERENS"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_REP_M_VAS_DEFERENS",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "Z30.2",
+      "Q55.4"
+    ],
+    "latinName": "Ductus deferens",
+    "commonName": "Vas Deferens",
+    "systemCategory": [
+      "Reproductive"
+    ],
+    "descriptionProfessional": "A thick-walled muscular tube about 45 cm long that carries sperm from the tail of the epididymis in the spermatic cord through the inguinal canal, over the ureter and behind the bladder, where its dilated end (the ampulla) joins the duct of the seminal vesicle to form the ejaculatory duct. Peristalsis of its smooth muscle propels sperm during ejaculation.",
+    "descriptionPatient": "The tube that carries sperm from each testicle up into the body toward the prostate.",
+    "apBiologyFacts": [
+      "Its wall is thick smooth muscle, which contracts in waves during ejaculation to force sperm forward.",
+      "Sperm make up only about 5 per cent of semen by volume; the rest is fluid added by the seminal vesicles, prostate and bulbourethral glands."
+    ],
+    "clinicalNotes": [
+      "Vasectomy - cutting or blocking the vas deferens - is a very effective form of permanent contraception that does not affect testosterone levels or ejaculation.",
+      "Congenital absence of the vas deferens is associated with cystic fibrosis."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.3,
+    "addressableMeshKey": "Mesh_SYS_REP_M_VAS_DEFERENS_LOD0",
+    "audioTTSKey": "Audio_SYS_REP_M_VAS_DEFERENS_Desc",
+    "connectedNodes": [
+      "SYS_REP_M_EPIDIDYMIS",
+      "SYS_REP_M_SEMINAL_VESICLE",
+      "SYS_REP_M_PROSTATE",
+      "SYS_REN_URETER",
+      "SYS_REN_BLADDER"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_REP_M_SEMINAL_VESICLE",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "N49.0",
+      "N50.1"
+    ],
+    "latinName": "Glandula vesiculosa (vesicula seminalis)",
+    "commonName": "Seminal Vesicle",
+    "systemCategory": [
+      "Reproductive"
+    ],
+    "descriptionProfessional": "A pair of coiled, lobulated glands lying behind the bladder, each about 5 cm long. They secrete a viscous, alkaline, fructose-rich fluid that forms about 60 per cent of the volume of semen and provides energy for sperm; each duct joins the vas deferens to form an ejaculatory duct.",
+    "descriptionPatient": "Two small glands behind the bladder that add a sugary fluid to semen to feed the sperm.",
+    "apBiologyFacts": [
+      "Fructose in the seminal fluid is the main energy source for sperm, which have no reserves of their own.",
+      "Their fluid also contains prostaglandins and clotting proteins that help sperm to move through the female tract."
+    ],
+    "clinicalNotes": [
+      "Infection of the seminal vesicles (vesiculitis) can cause blood in the semen.",
+      "Prostate cancer commonly spreads to the seminal vesicles."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.25,
+    "addressableMeshKey": "Mesh_SYS_REP_M_SEMINAL_VESICLE_LOD0",
+    "audioTTSKey": "Audio_SYS_REP_M_SEMINAL_VESICLE_Desc",
+    "connectedNodes": [
+      "SYS_REP_M_VAS_DEFERENS",
+      "SYS_REP_M_PROSTATE",
+      "SYS_REN_BLADDER"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_REP_M_PROSTATE",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "N40",
+      "C61",
+      "N41.0"
+    ],
+    "latinName": "Prostata",
+    "commonName": "Prostate Gland",
+    "systemCategory": [
+      "Reproductive"
+    ],
+    "descriptionProfessional": "A walnut-sized gland about 3 cm long, weighing around 20 g, that surrounds the prostatic urethra just below the bladder neck. It secretes a thin, milky, slightly acidic fluid, containing citrate, zinc and prostate-specific antigen (PSA), that makes up about a third of semen and keeps it liquefied.",
+    "descriptionPatient": "A walnut-sized gland below the bladder that adds fluid to semen.",
+    "apBiologyFacts": [
+      "Because the prostate encircles the urethra, an enlarged prostate squeezes it and makes urination difficult.",
+      "PSA, a protease made by the prostate, breaks down the clot formed by seminal vesicle proteins so sperm can swim freely."
+    ],
+    "clinicalNotes": [
+      "Benign prostatic hyperplasia is very common after age 50 and causes a weak stream, hesitancy and getting up at night to urinate.",
+      "Prostate cancer is the most common cancer in men; screening uses PSA and digital rectal examination, since the gland lies against the front of the rectum."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.25,
+    "addressableMeshKey": "Mesh_SYS_REP_M_PROSTATE_LOD0",
+    "audioTTSKey": "Audio_SYS_REP_M_PROSTATE_Desc",
+    "connectedNodes": [
+      "SYS_REP_M_URETHRA",
+      "SYS_REP_M_SEMINAL_VESICLE",
+      "SYS_REN_BLADDER",
+      "SYS_DIG_RECTUM"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_REP_M_BULBOURETHRAL_GLAND",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "N34.2"
+    ],
+    "latinName": "Glandula bulbourethralis",
+    "commonName": "Bulbourethral (Cowper's) Gland",
+    "systemCategory": [
+      "Reproductive"
+    ],
+    "descriptionProfessional": "A pair of pea-sized glands in the deep perineal pouch, whose ducts open into the bulbous part of the urethra. Before ejaculation they secrete a clear, alkaline mucus that lubricates the urethra and neutralises traces of acidic urine.",
+    "descriptionPatient": "Two pea-sized glands that release a clear lubricating fluid before ejaculation.",
+    "apBiologyFacts": [
+      "The fluid clears the urethra of acidic urine, which would harm sperm.",
+      "The three accessory glands - seminal vesicles, prostate and bulbourethral glands - together make up semen's fluid."
+    ],
+    "clinicalNotes": [
+      "Cowperitis - infection of these glands - is rare, but they can be affected by urethral infection.",
+      "They are the smallest of the male accessory glands."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.2,
+    "addressableMeshKey": "Mesh_SYS_REP_M_BULBOURETHRAL_GLAND_LOD0",
+    "audioTTSKey": "Audio_SYS_REP_M_BULBOURETHRAL_GLAND_Desc",
+    "connectedNodes": [
+      "SYS_REP_M_URETHRA",
+      "SYS_REP_M_PROSTATE",
+      "SYS_REP_M_PENIS_SPONGIOSUM"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_REP_M_URETHRA",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "N34",
+      "N35"
+    ],
+    "latinName": "Urethra masculina",
+    "commonName": "Male Urethra",
+    "systemCategory": [
+      "Reproductive"
+    ],
+    "descriptionProfessional": "A tube about 20 cm long from the bladder neck to the tip of the penis, in four parts: preprostatic, prostatic (receiving the ejaculatory ducts and prostatic ducts), membranous (passing through the urogenital diaphragm, surrounded by the external urethral sphincter) and spongy (penile). It carries urine and, in ejaculation, semen - never both at once, because the internal sphincter closes the bladder neck.",
+    "descriptionPatient": "The tube that carries urine, and at other times semen, out through the penis.",
+    "apBiologyFacts": [
+      "In ejaculation the internal urethral sphincter contracts, so semen cannot flow back into the bladder and urine cannot mix with it.",
+      "The urethra is much longer in men than women, which is one reason urinary tract infections are less common in men."
+    ],
+    "clinicalNotes": [
+      "Urethral strictures from injury or infection narrow the tube and slow the stream.",
+      "Gonorrhoea and chlamydia commonly cause urethritis, with discharge and painful urination."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.3,
+    "addressableMeshKey": "Mesh_SYS_REP_M_URETHRA_LOD0",
+    "audioTTSKey": "Audio_SYS_REP_M_URETHRA_Desc",
+    "connectedNodes": [
+      "SYS_REP_M_PROSTATE",
+      "SYS_REP_M_PENIS_SPONGIOSUM",
+      "SYS_REN_BLADDER"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_REP_M_PENIS_CAVERNOSA",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "N52",
+      "N48.6"
+    ],
+    "latinName": "Corpora cavernosa penis",
+    "commonName": "Corpora Cavernosa of the Penis",
+    "systemCategory": [
+      "Reproductive"
+    ],
+    "descriptionProfessional": "Two parallel columns of erectile tissue forming the dorsal part of the penile shaft, their bases (crura) attached to the ischiopubic rami. Each is a sponge of blood spaces enclosed by the tough tunica albuginea; in erection parasympathetic nerves relax the arteries and smooth muscle, blood floods the spaces and the veins are compressed, stiffening the penis.",
+    "descriptionPatient": "The two columns of spongy tissue in the penis that fill with blood to make it stiff in an erection.",
+    "apBiologyFacts": [
+      "Erection is a parasympathetic response (nitric oxide relaxes smooth muscle, letting arteries widen), whereas ejaculation is sympathetic, and orgasm is controlled by both.",
+      "The tunica albuginea traps the blood and compresses the draining veins, so the pressure rises and the penis becomes rigid."
+    ],
+    "clinicalNotes": [
+      "Erectile dysfunction is common and often reflects vascular disease; PDE5 inhibitors such as sildenafil enhance nitric oxide signalling.",
+      "Peyronie's disease - fibrous plaques in the tunica albuginea - causes a curved, painful erection."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.25,
+    "addressableMeshKey": "Mesh_SYS_REP_M_PENIS_CAVERNOSA_LOD0",
+    "audioTTSKey": "Audio_SYS_REP_M_PENIS_CAVERNOSA_Desc",
+    "connectedNodes": [
+      "SYS_REP_M_PENIS_SPONGIOSUM",
+      "SYS_NERV_PUDENDAL",
+      "SYS_SK_PELVIS"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_REP_M_PENIS_SPONGIOSUM",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "Q54",
+      "N47"
+    ],
+    "latinName": "Corpus spongiosum penis et glans",
+    "commonName": "Corpus Spongiosum and Glans Penis",
+    "systemCategory": [
+      "Reproductive"
+    ],
+    "descriptionProfessional": "A single column of erectile tissue lying ventral to the corpora cavernosa, expanded proximally as the bulb of the penis and distally as the glans, and enclosing the spongy urethra. It has a thinner tunica and stays softer in erection, so the urethra remains open for ejaculation.",
+    "descriptionPatient": "The column of soft spongy tissue underneath that surrounds the urethra and forms the head of the penis.",
+    "apBiologyFacts": [
+      "It fills less firmly than the corpora cavernosa, so the urethra it surrounds is not squeezed shut during erection.",
+      "The glans is richly supplied with sensory nerve endings from the dorsal nerve of the penis, a branch of the pudendal nerve."
+    ],
+    "clinicalNotes": [
+      "Circumcision removes the foreskin, the fold of skin covering the glans.",
+      "Hypospadias is a congenital opening of the urethra on the underside of the penis."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.25,
+    "addressableMeshKey": "Mesh_SYS_REP_M_PENIS_SPONGIOSUM_LOD0",
+    "audioTTSKey": "Audio_SYS_REP_M_PENIS_SPONGIOSUM_Desc",
+    "connectedNodes": [
+      "SYS_REP_M_PENIS_CAVERNOSA",
+      "SYS_REP_M_URETHRA",
+      "SYS_REP_M_BULBOURETHRAL_GLAND"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_REP_F_UTERUS",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "D25",
+      "N85",
+      "C54"
+    ],
+    "latinName": "Uterus",
+    "commonName": "Uterus (Womb)",
+    "systemCategory": [
+      "Reproductive"
+    ],
+    "descriptionProfessional": "A thick-walled, pear-shaped muscular organ about 7.5 cm long in the pelvis between the bladder and rectum, usually tipped forward (anteverted). It has a fundus, body and cervix, and a wall of three layers: the outer perimetrium, the thick smooth-muscle myometrium and the inner endometrium. It holds and nourishes the embryo and fetus and expels it in labour; the broad ligaments and round ligaments support it.",
+    "descriptionPatient": "The muscular organ in the pelvis where a baby grows during pregnancy.",
+    "apBiologyFacts": [
+      "The myometrium can grow several-fold in pregnancy and contracts powerfully in labour under the influence of oxytocin from the posterior pituitary.",
+      "The uterus is normally the size of a pear but at term can hold a baby of 3 to 4 kg, the placenta and fluid."
+    ],
+    "clinicalNotes": [
+      "Fibroids (leiomyomas) are benign muscle tumours and a common cause of heavy periods.",
+      "Hysterectomy, removal of the uterus, is one of the commonest gynaecological operations."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.3,
+    "addressableMeshKey": "Mesh_SYS_REP_F_UTERUS_LOD0",
+    "audioTTSKey": "Audio_SYS_REP_F_UTERUS_Desc",
+    "connectedNodes": [
+      "SYS_REP_F_ENDOMETRIUM",
+      "SYS_REP_F_CERVIX",
+      "SYS_REP_F_FALLOPIAN_TUBE",
+      "SYS_REN_BLADDER",
+      "SYS_DIG_RECTUM"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_REP_F_ENDOMETRIUM",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "N80",
+      "C54.1",
+      "N92"
+    ],
+    "latinName": "Endometrium",
+    "commonName": "Endometrium (Uterine Lining)",
+    "systemCategory": [
+      "Reproductive"
+    ],
+    "descriptionProfessional": "The mucous membrane lining the uterine cavity, made of a glandular epithelium and a vascular stroma. Its functional layer thickens under oestrogen (proliferative phase) and progesterone (secretory phase) each cycle to prepare for implantation, and is shed as menstruation if no embryo implants; the basal layer regenerates it.",
+    "descriptionPatient": "The lining of the womb that thickens every month to prepare for a pregnancy, and is shed as a period if there is none.",
+    "apBiologyFacts": [
+      "The menstrual cycle is driven by hormones: FSH from the pituitary grows a follicle in the ovary, oestrogen rebuilds the lining, ovulation follows an LH surge, and progesterone from the corpus luteum maintains it.",
+      "If pregnancy occurs, the embryo secretes hCG, which keeps the corpus luteum making progesterone so the lining is not shed."
+    ],
+    "clinicalNotes": [
+      "Endometriosis is endometrial tissue growing outside the uterus, causing pelvic pain and infertility.",
+      "Postmenopausal bleeding requires investigation for endometrial cancer."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.2,
+    "addressableMeshKey": "Mesh_SYS_REP_F_ENDOMETRIUM_LOD0",
+    "audioTTSKey": "Audio_SYS_REP_F_ENDOMETRIUM_Desc",
+    "connectedNodes": [
+      "SYS_REP_F_UTERUS",
+      "SYS_REP_F_OVARY",
+      "SYS_ENDO_PITUITARY"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_REP_F_CERVIX",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "C53",
+      "N87",
+      "O34.3"
+    ],
+    "latinName": "Cervix uteri",
+    "commonName": "Cervix",
+    "systemCategory": [
+      "Reproductive"
+    ],
+    "descriptionProfessional": "The narrow, cylindrical lower part of the uterus, about 3 cm long, projecting into the upper vagina. Its canal (endocervical canal) is lined by mucus-secreting glandular epithelium and opens through the external os; mucus thins around ovulation to let sperm through and forms a plug in pregnancy.",
+    "descriptionPatient": "The narrow lower end of the womb that opens into the vagina. It stays closed during pregnancy and opens wide during birth.",
+    "apBiologyFacts": [
+      "The cervix must dilate to about 10 cm for a baby's head to pass in labour, aided by prostaglandins and pressure from the fetal head.",
+      "The junction of its two types of epithelium, the transformation zone, is where cervical cancer arises."
+    ],
+    "clinicalNotes": [
+      "Cervical cancer, caused by persistent human papillomavirus (HPV) infection, is largely preventable by HPV vaccination and by screening with Pap smears.",
+      "Cervical weakness can cause second-trimester pregnancy loss."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.2,
+    "addressableMeshKey": "Mesh_SYS_REP_F_CERVIX_LOD0",
+    "audioTTSKey": "Audio_SYS_REP_F_CERVIX_Desc",
+    "connectedNodes": [
+      "SYS_REP_F_UTERUS",
+      "SYS_REP_F_VAGINA"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_REP_F_VAGINA",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "N76",
+      "B37.3",
+      "N89"
+    ],
+    "latinName": "Vagina",
+    "commonName": "Vagina",
+    "systemCategory": [
+      "Reproductive"
+    ],
+    "descriptionProfessional": "A distensible fibromuscular tube about 8 to 10 cm long from the cervix to the vestibule of the vulva, lying between the bladder and urethra in front and the rectum behind. Its stratified squamous lining is folded into rugae and, colonised by lactobacilli that keep its pH acidic, resists infection. It is the birth canal and the receptacle for the penis in intercourse.",
+    "descriptionPatient": "The muscular canal that connects the outside of the body to the womb; it is the passage for menstrual flow and for a baby in birth.",
+    "apBiologyFacts": [
+      "Lactobacilli convert glycogen in the vaginal lining to lactic acid, keeping the pH around 4, which protects against infection.",
+      "The vagina stretches greatly in childbirth because its wall is elastic and folded into rugae."
+    ],
+    "clinicalNotes": [
+      "Vaginal infections such as candidiasis and bacterial vaginosis are common and disturb the normal flora.",
+      "The posterior fornix is close to the peritoneal cavity, allowing fluid to be sampled by culdocentesis."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.25,
+    "addressableMeshKey": "Mesh_SYS_REP_F_VAGINA_LOD0",
+    "audioTTSKey": "Audio_SYS_REP_F_VAGINA_Desc",
+    "connectedNodes": [
+      "SYS_REP_F_CERVIX",
+      "SYS_REN_BLADDER",
+      "SYS_DIG_RECTUM",
+      "SYS_NERV_PUDENDAL"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_REP_F_FALLOPIAN_TUBE",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "O00.1",
+      "N97.1",
+      "Z30.2"
+    ],
+    "latinName": "Tuba uterina",
+    "commonName": "Fallopian (Uterine) Tube",
+    "systemCategory": [
+      "Reproductive"
+    ],
+    "descriptionProfessional": "A muscular tube about 10 cm long on each side, running in the free edge of the broad ligament from the uterine cornu to the ovary. It has four parts - interstitial, isthmus, ampulla and infundibulum with its finger-like fimbriae - and is lined by ciliated and secretory cells. Fertilisation normally occurs in the ampulla; cilia and peristalsis carry the embryo to the uterus over about 3 to 5 days.",
+    "descriptionPatient": "A tube on each side that carries an egg from the ovary to the womb. It is where fertilisation usually happens.",
+    "apBiologyFacts": [
+      "The egg is picked up by the fimbriae and moved along by cilia and muscle contractions, since the egg cannot move by itself.",
+      "Fertilisation happens within about 24 hours of ovulation, in the ampulla, and the early embryo takes several days to reach the uterus."
+    ],
+    "clinicalNotes": [
+      "An ectopic pregnancy - most often in a fallopian tube - is a life-threatening emergency if the tube ruptures.",
+      "Tubal ligation is a permanent form of contraception, and blocked tubes from infection are a cause of infertility."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.25,
+    "addressableMeshKey": "Mesh_SYS_REP_F_FALLOPIAN_TUBE_LOD0",
+    "audioTTSKey": "Audio_SYS_REP_F_FALLOPIAN_TUBE_Desc",
+    "connectedNodes": [
+      "SYS_REP_F_OVARY",
+      "SYS_REP_F_UTERUS"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_REP_F_OVARY",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "E28.2",
+      "C56",
+      "N83"
+    ],
+    "latinName": "Ovarium",
+    "commonName": "Ovary",
+    "systemCategory": [
+      "Reproductive"
+    ],
+    "descriptionProfessional": "The paired female gonad, an almond-shaped organ about 3 cm long lying in the ovarian fossa on the lateral pelvic wall. Its cortex contains follicles at all stages of development, from about 1 to 2 million at birth (fewer than 400,000 by puberty), and its stroma makes oestrogen and progesterone. Each cycle one follicle ovulates and becomes the corpus luteum.",
+    "descriptionPatient": "The organ that stores egg cells, releases about one each month and makes the female hormones oestrogen and progesterone.",
+    "apBiologyFacts": [
+      "A girl is born with all the primary oocytes she will ever have, arrested in prophase of meiosis I; meiosis resumes for one at each ovulation and completes only if the egg is fertilised.",
+      "After ovulation the empty follicle becomes the corpus luteum, which secretes progesterone."
+    ],
+    "clinicalNotes": [
+      "Polycystic ovary syndrome is a common hormonal condition with irregular cycles, excess androgens and many small follicles.",
+      "Ovarian cancer often presents late because the ovaries lie deep in the pelvis; ovarian torsion causes sudden severe pain."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.25,
+    "addressableMeshKey": "Mesh_SYS_REP_F_OVARY_LOD0",
+    "audioTTSKey": "Audio_SYS_REP_F_OVARY_Desc",
+    "connectedNodes": [
+      "SYS_REP_F_FALLOPIAN_TUBE",
+      "SYS_REP_F_UTERUS",
+      "SYS_CV_ILIAC_INT",
+      "SYS_ENDO_PITUITARY"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
   }
 ]

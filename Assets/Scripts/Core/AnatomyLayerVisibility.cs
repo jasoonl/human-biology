@@ -12,7 +12,8 @@ namespace HumanBodyExplorer.Core
         Skeletal,
         Organs,
         Circulatory,
-        Nervous
+        Nervous,
+        Reproductive
     }
 
     /// <summary>
@@ -31,7 +32,8 @@ namespace HumanBodyExplorer.Core
             AnatomyLayerGroup.Skeletal,
             AnatomyLayerGroup.Organs,
             AnatomyLayerGroup.Circulatory,
-            AnatomyLayerGroup.Nervous
+            AnatomyLayerGroup.Nervous,
+            AnatomyLayerGroup.Reproductive
         };
 
         private readonly Dictionary<AnatomyLayerGroup, List<GameObject>> _members =
@@ -40,6 +42,28 @@ namespace HumanBodyExplorer.Core
             new Dictionary<AnatomyLayerGroup, bool>();
 
         public event Action OnVisibilityChanged;
+
+        /// <summary>The reproductive layer holds two anatomies that share one space, so only one is shown at a
+        /// time. Male structures carry the id prefix SYS_REP_M_, female SYS_REP_F_.</summary>
+        public enum ReproductiveSex { Male, Female }
+        public ReproductiveSex Sex { get; private set; } = ReproductiveSex.Male;
+
+        public void SetSex(ReproductiveSex sex)
+        {
+            Sex = sex;
+            Apply(AnatomyLayerGroup.Reproductive);
+            OnVisibilityChanged?.Invoke();
+        }
+
+        public void ToggleSex() => SetSex(Sex == ReproductiveSex.Male ? ReproductiveSex.Female : ReproductiveSex.Male);
+
+        private bool MatchesSex(GameObject go)
+        {
+            var node = go.GetComponent<AnatomyNodeReference>();
+            if (node == null || string.IsNullOrEmpty(node.EntityId)) return true;
+            string prefix = Sex == ReproductiveSex.Male ? "SYS_REP_M_" : "SYS_REP_F_";
+            return node.EntityId.StartsWith(prefix, StringComparison.Ordinal);
+        }
 
         private void Start() => Rebuild();
 
@@ -51,6 +75,7 @@ namespace HumanBodyExplorer.Core
             if (entityId.StartsWith("SYS_MUSC_", StringComparison.Ordinal)) return AnatomyLayerGroup.Muscular;
             if (entityId.StartsWith("SYS_NERV_", StringComparison.Ordinal)) return AnatomyLayerGroup.Nervous;
             if (entityId.StartsWith("SYS_CV_", StringComparison.Ordinal)) return AnatomyLayerGroup.Circulatory;
+            if (entityId.StartsWith("SYS_REP_", StringComparison.Ordinal)) return AnatomyLayerGroup.Reproductive;
             return AnatomyLayerGroup.Organs;
         }
 
@@ -63,6 +88,7 @@ namespace HumanBodyExplorer.Core
                 case AnatomyLayerGroup.Skeletal: return "Skeleton";
                 case AnatomyLayerGroup.Organs: return "Organs";
                 case AnatomyLayerGroup.Circulatory: return "Vessels";
+                case AnatomyLayerGroup.Reproductive: return "Reproductive";
                 default: return "Nerves";
             }
         }
@@ -115,12 +141,13 @@ namespace HumanBodyExplorer.Core
             {
                 if (go == null) continue;
 
+                bool show = visible && (group != AnatomyLayerGroup.Reproductive || MatchesSex(go));
                 var partRenderer = go.GetComponent<Renderer>();
-                if (partRenderer != null) partRenderer.enabled = visible;
+                if (partRenderer != null) partRenderer.enabled = show;
 
                 // A hidden layer must not swallow clicks meant for what it was covering.
                 var partCollider = go.GetComponent<Collider>();
-                if (partCollider != null) partCollider.enabled = visible;
+                if (partCollider != null) partCollider.enabled = show;
             }
         }
     }

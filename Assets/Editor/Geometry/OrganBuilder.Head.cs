@@ -21,6 +21,7 @@ namespace HumanBodyExplorer.EditorTools.Geometry
             BuildInternals();
             BuildAirwayDetail();
             BuildJointsAndEar();
+            BuildReproductive();
         }
 
         // ---------------------------------------------------------------- brain

@@ -750,6 +750,20 @@ namespace HumanBodyExplorer.EditorTools
                 layerLabels[i] = label;
             }
 
+            // Which reproductive anatomy the Reproductive layer shows.
+            var sexButtonGO = new GameObject("ReproductiveSexButton", typeof(Image), typeof(Button));
+            sexButtonGO.transform.SetParent(canvasGO.transform, false);
+            var sexRect = sexButtonGO.GetComponent<RectTransform>();
+            sexRect.anchorMin = new Vector2(0, 1);
+            sexRect.anchorMax = new Vector2(0, 1);
+            sexRect.pivot = new Vector2(0, 1);
+            sexRect.anchoredPosition = new Vector2(30, -276 - layerGroups.Length * 46);
+            sexRect.sizeDelta = new Vector2(210, 40);
+            sexButtonGO.GetComponent<Image>().color = new Color(0.30f, 0.22f, 0.36f, 0.92f);
+            var sexText = CreateText(sexButtonGO.transform, "Text", "Reproductive: Male", 17);
+            StretchToParent(sexText.rectTransform, padding: 0);
+            sexText.alignment = TextAlignmentOptions.Center;
+
             // Wire the controller
             var controllerGO = new GameObject("ExplorerUIController", typeof(ExplorerUIController));
             var controller = controllerGO.GetComponent<ExplorerUIController>();
@@ -768,6 +782,8 @@ namespace HumanBodyExplorer.EditorTools
             serializedController.FindProperty("colorblindToggle").objectReferenceValue = WireColorblindToggle(controllerGO);
             serializedController.FindProperty("detailLevelText").objectReferenceValue = detailText;
             serializedController.FindProperty("detailLevelButton").objectReferenceValue = detailButtonGO.GetComponent<Button>();
+            serializedController.FindProperty("reproductiveSexButton").objectReferenceValue = sexButtonGO.GetComponent<Button>();
+            serializedController.FindProperty("reproductiveSexText").objectReferenceValue = sexText;
 
             var layerVisibility = controllerGO.GetComponent<AnatomyLayerVisibility>();
             if (layerVisibility == null) layerVisibility = controllerGO.AddComponent<AnatomyLayerVisibility>();

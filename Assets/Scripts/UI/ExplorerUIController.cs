@@ -36,6 +36,8 @@ namespace HumanBodyExplorer.UI
         [SerializeField] private AnatomyLayerVisibility layerVisibility;
         [SerializeField] private Button[] layerButtons;
         [SerializeField] private TMP_Text[] layerButtonLabels;
+        [SerializeField] private Button reproductiveSexButton;
+        [SerializeField] private TMP_Text reproductiveSexText;
 
         private enum DetailLevel { Plain = 0, ApBiology = 1, Clinical = 2 }
         private static readonly string[] DetailLevelLabels = { "Plain English", "AP Biology", "Clinical" };
@@ -45,7 +47,7 @@ namespace HumanBodyExplorer.UI
         private static readonly string[] SystemCategories =
         {
             "All", "Skeletal", "Muscular", "Cardiovascular", "Respiratory", "Digestive",
-            "Nervous", "Renal", "Endocrine", "Lymphatic", "Integumentary"
+            "Nervous", "Renal", "Endocrine", "Lymphatic", "Integumentary", "Sensory", "Reproductive"
         };
 
         private QuizController _quizController;
@@ -122,6 +124,14 @@ namespace HumanBodyExplorer.UI
                 if (layerButtons[i] != null) layerButtons[i].onClick.AddListener(() => ToggleLayer(group));
             }
 
+            if (reproductiveSexButton != null) reproductiveSexButton.onClick.AddListener(ToggleReproductiveSex);
+            RefreshLayerLabels();
+        }
+
+        private void ToggleReproductiveSex()
+        {
+            if (layerVisibility == null) return;
+            layerVisibility.ToggleSex();
             RefreshLayerLabels();
         }
 
@@ -134,6 +144,8 @@ namespace HumanBodyExplorer.UI
 
         private void RefreshLayerLabels()
         {
+            if (reproductiveSexText != null && layerVisibility != null)
+                reproductiveSexText.text = $"Reproductive: {layerVisibility.Sex}";
             if (layerButtonLabels == null) return;
 
             int count = Mathf.Min(layerButtonLabels.Length, AnatomyLayerVisibility.AllGroups.Length);

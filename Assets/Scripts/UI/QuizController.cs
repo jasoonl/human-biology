@@ -85,12 +85,24 @@ namespace HumanBodyExplorer.UI
             // scene. The dictionary describes structures (e.g. individual heart
             // chambers) that are not modelled as separately clickable parts, and
             // asking for one is an unanswerable question that can only time out.
-            var locatable = dueIds.FindAll(id => AnatomyNodeReference.GetByEntityId(id).Count > 0);
+            // Nor something that is hidden right now - a peeled-away layer, or the reproductive anatomy of the
+            // sex not being shown - since its collider is off and it can never be clicked.
+            var locatable = dueIds.FindAll(id => IsClickable(id));
             if (locatable.Count > 0) dueIds = locatable;
 
             _dueNodeQueue = new Queue<string>(dueIds);
             AnatomyRaycaster.OnNodesUnderCursor += HandleNodesUnderCursor;
             NextQuestion();
+        }
+
+        private static bool IsClickable(string id)
+        {
+            foreach (var node in AnatomyNodeReference.GetByEntityId(id))
+            {
+                var collider = node.GetComponent<Collider>();
+                if (collider == null || collider.enabled) return true;
+            }
+            return false;
         }
 
         private bool NodeIsInSystem(string nodeId, string systemCategory)

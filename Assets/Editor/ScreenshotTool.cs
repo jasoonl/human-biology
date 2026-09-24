@@ -34,6 +34,7 @@ namespace HumanBodyExplorer.EditorTools
             public float Pitch;
             public AnatomyLayerGroup[] Visible; // null = leave every layer on
             public float Fov;          // 0 = the camera's own
+            public int Sex;            // reproductive layer: 0 male, 1 female
         }
 
         private static readonly View[] Views =
@@ -97,6 +98,14 @@ namespace HumanBodyExplorer.EditorTools
                 Visible = new[] { AnatomyLayerGroup.Nervous } },
             new View { Name = "32_pelvis_vessels_bones", Target = new Vector3(0f, 0.92f, 0f), Distance = 0.9f, Fov = 30f,
                 Visible = new[] { AnatomyLayerGroup.Circulatory, AnatomyLayerGroup.Nervous, AnatomyLayerGroup.Skeletal } },
+            new View { Name = "40_repro_male", Target = new Vector3(0f, 0.84f, 0f), Distance = 0.9f, Fov = 30f, Sex = 0,
+                Visible = new[] { AnatomyLayerGroup.Reproductive } },
+            new View { Name = "41_repro_female", Target = new Vector3(0f, 0.9f, 0f), Distance = 0.9f, Fov = 30f, Sex = 1,
+                Visible = new[] { AnatomyLayerGroup.Reproductive, AnatomyLayerGroup.Skeletal } },
+            new View { Name = "42_repro_male_side", Target = new Vector3(0f, 0.82f, 0f), Distance = 0.8f, Fov = 30f, Yaw = 90f, Sex = 0,
+                Visible = new[] { AnatomyLayerGroup.Reproductive } },
+            new View { Name = "43_repro_female_side", Target = new Vector3(0f, 0.88f, 0f), Distance = 0.8f, Fov = 30f, Yaw = 90f, Sex = 1,
+                Visible = new[] { AnatomyLayerGroup.Reproductive, AnatomyLayerGroup.Organs } },
             new View { Name = "23_foot_vessels_nerves", Target = new Vector3(0.09f, 0.06f, -0.04f), Distance = 0.5f,
                 Visible = new[] { AnatomyLayerGroup.Circulatory, AnatomyLayerGroup.Nervous } },
         };
@@ -149,6 +158,7 @@ namespace HumanBodyExplorer.EditorTools
                 }
 
                 cam.fieldOfView = view.Fov > 0f ? view.Fov : defaultFov;
+                if (layers != null) layers.SetSex(view.Sex == 1 ? AnatomyLayerVisibility.ReproductiveSex.Female : AnatomyLayerVisibility.ReproductiveSex.Male);
                 var rotation = Quaternion.Euler(view.Pitch, view.Yaw, 0f);
                 // The figure faces -Z, so the default camera sits at -Z looking toward +Z.
                 cam.transform.rotation = rotation;

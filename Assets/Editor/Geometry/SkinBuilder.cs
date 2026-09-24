@@ -69,7 +69,13 @@ namespace HumanBodyExplorer.EditorTools.Geometry
                 Sdf.Ellipsoid(new Vector3(0.085f, 0.044f, -0.066f), new Vector3(0.0665f, 0.050f, 0.1600f)),      // foot
                 Sdf.Ellipsoid(new Vector3(0.084f, 0.028f, -0.168f), new Vector3(0.050f, 0.028f, 0.048f)));     // toes
 
-            return Sdf.SmoothUnion(0.035f, head, neck, torso, Sdf.MirrorX(arm), Sdf.MirrorX(leg));
+            // The figure's exterior is male, so the skin encloses the scrotum and the penis, which the male
+            // reproductive organs sit in. (The female organs, shown instead by the layer's sex switch, are internal.)
+            SdfFunc genitals = Sdf.SmoothUnion(0.012f,
+                Sdf.Ellipsoid(new Vector3(0f, 0.756f, -0.040f), new Vector3(0.040f, 0.040f, 0.033f)),
+                Sdf.RoundCone(new Vector3(0f, 0.792f, -0.056f), 0.0165f, new Vector3(0f, 0.734f, -0.092f), 0.0140f));
+
+            return Sdf.SmoothUnion(0.035f, head, neck, torso, Sdf.MirrorX(arm), Sdf.MirrorX(leg), genitals);
         }
 
         public static void Build(Transform root, Material skin, int layer)
