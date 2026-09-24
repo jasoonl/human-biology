@@ -95,7 +95,13 @@ namespace HumanBodyExplorer.EditorTools.Geometry
                 new[] { 0.0105f, 0.0095f, 0.0100f }, 0.004f);
             SdfFunc pubicBody = Sdf.Sphere(new Vector3(0.010f, 0.838f, -0.058f), 0.0125f);
 
-            SdfFunc joined = Sdf.SmoothUnion(0.008f, wing, crest, spines, acetabularBody, ischium, ischiopubicRamus, superiorRamus, pubicBody);
+            // The iliac wing is not flat: its outer (gluteal) face bulges outward in the middle and the front and back
+            // edges curve toward the midline, so the wing cups the abdominal contents like a shallow bowl. Bend the
+            // whole wing - plates, crest and spines together - by sampling it with an x that shifts with z squared.
+            SdfFunc flatWing = Sdf.SmoothUnion(0.006f, wing, crest, spines);
+            SdfFunc bentWing = q => flatWing(new Vector3(q.x + 1.7f * (q.z - 0.004f) * (q.z - 0.004f), q.y, q.z));
+
+            SdfFunc joined = Sdf.SmoothUnion(0.008f, bentWing, acetabularBody, ischium, ischiopubicRamus, superiorRamus, pubicBody);
             joined = Sdf.Union(joined, rim);
 
             // Cut the socket, and stop at the midline so the two hip bones meet at the

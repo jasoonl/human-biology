@@ -309,6 +309,14 @@ namespace HumanBodyExplorer.EditorTools.Geometry
             // Jugular notch: the dip at the top you can feel between the collarbones.
             sternum = Sdf.Subtract(sternum, Sdf.Sphere(new Vector3(0f, 1.440f, -0.052f), 0.0115f));
 
+            // Costal notches: the scalloped edges where the seven true ribs' cartilages meet the sternum, and the
+            // clavicular notches at the top corners of the manubrium.
+            for (int i = 0; i < 7; i++)
+                sternum = Sdf.SmoothSubtract(0.002f, sternum,
+                    Sdf.MirrorX(Sdf.Sphere(new Vector3(0.0185f, SternalAttach[i].x, SternalAttach[i].y), 0.0042f)));
+            sternum = Sdf.SmoothSubtract(0.002f, sternum, Sdf.MirrorX(Sdf.Sphere(new Vector3(0.032f, 1.426f, -0.060f), 0.0050f)));
+            sternum = Sdf.Displace(sternum, 0.0004f, 220f, 3);   // the pitted surface of bone
+
             PartFactory.BoundsOf(out var min, out var max, 0.012f, new Vector3(-0.04f, 1.205f, -0.12f), new Vector3(0.04f, 1.445f, -0.045f));
             PartFactory.Add(root, "Sternum", "SYS_SK_STERNUM",
                 PartFactory.Save(SurfaceNets.Build(sternum, min, max, 0.0016f, "Sternum"), "Sternum"), bone, layer);
