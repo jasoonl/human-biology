@@ -281,8 +281,8 @@ namespace HumanBodyExplorer.UI
             var shader = Shader.Find("HumanBodyExplorer/SkinShell");
             if (shader == null) return null;
             _ghost = new Material(shader) { name = "HighlightGhost", hideFlags = HideFlags.HideAndDontSave };
-            _ghost.SetFloat("_CenterAlpha", 0.035f);
-            _ghost.SetFloat("_EdgeAlpha", 0.42f);
+            _ghost.SetFloat("_CenterAlpha", 0.02f);
+            _ghost.SetFloat("_EdgeAlpha", 0.24f);
             _ghost.SetFloat("_FresnelPower", 2.0f);
             _ghost.SetFloat("_Ambient", 0.85f);
             return _ghost;

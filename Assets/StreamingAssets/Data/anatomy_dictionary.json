@@ -1679,7 +1679,8 @@
       "SYS_MUSC_VASTUS_LATERALIS",
       "SYS_MUSC_VASTUS_MEDIALIS",
       "SYS_SK_FEMUR",
-      "SYS_SK_TIBIA"
+      "SYS_SK_TIBIA",
+      "SYS_SK_ARTICULAR_CARTILAGE"
     ],
     "hasMicroDive": false,
     "microDiveKey": "",
@@ -8830,7 +8831,8 @@
     "audioTTSKey": "Audio_SYS_CV_VERTEBRAL_Desc",
     "connectedNodes": [
       "SYS_CV_SUBCLAVIAN",
-      "SYS_CV_BASILAR"
+      "SYS_CV_BASILAR",
+      "SYS_SK_VERT_CERVICAL"
     ],
     "hasMicroDive": false,
     "microDiveKey": "",
@@ -10593,7 +10595,8 @@
       "SYS_NERV_SPINALCORD",
       "SYS_NERV_CERVICAL_PLEXUS",
       "SYS_NERV_BRACHIAL_PLEXUS",
-      "SYS_NERV_PHRENIC"
+      "SYS_NERV_PHRENIC",
+      "SYS_SK_VERT_CERVICAL"
     ],
     "hasMicroDive": false,
     "microDiveKey": "",
@@ -10633,7 +10636,8 @@
     "connectedNodes": [
       "SYS_NERV_SPINALCORD",
       "SYS_NERV_INTERCOSTAL",
-      "SYS_NERV_SYMPATHETIC_TRUNK"
+      "SYS_NERV_SYMPATHETIC_TRUNK",
+      "SYS_SK_VERT_THORACIC"
     ],
     "hasMicroDive": false,
     "microDiveKey": "",
@@ -10673,7 +10677,8 @@
     "connectedNodes": [
       "SYS_NERV_LUMBAR_PLEXUS",
       "SYS_NERV_SACRAL_PLEXUS",
-      "SYS_NERV_CAUDA_EQUINA"
+      "SYS_NERV_CAUDA_EQUINA",
+      "SYS_SK_VERT_LUMBAR"
     ],
     "hasMicroDive": false,
     "microDiveKey": "",
@@ -10867,7 +10872,8 @@
     "audioTTSKey": "Audio_SYS_NERV_MUSCULOCUTANEOUS_Desc",
     "connectedNodes": [
       "SYS_NERV_BRACHIAL_PLEXUS",
-      "SYS_NERV_MEDIAN"
+      "SYS_NERV_MEDIAN",
+      "SYS_MUSC_BICEPS"
     ],
     "hasMicroDive": false,
     "microDiveKey": "",
@@ -11681,6 +11687,1835 @@
       "SYS_DIG_TONGUE",
       "SYS_NERV_VAGUS",
       "SYS_NERV_MEDULLA"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_CV_VALVE_AORTIC",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "I35.0",
+      "I35.1",
+      "Q23.1"
+    ],
+    "latinName": "Valva aortae",
+    "commonName": "Aortic Valve",
+    "systemCategory": [
+      "Cardiovascular"
+    ],
+    "descriptionProfessional": "The semilunar valve between the left ventricle and the ascending aorta, with three cusps (right, left and posterior). It opens as the ventricle contracts and closes as the ventricle relaxes, and the coronary arteries arise from the sinuses behind two of its cusps.",
+    "descriptionPatient": "The one-way door that lets blood leave the heart's main pumping chamber for the body and stops it flowing back.",
+    "apBiologyFacts": [
+      "The valve closing produces the second heart sound ('dub'), and it opens without any muscle of its own - purely because the pressure in the ventricle rises above that in the aorta.",
+      "The coronary arteries fill behind the closed cusps during diastole, which is why the heart is fed while it rests."
+    ],
+    "clinicalNotes": [
+      "Aortic stenosis - narrowing from calcification or a bicuspid valve - causes angina, fainting and heart failure and is treated by valve replacement.",
+      "Aortic regurgitation lets blood leak back and produces a diastolic murmur and a bounding pulse."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.15,
+    "addressableMeshKey": "Mesh_SYS_CV_VALVE_AORTIC_LOD0",
+    "audioTTSKey": "Audio_SYS_CV_VALVE_AORTIC_Desc",
+    "connectedNodes": [
+      "SYS_CV_HEART_LV",
+      "SYS_CV_AORTA_ASC",
+      "SYS_CV_VALVE_MITRAL"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_CV_VALVE_MITRAL",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "I34.0",
+      "I34.1",
+      "I05.0"
+    ],
+    "latinName": "Valva atrioventricularis sinistra (mitralis)",
+    "commonName": "Mitral (Bicuspid) Valve",
+    "systemCategory": [
+      "Cardiovascular"
+    ],
+    "descriptionProfessional": "The atrioventricular valve between the left atrium and left ventricle, the only heart valve with two leaflets (anterior and posterior). Chordae tendineae attach the leaflets' edges to the papillary muscles so they cannot be pushed back into the atrium during systole.",
+    "descriptionPatient": "The valve between the top and bottom chambers on the left side of the heart. Its two flaps look like a bishop's hat (a mitre), which gave it its name.",
+    "apBiologyFacts": [
+      "Its closure is the first heart sound ('lub'): the two atrioventricular valves close together at the start of ventricular contraction.",
+      "It is named mitral for its resemblance to a bishop's mitre; the right-hand equivalent, the tricuspid, has three leaflets."
+    ],
+    "clinicalNotes": [
+      "Mitral valve prolapse lets a leaflet bulge back into the atrium and produces a mid-systolic click; regurgitation and rheumatic stenosis are other common lesions.",
+      "Rheumatic fever historically caused mitral stenosis, giving a diastolic 'opening snap' and left atrial enlargement."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.15,
+    "addressableMeshKey": "Mesh_SYS_CV_VALVE_MITRAL_LOD0",
+    "audioTTSKey": "Audio_SYS_CV_VALVE_MITRAL_Desc",
+    "connectedNodes": [
+      "SYS_CV_HEART_LA",
+      "SYS_CV_HEART_LV",
+      "SYS_CV_PAPILLARY",
+      "SYS_CV_VALVE_AORTIC"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_CV_VALVE_TRICUSPID",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "I36.0",
+      "I36.1",
+      "Q22.5"
+    ],
+    "latinName": "Valva atrioventricularis dextra (tricuspidalis)",
+    "commonName": "Tricuspid Valve",
+    "systemCategory": [
+      "Cardiovascular"
+    ],
+    "descriptionProfessional": "The atrioventricular valve between the right atrium and right ventricle, with anterior, posterior and septal leaflets held by chordae tendineae to three papillary muscles.",
+    "descriptionPatient": "The valve between the top and bottom chambers on the right side of the heart, with three flaps.",
+    "apBiologyFacts": [
+      "Like the mitral valve it closes at the start of systole and contributes to the first heart sound.",
+      "The right side works at much lower pressure than the left, so its valves and walls are thinner."
+    ],
+    "clinicalNotes": [
+      "Tricuspid regurgitation, often from right ventricular enlargement, causes distended neck veins and an enlarged pulsatile liver.",
+      "Ebstein anomaly is a congenital downward displacement of the tricuspid leaflets."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.15,
+    "addressableMeshKey": "Mesh_SYS_CV_VALVE_TRICUSPID_LOD0",
+    "audioTTSKey": "Audio_SYS_CV_VALVE_TRICUSPID_Desc",
+    "connectedNodes": [
+      "SYS_CV_HEART_RA",
+      "SYS_CV_HEART_RV",
+      "SYS_CV_PAPILLARY",
+      "SYS_CV_SA_NODE",
+      "SYS_CV_AV_NODE"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_CV_VALVE_PULMONARY",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "I37.0",
+      "I37.1",
+      "Q22.1"
+    ],
+    "latinName": "Valva trunci pulmonalis",
+    "commonName": "Pulmonary Valve",
+    "systemCategory": [
+      "Cardiovascular"
+    ],
+    "descriptionProfessional": "The semilunar valve at the exit of the right ventricle into the pulmonary trunk, with three cusps (anterior, right and left). It is the most anterior of the four valves.",
+    "descriptionPatient": "The valve that lets blood leave the right side of the heart for the lungs.",
+    "apBiologyFacts": [
+      "It is the semilunar valve of the low-pressure circuit: it opens at a pressure of roughly 25 mmHg, compared with around 120 mmHg for the aortic valve.",
+      "Its cusps have no chordae tendineae; like the aortic valve it closes passively as the ventricle relaxes."
+    ],
+    "clinicalNotes": [
+      "Pulmonary stenosis is a common congenital valve lesion; in tetralogy of Fallot it is one of four defects.",
+      "In the Ross procedure the patient's own pulmonary valve is moved to replace a diseased aortic valve, and a donor valve takes its place."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.15,
+    "addressableMeshKey": "Mesh_SYS_CV_VALVE_PULMONARY_LOD0",
+    "audioTTSKey": "Audio_SYS_CV_VALVE_PULMONARY_Desc",
+    "connectedNodes": [
+      "SYS_CV_HEART_RV",
+      "SYS_CV_PULMONARY_ARTERY"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_CV_SEPTUM",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "Q21.0",
+      "I23.2"
+    ],
+    "latinName": "Septum interventriculare",
+    "commonName": "Interventricular Septum",
+    "systemCategory": [
+      "Cardiovascular"
+    ],
+    "descriptionProfessional": "The wall between the right and left ventricles, mostly muscular but with a thin membranous part just below the aortic valve. It bulges into the right ventricle because the left ventricle works at much higher pressure, and it carries the bundle branches of the conduction system.",
+    "descriptionPatient": "The muscular wall that divides the heart's two main pumping chambers so oxygen-rich and oxygen-poor blood never mix.",
+    "apBiologyFacts": [
+      "It is what keeps the pulmonary and systemic circulations separate after birth; before birth blood bypassed the lungs through openings that then close.",
+      "Its thickness, like the left ventricle's, reflects the pressure it works against."
+    ],
+    "clinicalNotes": [
+      "A ventricular septal defect is the most common congenital heart defect, and causes a loud pansystolic murmur.",
+      "Septal rupture after a myocardial infarction is a rare but catastrophic complication."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.2,
+    "addressableMeshKey": "Mesh_SYS_CV_SEPTUM_LOD0",
+    "audioTTSKey": "Audio_SYS_CV_SEPTUM_Desc",
+    "connectedNodes": [
+      "SYS_CV_HEART_LV",
+      "SYS_CV_HEART_RV",
+      "SYS_CV_HIS_PURKINJE",
+      "SYS_CV_CORONARY_LAD"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_CV_PAPILLARY",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "I51.2",
+      "I34.1"
+    ],
+    "latinName": "Musculi papillares et chordae tendineae",
+    "commonName": "Papillary Muscles and Chordae Tendineae",
+    "systemCategory": [
+      "Cardiovascular"
+    ],
+    "descriptionProfessional": "Conical muscles projecting from the ventricular walls whose tips give off fine tendinous cords (chordae tendineae) to the edges of the mitral and tricuspid leaflets. They contract with the ventricle, tightening the cords so the leaflets meet and stay closed rather than everting into the atria.",
+    "descriptionPatient": "Small muscles inside the pumping chambers with thin strings attached to the valve flaps, stopping them from flipping backwards.",
+    "apBiologyFacts": [
+      "They contract just before the rest of the ventricle so the valve leaflets are held shut as pressure builds.",
+      "The strings are strong collagen, like a parachute's rigging holding the canopy."
+    ],
+    "clinicalNotes": [
+      "A papillary muscle can rupture after a heart attack, causing sudden severe mitral regurgitation.",
+      "Chordal rupture from myxomatous degeneration causes a flail leaflet."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.15,
+    "addressableMeshKey": "Mesh_SYS_CV_PAPILLARY_LOD0",
+    "audioTTSKey": "Audio_SYS_CV_PAPILLARY_Desc",
+    "connectedNodes": [
+      "SYS_CV_VALVE_MITRAL",
+      "SYS_CV_VALVE_TRICUSPID",
+      "SYS_CV_HEART_LV"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_CV_SA_NODE",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "I49.5",
+      "I48"
+    ],
+    "latinName": "Nodus sinuatrialis",
+    "commonName": "Sinoatrial (SA) Node",
+    "systemCategory": [
+      "Cardiovascular"
+    ],
+    "descriptionProfessional": "The heart's natural pacemaker: a small crescent of specialised cardiac muscle at the junction of the superior vena cava and right atrium that spontaneously depolarises at about 60 to 100 beats per minute. It is supplied by the sinoatrial nodal artery, a branch of the right coronary artery in most people.",
+    "descriptionPatient": "A tiny patch of special muscle in the top of the right side of the heart that sets the pace of your heartbeat.",
+    "apBiologyFacts": [
+      "Its cells depolarise on their own because of a slow 'funny' current, so the heart beats without any nerve signal; the vagus nerve slows it and the sympathetic nerves speed it up.",
+      "If the SA node fails, the AV node (about 40 to 60 beats per minute) takes over as backup pacemaker."
+    ],
+    "clinicalNotes": [
+      "Sick sinus syndrome causes slow heart rates and pauses and is treated with a pacemaker.",
+      "Atrial fibrillation is a chaotic atrial rhythm in which the SA node is no longer in control."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.12,
+    "addressableMeshKey": "Mesh_SYS_CV_SA_NODE_LOD0",
+    "audioTTSKey": "Audio_SYS_CV_SA_NODE_Desc",
+    "connectedNodes": [
+      "SYS_CV_AV_NODE",
+      "SYS_CV_HEART_RA",
+      "SYS_CV_SVC",
+      "SYS_CV_CORONARY_RCA"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_CV_AV_NODE",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "I44.0",
+      "I44.1",
+      "I44.2"
+    ],
+    "latinName": "Nodus atrioventricularis",
+    "commonName": "Atrioventricular (AV) Node",
+    "systemCategory": [
+      "Cardiovascular"
+    ],
+    "descriptionProfessional": "A small mass of specialised muscle in the septum near the opening of the coronary sinus, at the base of the right atrium. It receives the impulse from the atria and delays it by about a tenth of a second before passing it to the bundle of His, allowing the ventricles to fill before they contract.",
+    "descriptionPatient": "A relay station in the middle of the heart that briefly holds the electrical signal so the bottom chambers fill before they squeeze.",
+    "apBiologyFacts": [
+      "The delay comes from the AV node's small, slowly conducting cells - and also makes it the only normal electrical link between atria and ventricles, since fibrous tissue insulates the rest.",
+      "It sets the PR interval on the ECG."
+    ],
+    "clinicalNotes": [
+      "Heart block occurs when conduction through the AV node fails - first degree (delay), second degree (some beats dropped) or complete.",
+      "Drugs such as beta-blockers and verapamil slow AV nodal conduction to control the rate in atrial fibrillation."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.12,
+    "addressableMeshKey": "Mesh_SYS_CV_AV_NODE_LOD0",
+    "audioTTSKey": "Audio_SYS_CV_AV_NODE_Desc",
+    "connectedNodes": [
+      "SYS_CV_SA_NODE",
+      "SYS_CV_HIS_PURKINJE",
+      "SYS_CV_SEPTUM"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_CV_HIS_PURKINJE",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "I44.4",
+      "I44.5",
+      "I45.1"
+    ],
+    "latinName": "Fasciculus atrioventricularis et rami subendocardiales",
+    "commonName": "Bundle of His and Purkinje Fibres",
+    "systemCategory": [
+      "Cardiovascular"
+    ],
+    "descriptionProfessional": "The ventricular conduction pathway: the bundle of His runs from the AV node through the fibrous skeleton into the septum and divides into right and left bundle branches, which spread as Purkinje fibres through the subendocardium to activate the ventricular muscle from the apex upward.",
+    "descriptionPatient": "The heart's wiring below the relay station, which carries the signal quickly down to the tip of the heart so the whole pumping chamber squeezes together from the bottom up.",
+    "apBiologyFacts": [
+      "Purkinje fibres conduct faster than any other cardiac tissue, so the ventricles contract almost together, wringing blood upward toward the outflow valves.",
+      "Ventricular activation produces the QRS complex on the ECG."
+    ],
+    "clinicalNotes": [
+      "Bundle branch block widens the QRS complex and is common with heart disease.",
+      "Cardiac resynchronisation pacing coordinates the ventricles when conduction is delayed."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.15,
+    "addressableMeshKey": "Mesh_SYS_CV_HIS_PURKINJE_LOD0",
+    "audioTTSKey": "Audio_SYS_CV_HIS_PURKINJE_Desc",
+    "connectedNodes": [
+      "SYS_CV_AV_NODE",
+      "SYS_CV_SEPTUM",
+      "SYS_CV_HEART_LV",
+      "SYS_CV_HEART_RV"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_DIG_BILE_DUCTS",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "K80.5",
+      "K83.0",
+      "K83.1"
+    ],
+    "latinName": "Ductus biliferi",
+    "commonName": "Bile Ducts",
+    "systemCategory": [
+      "Digestive"
+    ],
+    "descriptionProfessional": "The tubes that carry bile: the right and left hepatic ducts leave the liver and join as the common hepatic duct, which is joined by the cystic duct from the gallbladder to form the common bile duct. That runs behind the duodenum and, with the pancreatic duct, opens at the major duodenal papilla under the sphincter of Oddi.",
+    "descriptionPatient": "The small tubes that carry bile from the liver and gallbladder into the first part of the small intestine.",
+    "apBiologyFacts": [
+      "Bile emulsifies fat, breaking large droplets into small ones that pancreatic lipase can digest - it contains no digestive enzymes itself.",
+      "The gallbladder concentrates and stores bile between meals, releasing it when the hormone cholecystokinin signals that fat has entered the duodenum."
+    ],
+    "clinicalNotes": [
+      "Gallstones lodged in the common bile duct cause obstructive jaundice (yellow skin, pale stools, dark urine) and can inflame the pancreas.",
+      "Cholangitis - infection of a blocked bile duct - is a medical emergency (Charcot's triad: fever, jaundice, right upper quadrant pain)."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.2,
+    "addressableMeshKey": "Mesh_SYS_DIG_BILE_DUCTS_LOD0",
+    "audioTTSKey": "Audio_SYS_DIG_BILE_DUCTS_Desc",
+    "connectedNodes": [
+      "SYS_DIG_LIVER",
+      "SYS_DIG_GALLBLADDER",
+      "SYS_DIG_DUODENUM",
+      "SYS_DIG_PANCREATIC_DUCT"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_DIG_PANCREATIC_DUCT",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "K85",
+      "K86.1",
+      "C25.0"
+    ],
+    "latinName": "Ductus pancreaticus",
+    "commonName": "Pancreatic Duct",
+    "systemCategory": [
+      "Digestive"
+    ],
+    "descriptionProfessional": "The main duct of the pancreas, running the length of the gland from the tail to the head, collecting digestive enzymes from its exocrine acini and usually joining the common bile duct at the ampulla of Vater to open into the duodenum.",
+    "descriptionPatient": "The tube that carries digestive juices from the pancreas into the small intestine.",
+    "apBiologyFacts": [
+      "The pancreas is two organs in one: exocrine tissue makes the enzymes that travel down this duct, while the islets of Langerhans make insulin and glucagon and release them into the blood instead.",
+      "Enzymes are made as inactive precursors that are only switched on in the duodenum, so the pancreas does not digest itself."
+    ],
+    "clinicalNotes": [
+      "A gallstone blocking the shared opening is a common cause of acute pancreatitis.",
+      "Pancreatic cancer in the head of the gland can obstruct both ducts, causing painless jaundice."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.2,
+    "addressableMeshKey": "Mesh_SYS_DIG_PANCREATIC_DUCT_LOD0",
+    "audioTTSKey": "Audio_SYS_DIG_PANCREATIC_DUCT_Desc",
+    "connectedNodes": [
+      "SYS_DIG_PANCREAS",
+      "SYS_DIG_BILE_DUCTS",
+      "SYS_DIG_DUODENUM"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_DIG_PHARYNX",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "J02.9",
+      "R13.1"
+    ],
+    "latinName": "Pharynx",
+    "commonName": "Pharynx (Throat)",
+    "systemCategory": [
+      "Digestive"
+    ],
+    "descriptionProfessional": "The muscular funnel behind the nose, mouth and larynx, about 13 cm long, divided into the nasopharynx, oropharynx and laryngopharynx. Air and food share the pharynx before the airway and the oesophagus diverge; the constrictor muscles drive swallowing.",
+    "descriptionPatient": "The throat: the muscular tube behind the nose and mouth that carries both air and food.",
+    "apBiologyFacts": [
+      "Swallowing is a reflex coordinated by the brainstem: the soft palate rises, the larynx lifts under the epiglottis and the pharyngeal constrictors push the food down.",
+      "The shared pathway is why we can choke, an unusual design compared with animals that breathe through a separate route."
+    ],
+    "clinicalNotes": [
+      "Pharyngitis, often viral or streptococcal, is one of the most common reasons to see a doctor.",
+      "Dysphagia after stroke can cause food to enter the airway (aspiration) and pneumonia."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.2,
+    "addressableMeshKey": "Mesh_SYS_DIG_PHARYNX_LOD0",
+    "audioTTSKey": "Audio_SYS_DIG_PHARYNX_Desc",
+    "connectedNodes": [
+      "SYS_DIG_ESOPHAGUS",
+      "SYS_RESP_LARYNX",
+      "SYS_LYMPH_TONSILS",
+      "SYS_DIG_TONGUE"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_DIG_PALATE",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "J39.2",
+      "G47.33"
+    ],
+    "latinName": "Palatum molle et uvula",
+    "commonName": "Soft Palate and Uvula",
+    "systemCategory": [
+      "Digestive"
+    ],
+    "descriptionProfessional": "The muscular, mobile posterior part of the roof of the mouth behind the bony hard palate, ending in the midline uvula. During swallowing it lifts against the back of the pharynx to seal the nasopharynx so food does not enter the nose.",
+    "descriptionPatient": "The soft back part of the roof of your mouth, ending in the little dangling tip called the uvula.",
+    "apBiologyFacts": [
+      "Lifting the soft palate seals off the nose, which is why the voice changes when it is raised or lowered - and why food can go up your nose if you laugh while swallowing.",
+      "It is supplied by the vagus and glossopharyngeal nerves, which form the two limbs of the gag reflex."
+    ],
+    "clinicalNotes": [
+      "A deviated uvula points away from the side of a peritonsillar abscess or a vagal nerve palsy.",
+      "Obstructive sleep apnoea involves collapse of the soft palate and pharynx during sleep."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.2,
+    "addressableMeshKey": "Mesh_SYS_DIG_PALATE_LOD0",
+    "audioTTSKey": "Audio_SYS_DIG_PALATE_Desc",
+    "connectedNodes": [
+      "SYS_DIG_PHARYNX",
+      "SYS_DIG_TONGUE",
+      "SYS_LYMPH_TONSILS"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_ENDO_PINEAL",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "E34.8",
+      "D35.4"
+    ],
+    "latinName": "Glandula pinealis",
+    "commonName": "Pineal Gland",
+    "systemCategory": [
+      "Endocrine"
+    ],
+    "descriptionProfessional": "A small cone-shaped endocrine gland about 8 mm long attached to the roof of the third ventricle behind the thalami. It receives information about light and dark from the retina by a sympathetic pathway and secretes melatonin, which promotes sleep, chiefly at night.",
+    "descriptionPatient": "A pea-sized gland deep in the brain that makes melatonin, the hormone that tells your body it is night-time.",
+    "apBiologyFacts": [
+      "Melatonin secretion rises in darkness and is suppressed by light, so the pineal gland helps set the body's circadian rhythm.",
+      "In adults the pineal often calcifies, which makes it a visible midline landmark on skull X-rays and CT scans."
+    ],
+    "clinicalNotes": [
+      "A shift of a calcified pineal gland from the midline indicates a mass effect on the brain.",
+      "Melatonin supplements are used for jet lag and some sleep disorders."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.12,
+    "addressableMeshKey": "Mesh_SYS_ENDO_PINEAL_LOD0",
+    "audioTTSKey": "Audio_SYS_ENDO_PINEAL_Desc",
+    "connectedNodes": [
+      "SYS_NERV_THALAMUS",
+      "SYS_ENDO_PITUITARY",
+      "SYS_NERV_VENTRICLES"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_LYMPH_TONSILS",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "J03.9",
+      "J35.0",
+      "J35.2"
+    ],
+    "latinName": "Tonsillae",
+    "commonName": "Tonsils and Adenoids",
+    "systemCategory": [
+      "Lymphatic"
+    ],
+    "descriptionProfessional": "Aggregations of lymphoid tissue in the wall of the pharynx forming Waldeyer's ring: the paired palatine tonsils between the palatal arches, the pharyngeal tonsil (adenoids) on the roof of the nasopharynx and the lingual tonsil at the tongue's base.",
+    "descriptionPatient": "Patches of immune tissue at the back of the throat that catch germs entering through the mouth and nose.",
+    "apBiologyFacts": [
+      "They are strategically placed at the entrance of both the digestive and respiratory tracts, where they sample inhaled and swallowed antigens.",
+      "They are largest in childhood and shrink after puberty."
+    ],
+    "clinicalNotes": [
+      "Tonsillitis is a common infection, and recurrent cases may lead to tonsillectomy.",
+      "Enlarged adenoids can block the nose and eustachian tubes, causing mouth breathing and middle-ear infections in children."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.2,
+    "addressableMeshKey": "Mesh_SYS_LYMPH_TONSILS_LOD0",
+    "audioTTSKey": "Audio_SYS_LYMPH_TONSILS_Desc",
+    "connectedNodes": [
+      "SYS_DIG_PHARYNX",
+      "SYS_LYMPH_NODES",
+      "SYS_DIG_TONGUE"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_NERV_CORPUS_CALLOSUM",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "Q04.0",
+      "G40.9"
+    ],
+    "latinName": "Corpus callosum",
+    "commonName": "Corpus Callosum",
+    "systemCategory": [
+      "Nervous"
+    ],
+    "descriptionProfessional": "The largest white-matter tract of the brain, a thick arch of some 200 million myelinated axons connecting the two cerebral hemispheres. From front to back it is divided into the rostrum, genu, body and splenium.",
+    "descriptionPatient": "A thick band of nerve fibres that lets the left and right halves of your brain communicate.",
+    "apBiologyFacts": [
+      "Because the left hemisphere controls the right side of the body and vice versa, this tract is what allows the two sides to coordinate.",
+      "Roger Sperry's studies of 'split-brain' patients whose callosum was cut showed that the two hemispheres can hold separate streams of information."
+    ],
+    "clinicalNotes": [
+      "Callosotomy severs it to stop the spread of seizures in severe epilepsy.",
+      "Agenesis of the corpus callosum is a congenital absence that may be silent or cause developmental problems."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.2,
+    "addressableMeshKey": "Mesh_SYS_NERV_CORPUS_CALLOSUM_LOD0",
+    "audioTTSKey": "Audio_SYS_NERV_CORPUS_CALLOSUM_Desc",
+    "connectedNodes": [
+      "SYS_NERV_VENTRICLES",
+      "SYS_NERV_FRONTAL_LOBE",
+      "SYS_NERV_OCCIPITAL_LOBE",
+      "SYS_NERV_THALAMUS"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_NERV_VENTRICLES",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "G91",
+      "G03.9"
+    ],
+    "latinName": "Ventriculi cerebri",
+    "commonName": "Ventricles of the Brain",
+    "systemCategory": [
+      "Nervous"
+    ],
+    "descriptionProfessional": "A connected system of CSF-filled cavities: two lateral ventricles (frontal, body, atrium, occipital and temporal horns) that open through the interventricular foramina into the slit-like third ventricle, which drains via the cerebral aqueduct into the fourth ventricle in the hindbrain. The choroid plexus in them secretes about 500 mL of cerebrospinal fluid a day.",
+    "descriptionPatient": "Hollow spaces inside the brain filled with a clear fluid that cushions and nourishes it.",
+    "apBiologyFacts": [
+      "CSF is made in the ventricles by the choroid plexus, flows through them into the space around the brain and is absorbed back into the blood through arachnoid granulations.",
+      "The brain floats in CSF, which lessens its effective weight from about 1400 g to about 50 g."
+    ],
+    "clinicalNotes": [
+      "Hydrocephalus - too much CSF from blocked flow or poor absorption - enlarges the ventricles and is treated by a shunt.",
+      "A lumbar puncture samples CSF to diagnose meningitis or subarachnoid haemorrhage."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.25,
+    "addressableMeshKey": "Mesh_SYS_NERV_VENTRICLES_LOD0",
+    "audioTTSKey": "Audio_SYS_NERV_VENTRICLES_Desc",
+    "connectedNodes": [
+      "SYS_NERV_CORPUS_CALLOSUM",
+      "SYS_NERV_THALAMUS",
+      "SYS_NERV_BASAL_GANGLIA",
+      "SYS_NERV_CEREBELLUM",
+      "SYS_NERV_PONS"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_NERV_THALAMUS",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "I63.5",
+      "G93.89"
+    ],
+    "latinName": "Thalamus",
+    "commonName": "Thalamus",
+    "systemCategory": [
+      "Nervous"
+    ],
+    "descriptionProfessional": "A pair of egg-shaped grey-matter masses on either side of the third ventricle that relay almost all sensory information (except smell) to the cerebral cortex and take part in motor control, alertness and consciousness. It is divided into nuclei, such as the lateral geniculate (vision) and medial geniculate (hearing).",
+    "descriptionPatient": "The brain's switchboard: nearly everything you sense passes through it on the way to the outer layer of your brain.",
+    "apBiologyFacts": [
+      "Smell is the one sense that reaches the cortex without first being relayed through the thalamus.",
+      "The thalamus also filters what reaches conscious awareness, letting you ignore constant background stimuli."
+    ],
+    "clinicalNotes": [
+      "A thalamic stroke causes loss of sensation on the opposite side and sometimes severe 'thalamic pain'.",
+      "Damage to the thalamus is implicated in disorders of consciousness and some tremors."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.2,
+    "addressableMeshKey": "Mesh_SYS_NERV_THALAMUS_LOD0",
+    "audioTTSKey": "Audio_SYS_NERV_THALAMUS_Desc",
+    "connectedNodes": [
+      "SYS_NERV_VENTRICLES",
+      "SYS_NERV_HYPOTHALAMUS",
+      "SYS_NERV_BASAL_GANGLIA",
+      "SYS_NERV_OPTIC",
+      "SYS_ENDO_PINEAL"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_NERV_HYPOTHALAMUS",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "E23.3",
+      "E23.2"
+    ],
+    "latinName": "Hypothalamus",
+    "commonName": "Hypothalamus",
+    "systemCategory": [
+      "Nervous"
+    ],
+    "descriptionProfessional": "A small region of the diencephalon below the thalamus, forming the floor and lower walls of the third ventricle. It regulates body temperature, hunger, thirst, sleep and circadian rhythm, and links the nervous and endocrine systems by controlling the pituitary gland through releasing hormones and by making oxytocin and ADH.",
+    "descriptionPatient": "A small part of the brain that acts as the body's thermostat and control centre for hunger, thirst and sleep, and tells the pituitary gland what to do.",
+    "apBiologyFacts": [
+      "It is the main link between the nervous and endocrine systems: neurons here secrete releasing hormones into the portal blood supply of the anterior pituitary.",
+      "Its temperature-sensing neurons act as a thermostat set near 37 degrees Celsius."
+    ],
+    "clinicalNotes": [
+      "Hypothalamic damage can disturb temperature control, appetite, sleep and water balance (diabetes insipidus).",
+      "Fever resets the hypothalamic set point upward via prostaglandin E2."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.15,
+    "addressableMeshKey": "Mesh_SYS_NERV_HYPOTHALAMUS_LOD0",
+    "audioTTSKey": "Audio_SYS_NERV_HYPOTHALAMUS_Desc",
+    "connectedNodes": [
+      "SYS_ENDO_PITUITARY",
+      "SYS_NERV_THALAMUS",
+      "SYS_NERV_OPTIC"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_NERV_BASAL_GANGLIA",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "G20",
+      "G10",
+      "G25.9"
+    ],
+    "latinName": "Nuclei basales",
+    "commonName": "Basal Ganglia",
+    "systemCategory": [
+      "Nervous"
+    ],
+    "descriptionProfessional": "A group of deep grey-matter nuclei - the caudate nucleus, putamen and globus pallidus (with the subthalamic nucleus and substantia nigra) - that form loops with the cortex and thalamus to select and smooth voluntary movements and to take part in habit learning and reward. The putamen and globus pallidus together are called the lentiform nucleus.",
+    "descriptionPatient": "Clusters of nerve cells deep in the brain that help start and smooth out your movements and form habits.",
+    "apBiologyFacts": [
+      "Dopamine from the substantia nigra modulates the basal ganglia's 'go' and 'no-go' pathways, so a shortage of it makes movement hard to begin.",
+      "The basal ganglia do not send motor commands straight to the spinal cord; they shape activity through the thalamus."
+    ],
+    "clinicalNotes": [
+      "Parkinson disease results from loss of dopamine neurons in the substantia nigra, causing tremor, rigidity and slowness.",
+      "Huntington disease destroys the caudate nucleus, causing involuntary writhing movements."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.2,
+    "addressableMeshKey": "Mesh_SYS_NERV_BASAL_GANGLIA_LOD0",
+    "audioTTSKey": "Audio_SYS_NERV_BASAL_GANGLIA_Desc",
+    "connectedNodes": [
+      "SYS_NERV_THALAMUS",
+      "SYS_NERV_VENTRICLES",
+      "SYS_NERV_FRONTAL_LOBE",
+      "SYS_NERV_MIDBRAIN"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_NERV_HIPPOCAMPUS",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "G30.9",
+      "G40.2"
+    ],
+    "latinName": "Hippocampus",
+    "commonName": "Hippocampus",
+    "systemCategory": [
+      "Nervous"
+    ],
+    "descriptionProfessional": "A curved, seahorse-shaped structure of archicortex in the floor of the temporal horn of the lateral ventricle. It is essential for converting short-term experiences into long-term declarative memory and for spatial navigation, and it is one of the few regions where new neurons are generated in adult life.",
+    "descriptionPatient": "A seahorse-shaped part of the brain that turns new experiences into lasting memories.",
+    "apBiologyFacts": [
+      "Patient H.M., whose hippocampi were removed in 1953 to treat epilepsy, could no longer form new long-term memories but kept existing ones and motor skills.",
+      "Neurogenesis in the dentate gyrus continues in adults and is affected by exercise and stress."
+    ],
+    "clinicalNotes": [
+      "Alzheimer disease begins in the hippocampus and entorhinal cortex, first causing short-term memory loss.",
+      "Hippocampal sclerosis is a common cause of temporal lobe epilepsy."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.2,
+    "addressableMeshKey": "Mesh_SYS_NERV_HIPPOCAMPUS_LOD0",
+    "audioTTSKey": "Audio_SYS_NERV_HIPPOCAMPUS_Desc",
+    "connectedNodes": [
+      "SYS_NERV_AMYGDALA",
+      "SYS_NERV_TEMPORAL_LOBE",
+      "SYS_NERV_VENTRICLES"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_NERV_AMYGDALA",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "F41.9",
+      "F43.1"
+    ],
+    "latinName": "Corpus amygdaloideum",
+    "commonName": "Amygdala",
+    "systemCategory": [
+      "Nervous"
+    ],
+    "descriptionProfessional": "An almond-shaped complex of nuclei in the anterior medial temporal lobe, at the tail of the caudate and the tip of the hippocampus. It processes emotion - especially fear - and attaches emotional significance to memories, driving the autonomic and hormonal fight-or-flight response through the hypothalamus.",
+    "descriptionPatient": "An almond-shaped part of the brain that senses threats and gives memories their emotional charge.",
+    "apBiologyFacts": [
+      "It can trigger a fear response through a fast 'low road' from the thalamus before the cortex has even identified what the stimulus is.",
+      "Emotional events are remembered better because the amygdala boosts consolidation in the hippocampus."
+    ],
+    "clinicalNotes": [
+      "Amygdala hyperactivity is associated with anxiety disorders and PTSD.",
+      "Bilateral amygdala damage (Urbach-Wiethe disease) abolishes fear in the affected person."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.15,
+    "addressableMeshKey": "Mesh_SYS_NERV_AMYGDALA_LOD0",
+    "audioTTSKey": "Audio_SYS_NERV_AMYGDALA_Desc",
+    "connectedNodes": [
+      "SYS_NERV_HIPPOCAMPUS",
+      "SYS_NERV_HYPOTHALAMUS",
+      "SYS_NERV_TEMPORAL_LOBE"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_REN_PELVIS",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "N13.2",
+      "N20.0",
+      "N10"
+    ],
+    "latinName": "Pelvis renalis et calices renales",
+    "commonName": "Renal Pelvis and Calyces",
+    "systemCategory": [
+      "Renal"
+    ],
+    "descriptionProfessional": "The funnel-shaped collecting system of the kidney: the minor calyces cup the tips of the renal pyramids, unite as major calyces and drain into the renal pelvis, which narrows to become the ureter at the pelviureteric junction. Urine passes through it by peristalsis.",
+    "descriptionPatient": "The funnel inside the kidney that collects the urine and passes it to the tube leading to the bladder.",
+    "apBiologyFacts": [
+      "Urine leaves the kidney through the papillae of the pyramids into the calyces; by then the filtrate has been concentrated and adjusted in the nephrons.",
+      "Peristaltic waves, not gravity alone, push urine along the ureter."
+    ],
+    "clinicalNotes": [
+      "Kidney stones commonly lodge at the pelviureteric junction, ureterovesical junction or pelvic brim, causing severe loin-to-groin (renal colic) pain.",
+      "Pyelonephritis is infection of the renal pelvis and kidney, causing fever and flank pain."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.2,
+    "addressableMeshKey": "Mesh_SYS_REN_PELVIS_LOD0",
+    "audioTTSKey": "Audio_SYS_REN_PELVIS_Desc",
+    "connectedNodes": [
+      "SYS_REN_KIDNEY_L",
+      "SYS_REN_KIDNEY_R",
+      "SYS_REN_URETER",
+      "SYS_REN_MEDULLA"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_REN_MEDULLA",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "N28.1",
+      "N17.2",
+      "Q61.5"
+    ],
+    "latinName": "Pyramides renales (medulla renalis)",
+    "commonName": "Renal Medulla and Pyramids",
+    "systemCategory": [
+      "Renal"
+    ],
+    "descriptionProfessional": "The inner region of the kidney, made of about 8 to 18 cone-shaped renal pyramids whose bases face the cortex and whose tips (papillae) open into the minor calyces. The pyramids' striped look comes from the parallel loops of Henle and collecting ducts that create the osmotic gradient used to concentrate urine.",
+    "descriptionPatient": "The striped inner part of the kidney where water is drawn back so that the urine becomes concentrated.",
+    "apBiologyFacts": [
+      "The countercurrent multiplier in the loops of Henle builds a salt gradient of up to about 1200 mOsm in the medulla, letting the kidney produce urine four times as concentrated as blood.",
+      "ADH inserts water channels in the collecting ducts so water follows the gradient out of the urine."
+    ],
+    "clinicalNotes": [
+      "Analgesic nephropathy and diabetes can damage the renal papillae, causing papillary necrosis.",
+      "Medullary sponge kidney is a congenital dilation of the collecting ducts that predisposes to stones."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.2,
+    "addressableMeshKey": "Mesh_SYS_REN_MEDULLA_LOD0",
+    "audioTTSKey": "Audio_SYS_REN_MEDULLA_Desc",
+    "connectedNodes": [
+      "SYS_REN_PELVIS",
+      "SYS_REN_KIDNEY_L",
+      "SYS_REN_KIDNEY_R"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_RESP_NASAL_CAVITY",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "J34.2",
+      "R04.0",
+      "J30"
+    ],
+    "latinName": "Cavitas nasi",
+    "commonName": "Nasal Cavity",
+    "systemCategory": [
+      "Respiratory"
+    ],
+    "descriptionProfessional": "The air passage behind the nose, divided by the nasal septum into two chambers and lined with ciliated respiratory mucosa. Air is warmed, humidified and filtered as it passes over the turbinates; the olfactory epithelium of the roof detects smell.",
+    "descriptionPatient": "The two air passages inside your nose that warm, moisten and clean the air you breathe in.",
+    "apBiologyFacts": [
+      "The rich blood supply under the mucosa warms inhaled air to near body temperature within a fraction of a second.",
+      "Mucus traps dust and microbes and the cilia sweep it toward the throat, where it is swallowed."
+    ],
+    "clinicalNotes": [
+      "Epistaxis (nosebleed) usually originates at Little's area on the septum, where several arteries meet.",
+      "A deviated septum or swollen turbinates can obstruct breathing; allergic rhinitis inflames the mucosa."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.2,
+    "addressableMeshKey": "Mesh_SYS_RESP_NASAL_CAVITY_LOD0",
+    "audioTTSKey": "Audio_SYS_RESP_NASAL_CAVITY_Desc",
+    "connectedNodes": [
+      "SYS_RESP_TURBINATES",
+      "SYS_RESP_SINUS_MAXILLARY",
+      "SYS_DIG_PHARYNX",
+      "SYS_NERV_OLFACTORY"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_RESP_TURBINATES",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "J34.3"
+    ],
+    "latinName": "Conchae nasales",
+    "commonName": "Nasal Turbinates (Conchae)",
+    "systemCategory": [
+      "Respiratory"
+    ],
+    "descriptionProfessional": "Three scroll-like shelves (superior, middle and inferior) that project from the lateral wall of each nasal cavity. They create turbulent airflow and greatly increase the surface area of mucosa for warming, humidifying and filtering the air; the inferior is a separate bone, the others are parts of the ethmoid.",
+    "descriptionPatient": "Curled shelves on the sides of your nose that swirl the air around so it is warmed and cleaned.",
+    "apBiologyFacts": [
+      "They multiply the surface area of the nasal lining several times, making the passage an effective air conditioner.",
+      "The inferior turbinate is a separate bone; the middle and superior are parts of the ethmoid bone."
+    ],
+    "clinicalNotes": [
+      "Swollen turbinates, from allergy or infection, are a common cause of a blocked nose.",
+      "Turbinate reduction surgery is done for chronic obstruction."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.2,
+    "addressableMeshKey": "Mesh_SYS_RESP_TURBINATES_LOD0",
+    "audioTTSKey": "Audio_SYS_RESP_TURBINATES_Desc",
+    "connectedNodes": [
+      "SYS_RESP_NASAL_CAVITY",
+      "SYS_RESP_SINUS_ETHMOID"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_RESP_SINUS_FRONTAL",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "J32.1",
+      "J01.1"
+    ],
+    "latinName": "Sinus frontalis",
+    "commonName": "Frontal Sinus",
+    "systemCategory": [
+      "Respiratory"
+    ],
+    "descriptionProfessional": "A paired air-filled cavity in the frontal bone behind the brow ridges, lined with ciliated mucosa and draining through the frontonasal duct into the middle meatus of the nose. It begins to develop around age 2 and is not fully formed until the late teens.",
+    "descriptionPatient": "An air-filled space in the bone of your forehead, above your eyes.",
+    "apBiologyFacts": [
+      "The paranasal sinuses lighten the skull and add resonance to the voice.",
+      "Sinus development continues through childhood, so infants have essentially no frontal sinus."
+    ],
+    "clinicalNotes": [
+      "Frontal sinusitis causes pain and tenderness over the forehead, worse when bending forward.",
+      "Frontal sinus infection can spread to the brain through the thin posterior wall."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.2,
+    "addressableMeshKey": "Mesh_SYS_RESP_SINUS_FRONTAL_LOD0",
+    "audioTTSKey": "Audio_SYS_RESP_SINUS_FRONTAL_Desc",
+    "connectedNodes": [
+      "SYS_SK_FRONTAL",
+      "SYS_RESP_NASAL_CAVITY",
+      "SYS_RESP_SINUS_ETHMOID"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_RESP_SINUS_MAXILLARY",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "J32.0",
+      "J01.0"
+    ],
+    "latinName": "Sinus maxillaris",
+    "commonName": "Maxillary Sinus",
+    "systemCategory": [
+      "Respiratory"
+    ],
+    "descriptionProfessional": "The largest paranasal sinus, a pyramid-shaped air cavity within each maxilla beneath the orbit, draining through the maxillary ostium high on its medial wall into the middle meatus. Its floor lies close to the roots of the upper molar teeth.",
+    "descriptionPatient": "The biggest air-filled space in your face, inside the cheekbone on each side.",
+    "apBiologyFacts": [
+      "Its drainage opening sits near the top of the cavity, so mucus has to be swept uphill by cilia - a reason it is prone to infection.",
+      "The roots of the upper back teeth often project into the sinus floor."
+    ],
+    "clinicalNotes": [
+      "Maxillary sinusitis causes cheek pain and toothache in the upper molars.",
+      "Dental extractions can open a communication between mouth and sinus (oroantral fistula)."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.2,
+    "addressableMeshKey": "Mesh_SYS_RESP_SINUS_MAXILLARY_LOD0",
+    "audioTTSKey": "Audio_SYS_RESP_SINUS_MAXILLARY_Desc",
+    "connectedNodes": [
+      "SYS_SK_MAXILLA",
+      "SYS_RESP_NASAL_CAVITY",
+      "SYS_NERV_TRIGEMINAL"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_RESP_SINUS_ETHMOID",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "J32.2",
+      "J01.2"
+    ],
+    "latinName": "Cellulae ethmoidales",
+    "commonName": "Ethmoid Sinuses (Air Cells)",
+    "systemCategory": [
+      "Respiratory"
+    ],
+    "descriptionProfessional": "A honeycomb of 3 to 18 small air cells in the ethmoid bone between the orbit and the nasal cavity, separated from the orbit only by the paper-thin lamina papyracea. They are present at birth and drain into the middle and superior meatuses.",
+    "descriptionPatient": "A cluster of little air pockets in the bone between your eyes and your nose.",
+    "apBiologyFacts": [
+      "They are the first sinuses to appear, present at birth.",
+      "Only a wafer-thin bone separates them from the eye socket."
+    ],
+    "clinicalNotes": [
+      "Ethmoid sinusitis can spread through the lamina papyracea to cause orbital cellulitis, especially in children.",
+      "Ethmoidectomy opens the cells in chronic sinusitis."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.2,
+    "addressableMeshKey": "Mesh_SYS_RESP_SINUS_ETHMOID_LOD0",
+    "audioTTSKey": "Audio_SYS_RESP_SINUS_ETHMOID_Desc",
+    "connectedNodes": [
+      "SYS_RESP_NASAL_CAVITY",
+      "SYS_RESP_TURBINATES",
+      "SYS_SENS_EYE",
+      "SYS_RESP_SINUS_FRONTAL"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_RESP_SINUS_SPHENOID",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "J32.3",
+      "D35.2"
+    ],
+    "latinName": "Sinus sphenoidalis",
+    "commonName": "Sphenoid Sinus",
+    "systemCategory": [
+      "Respiratory"
+    ],
+    "descriptionProfessional": "An air cavity in the body of the sphenoid bone, directly below the sella turcica that holds the pituitary gland. It drains into the sphenoethmoidal recess above the superior turbinate, and lies close to the optic nerves and the internal carotid arteries.",
+    "descriptionPatient": "An air pocket deep in the middle of the skull, just beneath the pituitary gland.",
+    "apBiologyFacts": [
+      "It sits directly under the pituitary gland, so surgeons can reach pituitary tumours through the nose and this sinus without opening the skull.",
+      "It is closely related to the optic nerve, carotid arteries and cavernous sinus."
+    ],
+    "clinicalNotes": [
+      "Transsphenoidal surgery is the standard approach to remove pituitary adenomas.",
+      "Sphenoid sinusitis can cause deep headache and, rarely, cranial nerve palsies."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.2,
+    "addressableMeshKey": "Mesh_SYS_RESP_SINUS_SPHENOID_LOD0",
+    "audioTTSKey": "Audio_SYS_RESP_SINUS_SPHENOID_Desc",
+    "connectedNodes": [
+      "SYS_ENDO_PITUITARY",
+      "SYS_SK_SPHENOID",
+      "SYS_RESP_NASAL_CAVITY"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_RESP_EPIGLOTTIS",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "J05.1",
+      "J38.7"
+    ],
+    "latinName": "Epiglottis",
+    "commonName": "Epiglottis",
+    "systemCategory": [
+      "Respiratory"
+    ],
+    "descriptionProfessional": "A leaf-shaped plate of elastic cartilage attached to the back of the thyroid cartilage above the vocal folds. At rest it points upward behind the tongue; during swallowing the larynx rises and the epiglottis tips backward over the laryngeal inlet, directing food into the oesophagus.",
+    "descriptionPatient": "A little flap at the top of your windpipe that folds down when you swallow so food does not go down the wrong way.",
+    "apBiologyFacts": [
+      "It is elastic cartilage, which springs back to shape after folding.",
+      "Its protective action is only part of the swallowing reflex: the vocal folds also close and breathing pauses."
+    ],
+    "clinicalNotes": [
+      "Acute epiglottitis - swelling from bacterial infection such as Haemophilus influenzae type B - can obstruct the airway, especially in children not vaccinated against Hib.",
+      "A 'thumb sign' on lateral neck X-ray shows a swollen epiglottis."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.15,
+    "addressableMeshKey": "Mesh_SYS_RESP_EPIGLOTTIS_LOD0",
+    "audioTTSKey": "Audio_SYS_RESP_EPIGLOTTIS_Desc",
+    "connectedNodes": [
+      "SYS_RESP_LARYNX",
+      "SYS_DIG_PHARYNX",
+      "SYS_DIG_TONGUE"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_SENS_LENS",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "H25",
+      "H52.4",
+      "H26"
+    ],
+    "latinName": "Lens cristallina",
+    "commonName": "Lens of the Eye",
+    "systemCategory": [
+      "Sensory"
+    ],
+    "descriptionProfessional": "A clear, flexible biconvex disc behind the iris, suspended by the zonular fibres from the ciliary body. It provides about a third of the eye's focusing power and changes shape - rounding up for near vision when the ciliary muscle contracts and slackens the zonules, flattening for distance.",
+    "descriptionPatient": "The clear disc behind your pupil that changes shape to focus light on the back of your eye.",
+    "apBiologyFacts": [
+      "Accommodation: contraction of the ciliary muscle relaxes tension on the zonules, letting the elastic lens become rounder and more powerful for close objects.",
+      "The cornea does most of the eye's focusing (about two-thirds); the lens fine-tunes it."
+    ],
+    "clinicalNotes": [
+      "Cataracts - clouding of the lens - are the leading cause of blindness worldwide and are treated by replacing the lens with an artificial one.",
+      "Presbyopia, the age-related loss of near focus, results from the lens stiffening."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.08,
+    "addressableMeshKey": "Mesh_SYS_SENS_LENS_LOD0",
+    "audioTTSKey": "Audio_SYS_SENS_LENS_Desc",
+    "connectedNodes": [
+      "SYS_SENS_EYE",
+      "SYS_SENS_RETINA",
+      "SYS_MUSC_EXTRAOCULAR"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_SENS_RETINA",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "H35",
+      "H33.0",
+      "H36.0"
+    ],
+    "latinName": "Retina",
+    "commonName": "Retina",
+    "systemCategory": [
+      "Sensory"
+    ],
+    "descriptionProfessional": "The light-sensitive neural layer lining the back of the eye, with about 120 million rods (dim-light, peripheral vision) and 6 million cones (colour, detail) which synapse on bipolar and then ganglion cells whose axons form the optic nerve. The macula, with the central fovea, gives sharpest vision; the optic disc, where the nerve leaves, has no photoreceptors and forms the blind spot.",
+    "descriptionPatient": "The screen at the back of your eye that turns light into nerve signals for your brain.",
+    "apBiologyFacts": [
+      "Rods contain rhodopsin and work in dim light; cones come in three types (red, green, blue) and give colour vision.",
+      "The retina is 'inverted': light must pass through the ganglion and bipolar cell layers before it reaches the photoreceptors."
+    ],
+    "clinicalNotes": [
+      "Retinal detachment causes flashes, floaters and a curtain-like loss of vision and needs urgent surgery.",
+      "Diabetic retinopathy and age-related macular degeneration are leading causes of blindness."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.08,
+    "addressableMeshKey": "Mesh_SYS_SENS_RETINA_LOD0",
+    "audioTTSKey": "Audio_SYS_SENS_RETINA_Desc",
+    "connectedNodes": [
+      "SYS_SENS_EYE",
+      "SYS_SENS_LENS",
+      "SYS_NERV_OPTIC"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_SENS_EARDRUM",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "H72",
+      "H66",
+      "H73.0"
+    ],
+    "latinName": "Membrana tympanica",
+    "commonName": "Eardrum (Tympanic Membrane)",
+    "systemCategory": [
+      "Sensory"
+    ],
+    "descriptionProfessional": "A thin, cone-shaped, three-layered membrane about 1 cm across at the end of the external auditory canal, separating it from the middle ear. Sound waves make it vibrate and the handle of the malleus, attached to its inner surface, transmits the vibration to the ossicles.",
+    "descriptionPatient": "A thin skin-like disc at the end of your ear canal that vibrates when sound hits it.",
+    "apBiologyFacts": [
+      "Its area is about 20 times larger than the oval window, and this difference in area is the main reason the ossicular chain amplifies pressure.",
+      "The Eustachian tube equalises air pressure in the middle ear with the outside so the drum can move freely."
+    ],
+    "clinicalNotes": [
+      "Otitis media - a middle-ear infection - bulges the drum and is very common in children.",
+      "A perforated eardrum from pressure injury or infection usually heals by itself."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.08,
+    "addressableMeshKey": "Mesh_SYS_SENS_EARDRUM_LOD0",
+    "audioTTSKey": "Audio_SYS_SENS_EARDRUM_Desc",
+    "connectedNodes": [
+      "SYS_SENS_MALLEUS",
+      "SYS_SENS_COCHLEA",
+      "SYS_NERV_VESTIBULOCOCHLEAR"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_SENS_MALLEUS",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "H74.3",
+      "H74.0"
+    ],
+    "latinName": "Malleus",
+    "commonName": "Malleus (Hammer)",
+    "systemCategory": [
+      "Sensory"
+    ],
+    "descriptionProfessional": "The largest and most lateral of the three auditory ossicles, about 8 mm long. Its handle is fixed to the eardrum, its head articulates with the incus, and it is held by ligaments and the tendon of the tensor tympani muscle.",
+    "descriptionPatient": "The first of the three tiny ear bones, shaped like a hammer, attached to the eardrum.",
+    "apBiologyFacts": [
+      "The three ossicles form a lever system that transmits the eardrum's vibrations to the fluid of the inner ear.",
+      "The tensor tympani and stapedius muscles contract reflexively to dampen loud sounds (the acoustic reflex)."
+    ],
+    "clinicalNotes": [
+      "Ossicular chain disruption from injury or infection causes conductive hearing loss.",
+      "Otosclerosis fixes the stapes and is a common cause of progressive hearing loss in young adults."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.06,
+    "addressableMeshKey": "Mesh_SYS_SENS_MALLEUS_LOD0",
+    "audioTTSKey": "Audio_SYS_SENS_MALLEUS_Desc",
+    "connectedNodes": [
+      "SYS_SENS_EARDRUM",
+      "SYS_SENS_INCUS",
+      "SYS_SENS_STAPES"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_SENS_INCUS",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "H74.3"
+    ],
+    "latinName": "Incus",
+    "commonName": "Incus (Anvil)",
+    "systemCategory": [
+      "Sensory"
+    ],
+    "descriptionProfessional": "The middle auditory ossicle, shaped like an anvil or a molar tooth, with a body that articulates with the head of the malleus and a long process that ends in the lenticular process, which joins the stapes.",
+    "descriptionPatient": "The middle one of the three tiny ear bones, shaped like an anvil.",
+    "apBiologyFacts": [
+      "It links the malleus and stapes, and the length ratio of the malleus handle to the incus' long process (about 1.3 to 1) gives a lever advantage.",
+      "The ossicles are among the few bones that reach adult size before birth."
+    ],
+    "clinicalNotes": [
+      "The long process is the ossicle most often eroded in chronic otitis media, causing conductive deafness.",
+      "Ossiculoplasty replaces damaged ossicles with prostheses."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.06,
+    "addressableMeshKey": "Mesh_SYS_SENS_INCUS_LOD0",
+    "audioTTSKey": "Audio_SYS_SENS_INCUS_Desc",
+    "connectedNodes": [
+      "SYS_SENS_MALLEUS",
+      "SYS_SENS_STAPES"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_SENS_STAPES",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "H80",
+      "H74.3"
+    ],
+    "latinName": "Stapes",
+    "commonName": "Stapes (Stirrup)",
+    "systemCategory": [
+      "Sensory"
+    ],
+    "descriptionProfessional": "The smallest bone in the human body, about 3 mm long and weighing roughly 3 mg. Its arch and two limbs support a footplate that fits into the oval window of the cochlea, transmitting vibrations into the perilymph.",
+    "descriptionPatient": "The tiniest bone in your body, shaped like a stirrup, which passes sound vibrations on to the inner ear.",
+    "apBiologyFacts": [
+      "Its footplate's small area, together with the eardrum's large one and the lever action of the ossicles, boosts pressure at the oval window by about twenty times.",
+      "Sound must be amplified because fluid is harder to move than air - without it, most sound energy would be reflected."
+    ],
+    "clinicalNotes": [
+      "Otosclerosis fixes the footplate with new bone, causing hearing loss; stapedectomy replaces the stapes with a prosthesis.",
+      "The stapedius muscle - the body's smallest - protects the ear from loud noise."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.06,
+    "addressableMeshKey": "Mesh_SYS_SENS_STAPES_LOD0",
+    "audioTTSKey": "Audio_SYS_SENS_STAPES_Desc",
+    "connectedNodes": [
+      "SYS_SENS_INCUS",
+      "SYS_SENS_COCHLEA",
+      "SYS_NERV_FACIAL"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_SK_ACL",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "S83.5",
+      "M23.5"
+    ],
+    "latinName": "Ligamentum cruciatum anterius",
+    "commonName": "Anterior Cruciate Ligament (ACL)",
+    "systemCategory": [
+      "Skeletal"
+    ],
+    "descriptionProfessional": "A strong intra-articular band running from the front of the tibial intercondylar area up and back to the medial surface of the lateral femoral condyle. It prevents forward translation of the tibia on the femur and resists hyperextension and rotation.",
+    "descriptionPatient": "A strong band inside the knee that stops the shin bone sliding forward and keeps the knee stable when you twist.",
+    "apBiologyFacts": [
+      "The two cruciate ligaments cross like an X, and are named for where they attach on the tibia.",
+      "Ligaments are made of dense regular collagen and have a poor blood supply, so the ACL does not heal by itself."
+    ],
+    "clinicalNotes": [
+      "ACL tears are common in sports involving sudden stops and twists, and the knee often 'pops' and swells at once.",
+      "The Lachman and anterior drawer tests examine the ACL."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.2,
+    "addressableMeshKey": "Mesh_SYS_SK_ACL_LOD0",
+    "audioTTSKey": "Audio_SYS_SK_ACL_Desc",
+    "connectedNodes": [
+      "SYS_SK_PCL",
+      "SYS_SK_FEMUR",
+      "SYS_SK_TIBIA",
+      "SYS_SK_MENISCUS"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_SK_PCL",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "S83.5",
+      "M23.5"
+    ],
+    "latinName": "Ligamentum cruciatum posterius",
+    "commonName": "Posterior Cruciate Ligament (PCL)",
+    "systemCategory": [
+      "Skeletal"
+    ],
+    "descriptionProfessional": "A thicker, stronger intra-articular ligament running from the posterior tibial intercondylar area up and forward to the lateral surface of the medial femoral condyle. It prevents backward displacement of the tibia and is the main stabiliser of the flexed knee.",
+    "descriptionPatient": "A thick band at the back of the knee that stops the shin bone sliding backward.",
+    "apBiologyFacts": [
+      "It is the stronger of the two cruciates, and less often torn.",
+      "Together with the ACL it guides the rolling and gliding motion of the femur on the tibia as the knee bends."
+    ],
+    "clinicalNotes": [
+      "PCL injuries typically happen when a force strikes the front of the flexed shin, as in a dashboard injury in a car crash.",
+      "The posterior drawer test examines the PCL."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.2,
+    "addressableMeshKey": "Mesh_SYS_SK_PCL_LOD0",
+    "audioTTSKey": "Audio_SYS_SK_PCL_Desc",
+    "connectedNodes": [
+      "SYS_SK_ACL",
+      "SYS_SK_FEMUR",
+      "SYS_SK_TIBIA"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_SK_MCL",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "S83.4",
+      "M23.6"
+    ],
+    "latinName": "Ligamentum collaterale tibiale",
+    "commonName": "Medial Collateral Ligament (MCL)",
+    "systemCategory": [
+      "Skeletal"
+    ],
+    "descriptionProfessional": "A broad flat band on the inner side of the knee from the medial femoral epicondyle to the medial surface of the tibia. It resists valgus force - a blow to the outside of the knee - and is attached to the medial meniscus.",
+    "descriptionPatient": "A flat band on the inner side of the knee that stops it bending inward.",
+    "apBiologyFacts": [
+      "It is the knee's main stabiliser against sideways force from the outside.",
+      "Its firm attachment to the medial meniscus is one reason that meniscus is injured together with it."
+    ],
+    "clinicalNotes": [
+      "MCL sprains are common in contact sports; most heal without surgery.",
+      "The 'unhappy triad' is combined injury to the ACL, MCL and medial meniscus."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.2,
+    "addressableMeshKey": "Mesh_SYS_SK_MCL_LOD0",
+    "audioTTSKey": "Audio_SYS_SK_MCL_Desc",
+    "connectedNodes": [
+      "SYS_SK_LCL",
+      "SYS_SK_MENISCUS",
+      "SYS_SK_FEMUR",
+      "SYS_SK_TIBIA"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_SK_LCL",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "S83.4",
+      "M23.6"
+    ],
+    "latinName": "Ligamentum collaterale fibulare",
+    "commonName": "Lateral Collateral Ligament (LCL)",
+    "systemCategory": [
+      "Skeletal"
+    ],
+    "descriptionProfessional": "A round cord on the outer side of the knee from the lateral femoral epicondyle to the head of the fibula. Unlike the MCL it is not attached to the meniscus, and it resists varus force - a blow to the inside of the knee.",
+    "descriptionPatient": "A cord on the outer side of the knee that stops it bending outward.",
+    "apBiologyFacts": [
+      "It runs to the fibula rather than the tibia, and the tendon of the biceps femoris joins it at the fibular head.",
+      "The common fibular nerve winds around the fibular neck just behind it."
+    ],
+    "clinicalNotes": [
+      "Isolated LCL injuries are less common than MCL injuries and often accompany damage to other stabilisers.",
+      "Posterolateral corner injuries can cause instability and foot drop when the fibular nerve is involved."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.2,
+    "addressableMeshKey": "Mesh_SYS_SK_LCL_LOD0",
+    "audioTTSKey": "Audio_SYS_SK_LCL_Desc",
+    "connectedNodes": [
+      "SYS_SK_MCL",
+      "SYS_SK_FIBULA",
+      "SYS_SK_FEMUR",
+      "SYS_NERV_FIBULAR_COMMON"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_SK_MENISCUS",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "S83.2",
+      "M23.2"
+    ],
+    "latinName": "Menisci articulares genus",
+    "commonName": "Menisci of the Knee",
+    "systemCategory": [
+      "Skeletal"
+    ],
+    "descriptionProfessional": "Two crescent-shaped wedges of fibrocartilage between the femoral condyles and the tibial plateau. The medial meniscus is C-shaped and attached to the MCL; the lateral is nearly circular and more mobile. They deepen the joint, distribute load over a larger area and absorb shock.",
+    "descriptionPatient": "Two C-shaped pads of tough cartilage in the knee that act as shock absorbers.",
+    "apBiologyFacts": [
+      "They transmit 40 to 60 per cent of the load across the knee, so removing one greatly increases the stress on the joint cartilage.",
+      "Only the outer third of a meniscus has a blood supply, so tears in the inner 'white zone' cannot heal."
+    ],
+    "clinicalNotes": [
+      "A torn meniscus causes locking, catching and joint-line pain and is among the most common reasons for knee arthroscopy.",
+      "Loss of the menisci leads to early osteoarthritis."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.2,
+    "addressableMeshKey": "Mesh_SYS_SK_MENISCUS_LOD0",
+    "audioTTSKey": "Audio_SYS_SK_MENISCUS_Desc",
+    "connectedNodes": [
+      "SYS_SK_ACL",
+      "SYS_SK_MCL",
+      "SYS_SK_ARTICULAR_CARTILAGE",
+      "SYS_SK_TIBIA",
+      "SYS_SK_FEMUR"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_SK_ARTICULAR_CARTILAGE",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "M17",
+      "M16",
+      "M19"
+    ],
+    "latinName": "Cartilago articularis",
+    "commonName": "Articular (Hyaline) Cartilage",
+    "systemCategory": [
+      "Skeletal"
+    ],
+    "descriptionProfessional": "A 2 to 4 mm layer of smooth hyaline cartilage covering the ends of bones in synovial joints. It has no blood vessels, nerves or lymphatics, and is nourished by diffusion from synovial fluid; its collagen network and proteoglycans resist compression and give an almost frictionless gliding surface.",
+    "descriptionPatient": "The smooth, slippery layer covering the ends of the bones where they meet at a joint.",
+    "apBiologyFacts": [
+      "Chondrocytes are the only cells in the cartilage, and with no blood supply repair is very slow.",
+      "Synovial fluid lubricates and nourishes the cartilage, which is why movement is good for joint health."
+    ],
+    "clinicalNotes": [
+      "Osteoarthritis is wear and loss of articular cartilage, causing pain, stiffness and bony spurs.",
+      "Rheumatoid arthritis is an autoimmune attack on the synovial lining that destroys cartilage and bone."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.2,
+    "addressableMeshKey": "Mesh_SYS_SK_ARTICULAR_CARTILAGE_LOD0",
+    "audioTTSKey": "Audio_SYS_SK_ARTICULAR_CARTILAGE_Desc",
+    "connectedNodes": [
+      "SYS_SK_FEMUR",
+      "SYS_SK_TIBIA",
+      "SYS_SK_HUMERUS",
+      "SYS_SK_MENISCUS",
+      "SYS_SK_PATELLA"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_SK_NUCHAL_LIGAMENT",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "S13.4",
+      "M53.0"
+    ],
+    "latinName": "Ligamentum nuchae",
+    "commonName": "Nuchal Ligament",
+    "systemCategory": [
+      "Skeletal"
+    ],
+    "descriptionProfessional": "A strong triangular sheet of elastic-rich fibrous tissue in the midline of the back of the neck, running from the external occipital protuberance and crest to the spinous processes of the cervical vertebrae, ending at C7. It is the continuation of the supraspinous ligament and gives attachment to neck muscles.",
+    "descriptionPatient": "A strong band running down the back of your neck from the skull to the lowest neck vertebra that helps hold your head up.",
+    "apBiologyFacts": [
+      "It works like a bungee cord, helping to support the weight of the head with little muscular effort - in grazing animals it is huge.",
+      "It also provides a wide attachment for the trapezius and other neck muscles."
+    ],
+    "clinicalNotes": [
+      "The ligament may become calcified or strained in whiplash injuries.",
+      "It is a landmark for midline neck procedures such as spinal anaesthesia in the cervical region."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.3,
+    "addressableMeshKey": "Mesh_SYS_SK_NUCHAL_LIGAMENT_LOD0",
+    "audioTTSKey": "Audio_SYS_SK_NUCHAL_LIGAMENT_Desc",
+    "connectedNodes": [
+      "SYS_SK_OCCIPITAL",
+      "SYS_SK_VERT_CERVICAL",
+      "SYS_MUSC_TRAPEZIUS"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_SK_PUBIC_SYMPHYSIS",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "O26.7",
+      "M25.5"
+    ],
+    "latinName": "Symphysis pubica",
+    "commonName": "Pubic Symphysis",
+    "systemCategory": [
+      "Skeletal"
+    ],
+    "descriptionProfessional": "A secondary cartilaginous joint in the midline at the front of the pelvis, where the two pubic bones meet across a fibrocartilaginous interpubic disc. It allows very little movement, but loosens in pregnancy under the influence of relaxin so the pelvis can widen during childbirth.",
+    "descriptionPatient": "The joint at the front of your pelvis where the two hip bones meet, joined by a pad of tough cartilage.",
+    "apBiologyFacts": [
+      "It is a symphysis - a joint with a fibrocartilage disc - like the joints between the vertebral bodies, permitting little movement.",
+      "The hormone relaxin softens it during pregnancy."
+    ],
+    "clinicalNotes": [
+      "Pubic symphysis pain (symphysis pubis dysfunction) is common in late pregnancy.",
+      "Separation of the symphysis can accompany severe pelvic fractures."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.3,
+    "addressableMeshKey": "Mesh_SYS_SK_PUBIC_SYMPHYSIS_LOD0",
+    "audioTTSKey": "Audio_SYS_SK_PUBIC_SYMPHYSIS_Desc",
+    "connectedNodes": [
+      "SYS_SK_PELVIS",
+      "SYS_REN_BLADDER"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_SK_PLANTAR_FASCIA",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "M72.2"
+    ],
+    "latinName": "Aponeurosis plantaris",
+    "commonName": "Plantar Fascia",
+    "systemCategory": [
+      "Skeletal"
+    ],
+    "descriptionProfessional": "A thick fan-shaped band of dense connective tissue under the sole of the foot, from the medial tubercle of the calcaneus to the bases of the proximal phalanges. It supports the medial longitudinal arch and, through the windlass mechanism, stiffens the foot as the toes extend at push-off.",
+    "descriptionPatient": "A tough band under the sole of your foot that holds up the arch and acts like a spring when you walk.",
+    "apBiologyFacts": [
+      "The windlass mechanism: raising the toes winds the plantar fascia around the metatarsal heads, shortening the foot and raising the arch - stiffening it for push-off.",
+      "The fascia stores and returns elastic energy in each stride, saving muscular work."
+    ],
+    "clinicalNotes": [
+      "Plantar fasciitis is the commonest cause of heel pain, worst with the first steps in the morning.",
+      "Flat feet and prolonged standing or running increase strain on the fascia."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.25,
+    "addressableMeshKey": "Mesh_SYS_SK_PLANTAR_FASCIA_LOD0",
+    "audioTTSKey": "Audio_SYS_SK_PLANTAR_FASCIA_Desc",
+    "connectedNodes": [
+      "SYS_SK_CALCANEUS",
+      "SYS_SK_METATARSALS",
+      "SYS_MUSC_ACHILLES",
+      "SYS_NERV_PLANTAR"
     ],
     "hasMicroDive": false,
     "microDiveKey": "",

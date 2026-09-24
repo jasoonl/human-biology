@@ -18,6 +18,9 @@ namespace HumanBodyExplorer.EditorTools.Geometry
             BuildInnerEar();
             BuildMouthAndGlands();
             BuildLymphNodes();
+            BuildInternals();
+            BuildAirwayDetail();
+            BuildJointsAndEar();
         }
 
         // ---------------------------------------------------------------- brain
