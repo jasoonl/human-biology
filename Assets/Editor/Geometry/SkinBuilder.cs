@@ -16,6 +16,8 @@ namespace HumanBodyExplorer.EditorTools.Geometry
     {
         public static SdfFunc Field { get; private set; }
 
+        private static SdfFunc Limb(BodyShape.Limb l) => Sdf.RoundCone(l.A, l.RA, l.B, l.RB);
+
         private static SdfFunc BuildField()
         {
             // Head, with the features that give the silhouette a face and ears.
@@ -45,8 +47,8 @@ namespace HumanBodyExplorer.EditorTools.Geometry
             // Shoulders, arms and hands.
             SdfFunc arm = Sdf.SmoothUnion(0.03f,
                 Sdf.Ellipsoid(new Vector3(0.19f, 1.39f, -0.01f), new Vector3(0.0725f, 0.0825f, 0.0725f)),
-                Sdf.RoundCone(new Vector3(0.19f, 1.39f, 0.0f), 0.058f, new Vector3(0.19f, 1.095f, 0.012f), 0.044f),
-                Sdf.RoundCone(new Vector3(0.19f, 1.095f, 0.012f), 0.044f, new Vector3(0.205f, 0.83f, 0.010f), 0.030f),
+                Limb(BodyShape.UpperArm),
+                Limb(BodyShape.Forearm),
                 Sdf.Ellipsoid(new Vector3(0.205f, 0.735f, -0.004f), new Vector3(0.0425f, 0.102f, 0.030f)),
                 Sdf.Capsule(new Vector3(0.228f, 0.815f, 0.000f), new Vector3(0.262f, 0.712f, -0.036f), 0.0175f),   // thumb
                 // The four fingers, knuckle to tip, curled slightly toward the palm.
@@ -57,8 +59,8 @@ namespace HumanBodyExplorer.EditorTools.Geometry
 
             // Thighs, calves and feet.
             SdfFunc leg = Sdf.SmoothUnion(0.03f,
-                Sdf.RoundCone(new Vector3(0.09f, 0.87f, 0.005f), 0.085f, new Vector3(0.088f, 0.475f, 0.020f), 0.064f),
-                Sdf.RoundCone(new Vector3(0.088f, 0.475f, 0.020f), 0.058f, new Vector3(0.083f, 0.078f, 0.015f), 0.036f),
+                Limb(BodyShape.Thigh),
+                Limb(BodyShape.Shank),
                 Sdf.Ellipsoid(new Vector3(0.085f, 0.32f, 0.030f), new Vector3(0.052f, 0.110f, 0.058f)),        // calf
                 Sdf.Ellipsoid(new Vector3(0.085f, 0.044f, -0.066f), new Vector3(0.0665f, 0.050f, 0.1600f)));   // foot
 

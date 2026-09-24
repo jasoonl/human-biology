@@ -28,6 +28,11 @@ namespace HumanBodyExplorer.EditorTools.Geometry
 
             go.AddComponent<MeshFilter>().sharedMesh = mesh;
 
+            // A material with no submesh to draw would repaint the last one; a muscle with
+            // no tendon stretch has one submesh but is given a tendon material.
+            if (mesh.subMeshCount < materials.Length)
+                materials = Trim(materials, mesh.subMeshCount);
+
             var renderer = go.AddComponent<MeshRenderer>();
             renderer.sharedMaterials = materials;
             renderer.shadowCastingMode = ShadowCastingMode.Off;
@@ -38,6 +43,13 @@ namespace HumanBodyExplorer.EditorTools.Geometry
 
             go.AddComponent<AnatomyNodeReference>().SetEntityId(entityId);
             return go;
+        }
+
+        private static Material[] Trim(Material[] all, int count)
+        {
+            var result = new Material[Mathf.Max(1, count)];
+            for (int i = 0; i < result.Length; i++) result[i] = all[Mathf.Min(i, all.Length - 1)];
+            return result;
         }
 
         /// <summary>Add a structure that exists on both sides, from a mesh modelled on

@@ -64,7 +64,7 @@ namespace HumanBodyExplorer.EditorTools
         private static readonly Color BackdropColor = new Color(0.24f, 0.28f, 0.35f);
 
         private static readonly Color BoneColor = new Color(0.93f, 0.90f, 0.83f);
-        private static readonly Color MuscleColor = new Color(0.58f, 0.19f, 0.16f);
+        internal static readonly Color MuscleColor = new Color(0.70f, 0.23f, 0.19f);
         private static readonly Color HeartColor = new Color(0.62f, 0.14f, 0.13f);
         private static readonly Color LungColor = new Color(0.80f, 0.57f, 0.56f);
         private static readonly Color CartilageColor = new Color(0.85f, 0.86f, 0.83f);
@@ -108,30 +108,6 @@ namespace HumanBodyExplorer.EditorTools
             // Scapulae: flat blades riding on the back of the rib cage.
 
             // --- Deeper muscle layer ---
-            new PartDef { Name = "ForearmMuscles_L", EntityId = "SYS_MUSC_FOREARM", Shape = PrimitiveType.Sphere,
-                LocalPosition = new Vector3(0.20f, 0.985f, -0.018f), LocalScale = new Vector3(0.062f, 0.13f, 0.045f), Color = MuscleColor, Smoothness = MuscleGloss, Organic = true },
-            new PartDef { Name = "ForearmMuscles_R", EntityId = "SYS_MUSC_FOREARM", Shape = PrimitiveType.Sphere,
-                LocalPosition = new Vector3(-0.20f, 0.985f, -0.018f), LocalScale = new Vector3(0.062f, 0.13f, 0.045f), Color = MuscleColor, Smoothness = MuscleGloss, Organic = true },
-            new PartDef { Name = "Soleus_L", EntityId = "SYS_MUSC_SOLEUS", Shape = PrimitiveType.Sphere,
-                LocalPosition = new Vector3(0.085f, 0.30f, 0.024f), LocalScale = new Vector3(0.09f, 0.16f, 0.05f), Color = MuscleColor, Smoothness = MuscleGloss, Organic = true },
-            new PartDef { Name = "Soleus_R", EntityId = "SYS_MUSC_SOLEUS", Shape = PrimitiveType.Sphere,
-                LocalPosition = new Vector3(-0.085f, 0.30f, 0.024f), LocalScale = new Vector3(0.09f, 0.16f, 0.05f), Color = MuscleColor, Smoothness = MuscleGloss, Organic = true },
-            new PartDef { Name = "ErectorSpinae_L", EntityId = "SYS_MUSC_ERECTOR_SPINAE", Shape = PrimitiveType.Capsule,
-                LocalPosition = new Vector3(0.030f, 1.17f, 0.064f), LocalScale = new Vector3(0.042f, 0.16f, 0.032f), Color = MuscleColor, Smoothness = MuscleGloss },
-            new PartDef { Name = "ErectorSpinae_R", EntityId = "SYS_MUSC_ERECTOR_SPINAE", Shape = PrimitiveType.Capsule,
-                LocalPosition = new Vector3(-0.030f, 1.17f, 0.064f), LocalScale = new Vector3(0.042f, 0.16f, 0.032f), Color = MuscleColor, Smoothness = MuscleGloss },
-            new PartDef { Name = "Serratus_L", EntityId = "SYS_MUSC_SERRATUS", Shape = PrimitiveType.Sphere,
-                LocalPosition = new Vector3(0.118f, 1.255f, 0.018f), LocalScale = new Vector3(0.05f, 0.13f, 0.085f), Color = MuscleColor, Smoothness = MuscleGloss, Organic = true },
-            new PartDef { Name = "Serratus_R", EntityId = "SYS_MUSC_SERRATUS", Shape = PrimitiveType.Sphere,
-                LocalPosition = new Vector3(-0.118f, 1.255f, 0.018f), LocalScale = new Vector3(0.05f, 0.13f, 0.085f), Color = MuscleColor, Smoothness = MuscleGloss, Organic = true },
-            new PartDef { Name = "Adductors_L", EntityId = "SYS_MUSC_ADDUCTORS", Shape = PrimitiveType.Sphere,
-                LocalPosition = new Vector3(0.046f, 0.715f, 0.005f), LocalScale = new Vector3(0.07f, 0.22f, 0.08f), Color = MuscleColor, Smoothness = MuscleGloss, Organic = true },
-            new PartDef { Name = "Adductors_R", EntityId = "SYS_MUSC_ADDUCTORS", Shape = PrimitiveType.Sphere,
-                LocalPosition = new Vector3(-0.046f, 0.715f, 0.005f), LocalScale = new Vector3(0.07f, 0.22f, 0.08f), Color = MuscleColor, Smoothness = MuscleGloss, Organic = true },
-            new PartDef { Name = "RotatorCuff_L", EntityId = "SYS_MUSC_ROTATOR_CUFF", Shape = PrimitiveType.Sphere,
-                LocalPosition = new Vector3(0.155f, 1.378f, 0.030f), LocalScale = new Vector3(0.085f, 0.085f, 0.045f), Color = MuscleColor, Smoothness = MuscleGloss, Organic = true },
-            new PartDef { Name = "RotatorCuff_R", EntityId = "SYS_MUSC_ROTATOR_CUFF", Shape = PrimitiveType.Sphere,
-                LocalPosition = new Vector3(-0.155f, 1.378f, 0.030f), LocalScale = new Vector3(0.085f, 0.085f, 0.045f), Color = MuscleColor, Smoothness = MuscleGloss, Organic = true },
 
             // --- Peripheral nerves, so the Nerves layer shows an actual network ---
             new PartDef { Name = "SciaticNerve_L", EntityId = "SYS_NERV_SCIATIC", Shape = PrimitiveType.Capsule,
@@ -160,67 +136,13 @@ namespace HumanBodyExplorer.EditorTools
                 LocalPosition = new Vector3(-0.042f, 1.452f, -0.020f), LocalScale = new Vector3(0.016f, 0.048f, 0.016f), Color = VeinColor, Smoothness = OrganGloss },
 
             // ================= MUSCULAR =================
-            new PartDef { Name = "Pectoralis_L", EntityId = "SYS_MUSC_PECTORALIS", Shape = PrimitiveType.Sphere,
-                LocalPosition = new Vector3(0.085f, 1.335f, -0.065f), LocalScale = new Vector3(0.13f, 0.12f, 0.045f), Color = MuscleColor, Smoothness = MuscleGloss, Organic = true },
-            new PartDef { Name = "Pectoralis_R", EntityId = "SYS_MUSC_PECTORALIS", Shape = PrimitiveType.Sphere,
-                LocalPosition = new Vector3(-0.085f, 1.335f, -0.065f), LocalScale = new Vector3(0.13f, 0.12f, 0.045f), Color = MuscleColor, Smoothness = MuscleGloss, Organic = true },
-            new PartDef { Name = "Deltoid_L", EntityId = "SYS_MUSC_DELTOID", Shape = PrimitiveType.Sphere,
-                LocalPosition = new Vector3(0.19f, 1.395f, -0.01f), LocalScale = new Vector3(0.115f, 0.13f, 0.115f), Color = MuscleColor, Smoothness = MuscleGloss, Organic = true },
-            new PartDef { Name = "Deltoid_R", EntityId = "SYS_MUSC_DELTOID", Shape = PrimitiveType.Sphere,
-                LocalPosition = new Vector3(-0.19f, 1.395f, -0.01f), LocalScale = new Vector3(0.115f, 0.13f, 0.115f), Color = MuscleColor, Smoothness = MuscleGloss, Organic = true },
-            new PartDef { Name = "Biceps_L", EntityId = "SYS_MUSC_BICEPS", Shape = PrimitiveType.Sphere,
-                LocalPosition = new Vector3(0.19f, 1.235f, -0.025f), LocalScale = new Vector3(0.085f, 0.17f, 0.06f), Color = MuscleColor, Smoothness = MuscleGloss, Organic = true },
-            new PartDef { Name = "Biceps_R", EntityId = "SYS_MUSC_BICEPS", Shape = PrimitiveType.Sphere,
-                LocalPosition = new Vector3(-0.19f, 1.235f, -0.025f), LocalScale = new Vector3(0.085f, 0.17f, 0.06f), Color = MuscleColor, Smoothness = MuscleGloss, Organic = true },
-            new PartDef { Name = "RectusAbdominis", EntityId = "SYS_MUSC_RECTUS_ABDOMINIS", Shape = PrimitiveType.Sphere,
-                LocalPosition = new Vector3(0f, 1.11f, -0.085f), LocalScale = new Vector3(0.15f, 0.25f, 0.045f), Color = MuscleColor, Smoothness = MuscleGloss, Organic = true },
-            new PartDef { Name = "Quadriceps_L", EntityId = "SYS_MUSC_QUADS", Shape = PrimitiveType.Sphere,
-                LocalPosition = new Vector3(0.0895f, 0.685f, -0.034f), LocalScale = new Vector3(0.1358f, 0.291f, 0.0873f), Color = MuscleColor, Smoothness = MuscleGloss, Organic = true },
-            new PartDef { Name = "Quadriceps_R", EntityId = "SYS_MUSC_QUADS", Shape = PrimitiveType.Sphere,
-                LocalPosition = new Vector3(-0.0895f, 0.685f, -0.034f), LocalScale = new Vector3(0.1358f, 0.291f, 0.0873f), Color = MuscleColor, Smoothness = MuscleGloss, Organic = true },
             // The calf sits behind the leg (+z is posterior here).
-            new PartDef { Name = "Gastrocnemius_L", EntityId = "SYS_MUSC_GASTROCNEMIUS", Shape = PrimitiveType.Sphere,
-                LocalPosition = new Vector3(0.0846f, 0.355f, 0.0291f), LocalScale = new Vector3(0.1067f, 0.1843f, 0.0679f), Color = MuscleColor, Smoothness = MuscleGloss, Organic = true },
-            new PartDef { Name = "Gastrocnemius_R", EntityId = "SYS_MUSC_GASTROCNEMIUS", Shape = PrimitiveType.Sphere,
-                LocalPosition = new Vector3(-0.0846f, 0.355f, 0.0291f), LocalScale = new Vector3(0.1067f, 0.1843f, 0.0679f), Color = MuscleColor, Smoothness = MuscleGloss, Organic = true },
             // Domed sheet at the thoracic/abdominal boundary, just under the lung bases.
             new PartDef { Name = "Diaphragm", EntityId = "SYS_RESP_DIAPHRAGM", Shape = PrimitiveType.Sphere,
                 LocalPosition = new Vector3(0f, 1.205f, -0.005f), LocalScale = new Vector3(0.26f, 0.085f, 0.175f), Color = MuscleColor, Smoothness = MuscleGloss, Organic = true },
 
 
             // --- Major muscle groups filling out the figure (back, flank, posterior limb) ---
-            new PartDef { Name = "Trapezius", EntityId = "SYS_MUSC_TRAPEZIUS", Shape = PrimitiveType.Sphere,
-                LocalPosition = new Vector3(0f, 1.375f, 0.0637f), LocalScale = new Vector3(0.2656f, 0.1771f, 0.0443f), Color = MuscleColor, Smoothness = MuscleGloss, Organic = true },
-            new PartDef { Name = "Latissimus_L", EntityId = "SYS_MUSC_LATISSIMUS", Shape = PrimitiveType.Sphere,
-                LocalPosition = new Vector3(0.1083f, 1.2f, 0.0402f), LocalScale = new Vector3(0.1041f, 0.1665f, 0.0278f), Color = MuscleColor, Smoothness = MuscleGloss, Organic = true },
-            new PartDef { Name = "Latissimus_R", EntityId = "SYS_MUSC_LATISSIMUS", Shape = PrimitiveType.Sphere,
-                LocalPosition = new Vector3(-0.1083f, 1.2f, 0.0402f), LocalScale = new Vector3(0.1041f, 0.1665f, 0.0278f), Color = MuscleColor, Smoothness = MuscleGloss, Organic = true },
-            new PartDef { Name = "Triceps_L", EntityId = "SYS_MUSC_TRICEPS", Shape = PrimitiveType.Sphere,
-                LocalPosition = new Vector3(0.19f, 1.245f, 0.028f), LocalScale = new Vector3(0.082f, 0.16f, 0.055f), Color = MuscleColor, Smoothness = MuscleGloss, Organic = true },
-            new PartDef { Name = "Triceps_R", EntityId = "SYS_MUSC_TRICEPS", Shape = PrimitiveType.Sphere,
-                LocalPosition = new Vector3(-0.19f, 1.245f, 0.028f), LocalScale = new Vector3(0.082f, 0.16f, 0.055f), Color = MuscleColor, Smoothness = MuscleGloss, Organic = true },
-            new PartDef { Name = "ExternalOblique_L", EntityId = "SYS_MUSC_OBLIQUE", Shape = PrimitiveType.Sphere,
-                LocalPosition = new Vector3(0.1133f, 1.1f, -0.0091f), LocalScale = new Vector3(0.073f, 0.1825f, 0.1369f), Color = MuscleColor, Smoothness = MuscleGloss, Organic = true },
-            new PartDef { Name = "ExternalOblique_R", EntityId = "SYS_MUSC_OBLIQUE", Shape = PrimitiveType.Sphere,
-                LocalPosition = new Vector3(-0.1133f, 1.1f, -0.0091f), LocalScale = new Vector3(0.073f, 0.1825f, 0.1369f), Color = MuscleColor, Smoothness = MuscleGloss, Organic = true },
-            new PartDef { Name = "Gluteus_L", EntityId = "SYS_MUSC_GLUTEUS", Shape = PrimitiveType.Sphere,
-                LocalPosition = new Vector3(0.085f, 0.895f, 0.055f), LocalScale = new Vector3(0.155f, 0.155f, 0.085f), Color = MuscleColor, Smoothness = MuscleGloss, Organic = true },
-            new PartDef { Name = "Gluteus_R", EntityId = "SYS_MUSC_GLUTEUS", Shape = PrimitiveType.Sphere,
-                LocalPosition = new Vector3(-0.085f, 0.895f, 0.055f), LocalScale = new Vector3(0.155f, 0.155f, 0.085f), Color = MuscleColor, Smoothness = MuscleGloss, Organic = true },
-            new PartDef { Name = "Hamstrings_L", EntityId = "SYS_MUSC_HAMSTRINGS", Shape = PrimitiveType.Sphere,
-                LocalPosition = new Vector3(0.09f, 0.655f, 0.045f), LocalScale = new Vector3(0.13f, 0.28f, 0.07f), Color = MuscleColor, Smoothness = MuscleGloss, Organic = true },
-            new PartDef { Name = "Hamstrings_R", EntityId = "SYS_MUSC_HAMSTRINGS", Shape = PrimitiveType.Sphere,
-                LocalPosition = new Vector3(-0.09f, 0.655f, 0.045f), LocalScale = new Vector3(0.13f, 0.28f, 0.07f), Color = MuscleColor, Smoothness = MuscleGloss, Organic = true },
-            new PartDef { Name = "Sternocleidomastoid_L", EntityId = "SYS_MUSC_STERNOCLEIDOMASTOID", Shape = PrimitiveType.Capsule,
-                LocalPosition = new Vector3(0.042f, 1.487f, -0.03f), LocalScale = new Vector3(0.026f, 0.052f, 0.026f),
-                LocalEuler = new Vector3(-12f, 0f, 16f), Color = MuscleColor, Smoothness = MuscleGloss },
-            new PartDef { Name = "Sternocleidomastoid_R", EntityId = "SYS_MUSC_STERNOCLEIDOMASTOID", Shape = PrimitiveType.Capsule,
-                LocalPosition = new Vector3(-0.042f, 1.487f, -0.03f), LocalScale = new Vector3(0.026f, 0.052f, 0.026f),
-                LocalEuler = new Vector3(-12f, 0f, -16f), Color = MuscleColor, Smoothness = MuscleGloss },
-            new PartDef { Name = "TibialisAnterior_L", EntityId = "SYS_MUSC_TIBIALIS", Shape = PrimitiveType.Sphere,
-                LocalPosition = new Vector3(0.068f, 0.305f, -0.032f), LocalScale = new Vector3(0.05f, 0.17f, 0.045f), Color = MuscleColor, Smoothness = MuscleGloss, Organic = true },
-            new PartDef { Name = "TibialisAnterior_R", EntityId = "SYS_MUSC_TIBIALIS", Shape = PrimitiveType.Sphere,
-                LocalPosition = new Vector3(-0.068f, 0.305f, -0.032f), LocalScale = new Vector3(0.05f, 0.17f, 0.045f), Color = MuscleColor, Smoothness = MuscleGloss, Organic = true },
 
             // ================= NERVOUS =================
             new PartDef { Name = "Cerebrum", EntityId = "SYS_NERV_BRAIN", Shape = PrimitiveType.Sphere,
@@ -634,7 +556,9 @@ namespace HumanBodyExplorer.EditorTools
             var boneMat = CreateSimpleMaterial(shaderLit, BoneColor, BoneGloss, skinNoiseTex);
             var cartilageMat = CreateSimpleMaterial(shaderLit, CartilageColor, OrganGloss, skinNoiseTex);
 
-            var muscleMat = CreateSimpleMaterial(shaderLit, MuscleColor, MuscleGloss, skinNoiseTex);
+            // Muscle is striped along its fibres, and its tendons are pale, glossy connective tissue.
+            var muscleMat = CreateSimpleMaterial(shaderLit, MuscleColor, MuscleGloss, CreateFibreTexture());
+            var tendonMat = CreateSimpleMaterial(shaderLit, new Color(0.90f, 0.86f, 0.76f), 0.35f, skinNoiseTex);
             var recessMat = CreateSimpleMaterial(shaderLit, new Color(0.13f, 0.11f, 0.10f), 0.05f, skinNoiseTex);
             var nerveMat = CreateSimpleMaterial(shaderLit, NerveColor, OrganGloss, skinNoiseTex);
 
@@ -664,7 +588,7 @@ namespace HumanBodyExplorer.EditorTools
             skinMat.SetColor(BaseColorId, new Color(SkinColor.r, SkinColor.g, SkinColor.b, 0.35f));
             SkinBuilder.Build(root.transform, skinMat, anatomyLayer);
 
-            BuildFacialMuscles(root.transform, muscleMat, anatomyLayer);
+            MuscleBuilder.Build(root.transform, muscleMat, tendonMat, anatomyLayer);
             BuildVascularSystem(root.transform, arteryFlowMat, veinFlowMat, anatomyLayer, 1f);
             BuildVascularSystem(root.transform, arteryFlowMat, veinFlowMat, anatomyLayer, -1f);
             BuildLimbNerves(root.transform, nerveMat, anatomyLayer, 1f);
@@ -673,6 +597,27 @@ namespace HumanBodyExplorer.EditorTools
             MeshAssets.EndBuild();
 
             return root;
+        }
+
+        /// <summary>Fine stripes across the texture's U axis. The loft maps U once around a muscle,
+        /// so the stripes run along its length - the fibre grain of real muscle.</summary>
+        internal static Texture2D CreateFibreTexture()
+        {
+            const int size = 128;
+            var tex = new Texture2D(size, size, TextureFormat.RGB24, true) { wrapMode = TextureWrapMode.Repeat, name = "MuscleFibres" };
+            var rng = new System.Random(7);
+            var stripe = new float[size];
+            for (int x = 0; x < size; x++) stripe[x] = 0.80f + 0.20f * (float)rng.NextDouble();
+            for (int y = 0; y < size; y++)
+                for (int x = 0; x < size; x++)
+                {
+                    // Neighbouring fibres are similar, with slow variation down the length.
+                    float wobble = 0.94f + 0.06f * Mathf.PerlinNoise(x * 0.35f, y * 0.045f);
+                    float v = Mathf.Clamp01(Mathf.Lerp(stripe[x], stripe[(x + 1) % size], 0.5f) * wobble);
+                    tex.SetPixel(x, y, new Color(v, v, v));
+                }
+            tex.Apply();
+            return tex;
         }
 
         private static Material CreateSimpleMaterial(Shader shader, Color color, float smoothness, Texture2D noiseTex)
@@ -718,35 +663,7 @@ namespace HumanBodyExplorer.EditorTools
             go.AddComponent<AnatomyNodeReference>().SetEntityId(entityId);
         }
 
-        /// <summary>
-        /// The muscles of mastication and facial expression, each a named muscle. (The
-        /// facial skeleton itself now comes from SkeletonBuilder.) These are still simple
-        /// blobs and are due to be rebuilt as proper fibre-bearing muscle meshes.
-        /// </summary>
-        private static void BuildFacialMuscles(Transform root, Material muscle, int layer)
-        {
-            for (int s = -1; s <= 1; s += 2)
-            {
-                string tag = s > 0 ? "L" : "R";
 
-                CreateBlob(root, $"Temporalis_{tag}", "SYS_MUSC_TEMPORALIS",
-                    new Vector3(s * 0.060f, 1.672f, -0.010f), new Vector3(0.026f, 0.046f, 0.048f), muscle, layer);
-                CreateBlob(root, $"Masseter_{tag}", "SYS_MUSC_MASSETER",
-                    new Vector3(s * 0.058f, 1.596f, -0.004f), new Vector3(0.012f, 0.050f, 0.030f), muscle, layer);
-                CreateBlob(root, $"Frontalis_{tag}", "SYS_MUSC_FRONTALIS",
-                    new Vector3(s * 0.030f, 1.700f, -0.066f), new Vector3(0.036f, 0.018f, 0.016f), muscle, layer);
-                CreateBlob(root, $"OrbicularisOculi_{tag}", "SYS_MUSC_ORBICULARIS_OCULI",
-                    new Vector3(s * 0.031f, 1.658f, -0.093f), new Vector3(0.046f, 0.036f, 0.010f), muscle, layer);
-                CreateSegment(root, $"Zygomaticus_{tag}", "SYS_MUSC_ZYGOMATICUS",
-                    new Vector3(s * 0.050f, 1.626f, -0.066f), new Vector3(s * 0.030f, 1.560f, -0.090f),
-                    0.005f, muscle, layer);
-                CreateBlob(root, $"Buccinator_{tag}", "SYS_MUSC_BUCCINATOR",
-                    new Vector3(s * 0.042f, 1.566f, -0.062f), new Vector3(0.018f, 0.022f, 0.030f), muscle, layer);
-            }
-
-            CreateBlob(root, "OrbicularisOris", "SYS_MUSC_ORBICULARIS_ORIS",
-                new Vector3(0f, 1.556f, -0.097f), new Vector3(0.036f, 0.014f, 0.011f), muscle, layer);
-        }
 
 
         /// <summary>

@@ -50,6 +50,25 @@ namespace HumanBodyExplorer.EditorTools
             new Shot { Name = "skeleton_full", Target = new Vector3(0f, 0.88f, 0f), Distance = 2.6f },
         };
 
+        private static readonly Shot[] MuscleShots =
+        {
+            new Shot { Name = "torso_front", Target = new Vector3(0f, 1.22f, 0f), Distance = 1.15f },
+            new Shot { Name = "torso_back", Target = new Vector3(0f, 1.25f, 0f), Distance = 1.15f, Yaw = 180f },
+            new Shot { Name = "torso_side", Target = new Vector3(0.05f, 1.22f, 0f), Distance = 1.2f, Yaw = -90f },
+            new Shot { Name = "shoulder_front", Target = new Vector3(0.14f, 1.30f, -0.03f), Distance = 0.7f, Yaw = -20f },
+            new Shot { Name = "arm_front", Target = new Vector3(0.20f, 1.05f, 0f), Distance = 1.0f },
+            new Shot { Name = "forearm_back", Target = new Vector3(0.20f, 0.98f, 0f), Distance = 0.7f, Yaw = 180f },
+            new Shot { Name = "pelvis_back", Target = new Vector3(0.04f, 0.93f, 0.05f), Distance = 0.8f, Yaw = 180f },
+            new Shot { Name = "thigh_front", Target = new Vector3(0.09f, 0.68f, 0f), Distance = 1.0f },
+            new Shot { Name = "thigh_back", Target = new Vector3(0.09f, 0.68f, 0f), Distance = 1.0f, Yaw = 180f },
+            new Shot { Name = "calf_back", Target = new Vector3(0.085f, 0.27f, 0.02f), Distance = 0.9f, Yaw = 180f },
+            new Shot { Name = "shin_front", Target = new Vector3(0.085f, 0.27f, 0f), Distance = 0.9f },
+            new Shot { Name = "face_front", Target = new Vector3(0f, 1.63f, -0.02f), Distance = 0.55f },
+            new Shot { Name = "face_side", Target = new Vector3(0f, 1.62f, 0f), Distance = 0.6f, Yaw = -90f },
+            new Shot { Name = "full_front", Target = new Vector3(0f, 0.9f, 0f), Distance = 3.0f },
+            new Shot { Name = "full_back", Target = new Vector3(0f, 0.9f, 0f), Distance = 3.0f, Yaw = 180f },
+        };
+
         [MenuItem("Human Body Explorer/Preview Region")]
         public static void Run()
         {
@@ -71,6 +90,18 @@ namespace HumanBodyExplorer.EditorTools
             Shot[] shots;
             switch (what)
             {
+                case "muscles":
+                {
+                    SkeletonBuilder.Build(root, boneMat, cartMat, layer);
+                    var muscleMat = new Material(Shader.Find("Universal Render Pipeline/Lit")) { color = HumanBodyExplorerSetup.MuscleColor };
+                    muscleMat.SetFloat("_Smoothness", 0.3f);
+                    muscleMat.SetTexture("_BaseMap", HumanBodyExplorerSetup.CreateFibreTexture());
+                    var tendonMat = new Material(Shader.Find("Universal Render Pipeline/Lit")) { color = new Color(0.90f, 0.86f, 0.76f) };
+                    tendonMat.SetFloat("_Smoothness", 0.35f);
+                    MuscleBuilder.Build(root, muscleMat, tendonMat, layer);
+                    shots = MuscleShots;
+                    break;
+                }
                 default:
                     SkeletonBuilder.Build(root, boneMat, cartMat, layer);
                     shots = SkeletonShots;

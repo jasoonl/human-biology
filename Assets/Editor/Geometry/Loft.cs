@@ -26,6 +26,10 @@ namespace HumanBodyExplorer.EditorTools.Geometry
             /// <summary>Direction the wide axis should follow; projected perpendicular to
             /// the path at every ring. Null leaves the section free to twist naturally.</summary>
             public Vector3? WidthAxis;
+            /// <summary>Which way the section's thin dimension should face at a given
+            /// point on the path (e.g. straight out from the back for a sheet of muscle
+            /// lying on the ribs). Overrides <see cref="WidthAxis"/>.</summary>
+            public Func<Vector3, Vector3> ThickAt;
             /// <summary>Rings per metre along the path (before end caps).</summary>
             public float RingsPerMetre;
             /// <summary>Rings used to round each end into a dome; 0 leaves ends open.</summary>
@@ -76,7 +80,13 @@ namespace HumanBodyExplorer.EditorTools.Geometry
             {
                 Vector3 t = tangents[i];
                 Vector3 w;
-                if (o.WidthAxis.HasValue)
+                if (o.ThickAt != null)
+                {
+                    Vector3 th = o.ThickAt(path[i]);
+                    th -= t * Vector3.Dot(th, t);
+                    w = th.sqrMagnitude < 1e-8f ? (i > 0 ? carry : Perpendicular(t)) : Vector3.Cross(th.normalized, t);
+                }
+                else if (o.WidthAxis.HasValue)
                 {
                     w = o.WidthAxis.Value - t * Vector3.Dot(o.WidthAxis.Value, t);
                     if (w.sqrMagnitude < 1e-6f) w = i > 0 ? carry : Perpendicular(t);

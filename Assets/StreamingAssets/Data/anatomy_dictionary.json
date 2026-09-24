@@ -867,7 +867,9 @@
     "connectedNodes": [
       "SYS_SK_PELVIS",
       "SYS_SK_TIBIA",
-      "SYS_MUSC_QUADS"
+      "SYS_MUSC_RECTUS_FEMORIS",
+      "SYS_MUSC_VASTUS_LATERALIS",
+      "SYS_MUSC_VASTUS_MEDIALIS"
     ],
     "hasMicroDive": true,
     "microDiveKey": "Scene_Micro_Haversian",
@@ -988,45 +990,6 @@
       "SYS_SK_HUMERUS",
       "SYS_SK_RADIUS",
       "SYS_SK_ULNA"
-    ],
-    "hasMicroDive": true,
-    "microDiveKey": "Scene_Micro_Sarcomere",
-    "pharmacologyTargets": []
-  },
-  {
-    "entityID": "SYS_MUSC_QUADS",
-    "snomedCTCode": "68612001",
-    "icd10PathologyCodes": [
-      "M62.9"
-    ],
-    "latinName": "Musculus quadriceps femoris",
-    "commonName": "Quadriceps Femoris",
-    "systemCategory": [
-      "Muscular"
-    ],
-    "descriptionProfessional": "Four anterior thigh muscles - rectus femoris and the three vasti - converging on the patellar tendon to extend the knee.",
-    "descriptionPatient": "The big muscle group on the front of your thigh that straightens your knee when you kick or stand up.",
-    "apBiologyFacts": [
-      "Four muscles with one shared tendon: rectus femoris plus vastus lateralis, medialis and intermedius. Rectus femoris uniquely crosses the hip too, so it both flexes the hip and extends the knee.",
-      "The patella is a sesamoid bone embedded in the tendon. It acts as a pulley, increasing the moment arm and therefore the leverage of the whole group.",
-      "It is one of the largest and most powerful muscle groups in the body, and the reason humans can stand from sitting without using their arms."
-    ],
-    "clinicalNotes": [
-      "The patellar (knee-jerk) reflex tests L2-L4 and is the classic demonstration of a monosynaptic reflex arc.",
-      "Quadriceps atrophy develops strikingly fast after knee injury or immobilization - visible wasting within days.",
-      "The vastus lateralis is the preferred intramuscular injection site in infants."
-    ],
-    "boundsCenterOffset": {
-      "x": 0.0,
-      "y": -0.4,
-      "z": 0.05
-    },
-    "idealCameraDistance": 0.35,
-    "addressableMeshKey": "Mesh_Muscle_Quadriceps_LOD0",
-    "audioTTSKey": "Audio_Quadriceps_Desc",
-    "connectedNodes": [
-      "SYS_SK_FEMUR",
-      "SYS_SK_TIBIA"
     ],
     "hasMicroDive": true,
     "microDiveKey": "Scene_Micro_Sarcomere",
@@ -1794,83 +1757,6 @@
     "pharmacologyTargets": []
   },
   {
-    "entityID": "SYS_MUSC_GLUTEUS",
-    "snomedCTCode": "42679005",
-    "icd10PathologyCodes": [
-      "M62.9"
-    ],
-    "latinName": "Musculus gluteus maximus",
-    "commonName": "Gluteus Maximus",
-    "systemCategory": [
-      "Muscular"
-    ],
-    "descriptionProfessional": "The largest and most superficial gluteal muscle, the powerful extensor of the hip from ilium and sacrum to the gluteal tuberosity and iliotibial tract.",
-    "descriptionPatient": "The large muscle of your buttock. It straightens your hip when you climb stairs or stand up.",
-    "apBiologyFacts": [
-      "It is the single largest muscle in the human body by mass.",
-      "It is disproportionately large in humans compared with other primates, and is considered an adaptation for endurance running and for stabilizing the trunk during bipedal stance - a key piece of evidence in the evolution of human locomotion.",
-      "Gluteus medius and minimus beneath it abduct the hip and, critically, stop the pelvis dropping on the unsupported side during walking."
-    ],
-    "clinicalNotes": [
-      "A positive Trendelenburg sign - the pelvis dropping on the opposite side when standing on one leg - indicates gluteus medius weakness or superior gluteal nerve injury.",
-      "Intramuscular injections go into the upper outer quadrant of the buttock specifically to avoid the sciatic nerve."
-    ],
-    "boundsCenterOffset": {
-      "x": 0.0,
-      "y": 0.0,
-      "z": -0.05
-    },
-    "idealCameraDistance": 0.35,
-    "addressableMeshKey": "Mesh_Muscle_Gluteus_LOD0",
-    "audioTTSKey": "Audio_Gluteus_Desc",
-    "connectedNodes": [
-      "SYS_SK_PELVIS",
-      "SYS_SK_FEMUR"
-    ],
-    "hasMicroDive": true,
-    "microDiveKey": "Scene_Micro_Sarcomere",
-    "pharmacologyTargets": []
-  },
-  {
-    "entityID": "SYS_MUSC_HAMSTRINGS",
-    "snomedCTCode": "181627001",
-    "icd10PathologyCodes": [
-      "S76.30"
-    ],
-    "latinName": "Musculi ischiocrurales",
-    "commonName": "Hamstrings",
-    "systemCategory": [
-      "Muscular"
-    ],
-    "descriptionProfessional": "Biceps femoris, semitendinosus and semimembranosus, running from the ischial tuberosity to the tibia and fibula.",
-    "descriptionPatient": "The three muscles at the back of your thigh. They bend your knee and are the ones that pull when you sprint.",
-    "apBiologyFacts": [
-      "Three muscles that cross BOTH the hip and the knee, so they extend the hip and flex the knee simultaneously - which is why they cannot be fully stretched at both joints at once.",
-      "They are the antagonists of the quadriceps, and the quadriceps-to-hamstring strength ratio is a standard measure in sports physiology."
-    ],
-    "clinicalNotes": [
-      "Hamstring strain is among the most common sporting injuries, typically during the eccentric phase of sprinting when the muscle contracts while lengthening.",
-      "The straight-leg raise test uses hamstring and sciatic nerve tension to assess lumbar radiculopathy.",
-      "The sciatic nerve runs beneath them, so posterior thigh pain must be distinguished between muscle and nerve."
-    ],
-    "boundsCenterOffset": {
-      "x": 0.0,
-      "y": -0.4,
-      "z": -0.05
-    },
-    "idealCameraDistance": 0.35,
-    "addressableMeshKey": "Mesh_Muscle_Hamstrings_LOD0",
-    "audioTTSKey": "Audio_Hamstrings_Desc",
-    "connectedNodes": [
-      "SYS_SK_PELVIS",
-      "SYS_SK_TIBIA",
-      "SYS_MUSC_QUADS"
-    ],
-    "hasMicroDive": true,
-    "microDiveKey": "Scene_Micro_Sarcomere",
-    "pharmacologyTargets": []
-  },
-  {
     "entityID": "SYS_MUSC_STERNOCLEIDOMASTOID",
     "snomedCTCode": "42566008",
     "icd10PathologyCodes": [
@@ -2014,7 +1900,9 @@
     "addressableMeshKey": "Mesh_Patella_LOD0",
     "audioTTSKey": "Audio_Patella_Desc",
     "connectedNodes": [
-      "SYS_MUSC_QUADS",
+      "SYS_MUSC_RECTUS_FEMORIS",
+      "SYS_MUSC_VASTUS_LATERALIS",
+      "SYS_MUSC_VASTUS_MEDIALIS",
       "SYS_SK_FEMUR",
       "SYS_SK_TIBIA"
     ],
@@ -2057,44 +1945,6 @@
     ],
     "hasMicroDive": false,
     "microDiveKey": "",
-    "pharmacologyTargets": []
-  },
-  {
-    "entityID": "SYS_MUSC_FOREARM",
-    "snomedCTCode": "40923004",
-    "icd10PathologyCodes": [
-      "M77.10"
-    ],
-    "latinName": "Musculi antebrachii",
-    "commonName": "Forearm Flexors & Extensors",
-    "systemCategory": [
-      "Muscular"
-    ],
-    "descriptionProfessional": "Anterior flexor-pronator and posterior extensor-supinator compartments acting on the wrist and digits through long tendons.",
-    "descriptionPatient": "The muscles of your forearm. They pull on long tendons to move your fingers - the muscles that grip are not in your hand.",
-    "apBiologyFacts": [
-      "The muscles that move your fingers sit in the forearm, not the hand, and act through long tendons. Keeping the bulk proximal leaves the fingers slender enough for fine manipulation - a clear structure-function trade-off.",
-      "Anterior compartment flexes the wrist and fingers; posterior compartment extends them. They form another antagonistic pair."
-    ],
-    "clinicalNotes": [
-      "Lateral epicondylitis ('tennis elbow') is extensor tendinopathy; medial ('golfer's elbow') is flexor.",
-      "Carpal tunnel syndrome compresses the median nerve where these tendons crowd under the flexor retinaculum, causing numbness in the thumb, index and middle fingers."
-    ],
-    "boundsCenterOffset": {
-      "x": 0.3,
-      "y": -0.1,
-      "z": 0.05
-    },
-    "idealCameraDistance": 0.3,
-    "addressableMeshKey": "Mesh_Muscle_Forearm_LOD0",
-    "audioTTSKey": "Audio_Forearm_Desc",
-    "connectedNodes": [
-      "SYS_SK_RADIUS",
-      "SYS_SK_ULNA",
-      "SYS_SK_METACARPALS"
-    ],
-    "hasMicroDive": true,
-    "microDiveKey": "Scene_Micro_Sarcomere",
     "pharmacologyTargets": []
   },
   {
@@ -2210,82 +2060,6 @@
     "pharmacologyTargets": []
   },
   {
-    "entityID": "SYS_MUSC_ADDUCTORS",
-    "snomedCTCode": "181640003",
-    "icd10PathologyCodes": [
-      "S76.20"
-    ],
-    "latinName": "Musculi adductores femoris",
-    "commonName": "Hip Adductors (Groin)",
-    "systemCategory": [
-      "Muscular"
-    ],
-    "descriptionProfessional": "The medial thigh compartment - adductor longus, brevis, magnus, gracilis and pectineus - supplied by the obturator nerve.",
-    "descriptionPatient": "The inner thigh muscles that pull your legs together.",
-    "apBiologyFacts": [
-      "They pull the thigh toward the midline and stabilise the pelvis during single-leg stance, so they work hard in every stride of walking.",
-      "Adductor magnus is unusual in having both an adductor part (obturator nerve) and a hamstring part (sciatic nerve) - one muscle, two nerve supplies, reflecting its dual embryological origin."
-    ],
-    "clinicalNotes": [
-      "Adductor strain is the classic 'groin pull' in football and hockey.",
-      "The adductor canal carries the femoral vessels through the thigh and is a common site for a nerve block in knee surgery."
-    ],
-    "boundsCenterOffset": {
-      "x": 0.0,
-      "y": -0.35,
-      "z": 0.0
-    },
-    "idealCameraDistance": 0.35,
-    "addressableMeshKey": "Mesh_Muscle_Adductors_LOD0",
-    "audioTTSKey": "Audio_Adductors_Desc",
-    "connectedNodes": [
-      "SYS_SK_PELVIS",
-      "SYS_SK_FEMUR"
-    ],
-    "hasMicroDive": true,
-    "microDiveKey": "Scene_Micro_Sarcomere",
-    "pharmacologyTargets": []
-  },
-  {
-    "entityID": "SYS_MUSC_ROTATOR_CUFF",
-    "snomedCTCode": "42599003",
-    "icd10PathologyCodes": [
-      "M75.100"
-    ],
-    "latinName": "Musculi coiffae rotatorum",
-    "commonName": "Rotator Cuff",
-    "systemCategory": [
-      "Muscular"
-    ],
-    "descriptionProfessional": "Supraspinatus, infraspinatus, teres minor and subscapularis, blending into the capsule to centre the humeral head in the glenoid.",
-    "descriptionPatient": "Four small muscles wrapping your shoulder joint. They hold the ball in the socket while bigger muscles move the arm.",
-    "apBiologyFacts": [
-      "Remember them as SITS: Supraspinatus, Infraspinatus, Teres minor, Subscapularis.",
-      "Their job is stability, not power: they compress the humeral head into a very shallow socket so the deltoid can move the arm without dislocating it. The shoulder trades bony stability for range, and the cuff pays that debt with muscle.",
-      "Supraspinatus initiates the first 15 degrees of abduction before deltoid takes over."
-    ],
-    "clinicalNotes": [
-      "Supraspinatus is the most commonly torn, and is compressed in subacromial impingement; a painful arc between 60 and 120 degrees is the classic sign.",
-      "Cuff tears become increasingly common with age and are often degenerative rather than traumatic."
-    ],
-    "boundsCenterOffset": {
-      "x": 0.2,
-      "y": 0.1,
-      "z": 0.0
-    },
-    "idealCameraDistance": 0.3,
-    "addressableMeshKey": "Mesh_Muscle_RotatorCuff_LOD0",
-    "audioTTSKey": "Audio_RotatorCuff_Desc",
-    "connectedNodes": [
-      "SYS_SK_SCAPULA",
-      "SYS_SK_HUMERUS",
-      "SYS_MUSC_DELTOID"
-    ],
-    "hasMicroDive": true,
-    "microDiveKey": "Scene_Micro_Sarcomere",
-    "pharmacologyTargets": []
-  },
-  {
     "entityID": "SYS_NERV_SCIATIC",
     "snomedCTCode": "42120001",
     "icd10PathologyCodes": [
@@ -2318,7 +2092,9 @@
     "audioTTSKey": "Audio_Sciatic_Desc",
     "connectedNodes": [
       "SYS_NERV_SPINALCORD",
-      "SYS_MUSC_HAMSTRINGS"
+      "SYS_MUSC_BICEPS_FEMORIS",
+      "SYS_MUSC_SEMITENDINOSUS",
+      "SYS_MUSC_SEMIMEMBRANOSUS"
     ],
     "hasMicroDive": true,
     "microDiveKey": "Scene_Micro_Synapse",
@@ -3874,7 +3650,9 @@
     "addressableMeshKey": "Mesh_SYS_NERV_FEMORAL_LOD0",
     "audioTTSKey": "Audio_SYS_NERV_FEMORAL_Desc",
     "connectedNodes": [
-      "SYS_MUSC_QUADS"
+      "SYS_MUSC_RECTUS_FEMORIS",
+      "SYS_MUSC_VASTUS_LATERALIS",
+      "SYS_MUSC_VASTUS_MEDIALIS"
     ],
     "hasMicroDive": false,
     "microDiveKey": "",
@@ -5439,6 +5217,2210 @@
     "audioTTSKey": "Audio_SYS_SK_PHALANGES_FOOT_Desc",
     "connectedNodes": [
       "SYS_SK_METATARSALS"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_MUSC_PECTORALIS_MINOR",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "M62.9"
+    ],
+    "latinName": "Musculus pectoralis minor",
+    "commonName": "Pectoralis Minor",
+    "systemCategory": [
+      "Muscular"
+    ],
+    "descriptionProfessional": "A thin triangular muscle deep to pectoralis major, from ribs 3-5 to the coracoid process of the scapula. It draws the scapula forward and down, and lifts the ribs in forced inspiration.",
+    "descriptionPatient": "A small muscle under your big chest muscle that pulls your shoulder blade forward and down.",
+    "apBiologyFacts": [
+      "It is an accessory muscle of inspiration: with the scapula fixed, it lifts ribs 3-5 to enlarge the chest, which is why people with severe asthma brace their arms and shoulders to breathe.",
+      "It lies over the axillary artery and the cords of the brachial plexus, so its tightness can compress them.",
+      "It is supplied by the medial and lateral pectoral nerves (C5-T1)."
+    ],
+    "clinicalNotes": [
+      "Pectoralis minor syndrome, a form of thoracic outlet syndrome, causes arm pain and numbness when the tight muscle presses on the neurovascular bundle.",
+      "It is a landmark for dividing the axillary artery into three parts."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.4,
+    "addressableMeshKey": "Mesh_SYS_MUSC_PECTORALIS_MINOR_LOD0",
+    "audioTTSKey": "Audio_SYS_MUSC_PECTORALIS_MINOR_Desc",
+    "connectedNodes": [
+      "SYS_MUSC_PECTORALIS",
+      "SYS_SK_SCAPULA",
+      "SYS_NERV_BRACHIAL_PLEXUS"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_MUSC_RHOMBOIDS",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "M62.9"
+    ],
+    "latinName": "Musculi rhomboidei",
+    "commonName": "Rhomboids (Major and Minor)",
+    "systemCategory": [
+      "Muscular"
+    ],
+    "descriptionProfessional": "Two flat muscles from the spinous processes of C7-T5 to the medial border of the scapula, retracting it toward the spine and holding it against the chest wall.",
+    "descriptionPatient": "Muscles between your shoulder blades that pull them together, like squeezing a pencil between them.",
+    "apBiologyFacts": [
+      "Antagonistic pairs let joints move both ways: the rhomboids retract the scapula (pull it toward the spine) while serratus anterior protracts it - the classic push-pull pairing.",
+      "They are supplied by the dorsal scapular nerve (C5).",
+      "They hold the scapula flat against the ribs, so weakness makes its medial edge stick out."
+    ],
+    "clinicalNotes": [
+      "Damage to the dorsal scapular nerve or muscle weakness leads to scapular 'winging' toward the spine side.",
+      "Sore, knotted rhomboids are a common source of upper-back pain in people who sit hunched at a desk."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.4,
+    "addressableMeshKey": "Mesh_SYS_MUSC_RHOMBOIDS_LOD0",
+    "audioTTSKey": "Audio_SYS_MUSC_RHOMBOIDS_Desc",
+    "connectedNodes": [
+      "SYS_MUSC_TRAPEZIUS",
+      "SYS_SK_SCAPULA",
+      "SYS_MUSC_SERRATUS"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_MUSC_LEVATOR_SCAPULAE",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "M62.9"
+    ],
+    "latinName": "Musculus levator scapulae",
+    "commonName": "Levator Scapulae",
+    "systemCategory": [
+      "Muscular"
+    ],
+    "descriptionProfessional": "A strap from the transverse processes of C1-C4 to the upper medial border of the scapula, elevating the scapula and helping to tilt the neck to the same side.",
+    "descriptionPatient": "The muscle that lifts your shoulder blade when you shrug and helps tilt your neck.",
+    "apBiologyFacts": [
+      "Named for its action: it 'levates' (lifts) the scapula, as in shrugging.",
+      "Working from the neck downward with the scapula fixed, it bends the neck to the same side.",
+      "It is supplied by branches of C3-C4 and the dorsal scapular nerve."
+    ],
+    "clinicalNotes": [
+      "It is a common site of neck and shoulder tension, giving the 'crick in the neck' after sleeping awkwardly.",
+      "Overuse from carrying heavy bags or working at a computer causes chronic trigger points."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.4,
+    "addressableMeshKey": "Mesh_SYS_MUSC_LEVATOR_SCAPULAE_LOD0",
+    "audioTTSKey": "Audio_SYS_MUSC_LEVATOR_SCAPULAE_Desc",
+    "connectedNodes": [
+      "SYS_MUSC_TRAPEZIUS",
+      "SYS_SK_SCAPULA",
+      "SYS_SK_VERT_CERVICAL"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_MUSC_SUPRASPINATUS",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "M75.1"
+    ],
+    "latinName": "Musculus supraspinatus",
+    "commonName": "Supraspinatus",
+    "systemCategory": [
+      "Muscular"
+    ],
+    "descriptionProfessional": "A rotator cuff muscle running from the supraspinous fossa of the scapula under the acromion to the greater tubercle of the humerus. It starts abduction of the arm and steadies the humeral head.",
+    "descriptionPatient": "A small shoulder muscle that helps you start lifting your arm out to the side.",
+    "apBiologyFacts": [
+      "It initiates the first 15 degrees of arm abduction, after which the deltoid takes over.",
+      "The four rotator cuff muscles (supraspinatus, infraspinatus, teres minor, subscapularis - 'SITS') hold the ball of the humerus in the shallow glenoid socket, giving the shoulder its huge mobility at the cost of stability.",
+      "It is supplied by the suprascapular nerve (C5-C6)."
+    ],
+    "clinicalNotes": [
+      "It is the most commonly torn rotator cuff muscle, because its tendon passes through the narrow space beneath the acromion (impingement).",
+      "The 'empty can' test (arm raised with thumb down against resistance) reveals a tear or nerve palsy."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.4,
+    "addressableMeshKey": "Mesh_SYS_MUSC_SUPRASPINATUS_LOD0",
+    "audioTTSKey": "Audio_SYS_MUSC_SUPRASPINATUS_Desc",
+    "connectedNodes": [
+      "SYS_MUSC_DELTOID",
+      "SYS_SK_SCAPULA",
+      "SYS_SK_HUMERUS"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_MUSC_INFRASPINATUS",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "M75.1"
+    ],
+    "latinName": "Musculus infraspinatus",
+    "commonName": "Infraspinatus",
+    "systemCategory": [
+      "Muscular"
+    ],
+    "descriptionProfessional": "A rotator cuff muscle filling the infraspinous fossa of the scapula and inserting on the greater tubercle. It is the chief external (lateral) rotator of the arm.",
+    "descriptionPatient": "A muscle on the back of your shoulder blade that turns your arm outward.",
+    "apBiologyFacts": [
+      "Lateral rotation - turning the arm so the palm faces forward - depends mainly on this muscle; it is antagonised by subscapularis, the medial rotator.",
+      "It is supplied by the suprascapular nerve (C5-C6).",
+      "Together with the other cuff muscles it pulls the humeral head into the glenoid, which is why the joint stays in place during movement."
+    ],
+    "clinicalNotes": [
+      "Rotator cuff tears involving infraspinatus weaken external rotation, so patients cannot comb the back of the hair or throw well.",
+      "Wasting of the infraspinatus fossa is seen after suprascapular nerve injury."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.4,
+    "addressableMeshKey": "Mesh_SYS_MUSC_INFRASPINATUS_LOD0",
+    "audioTTSKey": "Audio_SYS_MUSC_INFRASPINATUS_Desc",
+    "connectedNodes": [
+      "SYS_MUSC_SUPRASPINATUS",
+      "SYS_MUSC_TERES_MINOR",
+      "SYS_SK_SCAPULA"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_MUSC_TERES_MINOR",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "M75.1"
+    ],
+    "latinName": "Musculus teres minor",
+    "commonName": "Teres Minor",
+    "systemCategory": [
+      "Muscular"
+    ],
+    "descriptionProfessional": "The smallest rotator cuff muscle, from the lateral border of the scapula to the greater tubercle. It laterally rotates the arm and holds the humeral head in the socket.",
+    "descriptionPatient": "A small muscle at the back of the shoulder that helps turn your arm outward.",
+    "apBiologyFacts": [
+      "It is the fourth rotator cuff muscle and works with infraspinatus for lateral rotation.",
+      "It is supplied by the axillary nerve, the same nerve that supplies the deltoid.",
+      "Together the cuff muscles are 'dynamic stabilisers' of a joint that has almost no bony stability."
+    ],
+    "clinicalNotes": [
+      "Injury to the axillary nerve (for example in a shoulder dislocation) weakens both the deltoid and teres minor and causes numbness over the 'regimental badge' area of the upper arm.",
+      "Its tendon is rarely torn in isolation."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.4,
+    "addressableMeshKey": "Mesh_SYS_MUSC_TERES_MINOR_LOD0",
+    "audioTTSKey": "Audio_SYS_MUSC_TERES_MINOR_Desc",
+    "connectedNodes": [
+      "SYS_MUSC_INFRASPINATUS",
+      "SYS_MUSC_DELTOID",
+      "SYS_SK_SCAPULA"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_MUSC_TERES_MAJOR",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "M62.9"
+    ],
+    "latinName": "Musculus teres major",
+    "commonName": "Teres Major",
+    "systemCategory": [
+      "Muscular"
+    ],
+    "descriptionProfessional": "A thick muscle from the lower lateral border of the scapula to the front of the humerus, adducting and medially rotating the arm; often called 'the lat's little helper'.",
+    "descriptionPatient": "A muscle behind your armpit that pulls your arm down and turns it inward.",
+    "apBiologyFacts": [
+      "It works with latissimus dorsi to extend, adduct and medially rotate the arm, as in pulling down a rope.",
+      "It is not part of the rotator cuff, although it lies right beside it.",
+      "It is supplied by the lower subscapular nerve (C5-C7)."
+    ],
+    "clinicalNotes": [
+      "It forms the lower border of the 'quadrangular space', through which the axillary nerve passes; entrapment there causes shoulder pain and weakness.",
+      "It is often tender in swimmers and rowers."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.4,
+    "addressableMeshKey": "Mesh_SYS_MUSC_TERES_MAJOR_LOD0",
+    "audioTTSKey": "Audio_SYS_MUSC_TERES_MAJOR_Desc",
+    "connectedNodes": [
+      "SYS_MUSC_LATISSIMUS",
+      "SYS_SK_SCAPULA",
+      "SYS_SK_HUMERUS"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_MUSC_SUBSCAPULARIS",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "M75.1"
+    ],
+    "latinName": "Musculus subscapularis",
+    "commonName": "Subscapularis",
+    "systemCategory": [
+      "Muscular"
+    ],
+    "descriptionProfessional": "The largest rotator cuff muscle, filling the front (costal surface) of the scapula and inserting on the lesser tubercle. It medially rotates the arm and stabilises the joint from the front.",
+    "descriptionPatient": "A big muscle on the underside of your shoulder blade that turns your arm inward.",
+    "apBiologyFacts": [
+      "It is the internal (medial) rotator of the cuff, opposing infraspinatus and teres minor.",
+      "It lies between the scapula and the rib cage, which is why it is the only cuff muscle you cannot see from behind.",
+      "It is supplied by the upper and lower subscapular nerves."
+    ],
+    "clinicalNotes": [
+      "It stabilises the front of the shoulder, so tears are associated with anterior instability and dislocation.",
+      "The 'lift-off test' (hand behind the back, lifting away from the spine) tests it."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.4,
+    "addressableMeshKey": "Mesh_SYS_MUSC_SUBSCAPULARIS_LOD0",
+    "audioTTSKey": "Audio_SYS_MUSC_SUBSCAPULARIS_Desc",
+    "connectedNodes": [
+      "SYS_MUSC_SUPRASPINATUS",
+      "SYS_MUSC_INFRASPINATUS",
+      "SYS_SK_SCAPULA"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_MUSC_BRACHIALIS",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "M62.9"
+    ],
+    "latinName": "Musculus brachialis",
+    "commonName": "Brachialis",
+    "systemCategory": [
+      "Muscular"
+    ],
+    "descriptionProfessional": "A muscle lying deep to biceps on the front of the humerus, inserting on the ulna. It is the main flexor of the elbow, acting whatever position the forearm is in.",
+    "descriptionPatient": "A muscle under your biceps that does most of the work of bending your elbow.",
+    "apBiologyFacts": [
+      "It is the 'workhorse' of elbow flexion because it acts on the ulna, which does not rotate, so it works in pronation and supination alike.",
+      "Biceps is a stronger flexor when the forearm is supinated, but brachialis contributes equally in any position.",
+      "It is supplied mainly by the musculocutaneous nerve, with a small part of the radial nerve."
+    ],
+    "clinicalNotes": [
+      "It is at risk in supracondylar fractures of the humerus, and a fibrosed brachialis can restrict elbow movement.",
+      "A biceps tendon rupture leaves elbow flexion largely intact because brachialis compensates."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.4,
+    "addressableMeshKey": "Mesh_SYS_MUSC_BRACHIALIS_LOD0",
+    "audioTTSKey": "Audio_SYS_MUSC_BRACHIALIS_Desc",
+    "connectedNodes": [
+      "SYS_MUSC_BICEPS",
+      "SYS_SK_HUMERUS",
+      "SYS_SK_ULNA"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_MUSC_CORACOBRACHIALIS",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "M62.9"
+    ],
+    "latinName": "Musculus coracobrachialis",
+    "commonName": "Coracobrachialis",
+    "systemCategory": [
+      "Muscular"
+    ],
+    "descriptionProfessional": "A slim muscle from the coracoid process to the middle of the humerus, flexing and adducting the arm. The musculocutaneous nerve pierces it.",
+    "descriptionPatient": "A small muscle in your upper arm that helps swing your arm forward and toward your body.",
+    "apBiologyFacts": [
+      "It is the landmark for the axillary artery, which runs along its edge.",
+      "The musculocutaneous nerve passes through it, and the nerve supplies all three muscles of the anterior arm (biceps, brachialis, coracobrachialis).",
+      "It flexes and adducts the arm at the shoulder."
+    ],
+    "clinicalNotes": [
+      "Compression of the musculocutaneous nerve where it pierces the muscle causes weakness of elbow flexion and numbness along the outer forearm.",
+      "It is an anatomical landmark used in shoulder surgery."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.4,
+    "addressableMeshKey": "Mesh_SYS_MUSC_CORACOBRACHIALIS_LOD0",
+    "audioTTSKey": "Audio_SYS_MUSC_CORACOBRACHIALIS_Desc",
+    "connectedNodes": [
+      "SYS_MUSC_BICEPS",
+      "SYS_SK_SCAPULA",
+      "SYS_SK_HUMERUS"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_MUSC_BRACHIORADIALIS",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "M62.9"
+    ],
+    "latinName": "Musculus brachioradialis",
+    "commonName": "Brachioradialis",
+    "systemCategory": [
+      "Muscular"
+    ],
+    "descriptionProfessional": "A long muscle from the lateral supracondylar ridge of the humerus to the styloid process of the radius. It flexes the elbow, especially with the forearm in mid-pronation, as when hammering or drinking from a cup.",
+    "descriptionPatient": "A muscle on the outer side of your forearm that helps bend your elbow when your thumb points up.",
+    "apBiologyFacts": [
+      "It is unusual: it lies in the extensor (back) compartment of the forearm but flexes the elbow, and is supplied by the radial nerve, showing that function does not always follow compartment.",
+      "It works best in the neutral 'handshake' position, where it is a strong elbow flexor.",
+      "Its tendon inserts at the far end of the radius, giving a long lever."
+    ],
+    "clinicalNotes": [
+      "The brachioradialis reflex (tapping the radius above the wrist) tests the C5-C6 spinal segments.",
+      "It is a landmark for finding the radial artery and the superficial radial nerve."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.4,
+    "addressableMeshKey": "Mesh_SYS_MUSC_BRACHIORADIALIS_LOD0",
+    "audioTTSKey": "Audio_SYS_MUSC_BRACHIORADIALIS_Desc",
+    "connectedNodes": [
+      "SYS_SK_RADIUS",
+      "SYS_SK_HUMERUS",
+      "SYS_NERV_RADIAL",
+      "SYS_MUSC_BICEPS"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_MUSC_PRONATOR_TERES",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "M62.9"
+    ],
+    "latinName": "Musculus pronator teres",
+    "commonName": "Pronator Teres",
+    "systemCategory": [
+      "Muscular"
+    ],
+    "descriptionProfessional": "A muscle from the medial epicondyle of the humerus to the middle of the radius, rotating the forearm so the palm faces down (pronation) and helping to flex the elbow.",
+    "descriptionPatient": "A muscle that turns your palm to face down.",
+    "apBiologyFacts": [
+      "Pronation happens when the radius crosses over the ulna, driven by pronator teres above and pronator quadratus at the wrist.",
+      "The median nerve passes between the muscle's two heads.",
+      "It is the antagonist of supinator and biceps, which turn the palm up."
+    ],
+    "clinicalNotes": [
+      "Pronator syndrome is compression of the median nerve where it passes between the heads, causing forearm pain and numbness in the hand like carpal tunnel syndrome.",
+      "It is a common site of pain in golfer's elbow (medial epicondylitis)."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.4,
+    "addressableMeshKey": "Mesh_SYS_MUSC_PRONATOR_TERES_LOD0",
+    "audioTTSKey": "Audio_SYS_MUSC_PRONATOR_TERES_Desc",
+    "connectedNodes": [
+      "SYS_SK_RADIUS",
+      "SYS_SK_HUMERUS",
+      "SYS_NERV_MEDIAN"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_MUSC_FLEXOR_CARPI_RADIALIS",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "M62.9"
+    ],
+    "latinName": "Musculus flexor carpi radialis",
+    "commonName": "Flexor Carpi Radialis",
+    "systemCategory": [
+      "Muscular"
+    ],
+    "descriptionProfessional": "A forearm flexor from the medial epicondyle to the base of the second and third metacarpals, flexing and abducting the wrist. Its tendon is a landmark just beside the radial pulse.",
+    "descriptionPatient": "A wrist muscle on the thumb side that bends your wrist and tilts it toward your thumb.",
+    "apBiologyFacts": [
+      "Wrist flexors work in pairs to bend the wrist straight, and with the extensors to tilt it sideways (deviation).",
+      "Its tendon lies in front of the wrist, just medial to the radial artery, and is a guide for finding the pulse.",
+      "It is supplied by the median nerve (C6-C7)."
+    ],
+    "clinicalNotes": [
+      "Medial epicondylitis ('golfer's elbow') affects the common flexor origin at the elbow.",
+      "The tendon is a landmark in carpal tunnel release surgery."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.4,
+    "addressableMeshKey": "Mesh_SYS_MUSC_FLEXOR_CARPI_RADIALIS_LOD0",
+    "audioTTSKey": "Audio_SYS_MUSC_FLEXOR_CARPI_RADIALIS_Desc",
+    "connectedNodes": [
+      "SYS_SK_RADIUS",
+      "SYS_SK_METACARPALS",
+      "SYS_NERV_MEDIAN",
+      "SYS_CV_RADIAL"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_MUSC_PALMARIS_LONGUS",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "M62.9"
+    ],
+    "latinName": "Musculus palmaris longus",
+    "commonName": "Palmaris Longus",
+    "systemCategory": [
+      "Muscular"
+    ],
+    "descriptionProfessional": "A slender muscle with a long tendon from the medial epicondyle to the palmar aponeurosis. About 14% of people lack it on one or both sides; it is a weak wrist flexor.",
+    "descriptionPatient": "A thin muscle in the middle of your forearm that some people do not have at all.",
+    "apBiologyFacts": [
+      "It is a vestigial muscle: it is strong in animals that walk on their hands, and absent in some people with no functional loss - evidence of evolutionary change in the human forelimb.",
+      "You can test for it by touching your thumb to your little finger and flexing the wrist; a tendon stands up in the centre of the wrist if present.",
+      "It is supplied by the median nerve."
+    ],
+    "clinicalNotes": [
+      "Surgeons use its tendon as a graft to reconstruct other tendons, because it can be removed without loss of function.",
+      "It lies over the median nerve at the wrist, so it is a surface landmark for it."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.4,
+    "addressableMeshKey": "Mesh_SYS_MUSC_PALMARIS_LONGUS_LOD0",
+    "audioTTSKey": "Audio_SYS_MUSC_PALMARIS_LONGUS_Desc",
+    "connectedNodes": [
+      "SYS_NERV_MEDIAN",
+      "SYS_SK_HUMERUS"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_MUSC_FLEXOR_DIGITORUM_SUPERFICIALIS",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "M62.9"
+    ],
+    "latinName": "Musculus flexor digitorum superficialis",
+    "commonName": "Flexor Digitorum Superficialis",
+    "systemCategory": [
+      "Muscular"
+    ],
+    "descriptionProfessional": "The largest superficial forearm flexor. Its four tendons split at the fingers to let the deeper flexor pass through, and it flexes the middle phalanx of each finger.",
+    "descriptionPatient": "The big muscle in your forearm that curls your fingers into a fist.",
+    "apBiologyFacts": [
+      "Its tendons pass through the carpal tunnel with the median nerve, alongside the deep flexors, and each splits to let the deep tendon travel to the fingertip.",
+      "It flexes the proximal interphalangeal joints; flexor digitorum profundus flexes the fingertip joints.",
+      "It is supplied by the median nerve."
+    ],
+    "clinicalNotes": [
+      "Tendon injuries in the palm are among the most difficult hand injuries to repair because the tendons run in tight sheaths.",
+      "Flexor tenosynovitis ('trigger finger' is one form) causes a finger to lock in flexion."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.4,
+    "addressableMeshKey": "Mesh_SYS_MUSC_FLEXOR_DIGITORUM_SUPERFICIALIS_LOD0",
+    "audioTTSKey": "Audio_SYS_MUSC_FLEXOR_DIGITORUM_SUPERFICIALIS_Desc",
+    "connectedNodes": [
+      "SYS_SK_PHALANGES_HAND",
+      "SYS_NERV_MEDIAN",
+      "SYS_SK_CARPALS"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_MUSC_FLEXOR_CARPI_ULNARIS",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "M62.9"
+    ],
+    "latinName": "Musculus flexor carpi ulnaris",
+    "commonName": "Flexor Carpi Ulnaris",
+    "systemCategory": [
+      "Muscular"
+    ],
+    "descriptionProfessional": "The most medial forearm flexor, from the medial epicondyle and olecranon to the pisiform, hamate and fifth metacarpal. It flexes and adducts the wrist, and the ulnar nerve runs beneath it.",
+    "descriptionPatient": "A muscle on the little-finger side of your forearm that bends your wrist toward your pinky.",
+    "apBiologyFacts": [
+      "It is supplied by the ulnar nerve, which enters the forearm between its two heads - the cubital tunnel.",
+      "It inserts on the pisiform, the only carpal bone that acts like a sesamoid inside a tendon.",
+      "Flexor carpi ulnaris and extensor carpi ulnaris together adduct (ulnar deviate) the wrist."
+    ],
+    "clinicalNotes": [
+      "Cubital tunnel syndrome, compression of the ulnar nerve here, causes tingling in the little and ring fingers.",
+      "Its tendon is a landmark for the ulnar artery and nerve at the wrist."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.4,
+    "addressableMeshKey": "Mesh_SYS_MUSC_FLEXOR_CARPI_ULNARIS_LOD0",
+    "audioTTSKey": "Audio_SYS_MUSC_FLEXOR_CARPI_ULNARIS_Desc",
+    "connectedNodes": [
+      "SYS_NERV_ULNAR",
+      "SYS_SK_ULNA",
+      "SYS_SK_CARPALS"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_MUSC_EXTENSOR_CARPI_RADIALIS",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "M77.1"
+    ],
+    "latinName": "Musculi extensores carpi radiales",
+    "commonName": "Extensor Carpi Radialis (Longus and Brevis)",
+    "systemCategory": [
+      "Muscular"
+    ],
+    "descriptionProfessional": "Two muscles from the lateral epicondyle and supracondylar ridge to the bases of the second and third metacarpals, extending and abducting the wrist. The brevis is the more heavily used.",
+    "descriptionPatient": "The muscles on the back of your forearm that lift your wrist and keep it steady when you grip.",
+    "apBiologyFacts": [
+      "They stabilise the wrist in extension so the finger flexors can grip forcefully - which is why grip strength is weakest when the wrist is flexed.",
+      "They are supplied by the radial nerve.",
+      "Together with the flexor carpi radialis they tilt the wrist toward the thumb."
+    ],
+    "clinicalNotes": [
+      "Lateral epicondylitis ('tennis elbow') is degeneration at the common extensor origin, especially the brevis tendon, from repeated wrist extension.",
+      "Radial nerve palsy causes 'wrist drop' because these muscles cannot extend the wrist."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.4,
+    "addressableMeshKey": "Mesh_SYS_MUSC_EXTENSOR_CARPI_RADIALIS_LOD0",
+    "audioTTSKey": "Audio_SYS_MUSC_EXTENSOR_CARPI_RADIALIS_Desc",
+    "connectedNodes": [
+      "SYS_NERV_RADIAL",
+      "SYS_SK_HUMERUS",
+      "SYS_SK_METACARPALS"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_MUSC_EXTENSOR_DIGITORUM",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "M62.9"
+    ],
+    "latinName": "Musculus extensor digitorum",
+    "commonName": "Extensor Digitorum",
+    "systemCategory": [
+      "Muscular"
+    ],
+    "descriptionProfessional": "The main extensor of the four fingers, from the lateral epicondyle to the extensor expansions on the back of the fingers, joined by junctions on the back of the hand.",
+    "descriptionPatient": "The muscle on the back of your forearm that straightens your fingers.",
+    "apBiologyFacts": [
+      "Fingers are opened by extensors on the back of the forearm and closed by flexors on the front, supplied by different nerves - radial versus median and ulnar.",
+      "The four tendons on the back of the hand are linked by intertendinous connections, which is why it is hard to lift the ring finger alone.",
+      "It is supplied by the posterior interosseous branch of the radial nerve."
+    ],
+    "clinicalNotes": [
+      "Injury to the deep branch of the radial nerve causes 'finger drop' with the wrist still extending.",
+      "Ruptured extensor tendons in rheumatoid arthritis can suddenly prevent fingers straightening."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.4,
+    "addressableMeshKey": "Mesh_SYS_MUSC_EXTENSOR_DIGITORUM_LOD0",
+    "audioTTSKey": "Audio_SYS_MUSC_EXTENSOR_DIGITORUM_Desc",
+    "connectedNodes": [
+      "SYS_NERV_RADIAL",
+      "SYS_SK_PHALANGES_HAND"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_MUSC_EXTENSOR_CARPI_ULNARIS",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "M62.9"
+    ],
+    "latinName": "Musculus extensor carpi ulnaris",
+    "commonName": "Extensor Carpi Ulnaris",
+    "systemCategory": [
+      "Muscular"
+    ],
+    "descriptionProfessional": "A medial extensor of the forearm, from the lateral epicondyle and ulna to the base of the fifth metacarpal, extending and adducting the wrist.",
+    "descriptionPatient": "A muscle on the back of your forearm that bends your wrist backward and toward your pinky.",
+    "apBiologyFacts": [
+      "With flexor carpi ulnaris it produces ulnar deviation of the wrist, as when you hammer.",
+      "It runs in a groove in the ulna's head and is supplied by the posterior interosseous nerve.",
+      "It is the smallest of the wrist extensors that crosses the wrist at the ulnar side."
+    ],
+    "clinicalNotes": [
+      "ECU tendinopathy and subluxation are common causes of ulnar-sided wrist pain in racquet-sport players.",
+      "Its tendon is a landmark to the ulnar styloid."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.4,
+    "addressableMeshKey": "Mesh_SYS_MUSC_EXTENSOR_CARPI_ULNARIS_LOD0",
+    "audioTTSKey": "Audio_SYS_MUSC_EXTENSOR_CARPI_ULNARIS_Desc",
+    "connectedNodes": [
+      "SYS_NERV_RADIAL",
+      "SYS_SK_ULNA",
+      "SYS_SK_METACARPALS"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_MUSC_THENAR",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "M62.9"
+    ],
+    "latinName": "Musculi eminentiae thenaris",
+    "commonName": "Thenar Muscles",
+    "systemCategory": [
+      "Muscular"
+    ],
+    "descriptionProfessional": "The muscle group forming the fleshy base of the thumb: abductor pollicis brevis, flexor pollicis brevis and opponens pollicis, which oppose the thumb to the fingers.",
+    "descriptionPatient": "The fleshy pad at the base of your thumb, which lets you pinch and grip.",
+    "apBiologyFacts": [
+      "Opposition, bringing the thumb pad to meet the fingertips, depends on these muscles and is a key primate adaptation for precise manipulation.",
+      "They are supplied by the median nerve (recurrent branch), apart from part of flexor pollicis brevis.",
+      "The pad's size reflects how heavily the thumb is used."
+    ],
+    "clinicalNotes": [
+      "Thenar wasting - a flattened thumb base - is a sign of severe or long-standing carpal tunnel syndrome.",
+      "Median nerve injury at the wrist abolishes thumb opposition, giving an 'ape hand'."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.25,
+    "addressableMeshKey": "Mesh_SYS_MUSC_THENAR_LOD0",
+    "audioTTSKey": "Audio_SYS_MUSC_THENAR_Desc",
+    "connectedNodes": [
+      "SYS_NERV_MEDIAN",
+      "SYS_SK_METACARPALS",
+      "SYS_SK_CARPALS"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_MUSC_HYPOTHENAR",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "M62.9"
+    ],
+    "latinName": "Musculi eminentiae hypothenaris",
+    "commonName": "Hypothenar Muscles",
+    "systemCategory": [
+      "Muscular"
+    ],
+    "descriptionProfessional": "The fleshy pad at the base of the little finger: abductor, flexor and opponens digiti minimi, moving and cupping the little finger.",
+    "descriptionPatient": "The pad on the pinky side of your palm that helps you grip and cup your hand.",
+    "apBiologyFacts": [
+      "These muscles cup the palm and help the little finger oppose the thumb.",
+      "They are supplied by the deep branch of the ulnar nerve.",
+      "Along with the thenar pad they define the shape of the palm."
+    ],
+    "clinicalNotes": [
+      "Hypothenar wasting suggests ulnar nerve injury.",
+      "Repetitive impact to the base of the palm (hammering) can damage the ulnar artery at the hook of hamate (hypothenar hammer syndrome)."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.25,
+    "addressableMeshKey": "Mesh_SYS_MUSC_HYPOTHENAR_LOD0",
+    "audioTTSKey": "Audio_SYS_MUSC_HYPOTHENAR_Desc",
+    "connectedNodes": [
+      "SYS_NERV_ULNAR",
+      "SYS_SK_METACARPALS"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_MUSC_INTERNAL_OBLIQUE",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "M62.9"
+    ],
+    "latinName": "Musculus obliquus internus abdominis",
+    "commonName": "Internal Oblique",
+    "systemCategory": [
+      "Muscular"
+    ],
+    "descriptionProfessional": "The middle flank muscle, deep to the external oblique, with fibres running up and forward at right angles to it. It flexes and rotates the trunk and compresses the abdomen.",
+    "descriptionPatient": "A muscle in the side of your belly, under the outer one, that helps you twist and bend.",
+    "apBiologyFacts": [
+      "The three flat muscles of the abdominal wall (external oblique, internal oblique, transversus) have fibres running in different directions, like plywood, which makes the wall strong.",
+      "It works with the opposite-side external oblique to rotate the trunk, as when you twist to look behind you.",
+      "It is supplied by the lower intercostal nerves and the first lumbar nerve."
+    ],
+    "clinicalNotes": [
+      "The abdominal wall's layered structure matters in surgery: incisions are made to split fibres where possible rather than cut them.",
+      "Inguinal hernias arise through a weak point where the layers are thinnest, the inguinal canal."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.4,
+    "addressableMeshKey": "Mesh_SYS_MUSC_INTERNAL_OBLIQUE_LOD0",
+    "audioTTSKey": "Audio_SYS_MUSC_INTERNAL_OBLIQUE_Desc",
+    "connectedNodes": [
+      "SYS_MUSC_OBLIQUE",
+      "SYS_MUSC_TRANSVERSUS_ABDOMINIS",
+      "SYS_MUSC_RECTUS_ABDOMINIS"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_MUSC_TRANSVERSUS_ABDOMINIS",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "M62.9"
+    ],
+    "latinName": "Musculus transversus abdominis",
+    "commonName": "Transversus Abdominis",
+    "systemCategory": [
+      "Muscular"
+    ],
+    "descriptionProfessional": "The deepest flat muscle of the abdominal wall, with fibres running horizontally like a corset. It compresses the abdomen and stabilises the spine.",
+    "descriptionPatient": "The deepest belly muscle, which wraps around your middle like a natural corset.",
+    "apBiologyFacts": [
+      "It is the body's 'corset': contracting it draws in the abdominal wall and raises pressure inside the abdomen, which helps in coughing, defecation, childbirth and stabilising the lower spine.",
+      "It is the first abdominal muscle to activate before a limb movement, protecting the back.",
+      "It is supplied by the lower intercostal nerves and the first lumbar nerve."
+    ],
+    "clinicalNotes": [
+      "Weakness is associated with low back pain, so 'core' exercises target it.",
+      "It forms the deepest layer of the rectus sheath and the posterior wall of the inguinal canal."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.4,
+    "addressableMeshKey": "Mesh_SYS_MUSC_TRANSVERSUS_ABDOMINIS_LOD0",
+    "audioTTSKey": "Audio_SYS_MUSC_TRANSVERSUS_ABDOMINIS_Desc",
+    "connectedNodes": [
+      "SYS_MUSC_INTERNAL_OBLIQUE",
+      "SYS_MUSC_OBLIQUE",
+      "SYS_MUSC_RECTUS_ABDOMINIS"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_MUSC_QUADRATUS_LUMBORUM",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "M62.9"
+    ],
+    "latinName": "Musculus quadratus lumborum",
+    "commonName": "Quadratus Lumborum",
+    "systemCategory": [
+      "Muscular"
+    ],
+    "descriptionProfessional": "A deep muscle of the posterior abdominal wall from the 12th rib and lumbar vertebrae to the iliac crest, bending the trunk sideways and fixing the 12th rib in breathing.",
+    "descriptionPatient": "A deep muscle in your lower back that helps you bend sideways and hold your posture.",
+    "apBiologyFacts": [
+      "It laterally flexes the spine, and when both sides contract it extends it.",
+      "It anchors the 12th rib during breathing so the diaphragm can pull against it.",
+      "It lies just behind the kidneys."
+    ],
+    "clinicalNotes": [
+      "It is a common source of low back pain, especially after lifting with a twist.",
+      "The kidney sits on its anterior surface, so pain here can be confused with kidney disease."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.4,
+    "addressableMeshKey": "Mesh_SYS_MUSC_QUADRATUS_LUMBORUM_LOD0",
+    "audioTTSKey": "Audio_SYS_MUSC_QUADRATUS_LUMBORUM_Desc",
+    "connectedNodes": [
+      "SYS_SK_VERT_LUMBAR",
+      "SYS_SK_RIB_FLOATING",
+      "SYS_SK_PELVIS",
+      "SYS_REN_KIDNEY_L"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_MUSC_PSOAS",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "M62.9"
+    ],
+    "latinName": "Musculus psoas major",
+    "commonName": "Psoas Major",
+    "systemCategory": [
+      "Muscular"
+    ],
+    "descriptionProfessional": "A long muscle from the lumbar vertebrae running through the pelvis to the lesser trochanter of the femur. With iliacus it is the strongest flexor of the hip and the only muscle attaching the spine to the leg.",
+    "descriptionPatient": "A deep muscle from your lower spine to your thigh bone that lifts your knee when you walk.",
+    "apBiologyFacts": [
+      "It is the only muscle connecting the trunk to the lower limb, so it helps keep the trunk upright over the legs.",
+      "Together with iliacus it forms the iliopsoas, the main hip flexor.",
+      "It is supplied by the anterior rami of L1-L3."
+    ],
+    "clinicalNotes": [
+      "Psoas abscess, a deep infection tracking down the muscle, can present as pain in the groin and hip.",
+      "The 'psoas sign' (pain on extending the hip) can point to an inflamed appendix lying against it."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.4,
+    "addressableMeshKey": "Mesh_SYS_MUSC_PSOAS_LOD0",
+    "audioTTSKey": "Audio_SYS_MUSC_PSOAS_Desc",
+    "connectedNodes": [
+      "SYS_MUSC_ILIACUS",
+      "SYS_SK_VERT_LUMBAR",
+      "SYS_SK_FEMUR",
+      "SYS_NERV_FEMORAL"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_MUSC_ILIACUS",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "M62.9"
+    ],
+    "latinName": "Musculus iliacus",
+    "commonName": "Iliacus",
+    "systemCategory": [
+      "Muscular"
+    ],
+    "descriptionProfessional": "A fan-shaped muscle filling the iliac fossa of the pelvis, joining psoas major to insert on the lesser trochanter. It flexes the hip.",
+    "descriptionPatient": "A muscle lining the inside of your hip bone that helps you lift your leg forward.",
+    "apBiologyFacts": [
+      "It lines the iliac fossa and joins psoas major in a common tendon - the iliopsoas.",
+      "The femoral nerve runs in the groove between the two muscles.",
+      "It is supplied by the femoral nerve (L2-L4)."
+    ],
+    "clinicalNotes": [
+      "An iliacus haematoma from a bleeding disorder or anticoagulation can compress the femoral nerve and cause thigh weakness and numbness.",
+      "Tight hip flexors contribute to lower back pain and an exaggerated lumbar curve."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.4,
+    "addressableMeshKey": "Mesh_SYS_MUSC_ILIACUS_LOD0",
+    "audioTTSKey": "Audio_SYS_MUSC_ILIACUS_Desc",
+    "connectedNodes": [
+      "SYS_MUSC_PSOAS",
+      "SYS_SK_PELVIS",
+      "SYS_SK_FEMUR",
+      "SYS_NERV_FEMORAL"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_MUSC_SCALENES",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "M62.9"
+    ],
+    "latinName": "Musculi scaleni",
+    "commonName": "Scalene Muscles",
+    "systemCategory": [
+      "Muscular"
+    ],
+    "descriptionProfessional": "Three paired muscles from the cervical spine to the first and second ribs. They raise the upper ribs in breathing and bend the neck. The brachial plexus and subclavian artery pass between two of them.",
+    "descriptionPatient": "Muscles at the side of your neck that help you breathe in and tilt your head.",
+    "apBiologyFacts": [
+      "They are accessory muscles of inspiration: they raise the first two ribs, which helps enlarge the upper chest, especially when breathing is laboured.",
+      "The brachial plexus roots and the subclavian artery emerge through the gap between scalenus anterior and medius.",
+      "They are supplied by the anterior rami of the cervical nerves."
+    ],
+    "clinicalNotes": [
+      "Compression in the scalene triangle is one cause of thoracic outlet syndrome, causing arm pain, numbness and colour change.",
+      "The phrenic nerve runs on the front of scalenus anterior - a landmark for nerve blocks."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.4,
+    "addressableMeshKey": "Mesh_SYS_MUSC_SCALENES_LOD0",
+    "audioTTSKey": "Audio_SYS_MUSC_SCALENES_Desc",
+    "connectedNodes": [
+      "SYS_SK_RIB_TRUE",
+      "SYS_SK_VERT_CERVICAL",
+      "SYS_NERV_BRACHIAL_PLEXUS",
+      "SYS_NERV_PHRENIC"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_MUSC_DIGASTRIC",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "M62.9"
+    ],
+    "latinName": "Musculus digastricus",
+    "commonName": "Digastric",
+    "systemCategory": [
+      "Muscular"
+    ],
+    "descriptionProfessional": "A muscle with two bellies joined by an intermediate tendon anchored to the hyoid. It opens the mouth and raises the hyoid in swallowing.",
+    "descriptionPatient": "A muscle under your jaw with two parts that helps you open your mouth and swallow.",
+    "apBiologyFacts": [
+      "'Digastric' means two bellies. The two bellies have different embryological origins and nerve supplies: the anterior belly by the trigeminal (from the first pharyngeal arch), the posterior belly by the facial nerve (from the second arch).",
+      "It depresses the mandible against gravity, opening the mouth, while the muscles of mastication close it.",
+      "The intermediate tendon slides through a fibrous sling attached to the hyoid."
+    ],
+    "clinicalNotes": [
+      "Its posterior belly is a surgical landmark of the neck, marking the top of the carotid triangle.",
+      "It helps move the hyoid during swallowing; disorders of swallowing (dysphagia) can involve these suprahyoid muscles."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.4,
+    "addressableMeshKey": "Mesh_SYS_MUSC_DIGASTRIC_LOD0",
+    "audioTTSKey": "Audio_SYS_MUSC_DIGASTRIC_Desc",
+    "connectedNodes": [
+      "SYS_SK_MANDIBLE",
+      "SYS_SK_HYOID",
+      "SYS_NERV_FACIAL",
+      "SYS_NERV_TRIGEMINAL"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_MUSC_CORRUGATOR_SUPERCILII",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "M62.9"
+    ],
+    "latinName": "Musculus corrugator supercilii",
+    "commonName": "Corrugator Supercilii",
+    "systemCategory": [
+      "Muscular"
+    ],
+    "descriptionProfessional": "A small muscle deep to the brow, drawing the eyebrows together and downward to make vertical frown lines.",
+    "descriptionPatient": "The little muscle that pulls your eyebrows together when you frown.",
+    "apBiologyFacts": [
+      "Facial expressions of emotion are produced by muscles that pull the skin: this one produces the frown of concentration or displeasure.",
+      "All muscles of facial expression are supplied by the facial nerve (CN VII).",
+      "It creates the vertical 'eleven' lines between the eyebrows."
+    ],
+    "clinicalNotes": [
+      "Botulinum toxin injected into corrugator and procerus softens frown lines.",
+      "Facial nerve palsy weakens its action on the affected side."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.25,
+    "addressableMeshKey": "Mesh_SYS_MUSC_CORRUGATOR_SUPERCILII_LOD0",
+    "audioTTSKey": "Audio_SYS_MUSC_CORRUGATOR_SUPERCILII_Desc",
+    "connectedNodes": [
+      "SYS_NERV_FACIAL",
+      "SYS_MUSC_FRONTALIS",
+      "SYS_MUSC_PROCERUS"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_MUSC_PROCERUS",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "M62.9"
+    ],
+    "latinName": "Musculus procerus",
+    "commonName": "Procerus",
+    "systemCategory": [
+      "Muscular"
+    ],
+    "descriptionProfessional": "A small pyramidal muscle over the bridge of the nose which pulls the skin between the eyebrows downward, wrinkling the bridge of the nose.",
+    "descriptionPatient": "A small muscle on the bridge of your nose that wrinkles it when you scowl.",
+    "apBiologyFacts": [
+      "It is supplied by the facial nerve and forms horizontal wrinkles across the bridge of the nose.",
+      "It is a continuation of the frontalis muscle over the nasal bone, showing how muscles of expression form continuous sheets."
+    ],
+    "clinicalNotes": [
+      "It is treated with botulinum toxin along with corrugator to reduce a scowl.",
+      "It is included in flap design in nose surgery."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.25,
+    "addressableMeshKey": "Mesh_SYS_MUSC_PROCERUS_LOD0",
+    "audioTTSKey": "Audio_SYS_MUSC_PROCERUS_Desc",
+    "connectedNodes": [
+      "SYS_NERV_FACIAL",
+      "SYS_SK_NASAL",
+      "SYS_MUSC_FRONTALIS"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_MUSC_NASALIS",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "M62.9"
+    ],
+    "latinName": "Musculus nasalis",
+    "commonName": "Nasalis",
+    "systemCategory": [
+      "Muscular"
+    ],
+    "descriptionProfessional": "A muscle of the nose with a transverse part that compresses the nostrils and an alar part that flares them.",
+    "descriptionPatient": "The muscle that flares your nostrils.",
+    "apBiologyFacts": [
+      "Flaring the nostrils increases airflow during heavy breathing.",
+      "It is supplied by the facial nerve.",
+      "The nostrils are supported by cartilage; the muscle acts on the skin over them."
+    ],
+    "clinicalNotes": [
+      "Nasal flaring in an infant is a sign of respiratory distress.",
+      "Facial nerve palsy can cause collapse of the nostril on the affected side during inspiration."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.25,
+    "addressableMeshKey": "Mesh_SYS_MUSC_NASALIS_LOD0",
+    "audioTTSKey": "Audio_SYS_MUSC_NASALIS_Desc",
+    "connectedNodes": [
+      "SYS_NERV_FACIAL",
+      "SYS_SK_NASAL",
+      "SYS_SK_MAXILLA"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_MUSC_LEVATOR_LABII_SUPERIORIS",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "M62.9"
+    ],
+    "latinName": "Musculus levator labii superioris",
+    "commonName": "Levator Labii Superioris",
+    "systemCategory": [
+      "Muscular"
+    ],
+    "descriptionProfessional": "A muscle from the maxilla below the eye socket to the skin of the upper lip, raising it, as in a sneer.",
+    "descriptionPatient": "The muscle that lifts your upper lip.",
+    "apBiologyFacts": [
+      "It is supplied by the facial nerve and is one of the radiating muscles that move the lips.",
+      "It is the muscle that produces the expression of disgust or a sneer.",
+      "It lies just over the infraorbital foramen where the infraorbital nerve emerges."
+    ],
+    "clinicalNotes": [
+      "Facial paralysis makes the upper lip droop on one side.",
+      "It is a landmark in cosmetic filler injection of the nasolabial fold."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.25,
+    "addressableMeshKey": "Mesh_SYS_MUSC_LEVATOR_LABII_SUPERIORIS_LOD0",
+    "audioTTSKey": "Audio_SYS_MUSC_LEVATOR_LABII_SUPERIORIS_Desc",
+    "connectedNodes": [
+      "SYS_NERV_FACIAL",
+      "SYS_SK_MAXILLA",
+      "SYS_MUSC_ORBICULARIS_ORIS"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_MUSC_DEPRESSOR_ANGULI_ORIS",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "M62.9"
+    ],
+    "latinName": "Musculus depressor anguli oris",
+    "commonName": "Depressor Anguli Oris",
+    "systemCategory": [
+      "Muscular"
+    ],
+    "descriptionProfessional": "A triangular muscle from the mandible to the corner of the mouth, pulling the mouth down in a frown or expression of sadness.",
+    "descriptionPatient": "The muscle that pulls the corners of your mouth down when you look sad.",
+    "apBiologyFacts": [
+      "It is the antagonist of zygomaticus major, which lifts the corner of the mouth: together they set the mouth's expression.",
+      "It is supplied by the marginal mandibular branch of the facial nerve.",
+      "The marginal mandibular branch runs along the jaw, where it is vulnerable to injury."
+    ],
+    "clinicalNotes": [
+      "Injury to the marginal mandibular nerve, for example during surgery on the neck or jaw, causes an asymmetric smile.",
+      "It is treated with botulinum toxin for a downturned mouth."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.25,
+    "addressableMeshKey": "Mesh_SYS_MUSC_DEPRESSOR_ANGULI_ORIS_LOD0",
+    "audioTTSKey": "Audio_SYS_MUSC_DEPRESSOR_ANGULI_ORIS_Desc",
+    "connectedNodes": [
+      "SYS_NERV_FACIAL",
+      "SYS_SK_MANDIBLE",
+      "SYS_MUSC_ZYGOMATICUS"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_MUSC_MENTALIS",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "M62.9"
+    ],
+    "latinName": "Musculus mentalis",
+    "commonName": "Mentalis",
+    "systemCategory": [
+      "Muscular"
+    ],
+    "descriptionProfessional": "A small muscle at the tip of the chin that raises and wrinkles the chin skin and pushes the lower lip up, as in pouting.",
+    "descriptionPatient": "The small muscle in your chin that makes it wrinkle when you pout.",
+    "apBiologyFacts": [
+      "It is the muscle that dimples the chin skin when you pout or show doubt.",
+      "It is supplied by the facial nerve.",
+      "It arises from the mandible below the incisors and inserts in the skin of the chin."
+    ],
+    "clinicalNotes": [
+      "An overactive mentalis causes a 'pebbled' chin and can be treated with botulinum toxin.",
+      "It is affected in surgical procedures on the chin."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.25,
+    "addressableMeshKey": "Mesh_SYS_MUSC_MENTALIS_LOD0",
+    "audioTTSKey": "Audio_SYS_MUSC_MENTALIS_Desc",
+    "connectedNodes": [
+      "SYS_NERV_FACIAL",
+      "SYS_SK_MANDIBLE"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_MUSC_GLUTEUS_MAXIMUS",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "M62.9"
+    ],
+    "latinName": "Musculus gluteus maximus",
+    "commonName": "Gluteus Maximus",
+    "systemCategory": [
+      "Muscular"
+    ],
+    "descriptionProfessional": "The largest muscle in the body and the main extensor of the hip, from the sacrum and back of the ilium to the femur and the iliotibial tract. It powers climbing, running and rising from a chair.",
+    "descriptionPatient": "The big muscle of your buttock, which powers you when you climb stairs, run or stand up.",
+    "apBiologyFacts": [
+      "It is the largest muscle in the body, an adaptation for upright walking and running: it hardly works in level walking but is powerful in climbing and sprinting.",
+      "It extends and laterally rotates the thigh, and through the iliotibial tract helps stabilise the knee.",
+      "It is supplied by the inferior gluteal nerve (L5-S2)."
+    ],
+    "clinicalNotes": [
+      "Injections into the buttock are given in the upper outer quadrant to avoid the sciatic nerve, which runs beneath.",
+      "Weakness of the muscle makes it hard to climb stairs or rise from sitting, and causes a backward lurch in walking.",
+      "Pressure ulcers commonly form over the sitting bones where gluteus maximus does not cushion."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.6,
+    "addressableMeshKey": "Mesh_SYS_MUSC_GLUTEUS_MAXIMUS_LOD0",
+    "audioTTSKey": "Audio_SYS_MUSC_GLUTEUS_MAXIMUS_Desc",
+    "connectedNodes": [
+      "SYS_SK_PELVIS",
+      "SYS_SK_FEMUR",
+      "SYS_NERV_SCIATIC",
+      "SYS_MUSC_GLUTEUS_MEDIUS"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_MUSC_GLUTEUS_MEDIUS",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "M62.9"
+    ],
+    "latinName": "Musculus gluteus medius",
+    "commonName": "Gluteus Medius",
+    "systemCategory": [
+      "Muscular"
+    ],
+    "descriptionProfessional": "A fan-shaped muscle on the outer surface of the ilium inserting on the greater trochanter. It abducts the thigh and, in walking, holds the pelvis level when the opposite foot is lifted.",
+    "descriptionPatient": "A muscle at the side of your hip that keeps your pelvis level as you walk.",
+    "apBiologyFacts": [
+      "When you stand on one leg, gluteus medius on that side contracts to stop the pelvis from dropping on the other side.",
+      "It is supplied by the superior gluteal nerve (L4-S1).",
+      "Together with gluteus minimus it abducts and medially rotates the thigh."
+    ],
+    "clinicalNotes": [
+      "The Trendelenburg sign - the pelvis dropping on the unsupported side when standing on one leg - indicates weakness of gluteus medius or damage to the superior gluteal nerve.",
+      "Weakness produces a waddling gait, as in some hip disorders."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.6,
+    "addressableMeshKey": "Mesh_SYS_MUSC_GLUTEUS_MEDIUS_LOD0",
+    "audioTTSKey": "Audio_SYS_MUSC_GLUTEUS_MEDIUS_Desc",
+    "connectedNodes": [
+      "SYS_SK_PELVIS",
+      "SYS_SK_FEMUR",
+      "SYS_MUSC_GLUTEUS_MAXIMUS"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_MUSC_PIRIFORMIS",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "M62.9"
+    ],
+    "latinName": "Musculus piriformis",
+    "commonName": "Piriformis",
+    "systemCategory": [
+      "Muscular"
+    ],
+    "descriptionProfessional": "A pear-shaped muscle from the front of the sacrum to the greater trochanter, laterally rotating the hip. The sciatic nerve passes near or through it.",
+    "descriptionPatient": "A small muscle deep in your buttock that turns your leg outward.",
+    "apBiologyFacts": [
+      "It is a landmark of the gluteal region: the nerves and vessels leave the pelvis above and below it.",
+      "The sciatic nerve usually emerges below it, but in some people it passes through or above it.",
+      "It is supplied by branches of S1-S2."
+    ],
+    "clinicalNotes": [
+      "Piriformis syndrome is irritation of the sciatic nerve by the muscle, causing buttock pain and sciatica-like symptoms.",
+      "It is easily confused with a herniated disc, so both are considered in sciatica."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.4,
+    "addressableMeshKey": "Mesh_SYS_MUSC_PIRIFORMIS_LOD0",
+    "audioTTSKey": "Audio_SYS_MUSC_PIRIFORMIS_Desc",
+    "connectedNodes": [
+      "SYS_NERV_SCIATIC",
+      "SYS_SK_SACRUM",
+      "SYS_SK_FEMUR"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_MUSC_TFL",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "M62.9"
+    ],
+    "latinName": "Musculus tensor fasciae latae",
+    "commonName": "Tensor Fasciae Latae",
+    "systemCategory": [
+      "Muscular"
+    ],
+    "descriptionProfessional": "A small muscle from the front of the iliac crest that tenses the iliotibial tract, helping to abduct and flex the hip and steady the knee.",
+    "descriptionPatient": "A small muscle at the front and side of your hip that steadies your knee.",
+    "apBiologyFacts": [
+      "It tenses the iliotibial tract, a band of fascia along the outside of the thigh, which acts like a tie-rod stabilising the knee.",
+      "It is supplied by the superior gluteal nerve.",
+      "It works with gluteus medius in walking."
+    ],
+    "clinicalNotes": [
+      "A tight tensor fasciae latae and iliotibial band cause 'runner's knee' (iliotibial band syndrome) with pain on the outer knee.",
+      "It is used as a muscle flap in reconstructive surgery."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.5,
+    "addressableMeshKey": "Mesh_SYS_MUSC_TFL_LOD0",
+    "audioTTSKey": "Audio_SYS_MUSC_TFL_Desc",
+    "connectedNodes": [
+      "SYS_MUSC_ILIOTIBIAL_TRACT",
+      "SYS_SK_PELVIS",
+      "SYS_SK_TIBIA"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_MUSC_ILIOTIBIAL_TRACT",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "M76.3"
+    ],
+    "latinName": "Tractus iliotibialis",
+    "commonName": "Iliotibial Tract (IT Band)",
+    "systemCategory": [
+      "Muscular"
+    ],
+    "descriptionProfessional": "A thick band of fascia along the outside of the thigh from the iliac crest to the lateral tibia, into which tensor fasciae latae and gluteus maximus insert.",
+    "descriptionPatient": "A strong band of tissue along the outside of your thigh that helps keep your knee stable.",
+    "apBiologyFacts": [
+      "It is connective tissue, not muscle: dense fibrous tissue rich in collagen that transmits force and stabilises the hip and knee.",
+      "Because it crosses both joints, it helps hold the pelvis and knee steady during standing and walking.",
+      "It is tensed by tensor fasciae latae and gluteus maximus."
+    ],
+    "clinicalNotes": [
+      "Iliotibial band syndrome, friction where it slides over the lateral femoral condyle, is a leading cause of lateral knee pain in runners and cyclists.",
+      "A section of the tract is sometimes used in knee ligament reconstruction."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.6,
+    "addressableMeshKey": "Mesh_SYS_MUSC_ILIOTIBIAL_TRACT_LOD0",
+    "audioTTSKey": "Audio_SYS_MUSC_ILIOTIBIAL_TRACT_Desc",
+    "connectedNodes": [
+      "SYS_MUSC_TFL",
+      "SYS_MUSC_GLUTEUS_MAXIMUS",
+      "SYS_SK_TIBIA"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_MUSC_RECTUS_FEMORIS",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "M62.9"
+    ],
+    "latinName": "Musculus rectus femoris",
+    "commonName": "Rectus Femoris",
+    "systemCategory": [
+      "Muscular"
+    ],
+    "descriptionProfessional": "The only head of the quadriceps that crosses the hip as well as the knee, arising from the anterior inferior iliac spine. It flexes the hip and extends the knee.",
+    "descriptionPatient": "The middle muscle at the front of your thigh, which lifts your knee and straightens your leg.",
+    "apBiologyFacts": [
+      "The quadriceps is the largest muscle mass of the body, with four heads that share one tendon around the patella - the strongest extensor of the knee.",
+      "Rectus femoris crosses two joints, so it flexes the hip and extends the knee, which is why kicking a ball uses both actions.",
+      "It is supplied by the femoral nerve (L2-L4)."
+    ],
+    "clinicalNotes": [
+      "The knee-jerk (patellar) reflex tests the femoral nerve and the L3-L4 segments.",
+      "Rectus femoris strain is a common injury in sprinters and kickers.",
+      "Quadriceps wasting quickly follows knee injuries and is a focus of rehabilitation."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.7,
+    "addressableMeshKey": "Mesh_SYS_MUSC_RECTUS_FEMORIS_LOD0",
+    "audioTTSKey": "Audio_SYS_MUSC_RECTUS_FEMORIS_Desc",
+    "connectedNodes": [
+      "SYS_MUSC_VASTUS_LATERALIS",
+      "SYS_MUSC_VASTUS_MEDIALIS",
+      "SYS_MUSC_VASTUS_INTERMEDIUS",
+      "SYS_MUSC_PATELLAR_TENDON",
+      "SYS_NERV_FEMORAL",
+      "SYS_SK_PATELLA"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_MUSC_VASTUS_LATERALIS",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "M62.9"
+    ],
+    "latinName": "Musculus vastus lateralis",
+    "commonName": "Vastus Lateralis",
+    "systemCategory": [
+      "Muscular"
+    ],
+    "descriptionProfessional": "The largest head of the quadriceps, on the outside of the thigh, from the greater trochanter and linea aspera to the patella. It extends the knee.",
+    "descriptionPatient": "The biggest of the four front-of-thigh muscles, on the outside of your thigh.",
+    "apBiologyFacts": [
+      "It is the largest of the quadriceps heads and a prime mover in extending the knee, as in standing up or climbing.",
+      "All four quadriceps heads join at the quadriceps tendon, enclosing the patella, which acts as a pulley increasing the muscle's leverage.",
+      "It is supplied by the femoral nerve."
+    ],
+    "clinicalNotes": [
+      "It is a favoured site for intramuscular injections in infants because it is large and away from major nerves and vessels.",
+      "Muscle biopsies for diagnosing muscle disease are often taken from it."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.7,
+    "addressableMeshKey": "Mesh_SYS_MUSC_VASTUS_LATERALIS_LOD0",
+    "audioTTSKey": "Audio_SYS_MUSC_VASTUS_LATERALIS_Desc",
+    "connectedNodes": [
+      "SYS_MUSC_RECTUS_FEMORIS",
+      "SYS_MUSC_VASTUS_MEDIALIS",
+      "SYS_SK_FEMUR",
+      "SYS_SK_PATELLA"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_MUSC_VASTUS_MEDIALIS",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "M62.9"
+    ],
+    "latinName": "Musculus vastus medialis",
+    "commonName": "Vastus Medialis",
+    "systemCategory": [
+      "Muscular"
+    ],
+    "descriptionProfessional": "The medial head of the quadriceps, whose lowest fibres (vastus medialis obliquus) pull the patella inward and prevent it dislocating outward.",
+    "descriptionPatient": "The teardrop-shaped muscle on the inner side of your knee that keeps your kneecap in place.",
+    "apBiologyFacts": [
+      "Its low, oblique fibres counter the outward pull of the quadriceps on the patella, keeping it tracking in its groove.",
+      "It is supplied by the femoral nerve.",
+      "It forms the bulge just above the inner knee."
+    ],
+    "clinicalNotes": [
+      "Weakness of vastus medialis is linked to patellofemoral pain and to the patella slipping outward.",
+      "It wastes rapidly after knee injury, so strengthening it is central to knee rehabilitation."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.7,
+    "addressableMeshKey": "Mesh_SYS_MUSC_VASTUS_MEDIALIS_LOD0",
+    "audioTTSKey": "Audio_SYS_MUSC_VASTUS_MEDIALIS_Desc",
+    "connectedNodes": [
+      "SYS_MUSC_RECTUS_FEMORIS",
+      "SYS_MUSC_VASTUS_LATERALIS",
+      "SYS_SK_PATELLA",
+      "SYS_SK_FEMUR"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_MUSC_VASTUS_INTERMEDIUS",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "M62.9"
+    ],
+    "latinName": "Musculus vastus intermedius",
+    "commonName": "Vastus Intermedius",
+    "systemCategory": [
+      "Muscular"
+    ],
+    "descriptionProfessional": "The deep head of the quadriceps lying on the front of the femur beneath rectus femoris, extending the knee.",
+    "descriptionPatient": "The deepest of the four front-of-thigh muscles, lying right on your thigh bone.",
+    "apBiologyFacts": [
+      "It lies directly on the femur, beneath rectus femoris, and cannot be seen without removing that muscle.",
+      "It works with the other quadriceps heads to straighten the knee.",
+      "It is supplied by the femoral nerve."
+    ],
+    "clinicalNotes": [
+      "Femoral shaft fractures can injure it, and scarring can limit knee flexion (quadriceps contracture).",
+      "It is sometimes grouped with the other three as the 'quads' in clinical tests."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.7,
+    "addressableMeshKey": "Mesh_SYS_MUSC_VASTUS_INTERMEDIUS_LOD0",
+    "audioTTSKey": "Audio_SYS_MUSC_VASTUS_INTERMEDIUS_Desc",
+    "connectedNodes": [
+      "SYS_MUSC_RECTUS_FEMORIS",
+      "SYS_SK_FEMUR",
+      "SYS_MUSC_VASTUS_LATERALIS"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_MUSC_PATELLAR_TENDON",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "M76.5"
+    ],
+    "latinName": "Ligamentum patellae",
+    "commonName": "Patellar Tendon",
+    "systemCategory": [
+      "Muscular"
+    ],
+    "descriptionProfessional": "The continuation of the quadriceps tendon from the lower pole of the patella to the tibial tuberosity, transmitting the quadriceps' force to extend the knee. Technically a ligament, since it joins bone to bone.",
+    "descriptionPatient": "The strong cord below your kneecap that connects it to your shin bone.",
+    "apBiologyFacts": [
+      "It links the quadriceps, through the patella, to the tibia. Because it connects two bones it is called a ligament, though it is the tendon's continuation.",
+      "The patella is a sesamoid bone, embedded in the quadriceps tendon, and increases its leverage.",
+      "Tapping this tendon produces the knee-jerk reflex, a monosynaptic stretch reflex."
+    ],
+    "clinicalNotes": [
+      "Patellar tendinitis ('jumper's knee') is overuse pain at the lower pole of the patella in athletes.",
+      "A patellar tendon graft is one option for reconstructing the anterior cruciate ligament.",
+      "In Osgood-Schlatter disease, the tendon's pull irritates the growing tibial tuberosity in adolescents."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.4,
+    "addressableMeshKey": "Mesh_SYS_MUSC_PATELLAR_TENDON_LOD0",
+    "audioTTSKey": "Audio_SYS_MUSC_PATELLAR_TENDON_Desc",
+    "connectedNodes": [
+      "SYS_MUSC_RECTUS_FEMORIS",
+      "SYS_SK_PATELLA",
+      "SYS_SK_TIBIA"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_MUSC_SARTORIUS",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "M62.9"
+    ],
+    "latinName": "Musculus sartorius",
+    "commonName": "Sartorius",
+    "systemCategory": [
+      "Muscular"
+    ],
+    "descriptionProfessional": "The longest muscle in the body, a strap running from the anterior superior iliac spine obliquely across the thigh to the inner tibia. It flexes, abducts and laterally rotates the hip and flexes the knee: the movement of sitting cross-legged.",
+    "descriptionPatient": "The longest muscle in your body, a thin strap across your thigh that lets you sit cross-legged.",
+    "apBiologyFacts": [
+      "It is the longest muscle in the body; its name comes from the Latin for tailor, who sat cross-legged.",
+      "It crosses both hip and knee and forms the roof of the adductor canal that carries the femoral artery.",
+      "It is supplied by the femoral nerve."
+    ],
+    "clinicalNotes": [
+      "It forms the lateral border of the femoral triangle, an important landmark in the groin.",
+      "Its insertion is one of the three tendons of the pes anserinus on the medial tibia."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.7,
+    "addressableMeshKey": "Mesh_SYS_MUSC_SARTORIUS_LOD0",
+    "audioTTSKey": "Audio_SYS_MUSC_SARTORIUS_Desc",
+    "connectedNodes": [
+      "SYS_MUSC_GRACILIS",
+      "SYS_SK_PELVIS",
+      "SYS_SK_TIBIA",
+      "SYS_CV_FEMORAL"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_MUSC_GRACILIS",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "M62.9"
+    ],
+    "latinName": "Musculus gracilis",
+    "commonName": "Gracilis",
+    "systemCategory": [
+      "Muscular"
+    ],
+    "descriptionProfessional": "A slender muscle along the inner thigh from the pubis to the medial tibia, adducting the hip and flexing the knee.",
+    "descriptionPatient": "A thin muscle along the inside of your thigh that pulls your leg toward the other.",
+    "apBiologyFacts": [
+      "It is the only adductor to cross the knee, so it also flexes the knee.",
+      "It is supplied by the obturator nerve (L2-L3).",
+      "Its tendon forms part of the pes anserinus with sartorius and semitendinosus."
+    ],
+    "clinicalNotes": [
+      "Gracilis is a common donor muscle for reconstructive surgery, as it can be removed without noticeable loss of function.",
+      "It is often strained in sports needing sudden changes of direction, such as football."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.7,
+    "addressableMeshKey": "Mesh_SYS_MUSC_GRACILIS_LOD0",
+    "audioTTSKey": "Audio_SYS_MUSC_GRACILIS_Desc",
+    "connectedNodes": [
+      "SYS_MUSC_SARTORIUS",
+      "SYS_MUSC_ADDUCTOR_LONGUS",
+      "SYS_SK_TIBIA"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_MUSC_ADDUCTOR_LONGUS",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "M62.9"
+    ],
+    "latinName": "Musculus adductor longus",
+    "commonName": "Adductor Longus",
+    "systemCategory": [
+      "Muscular"
+    ],
+    "descriptionProfessional": "The most anterior of the adductors, from the pubis to the middle of the femur, adducting the thigh. It forms the medial border of the femoral triangle.",
+    "descriptionPatient": "A muscle in your groin and inner thigh that pulls your leg inward.",
+    "apBiologyFacts": [
+      "Adductors pull the thigh toward the midline - the opposite action to gluteus medius and minimus.",
+      "It is supplied by the obturator nerve.",
+      "Its tendon is the most prominent one you can feel in the groin."
+    ],
+    "clinicalNotes": [
+      "An adductor longus strain is a 'groin strain', common in footballers, ice-hockey players and sprinters.",
+      "It is a landmark for the medial boundary of the femoral triangle, where the femoral vessels and nerve lie."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.7,
+    "addressableMeshKey": "Mesh_SYS_MUSC_ADDUCTOR_LONGUS_LOD0",
+    "audioTTSKey": "Audio_SYS_MUSC_ADDUCTOR_LONGUS_Desc",
+    "connectedNodes": [
+      "SYS_MUSC_ADDUCTOR_MAGNUS",
+      "SYS_MUSC_GRACILIS",
+      "SYS_SK_FEMUR",
+      "SYS_SK_PELVIS"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_MUSC_ADDUCTOR_MAGNUS",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "M62.9"
+    ],
+    "latinName": "Musculus adductor magnus",
+    "commonName": "Adductor Magnus",
+    "systemCategory": [
+      "Muscular"
+    ],
+    "descriptionProfessional": "The largest adductor, with an adductor part (obturator nerve) and a hamstring part (sciatic nerve) - a muscle with a dual nerve supply and dual role.",
+    "descriptionPatient": "The large muscle of your inner thigh that pulls your leg in and helps extend your hip.",
+    "apBiologyFacts": [
+      "It has two parts with different nerve supplies - obturator for the adductor part, tibial division of the sciatic for the hamstring part - reflecting different embryological origins.",
+      "The adductor hiatus, the gap between its two parts near the knee, lets the femoral vessels pass to the back of the knee.",
+      "It adducts the thigh and helps to extend the hip."
+    ],
+    "clinicalNotes": [
+      "Adductor group strains are common in athletes.",
+      "The adductor canal, beneath sartorius, is used for anaesthetic nerve blocks of the leg."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.7,
+    "addressableMeshKey": "Mesh_SYS_MUSC_ADDUCTOR_MAGNUS_LOD0",
+    "audioTTSKey": "Audio_SYS_MUSC_ADDUCTOR_MAGNUS_Desc",
+    "connectedNodes": [
+      "SYS_MUSC_ADDUCTOR_LONGUS",
+      "SYS_MUSC_GRACILIS",
+      "SYS_SK_PELVIS",
+      "SYS_SK_FEMUR"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_MUSC_BICEPS_FEMORIS",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "M62.9"
+    ],
+    "latinName": "Musculus biceps femoris",
+    "commonName": "Biceps Femoris",
+    "systemCategory": [
+      "Muscular"
+    ],
+    "descriptionProfessional": "The lateral hamstring, with a long head from the ischial tuberosity and a short head from the femur, inserting on the fibular head. It extends the hip and flexes the knee.",
+    "descriptionPatient": "The muscle on the outer back of your thigh that bends your knee.",
+    "apBiologyFacts": [
+      "The hamstrings cross both hip and knee, extending the hip and flexing the knee - the muscles that propel you forward in running.",
+      "Its tendon forms the lateral border of the space behind the knee, and the common fibular nerve runs along it.",
+      "The long head is supplied by the tibial part of the sciatic nerve, the short head by the common fibular part."
+    ],
+    "clinicalNotes": [
+      "Hamstring strains are among the commonest athletic injuries, usually at the junction of muscle and tendon in sprinters.",
+      "The common fibular nerve is at risk where the tendon passes by the fibular head."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.7,
+    "addressableMeshKey": "Mesh_SYS_MUSC_BICEPS_FEMORIS_LOD0",
+    "audioTTSKey": "Audio_SYS_MUSC_BICEPS_FEMORIS_Desc",
+    "connectedNodes": [
+      "SYS_MUSC_SEMITENDINOSUS",
+      "SYS_MUSC_SEMIMEMBRANOSUS",
+      "SYS_NERV_SCIATIC",
+      "SYS_SK_FIBULA"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_MUSC_SEMITENDINOSUS",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "M62.9"
+    ],
+    "latinName": "Musculus semitendinosus",
+    "commonName": "Semitendinosus",
+    "systemCategory": [
+      "Muscular"
+    ],
+    "descriptionProfessional": "The superficial medial hamstring, from the ischial tuberosity to the medial tibia, with a long, cord-like tendon. It extends the hip and flexes and medially rotates the knee.",
+    "descriptionPatient": "A hamstring muscle on the inner back of your thigh with a long, cord-like tendon.",
+    "apBiologyFacts": [
+      "It is named for its long tendon - 'semi-tendinous' - which makes up the lower half of the muscle.",
+      "It is supplied by the tibial part of the sciatic nerve.",
+      "Its tendon joins gracilis and sartorius at the pes anserinus."
+    ],
+    "clinicalNotes": [
+      "Its tendon is commonly harvested to reconstruct the anterior cruciate ligament.",
+      "Hamstring tears often involve this muscle."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.7,
+    "addressableMeshKey": "Mesh_SYS_MUSC_SEMITENDINOSUS_LOD0",
+    "audioTTSKey": "Audio_SYS_MUSC_SEMITENDINOSUS_Desc",
+    "connectedNodes": [
+      "SYS_MUSC_BICEPS_FEMORIS",
+      "SYS_MUSC_SEMIMEMBRANOSUS",
+      "SYS_MUSC_GRACILIS",
+      "SYS_NERV_TIBIAL"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_MUSC_SEMIMEMBRANOSUS",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "M62.9"
+    ],
+    "latinName": "Musculus semimembranosus",
+    "commonName": "Semimembranosus",
+    "systemCategory": [
+      "Muscular"
+    ],
+    "descriptionProfessional": "The deeper medial hamstring, from the ischial tuberosity to the back of the medial tibial condyle, extending the hip and flexing and medially rotating the knee.",
+    "descriptionPatient": "A hamstring muscle deep on the inner back of your thigh that bends your knee.",
+    "apBiologyFacts": [
+      "It is named for the flat, membrane-like tendon at its upper end.",
+      "It is supplied by the tibial part of the sciatic nerve.",
+      "It helps stabilise the back of the knee, pulling on the capsule as the knee bends."
+    ],
+    "clinicalNotes": [
+      "A Baker's cyst forms where fluid bulges between semimembranosus and the medial head of gastrocnemius at the back of the knee.",
+      "Hamstring injuries may involve its proximal tendon."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.7,
+    "addressableMeshKey": "Mesh_SYS_MUSC_SEMIMEMBRANOSUS_LOD0",
+    "audioTTSKey": "Audio_SYS_MUSC_SEMIMEMBRANOSUS_Desc",
+    "connectedNodes": [
+      "SYS_MUSC_SEMITENDINOSUS",
+      "SYS_MUSC_BICEPS_FEMORIS",
+      "SYS_NERV_TIBIAL"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_MUSC_ACHILLES",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "M76.6"
+    ],
+    "latinName": "Tendo calcaneus (Achillis)",
+    "commonName": "Achilles Tendon",
+    "systemCategory": [
+      "Muscular"
+    ],
+    "descriptionProfessional": "The thickest and strongest tendon in the body, joining the gastrocnemius and soleus to the calcaneus. It transmits the force that pushes the foot down in walking, running and jumping.",
+    "descriptionPatient": "The thick cord at the back of your ankle that lets you push off the ground.",
+    "apBiologyFacts": [
+      "It is the body's strongest tendon and can withstand loads several times body weight in running.",
+      "Tendons are dense regular connective tissue, mostly parallel collagen fibres, with few cells and a poor blood supply, so they heal slowly.",
+      "It is named for Achilles, the Greek hero whose only weak point was his heel."
+    ],
+    "clinicalNotes": [
+      "It is the most commonly ruptured tendon in weekend athletes, with a sudden 'pop' and inability to rise onto the toes; the Thompson test (squeezing the calf) shows no foot movement.",
+      "Fluoroquinolone antibiotics increase the risk of Achilles tendinopathy and rupture.",
+      "The Achilles reflex tests the S1 nerve root."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.4,
+    "addressableMeshKey": "Mesh_SYS_MUSC_ACHILLES_LOD0",
+    "audioTTSKey": "Audio_SYS_MUSC_ACHILLES_Desc",
+    "connectedNodes": [
+      "SYS_MUSC_GASTROCNEMIUS",
+      "SYS_MUSC_SOLEUS",
+      "SYS_SK_CALCANEUS",
+      "SYS_NERV_TIBIAL"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_MUSC_EXTENSOR_DIGITORUM_LONGUS",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "M62.9"
+    ],
+    "latinName": "Musculus extensor digitorum longus",
+    "commonName": "Extensor Digitorum Longus",
+    "systemCategory": [
+      "Muscular"
+    ],
+    "descriptionProfessional": "A muscle of the front of the leg with tendons to the four lesser toes. It extends the toes and dorsiflexes the ankle.",
+    "descriptionPatient": "A muscle at the front of your shin that lifts your toes and foot.",
+    "apBiologyFacts": [
+      "It lies in the anterior compartment of the leg, supplied by the deep fibular nerve.",
+      "It works with tibialis anterior to dorsiflex the ankle, lifting the front of the foot so the toes clear the ground in walking.",
+      "Its four tendons fan out over the top of the foot."
+    ],
+    "clinicalNotes": [
+      "Deep fibular nerve injury causes weakness of dorsiflexion and toe extension, contributing to foot drop.",
+      "Anterior compartment syndrome, from swelling in a closed fascial space after trauma, threatens this muscle group and is a surgical emergency."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.7,
+    "addressableMeshKey": "Mesh_SYS_MUSC_EXTENSOR_DIGITORUM_LONGUS_LOD0",
+    "audioTTSKey": "Audio_SYS_MUSC_EXTENSOR_DIGITORUM_LONGUS_Desc",
+    "connectedNodes": [
+      "SYS_MUSC_TIBIALIS",
+      "SYS_NERV_FIBULAR_COMMON",
+      "SYS_SK_PHALANGES_FOOT"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_MUSC_PERONEUS_LONGUS",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "M62.9"
+    ],
+    "latinName": "Musculus fibularis (peroneus) longus",
+    "commonName": "Peroneus (Fibularis) Longus",
+    "systemCategory": [
+      "Muscular"
+    ],
+    "descriptionProfessional": "A muscle of the lateral leg whose tendon passes behind the lateral malleolus and under the foot to the first metatarsal. It everts the foot and helps support the arch.",
+    "descriptionPatient": "A muscle on the outside of your lower leg that turns your foot outward and supports its arch.",
+    "apBiologyFacts": [
+      "Eversion turns the sole outward; it opposes tibialis posterior, which inverts the foot.",
+      "The tendon runs under the sole like a stirrup, helping to support the transverse and lateral longitudinal arches.",
+      "It is supplied by the superficial fibular nerve."
+    ],
+    "clinicalNotes": [
+      "Ankle inversion sprains often stress the peroneal tendons, which can dislocate from their groove behind the malleolus.",
+      "Damage to the common fibular nerve weakens eversion as well as dorsiflexion."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.7,
+    "addressableMeshKey": "Mesh_SYS_MUSC_PERONEUS_LONGUS_LOD0",
+    "audioTTSKey": "Audio_SYS_MUSC_PERONEUS_LONGUS_Desc",
+    "connectedNodes": [
+      "SYS_SK_FIBULA",
+      "SYS_SK_METATARSALS",
+      "SYS_NERV_FIBULAR_COMMON"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_MUSC_TIBIALIS_POSTERIOR",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "M62.9"
+    ],
+    "latinName": "Musculus tibialis posterior",
+    "commonName": "Tibialis Posterior",
+    "systemCategory": [
+      "Muscular"
+    ],
+    "descriptionProfessional": "The deepest muscle of the calf, whose tendon passes behind the medial malleolus to the navicular and other tarsals. It inverts the foot and is the main support of the medial arch.",
+    "descriptionPatient": "A deep calf muscle that turns your foot inward and holds up the arch of your foot.",
+    "apBiologyFacts": [
+      "It is the chief dynamic support of the medial longitudinal arch of the foot.",
+      "Its tendon is the most anterior of the structures behind the medial malleolus ('Tom, Dick and Harry': tibialis posterior, flexor digitorum longus, flexor hallucis longus).",
+      "It is supplied by the tibial nerve."
+    ],
+    "clinicalNotes": [
+      "Posterior tibial tendon dysfunction is the commonest cause of acquired flat foot in adults.",
+      "Medial tibial stress syndrome ('shin splints') involves its origin on the tibia."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.7,
+    "addressableMeshKey": "Mesh_SYS_MUSC_TIBIALIS_POSTERIOR_LOD0",
+    "audioTTSKey": "Audio_SYS_MUSC_TIBIALIS_POSTERIOR_Desc",
+    "connectedNodes": [
+      "SYS_MUSC_FLEXOR_DIGITORUM_LONGUS",
+      "SYS_SK_TIBIA",
+      "SYS_SK_TARSALS",
+      "SYS_NERV_TIBIAL"
+    ],
+    "hasMicroDive": false,
+    "microDiveKey": "",
+    "pharmacologyTargets": []
+  },
+  {
+    "entityID": "SYS_MUSC_FLEXOR_DIGITORUM_LONGUS",
+    "snomedCTCode": "",
+    "icd10PathologyCodes": [
+      "M62.9"
+    ],
+    "latinName": "Musculus flexor digitorum longus",
+    "commonName": "Flexor Digitorum Longus",
+    "systemCategory": [
+      "Muscular"
+    ],
+    "descriptionProfessional": "A deep muscle of the calf whose tendons pass under the foot to the four lesser toes, flexing them and helping to plantarflex the ankle.",
+    "descriptionPatient": "A deep calf muscle that curls your toes downward.",
+    "apBiologyFacts": [
+      "It flexes the toes, gripping the ground as you push off.",
+      "Its tendon runs behind the medial malleolus, then across the sole to the four lesser toes.",
+      "It is supplied by the tibial nerve."
+    ],
+    "clinicalNotes": [
+      "Tarsal tunnel syndrome, compression of the tibial nerve behind the medial malleolus, can involve its tendon.",
+      "Its tendon is transferred to correct some deformities of the toes and foot."
+    ],
+    "boundsCenterOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "idealCameraDistance": 0.7,
+    "addressableMeshKey": "Mesh_SYS_MUSC_FLEXOR_DIGITORUM_LONGUS_LOD0",
+    "audioTTSKey": "Audio_SYS_MUSC_FLEXOR_DIGITORUM_LONGUS_Desc",
+    "connectedNodes": [
+      "SYS_MUSC_TIBIALIS_POSTERIOR",
+      "SYS_SK_TIBIA",
+      "SYS_SK_PHALANGES_FOOT",
+      "SYS_NERV_TIBIAL"
     ],
     "hasMicroDive": false,
     "microDiveKey": "",

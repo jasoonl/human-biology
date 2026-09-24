@@ -188,6 +188,35 @@ namespace HumanBodyExplorer.EditorTools.Geometry
             new Vector2(1.268f, -0.099f),
         };
 
+        /// <summary>The plan-view geometry of rib <paramref name="rib"/> (0 = first): its vertebral
+        /// level, half-width, front-to-back depth, and how far it slopes down toward the front.</summary>
+        public static void RibFrame(int rib, out float yT, out float zB, out float width, out float depth,
+            out float drop, out float zc, out float b)
+        {
+            float t = rib / 11f;
+            yT = ThoracicY(rib);
+            zB = SpineBodyZ(yT);
+            width = rib <= 7 ? Mathf.Lerp(0.072f, 0.150f, rib / 7f) : Mathf.Lerp(0.150f, 0.108f, (rib - 7) / 4f);
+            depth = RibDepth[rib];
+            drop = Mathf.Lerp(0.040f, 0.115f, Mathf.Pow(t, 0.9f));
+            float zPole = zB + 0.034f;
+            zc = (zPole - depth) * 0.5f;
+            b = (zPole + depth) * 0.5f;
+        }
+
+        /// <summary>A point on rib <paramref name="rib"/> at angle <paramref name="thetaRadians"/>
+        /// round the chest (0 = at the spine, pi/2 = the side, pi = the front), pushed
+        /// <paramref name="standoff"/> metres outward. Chest muscles are built from these so they
+        /// lie on the ribs instead of near them.</summary>
+        public static Vector3 RibPoint(int rib, float thetaRadians, float standoff = 0f)
+        {
+            RibFrame(rib, out float yT, out _, out float width, out _, out float drop, out float zc, out float b);
+            float sweep = (1f - Mathf.Cos(thetaRadians)) * 0.5f;
+            var p = new Vector3(width * Mathf.Sin(thetaRadians), yT + 0.004f - drop * sweep, zc + b * Mathf.Cos(thetaRadians));
+            var n = new Vector2(b * Mathf.Sin(thetaRadians), width * Mathf.Cos(thetaRadians)).normalized;
+            return p + new Vector3(n.x, 0f, n.y) * standoff;
+        }
+
         private static readonly float[] RibDepth = { 0.062f, 0.071f, 0.079f, 0.085f, 0.091f, 0.096f, 0.100f, 0.098f, 0.090f, 0.078f, 0.040f, 0.020f };
 
         private static void BuildThorax(Transform root, Material bone, Material cartilage, int layer)
