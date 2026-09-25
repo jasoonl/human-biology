@@ -34,6 +34,7 @@ namespace HumanBodyExplorer.EditorTools
             public float Pitch;
             public AnatomyLayerGroup[] Visible; // null = leave every layer on
             public float Fov;          // 0 = the camera's own
+            public bool Solid;         // draw the skin opaque
             public int Sex;            // reproductive layer: 0 male, 1 female
         }
 
@@ -122,6 +123,16 @@ namespace HumanBodyExplorer.EditorTools
                 Visible = new[] { AnatomyLayerGroup.Skin } },
             new View { Name = "45_male_skin_full", Target = new Vector3(0f, 1.0f, 0f), Distance = 1.5f, Yaw = 90f, Sex = 0,
                 Visible = new[] { AnatomyLayerGroup.Skin } },
+            new View { Name = "60_solid_front", Target = new Vector3(0f, 0.95f, 0f), Distance = 3.2f, Solid = true,
+                Visible = new[] { AnatomyLayerGroup.Skin } },
+            new View { Name = "61_solid_face", Target = new Vector3(0f, 1.6f, -0.05f), Distance = 0.55f, Fov = 30f, Solid = true,
+                Visible = new[] { AnatomyLayerGroup.Skin } },
+            new View { Name = "62_solid_face_side", Target = new Vector3(0f, 1.6f, -0.02f), Distance = 0.55f, Fov = 30f, Yaw = 90f, Solid = true,
+                Visible = new[] { AnatomyLayerGroup.Skin } },
+            new View { Name = "64_solid_torso", Target = new Vector3(0f, 1.1f, 0f), Distance = 1.3f, Fov = 30f, Solid = true,
+                Visible = new[] { AnatomyLayerGroup.Skin } },
+            new View { Name = "63_ghost_face", Target = new Vector3(0f, 1.6f, -0.05f), Distance = 0.55f, Fov = 30f,
+                Visible = new[] { AnatomyLayerGroup.Skin, AnatomyLayerGroup.Skeletal } },
             new View { Name = "23_foot_vessels_nerves", Target = new Vector3(0.09f, 0.06f, -0.04f), Distance = 0.5f,
                 Visible = new[] { AnatomyLayerGroup.Circulatory, AnatomyLayerGroup.Nervous } },
         };
@@ -172,6 +183,9 @@ namespace HumanBodyExplorer.EditorTools
                     foreach (var group in AnatomyLayerVisibility.AllGroups)
                         layers.SetVisible(group, view.Visible == null || Array.IndexOf(view.Visible, group) >= 0);
                 }
+
+                if (layers != null && layers.IsVisible(AnatomyLayerGroup.Skin))
+                    layers.SetSkinMode(view.Solid ? AnatomyLayerVisibility.SkinMode.Solid : AnatomyLayerVisibility.SkinMode.Ghost);
 
                 cam.fieldOfView = view.Fov > 0f ? view.Fov : defaultFov;
                 if (layers != null) layers.SetSex(view.Sex == 1 ? AnatomyLayerVisibility.ReproductiveSex.Female : AnatomyLayerVisibility.ReproductiveSex.Male);

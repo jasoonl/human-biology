@@ -43,6 +43,50 @@ namespace HumanBodyExplorer.Core
 
         public event Action OnVisibilityChanged;
 
+        /// <summary>How the skin is drawn: a see-through ghost (the default, so the layers beneath are visible),
+        /// an opaque skin-tone surface, or hidden.</summary>
+        public enum SkinMode { Ghost, Solid, Off }
+        public SkinMode SkinLook { get; private set; } = SkinMode.Ghost;
+
+        // While something is selected the solid skin steps aside as a ghost, so the selection can be seen.
+        private bool _skinAutoGhost;
+        private readonly List<Material> _skinMaterials = new List<Material>();
+        private readonly List<int> _skinQueues = new List<int>();
+
+        /// <summary>True when the skin is currently drawn opaque and therefore hides whatever is inside.</summary>
+        public bool SkinIsSolid => SkinLook == SkinMode.Solid && !_skinAutoGhost && IsVisible(AnatomyLayerGroup.Skin);
+
+        public void SetSkinMode(SkinMode mode)
+        {
+            SkinLook = mode;
+            _visible[AnatomyLayerGroup.Skin] = mode != SkinMode.Off;
+            Apply(AnatomyLayerGroup.Skin);
+            ApplySkinLook();
+            OnVisibilityChanged?.Invoke();
+        }
+
+        public void CycleSkinMode() => SetSkinMode((SkinMode)(((int)SkinLook + 1) % 3));
+
+        public void SetSkinAutoGhost(bool ghost)
+        {
+            if (_skinAutoGhost == ghost) return;
+            _skinAutoGhost = ghost;
+            ApplySkinLook();
+        }
+
+        private void ApplySkinLook()
+        {
+            bool solid = SkinIsSolid;
+            for (int i = 0; i < _skinMaterials.Count; i++)
+            {
+                var material = _skinMaterials[i];
+                if (material == null) continue;
+                material.SetFloat("_Solid", solid ? 1f : 0f);
+                material.SetFloat("_ZWrite", solid ? 1f : 0f);
+                material.renderQueue = solid ? 2000 : _skinQueues[i];
+            }
+        }
+
         /// <summary>The reproductive layer holds two anatomies that share one space, so only one is shown at a
         /// time. Male structures carry the id prefix SYS_REP_M_, female SYS_REP_F_.</summary>
         public enum ReproductiveSex { Male, Female }
@@ -118,7 +162,21 @@ namespace HumanBodyExplorer.Core
                 _members[GroupFor(node.EntityId)].Add(node.gameObject);
             }
 
+            // Each skin object gets its own material instance so switching its look never edits the shared asset.
+            _skinMaterials.Clear();
+            _skinQueues.Clear();
+            foreach (var go in _members[AnatomyLayerGroup.Skin])
+            {
+                var skinRenderer = go != null ? go.GetComponent<Renderer>() : null;
+                if (skinRenderer == null) continue;
+                var material = Application.isPlaying ? skinRenderer.material : skinRenderer.sharedMaterial;
+                if (material == null || !material.HasProperty("_Solid")) continue;
+                _skinMaterials.Add(material);
+                _skinQueues.Add(material.renderQueue);
+            }
+
             foreach (var group in AllGroups) Apply(group);
+            ApplySkinLook();
         }
 
         public bool IsVisible(AnatomyLayerGroup group) =>
@@ -129,12 +187,21 @@ namespace HumanBodyExplorer.Core
 
         public void SetVisible(AnatomyLayerGroup group, bool visible)
         {
+            if (group == AnatomyLayerGroup.Skin)
+            {
+                SetSkinMode(!visible ? SkinMode.Off : SkinLook == SkinMode.Off ? SkinMode.Ghost : SkinLook);
+                return;
+            }
             _visible[group] = visible;
             Apply(group);
             OnVisibilityChanged?.Invoke();
         }
 
-        public void Toggle(AnatomyLayerGroup group) => SetVisible(group, !IsVisible(group));
+        public void Toggle(AnatomyLayerGroup group)
+        {
+            if (group == AnatomyLayerGroup.Skin) CycleSkinMode();
+            else SetVisible(group, !IsVisible(group));
+        }
 
         private void Apply(AnatomyLayerGroup group)
         {

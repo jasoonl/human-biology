@@ -22,7 +22,7 @@ namespace HumanBodyExplorer.EditorTools.Geometry
         private static SdfFunc BuildField(bool female = false)
         {
             // Head, with the features that give the silhouette a face and ears.
-            SdfFunc head = Sdf.SmoothUnion(0.016f,
+            SdfFunc skull = Sdf.SmoothUnion(0.016f,
                 Sdf.Ellipsoid(new Vector3(0f, 1.635f, 0.005f), new Vector3(0.0825f, 0.1175f, 0.105f)),
                 // Skin follows the brow and the cheekbones; a plain ellipsoid leaves both
                 // poking out of it, because the face is fuller than the back of the head.
@@ -32,8 +32,20 @@ namespace HumanBodyExplorer.EditorTools.Geometry
                 Sdf.Sphere(new Vector3(0f, 1.616f, -0.104f), 0.0105f),                                     // tip of nose
                 Sdf.MirrorX(Sdf.Ellipsoid(new Vector3(0.083f, 1.640f, 0.015f), new Vector3(0.0085f, 0.028f, 0.017f))), // ears
                 Sdf.MirrorX(Sdf.Ellipsoid(new Vector3(0.036f, 1.650f, -0.070f), new Vector3(0.038f, 0.030f, 0.030f))), // eye sockets
-                Sdf.Ellipsoid(new Vector3(0f, 1.556f, -0.050f), new Vector3(0.061f, 0.048f, 0.054f)),     // jaw
-                Sdf.Ellipsoid(new Vector3(0f, 1.537f, -0.072f), new Vector3(0.030f, 0.028f, 0.030f)));   // chin
+                Sdf.Ellipsoid(new Vector3(0f, 1.558f, -0.050f), new Vector3(0.058f, 0.045f, 0.052f)),     // jaw
+                Sdf.Ellipsoid(new Vector3(0f, 1.540f, -0.074f), new Vector3(0.026f, 0.025f, 0.027f)));   // chin
+
+            // Soft features laid on the skull with a tight blend so they read as separate forms.
+            // They only add volume, so nothing inside can end up outside the skin.
+            SdfFunc features = Sdf.SmoothUnion(0.005f,
+                Sdf.MirrorX(Sdf.Ellipsoid(new Vector3(0.033f, 1.652f, -0.085f), new Vector3(0.016f, 0.012f, 0.014f))),   // eyeballs and lids
+                Sdf.MirrorX(Sdf.Ellipsoid(new Vector3(0.047f, 1.624f, -0.076f), new Vector3(0.024f, 0.017f, 0.020f))),   // cheekbones
+                Sdf.MirrorX(Sdf.Ellipsoid(new Vector3(0.019f, 1.606f, -0.094f), new Vector3(0.011f, 0.009f, 0.010f))),   // nostril wings
+                Sdf.Ellipsoid(new Vector3(0f, 1.585f, -0.098f), new Vector3(0.026f, 0.0065f, 0.011f)),                   // upper lip
+                Sdf.Ellipsoid(new Vector3(0f, 1.572f, -0.097f), new Vector3(0.023f, 0.0075f, 0.012f)),                   // lower lip
+                Sdf.MirrorX(Sdf.Ellipsoid(new Vector3(0.087f, 1.638f, 0.017f), new Vector3(0.0075f, 0.031f, 0.021f))),   // outer ear rims
+                Sdf.MirrorX(Sdf.Ellipsoid(new Vector3(0.0865f, 1.612f, 0.017f), new Vector3(0.0085f, 0.010f, 0.011f)))); // earlobes
+            SdfFunc head = Sdf.SmoothUnion(0.006f, skull, features);
 
             SdfFunc neck = Sdf.Capsule(new Vector3(0f, 1.565f, 0.026f), new Vector3(0f, 1.440f, 0.028f), 0.062f);
 
@@ -41,10 +53,13 @@ namespace HumanBodyExplorer.EditorTools.Geometry
             // Rounded boxes rather than ellipsoids: a chest is nearly as deep at the sides
             // of the back as at the middle, but an ellipsoid narrows fast away from the
             // midline and leaves the shoulder blades and spine poking out of it.
-            SdfFunc torso = Sdf.SmoothUnion(0.06f,
+            SdfFunc torso = Sdf.SmoothUnion(0.11f,
                 Sdf.RoundBox(new Vector3(0f, 1.285f, 0.005f), new Vector3(0.180f, 0.205f, 0.132f), 0.090f, Quaternion.identity),
                 Sdf.RoundBox(new Vector3(0f, 1.060f, -0.003f), new Vector3(0.166f, 0.175f, 0.118f), 0.090f, Quaternion.identity),
                 Sdf.RoundBox(new Vector3(0f, 0.900f, 0.000f), new Vector3(0.178f, 0.135f, 0.128f), 0.085f, Quaternion.identity),
+                // One column enclosing the three sections, so their slightly different widths do not
+                // show up as horizontal ridges across the trunk.
+                Sdf.RoundBox(new Vector3(0f, 1.128f, 0.002f), new Vector3(0.180f, 0.363f, 0.130f), 0.090f, Quaternion.identity),
                 Sdf.MirrorX(Sdf.Ellipsoid(new Vector3(0.085f, 0.895f, 0.060f), new Vector3(0.085f, 0.085f, 0.070f))),
                 // The slope of the trapezius from neck to shoulder.
                 Sdf.MirrorX(Sdf.Ellipsoid(new Vector3(0.078f, 1.462f, 0.046f), new Vector3(0.078f, 0.052f, 0.068f))));
@@ -90,12 +105,12 @@ namespace HumanBodyExplorer.EditorTools.Geometry
             Field = BuildField();
             var min = new Vector3(-0.32f, -0.02f, -0.26f);
             var max = new Vector3(0.32f, 1.78f, 0.20f);
-            Mesh mesh = PartFactory.Save(SurfaceNets.Build(Field, min, max, 0.009f, "SkinShell", 2f), "SkinShell");
+            Mesh mesh = PartFactory.Save(SurfaceNets.Build(Field, min, max, 0.007f, "SkinShell", 2f), "SkinShell");
             PartFactory.Add(root, "Skin", "SYS_INTEG_SKIN", mesh, skin, layer);
 
             // The same skin with the female exterior; AnatomyLayerVisibility shows whichever matches the
             // reproductive sex switch. Both carry the one SYS_INTEG_SKIN id so the dictionary entry is shared.
-            Mesh female = PartFactory.Save(SurfaceNets.Build(BuildField(true), min, max, 0.009f, "SkinShellFemale", 2f), "SkinShellFemale");
+            Mesh female = PartFactory.Save(SurfaceNets.Build(BuildField(true), min, max, 0.007f, "SkinShellFemale", 2f), "SkinShellFemale");
             PartFactory.Add(root, SkinFemaleName, "SYS_INTEG_SKIN", female, skin, layer);
         }
 

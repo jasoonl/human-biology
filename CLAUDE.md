@@ -127,3 +127,9 @@ Code in this repo is only "done" once it has actually compiled and its tests hav
 `.gitattributes` sets `merge=unityyamlmerge` for Unity YAML assets and routes large binaries to LFS; clone and CI checkouts need `lfs: true`. The repo root *is* the Unity project. Remote is `github.com/jasoonl/human-biology`; nothing is pushed without the user asking.
 
 **Authorship: commits and PRs in this repo are authored solely by Jason Loo.** Never add a `Co-Authored-By: Claude ...` trailer or a "Generated with Claude Code" footer to any commit message or pull request description here, regardless of default tooling guidance.
+
+## Skin modes
+The Skin button cycles Ghost (translucent, default), Solid (opaque skin tone, lit, with depth passes so SSAO
+and the outline ignore the bones beneath) and Off. Selecting a part turns a solid skin into a ghost until it is
+cleared; clicking the solid skin peels it to Ghost. Logic is in `AnatomyLayerVisibility` (`SkinLook`), the
+`_Solid`/`_ZWrite` properties of `SkinShell.shader`, and `AnatomyHighlighter` (hover is blocked behind a solid skin).

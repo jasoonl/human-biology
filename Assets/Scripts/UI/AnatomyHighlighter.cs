@@ -125,8 +125,16 @@ namespace HumanBodyExplorer.UI
             if (!Active) return;
             // Selecting the skin (or anything else with nothing opaque to light up) would just ghost
             // the whole body for no reason.
-            if (!_partsById.ContainsKey(id)) { Clear(); return; }
+            if (!_partsById.ContainsKey(id))
+            {
+                // Clicking the solid skin peels it back to a ghost so the body underneath can be picked.
+                if (id == SkinId && layerVisibility != null && layerVisibility.SkinIsSolid)
+                    layerVisibility.SetSkinMode(AnatomyLayerVisibility.SkinMode.Ghost);
+                Clear();
+                return;
+            }
             _selectedId = id;
+            if (layerVisibility != null) layerVisibility.SetSkinAutoGhost(true);
             Refresh();
         }
 
@@ -134,8 +142,11 @@ namespace HumanBodyExplorer.UI
         {
             if (_selectedId == null) return;
             _selectedId = null;
+            if (layerVisibility != null) layerVisibility.SetSkinAutoGhost(false);
             Refresh();
         }
+
+        private const string SkinId = "SYS_INTEG_SKIN";
 
         private bool Active => explorerUI == null || explorerUI.QuizController == null || !explorerUI.QuizController.IsQuestionActive;
 
@@ -185,10 +196,20 @@ namespace HumanBodyExplorer.UI
             int count = Physics.RaycastNonAlloc(ray, _hits, 100f);
             string best = null;
             float bestDistance = float.MaxValue;
+
+            // A solid skin hides what is inside it, so nothing behind it can be hovered.
+            float skinDistance = float.MaxValue;
+            if (layerVisibility != null && layerVisibility.SkinIsSolid)
+                for (int i = 0; i < count; i++)
+                {
+                    var skinNode = _hits[i].collider.GetComponentInParent<AnatomyNodeReference>();
+                    if (skinNode != null && skinNode.EntityId == SkinId) skinDistance = Mathf.Min(skinDistance, _hits[i].distance);
+                }
+
             for (int i = 0; i < count; i++)
             {
                 var hit = _hits[i];
-                if (hit.distance >= bestDistance) continue;
+                if (hit.distance >= bestDistance || hit.distance > skinDistance) continue;
                 var node = hit.collider.GetComponentInParent<AnatomyNodeReference>();
                 if (node == null || string.IsNullOrEmpty(node.EntityId)) continue;
                 var renderer = hit.collider.GetComponentInParent<Renderer>();

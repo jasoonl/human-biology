@@ -155,8 +155,9 @@ namespace HumanBodyExplorer.UI
 
                 var group = AnatomyLayerVisibility.AllGroups[i];
                 bool shown = layerVisibility == null || layerVisibility.IsVisible(group);
-                layerButtonLabels[i].text =
-                    $"{(shown ? "●" : "○")}  {AnatomyLayerVisibility.DisplayName(group)}";
+                string name = AnatomyLayerVisibility.DisplayName(group);
+                if (group == AnatomyLayerGroup.Skin && layerVisibility != null) name = $"Skin: {layerVisibility.SkinLook}";
+                layerButtonLabels[i].text = $"{(shown ? "●" : "○")}  {name}";
                 layerButtonLabels[i].color = shown ? Color.white : new Color(0.55f, 0.55f, 0.58f);
             }
         }
