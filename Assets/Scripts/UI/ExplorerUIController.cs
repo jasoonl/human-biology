@@ -59,7 +59,7 @@ namespace HumanBodyExplorer.UI
         private AudioClip _correctClip;
         private AudioClip _wrongClip;
         public QuizController QuizController => _quizController;
-        private const string DefaultInfoText = "Point at a part to see its name; click to isolate it and read about it. Esc or empty space clears; H toggles ghosting.";
+        private const string DefaultInfoText = "Point at a part to see its name; click to isolate it and read about it. Esc or empty space clears; H toggles ghosting.\n\nView: drag to orbit, right-drag or Shift+drag (or WASD/arrows, Q/E) to move, scroll to zoom, double-click to centre on a spot, R to reset.";
 
         private IEnumerator Start()
         {

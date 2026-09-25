@@ -1,5 +1,6 @@
 using HumanBodyExplorer.CameraSystem;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace HumanBodyExplorer.Core
 {
@@ -44,6 +45,8 @@ namespace HumanBodyExplorer.Core
 
             _inputManager.OnOrbit += HandleOrbit;
             _inputManager.OnZoom += HandleZoom;
+            _inputManager.OnPan += HandlePan;
+            _inputManager.OnDoubleClick += HandleDoubleClick;
             _inputManager.OnPrimaryInteract += HandlePrimaryInteract;
             AnatomyRaycaster.OnNodeSelected += HandleNodeSelected;
 
@@ -57,6 +60,34 @@ namespace HumanBodyExplorer.Core
 
         private void HandleOrbit(Vector2 delta) => orbitalCamera?.Orbit(delta);
         private void HandleZoom(float delta) => orbitalCamera?.Zoom(delta);
+        private void HandlePan(Vector2 delta) => orbitalCamera?.Pan(delta);
+
+        // Double-click a spot on the body to slide the view onto it and close in.
+        private void HandleDoubleClick(Vector2 screenPos)
+        {
+            var cam = orbitalCamera != null ? orbitalCamera.GetComponent<Camera>() : null;
+            if (cam == null) return;
+            if (Physics.Raycast(cam.ScreenPointToRay(screenPos), out RaycastHit hit, 50f, ~0, QueryTriggerInteraction.Ignore))
+                orbitalCamera.FocusPoint(hit.point, 0.5f);
+        }
+
+        // WASD / arrow keys slide the view (Q/E or PageDown/PageUp for height); R or Home resets it.
+        private void Update()
+        {
+            var kb = Keyboard.current;
+            if (kb == null || orbitalCamera == null) return;
+
+            Vector3 move = Vector3.zero;
+            if (kb.dKey.isPressed || kb.rightArrowKey.isPressed) move.x += 1f;
+            if (kb.aKey.isPressed || kb.leftArrowKey.isPressed) move.x -= 1f;
+            if (kb.wKey.isPressed || kb.upArrowKey.isPressed) move.z += 1f;
+            if (kb.sKey.isPressed || kb.downArrowKey.isPressed) move.z -= 1f;
+            if (kb.eKey.isPressed || kb.pageUpKey.isPressed) move.y += 1f;
+            if (kb.qKey.isPressed || kb.pageDownKey.isPressed) move.y -= 1f;
+            orbitalCamera.Move(move, Time.unscaledDeltaTime);
+
+            if (kb.rKey.wasPressedThisFrame || kb.homeKey.wasPressedThisFrame) orbitalCamera.ResetView();
+        }
         private void HandlePrimaryInteract(Vector2 screenPos)
         {
             Debug.Log($"[DemoInputBridge] Click received at screen position {screenPos}.");
@@ -68,6 +99,8 @@ namespace HumanBodyExplorer.Core
             if (_inputManager == null) return;
             _inputManager.OnOrbit -= HandleOrbit;
             _inputManager.OnZoom -= HandleZoom;
+            _inputManager.OnPan -= HandlePan;
+            _inputManager.OnDoubleClick -= HandleDoubleClick;
             _inputManager.OnPrimaryInteract -= HandlePrimaryInteract;
             AnatomyRaycaster.OnNodeSelected -= HandleNodeSelected;
         }

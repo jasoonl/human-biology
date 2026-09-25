@@ -118,6 +118,10 @@ namespace HumanBodyExplorer.EditorTools
                 Visible = new[] { AnatomyLayerGroup.Skeletal } },
             new View { Name = "55_pelvis_back", Target = new Vector3(0f, 0.9f, 0f), Distance = 0.8f, Fov = 30f, Yaw = 180f, Pitch = 0f,
                 Visible = new[] { AnatomyLayerGroup.Skeletal } },
+            new View { Name = "44_female_skin_full", Target = new Vector3(0f, 1.0f, 0f), Distance = 1.5f, Yaw = 90f, Sex = 1,
+                Visible = new[] { AnatomyLayerGroup.Skin } },
+            new View { Name = "45_male_skin_full", Target = new Vector3(0f, 1.0f, 0f), Distance = 1.5f, Yaw = 90f, Sex = 0,
+                Visible = new[] { AnatomyLayerGroup.Skin } },
             new View { Name = "23_foot_vessels_nerves", Target = new Vector3(0.09f, 0.06f, -0.04f), Distance = 0.5f,
                 Visible = new[] { AnatomyLayerGroup.Circulatory, AnatomyLayerGroup.Nervous } },
         };

@@ -14,11 +14,12 @@ namespace HumanBodyExplorer.EditorTools.Geometry
     /// </summary>
     public static class SkinBuilder
     {
+        public const string SkinFemaleName = "SkinFemale";
         public static SdfFunc Field { get; private set; }
 
         private static SdfFunc Limb(BodyShape.Limb l) => Sdf.RoundCone(l.A, l.RA, l.B, l.RB);
 
-        private static SdfFunc BuildField()
+        private static SdfFunc BuildField(bool female = false)
         {
             // Head, with the features that give the silhouette a face and ears.
             SdfFunc head = Sdf.SmoothUnion(0.016f,
@@ -76,7 +77,12 @@ namespace HumanBodyExplorer.EditorTools.Geometry
                 Sdf.Ellipsoid(new Vector3(0f, 0.756f, -0.040f), new Vector3(0.040f, 0.040f, 0.033f)),
                 Sdf.RoundCone(new Vector3(0f, 0.792f, -0.056f), 0.0165f, new Vector3(0f, 0.734f, -0.092f), 0.0140f));
 
-            return Sdf.SmoothUnion(0.035f, head, neck, torso, Sdf.MirrorX(arm), Sdf.MirrorX(leg), genitals);
+            // The female exterior has no external genitals (the vulva is not modelled) and a fuller chest.
+            SdfFunc breasts = Sdf.MirrorX(Sdf.Ellipsoid(new Vector3(0.078f, 1.255f, -0.085f), new Vector3(0.056f, 0.056f, 0.040f)));
+
+            return female
+                ? Sdf.SmoothUnion(0.035f, head, neck, torso, Sdf.MirrorX(arm), Sdf.MirrorX(leg), breasts)
+                : Sdf.SmoothUnion(0.035f, head, neck, torso, Sdf.MirrorX(arm), Sdf.MirrorX(leg), genitals);
         }
 
         public static void Build(Transform root, Material skin, int layer)
@@ -86,6 +92,11 @@ namespace HumanBodyExplorer.EditorTools.Geometry
             var max = new Vector3(0.32f, 1.78f, 0.20f);
             Mesh mesh = PartFactory.Save(SurfaceNets.Build(Field, min, max, 0.009f, "SkinShell", 2f), "SkinShell");
             PartFactory.Add(root, "Skin", "SYS_INTEG_SKIN", mesh, skin, layer);
+
+            // The same skin with the female exterior; AnatomyLayerVisibility shows whichever matches the
+            // reproductive sex switch. Both carry the one SYS_INTEG_SKIN id so the dictionary entry is shared.
+            Mesh female = PartFactory.Save(SurfaceNets.Build(BuildField(true), min, max, 0.009f, "SkinShellFemale", 2f), "SkinShellFemale");
+            PartFactory.Add(root, SkinFemaleName, "SYS_INTEG_SKIN", female, skin, layer);
         }
 
         /// <summary>
@@ -100,7 +111,7 @@ namespace HumanBodyExplorer.EditorTools.Geometry
 
             foreach (var filter in root.GetComponentsInChildren<MeshFilter>())
             {
-                if (filter.sharedMesh == null || filter.name == "Skin") continue;
+                if (filter.sharedMesh == null || filter.name == "Skin" || filter.name == SkinFemaleName) continue;
 
                 float worst = float.MinValue;
                 Vector3 where = Vector3.zero;

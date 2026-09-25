@@ -52,6 +52,7 @@ namespace HumanBodyExplorer.Core
         {
             Sex = sex;
             Apply(AnatomyLayerGroup.Reproductive);
+            Apply(AnatomyLayerGroup.Skin);
             OnVisibilityChanged?.Invoke();
         }
 
@@ -64,6 +65,9 @@ namespace HumanBodyExplorer.Core
             string prefix = Sex == ReproductiveSex.Male ? "SYS_REP_M_" : "SYS_REP_F_";
             return node.EntityId.StartsWith(prefix, StringComparison.Ordinal);
         }
+
+        // The skin has a male and a female exterior (the latter is the object named "SkinFemale").
+        private bool SkinMatchesSex(GameObject go) => (go.name == "SkinFemale") == (Sex == ReproductiveSex.Female);
 
         private void Start() => Rebuild();
 
@@ -141,7 +145,8 @@ namespace HumanBodyExplorer.Core
             {
                 if (go == null) continue;
 
-                bool show = visible && (group != AnatomyLayerGroup.Reproductive || MatchesSex(go));
+                bool show = visible && (group == AnatomyLayerGroup.Reproductive ? MatchesSex(go)
+                    : group != AnatomyLayerGroup.Skin || SkinMatchesSex(go));
                 var partRenderer = go.GetComponent<Renderer>();
                 if (partRenderer != null) partRenderer.enabled = show;
 

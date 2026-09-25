@@ -20,10 +20,13 @@ namespace HumanBodyExplorer.Input
         private InputAction _scroll;
         private InputAction _primaryClick;
         private InputAction _secondaryClick;
+        private InputAction _middleClick;
         private InputAction _touch0Position;
         private InputAction _touch1Position;
 
         public event Action<Vector2> OnOrbit;
+        public event Action<Vector2> OnPan;
+        public event Action<Vector2> OnDoubleClick;
         public event Action<float> OnZoom;
         public event Action<Vector2> OnPrimaryInteract;
 
@@ -34,6 +37,9 @@ namespace HumanBodyExplorer.Input
         private const float ClickDragTolerancePixels = 12f;
 
         private bool _primaryDown;
+        private bool _gestureStartedOverUi;
+        private float _lastClickTime = -10f;
+        private Vector2 _lastClickPos;
         private float _dragDistance;
 
         public System.Threading.Tasks.Task InitializeAsync()
@@ -53,6 +59,7 @@ namespace HumanBodyExplorer.Input
             _scroll = _map.AddAction("Scroll", InputActionType.Value, "<Mouse>/scroll");
             _primaryClick = _map.AddAction("PrimaryClick", InputActionType.Button, "<Mouse>/leftButton");
             _secondaryClick = _map.AddAction("SecondaryClick", InputActionType.Button, "<Mouse>/rightButton");
+            _middleClick = _map.AddAction("MiddleClick", InputActionType.Button, "<Mouse>/middleButton");
             _touch0Position = _map.AddAction("Touch0Position", InputActionType.Value, "<Touchscreen>/touch0/position");
             _touch1Position = _map.AddAction("Touch1Position", InputActionType.Value, "<Touchscreen>/touch1/position");
 
@@ -69,13 +76,26 @@ namespace HumanBodyExplorer.Input
             {
                 _primaryDown = true;
                 _dragDistance = 0f;
+                _gestureStartedOverUi = UnityEngine.EventSystems.EventSystem.current != null
+                    && UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject();
             };
 
             _primaryClick.canceled += _ =>
             {
-                if (_primaryDown && _dragDistance <= ClickDragTolerancePixels)
+                if (_primaryDown && _dragDistance <= ClickDragTolerancePixels && !_gestureStartedOverUi)
                 {
-                    OnPrimaryInteract?.Invoke(_pointerPosition.ReadValue<Vector2>());
+                    Vector2 pos = _pointerPosition.ReadValue<Vector2>();
+                    OnPrimaryInteract?.Invoke(pos);
+                    if (Time.unscaledTime - _lastClickTime < 0.35f && (pos - _lastClickPos).sqrMagnitude < 400f)
+                    {
+                        OnDoubleClick?.Invoke(pos);
+                        _lastClickTime = -10f;
+                    }
+                    else
+                    {
+                        _lastClickTime = Time.unscaledTime;
+                        _lastClickPos = pos;
+                    }
                 }
                 _primaryDown = false;
             };
@@ -85,7 +105,13 @@ namespace HumanBodyExplorer.Input
                 Vector2 delta = ctx.ReadValue<Vector2>();
                 if (_primaryDown) _dragDistance += delta.magnitude;
 
-                if (_secondaryClick.IsPressed() || _primaryClick.IsPressed())
+                // Left-drag orbits. Right-drag, middle-drag or shift+left-drag pans (slides the view).
+                bool shift = Keyboard.current != null && Keyboard.current.shiftKey.isPressed;
+                if (_secondaryClick.IsPressed() || _middleClick.IsPressed() || (_primaryClick.IsPressed() && shift))
+                {
+                    OnPan?.Invoke(delta);
+                }
+                else if (_primaryClick.IsPressed() && !_gestureStartedOverUi)
                 {
                     OnOrbit?.Invoke(delta);
                 }

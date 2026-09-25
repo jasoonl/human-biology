@@ -491,7 +491,7 @@ namespace HumanBodyExplorer.EditorTools
             // 0.1-20 default, and zoom is now proportional to distance (see
             // AdvancedOrbitalCamera.Zoom), so sensitivity is a fraction, not a multiple.
             var serializedOrbit = new SerializedObject(orbitalCamera);
-            serializedOrbit.FindProperty("minDistance").floatValue = 0.22f;
+            serializedOrbit.FindProperty("minDistance").floatValue = 0.08f;
             serializedOrbit.FindProperty("maxDistance").floatValue = 6f;
             serializedOrbit.FindProperty("zoomSensitivity").floatValue = 0.18f;
             serializedOrbit.FindProperty("orbitSensitivity").floatValue = 0.32f;
@@ -619,7 +619,7 @@ namespace HumanBodyExplorer.EditorTools
             var infoPanel = CreatePanel(canvasGO.transform, "InfoPanel",
                 anchorMin: new Vector2(1, 0), anchorMax: new Vector2(1, 0),
                 pivot: new Vector2(1, 0), anchoredPos: new Vector2(-30, 30), size: new Vector2(780, 430));
-            var infoText = CreateText(infoPanel.transform, "InfoText", "Point at a part to see its name; click to isolate it and read about it. Esc or empty space clears; H toggles ghosting.", 20);
+            var infoText = CreateText(infoPanel.transform, "InfoText", "Point at a part to see its name; click to isolate it and read about it. Esc or empty space clears; H toggles ghosting.\n\nView: drag to orbit, right-drag or Shift+drag (or WASD/arrows, Q/E) to move, scroll to zoom, double-click to centre on a spot, R to reset.", 20);
             StretchToParent(infoText.rectTransform, padding: 20);
             infoText.alignment = TextAlignmentOptions.TopLeft;
 
