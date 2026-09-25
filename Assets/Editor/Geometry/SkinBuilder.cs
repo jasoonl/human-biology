@@ -32,8 +32,8 @@ namespace HumanBodyExplorer.EditorTools.Geometry
                 Sdf.Ellipsoid(new Vector3(0f, 1.622f, -0.085f), new Vector3(0.0080f, 0.016f, 0.0095f)),         // nasal bridge
                 Sdf.Sphere(new Vector3(0f, 1.612f, -0.107f), 0.0115f),                                    // bulbous tip
                 Sdf.MirrorX(Sdf.Ellipsoid(new Vector3(0.083f, 1.640f, 0.015f), new Vector3(0.0085f, 0.028f, 0.017f))), // ears
-                Sdf.MirrorX(Sdf.Ellipsoid(new Vector3(0.038f, 1.652f, -0.065f), new Vector3(0.042f, 0.040f, 0.036f))),           // eye sockets
-                Sdf.MirrorX(Sdf.Ellipsoid(new Vector3(0.038f, 1.664f, -0.058f), new Vector3(0.035f, 0.0065f, 0.030f))),           // supraorbital ridge
+                Sdf.MirrorX(Sdf.Ellipsoid(new Vector3(0.038f, 1.650f, -0.062f), new Vector3(0.040f, 0.038f, 0.034f))),           // eye sockets
+                Sdf.MirrorX(Sdf.Ellipsoid(new Vector3(0.038f, 1.662f, -0.056f), new Vector3(0.034f, 0.0062f, 0.029f))),           // supraorbital ridge
                 Sdf.Ellipsoid(new Vector3(0f, 1.556f, -0.048f), new Vector3(0.068f, 0.052f, 0.058f)),     // jaw base
                 Sdf.MirrorX(Sdf.Ellipsoid(new Vector3(0.055f, 1.544f, -0.058f), new Vector3(0.020f, 0.035f, 0.038f))), // jaw angle
                 Sdf.Ellipsoid(new Vector3(0f, 1.540f, -0.074f), new Vector3(0.026f, 0.025f, 0.027f)));   // chin
@@ -44,39 +44,37 @@ namespace HumanBodyExplorer.EditorTools.Geometry
                 Sdf.MirrorX(Sdf.Ellipsoid(new Vector3(0.033f, 1.652f, -0.085f), new Vector3(0.016f, 0.012f, 0.014f))),   // eyeballs and lids
                 Sdf.MirrorX(Sdf.Ellipsoid(new Vector3(0.047f, 1.624f, -0.076f), new Vector3(0.024f, 0.017f, 0.020f))),   // cheekbones
                 Sdf.MirrorX(Sdf.Ellipsoid(new Vector3(0.019f, 1.606f, -0.094f), new Vector3(0.011f, 0.009f, 0.010f))),   // nostril wings
-                Sdf.Ellipsoid(new Vector3(0f, 1.587f, -0.096f), new Vector3(0.0275f, 0.0080f, 0.0125f)),               // upper lip
-                Sdf.Ellipsoid(new Vector3(0f, 1.570f, -0.095f), new Vector3(0.0245f, 0.0095f, 0.0130f)),                 // lower lip
+                Sdf.Ellipsoid(new Vector3(0f, 1.586f, -0.095f), new Vector3(0.0265f, 0.0076f, 0.0120f)),               // upper lip
+                Sdf.Ellipsoid(new Vector3(0f, 1.571f, -0.093f), new Vector3(0.0235f, 0.0090f, 0.0125f)),                 // lower lip
                 Sdf.MirrorX(Sdf.Ellipsoid(new Vector3(0.087f, 1.638f, 0.017f), new Vector3(0.0075f, 0.031f, 0.021f))),   // outer ear rims
                 Sdf.MirrorX(Sdf.Ellipsoid(new Vector3(0.0865f, 1.612f, 0.017f), new Vector3(0.0085f, 0.010f, 0.011f)))); // earlobes
             // Refined face: stronger zygomatic arches, temporal hollows, defined eye sockets, buccinator
-            SdfFunc cheekbones = Sdf.MirrorX(Sdf.Ellipsoid(new Vector3(0.052f, 1.620f, -0.052f), new Vector3(0.036f, 0.028f, 0.031f))); // zygomatic
-            SdfFunc temporal = Sdf.MirrorX(Sdf.Ellipsoid(new Vector3(0.068f, 1.660f, 0.018f), new Vector3(0.031f, 0.048f, 0.045f))); // temporalis
-            SdfFunc buccinator = Sdf.MirrorX(Sdf.Ellipsoid(new Vector3(0.038f, 1.590f, -0.075f), new Vector3(0.020f, 0.018f, 0.014f))); // cheek pad
-            SdfFunc head = Sdf.SmoothUnion(0.007f, skull, features, cheekbones, temporal, buccinator);
+            SdfFunc cheekbones = Sdf.MirrorX(Sdf.Ellipsoid(new Vector3(0.050f, 1.618f, -0.050f), new Vector3(0.034f, 0.026f, 0.029f))); // zygomatic
+            SdfFunc temporal = Sdf.MirrorX(Sdf.Ellipsoid(new Vector3(0.066f, 1.658f, 0.020f), new Vector3(0.029f, 0.046f, 0.043f))); // temporalis
+            SdfFunc buccinator = Sdf.MirrorX(Sdf.Ellipsoid(new Vector3(0.036f, 1.588f, -0.073f), new Vector3(0.018f, 0.016f, 0.012f))); // cheek pad
+            SdfFunc head = Sdf.SmoothUnion(0.009f, skull, features, cheekbones, temporal, buccinator);
 
-            SdfFunc neck = Sdf.Capsule(new Vector3(0f, 1.565f, 0.026f), new Vector3(0f, 1.440f, 0.028f), 0.062f);
+            SdfFunc neck = Sdf.Capsule(new Vector3(0f, 1.568f, 0.027f), new Vector3(0f, 1.438f, 0.030f), 0.065f);
 
             // Torso: chest, abdomen and pelvis blended into one, with the buttocks behind.
             // Rounded boxes rather than ellipsoids: a chest is nearly as deep at the sides
             // of the back as at the middle, but an ellipsoid narrows fast away from the
             // midline and leaves the shoulder blades and spine poking out of it.
-            SdfFunc torso = Sdf.SmoothUnion(0.11f,
-                Sdf.RoundBox(new Vector3(0f, 1.285f, 0.005f), new Vector3(0.180f, 0.205f, 0.132f), 0.090f, Quaternion.identity),
-                Sdf.RoundBox(new Vector3(0f, 1.060f, -0.003f), new Vector3(0.166f, 0.175f, 0.118f), 0.090f, Quaternion.identity),
-                Sdf.RoundBox(new Vector3(0f, 0.900f, 0.000f), new Vector3(0.178f, 0.135f, 0.128f), 0.085f, Quaternion.identity),
-                // One column enclosing the three sections, so their slightly different widths do not
-                // show up as horizontal ridges across the trunk.
-                Sdf.RoundBox(new Vector3(0f, 1.128f, 0.002f), new Vector3(0.180f, 0.363f, 0.130f), 0.090f, Quaternion.identity),
+            SdfFunc torso = Sdf.SmoothUnion(0.12f,
+                Sdf.RoundBox(new Vector3(0f, 1.295f, 0.008f), new Vector3(0.185f, 0.210f, 0.135f), 0.095f, Quaternion.identity),  // chest
+                Sdf.RoundBox(new Vector3(0f, 1.065f, 0.000f), new Vector3(0.168f, 0.180f, 0.120f), 0.092f, Quaternion.identity),  // abdomen
+                Sdf.RoundBox(new Vector3(0f, 0.905f, 0.002f), new Vector3(0.175f, 0.140f, 0.125f), 0.088f, Quaternion.identity),  // pelvis
+                Sdf.RoundBox(new Vector3(0f, 1.125f, 0.003f), new Vector3(0.182f, 0.368f, 0.132f), 0.092f, Quaternion.identity),  // envelope
                 Sdf.MirrorX(Sdf.Ellipsoid(new Vector3(0.085f, 0.895f, 0.060f), new Vector3(0.085f, 0.085f, 0.070f))),
                 // The slope of the trapezius from neck to shoulder.
-                Sdf.MirrorX(Sdf.Ellipsoid(new Vector3(0.078f, 1.462f, 0.046f), new Vector3(0.078f, 0.052f, 0.068f))));
+                Sdf.MirrorX(Sdf.Ellipsoid(new Vector3(0.082f, 1.460f, 0.048f), new Vector3(0.080f, 0.055f, 0.070f))));  // trapezius
 
             // Shoulders, arms and hands.
-            SdfFunc arm = Sdf.SmoothUnion(0.03f,
-                Sdf.Ellipsoid(new Vector3(0.19f, 1.39f, -0.01f), new Vector3(0.0725f, 0.0825f, 0.0725f)),
+            SdfFunc arm = Sdf.SmoothUnion(0.032f,
+                Sdf.Ellipsoid(new Vector3(0.192f, 1.395f, -0.008f), new Vector3(0.0755f, 0.0850f, 0.0755f)),  // shoulder
                 Limb(BodyShape.UpperArm),
                 Limb(BodyShape.Forearm),
-                Sdf.Ellipsoid(new Vector3(0.205f, 0.735f, -0.004f), new Vector3(0.0425f, 0.102f, 0.030f)),
+                Sdf.Ellipsoid(new Vector3(0.208f, 0.738f, -0.002f), new Vector3(0.0445f, 0.105f, 0.032f)),   // wrist
                 Sdf.Chain(new[] { new Vector3(0.228f, 0.815f, 0.000f), new Vector3(0.250f, 0.750f, -0.028f), new Vector3(0.264f, 0.722f, -0.048f) },
                     new[] { 0.0175f, 0.0155f, 0.0135f }, 0.01f),   // thumb, curling forward to its tip
                 // The four fingers, knuckle to tip, curled slightly toward the palm.
@@ -86,12 +84,12 @@ namespace HumanBodyExplorer.EditorTools.Geometry
                 Sdf.Capsule(new Vector3(0.183f, 0.755f, 0.008f), new Vector3(0.176f, 0.676f, -0.016f), 0.0100f));
 
             // Thighs, calves and feet.
-            SdfFunc leg = Sdf.SmoothUnion(0.03f,
+            SdfFunc leg = Sdf.SmoothUnion(0.032f,
                 Limb(BodyShape.Thigh),
                 Limb(BodyShape.Shank),
-                Sdf.Ellipsoid(new Vector3(0.085f, 0.32f, 0.030f), new Vector3(0.052f, 0.110f, 0.058f)),        // calf
-                Sdf.Ellipsoid(new Vector3(0.085f, 0.044f, -0.066f), new Vector3(0.0665f, 0.050f, 0.1600f)),      // foot
-                Sdf.Ellipsoid(new Vector3(0.084f, 0.028f, -0.168f), new Vector3(0.050f, 0.028f, 0.048f)));     // toes
+                Sdf.Ellipsoid(new Vector3(0.085f, 0.322f, 0.032f), new Vector3(0.054f, 0.112f, 0.060f)),        // calf
+                Sdf.Ellipsoid(new Vector3(0.085f, 0.045f, -0.065f), new Vector3(0.0680f, 0.052f, 0.1620f)),      // foot
+                Sdf.Ellipsoid(new Vector3(0.084f, 0.028f, -0.168f), new Vector3(0.052f, 0.030f, 0.050f)));      // toes
 
             // The figure's exterior is male, so the skin encloses the scrotum and the penis, which the male
             // reproductive organs sit in. (The female organs, shown instead by the layer's sex switch, are internal.)
