@@ -29,10 +29,13 @@ namespace HumanBodyExplorer.EditorTools.Geometry
                 Sdf.Ellipsoid(new Vector3(0f, 1.678f, -0.062f), new Vector3(0.072f, 0.040f, 0.038f)),
                 Sdf.Ellipsoid(new Vector3(0f, 1.612f, -0.052f), new Vector3(0.060f, 0.062f, 0.052f)),
                 Sdf.Capsule(new Vector3(0f, 1.652f, -0.094f), new Vector3(0f, 1.616f, -0.101f), 0.0085f),  // nose
-                Sdf.Sphere(new Vector3(0f, 1.616f, -0.104f), 0.0105f),                                     // tip of nose
+                Sdf.Ellipsoid(new Vector3(0f, 1.622f, -0.085f), new Vector3(0.0080f, 0.016f, 0.0095f)),         // nasal bridge
+                Sdf.Sphere(new Vector3(0f, 1.612f, -0.107f), 0.0115f),                                    // bulbous tip
                 Sdf.MirrorX(Sdf.Ellipsoid(new Vector3(0.083f, 1.640f, 0.015f), new Vector3(0.0085f, 0.028f, 0.017f))), // ears
-                Sdf.MirrorX(Sdf.Ellipsoid(new Vector3(0.036f, 1.650f, -0.070f), new Vector3(0.038f, 0.030f, 0.030f))), // eye sockets
-                Sdf.Ellipsoid(new Vector3(0f, 1.558f, -0.050f), new Vector3(0.058f, 0.045f, 0.052f)),     // jaw
+                Sdf.MirrorX(Sdf.Ellipsoid(new Vector3(0.038f, 1.652f, -0.065f), new Vector3(0.042f, 0.040f, 0.036f))),           // eye sockets
+                Sdf.MirrorX(Sdf.Ellipsoid(new Vector3(0.038f, 1.664f, -0.058f), new Vector3(0.035f, 0.0065f, 0.030f))),           // supraorbital ridge
+                Sdf.Ellipsoid(new Vector3(0f, 1.556f, -0.048f), new Vector3(0.068f, 0.052f, 0.058f)),     // jaw base
+                Sdf.MirrorX(Sdf.Ellipsoid(new Vector3(0.055f, 1.544f, -0.058f), new Vector3(0.020f, 0.035f, 0.038f))), // jaw angle
                 Sdf.Ellipsoid(new Vector3(0f, 1.540f, -0.074f), new Vector3(0.026f, 0.025f, 0.027f)));   // chin
 
             // Soft features laid on the skull with a tight blend so they read as separate forms.
@@ -41,11 +44,15 @@ namespace HumanBodyExplorer.EditorTools.Geometry
                 Sdf.MirrorX(Sdf.Ellipsoid(new Vector3(0.033f, 1.652f, -0.085f), new Vector3(0.016f, 0.012f, 0.014f))),   // eyeballs and lids
                 Sdf.MirrorX(Sdf.Ellipsoid(new Vector3(0.047f, 1.624f, -0.076f), new Vector3(0.024f, 0.017f, 0.020f))),   // cheekbones
                 Sdf.MirrorX(Sdf.Ellipsoid(new Vector3(0.019f, 1.606f, -0.094f), new Vector3(0.011f, 0.009f, 0.010f))),   // nostril wings
-                Sdf.Ellipsoid(new Vector3(0f, 1.585f, -0.098f), new Vector3(0.026f, 0.0065f, 0.011f)),                   // upper lip
-                Sdf.Ellipsoid(new Vector3(0f, 1.572f, -0.097f), new Vector3(0.023f, 0.0075f, 0.012f)),                   // lower lip
+                Sdf.Ellipsoid(new Vector3(0f, 1.587f, -0.096f), new Vector3(0.0275f, 0.0080f, 0.0125f)),               // upper lip
+                Sdf.Ellipsoid(new Vector3(0f, 1.570f, -0.095f), new Vector3(0.0245f, 0.0095f, 0.0130f)),                 // lower lip
                 Sdf.MirrorX(Sdf.Ellipsoid(new Vector3(0.087f, 1.638f, 0.017f), new Vector3(0.0075f, 0.031f, 0.021f))),   // outer ear rims
                 Sdf.MirrorX(Sdf.Ellipsoid(new Vector3(0.0865f, 1.612f, 0.017f), new Vector3(0.0085f, 0.010f, 0.011f)))); // earlobes
-            SdfFunc head = Sdf.SmoothUnion(0.006f, skull, features);
+            // Refined face: stronger zygomatic arches, temporal hollows, defined eye sockets, buccinator
+            SdfFunc cheekbones = Sdf.MirrorX(Sdf.Ellipsoid(new Vector3(0.052f, 1.620f, -0.052f), new Vector3(0.036f, 0.028f, 0.031f))); // zygomatic
+            SdfFunc temporal = Sdf.MirrorX(Sdf.Ellipsoid(new Vector3(0.068f, 1.660f, 0.018f), new Vector3(0.031f, 0.048f, 0.045f))); // temporalis
+            SdfFunc buccinator = Sdf.MirrorX(Sdf.Ellipsoid(new Vector3(0.038f, 1.590f, -0.075f), new Vector3(0.020f, 0.018f, 0.014f))); // cheek pad
+            SdfFunc head = Sdf.SmoothUnion(0.007f, skull, features, cheekbones, temporal, buccinator);
 
             SdfFunc neck = Sdf.Capsule(new Vector3(0f, 1.565f, 0.026f), new Vector3(0f, 1.440f, 0.028f), 0.062f);
 
@@ -147,8 +154,9 @@ namespace HumanBodyExplorer.EditorTools.Geometry
             var lower = Sdf.Ellipsoid(new Vector3(0f, 1.5535f, lipZ + 0.0085f), new Vector3(0.0215f, 0.0085f, 0.0105f));
             SdfFunc faced = Sdf.SmoothUnion(0.007f, body, eye, lidCrease, upper, lower);
             // The line where the lips meet: a shallow crease, not a slot.
-            var seam = Sdf.Ellipsoid(new Vector3(0f, 1.5603f, lipZ - 0.0035f), new Vector3(0.0205f, 0.0011f, 0.0045f));
-            return Sdf.Subtract(faced, seam);
+            var seam = Sdf.Ellipsoid(new Vector3(0f, 1.5598f, lipZ - 0.0030f), new Vector3(0.0220f, 0.00085f, 0.0050f));
+            var lipLine = Sdf.Ellipsoid(new Vector3(0f, 1.5780f, lipZ - 0.0048f), new Vector3(0.0225f, 0.00065f, 0.0035f));
+            return Sdf.Subtract(faced, Sdf.SmoothUnion(0.0008f, seam, lipLine));
         }
 
 
@@ -191,15 +199,18 @@ namespace HumanBodyExplorer.EditorTools.Geometry
             if (nz > 0f)
             {
                 float z = -0.30f + nz;
-                cuts.Add(Sdf.MirrorX(Sdf.Ellipsoid(new Vector3(0.0085f, 1.6005f, z + 0.002f), new Vector3(0.0042f, 0.0035f, 0.0080f), Quaternion.Euler(-35f, 0f, 0f))));
+                cuts.Add(Sdf.MirrorX(Sdf.Ellipsoid(new Vector3(0.0095f, 1.6015f, z + 0.0015f), new Vector3(0.0052f, 0.0042f, 0.0095f), Quaternion.Euler(-38f, 0f, -6f))));
             }
             if (lz > 0f)
             {
                 float z = -0.30f + lz;
                 cuts.Add(Sdf.Ellipsoid(new Vector3(0f, 1.5775f, z + 0.0022f), new Vector3(0.0032f, 0.0050f, 0.0012f)));   // philtrum
                 // mouth corners
-                cuts.Add(Sdf.MirrorX(Sdf.Ellipsoid(new Vector3(0.0225f, 1.5605f, z + 0.005f), new Vector3(0.0022f, 0.0030f, 0.0030f))));
+                cuts.Add(Sdf.MirrorX(Sdf.Ellipsoid(new Vector3(0.0245f, 1.5595f, z + 0.0058f), new Vector3(0.0028f, 0.0040f, 0.0042f))));
             }
+            float cz = Surface(body, new Vector3(0f, 1.538f, -0.30f), Vector3.forward, 0.4f);
+            if (cz > 0f)
+                cuts.Add(Sdf.Ellipsoid(new Vector3(0f, 1.535f, -0.30f + cz + 0.0008f), new Vector3(0.0045f, 0.0035f, 0.0020f)));
             if (cuts.Count == 0) return body;
             return Sdf.Subtract(body, Sdf.SmoothUnion(0.002f, cuts.ToArray()));
         }

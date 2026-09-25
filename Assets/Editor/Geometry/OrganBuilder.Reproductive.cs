@@ -96,35 +96,41 @@ namespace HumanBodyExplorer.EditorTools.Geometry
 
             // Uterus: the pear-shaped muscular organ, tipped forward over the bladder, where a fertilised egg implants and the
             // fetus grows. Its thick wall (myometrium) is smooth muscle that contracts in labour.
-            SdfFunc uterus = Sdf.SmoothUnion(0.010f,
-                Sdf.Ellipsoid(V(0f, 0.928f, -0.004f), V(0.026f, 0.022f, 0.015f), Quaternion.Euler(-14f, 0f, 0f)),
-                Sdf.Ellipsoid(V(0f, 0.908f, 0.002f), V(0.018f, 0.024f, 0.014f), Quaternion.Euler(-14f, 0f, 0f)));
-            Place("Uterus", "SYS_REP_F_UTERUS", Sculpt("Uterus", uterus, 0.0008f, V(-0.02f, 0.962f, -0.02f), V(0.02f, 0.890f, 0.02f)), uterusMat);
+            // Uterus: pear-shaped (fundus at top, isthmus narrowing, cervix at bottom)
+            SdfFunc uterus = Sdf.SmoothUnion(0.012f,
+                Sdf.Ellipsoid(V(0f, 0.940f, -0.002f), V(0.030f, 0.024f, 0.016f), Quaternion.Euler(-12f, 0f, 0f)),  // fundus
+                Sdf.Ellipsoid(V(0f, 0.910f, 0.004f), V(0.020f, 0.026f, 0.015f), Quaternion.Euler(-12f, 0f, 0f)),  // body
+                Sdf.Ellipsoid(V(0f, 0.880f, 0.008f), V(0.012f, 0.015f, 0.012f), Quaternion.Euler(-12f, 0f, 0f))); // isthmus
+            // Add uterine horns to fallopian tube junctions
+            SdfFunc horns = Sdf.MirrorX(Sdf.Ellipsoid(V(0.020f, 0.936f, 0.002f), V(0.0095f, 0.010f, 0.0085f)));
+            SdfFunc uterusComplete = Sdf.SmoothUnion(0.008f, uterus, horns);
+            Place("Uterus", "SYS_REP_F_UTERUS", Sculpt("Uterus", uterusComplete, 0.0008f, V(-0.03f, 0.962f, -0.02f), V(0.03f, 0.890f, 0.02f)), uterusMat);
 
             // Endometrium: the lining of the uterine cavity, thickened each cycle under the influence of oestrogen and progesterone
             // and shed as menstruation if there is no pregnancy.
-            SdfFunc cavity = Sdf.SmoothUnion(0.004f,
-                Sdf.Ellipsoid(V(0f, 0.920f, -0.002f), V(0.016f, 0.018f, 0.0042f), Quaternion.Euler(-14f, 0f, 0f)),
-                Sdf.Capsule(V(0f, 0.908f, 0.002f), V(0f, 0.890f, 0.010f), 0.0022f));
+            SdfFunc cavity = Sdf.SmoothUnion(0.005f,
+                Sdf.Ellipsoid(V(0f, 0.930f, 0.001f), V(0.018f, 0.020f, 0.0048f), Quaternion.Euler(-12f, 0f, 0f)),
+                Sdf.Ellipsoid(V(0f, 0.905f, 0.005f), V(0.014f, 0.018f, 0.0045f), Quaternion.Euler(-12f, 0f, 0f)),
+                Sdf.Capsule(V(0f, 0.902f, 0.006f), V(0f, 0.872f, 0.014f), 0.0020f));
             Place("Endometrium", "SYS_REP_F_ENDOMETRIUM", Sculpt("Endometrium", cavity, 0.0005f, V(0f, 0.925f, 0f), V(0f, 0.888f, 0.010f)), lining);
 
             // Cervix: the narrow lower end of the uterus that projects into the vagina, its canal plugged with mucus except at
             // ovulation and opening about 10 cm in labour.
-            SdfFunc cervix = Sdf.Subtract(Sdf.Ellipsoid(V(0f, 0.887f, 0.010f), V(0.011f, 0.015f, 0.011f)),
-                Sdf.Capsule(V(0f, 0.900f, 0.008f), V(0f, 0.872f, 0.014f), 0.0020f));
+            SdfFunc cervix = Sdf.Subtract(Sdf.Ellipsoid(V(0f, 0.888f, 0.012f), V(0.0125f, 0.017f, 0.012f)),
+                Sdf.RoundCone(V(0f, 0.902f, 0.008f), 0.0018f, V(0f, 0.872f, 0.015f), 0.0012f));
             Place("Cervix", "SYS_REP_F_CERVIX", Sculpt("Cervix", cervix, 0.0005f, V(0f, 0.887f, 0.010f)), tissue);
 
             // Vagina: the muscular, elastic canal from the cervix to the outside, the birth canal.
-            Mesh vagina = LoftMesh("Vagina", Loft.Taper(0.0105f, 0.0090f), 14, 0.65f, null,
-                V(0f, 0.880f, 0.012f), V(0f, 0.852f, 0.010f), V(0f, 0.826f, 0.000f), V(0f, 0.806f, -0.014f), V(0f, 0.796f, -0.024f));
+            Mesh vagina = LoftMesh("Vagina", t => Mathf.Lerp(0.0108f, 0.0078f, t * t), 16, 0.70f, null,
+                V(0f, 0.882f, 0.012f), V(0f, 0.855f, 0.011f), V(0f, 0.828f, 0.002f), V(0f, 0.808f, -0.012f), V(0f, 0.795f, -0.025f));
             Place("Vagina", "SYS_REP_F_VAGINA", PartFactory.Save(vagina, "Vagina"), tissue);
 
             // Fallopian (uterine) tubes: each runs from the top corner of the uterus to an ovary, ending in fringed fimbriae that
             // sweep the released egg in; fertilisation normally happens in the widened ampulla.
             var tube = new List<Mesh>
             {
-                LoftMesh("TubeBody", t => Mathf.Lerp(0.0020f, 0.0040f, t * t), 10, 1f, null,
-                    V(0.018f, 0.938f, -0.004f), V(0.036f, 0.950f, 0.000f), V(0.054f, 0.945f, 0.010f), V(0.066f, 0.930f, 0.022f), V(0.070f, 0.918f, 0.030f)),
+                LoftMesh("TubeBody", t => Mathf.Lerp(0.0024f, 0.0035f, t * t * (2f - t)), 12, 1f, null,
+                    V(0.020f, 0.938f, 0.002f), V(0.038f, 0.952f, 0.006f), V(0.056f, 0.950f, 0.018f), V(0.065f, 0.932f, 0.028f), V(0.068f, 0.920f, 0.033f)),
             };
             for (int i = 0; i < 6; i++)
             {
@@ -135,7 +141,7 @@ namespace HumanBodyExplorer.EditorTools.Geometry
             PartFactory.AddPair(_root, "FallopianTube", "SYS_REP_F_FALLOPIAN_TUBE", Combine("FallopianTube", tube), tubeMat, _layer);
 
             // Ovaries: almond-sized glands that store the egg cells, release one about every 28 days and make oestrogen and progesterone.
-            SdfFunc ovary = Sdf.Displace(Sdf.Ellipsoid(V(0.066f, 0.904f, 0.034f), V(0.016f, 0.011f, 0.009f), Quaternion.Euler(0f, 0f, 24f)), 0.0012f, 340f, 5);
+            SdfFunc ovary = Sdf.Ellipsoid(V(0.068f, 0.906f, 0.036f), V(0.0145f, 0.0095f, 0.0080f), Quaternion.Euler(-8f, 0f, 28f));
             PartFactory.AddPair(_root, "Ovary", "SYS_REP_F_OVARY", Sculpt("Ovary", ovary, 0.0006f, V(0.066f, 0.904f, 0.034f)), ovaryMat, _layer);
         }
     }
