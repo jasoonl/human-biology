@@ -36,6 +36,7 @@ namespace HumanBodyExplorer.EditorTools
             public float Fov;          // 0 = the camera's own
             public bool Solid;         // draw the skin opaque
             public int Sex;            // reproductive layer: 0 male, 1 female
+            public string[] Only;      // when set, nerves, vessels and lymphatics not in this list are hidden
         }
 
         private static readonly View[] Views =
@@ -148,6 +149,25 @@ namespace HumanBodyExplorer.EditorTools
             new View { Name = "84_nerves_spine", Target = new Vector3(0f, 1.25f, 0.05f), Distance = 1.0f, Fov = 30f, Yaw = 180f, Visible = new[] { AnatomyLayerGroup.Nervous } },
             new View { Name = "85_lungs", Target = new Vector3(0f, 1.25f, -0.02f), Distance = 0.8f, Fov = 30f, Yaw = 40f, Visible = new[] { AnatomyLayerGroup.Organs } },
             new View { Name = "86_head_back", Target = new Vector3(0f, 1.6f, 0f), Distance = 0.6f, Fov = 30f, Yaw = 150f, Solid = true, Visible = new[] { AnatomyLayerGroup.Skin } },
+            new View { Name = "87_face_front", Target = new Vector3(0f, 1.62f, -0.05f), Distance = 0.45f, Fov = 30f, Solid = true, Visible = new[] { AnatomyLayerGroup.Skin } },
+            new View { Name = "88_eye_close", Target = new Vector3(0.03f, 1.625f, -0.08f), Distance = 0.2f, Fov = 30f, Yaw = 20f, Solid = true, Visible = new[] { AnatomyLayerGroup.Skin } },
+            new View { Name = "89_nerves_neck_chest", Target = new Vector3(0f, 1.36f, 0f), Distance = 1.0f, Fov = 30f, Visible = new[] { AnatomyLayerGroup.Nervous, AnatomyLayerGroup.Skeletal } },
+            new View { Name = "90_nerves_pelvis_back", Target = new Vector3(0f, 0.98f, 0.05f), Distance = 0.9f, Fov = 30f, Yaw = 180f, Visible = new[] { AnatomyLayerGroup.Nervous, AnatomyLayerGroup.Skeletal } },
+            new View { Name = "95_phrenic_rln", Target = new Vector3(0f, 1.36f, 0f), Distance = 0.75f, Fov = 30f, Visible = new[] { AnatomyLayerGroup.Nervous, AnatomyLayerGroup.Circulatory },
+                Only = new[] { "SYS_NERV_PHRENIC", "SYS_NERV_RECURRENT_LARYNGEAL", "SYS_NERV_VAGUS", "SYS_CV_AORTIC_ARCH", "SYS_CV_SUBCLAVIAN", "SYS_CV_CAROTID" } },
+            new View { Name = "96_sacral_plexus", Target = new Vector3(0f, 0.93f, 0.03f), Distance = 0.55f, Fov = 30f, Yaw = 150f, Visible = new[] { AnatomyLayerGroup.Nervous },
+                Only = new[] { "SYS_NERV_SACRAL_PLEXUS", "SYS_NERV_SPINAL_SACRAL", "SYS_NERV_SCIATIC", "SYS_NERV_PUDENDAL", "SYS_NERV_LUMBAR_PLEXUS", "SYS_NERV_CAUDA_EQUINA" } },
+            new View { Name = "97_lumbar_splanchnic", Target = new Vector3(0f, 1.18f, 0.03f), Distance = 0.8f, Fov = 30f, Visible = new[] { AnatomyLayerGroup.Nervous },
+                Only = new[] { "SYS_NERV_LUMBAR_PLEXUS", "SYS_NERV_SPLANCHNIC", "SYS_NERV_SYMPATHETIC_TRUNK" } },
+            new View { Name = "98_cervical_plexus", Target = new Vector3(0f, 1.5f, 0f), Distance = 0.45f, Fov = 30f, Yaw = 25f, Visible = new[] { AnatomyLayerGroup.Nervous },
+                Only = new[] { "SYS_NERV_CERVICAL_PLEXUS", "SYS_NERV_PHRENIC", "SYS_NERV_BRACHIAL_PLEXUS" } },
+            new View { Name = "99_phrenic_only", Target = new Vector3(0f, 1.33f, 0f), Distance = 0.7f, Fov = 30f, Visible = new[] { AnatomyLayerGroup.Nervous }, Only = new[] { "SYS_NERV_PHRENIC" } },
+            new View { Name = "99b_rln_only", Target = new Vector3(0f, 1.42f, 0f), Distance = 0.4f, Fov = 30f, Visible = new[] { AnatomyLayerGroup.Nervous }, Only = new[] { "SYS_NERV_RECURRENT_LARYNGEAL" } },
+            new View { Name = "99c_thoracic_duct_thyroid", Target = new Vector3(0f, 1.38f, 0f), Distance = 0.6f, Fov = 30f, Visible = new[] { AnatomyLayerGroup.Circulatory }, Only = new[] { "SYS_LYMPH_THORACIC_DUCT", "SYS_CV_THYROID_ARTERY" } },
+            new View { Name = "91_ileum", Target = new Vector3(0f, 0.93f, -0.04f), Distance = 0.6f, Fov = 30f, Visible = new[] { AnatomyLayerGroup.Organs } },
+            new View { Name = "92_nerves_chest", Target = new Vector3(0f, 1.33f, 0f), Distance = 0.9f, Fov = 30f, Visible = new[] { AnatomyLayerGroup.Nervous } },
+            new View { Name = "93_nerves_pelvis", Target = new Vector3(0f, 0.95f, 0f), Distance = 0.7f, Fov = 30f, Yaw = 25f, Visible = new[] { AnatomyLayerGroup.Nervous } },
+            new View { Name = "94_nerves_neck", Target = new Vector3(0f, 1.48f, 0f), Distance = 0.5f, Fov = 30f, Yaw = 30f, Visible = new[] { AnatomyLayerGroup.Nervous } },
             new View { Name = "63_ghost_face", Target = new Vector3(0f, 1.6f, -0.05f), Distance = 0.55f, Fov = 30f,
                 Visible = new[] { AnatomyLayerGroup.Skin, AnatomyLayerGroup.Skeletal } },
             new View { Name = "23_foot_vessels_nerves", Target = new Vector3(0.09f, 0.06f, -0.04f), Distance = 0.5f,
@@ -211,8 +231,19 @@ namespace HumanBodyExplorer.EditorTools
                 cam.transform.rotation = rotation;
                 cam.transform.position = view.Target - rotation * Vector3.forward * view.Distance;
 
+                var hidden = new List<Renderer>();
+                if (view.Only != null)
+                    foreach (var node in UnityEngine.Object.FindObjectsByType<AnatomyNodeReference>(FindObjectsInactive.Exclude, FindObjectsSortMode.None))
+                    {
+                        string id = node.EntityId ?? "";
+                        if (!(id.StartsWith("SYS_NERV_") || id.StartsWith("SYS_CV_") || id.StartsWith("SYS_LYMPH_")) || Array.IndexOf(view.Only, id) >= 0) continue;
+                        foreach (var r in node.GetComponentsInChildren<Renderer>())
+                            if (r.enabled) { r.enabled = false; hidden.Add(r); }
+                    }
+
                 string path = Path.Combine(outDir, view.Name + ".png");
                 Render(cam, path);
+                foreach (var r in hidden) r.enabled = true;
                 Debug.Log($"[ScreenshotTool] wrote {path}");
             }
 

@@ -151,17 +151,131 @@ if not any(o['name'] == 'Rectum' for o in lines_all):
     cae = [(-0.092, 0.936, -0.018), (-0.092, 0.914, -0.016), (-0.090, 0.895, -0.014)]
     lines_all.append({'name': 'Caecum', 'coll': '8: Visceral systems', 'bevel': 0.001,
                       'lines': [{'p': [c for q in cae for c in q], 'r': [27.0, 30.0, 22.0]}]})
-    ile = []
-    for i in range(0, 61):
-        t = i / 60.0
-        row = int(t * 4.999)
-        u = (t * 5.0) % 1.0
-        x = (-0.075 + 0.15 * u) if row % 2 == 0 else (0.075 - 0.15 * u)
-        y = 0.872 + 0.012 * row + 0.008 * math.sin(u * math.pi * 3)
-        z = -0.050 - 0.020 * math.sin(u * math.pi) + 0.006 * row
-        ile.append((x, y, z))
-    lines_all.append({'name': 'Ileum', 'coll': '8: Visceral systems', 'bevel': 0.001,
-                      'lines': [{'p': [c for q in ile for c in q], 'r': [10.5] * len(ile)}]})
+    json.dump(lines_all, open(os.path.join(root, 'ZAnatomyData', 'zana_lines.json'), 'w'))
+
+# The ileum: nine loops of small bowel packed in front of the bladder and sigmoid, each turning back on the next
+# through a hairpin that bulges out to the side, with the wall pinching and swelling as a peristaltic wave passes.
+# Adjacent loops sit at alternating depths so the tubes interlock without crossing.
+lines_all[:] = [o for o in lines_all if o['name'] != 'Ileum']
+def belly_front(x, y):
+    # z of the skin over the lower abdomen (measured from the fitted skin field), at the midline and at |x| = 0.07
+    mid = [(0.86, -0.070), (0.89, -0.080), (0.92, -0.093), (0.95, -0.103)]
+    edge = [(0.86, -0.057), (0.89, -0.067), (0.92, -0.077), (0.95, -0.093)]
+    def at(tab, yy):
+        yy = min(max(yy, tab[0][0]), tab[-1][0])
+        for (y0, z0), (y1, z1) in zip(tab, tab[1:]):
+            if yy <= y1:
+                return z0 + (z1 - z0) * (yy - y0) / (y1 - y0)
+        return tab[-1][1]
+    w = min(1.0, abs(x) / 0.07)
+    return at(mid, y) * (1 - w) + at(edge, y) * w
+def ileum_path():
+    pts, rad = [], []
+    def add(x, y, z, r):
+        z = max(z, belly_front(x, y) + 0.0145)     # keep the tube under the abdominal wall
+        if pts and (x - pts[-1][0]) ** 2 + (y - pts[-1][1]) ** 2 + (z - pts[-1][2]) ** 2 < 0.0045 ** 2:
+            return
+        pts.append((x, y, z)); rad.append(r)
+    passes = 8
+    zs = [-0.068, -0.048, -0.062, -0.044, -0.066, -0.050, -0.060, -0.046]
+    span = [0.064, 0.058, 0.066, 0.056, 0.066, 0.058, 0.062, 0.058]
+    def rnd(i, j):
+        v = math.sin(i * 127.1 + j * 311.7) * 43758.5453
+        return v - math.floor(v)
+    wave = 0
+    for i in range(passes):
+        y0 = 0.946 - 0.0078 * i
+        direction = -1 if i % 2 == 0 else 1
+        x_from, x_to = -direction * span[i], direction * span[i]
+        # each pass weaves up and down, and in and out of the plane, at its own wavelength, so neighbouring
+        # passes cross over and under one another the way real bowel loops do
+        ay, az = 0.007 + 0.006 * rnd(i, 1), 0.010 + 0.006 * rnd(i, 2)
+        fy, fz = 2.2 + 1.6 * rnd(i, 3), 1.4 + 1.2 * rnd(i, 4)
+        py, pz = rnd(i, 5) * 6.28, rnd(i, 6) * 6.28
+        n = 34
+        for k in range(n + 1):
+            t = k / n
+            x = x_from + (x_to - x_from) * t + 0.006 * math.sin(t * 9.0 + i)
+            y = y0 + ay * math.sin(t * math.pi * 2 * fy + py)
+            z = zs[i] + az * math.sin(t * math.pi * 2 * fz + pz)
+            wave += 1
+            add(x, y, z, 10.5 + 0.9 * math.sin(wave * 0.7))
+        if i < passes - 1:
+            ny, nz = 0.946 - 0.0078 * (i + 1), zs[i + 1]
+            m = 6
+            for k in range(1, m):
+                t = k / m
+                bx = direction * 0.012 * math.sin(t * math.pi)
+                add(x_to + bx, y0 + (ny - y0) * t, zs[i] + (nz - zs[i]) * t, 10.5)
+    # the terminal ileum rises to the ileocaecal junction on the medial wall of the caecum
+    x, y, z = pts[-1]
+    for k in range(1, 6):
+        t = k / 6
+        add(x + (-0.079 - x) * t, y + (0.916 - y) * t, z + (-0.026 - z) * t - 0.014 * math.sin(t * math.pi), 10.0)
+    return pts, rad
+_ip, _ir = ileum_path()
+lines_all.append({'name': 'Ileum', 'coll': '8: Visceral systems', 'bevel': 0.001,
+                  'lines': [{'p': [c for q in _ip for c in q], 'r': _ir}]})
+json.dump(lines_all, open(os.path.join(root, 'ZAnatomyData', 'zana_lines.json'), 'w'))
+
+# Nerves and vessels the atlas has no centre lines for, laid along the structures they really follow.
+# Atlas axes (x left, y up, z back); paths are given for the left side and mirrored for the right unless marked.
+def side_lines(name, coll, left, r, right=None):
+    for sx, sfx in ((1, '.l'), (-1, '.r')):
+        if sx < 0 and right is not None:
+            paths = right
+        else:
+            paths = [[(sx * q[0], q[1], q[2]) for q in path] for path in left]
+        lines_all.append({'name': name + sfx, 'coll': coll, 'bevel': 0.001,
+                          'lines': [{'p': [c for q in path for c in q], 'r': [r] * len(path)} for path in paths]})
+NERV, ART, LYMPH = '7: Nervous system & Sense organs', '5: Cardiovascular system', '6: Lymphoid organs'
+SYNTHETIC = ('Phrenic nerve', 'Recurrent laryngeal nerve', 'Sacral roots', 'Sacral plexus', 'Cervical plexus', 'Lumbar plexus',
+             'Splanchnic nerves', 'Thyroid arteries', 'Thoracic duct')
+lines_all[:] = [o for o in lines_all if not o['name'].startswith(SYNTHETIC)]   # regenerate, so edits here take effect
+if True:
+    # from C3-C5, down the front of the scalenus anterior between subclavian artery and vein, over the pericardium to the diaphragm
+    side_lines('Phrenic nerve', NERV, [[(0.038, 1.505, 0.019), (0.034, 1.488, 0.012), (0.031, 1.466, 0.005), (0.031, 1.440, 0.000),
+        (0.036, 1.418, -0.012), (0.044, 1.395, -0.020), (0.055, 1.365, -0.030), (0.075, 1.335, -0.040), (0.088, 1.305, -0.044),
+        (0.092, 1.275, -0.044), (0.094, 1.244, -0.042)]], 1.1,
+        right=[[(-0.038, 1.505, 0.019), (-0.034, 1.488, 0.012), (-0.031, 1.466, 0.005), (-0.031, 1.440, 0.000), (-0.033, 1.416, -0.012),
+        (-0.037, 1.395, -0.016), (-0.045, 1.360, -0.022), (-0.048, 1.320, -0.022), (-0.050, 1.285, -0.024), (-0.053, 1.258, -0.026)]])
+    # right: hooks under the subclavian artery; left: under the aortic arch; both climb the groove beside the trachea to the larynx
+    side_lines('Recurrent laryngeal nerve', NERV, [[(0.030, 1.372, 0.006), (0.022, 1.352, 0.006), (0.017, 1.362, 0.010), (0.017, 1.385, 0.012),
+        (0.016, 1.410, 0.012), (0.016, 1.440, 0.010), (0.014, 1.462, 0.005), (0.013, 1.472, 0.001)]], 1.0,
+        right=[[(-0.020, 1.425, 0.001), (-0.032, 1.413, 0.003), (-0.046, 1.407, 0.006), (-0.030, 1.414, 0.010), (-0.024, 1.425, 0.010),
+        (-0.018, 1.440, 0.010), (-0.016, 1.455, 0.008), (-0.014, 1.466, 0.004), (-0.013, 1.472, 0.000)]])
+    # S1-S4: from the sacral canal out through the anterior sacral foramina, then the ventral rami that join the sciatic nerve
+    roots = [[(0.004, 0.956, 0.050), (0.014, 0.953, 0.040), (0.024, 0.950, 0.032)], [(0.004, 0.931, 0.068), (0.013, 0.929, 0.058), (0.022, 0.926, 0.048)],
+             [(0.004, 0.906, 0.081), (0.012, 0.904, 0.071), (0.020, 0.902, 0.061)], [(0.004, 0.882, 0.086), (0.011, 0.880, 0.077), (0.018, 0.878, 0.067)]]
+    side_lines('Sacral roots', NERV, roots, 1.0)
+    rami = [[(0.024, 0.950, 0.032), (0.030, 0.946, 0.026), (0.037, 0.941, 0.020)], [(0.022, 0.926, 0.048), (0.030, 0.924, 0.034), (0.040, 0.921, 0.021)],
+            [(0.020, 0.902, 0.061), (0.030, 0.903, 0.048), (0.043, 0.904, 0.033), (0.046, 0.905, 0.027)], [(0.018, 0.878, 0.067), (0.028, 0.876, 0.062), (0.045, 0.879, 0.055)],
+            [(0.038, 1.028, 0.028), (0.034, 1.005, 0.030), (0.032, 0.990, 0.032), (0.030, 0.978, 0.033)]]   # the last is the lumbosacral trunk
+    side_lines('Sacral plexus', NERV, rami, 1.3)
+    lumbar = [[(0.020, y, 0.040), (0.030, y - 0.010, 0.036), (0.038, y - 0.020, 0.034)] for y in (1.118, 1.090, 1.060, 1.030)]
+    lumbar.append([(0.038, 1.098, 0.034), (0.038, 1.070, 0.032), (0.038, 1.040, 0.030), (0.036, 1.010, 0.028)])
+    side_lines('Lumbar plexus', NERV, lumbar, 1.1)
+    cervical = [[(0.018, y, 0.030), (0.030, y - 0.006, 0.026), (0.038, y - 0.012, 0.020)] for y in (1.565, 1.540, 1.515, 1.500)]
+    cervical.append([(0.040, 1.553, 0.022), (0.041, 1.528, 0.021), (0.040, 1.503, 0.019), (0.038, 1.488, 0.017), (0.036, 1.475, 0.014)])
+    cervical += [[(0.040, 1.553, 0.022), (0.046, 1.585, 0.030), (0.052, 1.615, 0.040)],                        # lesser occipital
+                 [(0.041, 1.528, 0.021), (0.048, 1.560, 0.012), (0.060, 1.592, 0.010)],                       # great auricular
+                 [(0.040, 1.503, 0.019), (0.052, 1.478, 0.012), (0.066, 1.456, 0.008), (0.080, 1.436, 0.006)]]  # supraclavicular
+    side_lines('Cervical plexus', NERV, cervical, 1.0)
+    # greater and lesser splanchnic nerves: off the sympathetic trunk, down the vertebral bodies, through the crus to the coeliac plexus
+    side_lines('Splanchnic nerves', NERV, [[(0.017, 1.330, 0.058), (0.017, 1.300, 0.055), (0.017, 1.265, 0.050), (0.017, 1.235, 0.043), (0.016, 1.205, 0.034),
+        (0.016, 1.180, 0.022), (0.016, 1.160, 0.008), (0.020, 1.150, -0.004)],
+        [(0.018, 1.262, 0.058), (0.020, 1.235, 0.050), (0.021, 1.205, 0.040), (0.021, 1.180, 0.028), (0.022, 1.155, 0.014), (0.024, 1.135, 0.004)]], 0.9,
+        right=[[(-0.017, 1.330, 0.058), (-0.017, 1.300, 0.055), (-0.017, 1.265, 0.050), (-0.017, 1.235, 0.043), (-0.016, 1.205, 0.034),
+        (-0.015, 1.180, 0.022), (-0.014, 1.160, 0.008), (-0.016, 1.150, -0.004)],
+        [(-0.018, 1.262, 0.058), (-0.020, 1.235, 0.050), (-0.021, 1.205, 0.040), (-0.021, 1.180, 0.028), (-0.022, 1.155, 0.014), (-0.024, 1.135, 0.004)]])
+    # superior thyroid artery (from the external carotid) and inferior thyroid artery (from the subclavian's thyrocervical trunk)
+    side_lines('Thyroid arteries', ART, [[(0.031, 1.492, 0.000), (0.028, 1.490, -0.010), (0.023, 1.486, -0.020), (0.018, 1.478, -0.027)],
+        [(0.030, 1.419, 0.000), (0.032, 1.432, 0.002), (0.030, 1.445, 0.004), (0.024, 1.458, 0.002), (0.018, 1.462, -0.006)]], 1.3)
+    # thoracic duct: cisterna chyli beside the aorta, up the vertebral column, behind the oesophagus, arching to the left venous angle
+    lines_all.append({'name': 'Thoracic duct', 'coll': LYMPH, 'bevel': 0.001,
+                      'lines': [{'p': [c for q in [(-0.004, 1.150, 0.034), (-0.004, 1.200, 0.043), (-0.004, 1.260, 0.054), (-0.003, 1.320, 0.058), (0.004, 1.355, 0.050),
+                                                   (0.012, 1.385, 0.036), (0.020, 1.408, 0.022), (0.030, 1.424, 0.008), (0.035, 1.420, -0.006), (0.035, 1.412, -0.013)] for c in q],
+                                 'r': [1.8] * 10}]})
     json.dump(lines_all, open(os.path.join(root, 'ZAnatomyData', 'zana_lines.json'), 'w'))
 # Structures the atlas lacks: maxillary sinuses, renal pyramids, bulbourethral glands (atlas axes: x left, y up, z back).
 if not any(o['name'].startswith('Maxillary sinus') for o in lines_all):
@@ -178,7 +292,7 @@ if not any(o['name'].startswith('Maxillary sinus') for o in lines_all):
                               kx + sx * 0.019 * math.cos(a), ky + 0.040 * math.sin(a), kz], 'r': [3.4, 3.4]})
         lines_all.append({'name': 'Renal pyramids' + sfx, 'coll': '8: Visceral systems', 'bevel': 0.001, 'lines': pyr})
     json.dump(lines_all, open(os.path.join(root, 'ZAnatomyData', 'zana_lines.json'), 'w'))
-line_names = [o['name'] for o in lines_all if o['coll'][:2] in ('5:', '7:') or o['name'].startswith('Patellar ligament') or o['name'] in ('Rectum', 'Caecum', 'Ileum') or o['name'].startswith(('Maxillary sinus', 'Bulbourethral gland', 'Renal pyramids'))]
+line_names = [o['name'] for o in lines_all if o['coll'][:2] in ('5:', '7:') or o['name'].startswith('Patellar ligament') or o['name'] in ('Rectum', 'Caecum', 'Ileum') or o['name'].startswith(('Maxillary sinus', 'Bulbourethral gland', 'Renal pyramids') + SYNTHETIC)]
 L = []
 def line(i, pat, ex=None, ymin=None, ymax=None): L.append((i, pat, ex, ymin, ymax))
 for i, p in [
@@ -223,6 +337,9 @@ for i, p in [
 ]: line('SYS_NERV_' + i, p)
 line('SYS_MUSC_PATELLAR_TENDON', r'^Patellar ligament')
 line('SYS_RESP_SINUS_MAXILLARY', r'^Maxillary sinus'); line('SYS_REP_M_BULBOURETHRAL_GLAND', r'^Bulbourethral gland'); line('SYS_REN_MEDULLA', r'^Renal pyramids')
+line('SYS_NERV_PHRENIC', r'^Phrenic nerve'); line('SYS_NERV_RECURRENT_LARYNGEAL', r'^Recurrent laryngeal'); line('SYS_NERV_SPINAL_SACRAL', r'^Sacral roots')
+line('SYS_NERV_SACRAL_PLEXUS', r'^Sacral plexus'); line('SYS_NERV_CERVICAL_PLEXUS', r'^Cervical plexus'); line('SYS_NERV_LUMBAR_PLEXUS', r'^Lumbar plexus')
+line('SYS_NERV_SPLANCHNIC', r'^Splanchnic nerves'); line('SYS_CV_THYROID_ARTERY', r'^Thyroid arteries'); line('SYS_LYMPH_THORACIC_DUCT', r'^Thoracic duct')
 line('SYS_DIG_RECTUM', r'^Rectum$'); line('SYS_DIG_CECUM', r'^Caecum$'); line('SYS_DIG_ILEUM', r'^Ileum$')
 line('SYS_NERV_SPINAL_CERVICAL', r'root of spinal nerve', None, 1.43, 9); line('SYS_NERV_SPINAL_THORACIC', r'root of spinal nerve', None, 1.19, 1.43)
 line('SYS_NERV_SPINAL_LUMBAR', r'root of spinal nerve', None, -9, 1.19)

@@ -138,5 +138,12 @@ cleared; clicking the solid skin peels it to Ghost. Logic is in `AnatomyLayerVis
 Bones, muscles, organs, brain, vessels, nerves and the skin now come from the Z-Anatomy atlas (CC BY-SA 4.0, see
 `NOTICE.md` and `Tools/ZAnatomy/README.md`). `Geometry/ZAnatomy.cs` swaps each mapped entity's sculpt for the atlas mesh
 after the builders run (ids, layers and materials are kept; `zanatomy_map.json` is the id mapping). The skin is a shell
-fitted around the atlas structures (`SkinField`), with eyes, lips and ears added and a female variant. Anything the atlas
-lacks (female organs, some heart internals) keeps its own sculpt. Source data lives in the git-ignored `ZAnatomyData/`.
+fitted around the atlas structures (`SkinField`), with hair, brows, lips, ears and painted eyeballs (the shell's vertex colour
+alpha 0 marks eyes and lashes, which `SkinShell.shader` leaves untinted) and a female variant. Anything the atlas lacks
+(female organs, some heart internals) keeps its own sculpt. Source data lives in the git-ignored `ZAnatomyData/`.
+
+Structures the atlas has no centre line or mesh for are laid out in `Tools/ZAnatomy/build_map.py` from landmarks in atlas
+space (x left, y up, z back): ileum, phrenic and recurrent laryngeal nerves, cervical/lumbar/sacral plexuses, sacral roots,
+splanchnic nerves, thyroid arteries, thoracic duct, and so on. Re-run the script after editing them (it regenerates them
+into `ZAnatomyData/zana_lines.json` and rewrites `zanatomy_map.json`). `MeshAssets` records each saved mesh's path itself,
+because a mesh created while asset editing is batched has an empty `GetAssetPath` and would otherwise be deleted as stale.

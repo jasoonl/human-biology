@@ -3214,6 +3214,77 @@
 ]
 },
 {
+"id": "SYS_NERV_PHRENIC",
+"names": [],
+"lines": [
+"Phrenic nerve.l",
+"Phrenic nerve.r"
+]
+},
+{
+"id": "SYS_NERV_RECURRENT_LARYNGEAL",
+"names": [],
+"lines": [
+"Recurrent laryngeal nerve.l",
+"Recurrent laryngeal nerve.r"
+]
+},
+{
+"id": "SYS_NERV_SPINAL_SACRAL",
+"names": [],
+"lines": [
+"Sacral roots.l",
+"Sacral roots.r"
+]
+},
+{
+"id": "SYS_NERV_SACRAL_PLEXUS",
+"names": [],
+"lines": [
+"Sacral plexus.l",
+"Sacral plexus.r"
+]
+},
+{
+"id": "SYS_NERV_CERVICAL_PLEXUS",
+"names": [],
+"lines": [
+"Cervical plexus.l",
+"Cervical plexus.r"
+]
+},
+{
+"id": "SYS_NERV_LUMBAR_PLEXUS",
+"names": [],
+"lines": [
+"Lumbar plexus.l",
+"Lumbar plexus.r"
+]
+},
+{
+"id": "SYS_NERV_SPLANCHNIC",
+"names": [],
+"lines": [
+"Splanchnic nerves.l",
+"Splanchnic nerves.r"
+]
+},
+{
+"id": "SYS_CV_THYROID_ARTERY",
+"names": [],
+"lines": [
+"Thyroid arteries.l",
+"Thyroid arteries.r"
+]
+},
+{
+"id": "SYS_LYMPH_THORACIC_DUCT",
+"names": [],
+"lines": [
+"Thoracic duct"
+]
+},
+{
 "id": "SYS_DIG_RECTUM",
 "names": [],
 "lines": [
@@ -3233,8 +3304,6 @@
 "id": "SYS_DIG_ILEUM",
 "names": [],
 "lines": [
-"Ileum",
-"Ileum",
 "Ileum"
 ]
 },

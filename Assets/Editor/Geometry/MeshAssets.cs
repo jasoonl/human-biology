@@ -20,11 +20,15 @@ namespace HumanBodyExplorer.EditorTools.Geometry
         public const string Folder = "Assets/Generated/Meshes";
 
         private static readonly HashSet<string> Produced = new HashSet<string>();
+        // Where each mesh saved this build lives. A mesh created while asset editing is batched has no asset path
+        // yet (GetAssetPath is empty until the batch ends), so its path is remembered here instead.
+        private static readonly Dictionary<Mesh, string> PathOf = new Dictionary<Mesh, string>();
         private static bool _editing;
 
         public static void BeginBuild()
         {
             Produced.Clear();
+            PathOf.Clear();
             EnsureFolder();
             AssetDatabase.StartAssetEditing();
             _editing = true;
@@ -59,7 +63,7 @@ namespace HumanBodyExplorer.EditorTools.Geometry
             var used = new HashSet<string>();
             foreach (var filter in root.GetComponentsInChildren<MeshFilter>(true))
             {
-                string path = filter.sharedMesh != null ? AssetDatabase.GetAssetPath(filter.sharedMesh) : null;
+                string path = PathFor(filter.sharedMesh);
                 if (!string.IsNullOrEmpty(path)) used.Add(path);
             }
             Produced.IntersectWith(used);
@@ -69,9 +73,15 @@ namespace HumanBodyExplorer.EditorTools.Geometry
         /// replaces it after it was saved.</summary>
         public static void Forget(Mesh mesh)
         {
-            if (mesh == null) return;
-            string path = AssetDatabase.GetAssetPath(mesh);
+            string path = PathFor(mesh);
             if (!string.IsNullOrEmpty(path)) Produced.Remove(path);
+        }
+
+        private static string PathFor(Mesh mesh)
+        {
+            if (mesh == null) return null;
+            if (PathOf.TryGetValue(mesh, out string path)) return path;
+            return AssetDatabase.GetAssetPath(mesh);
         }
 
         /// <summary>Save (or overwrite) the mesh and return the persistent asset.</summary>
@@ -88,11 +98,13 @@ namespace HumanBodyExplorer.EditorTools.Geometry
                 EditorUtility.CopySerialized(mesh, existing);
                 Object.DestroyImmediate(mesh);
                 EditorUtility.SetDirty(existing);
+                PathOf[existing] = path;
                 return existing;
             }
 
             mesh.name = Sanitize(assetName);
             AssetDatabase.CreateAsset(mesh, path);
+            PathOf[mesh] = path;
             return mesh;
         }
 

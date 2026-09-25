@@ -62,7 +62,7 @@ Shader "HumanBodyExplorer/SkinShell"
                 float4 positionCS : SV_POSITION;
                 float3 normalWS : TEXCOORD0;
                 float3 viewDirWS : TEXCOORD1;
-                float3 tint : TEXCOORD2;
+                float4 tint : TEXCOORD2;
             };
 
             Varyings vert(Attributes IN)
@@ -72,7 +72,7 @@ Shader "HumanBodyExplorer/SkinShell"
                 OUT.positionCS = positions.positionCS;
                 OUT.normalWS = TransformObjectToWorldNormal(IN.normalOS);
                 OUT.viewDirWS = GetWorldSpaceViewDir(positions.positionWS);
-                OUT.tint = IN.color.rgb;   // hair, brows and lips are painted onto the skin mesh as vertex colour
+                OUT.tint = IN.color;   // hair, brows and lips are painted onto the skin mesh as vertex colour; alpha 0 marks the eyes and lashes, which ignore the skin tone
                 return OUT;
             }
 
@@ -88,9 +88,11 @@ Shader "HumanBodyExplorer/SkinShell"
                     float wrap = saturate((ndl + 0.45) / 1.45);          // soft terminator, like skin scatters light
                     float rim = pow(1.0 - saturate(dot(n, v)), 3.0);
                     float3 h = normalize(sun.direction + v);
-                    float spec = pow(saturate(dot(n, h)), 40.0) * 0.07;
-                    float3 lit = _BaseColor.rgb * IN.tint * (0.30 + 0.80 * wrap) * (0.6 + 0.4 * sun.color);
-                    lit += float3(0.16, 0.05, 0.03) * rim * wrap;         // warm blood-colour glow at grazing angles
+                    float eye = 1.0 - IN.tint.a;                          // eyes are wet and glossy, and are not tinted by the skin tone
+                    float spec = pow(saturate(dot(n, h)), lerp(40.0, 260.0, eye)) * lerp(0.07, 0.85, eye);
+                    float3 albedo = lerp(_BaseColor.rgb * IN.tint.rgb, IN.tint.rgb, eye);
+                    float3 lit = albedo * (0.30 + 0.80 * wrap) * (0.6 + 0.4 * sun.color);
+                    lit += float3(0.16, 0.05, 0.03) * rim * wrap * (1.0 - eye);   // warm blood-colour glow at grazing angles
                     lit += spec;
                     return half4(lit, 1.0);
                 }
@@ -101,7 +103,7 @@ Shader "HumanBodyExplorer/SkinShell"
 
                 Light light = GetMainLight();
                 float diffuse = saturate(dot(n, light.direction)) * 0.5 + 0.5;
-                float3 colour = _BaseColor.rgb * IN.tint * (_Ambient + (1.0 - _Ambient) * diffuse);
+                float3 colour = lerp(_BaseColor.rgb * IN.tint.rgb, IN.tint.rgb, 1.0 - IN.tint.a) * (_Ambient + (1.0 - _Ambient) * diffuse);
 
                 return half4(colour, alpha);
             }

@@ -131,13 +131,13 @@ namespace HumanBodyExplorer.EditorTools.Geometry
         private static SdfFunc WithFace(SdfFunc body)
         {
             // Eyeball centres, from the atlas, in figure space.
-            var eye = Sdf.MirrorX(Sdf.Ellipsoid(new Vector3(0.0314f, 1.627f, -0.071f), new Vector3(0.0158f, 0.0138f, 0.0150f)));
-            var lidCrease = Sdf.MirrorX(Sdf.Ellipsoid(new Vector3(0.0314f, 1.6395f, -0.0715f), new Vector3(0.0170f, 0.0060f, 0.0140f)));
+            var eye = Sdf.MirrorX(Sdf.Ellipsoid(new Vector3(EyeX, EyeY, EyeZ), new Vector3(0.0158f, 0.0138f, 0.0140f)));
+            var lidCrease = Sdf.MirrorX(Sdf.Ellipsoid(new Vector3(EyeX, EyeY + 0.0125f, EyeZ - 0.0005f), new Vector3(0.0170f, 0.0060f, 0.0140f)));
 
             // Brow ridges, sitting on the bone just above each eye.
             float bz = Surface(body, new Vector3(0.034f, 1.647f, -0.30f), Vector3.forward, 0.4f);
             if (bz > 0f)
-                eye = Sdf.SmoothUnion(0.004f, eye, Sdf.MirrorX(Sdf.Ellipsoid(new Vector3(0.034f, 1.647f, -0.30f + bz + 0.003f), new Vector3(0.019f, 0.0042f, 0.0065f), Quaternion.Euler(0f, 0f, -5f))));
+                eye = Sdf.SmoothUnion(0.006f, eye, Sdf.MirrorX(Sdf.Ellipsoid(new Vector3(0.033f, 1.647f, -0.30f + bz - 0.002f), new Vector3(0.017f, 0.0065f, 0.0085f), Quaternion.Euler(0f, -22f, -5f))));
 
             float z = Surface(body, new Vector3(0f, 1.560f, -0.30f), Vector3.forward, 0.4f);
             if (z < 0f) return Sdf.SmoothUnion(0.004f, body, eye, lidCrease);
@@ -149,6 +149,154 @@ namespace HumanBodyExplorer.EditorTools.Geometry
             // The line where the lips meet: a shallow crease, not a slot.
             var seam = Sdf.Ellipsoid(new Vector3(0f, 1.5603f, lipZ - 0.0035f), new Vector3(0.0205f, 0.0011f, 0.0045f));
             return Sdf.Subtract(faced, seam);
+        }
+
+
+        // ---------------------------------------------------------------- eyes
+
+        // The eyeball centre (the atlas' sclera, in figure space) and radius.
+        private const float EyeX = 0.0319f, EyeY = 1.627f, EyeZ = -0.0690f, EyeR = 0.0135f;
+
+        /// <summary>The opening between the lids: an almond-shaped prism cut through the eye bulge, its outer corner a
+        /// little higher, down to the surface of the globe, so the eyeball fills it without a pit or a gap.</summary>
+        private static SdfFunc WithFissures(SdfFunc body)
+        {
+            var almond = Sdf.Ellipsoid(new Vector3(EyeX, EyeY + 0.0005f, EyeZ), new Vector3(0.0130f, 0.0056f, 0.060f), Quaternion.Euler(0f, 0f, 4f));
+            SdfFunc inFront = p => p.z - EyeZ;                                      // negative in front of the globe's centre plane
+            var globe = Sdf.Sphere(new Vector3(EyeX, EyeY, EyeZ), EyeR - 0.0006f);
+            var fissure = Sdf.MirrorX(Sdf.Subtract(Sdf.Intersect(almond, inFront), globe));
+            return Sdf.Subtract(body, fissure);
+        }
+
+        /// <summary>Eyeballs (sclera, iris, pupil, painted as vertex colour with alpha 0 so the shader leaves the skin
+        /// tone off them) and eyelashes, to be merged into the skin mesh.</summary>
+        private static Mesh EyeParts(SdfFunc skin)
+        {
+            var verts = new List<Vector3>();
+            var normals = new List<Vector3>();
+            var colours = new List<Color>();
+            var tris = new List<int>();
+
+            for (int side = -1; side <= 1; side += 2)
+            {
+                var centre = new Vector3(side * EyeX, EyeY, EyeZ);
+                // Gaze straight ahead, a hair outward.
+                Vector3 front = Quaternion.Euler(0f, side * 2f, 0f) * Vector3.back;
+                Vector3 up = Vector3.up;
+                Vector3 right = Vector3.Cross(up, front).normalized;
+                up = Vector3.Cross(front, right).normalized;
+                Vector3 inner = new Vector3(-side, 0f, 0f);
+
+                const int rings = 90, segs = 96;
+                int baseIndex = verts.Count;
+                for (int r = 0; r <= rings; r++)
+                {
+                    float polar = Mathf.PI * r / rings;
+                    float deg = polar * Mathf.Rad2Deg;
+                    for (int k = 0; k <= segs; k++)
+                    {
+                        float phi = 2f * Mathf.PI * k / segs;
+                        Vector3 d = front * Mathf.Cos(polar) + (right * Mathf.Cos(phi) + up * Mathf.Sin(phi)) * Mathf.Sin(polar);
+                        // The cornea bulges a millimetre in front of the sclera.
+                        float bulge = 1f + 0.085f * (1f - Mathf.SmoothStep(0f, 1f, Mathf.InverseLerp(0f, 34f, deg)));
+                        verts.Add(centre + d * (EyeR * bulge));
+                        normals.Add(d);
+                        colours.Add(EyeColour(d, deg, phi, inner));
+                    }
+                }
+                for (int r = 0; r < rings; r++)
+                    for (int k = 0; k < segs; k++)
+                    {
+                        int a = baseIndex + r * (segs + 1) + k, b = a + segs + 1;
+                        tris.Add(a); tris.Add(b); tris.Add(a + 1);
+                        tris.Add(a + 1); tris.Add(b); tris.Add(b + 1);
+                    }
+
+                // Eyelashes along the lid margins: thin curved blades, upper ones long and curling up.
+                var lash = new Color(0.07f, 0.05f, 0.04f, 0f);
+                for (int pass = 0; pass < 2; pass++)
+                {
+                    int count = pass == 0 ? 13 : 7;
+                    for (int i = 0; i < count; i++)
+                    {
+                        float u = (i + 0.5f) / count;
+                        float xr = Mathf.Lerp(-0.0118f, 0.0125f, u);                       // inner to outer corner
+                        float shape = Mathf.Sqrt(Mathf.Max(0f, 1f - (xr / 0.0132f) * (xr / 0.0132f)));
+                        float yr = (pass == 0 ? 1f : -0.9f) * 0.0054f * shape + xr * 0.07f;
+                        // Root each lash on the lid's actual surface, just beyond the edge of the opening.
+                        float rx = side * EyeX + side * xr, ry = EyeY + 0.0005f + yr + (pass == 0 ? 0.0007f : -0.0007f);
+                        float sz = Surface(skin, new Vector3(rx, ry, -0.30f), Vector3.forward, 0.4f);
+                        var root = new Vector3(rx, ry - (pass == 0 ? 0.0007f : -0.0007f), sz > 0f ? -0.30f + sz - 0.0004f : EyeZ - 0.0132f);
+                        float len = (pass == 0 ? 0.0088f : 0.0042f) * Mathf.Lerp(0.62f, 1f, Mathf.SmoothStep(0f, 1f, u * 1.4f)) * (0.75f + 0.5f * Mathf.Abs(Mathf.Sin(i * 12.9898f)));
+                        Vector3 dir = new Vector3(side * 0.18f * (u - 0.35f), pass == 0 ? 0.55f : -0.55f, -0.82f).normalized;
+                        Vector3 curl = new Vector3(0f, pass == 0 ? 1f : -1f, 0.15f);   // the tip turns up (or down)
+                        int b0 = verts.Count;
+                        const int segsL = 4;
+                        Vector3 prev = root;
+                        for (int s = 0; s <= segsL; s++)
+                        {
+                            float t = (float)s / segsL;
+                            Vector3 pos = root + dir * (len * t) + curl * (len * 0.55f * t * t);
+                            float w = 0.00026f * (1f - t * 0.8f);
+                            Vector3 side3 = new Vector3(1f, 0f, 0f) * w;
+                            verts.Add(pos - side3); verts.Add(pos + side3);
+                            Vector3 nrm = new Vector3(0f, 0.25f * (pass == 0 ? 1f : -1f), -0.97f).normalized;
+                            normals.Add(nrm); normals.Add(nrm);
+                            colours.Add(lash); colours.Add(lash);
+                        }
+                        for (int s = 0; s < segsL; s++)
+                        {
+                            int a = b0 + s * 2;
+                            tris.Add(a); tris.Add(a + 2); tris.Add(a + 1);
+                            tris.Add(a + 1); tris.Add(a + 2); tris.Add(a + 3);
+                            tris.Add(a); tris.Add(a + 1); tris.Add(a + 2);      // second winding: visible from both sides
+                            tris.Add(a + 1); tris.Add(a + 3); tris.Add(a + 2);
+                        }
+                    }
+                }
+            }
+
+            var mesh = new Mesh { name = "EyeParts", indexFormat = UnityEngine.Rendering.IndexFormat.UInt32 };
+            mesh.SetVertices(verts);
+            mesh.SetNormals(normals);
+            mesh.SetColors(colours);
+            mesh.SetTriangles(tris, 0);
+            mesh.RecalculateBounds();
+            return mesh;
+        }
+
+        /// <summary>Colour of the eyeball at angle <paramref name="deg"/> from the gaze axis: pupil, amber-brown iris
+        /// with a dark limbal ring, then white sclera going faintly pink toward the corners.</summary>
+        private static Color EyeColour(Vector3 d, float deg, float phi, Vector3 inner)
+        {
+            float ring = 0.9f + 0.1f * Mathf.Sin(phi * 23f) * Mathf.Sin(phi * 7f + 1f);          // radial streaks in the iris
+            Color iris = Color.Lerp(new Color(0.55f, 0.36f, 0.18f), new Color(0.30f, 0.19f, 0.10f), Mathf.InverseLerp(11f, 27f, deg)) * ring;
+            iris = Color.Lerp(iris, new Color(0.13f, 0.09f, 0.07f), Mathf.SmoothStep(0f, 1f, Mathf.InverseLerp(26f, 31.5f, deg)));
+            Color c = iris;
+            c.a = 0f;
+            float pupil = 1f - Mathf.SmoothStep(0f, 1f, Mathf.InverseLerp(10f, 12f, deg));
+            c = Color.Lerp(c, new Color(0.02f, 0.02f, 0.02f, 0f), pupil);
+            float sclera = Mathf.SmoothStep(0f, 1f, Mathf.InverseLerp(31f, 34f, deg));
+            var white = Color.Lerp(new Color(0.94f, 0.92f, 0.89f, 0f), new Color(0.86f, 0.70f, 0.68f, 0f), Mathf.InverseLerp(55f, 100f, deg));
+            // the caruncle, the pink fleshy corner beside the nose
+            float caruncle = Mathf.SmoothStep(0f, 1f, Mathf.InverseLerp(0.86f, 0.95f, Vector3.Dot(d, inner))) * Mathf.SmoothStep(0f, 1f, Mathf.InverseLerp(45f, 60f, deg));
+            white = Color.Lerp(white, new Color(0.80f, 0.46f, 0.42f, 0f), caruncle);
+            c = Color.Lerp(c, white, sclera);
+            c.a = 0f;
+            return c;
+        }
+
+        /// <summary>Append <paramref name="extra"/> to <paramref name="skin"/> as one mesh.</summary>
+        private static Mesh Merge(Mesh skin, Mesh extra)
+        {
+            var merged = new Mesh { name = skin.name, indexFormat = UnityEngine.Rendering.IndexFormat.UInt32 };
+            merged.CombineMeshes(new[]
+            {
+                new CombineInstance { mesh = skin, transform = Matrix4x4.identity },
+                new CombineInstance { mesh = extra, transform = Matrix4x4.identity },
+            }, true, false);
+            merged.RecalculateBounds();
+            return merged;
         }
 
         // ------------------------------------------------------------------ hair and colouring
@@ -233,9 +381,12 @@ namespace HumanBodyExplorer.EditorTools.Geometry
             {
                 // A shell fitted around the real atlas anatomy, so it takes its shape from the muscles beneath.
                 SdfFunc fitted = ZAnatomy.SkinField();
-                SdfFunc male = WithHair(WithEars(WithFace(fitted)));
-                SdfFunc womanField = WithFemaleExterior(WithHair(WithEars(WithFace(ZAnatomy.SkinField(true)))));
-                Field = male;
+                SdfFunc uncut = WithHair(WithEars(WithFace(fitted)));
+                SdfFunc womanUncut = WithFemaleExterior(WithHair(WithEars(WithFace(ZAnatomy.SkinField(true)))));
+                // The lids are opened for the eyeballs; containment is still checked against the uncut skin.
+                SdfFunc male = WithFissures(uncut);
+                SdfFunc womanField = WithFissures(womanUncut);
+                Field = uncut;
 
                 var gridMin = new Vector3(-0.46f, -0.02f, -0.24f);
                 var gridMax = new Vector3(0.46f, 1.80f, 0.24f);
@@ -246,6 +397,10 @@ namespace HumanBodyExplorer.EditorTools.Geometry
                 Paint(femaleBuilt);
                 maleBuilt.uv = null;
                 femaleBuilt.uv = null;
+                Mesh eyes = EyeParts(male);
+                maleBuilt = Merge(maleBuilt, eyes);
+                femaleBuilt = Merge(femaleBuilt, eyes);
+                Object.DestroyImmediate(eyes);
                 Mesh maleMesh = PartFactory.Save(maleBuilt, "SkinShell");
                 Mesh femaleMesh = PartFactory.Save(femaleBuilt, "SkinShellFemale");
                 PartFactory.Add(root, "Skin", "SYS_INTEG_SKIN", maleMesh, skin, layer);
