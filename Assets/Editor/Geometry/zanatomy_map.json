@@ -1,0 +1,3193 @@
+{
+"entries": [
+{
+"id": "SYS_SK_CLAVICLE",
+"names": [
+"Clavicle.l",
+"Clavicle.r"
+],
+"lines": []
+},
+{
+"id": "SYS_SK_PELVIS",
+"names": [
+"Hip bone.l",
+"Hip bone.r"
+],
+"lines": []
+},
+{
+"id": "SYS_SK_FEMUR",
+"names": [
+"Femur.l",
+"Femur.r"
+],
+"lines": []
+},
+{
+"id": "SYS_SK_TIBIA",
+"names": [
+"Tibia.l",
+"Tibia.r"
+],
+"lines": []
+},
+{
+"id": "SYS_SK_HUMERUS",
+"names": [
+"Humerus.l",
+"Humerus.r"
+],
+"lines": []
+},
+{
+"id": "SYS_SK_SCAPULA",
+"names": [
+"Scapula.l",
+"Scapula.r"
+],
+"lines": []
+},
+{
+"id": "SYS_SK_PATELLA",
+"names": [
+"Patella.l",
+"Patella.r"
+],
+"lines": []
+},
+{
+"id": "SYS_SK_FIBULA",
+"names": [
+"Fibula.l",
+"Fibula.r"
+],
+"lines": []
+},
+{
+"id": "SYS_SK_RADIUS",
+"names": [
+"Radius.l",
+"Radius.r"
+],
+"lines": []
+},
+{
+"id": "SYS_SK_ULNA",
+"names": [
+"Ulna.l",
+"Ulna.r"
+],
+"lines": []
+},
+{
+"id": "SYS_SK_STERNUM",
+"names": [
+"Body of sternum",
+"Manubrium of sternum",
+"Xiphoid process"
+],
+"lines": []
+},
+{
+"id": "SYS_SK_MANDIBLE",
+"names": [
+"Mandible"
+],
+"lines": []
+},
+{
+"id": "SYS_SK_FRONTAL",
+"names": [
+"Frontal bone"
+],
+"lines": []
+},
+{
+"id": "SYS_SK_PARIETAL",
+"names": [
+"Parietal bone.l",
+"Parietal bone.r"
+],
+"lines": []
+},
+{
+"id": "SYS_SK_OCCIPITAL",
+"names": [
+"Occipital bone"
+],
+"lines": []
+},
+{
+"id": "SYS_SK_TEMPORAL",
+"names": [
+"Temporal bone.l",
+"Temporal bone.r"
+],
+"lines": []
+},
+{
+"id": "SYS_SK_SPHENOID",
+"names": [
+"Sphenoid bone"
+],
+"lines": []
+},
+{
+"id": "SYS_SK_ZYGOMATIC",
+"names": [
+"Zygomatic bone.l",
+"Zygomatic bone.r"
+],
+"lines": []
+},
+{
+"id": "SYS_SK_MAXILLA",
+"names": [
+"Maxilla.l",
+"Maxilla.r",
+"Maxillary artery.l",
+"Maxillary artery.r",
+"Maxillary nerve.l",
+"Maxillary nerve.r",
+"Maxillary veins.l",
+"Maxillary veins.r"
+],
+"lines": []
+},
+{
+"id": "SYS_SK_NASAL",
+"names": [
+"Nasal bone.l",
+"Nasal bone.r"
+],
+"lines": []
+},
+{
+"id": "SYS_SK_TEETH",
+"names": [
+"Lower canine.l",
+"Lower canine.r",
+"Lower first molar tooth.l",
+"Lower first molar tooth.r",
+"Lower first premolar.l",
+"Lower first premolar.r",
+"Lower lateral incisor.l",
+"Lower lateral incisor.r",
+"Lower medial incisor.r",
+"Lower medial incisor.l",
+"Lower second molar tooth.l",
+"Lower second molar tooth.r",
+"Lower second premolar.l",
+"Lower second premolar.r",
+"Upper canine.l",
+"Upper canine.r",
+"Upper first molar tooth.l",
+"Upper first molar tooth.r",
+"Upper first premolar.l",
+"Upper first premolar.r",
+"Upper lateral incisor.l",
+"Upper lateral incisor.r",
+"Upper medial incisor.l",
+"Upper medial incisor.r",
+"Upper second molar tooth.l",
+"Upper second molar tooth.r",
+"Upper second premolar.l",
+"Upper second premolar.r"
+],
+"lines": []
+},
+{
+"id": "SYS_SK_HYOID",
+"names": [
+"Hyoid bone"
+],
+"lines": []
+},
+{
+"id": "SYS_SK_ATLAS",
+"names": [
+"Atlas (C1)"
+],
+"lines": []
+},
+{
+"id": "SYS_SK_AXIS",
+"names": [
+"Axis (C2)"
+],
+"lines": []
+},
+{
+"id": "SYS_SK_VERT_CERVICAL",
+"names": [
+"Vertebra C3",
+"Vertebra C4",
+"Vertebra C5",
+"Vertebra C6",
+"Vertebra C7"
+],
+"lines": []
+},
+{
+"id": "SYS_SK_VERT_THORACIC",
+"names": [
+"Vertebra T1",
+"Vertebra T10",
+"Vertebra T11",
+"Vertebra T12",
+"Vertebra T2",
+"Vertebra T3",
+"Vertebra T4",
+"Vertebra T5",
+"Vertebra T6",
+"Vertebra T7",
+"Vertebra T8",
+"Vertebra T9"
+],
+"lines": []
+},
+{
+"id": "SYS_SK_VERT_LUMBAR",
+"names": [
+"Vertebra L1",
+"Vertebra L2",
+"Vertebra L3",
+"Vertebra L4",
+"Vertebra L5"
+],
+"lines": []
+},
+{
+"id": "SYS_SK_SACRUM",
+"names": [
+"Sacrum"
+],
+"lines": []
+},
+{
+"id": "SYS_SK_COCCYX",
+"names": [
+"Coccyx"
+],
+"lines": []
+},
+{
+"id": "SYS_SK_DISC",
+"names": [
+"Intervertebral disc C2-C3",
+"Intervertebral disc C3-C4",
+"Intervertebral disc C4-C5",
+"Intervertebral disc C5-C6",
+"Intervertebral disc C6-C7",
+"Intervertebral disc C7-T1",
+"Intervertebral disc L1-L2",
+"Intervertebral disc L2-L3",
+"Intervertebral disc L3-L4",
+"Intervertebral disc L4-L5",
+"Intervertebral disc L5-S1",
+"Intervertebral disc T1-T2",
+"Intervertebral disc T10-T11",
+"Intervertebral disc T11-T12",
+"Intervertebral disc T12-L1",
+"Intervertebral disc T2-T3",
+"Intervertebral disc T3-T4",
+"Intervertebral disc T4-T5",
+"Intervertebral disc T5-T6",
+"Intervertebral disc T6-T7",
+"Intervertebral disc T7-T8",
+"Intervertebral disc T8-T9",
+"Intervertebral disc T9-T10"
+],
+"lines": []
+},
+{
+"id": "SYS_SK_RIB_TRUE",
+"names": [
+"Fifth rib.l",
+"Fifth rib.r",
+"First rib.l",
+"First rib.r",
+"Fourth rib.l",
+"Fourth rib.r",
+"Second rib.r",
+"Second rib.l",
+"Seventh rib.l",
+"Seventh rib.r",
+"Sixth rib.l",
+"Sixth rib.r",
+"Third rib.l",
+"Third rib.r"
+],
+"lines": []
+},
+{
+"id": "SYS_SK_RIB_FALSE",
+"names": [
+"Eighth rib.l",
+"Eighth rib.r",
+"Ninth rib.l",
+"Ninth rib.r",
+"Tenth rib.l",
+"Tenth rib.r"
+],
+"lines": []
+},
+{
+"id": "SYS_SK_RIB_FLOATING",
+"names": [
+"Eleventh rib.l",
+"Eleventh rib.r",
+"Twelfth rib.l",
+"Twelfth rib.r"
+],
+"lines": []
+},
+{
+"id": "SYS_SK_COSTAL_CARTILAGE",
+"names": [
+"Costal cartilage of eighth rib.l",
+"Costal cartilage of eighth rib.r",
+"Costal cartilage of fifth rib.l",
+"Costal cartilage of fifth rib.r",
+"Costal cartilage of first rib.l",
+"Costal cartilage of first rib.r",
+"Costal cartilage of fourth rib.l",
+"Costal cartilage of fourth rib.r",
+"Costal cartilage of ninth rib.l",
+"Costal cartilage of ninth rib.r",
+"Costal cartilage of second rib.l",
+"Costal cartilage of second rib.r",
+"Costal cartilage of seventh rib.l",
+"Costal cartilage of seventh rib.r",
+"Costal cartilage of sixth rib.l",
+"Costal cartilage of sixth rib.r",
+"Costal cartilage of tenth rib.l",
+"Costal cartilage of tenth rib.r",
+"Costal cartilage of third rib.l",
+"Costal cartilage of third rib.r"
+],
+"lines": []
+},
+{
+"id": "SYS_SK_CARPALS",
+"names": [
+"Capitate bone.l",
+"Capitate bone.r",
+"Hamate bone.l",
+"Hamate bone.r",
+"Lunate bone.l",
+"Lunate bone.r",
+"Pisiform bone.l",
+"Pisiform bone.r",
+"Scaphoid bone.r",
+"Scaphoid bone.l",
+"Trapezium bone.l",
+"Trapezium bone.r",
+"Trapezoid bone.l",
+"Trapezoid bone.r",
+"Triquetrum bone.l",
+"Triquetrum bone.r"
+],
+"lines": []
+},
+{
+"id": "SYS_SK_METACARPALS",
+"names": [
+"Fifth metacarpal bone.l",
+"Fifth metacarpal bone.r",
+"First metacarpal bone.l",
+"First metacarpal bone.r",
+"Fourth metacarpal bone.l",
+"Fourth metacarpal bone.r",
+"Second metacarpal bone.l",
+"Second metacarpal bone.r",
+"Third metacarpal bone.l",
+"Third metacarpal bone.r"
+],
+"lines": []
+},
+{
+"id": "SYS_SK_PHALANGES_HAND",
+"names": [
+"Distal phalanx of fifth finger of hand.l",
+"Distal phalanx of fifth finger of hand.r",
+"Distal phalanx of first finger of hand.l",
+"Distal phalanx of first finger of hand.r",
+"Distal phalanx of fourth finger of hand.l",
+"Distal phalanx of fourth finger of hand.r",
+"Distal phalanx of second finger of hand.l",
+"Distal phalanx of second finger of hand.r",
+"Distal phalanx of third finger of hand.l",
+"Distal phalanx of third finger of hand.r",
+"Middle phalanx of fifth finger of hand.l",
+"Middle phalanx of fifth finger of hand.r",
+"Middle phalanx of fourth finger of hand.l",
+"Middle phalanx of fourth finger of hand.r",
+"Middle phalanx of second finger of hand.l",
+"Middle phalanx of second finger of hand.r",
+"Middle phalanx of third finger of hand.l",
+"Middle phalanx of third finger of hand.r",
+"Proximal phalanx of fifth finger of hand.l",
+"Proximal phalanx of fifth finger of hand.r",
+"Proximal phalanx of first finger of hand.l",
+"Proximal phalanx of first finger of hand.r",
+"Proximal phalanx of fourth finger of hand.l",
+"Proximal phalanx of fourth finger of hand.r",
+"Proximal phalanx of second finger of hand.l",
+"Proximal phalanx of second finger of hand.r",
+"Proximal phalanx of third finger of hand.l",
+"Proximal phalanx of third finger of hand.r"
+],
+"lines": []
+},
+{
+"id": "SYS_SK_TALUS",
+"names": [
+"Talus.l",
+"Talus.r"
+],
+"lines": []
+},
+{
+"id": "SYS_SK_CALCANEUS",
+"names": [
+"Calcaneus.l",
+"Calcaneus.r"
+],
+"lines": []
+},
+{
+"id": "SYS_SK_TARSALS",
+"names": [
+"Cuboid bone.l",
+"Cuboid bone.r",
+"Intermediate cuneiform bone.l",
+"Intermediate cuneiform bone.r",
+"Lateral cuneiform bone.l",
+"Lateral cuneiform bone.r",
+"Medial cuneiform bone.l",
+"Medial cuneiform bone.r",
+"Navicular bone.l",
+"Navicular bone.r"
+],
+"lines": []
+},
+{
+"id": "SYS_SK_METATARSALS",
+"names": [
+"Fifth metatarsal bone.l",
+"Fifth metatarsal bone.r",
+"First metatarsal bone.l",
+"First metatarsal bone.r",
+"Fourth metatarsal bone.l",
+"Fourth metatarsal bone.r",
+"Second metatarsal bone.r",
+"Second metatarsal bone.l",
+"Third metatarsal bone.l",
+"Third metatarsal bone.r"
+],
+"lines": []
+},
+{
+"id": "SYS_SK_PHALANGES_FOOT",
+"names": [
+"Distal phalanx of fifth finger of foot.l",
+"Distal phalanx of fifth finger of foot.r",
+"Distal phalanx of first finger of foot.l",
+"Distal phalanx of first finger of foot.r",
+"Distal phalanx of fourth finger of foot.l",
+"Distal phalanx of fourth finger of foot.r",
+"Distal phalanx of second finger of foot.l",
+"Distal phalanx of second finger of foot.r",
+"Distal phalanx of third finger of foot.l",
+"Distal phalanx of third finger of foot.r",
+"Middle phalanx of fifth finger of foot.l",
+"Middle phalanx of fifth finger of foot.r",
+"Middle phalanx of fourth finger of foot.l",
+"Middle phalanx of fourth finger of foot.r",
+"Middle phalanx of second finger of foot.l",
+"Middle phalanx of second finger of foot.r",
+"Middle phalanx of third finger of foot.l",
+"Middle phalanx of third finger of foot.r",
+"Proximal phalanx of fifth finger of foot.l",
+"Proximal phalanx of fifth finger of foot.r",
+"Proximal phalanx of first finger of foot.l",
+"Proximal phalanx of first finger of foot.r",
+"Proximal phalanx of fourth finger of foot.l",
+"Proximal phalanx of fourth finger of foot.r",
+"Proximal phalanx of second finger of foot.l",
+"Proximal phalanx of second finger of foot.r",
+"Proximal phalanx of third finger of foot.l",
+"Proximal phalanx of third finger of foot.r"
+],
+"lines": []
+},
+{
+"id": "SYS_SK_ACL",
+"names": [
+"Anterior cruciate ligament.l",
+"Anterior cruciate ligament.r"
+],
+"lines": []
+},
+{
+"id": "SYS_SK_PCL",
+"names": [
+"Posterior cruciate ligament.l",
+"Posterior cruciate ligament.r"
+],
+"lines": []
+},
+{
+"id": "SYS_SK_MCL",
+"names": [
+"Deep part of tibial collateral ligament.l",
+"Deep part of tibial collateral ligament.r",
+"Superficial part of tibial collateral ligament.l",
+"Superficial part of tibial collateral ligament.r"
+],
+"lines": []
+},
+{
+"id": "SYS_SK_LCL",
+"names": [
+"Fibular collateral ligament.l",
+"Fibular collateral ligament.r"
+],
+"lines": []
+},
+{
+"id": "SYS_SK_MENISCUS",
+"names": [
+"Lateral meniscus.l",
+"Lateral meniscus.r",
+"Medial meniscus.l",
+"Medial meniscus.r"
+],
+"lines": []
+},
+{
+"id": "SYS_SK_NUCHAL_LIGAMENT",
+"names": [
+"Nuchal ligament"
+],
+"lines": []
+},
+{
+"id": "SYS_SK_PUBIC_SYMPHYSIS",
+"names": [
+"Interpubic disc",
+"Pubic symphysis"
+],
+"lines": []
+},
+{
+"id": "SYS_SK_PLANTAR_FASCIA",
+"names": [
+"Plantar aponeurosis.l",
+"Plantar aponeurosis.r"
+],
+"lines": []
+},
+{
+"id": "SYS_RESP_LARYNX",
+"names": [
+"Arytenoid cartilage.r",
+"Arytenoid cartilage.l",
+"Corniculate cartilage.r",
+"Corniculate cartilage.l",
+"Cricoid cartilage",
+"Thyroid cartilage"
+],
+"lines": []
+},
+{
+"id": "SYS_MUSC_BICEPS",
+"names": [
+"Long head of biceps brachii.l",
+"Long head of biceps brachii.r",
+"Short head of biceps brachii.l",
+"Short head of biceps brachii.r"
+],
+"lines": []
+},
+{
+"id": "SYS_MUSC_PECTORALIS",
+"names": [
+"(Abdominal part of pectoralis major muscle).l",
+"(Abdominal part of pectoralis major muscle).r",
+"Clavicular head of pectoralis major muscle.l",
+"Clavicular head of pectoralis major muscle.r",
+"Sternocostal head of pectoralis major muscle.l",
+"Sternocostal head of pectoralis major muscle.r"
+],
+"lines": []
+},
+{
+"id": "SYS_MUSC_DELTOID",
+"names": [
+"Acromial part of deltoid muscle.l",
+"Acromial part of deltoid muscle.r",
+"Clavicular part of deltoid muscle.l",
+"Clavicular part of deltoid muscle.r",
+"Scapular spinal part of deltoid muscle.l",
+"Scapular spinal part of deltoid muscle.r"
+],
+"lines": []
+},
+{
+"id": "SYS_MUSC_RECTUS_ABDOMINIS",
+"names": [
+"Rectus abdominis muscle.l",
+"Rectus abdominis muscle.r"
+],
+"lines": []
+},
+{
+"id": "SYS_MUSC_GASTROCNEMIUS",
+"names": [
+"Lateral head of gastrocnemius.l",
+"Lateral head of gastrocnemius.r",
+"Medial head of gastrocnemius.l",
+"Medial head of gastrocnemius.r"
+],
+"lines": []
+},
+{
+"id": "SYS_MUSC_TRAPEZIUS",
+"names": [
+"Ascending part of trapezius muscle.l",
+"Ascending part of trapezius muscle.r",
+"Descending part of trapezius muscle.l",
+"Descending part of trapezius muscle.r",
+"Transverse part of trapezius muscle.l",
+"Transverse part of trapezius muscle.r"
+],
+"lines": []
+},
+{
+"id": "SYS_MUSC_LATISSIMUS",
+"names": [
+"Latissimus dorsi muscle.l",
+"Latissimus dorsi muscle.r"
+],
+"lines": []
+},
+{
+"id": "SYS_MUSC_TRICEPS",
+"names": [
+"Lateral head of triceps brachii.l",
+"Lateral head of triceps brachii.r",
+"Long head of triceps brachii.l",
+"Long head of triceps brachii.r",
+"Medial head of triceps brachii.l",
+"Medial head of triceps brachii.r"
+],
+"lines": []
+},
+{
+"id": "SYS_MUSC_OBLIQUE",
+"names": [
+"External abdominal oblique muscle.l",
+"External abdominal oblique muscle.r"
+],
+"lines": []
+},
+{
+"id": "SYS_MUSC_STERNOCLEIDOMASTOID",
+"names": [
+"Sternocleidomastoid muscle.l",
+"Sternocleidomastoid muscle.r"
+],
+"lines": []
+},
+{
+"id": "SYS_MUSC_TIBIALIS",
+"names": [
+"Tibialis anterior muscle.l",
+"Tibialis anterior muscle.r"
+],
+"lines": []
+},
+{
+"id": "SYS_MUSC_SOLEUS",
+"names": [
+"Soleus muscle.l",
+"Soleus muscle.r"
+],
+"lines": []
+},
+{
+"id": "SYS_MUSC_ERECTOR_SPINAE",
+"names": [
+"Iliocostalis colli muscle",
+"Iliocostalis colli muscle.r",
+"Iliocostalis lumborum muscle.l",
+"Iliocostalis lumborum muscle.r",
+"Iliocostalis thoracis muscle.l",
+"Iliocostalis thoracis muscle.r",
+"Longissimus capitis muscle.l",
+"Longissimus capitis muscle.r",
+"Longissimus colli muscle.l",
+"Longissimus colli muscle.r",
+"Longissimus thoracis muscle.l",
+"Longissimus thoracis muscle.r",
+"Spinalis capitis muscle.l",
+"Spinalis capitis muscle.r",
+"Spinalis colli muscle.l",
+"Spinalis colli muscle.r",
+"Spinalis thoracis muscle.l",
+"Spinalis thoracis muscle.r"
+],
+"lines": []
+},
+{
+"id": "SYS_MUSC_SERRATUS",
+"names": [
+"Serratus anterior muscle.l",
+"Serratus anterior muscle.r"
+],
+"lines": []
+},
+{
+"id": "SYS_MUSC_TEMPORALIS",
+"names": [
+"Temporalis muscle.l",
+"Temporalis muscle.r"
+],
+"lines": []
+},
+{
+"id": "SYS_MUSC_MASSETER",
+"names": [
+"Deep part of masseter.l",
+"Deep part of masseter.r",
+"Superficial part of masseter.l",
+"Superficial part of masseter.r"
+],
+"lines": []
+},
+{
+"id": "SYS_MUSC_FRONTALIS",
+"names": [
+"Frontalis muscle.l",
+"Frontalis muscle.r"
+],
+"lines": []
+},
+{
+"id": "SYS_MUSC_ORBICULARIS_OCULI",
+"names": [
+"Orbital part of orbicularis oculi.l",
+"Orbital part of orbicularis oculi.r",
+"Palpebral part of orbicularis oculi.l",
+"Palpebral part of orbicularis oculi.r"
+],
+"lines": []
+},
+{
+"id": "SYS_MUSC_ORBICULARIS_ORIS",
+"names": [
+"Orbicularis oris muscle.l",
+"Orbicularis oris muscle.r"
+],
+"lines": []
+},
+{
+"id": "SYS_MUSC_ZYGOMATICUS",
+"names": [
+"Zygomaticus major muscle.l",
+"Zygomaticus major muscle.r"
+],
+"lines": []
+},
+{
+"id": "SYS_MUSC_BUCCINATOR",
+"names": [
+"Bucinator.l",
+"Bucinator.r"
+],
+"lines": []
+},
+{
+"id": "SYS_MUSC_PECTORALIS_MINOR",
+"names": [
+"Pectoralis minor muscle.l",
+"Pectoralis minor muscle.r"
+],
+"lines": []
+},
+{
+"id": "SYS_MUSC_RHOMBOIDS",
+"names": [
+"Rhomboid major muscle.l",
+"Rhomboid major muscle.r",
+"Rhomboid minor muscle.l",
+"Rhomboid minor muscle.r"
+],
+"lines": []
+},
+{
+"id": "SYS_MUSC_LEVATOR_SCAPULAE",
+"names": [
+"Levator scapulae.l",
+"Levator scapulae.r"
+],
+"lines": []
+},
+{
+"id": "SYS_MUSC_SUPRASPINATUS",
+"names": [
+"Supraspinatus muscle.l",
+"Supraspinatus muscle.r"
+],
+"lines": []
+},
+{
+"id": "SYS_MUSC_INFRASPINATUS",
+"names": [
+"Infraspinatus muscle.l",
+"Infraspinatus muscle.r"
+],
+"lines": []
+},
+{
+"id": "SYS_MUSC_TERES_MINOR",
+"names": [
+"Teres minor muscle.l",
+"Teres minor muscle.r"
+],
+"lines": []
+},
+{
+"id": "SYS_MUSC_TERES_MAJOR",
+"names": [
+"Teres major muscle.l",
+"Teres major muscle.r"
+],
+"lines": []
+},
+{
+"id": "SYS_MUSC_SUBSCAPULARIS",
+"names": [
+"Subscapularis muscle.l",
+"Subscapularis muscle.r"
+],
+"lines": []
+},
+{
+"id": "SYS_MUSC_BRACHIALIS",
+"names": [
+"Brachialis muscle.l",
+"Brachialis muscle.r"
+],
+"lines": []
+},
+{
+"id": "SYS_MUSC_CORACOBRACHIALIS",
+"names": [
+"Coracobrachialis muscle.l",
+"Coracobrachialis muscle.r"
+],
+"lines": []
+},
+{
+"id": "SYS_MUSC_BRACHIORADIALIS",
+"names": [
+"Brachioradialis muscle.l",
+"Brachioradialis muscle.r"
+],
+"lines": []
+},
+{
+"id": "SYS_MUSC_PRONATOR_TERES",
+"names": [
+"Deep head of pronator teres.l",
+"Deep head of pronator teres.r",
+"Superficial head of pronator teres.l",
+"Superficial head of pronator teres.r"
+],
+"lines": []
+},
+{
+"id": "SYS_MUSC_FLEXOR_CARPI_RADIALIS",
+"names": [
+"Flexor carpi radialis.l",
+"Flexor carpi radialis.r"
+],
+"lines": []
+},
+{
+"id": "SYS_MUSC_PALMARIS_LONGUS",
+"names": [
+"Palmaris longus muscle.l",
+"Palmaris longus muscle.r"
+],
+"lines": []
+},
+{
+"id": "SYS_MUSC_FLEXOR_DIGITORUM_SUPERFICIALIS",
+"names": [
+"Humero-ulnar head of flexor digitorum superficialis.l",
+"Humero-ulnar head of flexor digitorum superficialis.r",
+"Radial head of flexor digitorum superficialis.l",
+"Radial head of flexor digitorum superficialis.r"
+],
+"lines": []
+},
+{
+"id": "SYS_MUSC_FLEXOR_CARPI_ULNARIS",
+"names": [
+"Humeral head of flexor carpi ulnaris.l",
+"Humeral head of flexor carpi ulnaris.r",
+"Ulnar head of flexor carpi ulnaris.l",
+"Ulnar head of flexor carpi ulnaris.r"
+],
+"lines": []
+},
+{
+"id": "SYS_MUSC_EXTENSOR_CARPI_RADIALIS",
+"names": [
+"Extensor carpi radialis brevis.l",
+"Extensor carpi radialis brevis.r",
+"Extensor carpi radialis longus.l",
+"Extensor carpi radialis longus.r"
+],
+"lines": []
+},
+{
+"id": "SYS_MUSC_EXTENSOR_DIGITORUM",
+"names": [
+"Extensor digitorum.l",
+"Extensor digitorum.r"
+],
+"lines": []
+},
+{
+"id": "SYS_MUSC_EXTENSOR_CARPI_ULNARIS",
+"names": [
+"Humeral head of extensor carpi ulnaris.l",
+"Humeral head of extensor carpi ulnaris.r",
+"Ulnar head of extensor carpi ulnaris.l",
+"Ulnar head of extensor carpi ulnaris.r"
+],
+"lines": []
+},
+{
+"id": "SYS_MUSC_THENAR",
+"names": [
+"Abductor pollicis brevis.l",
+"Abductor pollicis brevis.r",
+"Deep head of flexor pollicis brevis.l",
+"Deep head of flexor pollicis brevis.r",
+"Oblique head of adductor pollicis.l",
+"Oblique head of adductor pollicis.r",
+"Opponens pollicis muscle.l",
+"Opponens pollicis muscle.r",
+"Superficial head of flexor pollicis brevis.l",
+"Superficial head of flexor pollicis brevis.r",
+"Transverse head of adductor pollicis.l",
+"Transverse head of adductor pollicis.r"
+],
+"lines": []
+},
+{
+"id": "SYS_MUSC_HYPOTHENAR",
+"names": [
+"Abductor digiti minimi of hand.l",
+"Abductor digiti minimi of hand.r",
+"Flexor digiti minimi of hand.l",
+"Flexor digiti minimi of hand.r",
+"Opponens digiti minimi muscle of hand.l",
+"Opponens digiti minimi muscle of hand.r"
+],
+"lines": []
+},
+{
+"id": "SYS_MUSC_INTERNAL_OBLIQUE",
+"names": [
+"Internal abdominal oblique muscle.l",
+"Internal abdominal oblique muscle.r"
+],
+"lines": []
+},
+{
+"id": "SYS_MUSC_TRANSVERSUS_ABDOMINIS",
+"names": [
+"Transversus abdominis muscle.l",
+"Transversus abdominis muscle.r"
+],
+"lines": []
+},
+{
+"id": "SYS_MUSC_QUADRATUS_LUMBORUM",
+"names": [
+"Quadratus lumborum muscle.l",
+"Quadratus lumborum muscle.r"
+],
+"lines": []
+},
+{
+"id": "SYS_MUSC_PSOAS",
+"names": [
+"Psoas major.l",
+"Psoas major.r"
+],
+"lines": []
+},
+{
+"id": "SYS_MUSC_ILIACUS",
+"names": [
+"Iliacus branch of iliolumbar artery.l",
+"Iliacus branch of iliolumbar artery.r",
+"Iliacus muscle.l",
+"Iliacus muscle.r"
+],
+"lines": []
+},
+{
+"id": "SYS_MUSC_SCALENES",
+"names": [
+"Scalenus anterior muscle.l",
+"Scalenus anterior muscle.r",
+"Scalenus medius muscle.l",
+"Scalenus medius muscle.r",
+"Scalenus posterior muscle.l",
+"Scalenus posterior muscle.r"
+],
+"lines": []
+},
+{
+"id": "SYS_MUSC_DIGASTRIC",
+"names": [
+"Anterior belly of digastric muscle.l",
+"Anterior belly of digastric muscle.r",
+"Intermediate tendon of digastric muscle.l",
+"Intermediate tendon of digastric muscle.r",
+"Posterior belly of digastric muscle.l",
+"Posterior belly of digastric muscle.r"
+],
+"lines": []
+},
+{
+"id": "SYS_MUSC_CORRUGATOR_SUPERCILII",
+"names": [
+"Corrugator supercilii.l",
+"Corrugator supercilii.r"
+],
+"lines": []
+},
+{
+"id": "SYS_MUSC_PROCERUS",
+"names": [
+"Procerus muscle.l",
+"Procerus muscle.r"
+],
+"lines": []
+},
+{
+"id": "SYS_MUSC_NASALIS",
+"names": [
+"Nasalis muscle.l",
+"Nasalis muscle.r"
+],
+"lines": []
+},
+{
+"id": "SYS_MUSC_LEVATOR_LABII_SUPERIORIS",
+"names": [
+"Levator labii superioris.l",
+"Levator labii superioris.r"
+],
+"lines": []
+},
+{
+"id": "SYS_MUSC_DEPRESSOR_ANGULI_ORIS",
+"names": [
+"Depressor anguli oris.l",
+"Depressor anguli oris.r"
+],
+"lines": []
+},
+{
+"id": "SYS_MUSC_MENTALIS",
+"names": [
+"Mentalis muscle.l",
+"Mentalis muscle.r"
+],
+"lines": []
+},
+{
+"id": "SYS_MUSC_GLUTEUS_MAXIMUS",
+"names": [
+"Gluteus maximus muscle.l",
+"Gluteus maximus muscle.r"
+],
+"lines": []
+},
+{
+"id": "SYS_MUSC_GLUTEUS_MEDIUS",
+"names": [
+"Gluteus medius muscle.l",
+"Gluteus medius muscle.r"
+],
+"lines": []
+},
+{
+"id": "SYS_MUSC_PIRIFORMIS",
+"names": [
+"Piriformis muscle.l",
+"Piriformis muscle.r"
+],
+"lines": []
+},
+{
+"id": "SYS_MUSC_TFL",
+"names": [
+"Tensor fasciae latae.l",
+"Tensor fasciae latae.r"
+],
+"lines": []
+},
+{
+"id": "SYS_MUSC_ILIOTIBIAL_TRACT",
+"names": [
+"Iliotibial tract.l",
+"Iliotibial tract.r"
+],
+"lines": []
+},
+{
+"id": "SYS_MUSC_RECTUS_FEMORIS",
+"names": [
+"Rectus femoris muscle.l",
+"Rectus femoris muscle.r"
+],
+"lines": []
+},
+{
+"id": "SYS_MUSC_VASTUS_LATERALIS",
+"names": [
+"Vastus lateralis muscle.l",
+"Vastus lateralis muscle.r"
+],
+"lines": []
+},
+{
+"id": "SYS_MUSC_VASTUS_MEDIALIS",
+"names": [
+"Vastus medialis muscle.l",
+"Vastus medialis muscle.r"
+],
+"lines": []
+},
+{
+"id": "SYS_MUSC_VASTUS_INTERMEDIUS",
+"names": [
+"Vastus intermedius muscle.l",
+"Vastus intermedius muscle.r"
+],
+"lines": []
+},
+{
+"id": "SYS_MUSC_SARTORIUS",
+"names": [
+"Sartorius muscle.l",
+"Sartorius muscle.r"
+],
+"lines": []
+},
+{
+"id": "SYS_MUSC_GRACILIS",
+"names": [
+"Gracilis muscle.l",
+"Gracilis muscle.r"
+],
+"lines": []
+},
+{
+"id": "SYS_MUSC_ADDUCTOR_LONGUS",
+"names": [
+"Adductor longus.l",
+"Adductor longus.r"
+],
+"lines": []
+},
+{
+"id": "SYS_MUSC_ADDUCTOR_MAGNUS",
+"names": [
+"Adductor magnus.l",
+"Adductor magnus.r"
+],
+"lines": []
+},
+{
+"id": "SYS_MUSC_BICEPS_FEMORIS",
+"names": [
+"Long head of biceps femoris.l",
+"Long head of biceps femoris.r",
+"Short head of biceps femoris.l",
+"Short head of biceps femoris.r"
+],
+"lines": []
+},
+{
+"id": "SYS_MUSC_SEMITENDINOSUS",
+"names": [
+"Semitendinosus muscle.l",
+"Semitendinosus muscle.r"
+],
+"lines": []
+},
+{
+"id": "SYS_MUSC_SEMIMEMBRANOSUS",
+"names": [
+"Semimembranosus muscle.l",
+"Semimembranosus muscle.r"
+],
+"lines": []
+},
+{
+"id": "SYS_MUSC_ACHILLES",
+"names": [
+"Calcaneal tendon.l",
+"Calcaneal tendon.r"
+],
+"lines": []
+},
+{
+"id": "SYS_MUSC_EXTENSOR_DIGITORUM_LONGUS",
+"names": [
+"Extensor digitorum longus.l",
+"Extensor digitorum longus.r"
+],
+"lines": []
+},
+{
+"id": "SYS_MUSC_PERONEUS_LONGUS",
+"names": [
+"Fibularis longus muscle.l",
+"Fibularis longus muscle.r"
+],
+"lines": []
+},
+{
+"id": "SYS_MUSC_TIBIALIS_POSTERIOR",
+"names": [
+"Tibialis posterior muscle.l",
+"Tibialis posterior muscle.r"
+],
+"lines": []
+},
+{
+"id": "SYS_MUSC_FLEXOR_DIGITORUM_LONGUS",
+"names": [
+"Flexor digitorum longus.l",
+"Flexor digitorum longus.r"
+],
+"lines": []
+},
+{
+"id": "SYS_MUSC_EXTRAOCULAR",
+"names": [
+"Inferior oblique muscle.l",
+"Inferior oblique muscle.r",
+"Inferior rectus muscle.l",
+"Inferior rectus muscle.r",
+"Lateral rectus muscle.l",
+"Lateral rectus muscle.r",
+"Medial rectus muscle.l",
+"Medial rectus muscle.r",
+"Superior oblique muscle.l",
+"Superior oblique muscle.r",
+"Superior rectus muscle.l",
+"Superior rectus muscle.r"
+],
+"lines": []
+},
+{
+"id": "SYS_RESP_DIAPHRAGM",
+"names": [
+"Diaphragm"
+],
+"lines": []
+},
+{
+"id": "SYS_CV_HEART",
+"names": [
+"Left atrium",
+"Left ventricle",
+"Right atrium",
+"Right ventricle"
+],
+"lines": []
+},
+{
+"id": "SYS_CV_HEART_LV",
+"names": [
+"Left ventricle"
+],
+"lines": []
+},
+{
+"id": "SYS_CV_HEART_LA",
+"names": [
+"Left atrium"
+],
+"lines": []
+},
+{
+"id": "SYS_CV_HEART_RA",
+"names": [
+"Right atrium"
+],
+"lines": []
+},
+{
+"id": "SYS_CV_HEART_RV",
+"names": [
+"Right ventricle"
+],
+"lines": []
+},
+{
+"id": "SYS_RESP_LUNG_L",
+"names": [
+"Inferior lobe of left lung",
+"Superior lobe of left lung"
+],
+"lines": []
+},
+{
+"id": "SYS_RESP_LUNG_R",
+"names": [
+"Inferior lobe of right lung",
+"Middle lobe of right lung",
+"Superior lobe of right lung"
+],
+"lines": []
+},
+{
+"id": "SYS_RESP_TRACHEA",
+"names": [
+"Trachea"
+],
+"lines": []
+},
+{
+"id": "SYS_RESP_BRONCHI",
+"names": [
+"Left main bronchus",
+"Right main bronchus"
+],
+"lines": []
+},
+{
+"id": "SYS_DIG_ESOPHAGUS",
+"names": [
+"Oesophagus"
+],
+"lines": []
+},
+{
+"id": "SYS_DIG_STOMACH",
+"names": [
+"Stomach"
+],
+"lines": []
+},
+{
+"id": "SYS_DIG_LIVER",
+"names": [
+"Liver"
+],
+"lines": []
+},
+{
+"id": "SYS_DIG_GALLBLADDER",
+"names": [
+"Gallbladder"
+],
+"lines": []
+},
+{
+"id": "SYS_DIG_PANCREAS",
+"names": [
+"Pancreas"
+],
+"lines": []
+},
+{
+"id": "SYS_REN_KIDNEY_L",
+"names": [
+"Kidney.l"
+],
+"lines": []
+},
+{
+"id": "SYS_REN_KIDNEY_R",
+"names": [
+"Kidney.r"
+],
+"lines": []
+},
+{
+"id": "SYS_REN_URETER",
+"names": [
+"Ureter.l",
+"Ureter.r"
+],
+"lines": []
+},
+{
+"id": "SYS_REN_BLADDER",
+"names": [
+"Urinary bladder"
+],
+"lines": []
+},
+{
+"id": "SYS_ENDO_THYROID",
+"names": [
+"Thyroid gland"
+],
+"lines": []
+},
+{
+"id": "SYS_ENDO_ADRENAL",
+"names": [
+"Suprarenal gland.l",
+"Suprarenal gland.r"
+],
+"lines": []
+},
+{
+"id": "SYS_ENDO_PITUITARY",
+"names": [
+"Adenohypophysis",
+"Neurohypophysis"
+],
+"lines": []
+},
+{
+"id": "SYS_ENDO_PINEAL",
+"names": [
+"Pineal gland"
+],
+"lines": []
+},
+{
+"id": "SYS_LYMPH_SPLEEN",
+"names": [
+"Spleen"
+],
+"lines": []
+},
+{
+"id": "SYS_LYMPH_THYMUS",
+"names": [
+"Left lobe of thymus",
+"Right lobe of thymus"
+],
+"lines": []
+},
+{
+"id": "SYS_LYMPH_TONSILS",
+"names": [
+"Palatine tonsil.l",
+"Palatine tonsil.r"
+],
+"lines": []
+},
+{
+"id": "SYS_DIG_DUODENUM",
+"names": [
+"Duodenum"
+],
+"lines": []
+},
+{
+"id": "SYS_DIG_JEJUNUM",
+"names": [
+"Jejunum"
+],
+"lines": []
+},
+{
+"id": "SYS_DIG_APPENDIX",
+"names": [
+"Vermiform appendix"
+],
+"lines": []
+},
+{
+"id": "SYS_DIG_COLON_ASC",
+"names": [
+"Ascending colon"
+],
+"lines": []
+},
+{
+"id": "SYS_DIG_COLON_TRANS",
+"names": [
+"Transverse colon"
+],
+"lines": []
+},
+{
+"id": "SYS_DIG_COLON_DESC",
+"names": [
+"Descending colon"
+],
+"lines": []
+},
+{
+"id": "SYS_DIG_SIGMOID",
+"names": [
+"Sigmoid colon"
+],
+"lines": []
+},
+{
+"id": "SYS_DIG_TONGUE",
+"names": [
+"Tongue"
+],
+"lines": []
+},
+{
+"id": "SYS_DIG_PAROTID",
+"names": [
+"Parotid gland.l",
+"Parotid gland.r"
+],
+"lines": []
+},
+{
+"id": "SYS_DIG_SUBMANDIBULAR",
+"names": [
+"Submandibular gland.l",
+"Submandibular gland.r"
+],
+"lines": []
+},
+{
+"id": "SYS_DIG_PHARYNX",
+"names": [
+"Laryngopharynx",
+"Nasopharynx",
+"Oropharynx"
+],
+"lines": []
+},
+{
+"id": "SYS_DIG_PALATE",
+"names": [
+"Soft palate",
+"Uvula of palate"
+],
+"lines": []
+},
+{
+"id": "SYS_DIG_BILE_DUCTS",
+"names": [
+"Bile duct"
+],
+"lines": []
+},
+{
+"id": "SYS_DIG_PANCREATIC_DUCT",
+"names": [
+"Pancreatic duct"
+],
+"lines": []
+},
+{
+"id": "SYS_RESP_EPIGLOTTIS",
+"names": [
+"Epiglottis"
+],
+"lines": []
+},
+{
+"id": "SYS_REN_PELVIS",
+"names": [
+"Renal pelvis.l",
+"Renal pelvis.r"
+],
+"lines": []
+},
+{
+"id": "SYS_REP_M_TESTIS",
+"names": [
+"Testis.l",
+"Testis.r"
+],
+"lines": []
+},
+{
+"id": "SYS_REP_M_EPIDIDYMIS",
+"names": [
+"Epididymis.l",
+"Epididymis.r"
+],
+"lines": []
+},
+{
+"id": "SYS_REP_M_VAS_DEFERENS",
+"names": [
+"Ductus deferens.l",
+"Ductus deferens.r"
+],
+"lines": []
+},
+{
+"id": "SYS_REP_M_SEMINAL_VESICLE",
+"names": [
+"Seminal gland.l",
+"Seminal gland.r"
+],
+"lines": []
+},
+{
+"id": "SYS_REP_M_PROSTATE",
+"names": [
+"Prostate"
+],
+"lines": []
+},
+{
+"id": "SYS_REP_M_URETHRA",
+"names": [
+"Urethra"
+],
+"lines": []
+},
+{
+"id": "SYS_REP_M_PENIS_CAVERNOSA",
+"names": [
+"Corpus cavernosum of penis"
+],
+"lines": []
+},
+{
+"id": "SYS_REP_M_PENIS_SPONGIOSUM",
+"names": [
+"Corpus spongiosum of penis",
+"Glans penis"
+],
+"lines": []
+},
+{
+"id": "SYS_SENS_EYE",
+"names": [
+"Cornea.l",
+"Cornea.r",
+"Iris.l",
+"Iris.r",
+"Sclera.l",
+"Sclera.r"
+],
+"lines": []
+},
+{
+"id": "SYS_SENS_LENS",
+"names": [
+"Lens.l",
+"Lens.r"
+],
+"lines": []
+},
+{
+"id": "SYS_SENS_RETINA",
+"names": [
+"Retina.l",
+"Retina.r"
+],
+"lines": []
+},
+{
+"id": "SYS_SENS_COCHLEA",
+"names": [
+"Cochlea.l",
+"Cochlea.r"
+],
+"lines": []
+},
+{
+"id": "SYS_SENS_EARDRUM",
+"names": [
+"Tympanic membrane.l",
+"Tympanic membrane.r"
+],
+"lines": []
+},
+{
+"id": "SYS_SENS_MALLEUS",
+"names": [
+"Malleus.l",
+"Malleus.r"
+],
+"lines": []
+},
+{
+"id": "SYS_SENS_INCUS",
+"names": [
+"Incus.l",
+"Incus.r"
+],
+"lines": []
+},
+{
+"id": "SYS_SENS_STAPES",
+"names": [
+"Stapes.l",
+"Stapes.r"
+],
+"lines": []
+},
+{
+"id": "SYS_SENS_SEMICIRCULAR",
+"names": [
+"Vestibule.l",
+"Vestibule.r"
+],
+"lines": []
+},
+{
+"id": "SYS_NERV_CEREBELLUM",
+"names": [
+"Anterior quadrangular lobule.l",
+"Anterior quadrangular lobule.r",
+"Biventral lobule.l",
+"Biventral lobule.r",
+"Central lobule",
+"Culmen",
+"Declive",
+"Flocculus.l",
+"Flocculus.r",
+"Folium of vermis",
+"Gracile lobule.l",
+"Gracile lobule.r",
+"Inferior semilunar lobule.l",
+"Inferior semilunar lobule.r",
+"Lingula of cerebellum",
+"Nodule of vermis",
+"Quadrangular membrane.l",
+"Quadrangular membrane.r",
+"Posterior quadrangular lobule.l",
+"Posterior quadrangular lobule.r",
+"Pyramis of vermis",
+"Superior parietal lobule.l",
+"Superior parietal lobule.r",
+"Superior semilunar lobule.l",
+"Superior semilunar lobule.r",
+"Tonsil of cerebellum.l",
+"Tonsil of cerebellum.r",
+"Tuber of vermis",
+"Uvula of vermis",
+"Wing of central lobule.l",
+"Wing of central lobule.r"
+],
+"lines": []
+},
+{
+"id": "SYS_NERV_FRONTAL_LOBE",
+"names": [
+"Middle frontal gyrus.l",
+"Middle frontal gyrus.r",
+"Orbital gyri (Frontomarginal gyrus and sulcus*).l",
+"Orbital gyri (Frontomarginal gyrus and sulcus*).r",
+"Orbital gyri.l",
+"Orbital gyri.r",
+"Orbital part of  inferior frontal gyrus.l",
+"Orbital part of  inferior frontal gyrus.r",
+"Paracentral gyrus and sulcus*.l",
+"Paracentral gyrus and sulcus*.r",
+"Precentral gyrus.l",
+"Precentral gyrus.r",
+"Opercular part of inferior frontal gyrus.l",
+"Opercular part of inferior frontal gyrus.r",
+"Paracentral sulcus.l",
+"Paracentral sulcus.r",
+"Straight gyrus (Gyrus rectus).l",
+"Straight gyrus (Gyrus rectus).r",
+"Superior frontal gyrus.l",
+"Superior frontal gyrus.r",
+"Triangular part of inferior frontal gyrus.l",
+"Triangular part of inferior frontal gyrus.r"
+],
+"lines": []
+},
+{
+"id": "SYS_NERV_PARIETAL_LOBE",
+"names": [
+"Angular gyrus.l",
+"Angular gyrus.r",
+"Postcentral gyrus.l",
+"Postcentral gyrus.r",
+"Precuneus.l",
+"Precuneus.r",
+"Superior parietal lobule.l",
+"Superior parietal lobule.r",
+"Supramarginal gyrus.l",
+"Supramarginal gyrus.r"
+],
+"lines": []
+},
+{
+"id": "SYS_NERV_TEMPORAL_LOBE",
+"names": [
+"Inferior temporal gyrus.l",
+"Inferior temporal gyrus.r",
+"Lateral occipitotemporal gyrus.l",
+"Lateral occipitotemporal gyrus.r",
+"Medial occipitotemporal gyrus (Parahippocampal*).l",
+"Medial occipitotemporal gyrus (Parahippocampal*).r",
+"Middle temporal gyrus.l",
+"Middle temporal gyrus.r",
+"Superior temporal gyrus (Lateral part).l",
+"Superior temporal gyrus (Lateral part).r",
+"Temporal plane.l",
+"Temporal plane.r",
+"Temporal pole.l",
+"Temporal pole.r",
+"Transverse temporal gyri.l",
+"Transverse temporal gyri.r"
+],
+"lines": []
+},
+{
+"id": "SYS_NERV_OCCIPITAL_LOBE",
+"names": [
+"Cuneus.l",
+"Cuneus.r",
+"Lingual gyrus.l",
+"Lingual gyrus.r",
+"Occipital pole.l",
+"Occipital pole.r",
+"Superior occipital gyri.l",
+"Superior occipital gyri.r"
+],
+"lines": []
+},
+{
+"id": "SYS_NERV_MIDBRAIN",
+"names": [
+"Midbrain.l",
+"Midbrain.r"
+],
+"lines": []
+},
+{
+"id": "SYS_NERV_PONS",
+"names": [
+"Pons.l",
+"Pons.r"
+],
+"lines": []
+},
+{
+"id": "SYS_NERV_MEDULLA",
+"names": [
+"Medulla oblongata.l",
+"Medulla oblongata.r"
+],
+"lines": []
+},
+{
+"id": "SYS_NERV_CORPUS_CALLOSUM",
+"names": [
+"Corpus callosum"
+],
+"lines": []
+},
+{
+"id": "SYS_NERV_THALAMUS",
+"names": [
+"Thalamus.l",
+"Thalamus.r"
+],
+"lines": []
+},
+{
+"id": "SYS_NERV_HYPOTHALAMUS",
+"names": [
+"Hypothalamus"
+],
+"lines": []
+},
+{
+"id": "SYS_NERV_BASAL_GANGLIA",
+"names": [
+"Caudate nucleus.l",
+"Caudate nucleus.r",
+"Globus pallidus.l",
+"Globus pallidus.r",
+"Putamen.l",
+"Putamen.r"
+],
+"lines": []
+},
+{
+"id": "SYS_NERV_HIPPOCAMPUS",
+"names": [
+"Hippocampus.l",
+"Hippocampus.r"
+],
+"lines": []
+},
+{
+"id": "SYS_NERV_AMYGDALA",
+"names": [
+"Amygdaloid body.l",
+"Amygdaloid body.r"
+],
+"lines": []
+},
+{
+"id": "SYS_NERV_VENTRICLES",
+"names": [
+"Anterior papillary muscle of right ventricle",
+"Fourth ventricle",
+"Inferior papillary muscle of left ventricle",
+"Inferior papillary muscle of right ventricle",
+"Lateral ventricle.l",
+"Lateral ventricle.r",
+"Left ventricle",
+"Septal papillary muscle of right ventricle",
+"Right ventricle",
+"Third ventricle"
+],
+"lines": []
+},
+{
+"id": "SYS_NERV_SPINALCORD",
+"names": [
+"Anterior horn of spinal cord",
+"Posterior horn of spinal cord",
+"White matter of spinal cord"
+],
+"lines": []
+},
+{
+"id": "SYS_CV_VALVE_AORTIC",
+"names": [
+"Left coronary leaflet",
+"Non-coronary leaflet",
+"Right coronary leaflet"
+],
+"lines": []
+},
+{
+"id": "SYS_CV_VALVE_MITRAL",
+"names": [
+"Posterior leaflet of left atrioventricular valve"
+],
+"lines": []
+},
+{
+"id": "SYS_CV_VALVE_TRICUSPID",
+"names": [
+"Inferior leaflet of right atrioventricular valve",
+"Septal leaflet of right atrioventricular valve"
+],
+"lines": []
+},
+{
+"id": "SYS_CV_VALVE_PULMONARY",
+"names": [
+"Anterior semilunar leaflet of pulmonary valve",
+"Left semilunar leaflet of pulmonary valve",
+"Right semilunar leaflet of pulmonary valve"
+],
+"lines": []
+},
+{
+"id": "SYS_CV_PAPILLARY",
+"names": [
+"Anterior papillary muscle of right ventricle",
+"Inferior papillary muscle of left ventricle",
+"Inferior papillary muscle of right ventricle",
+"Septal papillary muscle of right ventricle"
+],
+"lines": []
+},
+{
+"id": "SYS_RESP_SINUS_FRONTAL",
+"names": [
+"Sinus of frontal bone"
+],
+"lines": []
+},
+{
+"id": "SYS_RESP_SINUS_SPHENOID",
+"names": [
+"Sinus of sphenoid bone"
+],
+"lines": []
+},
+{
+"id": "SYS_RESP_SINUS_ETHMOID",
+"names": [
+"Anterior cells of ethmoid bone.l",
+"Anterior cells of ethmoid bone.r",
+"Middle cells of ethmoid bone.l",
+"Middle cells of ethmoid bone.r",
+"Posterior cells of ethmoid bone.l",
+"Posterior cells of ethmoid bone.r"
+],
+"lines": []
+},
+{
+"id": "SYS_RESP_TURBINATES",
+"names": [
+"Inferior nasal concha bone.l",
+"Inferior nasal concha bone.r"
+],
+"lines": []
+},
+{
+"id": "SYS_RESP_NASAL_CAVITY",
+"names": [
+"Mucosa of nasal cavity"
+],
+"lines": []
+},
+{
+"id": "SYS_LYMPH_NODES",
+"names": [
+"Anterior axillary nodes.l",
+"Anterior axillary nodes.r",
+"Anterior inferior jugular nodes.l",
+"Anterior inferior jugular nodes.r",
+"Apical axillary nodes.l",
+"Apical axillary nodes.r",
+"Appendicular nodes",
+"Brachial nodes.l",
+"Brachial nodes.r",
+"Brachiocephalic nodes",
+"Bucinator node.l",
+"Bucinator node.r",
+"Central axillary nodes.l",
+"Central axillary nodes.r",
+"Central superior mesenteric nodes",
+"Coeliac nodes",
+"Cubital nodes.l",
+"Cubital nodes.r",
+"Cystic node",
+"Deep popliteal nodes.l",
+"Deep popliteal nodes.r",
+"Ileocolic nodes",
+"Inferior deep lateral cervical nodes.l",
+"Inferior deep lateral cervical nodes.r",
+"Inferior diaphragmatic nodes",
+"Inferior epigastric nodes.l",
+"Inferior epigastric nodes.r",
+"Inferior gluteal nodes.l",
+"Inferior gluteal nodes.r",
+"Inferior pancreatic nodes",
+"Inferior superficial inguinal nodes.l",
+"Inferior superficial inguinal nodes.r",
+"Inferior tracheobronchial nodes",
+"Infra-auricular nodes.l",
+"Infra-auricular nodes.r",
+"Infraclavicular nodes.l",
+"Infraclavicular nodes.r",
+"Intercostal nodes.l",
+"Intercostal nodes.r",
+"Intermediate common iliac nodes",
+"Intermediate external iliac nodes.l",
+"Intermediate external iliac nodes.r",
+"Intermediate lumbar nodes",
+"Interpectoral nodes.l",
+"Interpectoral nodes.r",
+"Intraglandular parotid nodes.l",
+"Intraglandular parotid nodes.r",
+"Intrapulmonary nodes",
+"Jugulodigastric node.l",
+"Jugulodigastric node.r",
+"Juxta-intestinal mesenteric nodes",
+"Juxta-oesophageal nodes",
+"Lateral aortic nodes",
+"Lateral axillary nodes.l",
+"Lateral axillary nodes.r",
+"Lateral caval nodes",
+"Lateral common iliac nodes",
+"Lateral pericardial nodes",
+"Lateral sacral nodes.l",
+"Lateral sacral nodes.r",
+"Lateral superior jugular node.l",
+"Lateral superior jugular node.r",
+"Lateral vesical nodes.l",
+"Lateral vesical nodes.r",
+"Left colic nodes",
+"Mandibular node.l",
+"Mandibular node.r",
+"Mastoid nodes.l",
+"Mastoid nodes.r",
+"Medial common iliac nodes",
+"Medial external iliac nodes.l",
+"Medial external iliac nodes.r",
+"Median sacral nodes",
+"Middle colic nodes",
+"Nasolabial node.l",
+"Nasolabial node.r",
+"Obturator nodes.l",
+"Obturator nodes.r",
+"Occipital nodes.l",
+"Occipital nodes.r",
+"Paracolic superior mesenteric nodes",
+"Pararectal nodes",
+"Parasternal nodes.l",
+"Parasternal nodes.r",
+"Paratracheal cervical nodes",
+"Paratracheal thoracic nodes",
+"Posterior axillary nodes.l",
+"Posterior axillary nodes.r",
+"Postvesical nodes",
+"Pre-aortic nodes",
+"Pre-auricular nodes.l",
+"Pre-auricular nodes.r",
+"Precaecal nodes",
+"Precaval nodes",
+"Prepericardial nodes",
+"Pretracheal nodes.l",
+"Pretracheal nodes.r",
+"Prevertebral nodes",
+"Prevesical nodes",
+"Retro-aortic nodes",
+"Retrocaecal nodes",
+"Retrocaval nodes",
+"Retropharyngeal nodes.l",
+"Retropharyngeal nodes.r",
+"Right colic nodes",
+"Right gastric nodes",
+"Right gastro-omental nodes",
+"Sigmoid nodes",
+"Splenic nodes",
+"Subaortic nodes",
+"Submandibular nodes.l",
+"Submandibular nodes.r",
+"Submental nodes.l",
+"Submental nodes.r",
+"Superficial anterior cervical nodes",
+"Superficial lateral cervical nodes.l",
+"Superficial lateral cervical nodes.r",
+"Superficial parotid nodes.l",
+"Superficial parotid nodes.r",
+"Superficial popliteal nodes.l",
+"Superficial popliteal nodes.r",
+"Superior diaphragmatic nodes",
+"Superior gluteal nodes.l",
+"Superior gluteal nodes.r",
+"Superior pancreatic nodes",
+"Superior pancreaticoduodenal nodes",
+"Superior tracheobronchial nodes",
+"Superolateral superficial inguinal nodes.l",
+"Superolateral superficial inguinal nodes.r",
+"Superomedial superficial inguinal nodes.l",
+"Superomedial superficial inguinal nodes.r",
+"Supraclavicular nodes.l",
+"Supraclavicular nodes.r",
+"Supratrochlear nodes.l",
+"Supratrochlear nodes.r",
+"Thyroid nodes.l",
+"Thyroid nodes.r"
+],
+"lines": []
+},
+{
+"id": "SYS_SK_ARTICULAR_CARTILAGE",
+"names": [
+"Acetabular labrum.l",
+"Acetabular labrum.r",
+"Glenoid labrum.l",
+"Glenoid labrum.r"
+],
+"lines": []
+},
+{
+"id": "SYS_CV_AORTIC_ARCH",
+"names": [],
+"lines": [
+"Aortic arch"
+]
+},
+{
+"id": "SYS_CV_AORTA_ASC",
+"names": [],
+"lines": [
+"Ascending aorta"
+]
+},
+{
+"id": "SYS_CV_AORTA_DESC",
+"names": [],
+"lines": [
+"Thoracic aorta"
+]
+},
+{
+"id": "SYS_CV_AORTA_ABD",
+"names": [],
+"lines": [
+"Abdominal aorta"
+]
+},
+{
+"id": "SYS_CV_BRACHIOCEPHALIC",
+"names": [],
+"lines": [
+"Brachiocephalic trunk"
+]
+},
+{
+"id": "SYS_CV_CAROTID",
+"names": [],
+"lines": [
+"Left common carotid artery",
+"Right common carotid artery"
+]
+},
+{
+"id": "SYS_CV_CAROTID_EXT",
+"names": [],
+"lines": [
+"External carotid artery.l",
+"External carotid artery.r"
+]
+},
+{
+"id": "SYS_CV_CAROTID_INT",
+"names": [],
+"lines": [
+"Internal carotid artery.l",
+"Internal carotid artery.r"
+]
+},
+{
+"id": "SYS_CV_JUGULAR",
+"names": [],
+"lines": [
+"Internal jugular vein.l",
+"Internal jugular vein.r"
+]
+},
+{
+"id": "SYS_CV_JUGULAR_EXT",
+"names": [],
+"lines": [
+"External jugular vein.l",
+"External jugular vein.r"
+]
+},
+{
+"id": "SYS_CV_SUBCLAVIAN",
+"names": [],
+"lines": [
+"Left subclavian artery",
+"Right subclavian artery"
+]
+},
+{
+"id": "SYS_CV_SUBCLAVIAN_VEIN",
+"names": [],
+"lines": [
+"Left subclavian vein",
+"Right subclavian vein"
+]
+},
+{
+"id": "SYS_CV_AXILLARY",
+"names": [],
+"lines": [
+"Axillary artery.l",
+"Axillary artery.r"
+]
+},
+{
+"id": "SYS_CV_AXILLARY_VEIN",
+"names": [],
+"lines": [
+"Axillary vein.l",
+"Axillary vein.r"
+]
+},
+{
+"id": "SYS_CV_BRACHIAL",
+"names": [],
+"lines": [
+"Brachial artery.l",
+"Brachial artery.r"
+]
+},
+{
+"id": "SYS_CV_BRACHIAL_VEIN",
+"names": [],
+"lines": [
+"Brachial veins.l",
+"Brachial veins.r"
+]
+},
+{
+"id": "SYS_CV_RADIAL",
+"names": [],
+"lines": [
+"Radial artery.l",
+"Radial artery.r"
+]
+},
+{
+"id": "SYS_CV_ULNAR",
+"names": [],
+"lines": [
+"Ulnar artery.l",
+"Ulnar artery.r"
+]
+},
+{
+"id": "SYS_CV_ILIAC",
+"names": [],
+"lines": [
+"Common iliac artery.l",
+"Common iliac artery.r"
+]
+},
+{
+"id": "SYS_CV_FEMORAL",
+"names": [],
+"lines": [
+"Femoral artery.l",
+"Femoral artery.r"
+]
+},
+{
+"id": "SYS_CV_POPLITEAL",
+"names": [],
+"lines": [
+"Popliteal artery.l",
+"Popliteal artery.r"
+]
+},
+{
+"id": "SYS_CV_ANT_TIBIAL",
+"names": [],
+"lines": [
+"Anterior tibial artery.l",
+"Anterior tibial artery.r"
+]
+},
+{
+"id": "SYS_CV_POST_TIBIAL",
+"names": [],
+"lines": [
+"Posterior tibial artery.l",
+"Posterior tibial artery.r"
+]
+},
+{
+"id": "SYS_CV_ILIAC_VEIN",
+"names": [],
+"lines": [
+"Common iliac vein.l",
+"Common iliac vein.r"
+]
+},
+{
+"id": "SYS_CV_FEMORAL_VEIN",
+"names": [],
+"lines": [
+"Femoral vein.l",
+"Femoral vein.r"
+]
+},
+{
+"id": "SYS_CV_POPLITEAL_VEIN",
+"names": [],
+"lines": [
+"Popliteal vein.l",
+"Popliteal vein.r"
+]
+},
+{
+"id": "SYS_CV_SAPHENOUS",
+"names": [],
+"lines": [
+"Great saphenous vein.l",
+"Great saphenous vein.r"
+]
+},
+{
+"id": "SYS_CV_PULMONARY_ARTERY",
+"names": [],
+"lines": [
+"Bifurcation of pulmonary trunk",
+"Left pulmonary artery",
+"Right pulmonary artery"
+]
+},
+{
+"id": "SYS_CV_PULMONARY_VEIN",
+"names": [],
+"lines": [
+"Left inferior pulmonary vein",
+"Left superior pulmonary vein",
+"Right inferior pulmonary vein",
+"Right superior pulmonary vein"
+]
+},
+{
+"id": "SYS_CV_CELIAC",
+"names": [],
+"lines": [
+"Coeliac trunk"
+]
+},
+{
+"id": "SYS_CV_SMA",
+"names": [],
+"lines": [
+"Superior mesenteric artery"
+]
+},
+{
+"id": "SYS_CV_PORTAL_VEIN",
+"names": [],
+"lines": [
+"Hepatic portal vein"
+]
+},
+{
+"id": "SYS_CV_RENAL_ARTERY",
+"names": [],
+"lines": [
+"Anterior branch of renal artery.l",
+"Anterior branch of renal artery.r",
+"Inferior suprarenal artery.l",
+"Inferior suprarenal artery.r",
+"Left renal artery",
+"Posterior branch of renal artery.l",
+"Posterior branch of renal artery.r",
+"Right renal artery"
+]
+},
+{
+"id": "SYS_CV_RENAL_VEIN",
+"names": [],
+"lines": [
+"Left renal vein",
+"Right renal vein"
+]
+},
+{
+"id": "SYS_CV_CORONARY_LAD",
+"names": [],
+"lines": [
+"Anterior interventricular artery",
+"Septal branches of anterior interventricular artery"
+]
+},
+{
+"id": "SYS_CV_CORONARY_CX",
+"names": [],
+"lines": [
+"Circumflex artery of heart"
+]
+},
+{
+"id": "SYS_CV_CORONARY_RCA",
+"names": [],
+"lines": [
+"Right coronary artery",
+"Right inferolateral branch of right coronary artery"
+]
+},
+{
+"id": "SYS_CV_CARDIAC_VEIN",
+"names": [],
+"lines": [
+"Coronary sinus",
+"Great cardiac vein",
+"Middle cardiac vein"
+]
+},
+{
+"id": "SYS_CV_INTERNAL_THORACIC",
+"names": [],
+"lines": [
+"Internal thoracic artery.l",
+"Internal thoracic artery.r"
+]
+},
+{
+"id": "SYS_CV_INTERCOSTAL_ARTERY",
+"names": [],
+"lines": [
+"First posterior intercostal artery.l",
+"First posterior intercostal artery.r",
+"Second posterior intercostal artery.l",
+"Second posterior intercostal artery.r",
+"Posterior intercostal arteries.l",
+"Posterior intercostal arteries.r",
+"Supreme intercostal artery.l",
+"Supreme intercostal artery.r"
+]
+},
+{
+"id": "SYS_CV_HEPATIC_ARTERY",
+"names": [],
+"lines": [
+"Common hepatic artery",
+"Proper hepatic artery"
+]
+},
+{
+"id": "SYS_CV_GASTRIC_ARTERY",
+"names": [],
+"lines": [
+"Left gastric artery"
+]
+},
+{
+"id": "SYS_CV_SPLENIC_ARTERY",
+"names": [],
+"lines": [
+"Splenic artery"
+]
+},
+{
+"id": "SYS_CV_MESENTERIC_ARTERIES",
+"names": [],
+"lines": [
+"Colic branch of ileocolic artery",
+"Ileal branch of ileocolic artery",
+"Ileocolic artery",
+"Middle colic artery",
+"Right colic artery",
+"Sigmoid arteries"
+]
+},
+{
+"id": "SYS_CV_IMA",
+"names": [],
+"lines": [
+"Inferior mesenteric artery"
+]
+},
+{
+"id": "SYS_CV_ILIAC_EXT",
+"names": [],
+"lines": [
+"External iliac artery.l",
+"External iliac artery.r"
+]
+},
+{
+"id": "SYS_CV_ILIAC_INT",
+"names": [],
+"lines": [
+"Internal iliac artery.l",
+"Internal iliac artery.r"
+]
+},
+{
+"id": "SYS_CV_PROFUNDA_FEMORIS",
+"names": [],
+"lines": [
+"Deep femoral artery.l",
+"Deep femoral artery.r"
+]
+},
+{
+"id": "SYS_CV_PERONEAL",
+"names": [],
+"lines": [
+"Fibular artery.l",
+"Fibular artery.r"
+]
+},
+{
+"id": "SYS_CV_DORSALIS_PEDIS",
+"names": [],
+"lines": [
+"Dorsalis pedis artery.l",
+"Dorsalis pedis artery.r"
+]
+},
+{
+"id": "SYS_CV_PLANTAR_ARTERY",
+"names": [],
+"lines": [
+"Deep plantar artery.l",
+"Deep plantar artery.r",
+"Lateral plantar artery.l",
+"Lateral plantar artery.r",
+"Medial plantar artery.l",
+"Medial plantar artery.r",
+"Plantar arch.l",
+"Plantar arch.r"
+]
+},
+{
+"id": "SYS_CV_PROFUNDA_BRACHII",
+"names": [],
+"lines": [
+"Deep brachial artery.l",
+"Deep brachial artery.r"
+]
+},
+{
+"id": "SYS_CV_PALMAR_ARCH",
+"names": [],
+"lines": [
+"Deep palmar arch.l",
+"Deep palmar arch.r",
+"Superficial palmar arch.l",
+"Superficial palmar arch.r"
+]
+},
+{
+"id": "SYS_CV_DIGITAL_ARTERY",
+"names": [],
+"lines": [
+"Common palmar digital arteries.l",
+"Common palmar digital arteries.r",
+"Proper palmar digital arteries.l",
+"Proper palmar digital arteries.r"
+]
+},
+{
+"id": "SYS_CV_SVC",
+"names": [],
+"lines": [
+"Superior vena cava"
+]
+},
+{
+"id": "SYS_CV_IVC",
+"names": [],
+"lines": [
+"Inferior vena cava (abdominal part)",
+"Inferior vena cava (thoracic part)"
+]
+},
+{
+"id": "SYS_CV_BRACHIOCEPHALIC_VEIN",
+"names": [],
+"lines": [
+"Left brachiocephalic vein",
+"Right brachiocephalic vein"
+]
+},
+{
+"id": "SYS_CV_DURAL_SINUS",
+"names": [],
+"lines": [
+"Anterior intercavernous sinus",
+"Inferior petrosal sinus.l",
+"Inferior petrosal sinus.r",
+"Inferior sagittal sinus",
+"Posterior intercavernous sinus",
+"Superior petrosal sinus.l",
+"Superior petrosal sinus.r",
+"Superior sagittal sinus"
+]
+},
+{
+"id": "SYS_CV_AZYGOS",
+"names": [],
+"lines": [
+"Accessory hemi-azygos vein",
+"Azygos vein",
+"Hemi-azygos vein"
+]
+},
+{
+"id": "SYS_CV_HEPATIC_VEIN",
+"names": [],
+"lines": [
+"Hepatic veins"
+]
+},
+{
+"id": "SYS_CV_SPLENIC_VEIN",
+"names": [],
+"lines": [
+"Splenic vein"
+]
+},
+{
+"id": "SYS_CV_SMV",
+"names": [],
+"lines": [
+"Superior mesenteric vein"
+]
+},
+{
+"id": "SYS_CV_IMV",
+"names": [],
+"lines": [
+"Inferior mesenteric vein"
+]
+},
+{
+"id": "SYS_CV_ILIAC_VEIN_EXT",
+"names": [],
+"lines": [
+"External iliac vein.l",
+"External iliac vein.r"
+]
+},
+{
+"id": "SYS_CV_TIBIAL_VEIN",
+"names": [],
+"lines": [
+"Anterior tibial veins.l",
+"Anterior tibial veins.r",
+"Posterior tibial veins.l",
+"Posterior tibial veins.r"
+]
+},
+{
+"id": "SYS_CV_SAPHENOUS_SMALL",
+"names": [],
+"lines": [
+"Small saphenous vein.l",
+"Small saphenous vein.r"
+]
+},
+{
+"id": "SYS_CV_DORSAL_VENOUS_ARCH",
+"names": [],
+"lines": [
+"Dorsal venous arch of foot.l",
+"Dorsal venous arch of foot.r"
+]
+},
+{
+"id": "SYS_CV_CEPHALIC",
+"names": [],
+"lines": [
+"Cephalic vein.l",
+"Cephalic vein.r"
+]
+},
+{
+"id": "SYS_CV_BASILIC",
+"names": [],
+"lines": [
+"Basilic vein.l",
+"Basilic vein.r"
+]
+},
+{
+"id": "SYS_CV_MEDIAN_CUBITAL",
+"names": [],
+"lines": [
+"Median cubital vein.l",
+"Median cubital vein.r"
+]
+},
+{
+"id": "SYS_CV_FACIAL_ARTERY",
+"names": [],
+"lines": [
+"Facial artery.l",
+"Facial artery.r"
+]
+},
+{
+"id": "SYS_CV_TEMPORAL_ARTERY",
+"names": [],
+"lines": [
+"Superficial temporal artery.l",
+"Superficial temporal artery.r"
+]
+},
+{
+"id": "SYS_CV_VERTEBRAL",
+"names": [],
+"lines": [
+"Vertebral artery.l",
+"Vertebral artery.r"
+]
+},
+{
+"id": "SYS_CV_BASILAR",
+"names": [],
+"lines": [
+"Basilar artery"
+]
+},
+{
+"id": "SYS_CV_CIRCLE_OF_WILLIS",
+"names": [],
+"lines": [
+"Posterior communicating artery.l",
+"Posterior communicating artery.r"
+]
+},
+{
+"id": "SYS_CV_ACA",
+"names": [],
+"lines": [
+"Anterior cerebral artery.l",
+"Anterior cerebral artery.r"
+]
+},
+{
+"id": "SYS_CV_MCA",
+"names": [],
+"lines": [
+"Middle cerebral artery (M1-segment).l",
+"Middle cerebral artery (M1-segment).r",
+"Middle cerebral artery (M3 segment).l",
+"Middle cerebral artery (M3-segment).r"
+]
+},
+{
+"id": "SYS_CV_PCA",
+"names": [],
+"lines": [
+"Posterior cerebral artery.l",
+"Posterior cerebral artery.r"
+]
+},
+{
+"id": "SYS_NERV_SCIATIC",
+"names": [],
+"lines": [
+"Sciatic nerve.l",
+"Sciatic nerve.r"
+]
+},
+{
+"id": "SYS_NERV_BRACHIAL_PLEXUS",
+"names": [],
+"lines": [
+"Anterior division of inferior trunk of brachial plexus.l",
+"Anterior division of inferior trunk of brachial plexus.r",
+"Anterior division of middle trunk of brachial plexus.l",
+"Anterior division of middle trunk of brachial plexus.r",
+"Anterior division of superior trunk of brachial plexus.l",
+"Anterior division of superior trunk of brachial plexus.r",
+"Inferior trunk of brachial plexus.l",
+"Inferior trunk of brachial plexus.r",
+"Middle trunk of brachial plexus.l",
+"Middle trunk of brachial plexus.r",
+"Posterior cord of brachial plexus.l",
+"Posterior cord of brachial plexus.r",
+"Posterior division of inferior trunk of brachial plexus.l",
+"Posterior division of inferior trunk of brachial plexus.r",
+"Posterior division of middle trunk of brachial plexus.l",
+"Posterior division of middle trunk of brachial plexus.r",
+"Posterior division of superior trunk of brachial plexus.l",
+"Posterior division of superior trunk of brachial plexus.r",
+"Roots of brachial plexus.l",
+"Roots of brachial plexus.r",
+"Superior trunk of brachial plexus.l",
+"Superior trunk of brachial plexus.r"
+]
+},
+{
+"id": "SYS_NERV_VAGUS",
+"names": [],
+"lines": [
+"Vagus nerve (X).l",
+"Vagus nerve (X).r"
+]
+},
+{
+"id": "SYS_NERV_RADIAL",
+"names": [],
+"lines": [
+"Radial nerve.l",
+"Radial nerve.r"
+]
+},
+{
+"id": "SYS_NERV_MEDIAN",
+"names": [],
+"lines": [
+"Median nerve.l",
+"Median nerve.r"
+]
+},
+{
+"id": "SYS_NERV_ULNAR",
+"names": [],
+"lines": [
+"Ulnar nerve.l",
+"Ulnar nerve.r"
+]
+},
+{
+"id": "SYS_NERV_FEMORAL",
+"names": [],
+"lines": [
+"Femoral nerve.l",
+"Femoral nerve.r"
+]
+},
+{
+"id": "SYS_NERV_TIBIAL",
+"names": [],
+"lines": [
+"Tibial nerve.l",
+"Tibial nerve.r"
+]
+},
+{
+"id": "SYS_NERV_FIBULAR_COMMON",
+"names": [],
+"lines": [
+"Common fibular nerve.l",
+"Common fibular nerve.r"
+]
+},
+{
+"id": "SYS_NERV_PUDENDAL",
+"names": [],
+"lines": [
+"Pudendal nerve.l",
+"Pudendal nerve.r"
+]
+},
+{
+"id": "SYS_NERV_OPTIC",
+"names": [],
+"lines": [
+"Optic nerve (II).l",
+"Optic nerve (II).r"
+]
+},
+{
+"id": "SYS_NERV_TRIGEMINAL",
+"names": [],
+"lines": [
+"Buccal nerve.l",
+"Buccal nerve.r",
+"Inferior alveolar nerve.l",
+"Inferior alveolar nerve.r",
+"Lingual nerve.l",
+"Lingual nerve.r",
+"Maxillary nerve.l",
+"Maxillary nerve.r",
+"Mental nerve.l",
+"Mental nerve.r",
+"Ophthalmic nerve.l",
+"Ophthalmic nerve.r",
+"Trigeminal nerve (V).l",
+"Trigeminal nerve (V).r"
+]
+},
+{
+"id": "SYS_NERV_FACIAL",
+"names": [],
+"lines": [
+"Facial nerve (VII).l",
+"Facial nerve (VII).r"
+]
+},
+{
+"id": "SYS_NERV_INTERCOSTAL",
+"names": [],
+"lines": [
+"Intercostal nerves.l",
+"Intercostal nerves.r"
+]
+},
+{
+"id": "SYS_NERV_MUSCULOCUTANEOUS",
+"names": [],
+"lines": [
+"Musculocutaneous nerve.l",
+"Musculocutaneous nerve.r"
+]
+},
+{
+"id": "SYS_NERV_AXILLARY",
+"names": [],
+"lines": [
+"Axillary nerve.l",
+"Axillary nerve.r"
+]
+},
+{
+"id": "SYS_NERV_RADIAL_DEEP",
+"names": [],
+"lines": [
+"Deep branch of radial nerve.l",
+"Deep branch of radial nerve.r",
+"Posterior interosseous nerve of forearm.l",
+"Posterior interosseous nerve of forearm.r"
+]
+},
+{
+"id": "SYS_NERV_DIGITAL_HAND",
+"names": [],
+"lines": [
+"Common palmar digital branches of median nerve.l",
+"Common palmar digital branches of median nerve.r",
+"Common palmar digital branches of ulnar nerve.l",
+"Common palmar digital branches of ulnar nerve.r",
+"Proper palmar digital branches of median nerve.l",
+"Proper palmar digital branches of median nerve.r",
+"Proper palmar digital branches of ulnar nerve.l",
+"Proper palmar digital branches of ulnar nerve.r"
+]
+},
+{
+"id": "SYS_NERV_SAPHENOUS",
+"names": [],
+"lines": [
+"Saphenous nerve.l",
+"Saphenous nerve.r"
+]
+},
+{
+"id": "SYS_NERV_OBTURATOR",
+"names": [],
+"lines": [
+"Obturator nerve.l",
+"Obturator nerve.r"
+]
+},
+{
+"id": "SYS_NERV_FEMORAL_CUTANEOUS",
+"names": [],
+"lines": [
+"Lateral femoral cutaneous nerve.l",
+"Lateral femoral cutaneous nerve.r"
+]
+},
+{
+"id": "SYS_NERV_FIBULAR_DEEP",
+"names": [],
+"lines": [
+"Deep fibular nerve.l",
+"Deep fibular nerve.r"
+]
+},
+{
+"id": "SYS_NERV_FIBULAR_SUPERFICIAL",
+"names": [],
+"lines": [
+"Superficial fibular nerve.l",
+"Superficial fibular nerve.r"
+]
+},
+{
+"id": "SYS_NERV_SURAL",
+"names": [],
+"lines": [
+"Sural nerve.l",
+"Sural nerve.r"
+]
+},
+{
+"id": "SYS_NERV_PLANTAR",
+"names": [],
+"lines": [
+"Lateral plantar nerve.l",
+"Lateral plantar nerve.r",
+"Medial plantar nerve.l",
+"Medial plantar nerve.r"
+]
+},
+{
+"id": "SYS_NERV_OLFACTORY",
+"names": [],
+"lines": [
+"Olfactory nerve (I).l",
+"Olfactory nerve (I).r"
+]
+},
+{
+"id": "SYS_NERV_OCULOMOTOR",
+"names": [],
+"lines": [
+"Oculomotor nerve (III).l",
+"Oculomotor nerve (III).r"
+]
+},
+{
+"id": "SYS_NERV_TROCHLEAR",
+"names": [],
+"lines": [
+"Trochlear nerve (IV).l",
+"Trochlear nerve (IV).r"
+]
+},
+{
+"id": "SYS_NERV_ABDUCENS",
+"names": [],
+"lines": [
+"Abducens nerve (VI).l",
+"Abducens nerve (VI).r"
+]
+},
+{
+"id": "SYS_NERV_VESTIBULOCOCHLEAR",
+"names": [],
+"lines": [
+"Cochlear nerve.l",
+"Vestibular nerve.l",
+"Vestibular nerve.r",
+"Vestibulocochlear nerve (VIII).l",
+"Vestibulocochlear nerve (VIII).r"
+]
+},
+{
+"id": "SYS_NERV_GLOSSOPHARYNGEAL",
+"names": [],
+"lines": [
+"Glossopharyngeal nerve (IX).l",
+"Glossopharyngeal nerve (IX).r"
+]
+},
+{
+"id": "SYS_NERV_ACCESSORY",
+"names": [],
+"lines": [
+"Accessory nerve (XI).l",
+"Accessory nerve (XI).r"
+]
+},
+{
+"id": "SYS_NERV_HYPOGLOSSAL",
+"names": [],
+"lines": [
+"Hypoglossal nerve (XII).l",
+"Hypoglossal nerve (XII).r"
+]
+},
+{
+"id": "SYS_NERV_SYMPATHETIC_TRUNK",
+"names": [],
+"lines": [
+"Sympathetic nerves.l",
+"Sympathetic nerves.r",
+"Sympathetic trunk.l",
+"Sympathetic trunk.r"
+]
+},
+{
+"id": "SYS_NERV_CAUDA_EQUINA",
+"names": [],
+"lines": [
+"Cauda equina"
+]
+},
+{
+"id": "SYS_MUSC_PATELLAR_TENDON",
+"names": [],
+"lines": [
+"Patellar ligament.l",
+"Patellar ligament.r"
+]
+}
+]
+}

@@ -52,6 +52,28 @@ namespace HumanBodyExplorer.EditorTools.Geometry
             Debug.Log($"[MeshAssets] {Produced.Count} meshes written, {removed} stale removed.");
         }
 
+        /// <summary>Keep only the meshes the scene actually uses; anything else this build saved (a stand-in
+        /// that something replaced) is cleaned up as stale.</summary>
+        public static void KeepOnlyUsedBy(Transform root)
+        {
+            var used = new HashSet<string>();
+            foreach (var filter in root.GetComponentsInChildren<MeshFilter>(true))
+            {
+                string path = filter.sharedMesh != null ? AssetDatabase.GetAssetPath(filter.sharedMesh) : null;
+                if (!string.IsNullOrEmpty(path)) used.Add(path);
+            }
+            Produced.IntersectWith(used);
+        }
+
+        /// <summary>Drop a mesh from this build's output so it is cleaned up as stale, for when something
+        /// replaces it after it was saved.</summary>
+        public static void Forget(Mesh mesh)
+        {
+            if (mesh == null) return;
+            string path = AssetDatabase.GetAssetPath(mesh);
+            if (!string.IsNullOrEmpty(path)) Produced.Remove(path);
+        }
+
         /// <summary>Save (or overwrite) the mesh and return the persistent asset.</summary>
         public static Mesh Save(Mesh mesh, string assetName)
         {

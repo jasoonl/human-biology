@@ -100,8 +100,103 @@ namespace HumanBodyExplorer.EditorTools.Geometry
                 : Sdf.SmoothUnion(0.035f, head, neck, torso, Sdf.MirrorX(arm), Sdf.MirrorX(leg), genitals);
         }
 
+
+        // ------------------------------------------------------------ features the atlas leaves out
+
+        /// <summary>Distance along a ray, from <paramref name="origin"/>, to where the field first goes negative
+        /// (into the body); negative when it never does.</summary>
+        private static float Surface(SdfFunc f, Vector3 origin, Vector3 dir, float max)
+        {
+            float prev = 0f;
+            for (float t = 0f; t <= max; t += 0.002f)
+            {
+                if (f(origin + dir * t) < 0f)
+                {
+                    // bisect between the last outside sample and this one
+                    float lo = prev, hi = t;
+                    for (int i = 0; i < 12; i++)
+                    {
+                        float mid = (lo + hi) * 0.5f;
+                        if (f(origin + dir * mid) < 0f) hi = mid; else lo = mid;
+                    }
+                    return hi;
+                }
+                prev = t;
+            }
+            return -1f;
+        }
+
+        /// <summary>Eyes and lips: the atlas' skin fit smooths both away, so put them back where the eyeballs and
+        /// the mouth are.</summary>
+        private static SdfFunc WithFace(SdfFunc body)
+        {
+            // Eyeball centres, from the atlas, in figure space.
+            var eye = Sdf.MirrorX(Sdf.Ellipsoid(new Vector3(0.0314f, 1.627f, -0.071f), new Vector3(0.0158f, 0.0138f, 0.0150f)));
+            var lidCrease = Sdf.MirrorX(Sdf.Ellipsoid(new Vector3(0.0314f, 1.6395f, -0.0715f), new Vector3(0.0170f, 0.0060f, 0.0140f)));
+
+            float z = Surface(body, new Vector3(0f, 1.560f, -0.30f), Vector3.forward, 0.4f);
+            if (z < 0f) return Sdf.SmoothUnion(0.004f, body, eye, lidCrease);
+            float lipZ = -0.30f + z;
+
+            var upper = Sdf.Ellipsoid(new Vector3(0f, 1.5715f, lipZ + 0.0065f), new Vector3(0.0260f, 0.0078f, 0.0105f));
+            var lower = Sdf.Ellipsoid(new Vector3(0f, 1.5490f, lipZ + 0.0065f), new Vector3(0.0225f, 0.0095f, 0.0110f));
+            SdfFunc faced = Sdf.SmoothUnion(0.008f, body, eye, lidCrease, upper, lower);
+            // The line where the lips meet: a shallow crease, not a slot.
+            var seam = Sdf.Ellipsoid(new Vector3(0f, 1.5603f, lipZ - 0.0035f), new Vector3(0.0205f, 0.0011f, 0.0045f));
+            return Sdf.Subtract(faced, seam);
+        }
+
+        /// <summary>The atlas has no outer ear, so add one at each side of the head, placed where the skin is.</summary>
+        private static SdfFunc WithEars(SdfFunc body)
+        {
+            float x = Surface(body, new Vector3(0.20f, 1.62f, 0.012f), Vector3.left, 0.2f);
+            if (x < 0f) return body;
+            float surfaceX = 0.20f - x;
+
+            // A flange standing off the side of the head, its back edge flared out, with a shallow bowl in front.
+            var pinna = Sdf.Ellipsoid(new Vector3(surfaceX + 0.003f, 1.618f, 0.016f), new Vector3(0.0085f, 0.033f, 0.021f), Quaternion.Euler(0f, 18f, -6f));
+            var bowl = Sdf.Ellipsoid(new Vector3(surfaceX + 0.0125f, 1.616f, 0.010f), new Vector3(0.0065f, 0.016f, 0.010f), Quaternion.Euler(0f, 18f, 0f));
+            var ear = Sdf.MirrorX(Sdf.Subtract(pinna, bowl));
+            return Sdf.SmoothUnion(0.006f, body, ear);
+        }
+
+        /// <summary>The female exterior (already fitted without genitals): a fuller chest.</summary>
+        private static SdfFunc WithFemaleExterior(SdfFunc male)
+        {
+            SdfFunc smooth = male;
+
+            float z = Surface(male, new Vector3(0.09f, 1.26f, -0.30f), Vector3.forward, 0.4f);
+            if (z < 0f) return smooth;
+            float surfaceZ = -0.30f + z;
+
+            var breast = Sdf.MirrorX(Sdf.Ellipsoid(new Vector3(0.09f, 1.255f, surfaceZ + 0.010f), new Vector3(0.062f, 0.058f, 0.036f)));
+            return Sdf.SmoothUnion(0.03f, smooth, breast);
+        }
+
         public static void Build(Transform root, Material skin, int layer)
         {
+            if (ZAnatomy.Available)
+            {
+                // A shell fitted around the real atlas anatomy, so it takes its shape from the muscles beneath.
+                SdfFunc fitted = ZAnatomy.SkinField();
+                SdfFunc male = WithEars(WithFace(fitted));
+                SdfFunc womanField = WithFemaleExterior(WithEars(WithFace(ZAnatomy.SkinField(true))));
+                Field = male;
+
+                var gridMin = new Vector3(-0.46f, -0.02f, -0.24f);
+                var gridMax = new Vector3(0.46f, 1.80f, 0.24f);
+                // The skin shader needs no UVs, so leave them out: the mesh is large.
+                Mesh maleBuilt = SurfaceNets.Build(male, gridMin, gridMax, 0.004f, "SkinShell", 2f);
+                Mesh femaleBuilt = SurfaceNets.Build(womanField, gridMin, gridMax, 0.004f, "SkinShellFemale", 2f);
+                maleBuilt.uv = null;
+                femaleBuilt.uv = null;
+                Mesh maleMesh = PartFactory.Save(maleBuilt, "SkinShell");
+                Mesh femaleMesh = PartFactory.Save(femaleBuilt, "SkinShellFemale");
+                PartFactory.Add(root, "Skin", "SYS_INTEG_SKIN", maleMesh, skin, layer);
+                PartFactory.Add(root, SkinFemaleName, "SYS_INTEG_SKIN", femaleMesh, skin, layer);
+                return;
+            }
+
             Field = BuildField();
             var min = new Vector3(-0.32f, -0.02f, -0.26f);
             var max = new Vector3(0.32f, 1.78f, 0.20f);

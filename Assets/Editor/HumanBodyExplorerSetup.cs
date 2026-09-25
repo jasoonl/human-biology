@@ -341,6 +341,8 @@ namespace HumanBodyExplorer.EditorTools
             int vessels = VesselBuilder.Build(root.transform, arteryFlowMat, veinFlowMat, lymphMat, anatomyLayer);
             int nerves = NerveBuilder.Build(root.transform, nerveMat, anatomyLayer);
             Debug.Log($"[HumanBodyExplorerSetup] {vessels} vessel and {nerves} nerve meshes.");
+            Debug.Log($"[HumanBodyExplorerSetup] {ZAnatomy.Apply(root.transform)} structures replaced with Z-Anatomy meshes.");
+            MeshAssets.KeepOnlyUsedBy(root.transform);
             MeshAssets.EndBuild();
             _partCount = root.GetComponentsInChildren<AnatomyNodeReference>().Length;
 
@@ -619,7 +621,7 @@ namespace HumanBodyExplorer.EditorTools
             var infoPanel = CreatePanel(canvasGO.transform, "InfoPanel",
                 anchorMin: new Vector2(1, 0), anchorMax: new Vector2(1, 0),
                 pivot: new Vector2(1, 0), anchoredPos: new Vector2(-30, 30), size: new Vector2(780, 430));
-            var infoText = CreateText(infoPanel.transform, "InfoText", "Point at a part to see its name; click to isolate it and read about it. Esc or empty space clears; H toggles ghosting.\n\nView: drag to orbit, right-drag or Shift+drag (or WASD/arrows, Q/E) to move, scroll to zoom, double-click to centre on a spot, R to reset.", 20);
+            var infoText = CreateText(infoPanel.transform, "InfoText", "Point at a part to see its name; click to isolate it and read about it. Esc or empty space clears; H toggles ghosting.\n\nView: drag to orbit, right-drag or Shift+drag (or WASD/arrows, Q/E) to move, scroll to zoom, double-click to centre on a spot, R to reset.\n\nAnatomy models: Z-Anatomy and BodyParts3D (CC BY-SA).", 20);
             StretchToParent(infoText.rectTransform, padding: 20);
             infoText.alignment = TextAlignmentOptions.TopLeft;
 

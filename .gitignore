@@ -50,3 +50,6 @@ sysinfo.txt
 
 # Crashlytics
 crashlytics-build.properties
+
+# Z-Anatomy source data (large, fetched separately - see Tools/ZAnatomy/README.md)
+ZAnatomyData/

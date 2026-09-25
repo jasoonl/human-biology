@@ -133,3 +133,10 @@ The Skin button cycles Ghost (translucent, default), Solid (opaque skin tone, li
 and the outline ignore the bones beneath) and Off. Selecting a part turns a solid skin into a ghost until it is
 cleared; clicking the solid skin peels it to Ghost. Logic is in `AnatomyLayerVisibility` (`SkinLook`), the
 `_Solid`/`_ZWrite` properties of `SkinShell.shader`, and `AnatomyHighlighter` (hover is blocked behind a solid skin).
+
+## Z-Anatomy anatomy
+Bones, muscles, organs, brain, vessels, nerves and the skin now come from the Z-Anatomy atlas (CC BY-SA 4.0, see
+`NOTICE.md` and `Tools/ZAnatomy/README.md`). `Geometry/ZAnatomy.cs` swaps each mapped entity's sculpt for the atlas mesh
+after the builders run (ids, layers and materials are kept; `zanatomy_map.json` is the id mapping). The skin is a shell
+fitted around the atlas structures (`SkinField`), with eyes, lips and ears added and a female variant. Anything the atlas
+lacks (female organs, some heart internals) keeps its own sculpt. Source data lives in the git-ignored `ZAnatomyData/`.
