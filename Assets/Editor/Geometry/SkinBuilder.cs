@@ -440,6 +440,20 @@ namespace HumanBodyExplorer.EditorTools.Geometry
             if (z < 0f) return smooth;
             float surfaceZ = -0.30f + z;
 
+            // Vulva: the mons pubis and the two labia majora with the cleft between them (the atlas fit leaves the
+            // crotch as a bare, featureless surface).
+            SdfFunc vulva = smooth;
+            float vz = Surface(male, new Vector3(0f, 0.815f, -0.30f), Vector3.forward, 0.4f);
+            if (vz > 0f)
+            {
+                float zf = -0.30f + vz;
+                var mons = Sdf.Ellipsoid(new Vector3(0f, 0.822f, zf + 0.002f), new Vector3(0.030f, 0.020f, 0.012f));
+                var labia = Sdf.MirrorX(Sdf.Ellipsoid(new Vector3(0.0105f, 0.790f, zf + 0.004f), new Vector3(0.0085f, 0.032f, 0.0110f), Quaternion.Euler(-8f, 0f, 0f)));
+                var cleft = Sdf.Ellipsoid(new Vector3(0f, 0.790f, zf + 0.0135f), new Vector3(0.0012f, 0.020f, 0.0030f));
+                vulva = Sdf.Subtract(Sdf.SmoothUnion(0.012f, smooth, mons, labia), cleft);
+            }
+            smooth = vulva;
+
             var breast = Sdf.MirrorX(Sdf.Ellipsoid(new Vector3(0.09f, 1.255f, surfaceZ + 0.010f), new Vector3(0.062f, 0.058f, 0.036f)));
             return Sdf.SmoothUnion(0.03f, smooth, breast);
         }
