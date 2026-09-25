@@ -277,7 +277,7 @@ namespace HumanBodyExplorer.EditorTools.Geometry
             // lower than the atlas' one.
             foreach (var node in root.GetComponentsInChildren<AnatomyNodeReference>(true))
                 if (node.EntityId != null && node.EntityId.StartsWith("SYS_REP_F_", StringComparison.Ordinal))
-                    node.transform.position += new Vector3(0f, 0.035f, 0f);
+                    node.transform.position += new Vector3(0f, 0.015f, 0.010f);   // up, and behind the bladder
             return replaced;
         }
 

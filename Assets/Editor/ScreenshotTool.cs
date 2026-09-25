@@ -146,6 +146,8 @@ namespace HumanBodyExplorer.EditorTools
             new View { Name = "82_torso_vessels_organs", Target = new Vector3(0f, 1.2f, 0f), Distance = 1.0f, Fov = 30f, Visible = new[] { AnatomyLayerGroup.Circulatory, AnatomyLayerGroup.Organs, AnatomyLayerGroup.Skeletal } },
             new View { Name = "83_gut", Target = new Vector3(0f, 0.95f, 0f), Distance = 0.9f, Fov = 30f, Visible = new[] { AnatomyLayerGroup.Organs, AnatomyLayerGroup.Skeletal } },
             new View { Name = "84_nerves_spine", Target = new Vector3(0f, 1.25f, 0.05f), Distance = 1.0f, Fov = 30f, Yaw = 180f, Visible = new[] { AnatomyLayerGroup.Nervous } },
+            new View { Name = "85_lungs", Target = new Vector3(0f, 1.25f, -0.02f), Distance = 0.8f, Fov = 30f, Yaw = 40f, Visible = new[] { AnatomyLayerGroup.Organs } },
+            new View { Name = "86_head_back", Target = new Vector3(0f, 1.6f, 0f), Distance = 0.6f, Fov = 30f, Yaw = 150f, Solid = true, Visible = new[] { AnatomyLayerGroup.Skin } },
             new View { Name = "63_ghost_face", Target = new Vector3(0f, 1.6f, -0.05f), Distance = 0.55f, Fov = 30f,
                 Visible = new[] { AnatomyLayerGroup.Skin, AnatomyLayerGroup.Skeletal } },
             new View { Name = "23_foot_vessels_nerves", Target = new Vector3(0.09f, 0.06f, -0.04f), Distance = 0.5f,

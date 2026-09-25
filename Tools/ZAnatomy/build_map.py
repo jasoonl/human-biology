@@ -163,7 +163,22 @@ if not any(o['name'] == 'Rectum' for o in lines_all):
     lines_all.append({'name': 'Ileum', 'coll': '8: Visceral systems', 'bevel': 0.001,
                       'lines': [{'p': [c for q in ile for c in q], 'r': [10.5] * len(ile)}]})
     json.dump(lines_all, open(os.path.join(root, 'ZAnatomyData', 'zana_lines.json'), 'w'))
-line_names = [o['name'] for o in lines_all if o['coll'][:2] in ('5:', '7:') or o['name'].startswith('Patellar ligament') or o['name'] in ('Rectum', 'Caecum', 'Ileum')]
+# Structures the atlas lacks: maxillary sinuses, renal pyramids, bulbourethral glands (atlas axes: x left, y up, z back).
+if not any(o['name'].startswith('Maxillary sinus') for o in lines_all):
+    for sx, sfx in ((1, '.l'), (-1, '.r')):
+        lines_all.append({'name': 'Maxillary sinus' + sfx, 'coll': '8: Visceral systems', 'bevel': 0.001,
+                          'lines': [{'p': [sx * 0.028, 1.572, -0.060, sx * 0.031, 1.566, -0.052, sx * 0.034, 1.560, -0.042], 'r': [13.0, 14.0, 12.0]}]})
+        lines_all.append({'name': 'Bulbourethral gland' + sfx, 'coll': '8: Visceral systems', 'bevel': 0.001,
+                          'lines': [{'p': [sx * 0.010, 0.792, 0.004, sx * 0.010, 0.789, 0.007], 'r': [4.5, 4.5]}]})
+        kx, ky, kz = sx * 0.058, 1.112, 0.018     # centre of the kidney
+        pyr = []
+        for k in range(7):
+            a = (k - 3) * 0.36
+            pyr.append({'p': [kx + sx * 0.006 * math.cos(a), ky + 0.010 * math.sin(a), kz,
+                              kx + sx * 0.019 * math.cos(a), ky + 0.040 * math.sin(a), kz], 'r': [3.4, 3.4]})
+        lines_all.append({'name': 'Renal pyramids' + sfx, 'coll': '8: Visceral systems', 'bevel': 0.001, 'lines': pyr})
+    json.dump(lines_all, open(os.path.join(root, 'ZAnatomyData', 'zana_lines.json'), 'w'))
+line_names = [o['name'] for o in lines_all if o['coll'][:2] in ('5:', '7:') or o['name'].startswith('Patellar ligament') or o['name'] in ('Rectum', 'Caecum', 'Ileum') or o['name'].startswith(('Maxillary sinus', 'Bulbourethral gland', 'Renal pyramids'))]
 L = []
 def line(i, pat, ex=None, ymin=None, ymax=None): L.append((i, pat, ex, ymin, ymax))
 for i, p in [
@@ -207,6 +222,7 @@ for i, p in [
  ('SYMPATHETIC_TRUNK', r'^(Sympathetic trunk|Sympathetic nerves)'), ('CAUDA_EQUINA', r'^Cauda equina'),
 ]: line('SYS_NERV_' + i, p)
 line('SYS_MUSC_PATELLAR_TENDON', r'^Patellar ligament')
+line('SYS_RESP_SINUS_MAXILLARY', r'^Maxillary sinus'); line('SYS_REP_M_BULBOURETHRAL_GLAND', r'^Bulbourethral gland'); line('SYS_REN_MEDULLA', r'^Renal pyramids')
 line('SYS_DIG_RECTUM', r'^Rectum$'); line('SYS_DIG_CECUM', r'^Caecum$'); line('SYS_DIG_ILEUM', r'^Ileum$')
 line('SYS_NERV_SPINAL_CERVICAL', r'root of spinal nerve', None, 1.43, 9); line('SYS_NERV_SPINAL_THORACIC', r'root of spinal nerve', None, 1.19, 1.43)
 line('SYS_NERV_SPINAL_LUMBAR', r'root of spinal nerve', None, -9, 1.19)

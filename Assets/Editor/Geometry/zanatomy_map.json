@@ -3190,6 +3190,30 @@
 ]
 },
 {
+"id": "SYS_RESP_SINUS_MAXILLARY",
+"names": [],
+"lines": [
+"Maxillary sinus.l",
+"Maxillary sinus.r"
+]
+},
+{
+"id": "SYS_REP_M_BULBOURETHRAL_GLAND",
+"names": [],
+"lines": [
+"Bulbourethral gland.l",
+"Bulbourethral gland.r"
+]
+},
+{
+"id": "SYS_REN_MEDULLA",
+"names": [],
+"lines": [
+"Renal pyramids.l",
+"Renal pyramids.r"
+]
+},
+{
 "id": "SYS_DIG_RECTUM",
 "names": [],
 "lines": [

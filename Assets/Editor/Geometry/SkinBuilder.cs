@@ -151,6 +151,55 @@ namespace HumanBodyExplorer.EditorTools.Geometry
             return Sdf.Subtract(faced, seam);
         }
 
+        // ------------------------------------------------------------------ hair and colouring
+
+        /// <summary>1 on the scalp above the hairline, 0 elsewhere (the hairline is higher on the forehead than at the
+        /// nape, and rises above the ears).</summary>
+        private static float HairWeight(Vector3 p)
+        {
+            if (Mathf.Abs(p.x) > 0.115f || p.z < -0.11f || p.z > 0.125f || p.y > 1.82f) return 0f;
+            float hairline = Mathf.Lerp(1.700f, 1.585f, Mathf.SmoothStep(0f, 1f, Mathf.InverseLerp(-0.075f, 0.005f, p.z)));
+            float w = Mathf.SmoothStep(0f, 1f, Mathf.InverseLerp(hairline, hairline + 0.012f, p.y));
+            // Keep the ears clear of hair.
+            float ear = Mathf.SmoothStep(0f, 1f, Mathf.InverseLerp(0.066f, 0.078f, Mathf.Abs(p.x)))
+                        * Mathf.SmoothStep(0f, 1f, Mathf.InverseLerp(0.060f, 0.040f, Mathf.Abs(p.z - 0.016f)))
+                        * Mathf.SmoothStep(0f, 1f, Mathf.InverseLerp(1.672f, 1.655f, p.y));
+            return w * (1f - ear);
+        }
+
+        /// <summary>Hair as a few millimetres of extra thickness on the scalp.</summary>
+        private static SdfFunc WithHair(SdfFunc body) => p =>
+        {
+            float w = HairWeight(p);
+            return w > 0f ? body(p) - 0.0045f * w : body(p);
+        };
+
+        /// <summary>Vertex colours multiplied into the skin tone: dark hair and brows, red lips.</summary>
+        private static void Paint(Mesh mesh)
+        {
+            Vector3[] v = mesh.vertices;
+            var colours = new Color[v.Length];
+            var hair = new Color(0.38f, 0.29f, 0.23f);
+            var brow = new Color(0.30f, 0.24f, 0.20f);
+            var lip = new Color(0.90f, 0.62f, 0.72f);
+            for (int i = 0; i < v.Length; i++)
+            {
+                Vector3 p = v[i];
+                Color c = Color.white;
+                float h = HairWeight(p);
+                if (h > 0f) c = Color.Lerp(c, hair, h);
+
+                float ax = Mathf.Abs(p.x);
+                float browW = Mathf.Clamp01(1f - Mathf.Abs(p.y - 1.651f) / 0.006f) * Mathf.Clamp01(1f - Mathf.Abs(ax - 0.035f) / 0.024f) * (p.z < -0.070f ? 1f : 0f);
+                if (browW > 0f) c = Color.Lerp(c, brow, browW);
+
+                float lipW = Mathf.Clamp01(1f - Mathf.Abs(p.y - 1.5595f) / 0.0145f) * Mathf.Clamp01(1f - ax / 0.030f) * (p.z < -0.092f ? 1f : 0f);
+                if (lipW > 0f) c = Color.Lerp(c, lip, Mathf.SmoothStep(0f, 1f, lipW));
+                colours[i] = c;
+            }
+            mesh.colors = colours;
+        }
+
         /// <summary>The atlas has no outer ear, so add one at each side of the head, placed where the skin is.</summary>
         private static SdfFunc WithEars(SdfFunc body)
         {
@@ -184,8 +233,8 @@ namespace HumanBodyExplorer.EditorTools.Geometry
             {
                 // A shell fitted around the real atlas anatomy, so it takes its shape from the muscles beneath.
                 SdfFunc fitted = ZAnatomy.SkinField();
-                SdfFunc male = WithEars(WithFace(fitted));
-                SdfFunc womanField = WithFemaleExterior(WithEars(WithFace(ZAnatomy.SkinField(true))));
+                SdfFunc male = WithHair(WithEars(WithFace(fitted)));
+                SdfFunc womanField = WithFemaleExterior(WithHair(WithEars(WithFace(ZAnatomy.SkinField(true)))));
                 Field = male;
 
                 var gridMin = new Vector3(-0.46f, -0.02f, -0.24f);
@@ -193,6 +242,8 @@ namespace HumanBodyExplorer.EditorTools.Geometry
                 // The skin shader needs no UVs, so leave them out: the mesh is large.
                 Mesh maleBuilt = SurfaceNets.Build(male, gridMin, gridMax, 0.004f, "SkinShell", 2f);
                 Mesh femaleBuilt = SurfaceNets.Build(womanField, gridMin, gridMax, 0.004f, "SkinShellFemale", 2f);
+                Paint(maleBuilt);
+                Paint(femaleBuilt);
                 maleBuilt.uv = null;
                 femaleBuilt.uv = null;
                 Mesh maleMesh = PartFactory.Save(maleBuilt, "SkinShell");

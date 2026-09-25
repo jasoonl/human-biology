@@ -54,6 +54,7 @@ Shader "HumanBodyExplorer/SkinShell"
             {
                 float4 positionOS : POSITION;
                 float3 normalOS : NORMAL;
+                float4 color : COLOR;
             };
 
             struct Varyings
@@ -61,6 +62,7 @@ Shader "HumanBodyExplorer/SkinShell"
                 float4 positionCS : SV_POSITION;
                 float3 normalWS : TEXCOORD0;
                 float3 viewDirWS : TEXCOORD1;
+                float3 tint : TEXCOORD2;
             };
 
             Varyings vert(Attributes IN)
@@ -70,6 +72,7 @@ Shader "HumanBodyExplorer/SkinShell"
                 OUT.positionCS = positions.positionCS;
                 OUT.normalWS = TransformObjectToWorldNormal(IN.normalOS);
                 OUT.viewDirWS = GetWorldSpaceViewDir(positions.positionWS);
+                OUT.tint = IN.color.rgb;   // hair, brows and lips are painted onto the skin mesh as vertex colour
                 return OUT;
             }
 
@@ -86,7 +89,7 @@ Shader "HumanBodyExplorer/SkinShell"
                     float rim = pow(1.0 - saturate(dot(n, v)), 3.0);
                     float3 h = normalize(sun.direction + v);
                     float spec = pow(saturate(dot(n, h)), 40.0) * 0.07;
-                    float3 lit = _BaseColor.rgb * (0.30 + 0.80 * wrap) * (0.6 + 0.4 * sun.color);
+                    float3 lit = _BaseColor.rgb * IN.tint * (0.30 + 0.80 * wrap) * (0.6 + 0.4 * sun.color);
                     lit += float3(0.16, 0.05, 0.03) * rim * wrap;         // warm blood-colour glow at grazing angles
                     lit += spec;
                     return half4(lit, 1.0);
@@ -98,7 +101,7 @@ Shader "HumanBodyExplorer/SkinShell"
 
                 Light light = GetMainLight();
                 float diffuse = saturate(dot(n, light.direction)) * 0.5 + 0.5;
-                float3 colour = _BaseColor.rgb * (_Ambient + (1.0 - _Ambient) * diffuse);
+                float3 colour = _BaseColor.rgb * IN.tint * (_Ambient + (1.0 - _Ambient) * diffuse);
 
                 return half4(colour, alpha);
             }
