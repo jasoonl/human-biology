@@ -142,9 +142,30 @@ if not any(o['name'].startswith('Patellar ligament') for o in lines_all):
         lines_all.append({'name': 'Patellar ligament' + sfx, 'coll': '4: Muscular system', 'bevel': 0.001,
                           'lines': [{'p': [c for q in pts for c in (q[0] * sx, q[1], q[2])], 'r': [6.0, 6.5, 7.0]}]})
     json.dump(lines_all, open(os.path.join(root, 'ZAnatomyData', 'zana_lines.json'), 'w'))
-line_names = [o['name'] for o in lines_all if o['coll'][:2] in ('5:', '7:') or o['name'].startswith('Patellar ligament')]
+# Hand-placed gut segments the atlas male model lacks: rectum and anal canal, caecum, and a coiled ileum.
+import math
+if not any(o['name'] == 'Rectum' for o in lines_all):
+    rect = [(0.0, 0.86, 0.045), (0.0, 0.830, 0.058), (0.0, 0.805, 0.060), (0.0, 0.785, 0.048), (0.0, 0.778, 0.040), (0.0, 0.774, 0.034)]
+    lines_all.append({'name': 'Rectum', 'coll': '8: Visceral systems', 'bevel': 0.001,
+                      'lines': [{'p': [c for q in rect for c in q], 'r': [13.0, 14.0, 14.0, 12.0, 9.0, 8.0]}]})
+    cae = [(-0.092, 0.936, -0.018), (-0.092, 0.914, -0.016), (-0.090, 0.895, -0.014)]
+    lines_all.append({'name': 'Caecum', 'coll': '8: Visceral systems', 'bevel': 0.001,
+                      'lines': [{'p': [c for q in cae for c in q], 'r': [27.0, 30.0, 22.0]}]})
+    ile = []
+    for i in range(0, 61):
+        t = i / 60.0
+        row = int(t * 4.999)
+        u = (t * 5.0) % 1.0
+        x = (-0.075 + 0.15 * u) if row % 2 == 0 else (0.075 - 0.15 * u)
+        y = 0.872 + 0.012 * row + 0.008 * math.sin(u * math.pi * 3)
+        z = -0.050 - 0.020 * math.sin(u * math.pi) + 0.006 * row
+        ile.append((x, y, z))
+    lines_all.append({'name': 'Ileum', 'coll': '8: Visceral systems', 'bevel': 0.001,
+                      'lines': [{'p': [c for q in ile for c in q], 'r': [10.5] * len(ile)}]})
+    json.dump(lines_all, open(os.path.join(root, 'ZAnatomyData', 'zana_lines.json'), 'w'))
+line_names = [o['name'] for o in lines_all if o['coll'][:2] in ('5:', '7:') or o['name'].startswith('Patellar ligament') or o['name'] in ('Rectum', 'Caecum', 'Ileum')]
 L = []
-def line(i, pat, ex=None): L.append((i, pat, ex))
+def line(i, pat, ex=None, ymin=None, ymax=None): L.append((i, pat, ex, ymin, ymax))
 for i, p in [
  ('AORTIC_ARCH', r'^Aortic arch'), ('AORTA_ASC', r'^Ascending aorta'), ('AORTA_DESC', r'^Thoracic aorta'), ('AORTA_ABD', r'^Abdominal aorta'),
  ('BRACHIOCEPHALIC', r'^Brachiocephalic trunk'), ('CAROTID', r'common carotid artery'), ('CAROTID_EXT', r'^External carotid artery'),
@@ -186,6 +207,9 @@ for i, p in [
  ('SYMPATHETIC_TRUNK', r'^(Sympathetic trunk|Sympathetic nerves)'), ('CAUDA_EQUINA', r'^Cauda equina'),
 ]: line('SYS_NERV_' + i, p)
 line('SYS_MUSC_PATELLAR_TENDON', r'^Patellar ligament')
+line('SYS_DIG_RECTUM', r'^Rectum$'); line('SYS_DIG_CECUM', r'^Caecum$'); line('SYS_DIG_ILEUM', r'^Ileum$')
+line('SYS_NERV_SPINAL_CERVICAL', r'root of spinal nerve', None, 1.43, 9); line('SYS_NERV_SPINAL_THORACIC', r'root of spinal nerve', None, 1.19, 1.43)
+line('SYS_NERV_SPINAL_LUMBAR', r'root of spinal nerve', None, -9, 1.19)
 
 out = []
 seen_names = {}
@@ -200,11 +224,14 @@ for i, pats, ex in R:
         continue
     out.append({'id': i, 'names': hits, 'lines': []})
 byid = {o['id']: o for o in out}
-for i, pat, ex in L:
+for i, pat, ex, ymin, ymax in L:
     hit = [n for n in line_names if re.search(pat, n) and not (ex and re.search(ex, n))]
     if not hit:
         print('NO LINES', i); continue
-    byid.setdefault(i, {'id': i, 'names': [], 'lines': []})['lines'] = hit
+    e = byid.setdefault(i, {'id': i, 'names': [], 'lines': []})
+    e['lines'] = hit
+    if ymin is not None: e['yMin'] = ymin
+    if ymax is not None: e['yMax'] = ymax
     if byid[i] not in out: out.append(byid[i])
 json.dump({'entries': out}, open(os.path.join(root, 'Assets/Editor/Geometry/zanatomy_map.json'), 'w'), indent=0)
 print(len(out), 'entities mapped;', sum(len(o['names']) + len(o['lines']) for o in out), 'objects')

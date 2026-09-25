@@ -24,8 +24,8 @@ Shader "HumanBodyExplorer/AnatomyOutline"
     {
         _OutlineColor ("Outline Colour", Color) = (0.03, 0.03, 0.05, 1)
         _Thickness ("Thickness (pixels)", Range(0.5, 4)) = 1.0
-        _DepthThreshold ("Depth Step (fraction of distance)", Range(0.001, 0.05)) = 0.006
-        _NormalThreshold ("Crease Sharpness", Range(0.1, 1.5)) = 0.55
+        _DepthThreshold ("Depth Step (fraction of distance)", Range(0.001, 0.05)) = 0.012
+        _NormalThreshold ("Crease Sharpness", Range(0.1, 1.5)) = 0.85
         _Strength ("Strength", Range(0, 1)) = 0.9
     }
 

@@ -115,7 +115,7 @@ namespace HumanBodyExplorer.EditorTools.Geometry
             Place("Cervix", "SYS_REP_F_CERVIX", Sculpt("Cervix", cervix, 0.0005f, V(0f, 0.887f, 0.010f)), tissue);
 
             // Vagina: the muscular, elastic canal from the cervix to the outside, the birth canal.
-            Mesh vagina = Strap("Vagina", 0.0050f, 2.6f, Vector3.forward,
+            Mesh vagina = LoftMesh("Vagina", Loft.Taper(0.0105f, 0.0090f), 14, 0.65f, null,
                 V(0f, 0.880f, 0.012f), V(0f, 0.852f, 0.010f), V(0f, 0.826f, 0.000f), V(0f, 0.806f, -0.014f), V(0f, 0.796f, -0.024f));
             Place("Vagina", "SYS_REP_F_VAGINA", PartFactory.Save(vagina, "Vagina"), tissue);
 

@@ -26,9 +26,9 @@ Material:
     m_Ints: []
     m_Floats:
     - _DepthSensitivity: 4
-    - _DepthThreshold: 0.006
+    - _DepthThreshold: 0.014
     - _NormalSensitivity: 2.5
-    - _NormalThreshold: 0.55
+    - _NormalThreshold: 0.9
     - _Strength: 0.9
     - _Thickness: 1
     m_Colors:

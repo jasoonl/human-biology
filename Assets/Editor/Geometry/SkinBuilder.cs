@@ -134,13 +134,18 @@ namespace HumanBodyExplorer.EditorTools.Geometry
             var eye = Sdf.MirrorX(Sdf.Ellipsoid(new Vector3(0.0314f, 1.627f, -0.071f), new Vector3(0.0158f, 0.0138f, 0.0150f)));
             var lidCrease = Sdf.MirrorX(Sdf.Ellipsoid(new Vector3(0.0314f, 1.6395f, -0.0715f), new Vector3(0.0170f, 0.0060f, 0.0140f)));
 
+            // Brow ridges, sitting on the bone just above each eye.
+            float bz = Surface(body, new Vector3(0.034f, 1.647f, -0.30f), Vector3.forward, 0.4f);
+            if (bz > 0f)
+                eye = Sdf.SmoothUnion(0.004f, eye, Sdf.MirrorX(Sdf.Ellipsoid(new Vector3(0.034f, 1.647f, -0.30f + bz + 0.003f), new Vector3(0.019f, 0.0042f, 0.0065f), Quaternion.Euler(0f, 0f, -5f))));
+
             float z = Surface(body, new Vector3(0f, 1.560f, -0.30f), Vector3.forward, 0.4f);
             if (z < 0f) return Sdf.SmoothUnion(0.004f, body, eye, lidCrease);
             float lipZ = -0.30f + z;
 
-            var upper = Sdf.Ellipsoid(new Vector3(0f, 1.5715f, lipZ + 0.0065f), new Vector3(0.0260f, 0.0078f, 0.0105f));
-            var lower = Sdf.Ellipsoid(new Vector3(0f, 1.5490f, lipZ + 0.0065f), new Vector3(0.0225f, 0.0095f, 0.0110f));
-            SdfFunc faced = Sdf.SmoothUnion(0.008f, body, eye, lidCrease, upper, lower);
+            var upper = Sdf.Ellipsoid(new Vector3(0f, 1.5685f, lipZ + 0.0075f), new Vector3(0.0255f, 0.0078f, 0.0105f));
+            var lower = Sdf.Ellipsoid(new Vector3(0f, 1.5535f, lipZ + 0.0085f), new Vector3(0.0215f, 0.0085f, 0.0105f));
+            SdfFunc faced = Sdf.SmoothUnion(0.007f, body, eye, lidCrease, upper, lower);
             // The line where the lips meet: a shallow crease, not a slot.
             var seam = Sdf.Ellipsoid(new Vector3(0f, 1.5603f, lipZ - 0.0035f), new Vector3(0.0205f, 0.0011f, 0.0045f));
             return Sdf.Subtract(faced, seam);

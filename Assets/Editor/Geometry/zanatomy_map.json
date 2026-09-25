@@ -3188,6 +3188,67 @@
 "Patellar ligament.l",
 "Patellar ligament.r"
 ]
+},
+{
+"id": "SYS_DIG_RECTUM",
+"names": [],
+"lines": [
+"Rectum"
+]
+},
+{
+"id": "SYS_DIG_CECUM",
+"names": [],
+"lines": [
+"Caecum",
+"Caecum",
+"Caecum"
+]
+},
+{
+"id": "SYS_DIG_ILEUM",
+"names": [],
+"lines": [
+"Ileum",
+"Ileum",
+"Ileum"
+]
+},
+{
+"id": "SYS_NERV_SPINAL_CERVICAL",
+"names": [],
+"lines": [
+"Anterior root of spinal nerve.l",
+"Anterior root of spinal nerve.r",
+"Posterior root of spinal nerve.l",
+"Posterior root of spinal nerve.r"
+],
+"yMin": 1.43,
+"yMax": 9
+},
+{
+"id": "SYS_NERV_SPINAL_THORACIC",
+"names": [],
+"lines": [
+"Anterior root of spinal nerve.l",
+"Anterior root of spinal nerve.r",
+"Posterior root of spinal nerve.l",
+"Posterior root of spinal nerve.r"
+],
+"yMin": 1.19,
+"yMax": 1.43
+},
+{
+"id": "SYS_NERV_SPINAL_LUMBAR",
+"names": [],
+"lines": [
+"Anterior root of spinal nerve.l",
+"Anterior root of spinal nerve.r",
+"Posterior root of spinal nerve.l",
+"Posterior root of spinal nerve.r"
+],
+"yMin": -9,
+"yMax": 1.19
 }
 ]
 }

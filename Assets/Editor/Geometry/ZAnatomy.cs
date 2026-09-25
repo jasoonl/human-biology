@@ -20,7 +20,7 @@ namespace HumanBodyExplorer.EditorTools.Geometry
         public const float Scale = 1.03f;
         public const float FootY = 0.011f;
 
-        [Serializable] private class MapEntry { public string id; public string[] names; public string[] lines; }
+        [Serializable] private class MapEntry { public string id; public string[] names; public string[] lines; public float yMin; public float yMax; }
         [Serializable] private class LinePath { public float[] p; public float[] r; }
         [Serializable] private class LineEntry { public string name; public string coll; public float bevel; public LinePath[] lines; }
         [Serializable] private class LineFile { public LineEntry[] items; }
@@ -54,7 +54,7 @@ namespace HumanBodyExplorer.EditorTools.Geometry
 
         /// <summary>Tubes along the atlas' centre lines (vessels and nerves), with the flow-shader UVs the explorer's
         /// own tubes have. Radii come from the atlas' bevel depth and per-point radius.</summary>
-        public static Mesh Tubes(IEnumerable<string> names, string meshName)
+        public static Mesh Tubes(IEnumerable<string> names, string meshName, float yMin = -100f, float yMax = 100f)
         {
             Load();
             var parts = new List<CombineInstance>();
@@ -64,6 +64,10 @@ namespace HumanBodyExplorer.EditorTools.Geometry
                 foreach (var path in entry.lines)
                 {
                     int count = path.p.Length / 3;
+                    float meanY = 0f;
+                    for (int i = 0; i < count; i++) meanY += path.p[i * 3 + 1];
+                    meanY /= Mathf.Max(1, count);
+                    if (meanY < yMin || meanY > yMax) continue;
                     var pts = new List<Vector3>();
                     var radii = new List<float>();
                     for (int i = 0; i < count; i++)
@@ -263,9 +267,9 @@ namespace HumanBodyExplorer.EditorTools.Geometry
                 if (entry.lines != null) foreach (string n in entry.lines) Sort(n, leftLines, rightLines, middleLines);
 
                 string baseName = entry.id.Replace("SYS_", "");
-                if (middle.Count + middleLines.Count > 0) Place(parent, baseName, entry.id, middle, middleLines, materials, layer);
-                if (left.Count + leftLines.Count > 0) Place(parent, baseName + "_L", entry.id, left, leftLines, materials, layer);
-                if (right.Count + rightLines.Count > 0) Place(parent, baseName + "_R", entry.id, right, rightLines, materials, layer);
+                if (middle.Count + middleLines.Count > 0) Place(parent, baseName, entry.id, middle, middleLines, materials, layer, entry);
+                if (left.Count + leftLines.Count > 0) Place(parent, baseName + "_L", entry.id, left, leftLines, materials, layer, entry);
+                if (right.Count + rightLines.Count > 0) Place(parent, baseName + "_R", entry.id, right, rightLines, materials, layer, entry);
                 replaced++;
             }
 
@@ -277,14 +281,16 @@ namespace HumanBodyExplorer.EditorTools.Geometry
             return replaced;
         }
 
-        private static void Place(Transform parent, string name, string id, List<string> names, List<string> lines, Material[] materials, int layer)
+        private static void Place(Transform parent, string name, string id, List<string> names, List<string> lines, Material[] materials, int layer, MapEntry range)
         {
+            float lo = range.yMin == 0f && range.yMax == 0f ? -100f : range.yMin;
+            float hi = range.yMin == 0f && range.yMax == 0f ? 100f : range.yMax;
             Mesh mesh;
             if (lines.Count == 0) mesh = Combine(names, name);
-            else if (names.Count == 0) mesh = Tubes(lines, name);
+            else if (names.Count == 0) mesh = Tubes(lines, name, lo, hi);
             else
             {
-                Mesh solid = Combine(names, name), tubes = Tubes(lines, name);
+                Mesh solid = Combine(names, name), tubes = Tubes(lines, name, lo, hi);
                 mesh = new Mesh { name = name, indexFormat = UnityEngine.Rendering.IndexFormat.UInt32 };
                 mesh.CombineMeshes(new[] { new CombineInstance { mesh = solid }, new CombineInstance { mesh = tubes } }, true, false);
                 UnityEngine.Object.DestroyImmediate(solid);

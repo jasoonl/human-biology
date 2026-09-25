@@ -135,8 +135,8 @@ namespace HumanBodyExplorer.EditorTools
         {
             material.SetColor("_OutlineColor", new Color(0.03f, 0.03f, 0.05f));
             material.SetFloat("_Thickness", 1.0f);
-            material.SetFloat("_DepthThreshold", 0.006f);
-            material.SetFloat("_NormalThreshold", 0.55f);
+            material.SetFloat("_DepthThreshold", 0.014f);
+            material.SetFloat("_NormalThreshold", 0.9f);
             material.SetFloat("_Strength", 0.9f);
         }
     }
