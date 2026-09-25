@@ -152,6 +152,58 @@ namespace HumanBodyExplorer.EditorTools.Geometry
         }
 
 
+        /// <summary>Features that differ by sex, all additive so nothing inside can end up outside the skin: a male
+        /// face gets a heavier brow, squarer jaw and chin, a larger nose and an Adam's apple; a female face gets fuller
+        /// cheeks and lips and a softer, more pointed chin.</summary>
+        private static SdfFunc WithFaceSex(SdfFunc body, bool female)
+        {
+            float bz = Surface(body, new Vector3(0.030f, 1.660f, -0.30f), Vector3.forward, 0.4f);
+            float nz = Surface(body, new Vector3(0f, 1.628f, -0.30f), Vector3.forward, 0.4f);
+            float lz = Surface(body, new Vector3(0f, 1.5685f, -0.30f), Vector3.forward, 0.4f);
+            var parts = new List<SdfFunc> { body };
+            if (!female)
+            {
+                if (bz > 0f) parts.Add(Sdf.MirrorX(Sdf.Ellipsoid(new Vector3(0.030f, 1.658f, -0.30f + bz), new Vector3(0.018f, 0.0045f, 0.0055f), Quaternion.Euler(0f, -12f, -4f))));
+                if (nz > 0f) parts.Add(Sdf.Ellipsoid(new Vector3(0f, 1.628f, -0.30f + nz + 0.001f), new Vector3(0.0085f, 0.022f, 0.0085f)));
+                parts.Add(Sdf.MirrorX(Sdf.Ellipsoid(new Vector3(0.049f, 1.558f, -0.010f), new Vector3(0.008f, 0.020f, 0.022f))));   // jaw angles
+                parts.Add(Sdf.Ellipsoid(new Vector3(0f, 1.541f, -0.080f), new Vector3(0.026f, 0.014f, 0.012f)));                    // squarer chin
+                float az = Surface(body, new Vector3(0f, 1.515f, -0.30f), Vector3.forward, 0.4f);
+                if (az > 0f) parts.Add(Sdf.Ellipsoid(new Vector3(0f, 1.515f, -0.30f + az + 0.001f), new Vector3(0.0075f, 0.013f, 0.0085f)));   // Adam's apple
+            }
+            else
+            {
+                if (lz > 0f)
+                {
+                    parts.Add(Sdf.Ellipsoid(new Vector3(0f, 1.5690f, -0.30f + lz + 0.0015f), new Vector3(0.0240f, 0.0058f, 0.0050f)));   // fuller lips
+                    parts.Add(Sdf.Ellipsoid(new Vector3(0f, 1.5535f, -0.30f + lz + 0.0020f), new Vector3(0.0205f, 0.0068f, 0.0055f)));
+                }
+                parts.Add(Sdf.Ellipsoid(new Vector3(0f, 1.538f, -0.080f), new Vector3(0.016f, 0.016f, 0.012f)));                    // small pointed chin
+            }
+            return Sdf.SmoothUnion(0.008f, parts.ToArray());
+        }
+
+        /// <summary>The nostrils and the groove between nose and upper lip, cut into the finished skin.</summary>
+        private static SdfFunc WithNostrilsAndMouth(SdfFunc body, bool female)
+        {
+            float nz = Surface(body, new Vector3(0f, 1.604f, -0.30f), Vector3.forward, 0.4f);
+            float lz = Surface(body, new Vector3(0f, 1.580f, -0.30f), Vector3.forward, 0.4f);
+            var cuts = new List<SdfFunc>();
+            if (nz > 0f)
+            {
+                float z = -0.30f + nz;
+                cuts.Add(Sdf.MirrorX(Sdf.Ellipsoid(new Vector3(0.0085f, 1.6005f, z + 0.002f), new Vector3(0.0042f, 0.0035f, 0.0080f), Quaternion.Euler(-35f, 0f, 0f))));
+            }
+            if (lz > 0f)
+            {
+                float z = -0.30f + lz;
+                cuts.Add(Sdf.Ellipsoid(new Vector3(0f, 1.5775f, z + 0.0022f), new Vector3(0.0032f, 0.0050f, 0.0012f)));   // philtrum
+                // mouth corners
+                cuts.Add(Sdf.MirrorX(Sdf.Ellipsoid(new Vector3(0.0225f, 1.5605f, z + 0.005f), new Vector3(0.0022f, 0.0030f, 0.0030f))));
+            }
+            if (cuts.Count == 0) return body;
+            return Sdf.Subtract(body, Sdf.SmoothUnion(0.002f, cuts.ToArray()));
+        }
+
         // ---------------------------------------------------------------- eyes
 
         // The eyeball centre (the atlas' sclera, in figure space) and radius.
@@ -303,7 +355,9 @@ namespace HumanBodyExplorer.EditorTools.Geometry
 
         /// <summary>1 on the scalp above the hairline, 0 elsewhere (the hairline is higher on the forehead than at the
         /// nape, and rises above the ears).</summary>
-        private static float HairWeight(Vector3 p)
+        private static float HairWeight(Vector3 p, bool female = false) => female ? LongHairWeight(p) : HairWeightShort(p);
+
+        private static float HairWeightShort(Vector3 p)
         {
             if (Mathf.Abs(p.x) > 0.115f || p.z < -0.11f || p.z > 0.125f || p.y > 1.82f) return 0f;
             float hairline = Mathf.Lerp(1.700f, 1.585f, Mathf.SmoothStep(0f, 1f, Mathf.InverseLerp(-0.075f, 0.005f, p.z)));
@@ -315,34 +369,49 @@ namespace HumanBodyExplorer.EditorTools.Geometry
             return w * (1f - ear);
         }
 
-        /// <summary>Hair as a few millimetres of extra thickness on the scalp.</summary>
-        private static SdfFunc WithHair(SdfFunc body) => p =>
+        /// <summary>Hair that falls behind the ears and down the back of the neck to the shoulder blades.</summary>
+        private static float LongHairWeight(Vector3 p)
         {
-            float w = HairWeight(p);
+            float above = HairWeightShort(p);
+            if (Mathf.Abs(p.x) > 0.115f || p.z < -0.02f || p.z > 0.125f || p.y > 1.70f || p.y < 1.38f) return above;
+            float behind = Mathf.SmoothStep(0f, 1f, Mathf.InverseLerp(-0.012f, 0.014f, p.z));
+            float side = Mathf.SmoothStep(0f, 1f, Mathf.InverseLerp(0.115f, 0.070f, Mathf.Abs(p.x)));
+            float bottom = Mathf.SmoothStep(0f, 1f, Mathf.InverseLerp(1.38f, 1.48f, p.y));
+            return Mathf.Max(above, behind * side * bottom);
+        }
+
+        /// <summary>Hair as a few millimetres of extra thickness on the scalp.</summary>
+        private static SdfFunc WithHair(SdfFunc body, bool female = false) => p =>
+        {
+            float w = HairWeight(p, female);
             return w > 0f ? body(p) - 0.0045f * w : body(p);
         };
 
         /// <summary>Vertex colours multiplied into the skin tone: dark hair and brows, red lips.</summary>
-        private static void Paint(Mesh mesh)
+        private static void Paint(Mesh mesh, bool female = false)
         {
             Vector3[] v = mesh.vertices;
             var colours = new Color[v.Length];
             var hair = new Color(0.38f, 0.29f, 0.23f);
             var brow = new Color(0.30f, 0.24f, 0.20f);
-            var lip = new Color(0.90f, 0.62f, 0.72f);
+            var lip = female ? new Color(0.92f, 0.50f, 0.60f) : new Color(0.88f, 0.66f, 0.70f);
+            var nostril = new Color(0.45f, 0.30f, 0.28f);
             for (int i = 0; i < v.Length; i++)
             {
                 Vector3 p = v[i];
                 Color c = Color.white;
-                float h = HairWeight(p);
+                float h = HairWeight(p, female);
                 if (h > 0f) c = Color.Lerp(c, hair, h);
 
                 float ax = Mathf.Abs(p.x);
-                float browW = Mathf.Clamp01(1f - Mathf.Abs(p.y - 1.651f) / 0.006f) * Mathf.Clamp01(1f - Mathf.Abs(ax - 0.035f) / 0.024f) * (p.z < -0.070f ? 1f : 0f);
+                float browW = Mathf.Clamp01(1f - Mathf.Abs(p.y - (female ? 1.655f : 1.651f)) / (female ? 0.0038f : 0.0075f)) * Mathf.Clamp01(1f - Mathf.Abs(ax - 0.035f) / 0.024f) * (p.z < -0.070f ? 1f : 0f);
                 if (browW > 0f) c = Color.Lerp(c, brow, browW);
 
                 float lipW = Mathf.Clamp01(1f - Mathf.Abs(p.y - 1.5595f) / 0.0145f) * Mathf.Clamp01(1f - ax / 0.030f) * (p.z < -0.092f ? 1f : 0f);
                 if (lipW > 0f) c = Color.Lerp(c, lip, Mathf.SmoothStep(0f, 1f, lipW));
+                // nostril openings, under the nose tip
+                float nos = Mathf.Clamp01(1f - Mathf.Abs(p.y - 1.6005f) / 0.005f) * Mathf.Clamp01(1f - Mathf.Abs(ax - 0.0085f) / 0.006f) * (p.z < -0.085f ? 1f : 0f);
+                if (nos > 0f) c = Color.Lerp(c, nostril, Mathf.SmoothStep(0f, 1f, nos));
                 colours[i] = c;
             }
             mesh.colors = colours;
@@ -381,11 +450,11 @@ namespace HumanBodyExplorer.EditorTools.Geometry
             {
                 // A shell fitted around the real atlas anatomy, so it takes its shape from the muscles beneath.
                 SdfFunc fitted = ZAnatomy.SkinField();
-                SdfFunc uncut = WithHair(WithEars(WithFace(fitted)));
-                SdfFunc womanUncut = WithFemaleExterior(WithHair(WithEars(WithFace(ZAnatomy.SkinField(true)))));
+                SdfFunc uncut = WithHair(WithEars(WithFaceSex(WithFace(fitted), false)));
+                SdfFunc womanUncut = WithFemaleExterior(WithHair(WithEars(WithFaceSex(WithFace(ZAnatomy.SkinField(true)), true)), true));
                 // The lids are opened for the eyeballs; containment is still checked against the uncut skin.
-                SdfFunc male = WithFissures(uncut);
-                SdfFunc womanField = WithFissures(womanUncut);
+                SdfFunc male = WithNostrilsAndMouth(WithFissures(uncut), false);
+                SdfFunc womanField = WithNostrilsAndMouth(WithFissures(womanUncut), true);
                 Field = uncut;
 
                 var gridMin = new Vector3(-0.46f, -0.02f, -0.24f);
@@ -394,7 +463,7 @@ namespace HumanBodyExplorer.EditorTools.Geometry
                 Mesh maleBuilt = SurfaceNets.Build(male, gridMin, gridMax, 0.004f, "SkinShell", 2f);
                 Mesh femaleBuilt = SurfaceNets.Build(womanField, gridMin, gridMax, 0.004f, "SkinShellFemale", 2f);
                 Paint(maleBuilt);
-                Paint(femaleBuilt);
+                Paint(femaleBuilt, true);
                 maleBuilt.uv = null;
                 femaleBuilt.uv = null;
                 Mesh eyes = EyeParts(male);
