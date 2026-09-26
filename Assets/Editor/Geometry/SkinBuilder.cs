@@ -32,7 +32,7 @@ namespace HumanBodyExplorer.EditorTools.Geometry
                 Sdf.Ellipsoid(new Vector3(0f, 1.622f, -0.085f), new Vector3(0.0080f, 0.016f, 0.0095f)),         // nasal bridge
                 Sdf.Sphere(new Vector3(0f, 1.612f, -0.107f), 0.0115f),                                    // bulbous tip
                 Sdf.MirrorX(Sdf.Ellipsoid(new Vector3(0.083f, 1.640f, 0.015f), new Vector3(0.0085f, 0.028f, 0.017f))), // ears
-                Sdf.MirrorX(Sdf.Ellipsoid(new Vector3(0.037f, 1.648f, -0.058f), new Vector3(0.038f, 0.036f, 0.032f))),           // eye sockets (deeper)
+                Sdf.MirrorX(Sdf.Ellipsoid(new Vector3(0.036f, 1.646f, -0.056f), new Vector3(0.036f, 0.034f, 0.030f))),           // eye sockets
                 Sdf.MirrorX(Sdf.Ellipsoid(new Vector3(0.037f, 1.660f, -0.053f), new Vector3(0.033f, 0.0058f, 0.028f))),           // supraorbital ridge
                 Sdf.Ellipsoid(new Vector3(0f, 1.556f, -0.048f), new Vector3(0.068f, 0.052f, 0.058f)),     // jaw base
                 Sdf.MirrorX(Sdf.Ellipsoid(new Vector3(0.055f, 1.544f, -0.058f), new Vector3(0.020f, 0.035f, 0.038f))), // jaw angle
@@ -44,8 +44,8 @@ namespace HumanBodyExplorer.EditorTools.Geometry
                 Sdf.MirrorX(Sdf.Ellipsoid(new Vector3(0.033f, 1.652f, -0.085f), new Vector3(0.016f, 0.012f, 0.014f))),   // eyeballs and lids
                 Sdf.MirrorX(Sdf.Ellipsoid(new Vector3(0.047f, 1.624f, -0.076f), new Vector3(0.024f, 0.017f, 0.020f))),   // cheekbones
                 Sdf.MirrorX(Sdf.Ellipsoid(new Vector3(0.019f, 1.606f, -0.094f), new Vector3(0.011f, 0.009f, 0.010f))),   // nostril wings
-                Sdf.Ellipsoid(new Vector3(0f, 1.585f, -0.094f), new Vector3(0.0248f, 0.0070f, 0.0110f)),               // upper lip
-                Sdf.Ellipsoid(new Vector3(0f, 1.572f, -0.092f), new Vector3(0.0218f, 0.0082f, 0.0115f)),                 // lower lip
+                Sdf.Ellipsoid(new Vector3(0f, 1.584f, -0.093f), new Vector3(0.0240f, 0.0065f, 0.0105f)),               // upper lip
+                Sdf.Ellipsoid(new Vector3(0f, 1.573f, -0.091f), new Vector3(0.0210f, 0.0078f, 0.0110f)),                 // lower lip
                 Sdf.MirrorX(Sdf.Ellipsoid(new Vector3(0.087f, 1.638f, 0.017f), new Vector3(0.0075f, 0.031f, 0.021f))),   // outer ear rims
                 Sdf.MirrorX(Sdf.Ellipsoid(new Vector3(0.0865f, 1.612f, 0.017f), new Vector3(0.0085f, 0.010f, 0.011f)))); // earlobes
             // Refined face: stronger zygomatic arches, temporal hollows, defined eye sockets, buccinator
@@ -92,9 +92,9 @@ namespace HumanBodyExplorer.EditorTools.Geometry
 
             // The figure's exterior is male, so the skin encloses the scrotum and the penis, which the male
             // reproductive organs sit in. (The female organs, shown instead by the layer's sex switch, are internal.)
-            SdfFunc genitals = Sdf.SmoothUnion(0.013f,
-                Sdf.Ellipsoid(new Vector3(0f, 0.754f, -0.038f), new Vector3(0.038f, 0.038f, 0.031f)),  // scrotum
-                Sdf.RoundCone(new Vector3(0f, 0.790f, -0.055f), 0.0160f, new Vector3(0f, 0.732f, -0.090f), 0.0135f));  // penis
+            SdfFunc genitals = Sdf.SmoothUnion(0.010f,
+                Sdf.Ellipsoid(new Vector3(0f, 0.750f, -0.045f), new Vector3(0.035f, 0.035f, 0.028f)),  // scrotum
+                Sdf.RoundCone(new Vector3(0f, 0.785f, -0.062f), 0.0145f, new Vector3(0f, 0.728f, -0.095f), 0.0125f));  // penis
 
             // The female exterior has no external genitals (the vulva is not modelled) and a fuller chest.
             SdfFunc breasts = Sdf.MirrorX(Sdf.Ellipsoid(new Vector3(0.078f, 1.255f, -0.085f), new Vector3(0.056f, 0.056f, 0.040f)));
@@ -392,7 +392,7 @@ namespace HumanBodyExplorer.EditorTools.Geometry
         private static SdfFunc WithHair(SdfFunc body, bool female = false) => p =>
         {
             float w = HairWeight(p, female);
-            return w > 0f ? body(p) - 0.0045f * w : body(p);
+            return w > 0f ? body(p) - 0.0065f * w : body(p);
         };
 
         /// <summary>Vertex colours multiplied into the skin tone: dark hair and brows, red lips.</summary>
