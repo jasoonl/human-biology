@@ -49,10 +49,9 @@ namespace HumanBodyExplorer.EditorTools.Geometry
                 Sdf.MirrorX(Sdf.Ellipsoid(new Vector3(0.087f, 1.638f, 0.017f), new Vector3(0.0075f, 0.031f, 0.021f))),   // outer ear rims
                 Sdf.MirrorX(Sdf.Ellipsoid(new Vector3(0.0865f, 1.612f, 0.017f), new Vector3(0.0085f, 0.010f, 0.011f)))); // earlobes
             // Refined face: stronger zygomatic arches, temporal hollows, defined eye sockets, buccinator
-            SdfFunc cheekbones = Sdf.MirrorX(Sdf.Ellipsoid(new Vector3(0.050f, 1.618f, -0.050f), new Vector3(0.034f, 0.026f, 0.029f))); // zygomatic
-            SdfFunc temporal = Sdf.MirrorX(Sdf.Ellipsoid(new Vector3(0.066f, 1.658f, 0.020f), new Vector3(0.029f, 0.046f, 0.043f))); // temporalis
-            SdfFunc buccinator = Sdf.MirrorX(Sdf.Ellipsoid(new Vector3(0.036f, 1.588f, -0.073f), new Vector3(0.018f, 0.016f, 0.012f))); // cheek pad
-            SdfFunc head = Sdf.SmoothUnion(0.009f, skull, features, cheekbones, temporal, buccinator);
+            SdfFunc cheekbones = Sdf.MirrorX(Sdf.Ellipsoid(new Vector3(0.048f, 1.615f, -0.048f), new Vector3(0.028f, 0.022f, 0.025f))); // sharp zygomatic
+            SdfFunc temporal = Sdf.MirrorX(Sdf.Ellipsoid(new Vector3(0.064f, 1.652f, 0.022f), new Vector3(0.026f, 0.042f, 0.040f))); // temporalis
+            SdfFunc head = Sdf.SmoothUnion(0.010f, skull, features, cheekbones, temporal);
 
             SdfFunc neck = Sdf.Capsule(new Vector3(0f, 1.568f, 0.027f), new Vector3(0f, 1.438f, 0.030f), 0.065f);
 
