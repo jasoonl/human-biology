@@ -32,8 +32,8 @@ namespace HumanBodyExplorer.EditorTools.Geometry
                 Sdf.Ellipsoid(new Vector3(0f, 1.622f, -0.085f), new Vector3(0.0080f, 0.016f, 0.0095f)),         // nasal bridge
                 Sdf.Sphere(new Vector3(0f, 1.612f, -0.107f), 0.0115f),                                    // bulbous tip
                 Sdf.MirrorX(Sdf.Ellipsoid(new Vector3(0.083f, 1.640f, 0.015f), new Vector3(0.0085f, 0.028f, 0.017f))), // ears
-                Sdf.MirrorX(Sdf.Ellipsoid(new Vector3(0.038f, 1.650f, -0.062f), new Vector3(0.040f, 0.038f, 0.034f))),           // eye sockets
-                Sdf.MirrorX(Sdf.Ellipsoid(new Vector3(0.038f, 1.662f, -0.056f), new Vector3(0.034f, 0.0062f, 0.029f))),           // supraorbital ridge
+                Sdf.MirrorX(Sdf.Ellipsoid(new Vector3(0.037f, 1.648f, -0.058f), new Vector3(0.038f, 0.036f, 0.032f))),           // eye sockets (deeper)
+                Sdf.MirrorX(Sdf.Ellipsoid(new Vector3(0.037f, 1.660f, -0.053f), new Vector3(0.033f, 0.0058f, 0.028f))),           // supraorbital ridge
                 Sdf.Ellipsoid(new Vector3(0f, 1.556f, -0.048f), new Vector3(0.068f, 0.052f, 0.058f)),     // jaw base
                 Sdf.MirrorX(Sdf.Ellipsoid(new Vector3(0.055f, 1.544f, -0.058f), new Vector3(0.020f, 0.035f, 0.038f))), // jaw angle
                 Sdf.Ellipsoid(new Vector3(0f, 1.540f, -0.074f), new Vector3(0.026f, 0.025f, 0.027f)));   // chin
@@ -44,12 +44,12 @@ namespace HumanBodyExplorer.EditorTools.Geometry
                 Sdf.MirrorX(Sdf.Ellipsoid(new Vector3(0.033f, 1.652f, -0.085f), new Vector3(0.016f, 0.012f, 0.014f))),   // eyeballs and lids
                 Sdf.MirrorX(Sdf.Ellipsoid(new Vector3(0.047f, 1.624f, -0.076f), new Vector3(0.024f, 0.017f, 0.020f))),   // cheekbones
                 Sdf.MirrorX(Sdf.Ellipsoid(new Vector3(0.019f, 1.606f, -0.094f), new Vector3(0.011f, 0.009f, 0.010f))),   // nostril wings
-                Sdf.Ellipsoid(new Vector3(0f, 1.586f, -0.095f), new Vector3(0.0265f, 0.0076f, 0.0120f)),               // upper lip
-                Sdf.Ellipsoid(new Vector3(0f, 1.571f, -0.093f), new Vector3(0.0235f, 0.0090f, 0.0125f)),                 // lower lip
+                Sdf.Ellipsoid(new Vector3(0f, 1.585f, -0.094f), new Vector3(0.0248f, 0.0070f, 0.0110f)),               // upper lip
+                Sdf.Ellipsoid(new Vector3(0f, 1.572f, -0.092f), new Vector3(0.0218f, 0.0082f, 0.0115f)),                 // lower lip
                 Sdf.MirrorX(Sdf.Ellipsoid(new Vector3(0.087f, 1.638f, 0.017f), new Vector3(0.0075f, 0.031f, 0.021f))),   // outer ear rims
                 Sdf.MirrorX(Sdf.Ellipsoid(new Vector3(0.0865f, 1.612f, 0.017f), new Vector3(0.0085f, 0.010f, 0.011f)))); // earlobes
             // Refined face: stronger zygomatic arches, temporal hollows, defined eye sockets, buccinator
-            SdfFunc cheekbones = Sdf.MirrorX(Sdf.Ellipsoid(new Vector3(0.048f, 1.615f, -0.048f), new Vector3(0.028f, 0.022f, 0.025f))); // sharp zygomatic
+            SdfFunc cheekbones = Sdf.MirrorX(Sdf.Ellipsoid(new Vector3(0.046f, 1.613f, -0.046f), new Vector3(0.026f, 0.020f, 0.023f))); // sharp zygomatic
             SdfFunc temporal = Sdf.MirrorX(Sdf.Ellipsoid(new Vector3(0.064f, 1.652f, 0.022f), new Vector3(0.026f, 0.042f, 0.040f))); // temporalis
             SdfFunc head = Sdf.SmoothUnion(0.010f, skull, features, cheekbones, temporal);
 
